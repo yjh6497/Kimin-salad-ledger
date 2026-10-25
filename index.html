@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="샐러드 가게 사장님이 AI로 매장 경영 도우미를 혼자 만드는 실습 코스">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>샐러드 장부 실습 코스</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a self-study course. Lesson list on the left (a drawer on phones), one lesson at a time on the right, each opening with a small animated picture, then steps to tick and prompts to copy. */
+:root {
+  --bg: #F1F4ED;
+  --paper: #FFFFFF;
+  --sunk: #E4ECDD;
+  --ink: #1C2920;
+  --muted: #5B695E;
+  --line: #CCD8C5;
+  --leaf: #3C7A31;
+  --leaf-soft: #D6E8CC;
+  --tomato: #D2452C;
+  --tomato-soft: #F7DCD4;
+  --carrot: #C9741C;
+  --code: #F6F8F3;
+  --f-display: "Do Hyeon", "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --f-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --f-num: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1612; --paper: #18231C; --sunk: #131D17; --ink: #E5EEE2; --muted: #9AA99D; --line: #2B3A30;
+    --leaf: #82C46F; --leaf-soft: #213520; --tomato: #FF7D60; --tomato-soft: #3B211B; --carrot: #E9A14E; --code: #121A15;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1612; --paper: #18231C; --sunk: #131D17; --ink: #E5EEE2; --muted: #9AA99D; --line: #2B3A30;
+  --leaf: #82C46F; --leaf-soft: #213520; --tomato: #FF7D60; --tomato-soft: #3B211B; --carrot: #E9A14E; --code: #121A15;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 56px;
+}
+a { color: var(--leaf); text-underline-offset: 3px; }
+button { font: inherit; color: inherit; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid var(--carrot); outline-offset: 2px; }
+.shell { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+
+/* top */
+.top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-end; justify-content: space-between; }
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.eyebrow { font-size: 12px; letter-spacing: .08em; color: var(--muted); font-weight: 500; }
+.brand h1 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(28px, 5vw, 40px); line-height: 1.1; }
+.meter { display: flex; flex-direction: column; gap: 6px; min-width: 220px; flex: 0 1 320px; }
+.meter .label { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
+.meter .label b { font-family: var(--f-num); color: var(--ink); font-weight: 500; }
+.meter .bar { height: 8px; border-radius: 999px; background: var(--sunk); overflow: hidden; border: 1px solid var(--line); }
+.meter .bar i { display: block; height: 100%; width: 0; background: var(--leaf); transition: width .5s ease; }
+.toc-toggle { display: none; align-self: flex-start; border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 8px 16px; cursor: pointer; font-size: 14px; }
+
+/* body grid */
+.grid { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 28px; align-items: start; }
+.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); display: flex; flex-direction: column; gap: 14px; }
+.toc h2 { font-size: 12px; letter-spacing: .08em; color: var(--muted); margin: 0; font-weight: 500; }
+.toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.toc ol button { width: 100%; text-align: left; background: transparent; border: 0; border-radius: 10px; padding: 8px 10px; cursor: pointer; display: grid; grid-template-columns: 2.2em minmax(0, 1fr) 1.2em; gap: 6px; align-items: baseline; font-size: 14.5px; line-height: 1.4; }
+.toc ol button:hover { background: var(--sunk); }
+.toc ol button .n { font-family: var(--f-num); font-size: 12px; color: var(--muted); }
+.toc ol button .ok { color: var(--leaf); font-size: 13px; text-align: right; }
+.toc ol button[aria-current="true"] { background: var(--leaf-soft); font-weight: 600; }
+.toc .part { font-size: 12px; color: var(--muted); padding: 10px 10px 2px; letter-spacing: .04em; }
+.toc .reset { align-self: flex-start; background: none; border: 0; color: var(--muted); font-size: 12.5px; text-decoration: underline; cursor: pointer; padding: 0 10px; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .toc { position: static; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+  .toc-toggle { display: inline-block; }
+}
+
+/* lesson */
+.lesson { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.lesson-head { display: flex; flex-direction: column; gap: 6px; }
+.lesson-head .kicker { font-family: var(--f-num); font-size: 12.5px; color: var(--leaf); letter-spacing: .05em; }
+.lesson-head h2 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(28px, 4.4vw, 42px); line-height: 1.15; text-wrap: balance; }
+.lesson-head .goal { margin: 0; color: var(--muted); max-width: 62ch; }
+.lesson h3 { margin: 6px 0 0; font-size: 19px; font-weight: 600; }
+.lesson p { margin: 0; max-width: 68ch; }
+.prose { display: flex; flex-direction: column; gap: 12px; }
+
+/* animated visual stage */
+.vis { container: vis / inline-size; position: relative; background: var(--sunk); border: 1px solid var(--line); border-radius: 18px; padding: clamp(16px, 3.5cqw, 30px); overflow: hidden; }
+.vis .cap { font-size: 12.5px; color: var(--muted); margin-top: 12px; }
+.a { opacity: 1; }
+.lesson.on .a { animation: rise .7s var(--d, 0s) both cubic-bezier(.2, .75, .25, 1); }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.lesson.on .pop { animation: pop .55s var(--d, 0s) both cubic-bezier(.3, 1.4, .5, 1); }
+@keyframes pop { from { opacity: 0; transform: scale(.86); } to { opacity: 1; transform: none; } }
+
+/* reusable visual parts */
+.lanes { display: flex; align-items: center; gap: 12px; }
+.box { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+.box strong { display: block; font-size: 15px; font-weight: 600; line-height: 1.3; }
+.box span { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.box.hi { background: var(--leaf-soft); border-color: var(--leaf); }
+.box.ai { background: var(--leaf); border-color: var(--leaf); color: var(--paper); }
+.box.ai span { color: var(--paper); opacity: .85; }
+.pipe { flex: 1 1 40px; min-width: 28px; height: 2px; background: var(--line); position: relative; }
+.pipe span { position: absolute; top: 50%; left: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--leaf); translate: -50% -50%; opacity: 0; }
+.lesson.on .pipe span { animation: travel 2.2s var(--d) linear infinite; }
+@keyframes travel { 0% { left: 0; opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+@container vis (max-width: 560px) {
+  .lanes { flex-direction: column; align-items: stretch; gap: 0; }
+  .lanes .pipe { flex: 0 0 26px; width: 2px; height: auto; align-self: center; min-width: 0; }
+  .lesson.on .lanes .pipe span { animation-name: travelv; }
+}
+@keyframes travelv { 0% { top: 0; left: 50%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { top: 100%; left: 50%; opacity: 0; } }
+.stack { display: flex; flex-direction: column; gap: 8px; flex: 0 1 34%; min-width: 0; }
+@container vis (max-width: 560px) { .stack { flex: none; } }
+
+.flowgrid { display: grid; grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr) 40px minmax(0, 1fr); align-items: center; row-gap: 10px; }
+.flowgrid .pipe { min-width: 0; }
+@container vis (max-width: 560px) {
+  .flowgrid { grid-template-columns: minmax(0, 1fr); }
+  .flowgrid .pipe { display: none; }
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 13.5px; }
+.chip.warn { border-color: var(--tomato); color: var(--tomato); }
+
+.chat { display: flex; flex-direction: column; gap: 10px; max-width: 640px; }
+.bubble { max-width: 86%; padding: 10px 14px; border-radius: 16px; font-size: 14.5px; line-height: 1.5; }
+.bubble .who { display: block; font-size: 11.5px; opacity: .8; margin-bottom: 2px; }
+.bubble.me { align-self: flex-end; background: var(--leaf); color: var(--paper); border-bottom-right-radius: 4px; }
+.bubble.ai { align-self: flex-start; background: var(--paper); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+.bubble.guest { align-self: flex-end; background: var(--leaf-soft); border-bottom-right-radius: 4px; }
+.bubble ul { margin: 4px 0 0; padding-left: 1.2em; }
+
+.msg { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; max-width: 680px; }
+.msg .from { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--muted); gap: 12px; flex-wrap: wrap; }
+.msg .line { display: grid; grid-template-columns: 5.6em minmax(0, 1fr); gap: 10px; font-size: 14.5px; line-height: 1.5; }
+.msg .line b { color: var(--leaf); font-weight: 600; }
+.msg .line.alert b { color: var(--tomato); }
+@container vis (max-width: 480px) { .msg .line { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+
+/* office */
+.office { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.office .shared { grid-column: span 2; background: var(--paper); border: 1px dashed var(--line); border-radius: 12px; padding: 10px 14px; }
+.office .shared strong { font-size: 14px; display: block; }
+.office .shared span { font-size: 12.5px; color: var(--muted); }
+.desk { text-align: left; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; cursor: pointer; display: flex; flex-direction: column; gap: 2px; min-width: 0; transition: border-color .2s, background .2s, transform .2s; }
+.desk strong { font-size: 14.5px; font-weight: 600; }
+.desk span { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
+.desk.active { border-color: var(--leaf); background: var(--leaf-soft); transform: translateY(-2px); }
+.office-talk { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; min-height: 170px; }
+.office-talk .who-desk { font-size: 12.5px; color: var(--muted); }
+.office-hint { font-size: 12.5px; color: var(--muted); }
+@container vis (max-width: 620px) {
+  .office { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .office .shared { grid-column: span 1; }
+}
+
+/* week planner */
+.week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; max-width: 520px; }
+.week .day { text-align: center; font-size: 12.5px; color: var(--muted); }
+.week .cell { aspect-ratio: 3 / 4; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; display: flex; align-items: flex-end; padding: 4px; min-width: 0; }
+.week .post { font-style: normal; width: 100%; font-size: 11.5px; line-height: 1.25; background: var(--leaf); color: var(--paper); border-radius: 6px; padding: 4px; text-align: center; word-break: keep-all; }
+.week .post.reel { background: var(--carrot); }
+
+/* steps */
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; counter-reset: st; }
+.steps li { counter-increment: st; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px 12px 12px; display: grid; grid-template-columns: 28px 26px minmax(0, 1fr); gap: 10px; align-items: start; }
+.steps li::before { content: counter(st); font-family: var(--f-num); font-size: 13px; color: var(--muted); padding-top: 3px; text-align: right; }
+.steps input { width: 20px; height: 20px; margin: 3px 0 0; accent-color: var(--leaf); cursor: pointer; }
+.steps label { cursor: pointer; }
+.steps li:has(input:checked) { background: var(--leaf-soft); border-color: var(--leaf); }
+.steps li:has(input:checked) label > b { text-decoration: line-through; text-decoration-color: var(--leaf); }
+.steps label b { font-weight: 600; }
+.steps label small { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+.checks li { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+.checks input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--leaf); flex: none; cursor: pointer; }
+.checks li:has(input:checked) { background: var(--leaf-soft); border-color: var(--leaf); }
+
+/* tables */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; min-width: 560px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12.5px; color: var(--muted); font-weight: 500; letter-spacing: .03em; background: var(--sunk); }
+tr:last-child td { border-bottom: 0; }
+td b { font-weight: 600; }
+
+/* prompts */
+.prompt { background: var(--code); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.prompt .bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 12px; border-bottom: 1px solid var(--line); background: var(--paper); }
+.prompt .bar span { font-size: 13px; font-weight: 600; }
+.prompt .copy { border: 1px solid var(--leaf); background: var(--leaf); color: var(--paper); border-radius: 999px; padding: 4px 12px; font-size: 13px; cursor: pointer; flex: none; }
+.prompt .copy.done { background: var(--paper); color: var(--leaf); }
+.prompt pre { margin: 0; padding: 12px 14px; font-family: var(--f-body); font-size: 14px; line-height: 1.6; white-space: pre-wrap; word-break: keep-all; overflow-wrap: anywhere; }
+
+.tip { border-left: 3px solid var(--carrot); background: var(--paper); border-radius: 0 10px 10px 0; padding: 10px 14px; font-size: 15px; max-width: 72ch; }
+.tip b { font-weight: 600; }
+.warnbox { border-left-color: var(--tomato); }
+.src { font-size: 13px; color: var(--muted); }
+.src a { color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.term { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
+.term strong { font-size: 16px; }
+.term span { font-size: 14px; color: var(--muted); line-height: 1.45; }
+.term em { font-style: normal; font-size: 13px; color: var(--leaf); }
+
+/* lesson footer */
+.lesson-foot { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; border-top: 1px solid var(--line); padding-top: 18px; margin-top: 6px; }
+.lesson-foot button { border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 10px 18px; cursor: pointer; font-size: 15px; min-height: 44px; }
+.lesson-foot .done-btn { background: var(--leaf); border-color: var(--leaf); color: var(--paper); font-weight: 600; }
+.lesson-foot .done-btn[aria-pressed="true"] { background: var(--leaf-soft); color: var(--leaf); }
+.lesson-foot .spacer { flex: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lesson.on .a, .lesson.on .pop { animation: none !important; }
+  .lesson.on .pipe span { animation: none !important; opacity: 1; left: 50%; }
+  .desk { transition: none; }
+}
+</style>
+<style>.xlink{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--leaf);text-decoration:none;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 14px;align-self:flex-start}.xlink:hover{border-color:var(--leaf)}</style>
+</head>
+<body>
+
+
+<div class="shell">
+  <div class="top">
+    <div class="brand">
+      <span class="eyebrow">사장님 혼자 따라 하는 실습 코스</span>
+      <h1>샐러드 장부 실습 코스</h1>
+      <a class="xlink" href="intro.html">1분 소개 영상 보기 →</a>
+    </div>
+    <div class="meter" aria-live="polite">
+      <div class="label"><span>내 진도</span><b id="pct">0%</b></div>
+      <div class="bar"><i id="pbar"></i></div>
+    </div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false" aria-controls="toc">목차 열기</button>
+  </div>
+
+  <div class="grid">
+    <nav class="toc" id="toc" aria-label="강의 목차">
+      <h2>강의 목차</h2>
+      <ol id="tocList"></ol>
+      <button class="reset" id="reset" type="button">진도 기록 지우기</button>
+      <p class="src" id="resetMsg" hidden>진도 기록을 지웠어요.</p>
+    </nav>
+
+    <main id="lessons">
+
+      <!-- 0 -->
+      <section class="lesson" id="l0" data-part="시작" data-title="이 코스로 만드는 것">
+        <div class="lesson-head">
+          <span class="kicker">강의 0 · 약 5분</span>
+          <h2>코딩 없이, 말로 부탁해서 만듭니다</h2>
+          <p class="goal">구글 시트 장부와 AI 경영 비서(Claude 또는 ChatGPT)를 연결해, 매출·지출 정리부터 개선 제안까지 받는 우리 가게 시스템을 직접 만듭니다.</p>
+        </div>
+        <div class="vis">
+          <div class="flowgrid">
+            <div class="stack">
+              <div class="box pop" style="--d:.2s"><strong>포스·배달앱 엑셀</strong><span>매출 리포트·정산 파일</span></div>
+              <div class="box pop" style="--d:.35s"><strong>휴대폰 입력</strong><span>마감 숫자·영수증 사진</span></div>
+              <div class="box pop" style="--d:.5s"><strong>공공데이터</strong><span>채소 시세·상권·날씨</span></div>
+            </div>
+            <div class="pipe" aria-hidden="true"><span style="--d:.8s"></span><span style="--d:1.5s"></span></div>
+            <div class="box hi pop" style="--d:.8s"><strong>구글 시트 장부</strong><span>매일 쌓이는 기록</span></div>
+            <div class="pipe" aria-hidden="true"><span style="--d:1.1s"></span><span style="--d:1.8s"></span></div>
+            <div class="box ai pop" style="--d:1.1s"><strong>AI 경영 비서</strong><span>분석 · 매주 브리핑 · 제안</span></div>
+          </div>
+          <p class="cap a" style="--d:1.4s">흩어진 숫자가 한 장부에 모이고, AI 비서가 그 장부를 읽고 일합니다.</p>
+        </div>
+        <h3>준비물</h3>
+        <ul class="checks">
+          <li><input type="checkbox" id="c0a" data-key="c0a"><label for="c0a">스마트폰 (매일 입력용)</label></li>
+          <li><input type="checkbox" id="c0b" data-key="c0b"><label for="c0b">PC (처음 설정용, 공공데이터 신청은 PC에서만)</label></li>
+          <li><input type="checkbox" id="c0c" data-key="c0c"><label for="c0c">구글 계정</label></li>
+          <li><input type="checkbox" id="c0d" data-key="c0d"><label for="c0d">Claude 또는 ChatGPT 계정 (유료 플랜 권장)</label></li>
+          <li><input type="checkbox" id="c0e" data-key="c0e"><label for="c0e">포스 관리자 계정, 배달앱 사장님 사이트 계정</label></li>
+        </ul>
+        <h3>단계별로 걸리는 시간</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>단계</th><th>하는 일</th><th>난이도</th><th>시간</th></tr></thead>
+          <tbody>
+            <tr><td><b>1단계</b></td><td>구글 시트 장부와 휴대폰 입력 화면</td><td>쉬움</td><td>반나절</td></tr>
+            <tr><td><b>2단계</b></td><td>AI 비서에 장부 연결, 가상 사무실 꾸리기</td><td>보통</td><td>하루</td></tr>
+            <tr><td><b>3단계</b></td><td>월요일 브리핑, SNS 예약, 카카오톡 AI 상담</td><td>보통</td><td>각각 하루</td></tr>
+            <tr><td><b>4단계</b></td><td>공공데이터 API·MCP로 자동 수집</td><td>어려움</td><td>익숙해진 뒤</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <!-- 1 -->
+      <section class="lesson" id="l1" data-part="시작" data-title="용어 쉽게 이해하기" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 1 · 약 5분</span>
+          <h2>어려운 말, 매장 일에 빗대면 쉬워요</h2>
+          <p class="goal">이 코스에 나오는 낱말 여덟 개만 알면 됩니다.</p>
+        </div>
+        <div class="cards">
+          <div class="term pop" style="--d:.05s"><strong>프롬프트</strong><span>AI에게 하는 부탁 문장</span><em>알바생에게 주는 작업 지시</em></div>
+          <div class="term pop" style="--d:.12s"><strong>프로젝트 / GPT</strong><span>지침과 자료를 미리 넣어 둔 나만의 AI 방</span><em>우리 가게 본사</em></div>
+          <div class="term pop" style="--d:.19s"><strong>파일 업로드</strong><span>엑셀·사진을 AI에게 직접 건네기</span><em>서류 한 묶음 건네주기</em></div>
+          <div class="term pop" style="--d:.26s"><strong>커넥터</strong><span>AI와 구글 드라이브 같은 앱을 잇는 연결</span><em>냉장고 전원 플러그</em></div>
+          <div class="term pop" style="--d:.33s"><strong>API</strong><span>다른 서비스의 데이터를 자동으로 받는 창구</span><em>거래처 정기 배송 창구</em></div>
+          <div class="term pop" style="--d:.40s"><strong>API 키</strong><span>API를 쓰게 해 주는 개인 비밀번호</span><em>거래처 출입증</em></div>
+          <div class="term pop" style="--d:.47s"><strong>MCP</strong><span>AI 커넥터를 만드는 공통 규격</span><em>어느 기기에나 맞는 표준 콘센트</em></div>
+          <div class="term pop" style="--d:.54s"><strong>예약 작업</strong><span>정해진 때마다 AI가 알아서 하는 일</span><em>매주 월요일 아침 회의</em></div>
+        </div>
+        <p class="tip"><b>순서만 기억하세요.</b> 처음엔 파일 업로드, 익숙해지면 커넥터, 마지막이 API·MCP입니다.</p>
+      </section>
+
+      <!-- 2 -->
+      <section class="lesson" id="l2" data-part="시작" data-title="사장님이 해야 할 일" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 2 · 체크리스트</span>
+          <h2>AI가 대신 못 하는 일은 세 가지</h2>
+          <p class="goal">계정 만들기, 데이터 내려받기, 결과 확인. 아래를 하나씩 체크하세요. 체크는 이 기기에 저장됩니다.</p>
+        </div>
+        <h3>처음 한 번 (첫 주)</h3>
+        <ul class="checks">
+          <li><input type="checkbox" id="c2a" data-key="c2a"><label for="c2a">구글 드라이브에 '우리가게 장부' 폴더 만들기</label></li>
+          <li><input type="checkbox" id="c2b" data-key="c2b"><label for="c2b">Claude 또는 ChatGPT 가입, 휴대폰 앱 설치</label></li>
+          <li><input type="checkbox" id="c2c" data-key="c2c"><label for="c2c">포스의 매출 엑셀 내보내기 메뉴 위치 확인</label></li>
+          <li><input type="checkbox" id="c2d" data-key="c2d"><label for="c2d">배달앱 사장님 사이트의 정산·부가세 자료 메뉴 확인</label></li>
+          <li><input type="checkbox" id="c2e" data-key="c2e"><label for="c2e">여신금융협회 카드매출 통합조회 회원가입</label></li>
+          <li><input type="checkbox" id="c2f" data-key="c2f"><label for="c2f">기존 엑셀 정산표를 장부 폴더에 올리기</label></li>
+          <li><input type="checkbox" id="c2g" data-key="c2g"><label for="c2g">고정비 목록 정리 (월세, 관리비, 통신, 보험, 대출이자)</label></li>
+          <li><input type="checkbox" id="c2h" data-key="c2h"><label for="c2h">알바생 시급·근무 요일·시간 정리</label></li>
+        </ul>
+        <h3>매일 · 매주 · 매달 루틴</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>언제</th><th>할 일</th><th>시간</th></tr></thead>
+          <tbody>
+            <tr><td><b>매일</b></td><td>마감 후 채널별 매출 입력, 받은 영수증 사진</td><td>1분</td></tr>
+            <tr><td><b>매주</b></td><td>포스·배달앱 엑셀을 장부 폴더에 넣고, 월요일 브리핑 확인 후 제안 1개 실행</td><td>10분</td></tr>
+            <tr><td><b>매달</b></td><td>공과금 고지서 사진, 카드 입금과 매출 대조, 월 정산표를 세무사에게 전달</td><td>30분</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <!-- 3 -->
+      <section class="lesson" id="l3" data-part="데이터" data-title="포스·배달앱·카드 데이터" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 3 · 약 10분</span>
+          <h2>숫자는 엑셀로 받아서 폴더에 넣어요</h2>
+          <p class="goal">소규모 매장은 포스·배달앱 데이터를 API로 직접 받기 어렵습니다. 엑셀로 내려받아 구글 드라이브 장부 폴더에 넣으면 AI가 읽습니다.</p>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>어디서</th><th>받을 수 있는 데이터</th><th>받는 방법</th></tr></thead>
+          <tbody>
+            <tr><td><b>토스 포스</b></td><td>결제 시트(일자·시각, 채널, 금액, 결제수단, 취소), 상품 주문 시트(상품명, 옵션, 수량, 할인, 실판매금액)</td><td>메뉴 ≡ → 매출 리포트 → 매출현황 → 엑셀 내보내기 → 기간 → 비밀번호 → 받기</td></tr>
+            <tr><td><b>토스 포스 배달 연결</b></td><td>배달 3사 주문·취소를 포스 매출에 합산</td><td>설정 → 배달 매출 설정 → 배달앱 '연결하기'</td></tr>
+            <tr><td><b>그 밖의 포스</b></td><td>기종마다 다름</td><td>포스사에 엑셀·API 제공 여부 문의 (강의 12 문의 문장)</td></tr>
+            <tr><td><b>배민 사장님광장</b></td><td>매출구분, 매출, 부가세, 합계</td><td>우리가게관리 → 정산·주문 → 부가세 신고자료 (최대 3개월씩)</td></tr>
+            <tr><td><b>쿠팡이츠·요기요</b></td><td>주문·정산 내역</td><td>각 사장님 사이트 정산 메뉴에서 다운로드 여부 확인</td></tr>
+            <tr><td><b>여신금융협회</b></td><td>카드사별 승인·매입·입금, 가맹점 수수료율, 대금 지급 주기</td><td>가맹점 카드매출 통합조회 웹·앱</td></tr>
+            <tr><td><b>홈택스</b></td><td>신용카드 매출자료, 현금영수증 매출</td><td>전자세금계산서·현금영수증·신용카드 메뉴</td></tr>
+          </tbody>
+        </table></div>
+        <p class="tip"><b>매달 한 번</b> 카드매출 조회 자료를 내려받아 두세요. 조회 기간에 제한이 있습니다.</p>
+        <p class="src">출처: <a href="https://tossplace.com/story/salesreport" target="_blank" rel="noopener">토스 포스 매출 리포트</a> · <a href="https://tossplace.com/story/delivery-sales-free" target="_blank" rel="noopener">토스 포스 배달 매출 연결</a> · <a href="https://help.bznav.com/hc/ko/articles/900007650043" target="_blank" rel="noopener">배민 부가세 신고자료 조회</a> · <a href="https://news.jkn.co.kr/post/726614" target="_blank" rel="noopener">여신금융협회 카드매출조회</a></p>
+      </section>
+
+      <!-- 4 -->
+      <section class="lesson" id="l4" data-part="실습" data-title="실습 1 · 구글 시트 장부" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 4 · 실습 · 반나절</span>
+          <h2>구글 시트로 장부부터 만들어요</h2>
+          <p class="goal">휴대폰·PC 어디서나 열리고, Claude와 ChatGPT 모두 연결되는 장부를 만듭니다.</p>
+        </div>
+        <div class="vis">
+          <div class="chat">
+            <div class="bubble me a" style="--d:.2s"><span class="who">사장님</span>샐러드 가게 매출·지출 장부를 구글 시트로 만들어줘. 배달앱별로 따로 보고 싶어.</div>
+            <div class="bubble ai a" style="--d:1.2s"><span class="who">AI 비서</span>장부 구조를 만들었어요.<ul><li>매출·지출·고정비·거래처·알바근무·메뉴원가 탭 6개</li><li>배민·쿠팡이츠·요기요 칸과 월 요약 수식</li><li>휴대폰 입력용 구글 폼 만드는 법</li></ul></div>
+          </div>
+        </div>
+        <h3>따라 하기</h3>
+        <ol class="steps">
+          <li><input type="checkbox" id="s4a" data-key="s4a"><label for="s4a"><b>새 스프레드시트 만들기</b><small>구글 드라이브 '우리가게 장부' 폴더 → 새로 만들기 → 구글 스프레드시트, 이름 '매장 장부'</small></label></li>
+          <li><input type="checkbox" id="s4b" data-key="s4b"><label for="s4b"><b>탭 6개 만들기</b><small>매출, 지출, 고정비, 거래처, 알바근무, 메뉴원가</small></label></li>
+          <li><input type="checkbox" id="s4c" data-key="s4c"><label for="s4c"><b>제목 줄 붙여 넣기</b><small>아래 세 줄을 복사해 각 탭 첫 줄에 붙여 넣기</small></label></li>
+          <li><input type="checkbox" id="s4d" data-key="s4d"><label for="s4d"><b>AI에게 요약 수식 부탁하기</b><small>아래 '장부 수식 만들기' 부탁문 사용</small></label></li>
+          <li><input type="checkbox" id="s4e" data-key="s4e"><label for="s4e"><b>휴대폰 입력 화면 만들기</b><small>시트 메뉴 도구 → 새 양식. 폼 링크를 휴대폰 홈 화면에 추가</small></label></li>
+        </ol>
+        <div class="prompt"><div class="bar"><span>매출 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜,카드,현금,계좌이체,배민,쿠팡이츠,요기요,주문건수,메모</pre></div>
+        <div class="prompt"><div class="bar"><span>지출 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜,거래처,품목,수량,단가,금액,대분류,소분류,결제수단,영수증사진</pre></div>
+        <div class="prompt"><div class="bar"><span>알바근무 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜,이름,출근,퇴근,휴게(분),근무시간,시급,일급</pre></div>
+        <div class="prompt"><div class="bar"><span>장부 수식 만들기 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '매장 장부'의 매출·지출 탭 제목 줄을 붙여 줄게. 월별 매출 합계, 대분류별 지출 합계, 순이익, 식재료 원가율을 보여 주는 '요약' 탭 수식을 셀 위치까지 알려줘. 나는 엑셀 초보야.</pre></div>
+        <p class="tip"><b>대분류는 7개로 고정</b>해 두세요. 식재료·포장재·인건비·공간비·판매수수료·마케팅·운영비. 나중에 분석이 쉬워집니다.</p>
+      </section>
+
+      <!-- 5 -->
+      <section class="lesson" id="l5" data-part="실습" data-title="실습 2 · Claude 프로젝트" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 5 · 실습 · 약 1시간</span>
+          <h2>Claude에 '우리 가게 본사'를 차려요</h2>
+          <p class="goal">프로젝트 하나를 경영 비서의 본사로 만들고, 장부를 연결합니다.</p>
+        </div>
+        <ol class="steps">
+          <li><input type="checkbox" id="s5a" data-key="s5a"><label for="s5a"><b>새 프로젝트 만들기</b><small>claude.ai 또는 Claude 앱 → 프로젝트 → 새 프로젝트, 이름 '우리 가게 경영 비서'</small></label></li>
+          <li><input type="checkbox" id="s5b" data-key="s5b"><label for="s5b"><b>프로젝트 지침 붙여 넣기</b><small>아래 지침문을 프로젝트 설명란에 그대로</small></label></li>
+          <li><input type="checkbox" id="s5c" data-key="s5c"><label for="s5c"><b>Google Drive 커넥터 연결</b><small>설정 → 커넥터에서 연결. 드라이브 파일은 개인 프로젝트의 파일로 추가할 수 있어요</small></label></li>
+          <li><input type="checkbox" id="s5d" data-key="s5d"><label for="s5d"><b>장부와 기존 정산표 추가</b><small>프로젝트 파일에 '매장 장부' 시트와 기존 엑셀 정산표</small></label></li>
+          <li><input type="checkbox" id="s5e" data-key="s5e"><label for="s5e"><b>첫 분석 받아 보기</b><small>"지난달 매출·지출을 요약하고 개선점 2개 알려줘"</small></label></li>
+        </ol>
+        <div class="prompt"><div class="bar"><span>프로젝트 지침문</span><button class="copy" type="button">복사</button></div><pre>너는 샐러드 가게의 경영 비서야. 프로젝트 파일의 '매장 장부' 시트가 기준 자료야.
+- 숫자는 반드시 장부에서 계산하고, 계산 근거를 짧게 보여 줘.
+- 지표: 식재료 원가율, 인건비율, 배달 앱별 실수익률, 객단가, 손익분기 매출.
+- 제안은 한 번에 2개 이하, 이번 주에 바로 할 수 있는 행동으로.
+- 세금·노무는 참고 의견만 주고 세무사·노무사 확인을 권해.
+- 장부에 없는 숫자는 추측하지 말고 무엇이 필요한지 물어봐.</pre></div>
+        <p class="src">출처: <a href="https://support.claude.com/en/articles/10166901-using-the-google-workspace-integrations" target="_blank" rel="noopener">Claude Google Workspace 커넥터 도움말</a></p>
+      </section>
+
+      <!-- 6 -->
+      <section class="lesson" id="l6" data-part="실습" data-title="가상 사무실 꾸리기" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 6 · 실습 · 약 30분</span>
+          <h2>채팅마다 직원 한 명, 가상 사무실</h2>
+          <p class="goal">프로젝트 안에서 기능별로 채팅을 나누면 회사처럼 운영할 수 있어요. 지침과 장부는 한 번만 넣으면 모든 직원이 같이 씁니다.</p>
+        </div>
+        <div class="vis">
+          <div class="office" id="office">
+            <div class="shared a" style="--d:.1s"><strong>회사 규칙 · 프로젝트 지침</strong><span>영업시간·가격·말투, 모든 직원 공통</span></div>
+            <div class="shared a" style="--d:.2s"><strong>공용 서류함 · 프로젝트 파일</strong><span>매장 장부·메뉴판·레시피·업무일지</span></div>
+          </div>
+          <div class="office-talk" id="officeTalk" aria-live="polite"></div>
+          <p class="office-hint">직원 책상을 누르면 그 채팅의 예시 대화를 볼 수 있어요. 숫자와 내용은 예시입니다.</p>
+        </div>
+        <ol class="steps">
+          <li><input type="checkbox" id="s6a" data-key="s6a"><label for="s6a"><b>채팅 8개 만들기</b><small>01 장부·정산, 02 월요일 브리핑, 03 식자재·메뉴 원가, 04 알바 관리, 05 공과금·지원사업, 06 SNS 운영, 07 카톡 AI 상담, 08 자동화·연결</small></label></li>
+          <li><input type="checkbox" id="s6b" data-key="s6b"><label for="s6b"><b>첫 메시지에 직책 적기</b><small>"너는 우리 가게 SNS 마케터야. 인스타그램과 리뷰 답글을 맡아"처럼</small></label></li>
+          <li><input type="checkbox" id="s6c" data-key="s6c"><label for="s6c"><b>업무일지 문서 만들기</b><small>중요한 결정은 "업무일지 형식으로 정리해줘" → 문서에 모아 프로젝트 파일에 올리기</small></label></li>
+        </ol>
+        <h3>업데이트는 이렇게 나눠요</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>바뀐 것</th><th>고칠 곳</th></tr></thead>
+          <tbody>
+            <tr><td>영업시간, 메뉴 가격, 말투 같은 가게 전체 규칙</td><td><b>프로젝트 지침</b> 한 곳</td></tr>
+            <tr><td>장부 구조</td><td><b>프로젝트 파일</b>의 장부를 최신으로</td></tr>
+            <tr><td>한 기능만</td><td><b>그 직원의 채팅</b>에서 부탁</td></tr>
+            <tr><td>채팅이 너무 길어짐</td><td>요약을 받아 같은 이름으로 새 채팅 시작</td></tr>
+          </tbody>
+        </table></div>
+        <p class="tip"><b>채팅끼리는 서로의 대화를 보지 못해요.</b> 그래서 업무일지가 중요합니다. 브리핑 실장에게 월요일마다 업무일지를 읽고 회의록을 써 달라고 하면 주간 회의가 됩니다.</p>
+      </section>
+
+      <!-- 7 -->
+      <section class="lesson" id="l7" data-part="실습" data-title="실습 2 · ChatGPT로 하기" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 7 · 실습 · 약 1시간</span>
+          <h2>ChatGPT를 쓰신다면</h2>
+          <p class="goal">GPT 만들기 또는 프로젝트로 같은 경영 비서를 만들 수 있습니다. 메뉴 이름은 업데이트로 바뀔 수 있으니 비슷한 이름을 찾으세요.</p>
+        </div>
+        <ol class="steps">
+          <li><input type="checkbox" id="s7a" data-key="s7a"><label for="s7a"><b>GPT 또는 프로젝트 만들기</b><small>GPT 탐색 → 만들기 (또는 새 프로젝트), 이름 '우리 가게 경영 비서'</small></label></li>
+          <li><input type="checkbox" id="s7b" data-key="s7b"><label for="s7b"><b>지침과 파일 넣기</b><small>강의 5의 지침문, 기존 정산표, 메뉴 레시피 표</small></label></li>
+          <li><input type="checkbox" id="s7c" data-key="s7c"><label for="s7c"><b>Google Drive 연결</b><small>설정의 앱(커넥터) 메뉴에서 연결</small></label></li>
+          <li><input type="checkbox" id="s7d" data-key="s7d"><label for="s7d"><b>매주 엑셀 올려 분석받기</b><small>"주간 리포트 해줘"</small></label></li>
+        </ol>
+        <div class="table-wrap"><table>
+          <thead><tr><th>항목</th><th>Claude</th><th>ChatGPT</th></tr></thead>
+          <tbody>
+            <tr><td>전용 비서 방</td><td>프로젝트</td><td>GPT, 프로젝트</td></tr>
+            <tr><td>구글 드라이브</td><td>커넥터</td><td>앱(커넥터)</td></tr>
+            <tr><td>외부 API</td><td>MCP 사용자 지정 커넥터</td><td>GPT 액션, 개발자 모드 MCP</td></tr>
+            <tr><td>매주 자동 실행</td><td>예약 작업 (유료)</td><td>예약 작업 (GPT 안에서는 안 됨)</td></tr>
+          </tbody>
+        </table></div>
+        <p class="tip">둘 다 이 코스에는 충분합니다. 이미 쓰고 계신 쪽으로 시작하세요.</p>
+      </section>
+
+      <!-- 8 -->
+      <section class="lesson" id="l8" data-part="매주 운영" data-title="월요일 브리핑 예약" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 8 · 실습 · 약 30분</span>
+          <h2>월요일 아침, 브리핑이 알아서 와요</h2>
+          <p class="goal">지난주 매출, 매출 올리는 제안, 알아야 할 정책, 업계 뉴스를 예약 작업으로 매주 받습니다.</p>
+        </div>
+        <div class="vis">
+          <div class="msg">
+            <div class="from a" style="--d:.1s"><span>예약 작업 · 매주 월요일 07:00 · 예시</span><span>AI 비서</span></div>
+            <div class="line a" style="--d:.5s"><b>매출</b><span>지난주 312만 원, 순이익 74만 원 (전주보다 9만 원 증가)</span></div>
+            <div class="line a" style="--d:1.1s"><b>매출 제안</b><span>화·목 단체 주문이 3건 있었어요. 평일 점심 10인분 도시락 세트를 만들어 보세요.</span></div>
+            <div class="line alert a" style="--d:1.7s"><b>정책</b><span>경영안정 바우처 신청이 12월 18일 마감이에요. 공고 원문 링크 첨부</span></div>
+            <div class="line a" style="--d:2.3s"><b>뉴스</b><span>로메인 시세 2주째 상승. 믹스 잎채소 비중을 늘리면 원가를 낮출 수 있어요.</span></div>
+            <div class="line a" style="--d:2.9s"><b>SNS</b><span>이번 주 릴스 주제: 겨울 웜볼 출시</span></div>
+          </div>
+        </div>
+        <ol class="steps">
+          <li><input type="checkbox" id="s8a" data-key="s8a"><label for="s8a"><b>'제안기록' 탭 만들기</b><small>장부 시트에 날짜, 제안, 실행 여부, 결과 칸</small></label></li>
+          <li><input type="checkbox" id="s8b" data-key="s8b"><label for="s8b"><b>브리핑 지시문으로 예약하기</b><small>Claude: 대화창에 "매주 월요일 오전 7시에 아래 브리핑을 해줘" → 확인. 컴퓨터가 꺼져 있어도 실행돼요. ChatGPT: 대화나 예약 메뉴에서 같은 방식 (GPT 안에서는 예약 불가)</small></label></li>
+          <li><input type="checkbox" id="s8c" data-key="s8c"><label for="s8c"><b>알림 켜기</b><small>ChatGPT는 설정 → 알림에서 푸시·이메일</small></label></li>
+          <li><input type="checkbox" id="s8d" data-key="s8d"><label for="s8d"><b>매주 제안 하나 실행하고 기록</b><small>다음 주 브리핑이 효과를 비교해 줘요</small></label></li>
+        </ol>
+        <div class="prompt"><div class="bar"><span>월요일 브리핑 지시문</span><button class="copy" type="button">복사</button></div><pre>매주 월요일 아침, 우리 샐러드 가게(주소: ○○) 브리핑을 만들어줘.
+1) 매출 리포트: '매장 장부' 시트의 지난주 매출·순이익·채널별 실수익률, 전주 대비 변화
+2) 매출 증대 제안 2개: 장부 숫자와 이번 주 날씨·계절을 근거로, 이번 주에 바로 할 수 있는 행동만
+3) 정책·지원사업: 소상공인 지원금 마감, 최저임금, 세금 신고 일정, 배달앱 수수료 관련 새 소식.
+   공고·기사 원문 링크를 꼭 붙이고, 확실하지 않으면 '확인 필요'라고 표시
+4) 업계 뉴스 3줄: 채소 시세, 배달앱 정책, 샐러드·건강식 트렌드
+5) 지난주 '제안기록' 탭의 실행 결과 한 줄 평가
+전체는 휴대폰 한 화면 분량으로 짧게.</pre></div>
+        <p class="tip warnbox"><b>정책·지원사업은 신청 전에 원문 확인.</b> AI가 잘못 요약할 수 있어요. 지원사업 공고는 <a href="https://www.data.go.kr/dcat/metadata/15157820" target="_blank" rel="noopener">기업마당 공고 데이터</a>에도 모입니다.</p>
+        <p class="src">출처: <a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork" target="_blank" rel="noopener">Claude 예약 작업</a> · <a href="https://help.openai.com/ko-kr/articles/10291617-scheduled-tasks-in-chatgpt" target="_blank" rel="noopener">ChatGPT 예약 작업</a></p>
+      </section>
+
+      <!-- 9 -->
+      <section class="lesson" id="l9" data-part="매주 운영" data-title="SNS 운영과 자동화" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 9 · 실습 · 약 1시간</span>
+          <h2>계획과 글은 AI, 사진만 사장님</h2>
+          <p class="goal">한 달 치 계획을 한 번에 세우고, 한 주 치 게시물을 한 번에 예약합니다.</p>
+        </div>
+        <div class="vis">
+          <div class="week" aria-label="이번 주 게시 계획 예시">
+            <span class="day">월</span><span class="day">화</span><span class="day">수</span><span class="day">목</span><span class="day">금</span><span class="day">토</span><span class="day">일</span>
+            <span class="cell"><i class="post pop" style="--d:.3s">신메뉴</i></span><span class="cell"></span>
+            <span class="cell"><i class="post reel pop" style="--d:.6s">릴스</i></span><span class="cell"></span>
+            <span class="cell"><i class="post pop" style="--d:.9s">재료 이야기</i></span><span class="cell"></span><span class="cell"></span>
+          </div>
+          <p class="cap a" style="--d:1.2s">예시 · 주 3회 게시, 메타 비즈니스 스위트로 한 번에 예약</p>
+        </div>
+        <ol class="steps">
+          <li><input type="checkbox" id="s9a" data-key="s9a"><label for="s9a"><b>월간 계획 부탁하기</b><small>아래 부탁문으로 주제·캡션·해시태그·릴스 대본까지</small></label></li>
+          <li><input type="checkbox" id="s9b" data-key="s9b"><label for="s9b"><b>'SNS계획' 탭에 붙여 넣기</b><small>날짜, 채널, 주제, 문구, 사진, 상태</small></label></li>
+          <li><input type="checkbox" id="s9c" data-key="s9c"><label for="s9c"><b>일요일에 사진 찍어 두기</b><small>AI가 알려 준 구도대로</small></label></li>
+          <li><input type="checkbox" id="s9d" data-key="s9d"><label for="s9d"><b>메타 비즈니스 스위트로 예약</b><small>PC → 콘텐츠 또는 플래너 → 게시물 만들기 → Instagram·Facebook → 사진·문구 → 예약. 인스타그램은 프로페셔널 계정으로 바꾸고 페이스북 페이지와 연결</small></label></li>
+          <li><input type="checkbox" id="s9e" data-key="s9e"><label for="s9e"><b>월 1회 성과 점검</b><small>인사이트 화면 캡처를 올려 잘된 게시물의 공통점 분석</small></label></li>
+        </ol>
+        <div class="prompt"><div class="bar"><span>월간 SNS 계획 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리는 ○○동 샐러드 가게야. 주 고객은 근처 직장인과 헬스장 회원이야.
+다음 달 인스타그램 게시물을 주 3회로 계획해줘. 날짜, 주제, 사진 구도, 캡션(200자 이내), 해시태그 10개를 표로 만들고, 그중 2개는 15초 릴스 장면 대본도 써줘.
+신메뉴·재료 이야기·손님 후기(실제 후기만)·영양 정보·이벤트를 골고루 섞고, 효과를 단정하는 표현은 쓰지 마.</pre></div>
+        <div class="prompt"><div class="bar"><span>리뷰 답글 초안 부탁문</span><button class="copy" type="button">복사</button></div><pre>아래 배달앱 리뷰 5개에 사장님 말투로 답글 초안을 써줘. 칭찬 리뷰는 구체적인 메뉴를 언급해 감사하고, 불만 리뷰는 변명 없이 사과와 개선 약속을 담아줘. 할인이나 보상은 내가 정한 경우에만 넣어. (리뷰 붙여 넣기)</pre></div>
+        <p class="tip warnbox"><b>지킬 것.</b> 가짜 후기나 손님인 척하는 글은 쓰지 않고, "살 빠지는 샐러드"처럼 효과를 단정하는 표현은 피하세요. 손님 사진은 동의를 받고 올립니다.</p>
+        <p class="src">출처: <a href="https://sproutsocial.com/insights/how-to-use-meta-business-suite/" target="_blank" rel="noopener">메타 비즈니스 스위트 사용법</a></p>
+      </section>
+
+      <!-- 10 -->
+      <section class="lesson" id="l10" data-part="매주 운영" data-title="카카오톡 채널 AI 상담" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 10 · 실습 · 약 1시간</span>
+          <h2>카카오톡 문의는 AI가 24시간</h2>
+          <p class="goal">영업시간·메뉴·단체 주문 문의에 답하는 봇을 코딩 없이 만듭니다.</p>
+        </div>
+        <div class="vis">
+          <div class="chat">
+            <div class="bubble guest a" style="--d:.2s"><span class="who">손님 23:12</span>내일 12시에 10인분 단체 주문 되나요?</div>
+            <div class="bubble ai a" style="--d:1.1s"><span class="who">AI 상담 · 예시</span>네, 단체 주문은 하루 전까지 가능해요. 메뉴와 받으실 시간을 알려 주시면 접수해 드릴게요.</div>
+            <div class="bubble guest a" style="--d:2.2s"><span class="who">손님</span>닭가슴살 샐러드 10개, 12시 픽업이요.</div>
+            <div class="bubble ai a" style="--d:3s"><span class="who">AI 상담</span>접수했어요. 사장님이 확인 후 확정 연락드릴게요.</div>
+          </div>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>방법</th><th>할 수 있는 것</th><th>난이도</th></tr></thead>
+          <tbody>
+            <tr><td><b>카나나 상담매니저</b></td><td>매장 정보·메뉴·소식으로 AI 답변, 1:1 채팅 주문·예약 접수, 상담 통계</td><td>쉬움 (요금은 적용 화면에서 확인)</td></tr>
+            <tr><td><b>챗봇 관리자센터 블록</b></td><td>정해진 질문에 정해진 답 (챗봇 대화 무료)</td><td>쉬움</td></tr>
+            <tr><td><b>스킬 서버 + AI</b></td><td>장부·재고 등 우리 자료로 답하는 맞춤 봇</td><td>어려움 (개발 필요)</td></tr>
+          </tbody>
+        </table></div>
+        <h3>카나나 상담매니저 따라 하기</h3>
+        <ol class="steps">
+          <li><input type="checkbox" id="s10a" data-key="s10a"><label for="s10a"><b>채널 만들고 비즈니스 인증</b><small>카카오톡 채널 관리자센터, 사업자 정보로 인증</small></label></li>
+          <li><input type="checkbox" id="s10b" data-key="s10b"><label for="s10b"><b>채널 정보 빠짐없이 채우기</b><small>영업시간, 주소, 메뉴·가격, 주차, 단체 주문 안내. 채널 홈·메뉴·소식이 답변에 자동 반영돼요</small></label></li>
+          <li><input type="checkbox" id="s10c" data-key="s10c"><label for="s10c"><b>상담매니저 적용, 답변은 단답형</b><small>아래 부탁문으로 자주 묻는 질문 30개를 AI에게 받기</small></label></li>
+          <li><input type="checkbox" id="s10d" data-key="s10d"><label for="s10d"><b>AI 답변 미리보기로 시험</b><small>'답변률 올리기'에서 추천 질문에 답 추가</small></label></li>
+          <li><input type="checkbox" id="s10e" data-key="s10e"><label for="s10e"><b>운영 시간과 관리자 호출 알림</b><small>손님이 사람을 찾을 때 바로 알 수 있게</small></label></li>
+        </ol>
+        <div class="prompt"><div class="bar"><span>자주 묻는 질문 30개 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 샐러드 가게 카카오톡 채널 AI 상담에 넣을 자주 묻는 질문 30개와 답변을 단답형으로 만들어줘. 영업시간 ○○, 주소 ○○, 주차 ○○, 단체 주문은 ○일 전 예약, 메뉴와 가격은 첨부한 메뉴판 기준. 알레르기 질문에는 재료 목록만 알려 주고 매장 확인을 권하게 해줘.</pre></div>
+        <p class="tip"><b>개발자에게 맡길 때 알아 둘 조건.</b> 카카오는 5초 안에 답을 받아야 해서, AI 답이 늦으면 콜백 설정으로 안내 문구를 먼저 보냅니다. 한 채널에는 챗봇 하나만 연결됩니다.</p>
+        <p class="src">출처: <a href="https://www.kakaocorp.com/page/detail/11719" target="_blank" rel="noopener">카나나 상담매니저 출시</a> · <a href="https://www.kakaocorp.com/page/detail/12151" target="_blank" rel="noopener">카나나 상담매니저 업데이트</a> · <a href="https://www.kakaocorp.com/page/detail/9756" target="_blank" rel="noopener">챗봇 이용요금 무료 전환</a> · <a href="https://kakaobusiness.gitbook.io/main/tool/chatbot/skill_guide/ai_chatbot_callback_guide" target="_blank" rel="noopener">AI 챗봇 콜백 가이드</a></p>
+      </section>
+
+      <!-- 11 -->
+      <section class="lesson" id="l11" data-part="자동화" data-title="API·MCP 연결" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 11 · 실습 · 2~4주</span>
+          <h2>채소 시세·상권이 매일 장부에 들어오게</h2>
+          <p class="goal">초보에게 가장 쉬운 길은 'API 키 받기 → AI가 짜 준 구글 시트 자동화 붙여 넣기'입니다.</p>
+        </div>
+        <div class="vis">
+          <div class="lanes">
+            <div class="box pop" style="--d:.2s"><strong>공공데이터포털</strong><span>API 키 발급</span></div>
+            <div class="pipe" aria-hidden="true"><span style="--d:.6s"></span><span style="--d:1.3s"></span></div>
+            <div class="box pop" style="--d:.5s"><strong>앱스 스크립트</strong><span>AI가 짠 코드, 매일 6시</span></div>
+            <div class="pipe" aria-hidden="true"><span style="--d:.9s"></span><span style="--d:1.6s"></span></div>
+            <div class="box hi pop" style="--d:.8s"><strong>'시세' 탭</strong><span>날짜별로 자동 기록</span></div>
+          </div>
+        </div>
+        <h3>가. API 키 받기</h3>
+        <ol class="steps">
+          <li><input type="checkbox" id="s11a" data-key="s11a"><label for="s11a"><b>공공데이터포털 회원가입</b><small>PC로 개인회원 가입</small></label></li>
+          <li><input type="checkbox" id="s11b" data-key="s11b"><label for="s11b"><b>활용신청</b><small><a href="https://www.data.go.kr/data/15109062/openapi.do" target="_blank" rel="noopener">농수축산물 유통단계별 가격</a>, <a href="https://www.data.go.kr/data/15012005/openapi.do" target="_blank" rel="noopener">상가(상권)정보</a></small></label></li>
+          <li><input type="checkbox" id="s11c" data-key="s11c"><label for="s11c"><b>인증키 복사</b><small>마이페이지 → 오픈API → 인증키. 비밀번호처럼 보관</small></label></li>
+        </ol>
+        <h3>나. 자동화 붙이기</h3>
+        <ol class="steps">
+          <li><input type="checkbox" id="s11d" data-key="s11d"><label for="s11d"><b>AI에게 스크립트 부탁</b><small>아래 부탁문 사용</small></label></li>
+          <li><input type="checkbox" id="s11e" data-key="s11e"><label for="s11e"><b>Apps Script에 붙여 넣기</b><small>시트 메뉴 확장 프로그램 → Apps Script, 키 자리에 내 인증키</small></label></li>
+          <li><input type="checkbox" id="s11f" data-key="s11f"><label for="s11f"><b>트리거로 매일 실행</b><small>시계 모양 트리거 → 매일 오전 6시. 오류는 문장 그대로 AI에게</small></label></li>
+        </ol>
+        <div class="prompt"><div class="bar"><span>채소 시세 자동 수집 부탁문</span><button class="copy" type="button">복사</button></div><pre>공공데이터포털 '농수축산물 유통단계별 가격' API를 구글 시트 Apps Script로 매일 호출해서 '시세' 탭에 로메인, 양상추, 토마토, 오이 소매가격을 날짜별로 쌓는 코드를 만들어줘. 인증키 넣을 자리를 표시하고, 트리거 설정 방법도 초보 기준으로 단계별로 알려줘.</pre></div>
+        <h3>다. MCP 커넥터</h3>
+        <p>쓰려는 서비스가 원격 MCP 서버 주소를 제공할 때만 연결할 수 있어요. Claude는 설정 → 커넥터 → 사용자 지정 커넥터 추가, ChatGPT는 유료 플랜의 개발자 모드에서 등록합니다. 믿을 수 있는 서비스만 연결하세요.</p>
+        <div class="prompt"><div class="bar"><span>포스사 연동 문의 문장</span><button class="copy" type="button">복사</button></div><pre>안녕하세요, ○○매장입니다. 매출·메뉴별 판매 데이터를 엑셀 정기 다운로드나 API로 받을 수 있는지 문의드립니다. 가능하다면 신청 방법과 비용, 제공 항목(결제수단, 채널, 메뉴, 시간대)을 알려 주세요.</pre></div>
+        <p class="src">출처: <a href="https://www.data.go.kr/ugs/selectPublicDataUseGuideView.do" target="_blank" rel="noopener">공공데이터포털 이용가이드</a> · <a href="https://support.claude.com/en/articles/11175166-about-custom-connectors-remote-mcp" target="_blank" rel="noopener">Claude 사용자 지정 커넥터</a> · <a href="https://www.infoq.com/news/2025/10/chat-gpt-mcp" target="_blank" rel="noopener">ChatGPT 개발자 모드 MCP</a></p>
+      </section>
+
+      <!-- 12 -->
+      <section class="lesson" id="l12" data-part="자료실" data-title="바로 쓰는 프롬프트" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 12 · 자료실</span>
+          <h2>복사해서 바로 쓰는 부탁문</h2>
+          <p class="goal">○○ 부분만 우리 가게에 맞게 바꾸세요. 해당 직원의 채팅에 붙여 넣으면 됩니다.</p>
+        </div>
+        <div class="prompt"><div class="bar"><span>포스·배달앱 엑셀 정리 · 장부 과장</span><button class="copy" type="button">복사</button></div><pre>첨부한 포스 매출 엑셀과 배민 정산 파일을 날짜별·채널별로 합쳐서 '매출' 탭 형식(날짜,카드,현금,계좌이체,배민,쿠팡이츠,요기요,주문건수)으로 정리해줘. 취소 건은 빼고, 합계가 원본과 맞는지 확인해 줘.</pre></div>
+        <div class="prompt"><div class="bar"><span>메뉴 원가 계산 · 식자재 대리</span><button class="copy" type="button">복사</button></div><pre>메뉴원가 탭의 레시피(재료별 g)와 지출 탭의 최근 매입 단가로 메뉴별 원가와 원가율을 계산해줘. 원가율이 높은 순서로 정리하고 가격 조정이나 재료 대체 아이디어를 하나씩 제안해줘.</pre></div>
+        <div class="prompt"><div class="bar"><span>알바 급여 계산 · 인사 담당</span><button class="copy" type="button">복사</button></div><pre>알바근무 탭 기준으로 이번 달 알바별 근무시간과 급여를 계산해줘. 주 15시간 이상이면 주휴수당을 포함하고, 2027년 1월부터 최저임금이 시급 10,700원이 되면 월 인건비가 얼마 늘어나는지도 알려줘.</pre></div>
+        <div class="prompt"><div class="bar"><span>공과금 점검 · 총무 담당</span><button class="copy" type="button">복사</button></div><pre>첨부한 전기요금 고지서 3장의 사용량(kWh)과 금액을 표로 정리하고, 매출 대비 비율과 작년 같은 달 대비 변화를 계산해줘. 늘었다면 샐러드 매장 냉장 설비 기준으로 점검할 곳을 알려줘.</pre></div>
+        <div class="prompt"><div class="bar"><span>매출 증대 아이디어 회의 · 브리핑 실장</span><button class="copy" type="button">복사</button></div><pre>최근 3개월 장부를 보고 매출을 늘릴 방법을 10개 뽑아줘. 객단가 올리기, 한가한 시간대 채우기, 단골 늘리기, 단체·정기 주문, 배달 실수익 개선으로 나누고, 각각 예상 효과와 드는 비용, 이번 주에 시작할 첫 행동을 표로 정리해줘. 그중 장부 숫자로 보면 가장 효과가 클 2개를 골라 이유를 설명해줘.</pre></div>
+        <div class="prompt"><div class="bar"><span>상권 점검 · 브리핑 실장</span><button class="copy" type="button">복사</button></div><pre>우리 매장 주소는 ○○야. 반경 500m 안의 샐러드·포케·샌드위치 매장과 주변 사무실·학원·헬스장 수를 상가(상권)정보로 확인하는 방법을 알려주고, 결과를 붙여 주면 우리 매장 타깃 고객과 메뉴 전략을 제안해줘.</pre></div>
+        <div class="prompt"><div class="bar"><span>업무일지 정리 · 모든 직원</span><button class="copy" type="button">복사</button></div><pre>오늘 이 채팅에서 정한 내용을 업무일지 형식으로 정리해줘. 날짜, 담당 직원, 결정한 것, 다음에 할 일, 다른 직원이 알아야 할 것으로 나눠서 5줄 이내로.</pre></div>
+      </section>
+
+      <!-- 13 -->
+      <section class="lesson" id="l13" data-part="자료실" data-title="안전 수칙과 문제 해결" hidden>
+        <div class="lesson-head">
+          <span class="kicker">강의 13 · 마무리</span>
+          <h2>지킬 것과 막혔을 때</h2>
+          <p class="goal">AI는 유능한 직원이지만, 최종 확인은 사장님 몫입니다.</p>
+        </div>
+        <div class="cards">
+          <div class="term"><strong>AI에 넣지 말 것</strong><span>카드번호, 계좌·공동인증서 비밀번호, 알바생 주민등록번호 전체와 신분증 사진, 다른 사람이 볼 수 있는 곳의 API 키</span></div>
+          <div class="term"><strong>그대로 믿지 말 것</strong><span>합계는 원본과 한 번 맞춰 보고, 세금·노무는 세무사·노무사에게 확인. 정책은 공고 원문 확인</span></div>
+          <div class="term"><strong>연결 관리</strong><span>커넥터는 믿을 수 있는 서비스만, 안 쓰는 연결은 끊기</span></div>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>막힌 상황</th><th>해결 방법</th></tr></thead>
+          <tbody>
+            <tr><td>엑셀을 올렸는데 숫자가 이상함</td><td>"첫 줄이 제목인지, 합계 줄이 섞였는지 확인해 줘"</td></tr>
+            <tr><td>포스 엑셀이 비밀번호로 잠김</td><td>내려받을 때 정한 비밀번호로 열어 다시 저장 후 올리기</td></tr>
+            <tr><td>앱스 스크립트 오류</td><td>오류 문장을 복사해 자동화 엔지니어 채팅에 붙여 넣기</td></tr>
+            <tr><td>공공데이터 API 응답 없음</td><td>승인 직후엔 키가 바로 안 될 수 있음. 몇 시간 뒤 다시</td></tr>
+            <tr><td>커넥터가 안 보임</td><td>플랜, 로그인 계정, 설정의 커넥터 켜짐 확인</td></tr>
+            <tr><td>AI가 매번 처음부터 물어봄</td><td>같은 프로젝트(또는 GPT) 안에서 대화하는지 확인</td></tr>
+          </tbody>
+        </table></div>
+        <p class="tip"><b>다 끝내셨나요?</b> 이제 매일 1분 입력, 월요일 브리핑 읽기, 제안 하나 실행. 이 세 가지만 이어 가면 됩니다.</p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script>
+(function () {
+  var KEY = 'salad-ledger-course-v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  var lessons = Array.prototype.slice.call(document.querySelectorAll('.lesson'));
+  var tocList = document.getElementById('tocList');
+  var cur = 0;
+  var tocBtns = [];
+  var lastPart = '';
+
+  lessons.forEach(function (sec, i) {
+    if (sec.dataset.part !== lastPart) {
+      lastPart = sec.dataset.part;
+      var p = document.createElement('li'); p.className = 'part'; p.textContent = lastPart; tocList.appendChild(p);
+    }
+    var li = document.createElement('li');
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = '<span class="n"></span><span class="t"></span><span class="ok" aria-hidden="true"></span>';
+    b.querySelector('.n').textContent = String(i).padStart(2, '0');
+    b.querySelector('.t').textContent = sec.dataset.title;
+    b.addEventListener('click', function () { show(i, true); closeToc(); });
+    li.appendChild(b); tocList.appendChild(li); tocBtns.push(b);
+
+    var foot = document.createElement('div');
+    foot.className = 'lesson-foot';
+    foot.innerHTML = '<button type="button" class="prev">이전 강의</button><span class="spacer"></span><button type="button" class="done-btn" aria-pressed="false">이 강의 완료</button><button type="button" class="next">다음 강의</button>';
+    sec.appendChild(foot);
+    var prev = foot.querySelector('.prev'), next = foot.querySelector('.next'), done = foot.querySelector('.done-btn');
+    if (i === 0) prev.hidden = true;
+    if (i === lessons.length - 1) next.hidden = true;
+    prev.addEventListener('click', function () { show(i - 1, true); });
+    next.addEventListener('click', function () { show(i + 1, true); });
+    done.addEventListener('click', function () {
+      var k = 'done:' + sec.id;
+      state[k] = !state[k]; save(); paint();
+      if (state[k] && i < lessons.length - 1) show(i + 1, true);
+    });
+  });
+
+  function paint() {
+    var n = 0;
+    lessons.forEach(function (sec, i) {
+      var d = !!state['done:' + sec.id];
+      if (d) n++;
+      tocBtns[i].querySelector('.ok').textContent = d ? '완료' : '';
+      var btn = sec.querySelector('.done-btn');
+      btn.setAttribute('aria-pressed', d ? 'true' : 'false');
+      btn.textContent = d ? '완료함 · 다시 표시 해제' : '이 강의 완료';
+    });
+    var pct = Math.round(n / lessons.length * 100);
+    document.getElementById('pct').textContent = pct + '% · ' + n + '/' + lessons.length + '강';
+    document.getElementById('pbar').style.width = pct + '%';
+  }
+
+  var officeTimer = null;
+  function show(i, scroll) {
+    i = Math.max(0, Math.min(lessons.length - 1, i));
+    cur = i;
+    lessons.forEach(function (sec, k) {
+      if (k === i) { sec.hidden = false; sec.classList.remove('on'); void sec.offsetWidth; sec.classList.add('on'); }
+      else { sec.hidden = true; sec.classList.remove('on'); }
+    });
+    tocBtns.forEach(function (b, k) { b.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+    state.last = i; save();
+    if (scroll) { var top = document.querySelector('.grid').getBoundingClientRect().top + window.scrollY - 12; window.scrollTo({ top: Math.max(0, top), behavior: reduce ? 'auto' : 'smooth' }); }
+    if (officeTimer) { clearInterval(officeTimer); officeTimer = null; }
+    if (lessons[i].id === 'l6') startOffice();
+  }
+
+  // checkboxes
+  document.querySelectorAll('input[type="checkbox"][data-key]').forEach(function (cb) {
+    cb.checked = !!state['c:' + cb.dataset.key];
+    cb.addEventListener('change', function () { state['c:' + cb.dataset.key] = cb.checked; save(); });
+  });
+
+  // copy buttons
+  document.querySelectorAll('.prompt .copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = btn.closest('.prompt').querySelector('pre');
+      var text = pre.textContent;
+      function ok() { btn.textContent = '복사됨'; btn.classList.add('done'); setTimeout(function () { btn.textContent = '복사'; btn.classList.remove('done'); }, 1600); }
+      function fallback() {
+        var r = document.createRange(); r.selectNodeContents(pre);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = '선택됨 · 길게 눌러 복사'; setTimeout(function () { btn.textContent = '복사'; }, 2400);
+      }
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(ok, fallback);
+        else fallback();
+      } catch (e) { fallback(); }
+    });
+  });
+
+  // office
+  var staff = [
+    { name: '장부 과장', chat: '01 장부·정산', job: '수식·월 정산표', ask: '이번 달 정산표 만들어줘', reply: '10월 매출 1,284만 원, 지출 951만 원, 순이익 333만 원이에요. 식재료 원가율은 31%로 지난달보다 2%p 올랐어요.' },
+    { name: '브리핑 실장', chat: '02 월요일 브리핑', job: '매출 제안·정책·뉴스', ask: '이번 주 브리핑 해줘', reply: '매출 제안: 평일 점심 단체 도시락 세트. 정책: 경영안정 바우처 12월 18일 마감. 뉴스: 로메인 시세 2주째 상승.' },
+    { name: '식자재 대리', chat: '03 식자재·메뉴 원가', job: '시세·발주량 계산', ask: '내일 발주량 알려줘', reply: '목요일 평균 판매 기준으로 로메인 2박스, 방울토마토 3kg, 닭가슴살 4kg이면 돼요. 아보카도는 재고가 남아 이번엔 빼세요.' },
+    { name: '인사 담당', chat: '04 알바 관리', job: '근무표·주휴수당·급여', ask: '이번 주 근무표 짜줘', reply: '점심 피크 11~14시는 2명, 15~17시는 1명으로 배치했어요. 알바 A는 주 15시간을 넘어 주휴수당이 생겨요.' },
+    { name: '총무 담당', chat: '05 공과금·지원사업', job: '고지서 비교·지원금', ask: '전기요금 왜 올랐어?', reply: '사용량이 작년 같은 달보다 18% 늘었어요. 매출은 비슷하니 냉장고 문 패킹과 성에를 먼저 점검해 보세요.' },
+    { name: 'SNS 마케터', chat: '06 SNS 운영', job: '게시 계획·캡션·답글', ask: '다음 주 인스타 계획 짜줘', reply: '월 신메뉴 웜볼 사진, 수 15초 릴스, 금 재료 이야기. 캡션과 해시태그까지 준비했어요. 사진만 찍어 주세요.' },
+    { name: '카톡 상담원', chat: '07 카톡 AI 상담', job: '자주 묻는 질문 관리', ask: '단체 주문 답변 만들어줘', reply: '단체 주문은 하루 전까지, 10인분부터 가능하다는 답변 문구를 만들었어요. 채널 관리 화면에 붙여 넣으면 돼요.' },
+    { name: '자동화 엔지니어', chat: '08 자동화·연결', job: 'API 키·스크립트 기록', ask: '오늘 시세가 안 들어왔어', reply: '오류 문장을 보니 인증키가 잘못 들어갔어요. 공공데이터포털 마이페이지에서 키를 복사해 스크립트 3번째 줄에 붙여 넣어 주세요.' }
+  ];
+  var office = document.getElementById('office');
+  var talk = document.getElementById('officeTalk');
+  var desks = staff.map(function (s, k) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'desk pop'; b.style.setProperty('--d', (0.3 + k * 0.08) + 's');
+    b.innerHTML = '<strong></strong><span class="c"></span><span class="j"></span>';
+    b.querySelector('strong').textContent = s.name;
+    b.querySelector('.c').textContent = s.chat + ' 채팅';
+    b.querySelector('.j').textContent = s.job;
+    b.addEventListener('click', function () { if (officeTimer) { clearInterval(officeTimer); officeTimer = null; } pick(k); });
+    office.appendChild(b);
+    return b;
+  });
+  var picked = 0;
+  function pick(k) {
+    picked = k;
+    desks.forEach(function (d, j) { d.classList.toggle('active', j === k); d.setAttribute('aria-pressed', j === k ? 'true' : 'false'); });
+    var s = staff[k];
+    talk.innerHTML = '';
+    var w = document.createElement('span'); w.className = 'who-desk'; w.textContent = s.name + ' · ' + s.chat + ' 채팅 · 예시';
+    var me = document.createElement('div'); me.className = 'bubble me'; me.innerHTML = '<span class="who">사장님</span>'; me.appendChild(document.createTextNode(s.ask));
+    var ai = document.createElement('div'); ai.className = 'bubble ai'; ai.innerHTML = '<span class="who"></span>'; ai.querySelector('.who').textContent = s.name; ai.appendChild(document.createTextNode(s.reply));
+    var wrap = document.createElement('div'); wrap.className = 'chat';
+    wrap.appendChild(me); wrap.appendChild(ai);
+    talk.appendChild(w); talk.appendChild(wrap);
+  }
+  function startOffice() {
+    pick(picked);
+    if (reduce) return;
+    officeTimer = setInterval(function () { pick((picked + 1) % staff.length); }, 4200);
+  }
+  pick(0);
+
+  // toc toggle (phone)
+  var toggle = document.getElementById('tocToggle');
+  var toc = document.getElementById('toc');
+  var mq = window.matchMedia('(max-width: 900px)');
+  function syncToc() { if (mq.matches) { toc.hidden = toggle.getAttribute('aria-expanded') !== 'true'; } else { toc.hidden = false; } }
+  function closeToc() { if (mq.matches) { toggle.setAttribute('aria-expanded', 'false'); toggle.textContent = '목차 열기'; syncToc(); } }
+  toggle.addEventListener('click', function () {
+    var open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.textContent = open ? '목차 닫기' : '목차 열기';
+    syncToc();
+  });
+  if (mq.addEventListener) mq.addEventListener('change', syncToc);
+  syncToc();
+
+  document.getElementById('reset').addEventListener('click', function () {
+    state = {}; save();
+    document.querySelectorAll('input[type="checkbox"][data-key]').forEach(function (cb) { cb.checked = false; });
+    paint();
+    var m = document.getElementById('resetMsg'); m.hidden = false; setTimeout(function () { m.hidden = true; }, 2000);
+  });
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var start = 0;
+  var h = (location.hash || '').replace('#', '');
+  var byHash = lessons.findIndex(function (s) { return s.id === h; });
+  if (byHash >= 0) start = byHash; else if (typeof state.last === 'number') start = state.last;
+  paint();
+  show(start, false);
+})();
+</script>
+
+</body>
+</html>
