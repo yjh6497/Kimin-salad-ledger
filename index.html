@@ -176,6 +176,19 @@ dfn { font-style: normal; white-space: nowrap; }
 .mock-arrow { align-self: center; text-align: center; font-size: 22px; color: var(--leaf); }
 @container vis (max-width: 480px) { .mock { grid-template-columns: minmax(0, 1fr); } .mock-arrow { transform: rotate(90deg); } }
 
+
+/* phone form + roles */
+.phone-form { max-width: 320px; background: var(--paper); border: 1px solid var(--line); border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.pf-head { display: flex; flex-direction: column; gap: 2px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.pf-head b { font-size: 15px; } .pf-head span { font-size: 12px; color: var(--muted); }
+.pf-row { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; background: var(--sunk); border-radius: 8px; padding: 7px 10px; }
+.pf-row span { color: var(--muted); } .pf-row b { font-weight: 600; text-align: right; }
+.pf-send { font-size: 13.5px; text-align: center; background: var(--leaf); color: var(--paper); border-radius: 999px; padding: 8px; }
+.roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: 560px; }
+.role { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.role-tag { font-size: 12px; color: var(--leaf); font-weight: 600; letter-spacing: .03em; }
+.role-row { font-size: 14px; background: var(--sunk); border-radius: 8px; padding: 7px 10px; }
+
 /* steps */
 .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; counter-reset: st; }
 .steps > li { counter-increment: st; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px 12px 12px; display: grid; grid-template-columns: 28px 26px minmax(0, 1fr); gap: 10px; align-items: start; }
@@ -274,12 +287,11 @@ td b { font-weight: 600; }
 
     <main id="lessons">
 
-<!-- 0 -->
 <section class="lesson" id="l0" data-part="시작" data-title="이 코스로 만드는 것">
   <div class="lesson-head">
-    <span class="kicker">강의 0 · 약 5분</span>
+    <span class="kicker">약 5분</span>
     <h2>코딩 없이, 말로 부탁해서 만듭니다</h2>
-    <p class="goal"><dfn data-t="sheet">구글 시트</dfn> 장부와 AI 경영 비서(<dfn data-t="claude">Claude</dfn> 또는 <dfn data-t="chatgpt">ChatGPT</dfn>)를 연결해, 매출·지출 정리부터 개선 제안까지 받는 우리 가게 시스템을 직접 만듭니다.</p>
+    <p class="goal"><dfn data-t="sheet">구글 시트</dfn> 장부와 AI 경영 비서(<dfn data-t="claude">Claude</dfn> 또는 <dfn data-t="chatgpt">ChatGPT</dfn>)를 연결해, 매출·지출 정리부터 개선 제안까지 받는 우리 가게 시스템을 직접 만듭니다. 마지막 단계에서는 직원이 휴대폰으로 근태와 식자재를 입력하는 앱과 가게 홈페이지까지 운영합니다.</p>
   </div>
   <div class="vis">
     <div class="flowgrid">
@@ -313,40 +325,23 @@ td b { font-weight: 600; }
     <li><input type="checkbox" id="c0d" data-key="c0d"><label for="c0d">Claude 또는 ChatGPT 계정 (유료 플랜 권장)</label></li>
     <li><input type="checkbox" id="c0e" data-key="c0e"><label for="c0e">포스 관리자 계정, 배달앱 사장님 사이트 계정</label></li>
   </ul>
+  <h3>배우는 순서</h3>
   <div class="table-wrap"><table>
-    <thead><tr><th>단계</th><th>하는 일</th><th>난이도</th><th>시간</th></tr></thead>
+    <thead><tr><th>단계</th><th>배우는 것</th><th>강의</th><th>시간</th></tr></thead>
     <tbody>
-      <tr><td><b>1단계</b></td><td>구글 시트 장부와 휴대폰 입력 화면 (강의 4)</td><td>쉬움</td><td>반나절</td></tr>
-      <tr><td><b>2단계</b></td><td>AI 비서에 장부 연결, 가상 사무실 꾸리기 (강의 5~7)</td><td>보통</td><td>하루</td></tr>
-      <tr><td><b>3단계</b></td><td>월요일 브리핑, SNS 예약, 카카오톡 AI 상담, 배달앱·매장 개선 (강의 8~11)</td><td>보통</td><td>각각 하루</td></tr>
-      <tr><td><b>4단계</b></td><td>공공데이터 API로 자동 수집 (강의 12)</td><td>어려움</td><td>익숙해진 뒤</td></tr>
+      <tr><td><b>1단계 · 장부 기초</b></td><td>포스·배달앱 데이터 받기, 구글 시트 장부와 휴대폰 입력</td><td><span class="refs" data-refs="l3 l4"></span></td><td>반나절</td></tr>
+      <tr><td><b>2단계 · AI 비서</b></td><td>Claude 또는 ChatGPT에 장부 연결, 가상 사무실 꾸리기</td><td><span class="refs" data-refs="l5 l7 l6"></span></td><td>하루</td></tr>
+      <tr><td><b>3단계 · 매주 경영 루틴</b></td><td>월요일 브리핑, 배달앱·매장 개선, SNS, 카카오톡 AI 상담</td><td><span class="refs" data-refs="l8 l14 l9 l10"></span></td><td>각각 하루</td></tr>
+      <tr><td><b>4단계 · 자동화</b></td><td>공공데이터 API로 시세·상권 자동 수집</td><td><span class="refs" data-refs="l11"></span></td><td>익숙해진 뒤</td></tr>
+      <tr><td><b>5단계 · 직원 앱과 웹사이트</b></td><td>직원 권한, 근태·식자재 입력 앱, 가게 홈페이지 운영</td><td><span class="refs" data-refs="l15 l16 l17 l18"></span></td><td>1~2주</td></tr>
     </tbody>
   </table></div>
+  <p class="tip"><b>한 단계를 끝내고 다음으로.</b> 1단계 장부가 쌓여야 2단계 AI 비서가 똑똑해지고, 3단계 루틴이 손에 익어야 5단계 직원 앱이 쓸모 있어져요.</p>
 </section>
 
-<!-- 1 -->
-<section class="lesson" id="l1" data-part="시작" data-title="용어 사전" hidden>
-  <div class="lesson-head">
-    <span class="kicker">강의 1 · 필요할 때 펼쳐 보기</span>
-    <h2>모르는 말은 여기서 찾아요</h2>
-    <p class="goal">외우지 않아도 됩니다. 코스 곳곳의 ? 버튼과 같은 설명이 여기에 모여 있어요.</p>
-  </div>
-  <div class="cards">
-    <div class="term pop" style="--d:.05s"><strong>프롬프트</strong><span>AI에게 하는 부탁 문장</span><em>알바생에게 주는 작업 지시</em></div>
-    <div class="term pop" style="--d:.12s"><strong>프로젝트</strong><span>지침과 자료를 미리 넣어 둔 AI 작업 공간</span><em>우리 가게 본사</em></div>
-    <div class="term pop" style="--d:.19s"><strong>커넥터</strong><span>AI와 다른 앱을 잇는 연결</span><em>냉장고 전원 플러그</em></div>
-    <div class="term pop" style="--d:.26s"><strong>API</strong><span>데이터를 자동으로 받는 창구</span><em>거래처 정기 배송 창구</em></div>
-  </div>
-  <p class="tip"><b>순서만 기억하세요.</b> 처음엔 파일 올리기, 익숙해지면 커넥터, 마지막이 API·MCP입니다.</p>
-  <h3>전체 용어 사전</h3>
-  <div class="dict-filter"><input id="dictQ" type="search" placeholder="낱말 찾기 (예: 트리거)" aria-label="용어 찾기"></div>
-  <div class="dict" id="dict"></div>
-</section>
-
-<!-- 2 -->
 <section class="lesson" id="l2" data-part="시작" data-title="사장님이 해야 할 일" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 2 · 체크리스트</span>
+    <span class="kicker">체크리스트</span>
     <h2>AI가 대신 못 하는 일은 세 가지</h2>
     <p class="goal">계정 만들기, 데이터 내려받기, 결과 확인. 첫 주에 아래를 하나씩 끝내세요.</p>
   </div>
@@ -358,14 +353,14 @@ td b { font-weight: 600; }
         <li>이름 칸에 <b>우리가게 장부</b> 입력 → <span class="path">만들기</span></li>
         <li>휴대폰에는 'Google Drive' 앱을 설치해 같은 계정으로 로그인<span class="fix">구글 계정이 없으면 accounts.google.com에서 '계정 만들기'를 먼저 하세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="c2b" data-key="c2b"><div class="body"><label for="c2b">Claude 또는 ChatGPT 가입, 휴대폰 앱 설치</label><small>둘 중 하나만 골라도 됩니다. 강의 7에 비교표가 있어요.</small>
+    <li><input type="checkbox" id="c2b" data-key="c2b"><div class="body"><label for="c2b">Claude 또는 ChatGPT 가입, 휴대폰 앱 설치</label><small>둘 중 하나만 골라도 됩니다. <a href="#l7" class="ref" data-ref="l7">강의</a>에 비교표가 있어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>Claude: <span class="path">claude.ai</span> 접속 → <span class="path">Google로 계속하기</span> → 방금 쓴 구글 계정 선택</li>
         <li>ChatGPT: <span class="path">chatgpt.com</span> 접속 → <span class="path">회원가입 → Google로 계속하기</span></li>
         <li>휴대폰 앱스토어(아이폰) 또는 플레이스토어(안드로이드)에서 같은 이름의 앱 설치 → 같은 계정으로 로그인</li>
         <li>파일 분석·예약 작업을 넉넉히 쓰려면 설정의 요금제 메뉴에서 유료 플랜으로 바꾸기<span class="fix">무료로 먼저 시험해 보고, 막히는 기능이 생기면 그때 바꿔도 돼요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="c2c" data-key="c2c"><div class="body"><label for="c2c">포스의 매출 엑셀 내보내기 메뉴 찾기</label><small>강의 3에 토스 포스 순서가 있어요. 다른 포스는 고객센터에 물어보세요.</small></div></li>
+    <li><input type="checkbox" id="c2c" data-key="c2c"><div class="body"><label for="c2c">포스의 매출 엑셀 내보내기 메뉴 찾기</label><small><a href="#l3" class="ref" data-ref="l3">강의</a>에 토스 포스 순서가 있어요. 다른 포스는 고객센터에 물어보세요.</small></div></li>
     <li><input type="checkbox" id="c2d" data-key="c2d"><div class="body"><label for="c2d">배달앱 사장님 사이트에 로그인해 정산 메뉴 찾기</label><small>배민·쿠팡이츠·요기요 중 쓰는 곳 모두</small></div></li>
     <li><input type="checkbox" id="c2e" data-key="c2e"><div class="body"><label for="c2e">카드매출 통합조회 가입</label><small><dfn data-t="cardsales">카드매출 통합조회</dfn>에서 카드사별 매출·입금·수수료를 한 번에 봐요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
@@ -379,7 +374,7 @@ td b { font-weight: 600; }
         <li>PC에 있는 엑셀 파일을 끌어다 화면에 놓기 (또는 <span class="path">+ 새로 만들기 → 파일 업로드</span>)</li>
       </ol></details></div></li>
     <li><input type="checkbox" id="c2g" data-key="c2g"><div class="body"><label for="c2g">고정비 목록 적어 두기</label><small>월세, 관리비, 통신, 보험, 대출이자, 정수기·세스코 같은 정기 계약</small></div></li>
-    <li><input type="checkbox" id="c2h" data-key="c2h"><div class="body"><label for="c2h">알바생 시급·근무 요일·시간 적어 두기</label><small>강의 6의 인사 담당이 근무표와 <dfn data-t="holidaypay">주휴수당</dfn>을 계산할 때 씁니다.</small></div></li>
+    <li><input type="checkbox" id="c2h" data-key="c2h"><div class="body"><label for="c2h">알바생 시급·근무 요일·시간 적어 두기</label><small><a href="#l6" class="ref" data-ref="l6">강의</a>의 인사 담당이 근무표와 <dfn data-t="holidaypay">주휴수당</dfn>을 계산할 때 씁니다.</small></div></li>
   </ol>
   <h3>그 뒤의 루틴</h3>
   <div class="table-wrap"><table>
@@ -392,10 +387,9 @@ td b { font-weight: 600; }
   </table></div>
 </section>
 
-<!-- 3 -->
-<section class="lesson" id="l3" data-part="데이터" data-title="포스·배달앱·카드 데이터" hidden>
+<section class="lesson" id="l3" data-part="1단계 · 장부 기초" data-title="포스·배달앱·카드 데이터" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 3 · 약 15분</span>
+    <span class="kicker">약 15분</span>
     <h2>숫자는 엑셀로 받아서 폴더에 넣어요</h2>
     <p class="goal">소규모 매장은 포스·배달앱 데이터를 <dfn data-t="api">API</dfn>로 직접 받기 어려워요. 엑셀로 내려받아 장부 폴더에 넣으면 AI가 읽습니다.</p>
   </div>
@@ -425,10 +419,9 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://tossplace.com/story/salesreport" target="_blank" rel="noopener">토스 포스 매출 리포트</a> · <a href="https://tossplace.com/story/delivery-sales-free" target="_blank" rel="noopener">토스 포스 배달 매출 연결</a> · <a href="https://help.bznav.com/hc/ko/articles/900007650043" target="_blank" rel="noopener">배민 부가세 신고자료 조회</a> · <a href="https://news.jkn.co.kr/post/726614" target="_blank" rel="noopener">여신금융협회 카드매출조회</a></p>
 </section>
 
-<!-- 4 -->
-<section class="lesson" id="l4" data-part="실습" data-title="실습 1 · 구글 시트 장부" hidden>
+<section class="lesson" id="l4" data-part="1단계 · 장부 기초" data-title="구글 시트 장부 만들기" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 4 · 실습 · 반나절</span>
+    <span class="kicker">실습 · 반나절</span>
     <h2>구글 시트로 장부부터 만들어요</h2>
     <p class="goal">휴대폰·PC 어디서나 열리고, Claude와 ChatGPT 모두 연결되는 장부를 만듭니다. PC에서 하는 걸 추천해요.</p>
   </div>
@@ -482,12 +475,11 @@ td b { font-weight: 600; }
   <p class="tip"><b>지출의 대분류는 7개로 고정</b>하세요. 식재료·포장재·인건비·공간비·판매수수료·마케팅·운영비. 같은 이름을 계속 써야 분석이 정확해요.</p>
 </section>
 
-<!-- 5 -->
-<section class="lesson" id="l5" data-part="실습" data-title="실습 2 · Claude 프로젝트" hidden>
+<section class="lesson" id="l5" data-part="2단계 · AI 비서" data-title="Claude로 AI 비서 만들기" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 5 · 실습 · 약 1시간</span>
+    <span class="kicker">실습 · 약 1시간</span>
     <h2>Claude에 '우리 가게 본사'를 차려요</h2>
-    <p class="goal"><dfn data-t="project">프로젝트</dfn> 하나를 경영 비서의 본사로 만들고, 장부를 연결합니다. ChatGPT를 쓰신다면 강의 7로 가세요.</p>
+    <p class="goal"><dfn data-t="project">프로젝트</dfn> 하나를 경영 비서의 본사로 만들고, 장부를 연결합니다. ChatGPT를 쓰신다면 <a href="#l7" class="ref" data-ref="l7">강의</a>로 가세요.</p>
   </div>
   <ol class="steps">
     <li><input type="checkbox" id="s5a" data-key="s5a"><div class="body"><label for="s5a">새 프로젝트 만들기</label><small>이름은 '우리 가게 경영 비서'</small>
@@ -526,10 +518,41 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://support.claude.com/en/articles/10166901-using-the-google-workspace-integrations" target="_blank" rel="noopener">Claude Google Workspace 커넥터 도움말</a></p>
 </section>
 
-<!-- 6 -->
-<section class="lesson" id="l6" data-part="실습" data-title="가상 사무실 꾸리기" hidden>
+<section class="lesson" id="l7" data-part="2단계 · AI 비서" data-title="ChatGPT로 AI 비서 만들기" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 6 · 실습 · 약 30분</span>
+    <span class="kicker">실습 · 약 1시간</span>
+    <h2>ChatGPT를 쓰신다면</h2>
+    <p class="goal"><dfn data-t="gpt">GPT</dfn> 만들기 또는 프로젝트로 같은 경영 비서를 만들 수 있어요. 메뉴 이름은 업데이트로 바뀔 수 있으니 비슷한 이름을 찾으세요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s7a" data-key="s7a"><div class="body"><label for="s7a">프로젝트 만들기 (추천)</label><small>매주 예약 작업은 GPT 안에서 안 되니 프로젝트를 먼저 만드세요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>chatgpt.com 왼쪽 메뉴 <span class="path">새 프로젝트</span> → 이름 '우리 가게 경영 비서'</li>
+        <li>프로젝트 화면에서 지침(또는 설정) 칸에 <a href="#l5" class="ref" data-ref="l5">강의</a>의 지침문 붙여 넣기</li>
+        <li>파일 영역에 기존 정산표, 메뉴 레시피 표 올리기</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s7b" data-key="s7b"><div class="body"><label for="s7b">Google Drive 연결</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>왼쪽 아래 내 이름 → <span class="path">설정 → 앱(또는 커넥터)</span></li>
+        <li>Google Drive <span class="path">연결</span> → 구글 계정 선택 → 허용</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s7c" data-key="s7c"><div class="body"><label for="s7c">직원 채팅 나누기</label><small><a href="#l6" class="ref" data-ref="l6">강의</a>의 가상 사무실 방식을 ChatGPT 프로젝트 안에서도 똑같이 쓸 수 있어요.</small></div></li>
+  </ol>
+  <div class="table-wrap"><table>
+    <thead><tr><th>항목</th><th>Claude</th><th>ChatGPT</th></tr></thead>
+    <tbody>
+      <tr><td>전용 비서 방</td><td>프로젝트</td><td>프로젝트, GPT</td></tr>
+      <tr><td>구글 드라이브</td><td>커넥터</td><td>앱(커넥터)</td></tr>
+      <tr><td>외부 API</td><td>MCP 사용자 지정 커넥터</td><td>GPT 액션, 개발자 모드 MCP</td></tr>
+      <tr><td>매주 자동 실행</td><td>예약 작업 (유료)</td><td>예약 작업 (GPT 안에서는 안 됨)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="tip">둘 다 이 코스에는 충분합니다. 이미 쓰고 계신 쪽으로 시작하세요.</p>
+</section>
+
+<section class="lesson" id="l6" data-part="2단계 · AI 비서" data-title="가상 사무실 꾸리기" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 30분</span>
     <h2>채팅마다 직원 한 명, 가상 사무실</h2>
     <p class="goal">프로젝트 안에서 기능별로 <dfn data-t="chat">채팅</dfn>을 나누면 회사처럼 운영할 수 있어요. 지침과 장부는 한 번만 넣으면 모든 직원이 같이 씁니다.</p>
   </div>
@@ -556,7 +579,7 @@ td b { font-weight: 600; }
     <li><input type="checkbox" id="s6c" data-key="s6c"><div class="body"><label for="s6c"><dfn data-t="worklog">업무일지</dfn> 문서 만들기</label><small>채팅끼리는 서로의 대화를 보지 못해서, 정한 내용을 한곳에 모아요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>드라이브 장부 폴더에서 <span class="path">+ 새로 만들기 → Google 문서</span>, 이름 '업무일지'</li>
-        <li>각 채팅에서 일이 끝나면 강의 13의 '업무일지 정리' 부탁문 보내기 → 답을 업무일지에 붙여 넣기</li>
+        <li>각 채팅에서 일이 끝나면 <a href="#l12" class="ref" data-ref="l12">강의</a>의 '업무일지 정리' 부탁문 보내기 → 답을 업무일지에 붙여 넣기</li>
         <li>업무일지를 프로젝트 파일에 Google Drive로 추가해 두기 (한 번만)</li>
       </ol></details></div></li>
   </ol>
@@ -575,43 +598,9 @@ td b { font-weight: 600; }
   </table></div>
 </section>
 
-<!-- 7 -->
-<section class="lesson" id="l7" data-part="실습" data-title="실습 2 · ChatGPT로 하기" hidden>
+<section class="lesson" id="l8" data-part="3단계 · 매주 경영 루틴" data-title="월요일 브리핑 예약" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 7 · 실습 · 약 1시간</span>
-    <h2>ChatGPT를 쓰신다면</h2>
-    <p class="goal"><dfn data-t="gpt">GPT</dfn> 만들기 또는 프로젝트로 같은 경영 비서를 만들 수 있어요. 메뉴 이름은 업데이트로 바뀔 수 있으니 비슷한 이름을 찾으세요.</p>
-  </div>
-  <ol class="steps">
-    <li><input type="checkbox" id="s7a" data-key="s7a"><div class="body"><label for="s7a">프로젝트 만들기 (추천)</label><small>매주 예약 작업은 GPT 안에서 안 되니 프로젝트를 먼저 만드세요.</small>
-      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>chatgpt.com 왼쪽 메뉴 <span class="path">새 프로젝트</span> → 이름 '우리 가게 경영 비서'</li>
-        <li>프로젝트 화면에서 지침(또는 설정) 칸에 강의 5의 지침문 붙여 넣기</li>
-        <li>파일 영역에 기존 정산표, 메뉴 레시피 표 올리기</li>
-      </ol></details></div></li>
-    <li><input type="checkbox" id="s7b" data-key="s7b"><div class="body"><label for="s7b">Google Drive 연결</label>
-      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>왼쪽 아래 내 이름 → <span class="path">설정 → 앱(또는 커넥터)</span></li>
-        <li>Google Drive <span class="path">연결</span> → 구글 계정 선택 → 허용</li>
-      </ol></details></div></li>
-    <li><input type="checkbox" id="s7c" data-key="s7c"><div class="body"><label for="s7c">직원 채팅 나누기</label><small>강의 6의 가상 사무실 방식을 ChatGPT 프로젝트 안에서도 똑같이 쓸 수 있어요.</small></div></li>
-  </ol>
-  <div class="table-wrap"><table>
-    <thead><tr><th>항목</th><th>Claude</th><th>ChatGPT</th></tr></thead>
-    <tbody>
-      <tr><td>전용 비서 방</td><td>프로젝트</td><td>프로젝트, GPT</td></tr>
-      <tr><td>구글 드라이브</td><td>커넥터</td><td>앱(커넥터)</td></tr>
-      <tr><td>외부 API</td><td>MCP 사용자 지정 커넥터</td><td>GPT 액션, 개발자 모드 MCP</td></tr>
-      <tr><td>매주 자동 실행</td><td>예약 작업 (유료)</td><td>예약 작업 (GPT 안에서는 안 됨)</td></tr>
-    </tbody>
-  </table></div>
-  <p class="tip">둘 다 이 코스에는 충분합니다. 이미 쓰고 계신 쪽으로 시작하세요.</p>
-</section>
-
-<!-- 8 -->
-<section class="lesson" id="l8" data-part="매주 운영" data-title="월요일 브리핑 예약" hidden>
-  <div class="lesson-head">
-    <span class="kicker">강의 8 · 실습 · 약 30분</span>
+    <span class="kicker">실습 · 약 30분</span>
     <h2>월요일 아침, 브리핑이 알아서 와요</h2>
     <p class="goal">지난주 매출, 매출 올리는 제안, 알아야 할 정책, 업계 뉴스를 <dfn data-t="scheduled">예약 작업</dfn>으로 매주 받습니다.</p>
   </div>
@@ -654,10 +643,109 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork" target="_blank" rel="noopener">Claude 예약 작업</a> · <a href="https://help.openai.com/ko-kr/articles/10291617-scheduled-tasks-in-chatgpt" target="_blank" rel="noopener">ChatGPT 예약 작업</a></p>
 </section>
 
-<!-- 9 -->
-<section class="lesson" id="l9" data-part="매주 운영" data-title="SNS 운영과 자동화" hidden>
+<section class="lesson" id="l14" data-part="3단계 · 매주 경영 루틴" data-title="배달앱·매장 개선 컨설팅" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 9 · 실습 · 약 1시간</span>
+    <span class="kicker">실습 · 약 1시간</span>
+    <h2>배달앱 화면과 매장 동선도 AI가 봐 줘요</h2>
+    <p class="goal">화면 캡처와 매장 사진, 장부 숫자를 '09 배달앱·매장 개선' 직원에게 주면 무엇을 어떻게 바꿀지 순서까지 제안합니다.</p>
+  </div>
+  <div class="vis">
+    <div class="mock">
+      <div class="mock-col a" style="--d:.1s">
+        <span class="mock-tag">지금</span>
+        <div class="mock-item">시저 샐러드</div><div class="mock-item">아메리카노</div><div class="mock-item">닭가슴살 볼</div><div class="mock-item">콥 샐러드</div><div class="mock-item">스프 추가</div><div class="mock-item dim">… 메뉴 15개가 한 줄로</div>
+      </div>
+      <div class="mock-arrow a" style="--d:.5s" aria-hidden="true">→</div>
+      <div class="mock-col after a" style="--d:.7s">
+        <span class="mock-tag">바꾼 뒤 · 예시</span>
+        <div class="mock-sig pop" style="--d:1s"><b>대표</b> 닭가슴살 볼 · 판매 1위</div>
+        <div class="mock-group pop" style="--d:1.2s">든든한 한 끼 · 4</div>
+        <div class="mock-group pop" style="--d:1.35s">가벼운 한 끼 · 4</div>
+        <div class="mock-group pop" style="--d:1.5s">세트 · 토핑 추가 · 3</div>
+        <div class="mock-group pop" style="--d:1.65s">사이드·음료 · 4</div>
+      </div>
+    </div>
+    <p class="cap a" style="--d:1.9s">장부의 판매량과 원가율로 대표메뉴와 순서를 정합니다. 화면과 숫자는 예시입니다.</p>
+  </div>
+
+  <h3>가. 배달앱 가게 화면 진단</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s14a" data-key="s14a"><div class="body"><label for="s14a">우리 가게 화면 캡처 모으기</label><small>손님이 보는 화면 그대로, 위에서 아래까지</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>휴대폰에서 손님용 배달앱을 열고 우리 가게 검색</li>
+        <li>가게 첫 화면(소개글·대표메뉴) → 메뉴판을 내리면서 → 리뷰 화면까지 캡처 (아이폰: 측면 버튼+음량 올리기 / 안드로이드: 전원+음량 내리기)</li>
+        <li>같은 동네에서 리뷰가 많은 샐러드·포케 가게 2~3곳도 같은 방법으로 캡처<span class="fix">캡처가 10장을 넘으면 우리 가게 것만 먼저 올리고, 경쟁 가게는 다음 메시지로 보내세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s14b" data-key="s14b"><div class="body"><label for="s14b">장부 숫자 함께 주기</label><small>메뉴별 판매 수량과 <dfn data-t="costratio">원가율</dfn>, 주문 수와 <dfn data-t="aov">객단가</dfn></small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>포스 엑셀의 '상품 주문' 시트(메뉴별 판매)를 장부 폴더에 올려 두기</li>
+        <li>'03 식자재·메뉴 원가' 직원에게 받은 메뉴별 원가율을 업무일지에 적어 두기</li>
+        <li>'09 배달앱·매장 개선' 채팅을 만들고 첫 메시지로 직책 알려 주기 (<a href="#l6" class="ref" data-ref="l6">강의</a>의 직원 첫 메시지)</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s14c" data-key="s14c"><div class="body"><label for="s14c">진단 받기</label><small>아래 '배달앱 화면 진단' 부탁문과 캡처를 함께 보내요.</small></div></li>
+    <li><input type="checkbox" id="s14d" data-key="s14d"><div class="body"><label for="s14d">한두 가지씩 바꾸기</label><small>한 번에 다 바꾸면 무엇이 효과였는지 알 수 없어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>배달앱 사장님 사이트(또는 사장님 앱)의 가게 관리 → 가게 소개 수정</li>
+        <li>메뉴 관리에서 <dfn data-t="signature">대표메뉴</dfn> 지정, <dfn data-t="menugroup">메뉴 그룹</dfn> 만들고 순서 옮기기, 메뉴 설명 고치기</li>
+        <li>바꾼 날짜와 내용을 장부의 '제안기록' 탭에 적기<span class="fix">메뉴 이름과 위치는 앱마다 달라요. 못 찾으면 화면을 캡처해 '막혔을 때' 부탁문과 함께 보내세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s14e" data-key="s14e"><div class="body"><label for="s14e">2주 뒤 비교하기</label><small>"바꾸기 전 2주와 후 2주의 주문 수·객단가·대표메뉴 판매를 비교해줘"</small></div></li>
+  </ol>
+  <div class="table-wrap"><table>
+    <thead><tr><th>점검할 곳</th><th>보는 기준 (경험에서 나온 권장 기준)</th></tr></thead>
+    <tbody>
+      <tr><td><b>가게 소개글</b></td><td>첫 두 줄에 무엇을, 누구에게, 무엇이 다른지. 영업시간·단체 주문 안내는 그 아래</td></tr>
+      <tr><td><b>대표메뉴</b></td><td>잘 팔리고 원가율이 괜찮은 메뉴 1~3개. 사진이 가장 좋은 메뉴로</td></tr>
+      <tr><td><b>메뉴 배치</b></td><td>비슷한 메뉴끼리 4~6개 그룹, 안 팔리는 메뉴는 정리. 손님이 고르기 쉬운 순서</td></tr>
+      <tr><td><b>메뉴 이름·설명</b></td><td>이름에 핵심 재료, 설명 1~2줄에 맛·식감·양. 효과를 단정하는 표현은 쓰지 않기</td></tr>
+      <tr><td><b>사진</b></td><td>같은 각도·밝기·그릇으로 통일, 위에서 내려다본 구도</td></tr>
+      <tr><td><b>가격·옵션</b></td><td>세트, 토핑·단백질 추가 옵션으로 객단가 올리기. 최소주문금액·배달팁 조합은 장부로 시뮬레이션</td></tr>
+      <tr><td><b>리뷰</b></td><td>불만 낱말이 반복되는지(양, 소스, 포장, 시간). 답글은 <a href="#l9" class="ref" data-ref="l9">강의</a> 부탁문으로</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prompt"><div class="bar"><span>배달앱 화면 진단 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 캡처는 우리 샐러드 가게의 배달앱 화면이고, 뒤의 캡처는 같은 동네 경쟁 가게야.
+장부의 메뉴별 판매 수량과 원가율도 참고해서 아래를 진단해줘.
+1) 가게 소개글: 첫 두 줄이 무엇을·누구에게·무엇이 다른지 말하는지, 고친 문장 2가지
+2) 대표메뉴: 판매량과 원가율로 볼 때 무엇을 대표로 둘지 1~3개와 이유
+3) 메뉴 배치: 메뉴 그룹 구성과 순서, 정리할 메뉴
+4) 메뉴 이름·설명: 고칠 메뉴 5개와 새 이름·설명 (효과를 단정하는 표현 금지)
+5) 사진: 다시 찍을 메뉴와 찍는 법
+6) 가격·옵션: 세트·토핑 옵션으로 객단가를 올릴 방법
+마지막에 이번 주에 먼저 바꿀 것 2가지만 골라줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>가게 소개글 다시 쓰기 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 가게 배달앱 소개글을 3가지 버전으로 써줘. 우리 가게 강점은 ○○, ○○이고 주 고객은 ○○야. 첫 두 줄만 읽어도 무엇을 파는 가게인지 알 수 있게 하고, 전체는 300자 이내로. 과장이나 효과를 단정하는 표현은 쓰지 마.</pre></div>
+
+  <h3>나. 매장 구조·동선 진단</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s14f" data-key="s14f"><div class="body"><label for="s14f">매장 사진 찍기</label><small>손님이 없는 시간에 8장 정도</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>입구에서 안쪽을 보며 한 장, 그다음 주문대, 메뉴판, 쇼케이스·냉장고, 픽업대, 주방 작업대, 세척대, 좌석</li>
+        <li>휴대폰을 가로로 들고 사람 눈높이에서 찍기</li>
+        <li>정리하지 않은 평소 모습 그대로 찍어야 진단이 정확해요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s14g" data-key="s14g"><div class="body"><label for="s14g">간단한 평면도 그리기</label><small>종이에 손으로 그려도 충분해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>매장 모양대로 네모를 그리고 가로·세로 길이(m)를 줄자로 재서 적기</li>
+        <li>출입문, 창문, 주문대, 픽업대, 냉장고, 작업대, 싱크대 위치를 네모로 표시</li>
+        <li>사진을 찍어 '09 배달앱·매장 개선' 채팅에 올리기</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s14h" data-key="s14h"><div class="body"><label for="s14h">불편한 점 적기</label><small>점심 피크에 막히는 곳, 배달 라이더가 기다리는 자리, 손님 줄이 서는 곳, 직원끼리 부딪히는 곳</small></div></li>
+    <li><input type="checkbox" id="s14i" data-key="s14i"><div class="body"><label for="s14i"><dfn data-t="flow">동선</dfn> 진단 받기</label><small>아래 '매장 구조 진단' 부탁문과 사진·평면도를 함께 보내요.</small></div></li>
+    <li><input type="checkbox" id="s14j" data-key="s14j"><div class="body"><label for="s14j">돈 안 드는 것부터 바꾸기</label><small>메뉴판 글씨와 순서, 픽업대 위치, 재료 놓는 순서처럼 공사 없이 되는 것부터. 1주 해 보고 피크 시간이 빨라졌는지 확인해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>매장 구조 진단 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 사진과 평면도는 우리 샐러드 가게야. 매장 크기는 가로 ○m, 세로 ○m이고, 점심 피크(11~14시)에 직원 ○명이 일해. 불편한 점은 ○○, ○○야.
+아래를 진단해줘.
+1) 손님 동선: 들어와서 주문·결제·픽업·퇴장까지 겹치거나 막히는 곳
+2) 배달 동선: 배달 주문 포장과 라이더 대기 자리를 손님 동선과 나누는 방법
+3) 주방 동선: 세척 → 손질 → 보관 → 조립 → 포장 순서로 작업대·냉장고 배치
+4) 메뉴판·진열: 멀리서도 읽히는지, 대표메뉴가 먼저 보이는지
+5) 바로 할 수 있는 것(비용 0원), 작은 비용(10만 원 이하), 공사가 필요한 것으로 나눠서
+공사가 필요한 것은 업체 견적과 위생·소방 확인이 필요하다고 표시해줘.</pre></div>
+  <p class="tip warnbox"><b>공사 전에는 전문가 확인.</b> 칸막이, 전기·가스·급배수, 환기, 소방 설비를 바꾸는 일은 업체 견적과 관할 기관 확인이 필요해요. AI 제안은 방향을 잡는 참고로만 쓰세요.</p>
+</section>
+
+<section class="lesson" id="l9" data-part="3단계 · 매주 경영 루틴" data-title="SNS 운영과 자동화" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간</span>
     <h2>계획과 글은 AI, 사진만 사장님</h2>
     <p class="goal">한 달 치 계획을 한 번에 세우고, 한 주 치 게시물을 <dfn data-t="mbs">메타 비즈니스 스위트</dfn>로 한 번에 예약합니다.</p>
   </div>
@@ -698,10 +786,9 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://sproutsocial.com/insights/how-to-use-meta-business-suite/" target="_blank" rel="noopener">메타 비즈니스 스위트 사용법</a></p>
 </section>
 
-<!-- 10 -->
-<section class="lesson" id="l10" data-part="매주 운영" data-title="카카오톡 채널 AI 상담" hidden>
+<section class="lesson" id="l10" data-part="3단계 · 매주 경영 루틴" data-title="카카오톡 채널 AI 상담" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 10 · 실습 · 약 1시간</span>
+    <span class="kicker">실습 · 약 1시간</span>
     <h2>카카오톡 문의는 AI가 24시간</h2>
     <p class="goal">영업시간·메뉴·단체 주문 문의에 답하는 봇을 코딩 없이 만듭니다.</p>
   </div>
@@ -754,111 +841,9 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://www.kakaocorp.com/page/detail/11719" target="_blank" rel="noopener">카나나 상담매니저 출시</a> · <a href="https://www.kakaocorp.com/page/detail/12151" target="_blank" rel="noopener">카나나 상담매니저 업데이트</a> · <a href="https://www.kakaocorp.com/page/detail/9756" target="_blank" rel="noopener">챗봇 이용요금 무료 전환</a> · <a href="https://kakaobusiness.gitbook.io/main/tool/chatbot/skill_guide/ai_chatbot_callback_guide" target="_blank" rel="noopener">AI 챗봇 콜백 가이드</a></p>
 </section>
 
-<!-- 14: consulting -->
-<section class="lesson" id="l14" data-part="가게 개선" data-title="배달앱·매장 개선 컨설팅" hidden>
+<section class="lesson" id="l11" data-part="4단계 · 자동화" data-title="API·MCP 연결" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 11 · 실습 · 약 1시간</span>
-    <h2>배달앱 화면과 매장 동선도 AI가 봐 줘요</h2>
-    <p class="goal">화면 캡처와 매장 사진, 장부 숫자를 '09 배달앱·매장 개선' 직원에게 주면 무엇을 어떻게 바꿀지 순서까지 제안합니다.</p>
-  </div>
-  <div class="vis">
-    <div class="mock">
-      <div class="mock-col a" style="--d:.1s">
-        <span class="mock-tag">지금</span>
-        <div class="mock-item">시저 샐러드</div><div class="mock-item">아메리카노</div><div class="mock-item">닭가슴살 볼</div><div class="mock-item">콥 샐러드</div><div class="mock-item">스프 추가</div><div class="mock-item dim">… 메뉴 15개가 한 줄로</div>
-      </div>
-      <div class="mock-arrow a" style="--d:.5s" aria-hidden="true">→</div>
-      <div class="mock-col after a" style="--d:.7s">
-        <span class="mock-tag">바꾼 뒤 · 예시</span>
-        <div class="mock-sig pop" style="--d:1s"><b>대표</b> 닭가슴살 볼 · 판매 1위</div>
-        <div class="mock-group pop" style="--d:1.2s">든든한 한 끼 · 4</div>
-        <div class="mock-group pop" style="--d:1.35s">가벼운 한 끼 · 4</div>
-        <div class="mock-group pop" style="--d:1.5s">세트 · 토핑 추가 · 3</div>
-        <div class="mock-group pop" style="--d:1.65s">사이드·음료 · 4</div>
-      </div>
-    </div>
-    <p class="cap a" style="--d:1.9s">장부의 판매량과 원가율로 대표메뉴와 순서를 정합니다. 화면과 숫자는 예시입니다.</p>
-  </div>
-
-  <h3>가. 배달앱 가게 화면 진단</h3>
-  <ol class="steps">
-    <li><input type="checkbox" id="s14a" data-key="s14a"><div class="body"><label for="s14a">우리 가게 화면 캡처 모으기</label><small>손님이 보는 화면 그대로, 위에서 아래까지</small>
-      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>휴대폰에서 손님용 배달앱을 열고 우리 가게 검색</li>
-        <li>가게 첫 화면(소개글·대표메뉴) → 메뉴판을 내리면서 → 리뷰 화면까지 캡처 (아이폰: 측면 버튼+음량 올리기 / 안드로이드: 전원+음량 내리기)</li>
-        <li>같은 동네에서 리뷰가 많은 샐러드·포케 가게 2~3곳도 같은 방법으로 캡처<span class="fix">캡처가 10장을 넘으면 우리 가게 것만 먼저 올리고, 경쟁 가게는 다음 메시지로 보내세요.</span></li>
-      </ol></details></div></li>
-    <li><input type="checkbox" id="s14b" data-key="s14b"><div class="body"><label for="s14b">장부 숫자 함께 주기</label><small>메뉴별 판매 수량과 <dfn data-t="costratio">원가율</dfn>, 주문 수와 <dfn data-t="aov">객단가</dfn></small>
-      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>포스 엑셀의 '상품 주문' 시트(메뉴별 판매)를 장부 폴더에 올려 두기</li>
-        <li>'03 식자재·메뉴 원가' 직원에게 받은 메뉴별 원가율을 업무일지에 적어 두기</li>
-        <li>'09 배달앱·매장 개선' 채팅을 만들고 첫 메시지로 직책 알려 주기 (강의 6의 직원 첫 메시지)</li>
-      </ol></details></div></li>
-    <li><input type="checkbox" id="s14c" data-key="s14c"><div class="body"><label for="s14c">진단 받기</label><small>아래 '배달앱 화면 진단' 부탁문과 캡처를 함께 보내요.</small></div></li>
-    <li><input type="checkbox" id="s14d" data-key="s14d"><div class="body"><label for="s14d">한두 가지씩 바꾸기</label><small>한 번에 다 바꾸면 무엇이 효과였는지 알 수 없어요.</small>
-      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>배달앱 사장님 사이트(또는 사장님 앱)의 가게 관리 → 가게 소개 수정</li>
-        <li>메뉴 관리에서 <dfn data-t="signature">대표메뉴</dfn> 지정, <dfn data-t="menugroup">메뉴 그룹</dfn> 만들고 순서 옮기기, 메뉴 설명 고치기</li>
-        <li>바꾼 날짜와 내용을 장부의 '제안기록' 탭에 적기<span class="fix">메뉴 이름과 위치는 앱마다 달라요. 못 찾으면 화면을 캡처해 '막혔을 때' 부탁문과 함께 보내세요.</span></li>
-      </ol></details></div></li>
-    <li><input type="checkbox" id="s14e" data-key="s14e"><div class="body"><label for="s14e">2주 뒤 비교하기</label><small>"바꾸기 전 2주와 후 2주의 주문 수·객단가·대표메뉴 판매를 비교해줘"</small></div></li>
-  </ol>
-  <div class="table-wrap"><table>
-    <thead><tr><th>점검할 곳</th><th>보는 기준 (경험에서 나온 권장 기준)</th></tr></thead>
-    <tbody>
-      <tr><td><b>가게 소개글</b></td><td>첫 두 줄에 무엇을, 누구에게, 무엇이 다른지. 영업시간·단체 주문 안내는 그 아래</td></tr>
-      <tr><td><b>대표메뉴</b></td><td>잘 팔리고 원가율이 괜찮은 메뉴 1~3개. 사진이 가장 좋은 메뉴로</td></tr>
-      <tr><td><b>메뉴 배치</b></td><td>비슷한 메뉴끼리 4~6개 그룹, 안 팔리는 메뉴는 정리. 손님이 고르기 쉬운 순서</td></tr>
-      <tr><td><b>메뉴 이름·설명</b></td><td>이름에 핵심 재료, 설명 1~2줄에 맛·식감·양. 효과를 단정하는 표현은 쓰지 않기</td></tr>
-      <tr><td><b>사진</b></td><td>같은 각도·밝기·그릇으로 통일, 위에서 내려다본 구도</td></tr>
-      <tr><td><b>가격·옵션</b></td><td>세트, 토핑·단백질 추가 옵션으로 객단가 올리기. 최소주문금액·배달팁 조합은 장부로 시뮬레이션</td></tr>
-      <tr><td><b>리뷰</b></td><td>불만 낱말이 반복되는지(양, 소스, 포장, 시간). 답글은 강의 9 부탁문으로</td></tr>
-    </tbody>
-  </table></div>
-  <div class="prompt"><div class="bar"><span>배달앱 화면 진단 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 캡처는 우리 샐러드 가게의 배달앱 화면이고, 뒤의 캡처는 같은 동네 경쟁 가게야.
-장부의 메뉴별 판매 수량과 원가율도 참고해서 아래를 진단해줘.
-1) 가게 소개글: 첫 두 줄이 무엇을·누구에게·무엇이 다른지 말하는지, 고친 문장 2가지
-2) 대표메뉴: 판매량과 원가율로 볼 때 무엇을 대표로 둘지 1~3개와 이유
-3) 메뉴 배치: 메뉴 그룹 구성과 순서, 정리할 메뉴
-4) 메뉴 이름·설명: 고칠 메뉴 5개와 새 이름·설명 (효과를 단정하는 표현 금지)
-5) 사진: 다시 찍을 메뉴와 찍는 법
-6) 가격·옵션: 세트·토핑 옵션으로 객단가를 올릴 방법
-마지막에 이번 주에 먼저 바꿀 것 2가지만 골라줘.</pre></div>
-  <div class="prompt"><div class="bar"><span>가게 소개글 다시 쓰기 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 가게 배달앱 소개글을 3가지 버전으로 써줘. 우리 가게 강점은 ○○, ○○이고 주 고객은 ○○야. 첫 두 줄만 읽어도 무엇을 파는 가게인지 알 수 있게 하고, 전체는 300자 이내로. 과장이나 효과를 단정하는 표현은 쓰지 마.</pre></div>
-
-  <h3>나. 매장 구조·동선 진단</h3>
-  <ol class="steps">
-    <li><input type="checkbox" id="s14f" data-key="s14f"><div class="body"><label for="s14f">매장 사진 찍기</label><small>손님이 없는 시간에 8장 정도</small>
-      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>입구에서 안쪽을 보며 한 장, 그다음 주문대, 메뉴판, 쇼케이스·냉장고, 픽업대, 주방 작업대, 세척대, 좌석</li>
-        <li>휴대폰을 가로로 들고 사람 눈높이에서 찍기</li>
-        <li>정리하지 않은 평소 모습 그대로 찍어야 진단이 정확해요</li>
-      </ol></details></div></li>
-    <li><input type="checkbox" id="s14g" data-key="s14g"><div class="body"><label for="s14g">간단한 평면도 그리기</label><small>종이에 손으로 그려도 충분해요.</small>
-      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>매장 모양대로 네모를 그리고 가로·세로 길이(m)를 줄자로 재서 적기</li>
-        <li>출입문, 창문, 주문대, 픽업대, 냉장고, 작업대, 싱크대 위치를 네모로 표시</li>
-        <li>사진을 찍어 '09 배달앱·매장 개선' 채팅에 올리기</li>
-      </ol></details></div></li>
-    <li><input type="checkbox" id="s14h" data-key="s14h"><div class="body"><label for="s14h">불편한 점 적기</label><small>점심 피크에 막히는 곳, 배달 라이더가 기다리는 자리, 손님 줄이 서는 곳, 직원끼리 부딪히는 곳</small></div></li>
-    <li><input type="checkbox" id="s14i" data-key="s14i"><div class="body"><label for="s14i"><dfn data-t="flow">동선</dfn> 진단 받기</label><small>아래 '매장 구조 진단' 부탁문과 사진·평면도를 함께 보내요.</small></div></li>
-    <li><input type="checkbox" id="s14j" data-key="s14j"><div class="body"><label for="s14j">돈 안 드는 것부터 바꾸기</label><small>메뉴판 글씨와 순서, 픽업대 위치, 재료 놓는 순서처럼 공사 없이 되는 것부터. 1주 해 보고 피크 시간이 빨라졌는지 확인해요.</small></div></li>
-  </ol>
-  <div class="prompt"><div class="bar"><span>매장 구조 진단 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 사진과 평면도는 우리 샐러드 가게야. 매장 크기는 가로 ○m, 세로 ○m이고, 점심 피크(11~14시)에 직원 ○명이 일해. 불편한 점은 ○○, ○○야.
-아래를 진단해줘.
-1) 손님 동선: 들어와서 주문·결제·픽업·퇴장까지 겹치거나 막히는 곳
-2) 배달 동선: 배달 주문 포장과 라이더 대기 자리를 손님 동선과 나누는 방법
-3) 주방 동선: 세척 → 손질 → 보관 → 조립 → 포장 순서로 작업대·냉장고 배치
-4) 메뉴판·진열: 멀리서도 읽히는지, 대표메뉴가 먼저 보이는지
-5) 바로 할 수 있는 것(비용 0원), 작은 비용(10만 원 이하), 공사가 필요한 것으로 나눠서
-공사가 필요한 것은 업체 견적과 위생·소방 확인이 필요하다고 표시해줘.</pre></div>
-  <p class="tip warnbox"><b>공사 전에는 전문가 확인.</b> 칸막이, 전기·가스·급배수, 환기, 소방 설비를 바꾸는 일은 업체 견적과 관할 기관 확인이 필요해요. AI 제안은 방향을 잡는 참고로만 쓰세요.</p>
-</section>
-
-<!-- 11 -->
-<section class="lesson" id="l11" data-part="자동화" data-title="API·MCP 연결" hidden>
-  <div class="lesson-head">
-    <span class="kicker">강의 12 · 실습 · 2~4주</span>
+    <span class="kicker">실습 · 2~4주</span>
     <h2>채소 시세가 매일 장부에 들어오게</h2>
     <p class="goal">가장 쉬운 길은 '<dfn data-t="apikey">API 키</dfn> 받기 → AI가 짜 준 <dfn data-t="appsscript">앱스 스크립트</dfn> 붙여 넣기 → <dfn data-t="trigger">트리거</dfn>로 매일 실행'입니다.</p>
   </div>
@@ -908,10 +893,196 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://www.data.go.kr/ugs/selectPublicDataUseGuideView.do" target="_blank" rel="noopener">공공데이터포털 이용가이드</a> · <a href="https://support.claude.com/en/articles/11175166-about-custom-connectors-remote-mcp" target="_blank" rel="noopener">Claude 사용자 지정 커넥터</a> · <a href="https://www.infoq.com/news/2025/10/chat-gpt-mcp" target="_blank" rel="noopener">ChatGPT 개발자 모드 MCP</a></p>
 </section>
 
-<!-- 12 -->
+<section class="lesson" id="l15" data-part="5단계 · 직원 앱과 웹사이트" data-title="직원 권한 설계" hidden>
+  <div class="lesson-head">
+    <span class="kicker">설계 · 약 30분</span>
+    <h2>누가 무엇을 보고 쓰는지부터 정해요</h2>
+    <p class="goal">직원 앱의 핵심은 <dfn data-t="perm">권한</dfn>입니다. 알바생은 오늘 일을 입력만 하고, 매출·급여는 사장님만 봅니다.</p>
+  </div>
+  <div class="vis">
+    <div class="flowgrid">
+      <div class="stack">
+        <div class="box pop" style="--d:.2s"><strong>알바생</strong><span>출퇴근·식자재 소진·마감 체크 입력만</span></div>
+        <div class="box pop" style="--d:.35s"><strong>매니저</strong><span>근무표·재고 보기와 수정</span></div>
+      </div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.7s"></span><span style="--d:1.4s"></span></div>
+      <div class="box hi pop" style="--d:.7s"><strong>매장 장부</strong><span>입력은 모이고, 전체는 사장님만</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:1s"></span><span style="--d:1.7s"></span></div>
+      <div class="box ai pop" style="--d:1s"><strong>사장님 · AI 비서</strong><span>근태 계산·발주·분석</span></div>
+    </div>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>데이터</th><th>사장님</th><th>매니저</th><th>알바생</th></tr></thead>
+    <tbody>
+      <tr><td><b>매출·순이익</b></td><td>보기·수정</td><td>안 보임</td><td>안 보임</td></tr>
+      <tr><td><b>시급·급여</b></td><td>보기·수정</td><td>안 보임</td><td>본인 명세만 따로 전달</td></tr>
+      <tr><td><b>근무표</b></td><td>수정</td><td>수정</td><td>보기</td></tr>
+      <tr><td><b>출퇴근 기록</b></td><td>전체 보기</td><td>전체 보기</td><td>본인 것 입력</td></tr>
+      <tr><td><b>식자재 소진·재고</b></td><td>보기</td><td>입력·보기</td><td>입력</td></tr>
+      <tr><td><b>마감 체크리스트</b></td><td>보기</td><td>입력</td><td>입력</td></tr>
+    </tbody>
+  </table></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s15a" data-key="s15a"><div class="body"><label for="s15a">장부에 '직원' 탭 만들기</label><small>제목 줄: 이름 | 이메일 | 역할 | 입사일 | 상태. 이메일은 직원의 구글 계정(gmail)이에요.</small></div></li>
+    <li><input type="checkbox" id="s15b" data-key="s15b"><div class="body"><label for="s15b">우리 가게 권한표 정하기</label><small>위 표를 바탕으로 '04 알바 관리' 채팅에 "우리 가게는 매니저 1명, 알바 3명이야. 권한표 만들어줘"</small></div></li>
+    <li><input type="checkbox" id="s15c" data-key="s15c"><div class="body"><label for="s15c">구글 시트 <dfn data-t="share">공유</dfn> 원칙 지키기</label><small>매출이 들어 있는 '매장 장부'는 누구에게도 편집 공유하지 않아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>매니저가 고칠 근무표는 드라이브에서 <span class="path">+ 새로 만들기 → Google 스프레드시트</span>로 '근무표' 파일을 따로 만들기</li>
+        <li>근무표 파일 오른쪽 위 <span class="path">공유</span> → 매니저 이메일 입력 → <span class="path">편집자</span>, 알바생은 <span class="path">뷰어</span> → 보내기</li>
+        <li>한 파일 안에서 일부 칸만 막고 싶으면 <span class="path">데이터 → 시트 및 범위 보호</span><span class="fix"><dfn data-t="protect">범위 보호</dfn>는 수정만 막고 보기는 못 막아요. 매출이 든 파일은 아예 공유하지 마세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s15d" data-key="s15d"><div class="body"><label for="s15d">직원 개인정보는 최소한만</label><small>이름·연락처·이메일·시급만 장부에. 주민등록번호와 통장 사본은 장부와 AI에 넣지 말고 따로 보관해요. 위치나 사진으로 출근을 확인하려면 직원 동의를 먼저 받으세요.</small></div></li>
+  </ol>
+</section>
+
+<section class="lesson" id="l16" data-part="5단계 · 직원 앱과 웹사이트" data-title="직원 입력 앱 1 · 구글 폼" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절 · 무료</span>
+    <h2>알바생은 폼으로 입력만, 결과는 장부로</h2>
+    <p class="goal">구글 폼 세 개(출퇴근, 오늘 소진된 식자재, 마감 체크)를 만들어요. 알바생은 폼만 받으니 장부를 볼 수 없고, 답은 사장님 장부에 쌓입니다.</p>
+  </div>
+  <div class="vis">
+    <div class="phone-form">
+      <div class="pf-head a" style="--d:.1s"><b>오늘 소진된 식자재</b><span>알바 A · 21:42 · 예시</span></div>
+      <div class="pf-row pop" style="--d:.4s"><span>품목</span><b>로메인</b></div>
+      <div class="pf-row pop" style="--d:.6s"><span>소진량</span><b>1.5 kg</b></div>
+      <div class="pf-row pop" style="--d:.8s"><span>구분</span><b>판매 사용</b></div>
+      <div class="pf-row pop" style="--d:1s"><span>품목</span><b>방울토마토 · 0.3 kg · 폐기</b></div>
+      <div class="pf-send pop" style="--d:1.3s">제출 → 매장 장부 '소진' 탭</div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s16a" data-key="s16a"><div class="body"><label for="s16a">출퇴근 폼 만들기</label><small>제출한 시각이 자동으로 기록돼서 출퇴근 시간이 됩니다.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 forms.google.com → <span class="path">빈 양식</span> → 제목 <b>출퇴근 기록</b></li>
+        <li>질문 1: '구분' 객관식(출근 / 퇴근), 필수. 질문 2: '메모' 단답형</li>
+        <li>위쪽 <span class="path">설정 → 응답 → 이메일 주소 수집</span>을 '인증됨'(확인됨)으로. 직원이 구글 로그인해야 제출되고, 누가 냈는지 자동으로 남아요</li>
+        <li><span class="path">응답 → 스프레드시트에 연결 → 기존 스프레드시트 선택 → 매장 장부</span> → 새 탭 이름을 <b>근태</b>로 바꾸기<span class="fix"><dfn data-t="collectemail">이메일 수집</dfn> 메뉴 이름은 조금 다를 수 있어요. 설정의 응답 칸을 찾아보세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s16b" data-key="s16b"><div class="body"><label for="s16b">오늘 소진된 식자재 폼 만들기</label><small>마감 때 알바생이 쓴 양과 버린 양을 입력해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>새 폼 제목 <b>식자재 소진</b>, 이메일 수집 '인증됨'</li>
+        <li>질문: 품목(드롭다운), 소진량(단답형 → 오른쪽 아래 ⋮ → 응답 확인 → 숫자), 단위(kg / 개 / 팩), 구분(판매 사용 / 폐기), 폐기 사유(선택)</li>
+        <li>드롭다운 목록은 '03 식자재·메뉴 원가' 채팅에 "우리 메뉴 재료 목록을 폼 드롭다운용으로 한 줄에 하나씩 써줘" → 복사해 붙여 넣기</li>
+        <li>응답을 매장 장부에 연결 → 탭 이름 <b>소진</b><span class="fix">한 번에 여러 품목을 내게 하려면, 폼 맨 끝 확인 메시지에 '다른 품목은 다시 제출해 주세요'라고 적어 두세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s16c" data-key="s16c"><div class="body"><label for="s16c">마감 체크 폼 만들기</label><small>체크박스: 냉장고 온도 확인, 재료 덮개, 바닥 청소, 가스 밸브 잠금, 쓰레기 배출. 숫자: 냉장고 온도. 응답 탭 이름 <b>마감</b></small></div></li>
+    <li><input type="checkbox" id="s16d" data-key="s16d"><div class="body"><label for="s16d">직원에게 나눠 주기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>각 폼 오른쪽 위 <span class="path">보내기 → 링크 아이콘 → 복사</span> → 직원 단톡방에 공유</li>
+        <li>매장에 붙일 <dfn data-t="qr">QR코드</dfn>: PC 크롬에서 폼 링크를 열고 주소창 오른쪽 <span class="path">이 페이지 공유 → QR 코드 만들기 → 다운로드</span> → 인쇄해 출입문·주방에 붙이기</li>
+        <li>직원 휴대폰에서 한 번 열어 <dfn data-t="homescreen">홈 화면에 추가</dfn>해 주기</li>
+        <li>첫 주는 사장님이 매일 근태·소진 탭을 열어 잘 들어오는지 확인</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s16e" data-key="s16e"><div class="body"><label for="s16e">AI 직원에게 연결하기</label><small>인사 담당은 근태 탭으로 근무시간·주휴수당을, 식자재 대리는 소진 탭으로 재고·발주·폐기율을 계산해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>근태 계산 · 인사 담당</span><button class="copy" type="button">복사</button></div><pre>매장 장부의 '근태' 탭(타임스탬프, 이메일, 구분)과 '직원' 탭으로 이번 주 직원별 근무시간을 계산해줘. 출근·퇴근 짝이 안 맞는 날은 따로 표시하고, 주 15시간 이상인 직원은 주휴수당 대상이라고 알려줘. 휴게시간은 4시간에 30분으로 빼고 계산해.</pre></div>
+  <div class="prompt"><div class="bar"><span>식자재 소진 분석 · 식자재 대리</span><button class="copy" type="button">복사</button></div><pre>매장 장부의 '소진' 탭으로 지난주 품목별 사용량과 폐기량, 폐기율을 정리해줘. 폐기율이 높은 품목 3개는 이유와 줄이는 방법을 제안하고, 요일별 평균 사용량으로 내일 발주량을 추천해줘.</pre></div>
+  <p class="tip"><b>근태 기록은 급여의 근거예요.</b> 수정이 필요하면 원본은 두고 옆 칸에 '정정'과 이유를 적어 두세요. 법적 판단이 필요한 부분은 노무사에게 확인하세요.</p>
+</section>
+
+<section class="lesson" id="l17" data-part="5단계 · 직원 앱과 웹사이트" data-title="직원 입력 앱 2 · AppSheet" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 하루 · 선택 · 유료</span>
+    <h2>역할마다 다른 화면이 보이는 진짜 앱</h2>
+    <p class="goal">폼으로 충분하면 건너뛰어도 됩니다. 매니저에게는 근무표와 재고를, 알바생에게는 자기 근태만 보여 주고 싶을 때 <dfn data-t="appsheet">AppSheet</dfn>로 구글 시트 위에 앱을 만들어요.</p>
+  </div>
+  <div class="vis">
+    <div class="roles">
+      <div class="role a" style="--d:.2s"><span class="role-tag">매니저 화면</span><div class="role-row">근무표 · 수정</div><div class="role-row">재고 · 보기</div><div class="role-row">전체 근태 · 보기</div></div>
+      <div class="role a" style="--d:.6s"><span class="role-tag">알바생 화면</span><div class="role-row">출근 · 퇴근 버튼</div><div class="role-row">식자재 소진 입력</div><div class="role-row">내 근태만 보기</div></div>
+    </div>
+    <p class="cap a" style="--d:1s">같은 앱, 로그인한 사람의 역할에 따라 다른 화면 · 예시</p>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>요금 (2026년 안내 기준)</th><th>할 수 있는 것</th></tr></thead>
+    <tbody>
+      <tr><td><b>무료</b></td><td>10명까지 시험용. 직원에게 실제로 배포하려면 유료가 필요해요</td></tr>
+      <tr><td><b>Starter · 사용자당 월 $5</b></td><td>직원 로그인, 역할별 화면</td></tr>
+      <tr><td><b>Core · 사용자당 월 $10</b></td><td>내 기록만 보이게 하는 <dfn data-t="secfilter">보안 필터</dfn>. 구글 워크스페이스 일부 요금제에 포함</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">요금은 바뀔 수 있으니 결제 전 AppSheet 공식 가격을 확인하세요. 출처: <a href="https://cloudinsight.cc/en/blog/appsheet-pricing-guide" target="_blank" rel="noopener">AppSheet 요금 안내</a> · <a href="https://support.google.com/appsheet/answer/10104975?hl=en" target="_blank" rel="noopener">로그인 필수 설정</a> · <a href="https://support.google.com/appsheet/answer/10104488?hl=en" target="_blank" rel="noopener">보안 필터</a> · <a href="https://support.google.com/appsheet/answer/10104983" target="_blank" rel="noopener">앱 공유</a></p>
+  <ol class="steps">
+    <li><input type="checkbox" id="s17a" data-key="s17a"><div class="body"><label for="s17a">앱 전용 시트 따로 만들기</label><small>매출·급여가 든 장부로 앱을 만들지 않아요. '직원앱 데이터' 파일에 직원, 근태, 소진, 근무표 탭만 둡니다.</small></div></li>
+    <li><input type="checkbox" id="s17b" data-key="s17b"><div class="body"><label for="s17b">AppSheet 앱 만들기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'직원앱 데이터' 시트 메뉴 <span class="path">확장 프로그램 → AppSheet → 앱 만들기</span></li>
+        <li>구글 계정 선택 → 허용. 잠시 뒤 탭마다 화면이 자동으로 만들어진 앱 미리보기가 떠요</li>
+        <li>오른쪽 휴대폰 미리보기에서 눌러 보며 어떤 화면이 있는지 확인<span class="fix">편집 화면은 영어 메뉴가 많아요. 막히면 화면을 캡처해 '08 자동화·연결' 채팅에 물어보세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s17c" data-key="s17c"><div class="body"><label for="s17c"><dfn data-t="signin">로그인 필수</dfn> 켜기</label><small><span class="path">Security → Require sign-in → Require user sign-in?</span> 켜기. 이걸 켜야 누가 쓰는지 알 수 있어요 (Starter 이상).</small></div></li>
+    <li><input type="checkbox" id="s17d" data-key="s17d"><div class="body"><label for="s17d">역할별 화면 나누기</label><small>각 화면(View)의 Show if 칸에 역할 조건을 넣어요. 수식은 AI에게 받으세요.</small></div></li>
+    <li><input type="checkbox" id="s17e" data-key="s17e"><div class="body"><label for="s17e">내 기록만 보이게 (Core)</label><small><span class="path">Security → Security filters</span>에서 근태 테이블에 "내 이메일이거나 내가 사장·매니저일 때만" 조건을 넣어요.</small></div></li>
+    <li><input type="checkbox" id="s17f" data-key="s17f"><div class="body"><label for="s17f">직원 초대하기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>편집 화면 위쪽 <span class="path">Share</span> 아이콘 → 직원 이메일 입력 → 권한 <span class="path">Use app</span> → Notify users 체크 → Send</li>
+        <li>직원은 휴대폰에 AppSheet 앱을 설치하고 같은 구글 계정으로 로그인 → 받은 앱 열기</li>
+        <li>퇴사하면 같은 Share 창에서 그 직원을 빼고, 직원 탭의 상태를 '퇴사'로</li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>AppSheet 수식 부탁 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>AppSheet 앱을 만들고 있어. '직원' 테이블에 이메일, 역할(사장/매니저/알바) 칸이 있고, '근태' 테이블에 이메일 칸이 있어.
+1) 매니저와 사장에게만 보이는 '근무표 편집' 화면의 Show if 수식
+2) 근태 테이블 보안 필터: 내 이메일 기록이거나, 내가 사장·매니저면 전체가 보이게
+두 수식을 알려 주고, 어느 메뉴에 붙여 넣는지 영어 메뉴 이름 그대로 단계별로 설명해줘.</pre></div>
+</section>
+
+<section class="lesson" id="l18" data-part="5단계 · 직원 앱과 웹사이트" data-title="웹사이트·앱 운영하기" hidden>
+  <div class="lesson-head">
+    <span class="kicker">운영 · 반나절 + 매달 30분</span>
+    <h2>가게 홈페이지를 열고, 매달 점검해요</h2>
+    <p class="goal">손님용 홈페이지, 직원 앱, 장부를 오래 안전하게 쓰는 방법입니다.</p>
+  </div>
+  <h3>가. 가게 홈페이지 만들기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s18a" data-key="s18a"><div class="body"><label for="s18a">AI에게 홈페이지 만들기 부탁</label><small>아래 부탁문으로 메뉴, 영업시간, 위치, 카카오톡 채널·배달앱 링크, 단체 주문 안내가 담긴 한 장짜리 홈페이지를 받아요. Claude는 바로 볼 수 있는 페이지로 만들어 공유 링크를 줍니다.</small></div></li>
+    <li><input type="checkbox" id="s18b" data-key="s18b"><div class="body"><label for="s18b">내 주소로 올리기 (<dfn data-t="ghpages">GitHub Pages</dfn>, 무료)</label><small>이 코스도 같은 방법으로 올렸어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>AI가 만든 홈페이지 파일을 <b>index.html</b> 이름으로 받아 두기 ("이 페이지를 index.html 파일로 줘")</li>
+        <li>github.com 가입 → 오른쪽 위 <span class="path">+ → New repository</span> → 이름(예: my-salad) → <span class="path">Public</span> → Create repository</li>
+        <li>저장소 화면 <span class="path">Add file → Upload files</span> → index.html 끌어 놓기 → Commit changes</li>
+        <li><span class="path">Settings → Pages → Deploy from a branch → main / (root) → Save</span></li>
+        <li>1~2분 뒤 같은 화면 위쪽에 뜨는 주소(아이디.github.io/my-salad)를 열어 확인<span class="fix">공개 저장소는 누구나 볼 수 있어요. 홈페이지에는 손님에게 보여 줄 정보만 넣으세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s18c" data-key="s18c"><div class="body"><label for="s18c">다른 곳 정보와 맞추기</label><small>네이버 플레이스, 카카오맵, 카카오톡 채널, 배달앱의 영업시간·메뉴·가격이 홈페이지와 같은지 확인해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>가게 홈페이지 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 샐러드 가게 홈페이지를 한 장짜리 웹페이지로 만들어줘. 휴대폰에서 보기 좋게.
+가게 이름 ○○, 한 줄 소개 ○○, 영업시간 ○○, 주소 ○○, 전화 ○○.
+대표메뉴 3개(이름·가격·한 줄 설명), 단체 주문 안내, 카카오톡 채널 링크 ○○, 배달앱 링크 ○○.
+과장 표현 없이, 가게 분위기는 ○○ 느낌으로.</pre></div>
+  <h3>나. 매달 운영 점검</h3>
+  <ul class="checks">
+    <li><input type="checkbox" id="c18a" data-key="c18a"><label for="c18a">입사·퇴사 직원 권한 정리 (폼 단톡방, 근무표 공유, AppSheet Share)</label></li>
+    <li><input type="checkbox" id="c18b" data-key="c18b"><label for="c18b"><dfn data-t="backup">백업</dfn>: 매장 장부 <span class="path">파일 → 다운로드 → Microsoft Excel</span>로 받아 '백업' 폴더에</label></li>
+    <li><input type="checkbox" id="c18c" data-key="c18c"><label for="c18c">예약 작업(월요일 브리핑)이 제때 왔는지 확인</label></li>
+    <li><input type="checkbox" id="c18d" data-key="c18d"><label for="c18d">시세 스크립트 오류, 공공데이터 키 확인</label></li>
+    <li><input type="checkbox" id="c18e" data-key="c18e"><label for="c18e">안 쓰는 커넥터·공유 링크 끊기</label></li>
+    <li><input type="checkbox" id="c18f" data-key="c18f"><label for="c18f">홈페이지 메뉴·가격·영업시간 최신화</label></li>
+  </ul>
+  <p class="tip"><b>점검도 직원에게.</b> '02 월요일 브리핑' 예약 작업에 "매달 첫 월요일에는 운영 점검표도 같이 알려줘"를 덧붙이면 빠뜨리지 않아요.</p>
+</section>
+
+<section class="lesson" id="l1" data-part="자료실" data-title="용어 사전" hidden>
+  <div class="lesson-head">
+    <span class="kicker">필요할 때 펼쳐 보기</span>
+    <h2>모르는 말은 여기서 찾아요</h2>
+    <p class="goal">외우지 않아도 됩니다. 코스 곳곳의 ? 버튼과 같은 설명이 여기에 모여 있어요.</p>
+  </div>
+  <div class="cards">
+    <div class="term pop" style="--d:.05s"><strong>프롬프트</strong><span>AI에게 하는 부탁 문장</span><em>알바생에게 주는 작업 지시</em></div>
+    <div class="term pop" style="--d:.12s"><strong>프로젝트</strong><span>지침과 자료를 미리 넣어 둔 AI 작업 공간</span><em>우리 가게 본사</em></div>
+    <div class="term pop" style="--d:.19s"><strong>커넥터</strong><span>AI와 다른 앱을 잇는 연결</span><em>냉장고 전원 플러그</em></div>
+    <div class="term pop" style="--d:.26s"><strong>API</strong><span>데이터를 자동으로 받는 창구</span><em>거래처 정기 배송 창구</em></div>
+  </div>
+  <p class="tip"><b>순서만 기억하세요.</b> 처음엔 파일 올리기, 익숙해지면 커넥터, 마지막이 API·MCP입니다.</p>
+  <h3>전체 용어 사전</h3>
+  <div class="dict-filter"><input id="dictQ" type="search" placeholder="낱말 찾기 (예: 트리거)" aria-label="용어 찾기"></div>
+  <div class="dict" id="dict"></div>
+</section>
+
 <section class="lesson" id="l12" data-part="자료실" data-title="바로 쓰는 프롬프트" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 13 · 자료실</span>
+    <span class="kicker">자료실</span>
     <h2>복사해서 바로 쓰는 부탁문</h2>
     <p class="goal">○○ 부분만 우리 가게에 맞게 바꾸세요. 제목의 직원 채팅에 붙여 넣으면 됩니다. <dfn data-t="prompt">프롬프트</dfn>는 이런 부탁 문장을 말해요.</p>
   </div>
@@ -925,10 +1096,9 @@ td b { font-weight: 600; }
   <div class="prompt"><div class="bar"><span>막혔을 때 · 모든 직원</span><button class="copy" type="button">복사</button></div><pre>나는 AI와 컴퓨터 초보야. 지금 ○○를 하다가 막혔어. 화면에는 ○○가 보여. 다음에 무엇을 눌러야 하는지 한 단계씩, 메뉴 이름 그대로 알려줘. 한 번에 한 단계만 알려 주고 내가 '됐어'라고 하면 다음 단계를 알려줘.</pre></div>
 </section>
 
-<!-- 13 -->
 <section class="lesson" id="l13" data-part="자료실" data-title="안전 수칙과 문제 해결" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 14 · 마무리</span>
+    <span class="kicker">마무리</span>
     <h2>지킬 것과 막혔을 때</h2>
     <p class="goal">AI는 유능한 직원이지만, 최종 확인은 사장님 몫입니다.</p>
   </div>
@@ -947,7 +1117,7 @@ td b { font-weight: 600; }
       <tr><td>공공데이터 API 응답 없음</td><td>승인 직후엔 키가 바로 안 될 수 있음. 몇 시간 뒤 다시</td></tr>
       <tr><td>커넥터가 안 보임</td><td>플랜, 로그인 계정, 설정의 커넥터 켜짐 확인</td></tr>
       <tr><td>AI가 매번 처음부터 물어봄</td><td>같은 프로젝트 안에서 대화하는지 확인</td></tr>
-      <tr><td>무엇을 눌러야 할지 모르겠음</td><td>강의 13의 '막혔을 때' 부탁문 사용</td></tr>
+      <tr><td>무엇을 눌러야 할지 모르겠음</td><td><a href="#l12" class="ref" data-ref="l12">강의</a>의 '막혔을 때' 부탁문 사용</td></tr>
     </tbody>
   </table></div>
   <p class="tip"><b>다 끝내셨나요?</b> 이제 매일 1분 입력, 월요일 브리핑 읽기, 제안 하나 실행. 이 세 가지만 이어 가면 됩니다.</p>
@@ -1016,6 +1186,16 @@ td b { font-weight: 600; }
     menugroup: ['메뉴 그룹', '비슷한 메뉴를 묶어 둔 칸', '메뉴판의 소제목', '사장님 사이트 메뉴 관리에서 그룹을 만들고 메뉴를 옮겨요. 예: 베스트, 든든한 한 끼, 가벼운 한 끼, 사이드·음료'],
     aov: ['객단가', '손님 한 명(주문 한 건)이 평균 쓰는 돈', '주문 한 건의 평균 금액', '매출 ÷ 주문 건수. 세트나 토핑 추가 옵션으로 올릴 수 있어요.'],
     flow: ['동선', '사람이 매장 안에서 움직이는 길', '손님·직원·라이더가 다니는 길', '매장 사진과 간단한 평면도를 AI에게 주면 겹치고 막히는 곳을 짚어 줘요.'],
+    perm: ['권한', '누가 어떤 자료를 보고, 쓰고, 고칠 수 있는지 정한 규칙', '가게 열쇠를 누구에게 몇 개 줄지', '먼저 권한표를 만들고, 그대로 공유와 앱 설정을 맞춰요. 매출·급여는 사장님만.'],
+    share: ['공유 (편집자·뷰어)', '구글 파일을 다른 사람이 열 수 있게 하는 설정', '서류철 빌려주기', '파일 오른쪽 위 공유 → 이메일 입력 → 편집자(고칠 수 있음) 또는 뷰어(보기만) → 보내기.'],
+    protect: ['범위 보호', '시트의 특정 탭이나 칸을 정한 사람만 고치게 막는 기능', '칸에 자물쇠 걸기', '데이터 → 시트 및 범위 보호. 수정만 막고 보기는 못 막아요.'],
+    collectemail: ['이메일 주소 수집', '폼을 낸 사람의 구글 계정 이메일을 자동으로 남기는 설정', '출근부 서명', '폼 설정 → 응답 → 이메일 주소 수집 → 인증됨(확인됨).'],
+    qr: ['QR코드', '휴대폰 카메라로 찍으면 주소가 열리는 네모 무늬', '찍으면 열리는 링크', 'PC 크롬에서 폼을 열고 주소창 오른쪽 공유 → QR 코드 만들기 → 다운로드 → 인쇄.'],
+    appsheet: ['AppSheet', '구글 시트를 바탕으로 코딩 없이 앱을 만드는 구글 서비스', '장부로 만드는 우리 가게 앱', '시트 메뉴 확장 프로그램 → AppSheet → 앱 만들기. 시험은 무료, 직원 배포는 유료.'],
+    signin: ['로그인 필수', '앱을 쓰려면 구글 계정으로 로그인하게 하는 설정', '출입증 찍고 들어오기', 'AppSheet 편집 화면 Security → Require sign-in. 켜야 누가 쓰는지 알 수 있어요.'],
+    secfilter: ['보안 필터', '로그인한 사람에게 보여 줄 기록만 걸러 내는 조건', '내 서랍만 열리는 자물쇠', 'AppSheet Security → Security filters에 조건 입력. Core 요금제 이상.'],
+    ghpages: ['GitHub Pages', 'GitHub 저장소의 웹페이지 파일을 무료로 인터넷 주소에 올려 주는 기능', '무료 홈페이지 간판', '저장소 Settings → Pages → Deploy from a branch → main / root → Save.'],
+    backup: ['백업', '중요한 자료를 따로 복사해 두는 것', '장부 사본 금고', '매달 장부를 파일 → 다운로드 → Microsoft Excel로 받아 드라이브 백업 폴더에 넣어요.'],
     callback: ['콜백', '답이 늦을 때 안내 문구를 먼저 보내고 완성된 답을 나중에 보내는 기능', '"잠시만요" 하고 답하기', '챗봇 블록의 Callback API 설정. 개발자 영역이에요.']
   };
 
@@ -1094,6 +1274,20 @@ td b { font-weight: 600; }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
 
   var lessons = Array.prototype.slice.call(document.querySelectorAll('.lesson'));
+  var idx = {}; lessons.forEach(function (sec, i) { idx[sec.id] = i; var k = sec.querySelector('.kicker'); if (k) k.textContent = '강의 ' + i + ' · ' + k.textContent; });
+  function refLabel(id) { return '강의 ' + idx[id]; }
+  document.querySelectorAll('a.ref').forEach(function (a) {
+    a.textContent = refLabel(a.dataset.ref);
+    a.addEventListener('click', function (e) { e.preventDefault(); show(idx[a.dataset.ref], true); });
+  });
+  document.querySelectorAll('.refs').forEach(function (sp) {
+    sp.dataset.refs.split(' ').forEach(function (id, j) {
+      if (j) sp.appendChild(document.createTextNode(', '));
+      var a = document.createElement('a'); a.href = '#' + id; a.textContent = String(idx[id]);
+      a.addEventListener('click', function (e) { e.preventDefault(); show(idx[id], true); });
+      sp.appendChild(a);
+    });
+  });
   var tocList = document.getElementById('tocList');
   var tocBtns = [];
   var lastPart = '';
