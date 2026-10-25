@@ -144,8 +144,8 @@ dfn { font-style: normal; white-space: nowrap; }
 .msg .line b { color: var(--leaf); font-weight: 600; }
 .msg .line.alert b { color: var(--tomato); }
 @container vis (max-width: 480px) { .msg .line { grid-template-columns: minmax(0, 1fr); gap: 0; } }
-.office { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-.office .shared { grid-column: span 2; background: var(--paper); border: 1px dashed var(--line); border-radius: 12px; padding: 10px 14px; }
+.office { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.office .shared { grid-column: 1 / -1; background: var(--paper); border: 1px dashed var(--line); border-radius: 12px; padding: 10px 14px; }
 .office .shared strong { font-size: 14px; display: block; }
 .office .shared span { font-size: 12.5px; color: var(--muted); }
 .desk { text-align: left; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; cursor: pointer; display: flex; flex-direction: column; gap: 2px; min-width: 0; transition: border-color .2s, background .2s, transform .2s; }
@@ -155,12 +155,26 @@ dfn { font-style: normal; white-space: nowrap; }
 .office-talk { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; min-height: 170px; }
 .office-talk .who-desk { font-size: 12.5px; color: var(--muted); }
 .office-hint { font-size: 12.5px; color: var(--muted); }
-@container vis (max-width: 620px) { .office { grid-template-columns: repeat(2, minmax(0, 1fr)); } .office .shared { grid-column: span 1; } }
+@container vis (max-width: 520px) { .office { gap: 6px; } .desk { padding: 8px; } .desk strong { font-size: 13px; } .desk span { font-size: 11.5px; } }
 .week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; max-width: 520px; }
 .week .day { text-align: center; font-size: 12.5px; color: var(--muted); }
 .week .cell { aspect-ratio: 3 / 4; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; display: flex; align-items: flex-end; padding: 4px; min-width: 0; }
 .week .post { font-style: normal; width: 100%; font-size: 11.5px; line-height: 1.25; background: var(--leaf); color: var(--paper); border-radius: 6px; padding: 4px; text-align: center; word-break: keep-all; }
 .week .post.reel { background: var(--carrot); }
+
+
+/* consulting mock */
+.mock { display: grid; grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr); gap: 10px; align-items: start; max-width: 680px; }
+.mock-col { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.mock-col.after { border-color: var(--leaf); }
+.mock-tag { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+.mock-item { font-size: 14px; padding: 6px 10px; border-radius: 8px; background: var(--sunk); }
+.mock-item.dim { background: none; color: var(--muted); font-size: 13px; padding-inline: 2px; }
+.mock-sig { font-size: 14px; padding: 8px 10px; border-radius: 8px; background: var(--leaf); color: var(--paper); }
+.mock-sig b { font-weight: 600; margin-right: 6px; }
+.mock-group { font-size: 14px; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); }
+.mock-arrow { align-self: center; text-align: center; font-size: 22px; color: var(--leaf); }
+@container vis (max-width: 480px) { .mock { grid-template-columns: minmax(0, 1fr); } .mock-arrow { transform: rotate(90deg); } }
 
 /* steps */
 .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; counter-reset: st; }
@@ -304,8 +318,8 @@ td b { font-weight: 600; }
     <tbody>
       <tr><td><b>1단계</b></td><td>구글 시트 장부와 휴대폰 입력 화면 (강의 4)</td><td>쉬움</td><td>반나절</td></tr>
       <tr><td><b>2단계</b></td><td>AI 비서에 장부 연결, 가상 사무실 꾸리기 (강의 5~7)</td><td>보통</td><td>하루</td></tr>
-      <tr><td><b>3단계</b></td><td>월요일 브리핑, SNS 예약, 카카오톡 AI 상담 (강의 8~10)</td><td>보통</td><td>각각 하루</td></tr>
-      <tr><td><b>4단계</b></td><td>공공데이터 API로 자동 수집 (강의 11)</td><td>어려움</td><td>익숙해진 뒤</td></tr>
+      <tr><td><b>3단계</b></td><td>월요일 브리핑, SNS 예약, 카카오톡 AI 상담, 배달앱·매장 개선 (강의 8~11)</td><td>보통</td><td>각각 하루</td></tr>
+      <tr><td><b>4단계</b></td><td>공공데이터 API로 자동 수집 (강의 12)</td><td>어려움</td><td>익숙해진 뒤</td></tr>
     </tbody>
   </table></div>
 </section>
@@ -521,8 +535,7 @@ td b { font-weight: 600; }
   </div>
   <div class="vis">
     <div class="office" id="office">
-      <div class="shared a" style="--d:.1s"><strong>회사 규칙 · 프로젝트 지침</strong><span>영업시간·가격·말투, 모든 직원 공통</span></div>
-      <div class="shared a" style="--d:.2s"><strong>공용 서류함 · 프로젝트 파일</strong><span>매장 장부·메뉴판·레시피·업무일지</span></div>
+      <div class="shared a" style="--d:.1s"><strong>회사 규칙(프로젝트 지침) · 공용 서류함(프로젝트 파일)</strong><span>영업시간·가격·말투와 매장 장부·메뉴판·레시피·업무일지를 모든 직원이 함께 써요</span></div>
     </div>
     <div class="office-talk" id="officeTalk" aria-live="polite"></div>
     <p class="office-hint">직원 책상을 누르면 그 채팅의 예시 대화를 볼 수 있어요. 숫자와 내용은 예시입니다.</p>
@@ -534,7 +547,7 @@ td b { font-weight: 600; }
         <li>가운데 입력창에 아래 '직원 첫 메시지'를 붙여 넣고, ○○ 자리에 <b>장부 과장</b>과 맡은 일을 적어 보내기</li>
         <li>채팅이 열리면 위쪽 채팅 제목을 눌러 <span class="path">이름 바꾸기</span> → <b>01 장부·정산</b><span class="fix">일반 대화 화면에서 시작하면 프로젝트 밖 채팅이 돼요. 꼭 프로젝트 화면에서 시작하세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s6b" data-key="s6b"><div class="body"><label for="s6b">나머지 직원 7명도 같은 방법으로</label><small>02 월요일 브리핑, 03 식자재·메뉴 원가, 04 알바 관리, 05 공과금·지원사업, 06 SNS 운영, 07 카톡 AI 상담, 08 자동화·연결</small>
+    <li><input type="checkbox" id="s6b" data-key="s6b"><div class="body"><label for="s6b">나머지 직원 8명도 같은 방법으로</label><small>02 월요일 브리핑, 03 식자재·메뉴 원가, 04 알바 관리, 05 공과금·지원사업, 06 SNS 운영, 07 카톡 AI 상담, 08 자동화·연결, 09 배달앱·매장 개선</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>프로젝트 화면으로 돌아가 새 메시지로 다음 직원을 만들기</li>
         <li>번호를 붙여 이름을 바꿔 두면 목록에서 한눈에 구분돼요</li>
@@ -543,7 +556,7 @@ td b { font-weight: 600; }
     <li><input type="checkbox" id="s6c" data-key="s6c"><div class="body"><label for="s6c"><dfn data-t="worklog">업무일지</dfn> 문서 만들기</label><small>채팅끼리는 서로의 대화를 보지 못해서, 정한 내용을 한곳에 모아요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>드라이브 장부 폴더에서 <span class="path">+ 새로 만들기 → Google 문서</span>, 이름 '업무일지'</li>
-        <li>각 채팅에서 일이 끝나면 강의 12의 '업무일지 정리' 부탁문 보내기 → 답을 업무일지에 붙여 넣기</li>
+        <li>각 채팅에서 일이 끝나면 강의 13의 '업무일지 정리' 부탁문 보내기 → 답을 업무일지에 붙여 넣기</li>
         <li>업무일지를 프로젝트 파일에 Google Drive로 추가해 두기 (한 번만)</li>
       </ol></details></div></li>
   </ol>
@@ -741,10 +754,111 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://www.kakaocorp.com/page/detail/11719" target="_blank" rel="noopener">카나나 상담매니저 출시</a> · <a href="https://www.kakaocorp.com/page/detail/12151" target="_blank" rel="noopener">카나나 상담매니저 업데이트</a> · <a href="https://www.kakaocorp.com/page/detail/9756" target="_blank" rel="noopener">챗봇 이용요금 무료 전환</a> · <a href="https://kakaobusiness.gitbook.io/main/tool/chatbot/skill_guide/ai_chatbot_callback_guide" target="_blank" rel="noopener">AI 챗봇 콜백 가이드</a></p>
 </section>
 
+<!-- 14: consulting -->
+<section class="lesson" id="l14" data-part="가게 개선" data-title="배달앱·매장 개선 컨설팅" hidden>
+  <div class="lesson-head">
+    <span class="kicker">강의 11 · 실습 · 약 1시간</span>
+    <h2>배달앱 화면과 매장 동선도 AI가 봐 줘요</h2>
+    <p class="goal">화면 캡처와 매장 사진, 장부 숫자를 '09 배달앱·매장 개선' 직원에게 주면 무엇을 어떻게 바꿀지 순서까지 제안합니다.</p>
+  </div>
+  <div class="vis">
+    <div class="mock">
+      <div class="mock-col a" style="--d:.1s">
+        <span class="mock-tag">지금</span>
+        <div class="mock-item">시저 샐러드</div><div class="mock-item">아메리카노</div><div class="mock-item">닭가슴살 볼</div><div class="mock-item">콥 샐러드</div><div class="mock-item">스프 추가</div><div class="mock-item dim">… 메뉴 15개가 한 줄로</div>
+      </div>
+      <div class="mock-arrow a" style="--d:.5s" aria-hidden="true">→</div>
+      <div class="mock-col after a" style="--d:.7s">
+        <span class="mock-tag">바꾼 뒤 · 예시</span>
+        <div class="mock-sig pop" style="--d:1s"><b>대표</b> 닭가슴살 볼 · 판매 1위</div>
+        <div class="mock-group pop" style="--d:1.2s">든든한 한 끼 · 4</div>
+        <div class="mock-group pop" style="--d:1.35s">가벼운 한 끼 · 4</div>
+        <div class="mock-group pop" style="--d:1.5s">세트 · 토핑 추가 · 3</div>
+        <div class="mock-group pop" style="--d:1.65s">사이드·음료 · 4</div>
+      </div>
+    </div>
+    <p class="cap a" style="--d:1.9s">장부의 판매량과 원가율로 대표메뉴와 순서를 정합니다. 화면과 숫자는 예시입니다.</p>
+  </div>
+
+  <h3>가. 배달앱 가게 화면 진단</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s14a" data-key="s14a"><div class="body"><label for="s14a">우리 가게 화면 캡처 모으기</label><small>손님이 보는 화면 그대로, 위에서 아래까지</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>휴대폰에서 손님용 배달앱을 열고 우리 가게 검색</li>
+        <li>가게 첫 화면(소개글·대표메뉴) → 메뉴판을 내리면서 → 리뷰 화면까지 캡처 (아이폰: 측면 버튼+음량 올리기 / 안드로이드: 전원+음량 내리기)</li>
+        <li>같은 동네에서 리뷰가 많은 샐러드·포케 가게 2~3곳도 같은 방법으로 캡처<span class="fix">캡처가 10장을 넘으면 우리 가게 것만 먼저 올리고, 경쟁 가게는 다음 메시지로 보내세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s14b" data-key="s14b"><div class="body"><label for="s14b">장부 숫자 함께 주기</label><small>메뉴별 판매 수량과 <dfn data-t="costratio">원가율</dfn>, 주문 수와 <dfn data-t="aov">객단가</dfn></small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>포스 엑셀의 '상품 주문' 시트(메뉴별 판매)를 장부 폴더에 올려 두기</li>
+        <li>'03 식자재·메뉴 원가' 직원에게 받은 메뉴별 원가율을 업무일지에 적어 두기</li>
+        <li>'09 배달앱·매장 개선' 채팅을 만들고 첫 메시지로 직책 알려 주기 (강의 6의 직원 첫 메시지)</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s14c" data-key="s14c"><div class="body"><label for="s14c">진단 받기</label><small>아래 '배달앱 화면 진단' 부탁문과 캡처를 함께 보내요.</small></div></li>
+    <li><input type="checkbox" id="s14d" data-key="s14d"><div class="body"><label for="s14d">한두 가지씩 바꾸기</label><small>한 번에 다 바꾸면 무엇이 효과였는지 알 수 없어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>배달앱 사장님 사이트(또는 사장님 앱)의 가게 관리 → 가게 소개 수정</li>
+        <li>메뉴 관리에서 <dfn data-t="signature">대표메뉴</dfn> 지정, <dfn data-t="menugroup">메뉴 그룹</dfn> 만들고 순서 옮기기, 메뉴 설명 고치기</li>
+        <li>바꾼 날짜와 내용을 장부의 '제안기록' 탭에 적기<span class="fix">메뉴 이름과 위치는 앱마다 달라요. 못 찾으면 화면을 캡처해 '막혔을 때' 부탁문과 함께 보내세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s14e" data-key="s14e"><div class="body"><label for="s14e">2주 뒤 비교하기</label><small>"바꾸기 전 2주와 후 2주의 주문 수·객단가·대표메뉴 판매를 비교해줘"</small></div></li>
+  </ol>
+  <div class="table-wrap"><table>
+    <thead><tr><th>점검할 곳</th><th>보는 기준 (경험에서 나온 권장 기준)</th></tr></thead>
+    <tbody>
+      <tr><td><b>가게 소개글</b></td><td>첫 두 줄에 무엇을, 누구에게, 무엇이 다른지. 영업시간·단체 주문 안내는 그 아래</td></tr>
+      <tr><td><b>대표메뉴</b></td><td>잘 팔리고 원가율이 괜찮은 메뉴 1~3개. 사진이 가장 좋은 메뉴로</td></tr>
+      <tr><td><b>메뉴 배치</b></td><td>비슷한 메뉴끼리 4~6개 그룹, 안 팔리는 메뉴는 정리. 손님이 고르기 쉬운 순서</td></tr>
+      <tr><td><b>메뉴 이름·설명</b></td><td>이름에 핵심 재료, 설명 1~2줄에 맛·식감·양. 효과를 단정하는 표현은 쓰지 않기</td></tr>
+      <tr><td><b>사진</b></td><td>같은 각도·밝기·그릇으로 통일, 위에서 내려다본 구도</td></tr>
+      <tr><td><b>가격·옵션</b></td><td>세트, 토핑·단백질 추가 옵션으로 객단가 올리기. 최소주문금액·배달팁 조합은 장부로 시뮬레이션</td></tr>
+      <tr><td><b>리뷰</b></td><td>불만 낱말이 반복되는지(양, 소스, 포장, 시간). 답글은 강의 9 부탁문으로</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prompt"><div class="bar"><span>배달앱 화면 진단 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 캡처는 우리 샐러드 가게의 배달앱 화면이고, 뒤의 캡처는 같은 동네 경쟁 가게야.
+장부의 메뉴별 판매 수량과 원가율도 참고해서 아래를 진단해줘.
+1) 가게 소개글: 첫 두 줄이 무엇을·누구에게·무엇이 다른지 말하는지, 고친 문장 2가지
+2) 대표메뉴: 판매량과 원가율로 볼 때 무엇을 대표로 둘지 1~3개와 이유
+3) 메뉴 배치: 메뉴 그룹 구성과 순서, 정리할 메뉴
+4) 메뉴 이름·설명: 고칠 메뉴 5개와 새 이름·설명 (효과를 단정하는 표현 금지)
+5) 사진: 다시 찍을 메뉴와 찍는 법
+6) 가격·옵션: 세트·토핑 옵션으로 객단가를 올릴 방법
+마지막에 이번 주에 먼저 바꿀 것 2가지만 골라줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>가게 소개글 다시 쓰기 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 가게 배달앱 소개글을 3가지 버전으로 써줘. 우리 가게 강점은 ○○, ○○이고 주 고객은 ○○야. 첫 두 줄만 읽어도 무엇을 파는 가게인지 알 수 있게 하고, 전체는 300자 이내로. 과장이나 효과를 단정하는 표현은 쓰지 마.</pre></div>
+
+  <h3>나. 매장 구조·동선 진단</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s14f" data-key="s14f"><div class="body"><label for="s14f">매장 사진 찍기</label><small>손님이 없는 시간에 8장 정도</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>입구에서 안쪽을 보며 한 장, 그다음 주문대, 메뉴판, 쇼케이스·냉장고, 픽업대, 주방 작업대, 세척대, 좌석</li>
+        <li>휴대폰을 가로로 들고 사람 눈높이에서 찍기</li>
+        <li>정리하지 않은 평소 모습 그대로 찍어야 진단이 정확해요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s14g" data-key="s14g"><div class="body"><label for="s14g">간단한 평면도 그리기</label><small>종이에 손으로 그려도 충분해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>매장 모양대로 네모를 그리고 가로·세로 길이(m)를 줄자로 재서 적기</li>
+        <li>출입문, 창문, 주문대, 픽업대, 냉장고, 작업대, 싱크대 위치를 네모로 표시</li>
+        <li>사진을 찍어 '09 배달앱·매장 개선' 채팅에 올리기</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s14h" data-key="s14h"><div class="body"><label for="s14h">불편한 점 적기</label><small>점심 피크에 막히는 곳, 배달 라이더가 기다리는 자리, 손님 줄이 서는 곳, 직원끼리 부딪히는 곳</small></div></li>
+    <li><input type="checkbox" id="s14i" data-key="s14i"><div class="body"><label for="s14i"><dfn data-t="flow">동선</dfn> 진단 받기</label><small>아래 '매장 구조 진단' 부탁문과 사진·평면도를 함께 보내요.</small></div></li>
+    <li><input type="checkbox" id="s14j" data-key="s14j"><div class="body"><label for="s14j">돈 안 드는 것부터 바꾸기</label><small>메뉴판 글씨와 순서, 픽업대 위치, 재료 놓는 순서처럼 공사 없이 되는 것부터. 1주 해 보고 피크 시간이 빨라졌는지 확인해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>매장 구조 진단 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 사진과 평면도는 우리 샐러드 가게야. 매장 크기는 가로 ○m, 세로 ○m이고, 점심 피크(11~14시)에 직원 ○명이 일해. 불편한 점은 ○○, ○○야.
+아래를 진단해줘.
+1) 손님 동선: 들어와서 주문·결제·픽업·퇴장까지 겹치거나 막히는 곳
+2) 배달 동선: 배달 주문 포장과 라이더 대기 자리를 손님 동선과 나누는 방법
+3) 주방 동선: 세척 → 손질 → 보관 → 조립 → 포장 순서로 작업대·냉장고 배치
+4) 메뉴판·진열: 멀리서도 읽히는지, 대표메뉴가 먼저 보이는지
+5) 바로 할 수 있는 것(비용 0원), 작은 비용(10만 원 이하), 공사가 필요한 것으로 나눠서
+공사가 필요한 것은 업체 견적과 위생·소방 확인이 필요하다고 표시해줘.</pre></div>
+  <p class="tip warnbox"><b>공사 전에는 전문가 확인.</b> 칸막이, 전기·가스·급배수, 환기, 소방 설비를 바꾸는 일은 업체 견적과 관할 기관 확인이 필요해요. AI 제안은 방향을 잡는 참고로만 쓰세요.</p>
+</section>
+
 <!-- 11 -->
 <section class="lesson" id="l11" data-part="자동화" data-title="API·MCP 연결" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 11 · 실습 · 2~4주</span>
+    <span class="kicker">강의 12 · 실습 · 2~4주</span>
     <h2>채소 시세가 매일 장부에 들어오게</h2>
     <p class="goal">가장 쉬운 길은 '<dfn data-t="apikey">API 키</dfn> 받기 → AI가 짜 준 <dfn data-t="appsscript">앱스 스크립트</dfn> 붙여 넣기 → <dfn data-t="trigger">트리거</dfn>로 매일 실행'입니다.</p>
   </div>
@@ -797,7 +911,7 @@ td b { font-weight: 600; }
 <!-- 12 -->
 <section class="lesson" id="l12" data-part="자료실" data-title="바로 쓰는 프롬프트" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 12 · 자료실</span>
+    <span class="kicker">강의 13 · 자료실</span>
     <h2>복사해서 바로 쓰는 부탁문</h2>
     <p class="goal">○○ 부분만 우리 가게에 맞게 바꾸세요. 제목의 직원 채팅에 붙여 넣으면 됩니다. <dfn data-t="prompt">프롬프트</dfn>는 이런 부탁 문장을 말해요.</p>
   </div>
@@ -814,7 +928,7 @@ td b { font-weight: 600; }
 <!-- 13 -->
 <section class="lesson" id="l13" data-part="자료실" data-title="안전 수칙과 문제 해결" hidden>
   <div class="lesson-head">
-    <span class="kicker">강의 13 · 마무리</span>
+    <span class="kicker">강의 14 · 마무리</span>
     <h2>지킬 것과 막혔을 때</h2>
     <p class="goal">AI는 유능한 직원이지만, 최종 확인은 사장님 몫입니다.</p>
   </div>
@@ -833,7 +947,7 @@ td b { font-weight: 600; }
       <tr><td>공공데이터 API 응답 없음</td><td>승인 직후엔 키가 바로 안 될 수 있음. 몇 시간 뒤 다시</td></tr>
       <tr><td>커넥터가 안 보임</td><td>플랜, 로그인 계정, 설정의 커넥터 켜짐 확인</td></tr>
       <tr><td>AI가 매번 처음부터 물어봄</td><td>같은 프로젝트 안에서 대화하는지 확인</td></tr>
-      <tr><td>무엇을 눌러야 할지 모르겠음</td><td>강의 12의 '막혔을 때' 부탁문 사용</td></tr>
+      <tr><td>무엇을 눌러야 할지 모르겠음</td><td>강의 13의 '막혔을 때' 부탁문 사용</td></tr>
     </tbody>
   </table></div>
   <p class="tip"><b>다 끝내셨나요?</b> 이제 매일 1분 입력, 월요일 브리핑 읽기, 제안 하나 실행. 이 세 가지만 이어 가면 됩니다.</p>
@@ -898,6 +1012,10 @@ td b { font-weight: 600; }
     kanana: ['카나나 상담매니저', '채널 정보로 손님 문의에 답하는 카카오의 AI 상담 기능', '카톡 상담 알바', '채널 정보를 다 채운 뒤 관리 화면에서 적용하고, AI 답변 미리보기로 시험해요.'],
     chatbot: ['챗봇', '정해진 질문에 자동으로 답하는 대화 프로그램', '자동응답기', '카카오 챗봇 관리자센터에서 질문(블록)마다 답을 적어 만들어요.'],
     skill: ['스킬', '챗봇이 외부 서버(AI 등)에 답을 물어보게 하는 연결', '본사 상담실 연결', '개발이 필요해요. 개발자에게 맡길 때 이 코스의 조건을 전하세요.'],
+    signature: ['대표메뉴', '배달앱 가게 화면 맨 위에 크게 보이는 메뉴', '가게 진열창 맨 앞자리', '사장님 사이트의 메뉴 관리에서 대표메뉴를 지정해요. 잘 팔리고 원가율이 괜찮은 메뉴를 고르세요.'],
+    menugroup: ['메뉴 그룹', '비슷한 메뉴를 묶어 둔 칸', '메뉴판의 소제목', '사장님 사이트 메뉴 관리에서 그룹을 만들고 메뉴를 옮겨요. 예: 베스트, 든든한 한 끼, 가벼운 한 끼, 사이드·음료'],
+    aov: ['객단가', '손님 한 명(주문 한 건)이 평균 쓰는 돈', '주문 한 건의 평균 금액', '매출 ÷ 주문 건수. 세트나 토핑 추가 옵션으로 올릴 수 있어요.'],
+    flow: ['동선', '사람이 매장 안에서 움직이는 길', '손님·직원·라이더가 다니는 길', '매장 사진과 간단한 평면도를 AI에게 주면 겹치고 막히는 곳을 짚어 줘요.'],
     callback: ['콜백', '답이 늦을 때 안내 문구를 먼저 보내고 완성된 답을 나중에 보내는 기능', '"잠시만요" 하고 답하기', '챗봇 블록의 Callback API 설정. 개발자 영역이에요.']
   };
 
@@ -1070,7 +1188,8 @@ td b { font-weight: 600; }
     { name: '총무 담당', chat: '05 공과금·지원사업', job: '고지서 비교·지원금', ask: '전기요금 왜 올랐어?', reply: '사용량이 작년 같은 달보다 18% 늘었어요. 매출은 비슷하니 냉장고 문 패킹과 성에를 먼저 점검해 보세요.' },
     { name: 'SNS 마케터', chat: '06 SNS 운영', job: '게시 계획·캡션·답글', ask: '다음 주 인스타 계획 짜줘', reply: '월 신메뉴 웜볼 사진, 수 15초 릴스, 금 재료 이야기. 캡션과 해시태그까지 준비했어요. 사진만 찍어 주세요.' },
     { name: '카톡 상담원', chat: '07 카톡 AI 상담', job: '자주 묻는 질문 관리', ask: '단체 주문 답변 만들어줘', reply: '단체 주문은 하루 전까지, 10인분부터 가능하다는 답변 문구를 만들었어요. 채널 관리 화면에 붙여 넣으면 돼요.' },
-    { name: '자동화 엔지니어', chat: '08 자동화·연결', job: 'API 키·스크립트 기록', ask: '오늘 시세가 안 들어왔어', reply: '오류 문장을 보니 인증키가 잘못 들어갔어요. 공공데이터포털 마이페이지에서 키를 복사해 스크립트 3번째 줄에 붙여 넣어 주세요.' }
+    { name: '자동화 엔지니어', chat: '08 자동화·연결', job: 'API 키·스크립트 기록', ask: '오늘 시세가 안 들어왔어', reply: '오류 문장을 보니 인증키가 잘못 들어갔어요. 공공데이터포털 마이페이지에서 키를 복사해 스크립트 3번째 줄에 붙여 넣어 주세요.' },
+    { name: '매장 컨설턴트', chat: '09 배달앱·매장 개선', job: '가게 화면·메뉴 배치·동선', ask: '배달앱 메뉴판 좀 봐줘', reply: '메뉴 15개를 4개 묶음으로 줄이고, 대표메뉴를 판매 1위 닭가슴살 볼로 바꿔 보세요. 소개글 첫 줄에 매일 아침 손질한 채소라는 점을 넣으면 좋겠어요.' }
   ];
   var office = document.getElementById('office');
   var talk = document.getElementById('officeTalk');
