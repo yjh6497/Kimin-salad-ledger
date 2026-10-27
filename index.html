@@ -1384,7 +1384,7 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
   <div class="lesson-head">
     <span class="kicker">실습 · 하루</span>
     <h2>남은 재고를 계산하고 발주 문자까지</h2>
-    <p class="goal">입고(영수증 지출)와 소진(직원 입력)으로 재고를 계산하고, 부족한 품목은 거래처별 발주 문자 초안을 매일 밤 메일로 받아요. 아이폰이 있으면 그 문자를 <b>아이폰 단축어</b>로 거래처에 바로 보낼 수 있어요. 맥이 있으면 맥에서도 보낼 수 있어요.</p>
+    <p class="goal">입고(영수증 지출)와 소진(직원 입력)으로 재고를 계산하고, 부족한 품목은 거래처별 발주 문자 초안을 매일 밤 메일로 받아요. 아이폰이 있으면 그 문자를 <b>아이폰 단축어</b>로 거래처에 바로 보낼 수 있어요. 맥이 있으면 맥에서도 보낼 수 있어요. 거래처가 카카오톡을 더 편해하면 <b>카카오톡</b>으로도 보내요.</p>
   </div>
   <div class="vis">
     <div class="lanes">
@@ -1402,7 +1402,7 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
         <li>화면 맨 아래 시트 이름표(매출, 지출, 고정비…) 왼쪽 끝의 <span class="path">+</span>를 눌러요. '시트7' 같은 새 시트가 생겨요</li>
         <li>새 이름표를 두 번 눌러(휴대폰은 길게 눌러 → 이름 바꾸기) <b>재고</b>로 바꾸고 엔터</li>
         <li>A1 칸을 한 번 누르고, 아래 '재고 제목 줄'의 복사 → 붙여 넣기<span class="fix">새 스프레드시트 파일을 따로 만들었다면 그 파일은 지우고 '매장 장부' 안에 다시 추가하세요. AI 비서는 '매장 장부' 한 파일만 읽어요.</span></li>
-      </ol><div class="prompt" data-tsv><div class="bar"><span>재고 제목 줄</span><button class="copy" type="button">복사</button></div><pre>품목 | 단위 | 최소 재고 | 거래처 | 거래처 연락처 | 현재 재고</pre></div></details></div></li>
+      </ol><div class="prompt" data-tsv><div class="bar"><span>재고 제목 줄</span><button class="copy" type="button">복사</button></div><pre>품목 | 단위 | 최소 재고 | 거래처 | 거래처 연락처 | 발주 방법 | 현재 재고</pre></div></details></div></li>
     <li><input type="checkbox" id="s20b" data-key="s20b"><div class="body"><label for="s20b">현재 재고 계산 수식 받기</label><small>'03 식자재·메뉴 원가' 채팅에 "지출 탭의 입고량에서 소진 탭의 소진량을 빼서 재고 탭의 현재 재고를 계산하는 수식을 만들어줘"</small></div></li>
     <li><input type="checkbox" id="s20c" data-key="s20c"><div class="body"><label for="s20c">발주 메일 스크립트 붙이기</label><small>아래 부탁문으로 코드를 받아 <a href="#l11" class="ref" data-ref="l11">강의</a>의 방법대로 붙여 넣고, <dfn data-t="trigger">트리거</dfn>를 매일 밤 10시로 설정해요.</small></div></li>
     <li><input type="checkbox" id="s20d" data-key="s20d"><div class="body"><label for="s20d">처음 2주는 확인 후 보내기</label><small>메일에 온 초안을 확인하고 복사해 거래처에 보내요. 이 기간에 AI 추천량과 실제 필요량을 비교해 최소 재고를 고쳐요. 숫자가 믿을 만해지면 아래처럼 문자 발송까지 자동으로 넘어가요.</small></div></li>
@@ -1412,7 +1412,7 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
 요일별 평균 소진량도 함께 적어 주고, 트리거 설정 방법을 초보 기준으로 알려줘.</pre></div>
 
 
-  <h3>아이폰·맥으로 발주 문자까지 보내기 (선택)</h3>
+  <h3>아이폰·맥으로 발주 문자 보내기 (선택)</h3>
   <p>구글 스크립트는 문자를 직접 보내지 못해요. 그래서 역할을 나눠요. 장부가 <b>"오늘 누구에게 무엇을 보낼지"</b>를 주소 하나로 내놓고, 아이폰 <dfn data-t="shortcut">단축어</dfn>가 그 주소를 읽어 내 번호로 문자를 보내요. 내 휴대폰 요금제로 보내니 따로 드는 돈이 없고, 거래처에는 평소 사장님 번호로 문자가 가요.</p>
   <div class="vis">
     <div class="lanes">
@@ -1425,7 +1425,7 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
     <p class="cap a" style="--d:1.2s">맥을 쓰면 같은 단축어를 맥에서 돌려도 돼요. 맥은 아이폰을 통해 문자를 보내요.</p>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="s20e" data-key="s20e"><div class="body"><label for="s20e">'재고' 시트의 거래처 연락처 정리</label><small>전화번호는 010-1234-5678처럼 한 칸에 하나. 같은 거래처는 이름을 똑같이 적어야 한 문자로 묶여요.</small></div></li>
+    <li><input type="checkbox" id="s20e" data-key="s20e"><div class="body"><label for="s20e">'재고' 시트의 거래처 연락처와 발주 방법 정리</label><small>전화번호는 010-1234-5678처럼 한 칸에 하나. 같은 거래처는 이름을 똑같이 적어야 한 문자로 묶여요. '발주 방법' 칸에는 <b>문자</b> 또는 <b>카톡</b>을 적어요.</small></div></li>
     <li><input type="checkbox" id="s20f" data-key="s20f"><div class="body"><label for="s20f">'발주 주소' 웹앱 만들기</label><small>아래 '발주 주소' 부탁문으로 코드를 받아 발주 메일 스크립트와 같은 곳에 붙여요. 오늘 보낼 문자 목록을 내놓는 주소가 생겨요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>'매장 장부' → <span class="path">확장 프로그램 → Apps Script</span> → <span class="path">+ → 스크립트</span> → 이름 <b>발주주소</b> → 코드 붙여 넣기 → 저장</li>
@@ -1461,7 +1461,8 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
   </ol>
   <div class="prompt"><div class="bar"><span>발주 주소 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>매장 장부 '재고' 시트(품목, 단위, 최소 재고, 거래처, 거래처 연락처, 현재 재고)로 아이폰 단축어가 읽을 '발주 주소' Apps Script 웹앱을 만들어줘. 나는 코딩 초보야.
 - doGet: 주소에 key=비밀열쇠가 맞을 때만 응답, 틀리면 아무것도 주지 않기
-- 응답은 JSON: {"orders":[{"phone":"010-…","text":"○○상회 사장님, 내일 오전 배송으로 로메인 2박스 부탁드립니다. ○○샐러드"}]}
+- 응답은 JSON: {"orders":[{"name":"○○상회","method":"문자","phone":"010-…","text":"○○상회 사장님, 내일 오전 배송으로 로메인 2박스 부탁드립니다. ○○샐러드"}]}
+- method는 재고 시트의 '발주 방법' 칸(문자 또는 카톡) 그대로
 - 현재 재고가 최소 재고보다 적은 품목을 거래처별로 묶어 한 거래처에 문자 한 통
 - 주소에 sent=1이 붙어 오면 '발주기록' 시트에 날짜·거래처·내용을 남기고, 같은 날 다시 요청하면 빈 목록 주기 (중복 발송 방지)
 - 보낼 게 없으면 {"orders":[]}
@@ -1469,10 +1470,57 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
   <div class="prompt"><div class="bar"><span>단축어 도우미 부탁문</span><button class="copy" type="button">복사</button></div><pre>아이폰 단축어 앱으로 '발주 문자 보내기'를 만들고 있어. 내 웹앱 주소는 {"orders":[{"phone":..., "text":...}]} 모양의 JSON을 돌려줘.
 이 주소를 읽어서 orders의 항목마다 phone 번호로 text 문자를 보내고, 다 보내면 주소 끝에 &amp;sent=1을 붙여 한 번 더 부르는 단축어를 만드는 순서를 알려줘.
 단축어 동작 이름은 한국어 아이폰 화면에 보이는 이름 그대로, 한 단계씩 알려줘. 내가 '됐어'라고 하면 다음 단계를 알려줘.</pre></div>
-  <p class="tip"><b>안드로이드라면</b> 휴대폰만으로 문자를 자동으로 보내기는 어려워요. 문자 발송 서비스(건당 요금)를 쓰거나, 메일 초안을 보고 직접 보내는 방식을 유지하세요.</p>
+
+  <h3>카카오톡으로 발주 보내기 (선택)</h3>
+  <p>카카오톡은 문자처럼 내 번호로 아무에게나 자동 발송하는 기능을 열어 주지 않아요. 그래서 상황에 맞는 세 가지 방법 중 하나를 골라요. 대부분의 매장은 <b>①</b>로 충분해요.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>방법</th><th>어떻게</th><th>사장님 손</th><th>비용·조건</th></tr></thead>
+    <tbody>
+      <tr><td><b>① 아이폰 단축어 + 카톡 공유</b></td><td>밤 10시에 단축어가 발주 내용을 만들고 공유 화면을 띄워요. 거래처 채팅방을 고르면 전송</td><td>거래처마다 두 번 누르기</td><td>무료 · 아이폰</td></tr>
+      <tr><td><b>② 카톡 '나에게 보내기'</b></td><td>매일 밤 발주 초안이 내 카톡 '나와의 채팅'으로 와요. 길게 눌러 거래처에 전달</td><td>전달 한 번</td><td>무료 · 카카오 개발자 앱 설정 필요 · 안드로이드도 가능</td></tr>
+      <tr><td><b>③ 알림톡 (완전 자동)</b></td><td>가게 카카오톡 비즈니스 채널 이름으로 거래처 번호에 자동 발송. 거래처가 채널을 추가하지 않아도 돼요</td><td>없음</td><td>건당 요금 · 비즈니스 채널 · 발송 대행사 계약 · 문구 템플릿 심사</td></tr>
+    </tbody>
+  </table></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s20j" data-key="s20j"><div class="body"><label for="s20j">① 아이폰 단축어로 카톡 보내기</label><small>앞에서 만든 '발주 문자 보내기' 단축어에 갈림길을 하나 넣어요. 발주 방법이 카톡인 거래처는 문자 대신 카카오톡 공유 화면이 떠요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>카카오톡에서 거래처와의 1:1 채팅방을 미리 만들어 두기. 채팅방 이름을 거래처 이름으로 바꿔 두면 고르기 쉬워요</li>
+        <li>단축어 앱에서 '발주 문자 보내기' 열기 → 반복 안쪽에 <b>사전 값 가져오기</b>(키 <b>method</b>) 추가</li>
+        <li><b>만약</b> 동작 추가 → 조건 'method' <b>은(는)</b> <b>카톡</b></li>
+        <li>'만약' 안쪽: <b>텍스트</b>(text 값) → <b>공유</b> 동작. '그렇지 않으면' 안쪽으로 기존 <b>메시지 보내기</b>를 옮기기</li>
+        <li>실행하면 카톡 거래처마다 공유 화면이 떠요 → <span class="path">카카오톡 → 거래처 채팅방 → 전송</span><span class="fix">자주 보낸 채팅방은 공유 화면 맨 위에 바로 뜨기도 해요. 카카오톡이 목록에 없으면 공유 화면 오른쪽 끝 '더 보기'에서 켜세요.</span></li>
+        <li>밤 10시 자동화는 앞의 것을 그대로 써요. 카톡 공유는 사장님이 고르는 단계가 있어서 '확인 후 실행'이나 알림을 켜 두는 게 좋아요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s20k" data-key="s20k"><div class="body"><label for="s20k">② 카톡 '나에게 보내기'로 초안 받기</label><small>발주 초안이 매일 밤 내 카톡으로 와요. 안드로이드 휴대폰에서도 돼요. 설정은 한 번, 조금 길어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 developers.kakao.com → 카카오 계정 로그인 → <span class="path">내 애플리케이션 → 애플리케이션 추가하기</span> → 앱 이름 '우리가게 발주'</li>
+        <li>앱 설정에서 카카오 로그인 켜기, 동의항목에서 <b>카카오톡 메시지 전송</b>(talk_message) 켜기, 리다이렉트 주소 등록 (주소는 AI가 알려 줘요)</li>
+        <li>'08 자동화·연결' 채팅에 아래 '카톡 나에게 보내기' 부탁문 보내기 → 코드 받아 발주 메일 스크립트와 같은 곳에 붙이기</li>
+        <li>처음 한 번 AI가 알려 준 주소로 카카오 로그인 → 동의 → 열쇠(토큰)가 스크립트에 저장돼요</li>
+        <li>트리거를 매일 밤 10시로. 카톡 '나와의 채팅'에 거래처별 발주 초안이 오면 길게 눌러 <span class="path">전달 → 거래처</span><span class="fix">열쇠(토큰)는 기한이 있어요. 코드에 자동 갱신과 '갱신 실패 시 메일 알림'을 꼭 넣어 달라고 했어요. 알림이 오면 4번을 다시 하면 돼요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s20l" data-key="s20l"><div class="body"><label for="s20l">③ 알림톡으로 완전 자동 (유료)</label><small>거래처가 많거나 매일 여러 곳에 보내는 매장에 맞아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>가게 카카오톡 채널을 <b>비즈니스 채널</b>로 인증 (<a href="#l10" class="ref" data-ref="l10">강의</a>에서 한 것)</li>
+        <li>카카오 비즈메시지 공식 딜러사나 발송 대행 서비스에 가입하고, 채널을 발신 프로필로 연결</li>
+        <li>발주 문구를 템플릿으로 등록하고 심사 요청. 예: "#{거래처} 사장님, #{날짜} 배송 발주입니다. #{품목}. ○○샐러드". 홍보 문구는 넣지 않아요</li>
+        <li>승인되면 대행 서비스의 API 키를 받아, AI에게 "발주 주소의 orders 중 카톡인 것을 이 알림톡 API로 보내는 Apps Script"를 부탁</li>
+        <li>알림톡이 실패하면 문자로 대신 보내는 '대체 발송'을 켜 두기<span class="fix">알림톡은 손님의 행동에 따른 정보성 안내가 기본이라, 거래처 발주가 심사를 통과하는지는 대행사나 카카오에 미리 물어보세요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>카톡 나에게 보내기 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>카카오 개발자 앱(REST API 키: ○○)을 만들었어. 구글 Apps Script로 카카오톡 '나에게 보내기' 메시지 API를 써서, 매장 장부 '재고' 시트에서 발주가 필요한 거래처별 초안을 매일 밤 10시에 내 카톡으로 보내고 싶어. 나는 코딩 초보야.
+1) 카카오 로그인으로 처음 한 번 동의받고 토큰을 스크립트 속성에 저장하는 방법 (리다이렉트 주소로 무엇을 등록할지 포함)
+2) 액세스 토큰이 만료되면 리프레시 토큰으로 자동 갱신, 갱신이 실패하면 내 메일로 알림
+3) 거래처마다 메시지 한 통(텍스트 템플릿), 보낼 게 없으면 보내지 않기
+4) '발주기록' 시트에 보낸 날짜·거래처 남기기
+카카오 개발자 사이트에서 켜야 할 설정과 코드 전체, 트리거 설정을 단계별로 알려줘.</pre></div>
+  <p class="tip warnbox"><b>카톡 자동 발송 프로그램은 쓰지 마세요.</b> 화면을 대신 눌러 주는 매크로나 비공식 자동 전송 프로그램은 약관 위반으로 계정이 정지될 수 있어요. 위 세 가지처럼 카카오가 허용한 방법만 쓰세요.</p>
+  <p class="src">카카오 출처: <a href="https://developers.kakao.com/docs/ko/kakaotalk-message/rest-api" target="_blank" rel="noopener">카카오톡 메시지 API (나에게 보내기)</a> · <a href="https://blog.bizgo.io/howto/alimtalk-guide/" target="_blank" rel="noopener">알림톡 조건과 도입 순서</a> · <a href="https://blog.bizgo.io/howto/kakao-alimtalk-template-approval-guide/" target="_blank" rel="noopener">알림톡 템플릿 심사 기준</a></p>
+
+  <p class="tip"><b>안드로이드라면</b> 휴대폰만으로 문자를 자동으로 보내기는 어려워요. 카톡 ② '나에게 보내기'로 초안을 받아 전달하거나, 문자 발송 서비스(건당 요금)를 쓰거나, 메일 초안을 보고 직접 보내세요.</p>
   <p class="src">출처: <a href="https://support.apple.com/en-us/102545" target="_blank" rel="noopener">아이폰 문자 메시지 전달 (Apple)</a> · <a href="https://macmost.com/how-to-schedule-a-text-message-on-an-iphone.html" target="_blank" rel="noopener">단축어로 문자 자동 보내기 (MacMost)</a> · <a href="https://macmost.com/an-introduction-to-shortcuts-automation-in-macos-tahoe.html" target="_blank" rel="noopener">macOS Tahoe 단축어 자동화 (MacMost)</a> · <a href="https://developers.google.com/apps-script/guides/web" target="_blank" rel="noopener">Apps Script 웹앱</a></p>
 
-  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트 수식 + 앱스 스크립트 메일 (구글 무료 발송 한도 안에서 충분)</li><li>발주 문자는 사장님이 직접 복사해 보내기</li><li>아이폰 단축어(맥은 문자 메시지 전달)로 내 번호에서 문자 자동 발송, 추가 비용 없음</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>재고·발주 관리 앱: 바코드 입고, 거래처 자동 주문, 단가 변동 알림</li><li>식자재 유통 플랫폼의 정기 배송·자동 재주문</li><li>문자 자동 발송 서비스로 거래처에 바로 전송 (건당 요금)</li></ul></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트 수식 + 앱스 스크립트 메일 (구글 무료 발송 한도 안에서 충분)</li><li>발주 문자는 사장님이 직접 복사해 보내기</li><li>아이폰 단축어(맥은 문자 메시지 전달)로 내 번호에서 문자 자동 발송, 추가 비용 없음</li><li>카톡은 단축어 공유나 '나에게 보내기'로 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>재고·발주 관리 앱: 바코드 입고, 거래처 자동 주문, 단가 변동 알림</li><li>식자재 유통 플랫폼의 정기 배송·자동 재주문</li><li>문자 자동 발송 서비스로 거래처에 바로 전송 (건당 요금)</li><li>알림톡: 가게 채널 이름으로 완전 자동 발송, 실패 시 문자 대체 (건당 요금·템플릿 심사)</li></ul></div></div>
 </section>
 
 <section class="lesson" id="l21" data-part="6단계 · 사장님 맞춤 기능" data-title="단체 주문·예약 관리" hidden>
@@ -1871,6 +1919,7 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
     glabel: ['라벨 (Gmail)', 'Gmail 메일에 붙이는 이름표, 폴더처럼 모아 볼 수 있어요', '서류함 색깔 스티커', 'Gmail 왼쪽 메뉴 아래 라벨 + 로 만들거나, 필터를 만들 때 새 라벨을 고르면 돼요.'],
     gfilter: ['필터 (Gmail)', '조건에 맞는 메일이 오면 자동으로 라벨을 붙이거나 옮기는 규칙', '우편물 자동 분류함', 'PC Gmail 검색창 오른쪽 검색 옵션 표시 → 조건 입력 → 필터 만들기 → 라벨 적용.'],
     shortcut: ['단축어', '아이폰·맥에 기본으로 있는 자동화 앱. 동작 블록을 쌓아 정해진 일을 하게 해요', '휴대폰 속 작은 로봇', '단축어 앱 → + 로 단축어를 만들고, 자동화 탭에서 특정 시간에 실행되게 해요.'],
+    alimtalk: ['알림톡', '카카오톡 비즈니스 채널이 보내는 정보성 메시지. 받는 사람이 채널을 추가하지 않아도 전화번호로 와요', '카톡으로 오는 등기 우편', '비즈니스 채널 인증 → 발송 대행사 가입 → 문구 템플릿 심사 → 건당 요금으로 발송해요.'],
     callback: ['콜백', '답이 늦을 때 안내 문구를 먼저 보내고 완성된 답을 나중에 보내는 기능', '"잠시만요" 하고 답하기', '챗봇 블록의 Callback API 설정. 개발자 영역이에요.']
   };
 
