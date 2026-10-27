@@ -237,6 +237,26 @@ details.how .prompt { margin: 8px 0 2px; }
 html[data-ai="claude"] [data-ai="gpt"], html[data-ai="gpt"] [data-ai="claude"],
 html[data-ai="claude"] [data-ai-not="claude"], html[data-ai="gpt"] [data-ai-not="gpt"],
 html[data-ai] [data-ai-none] { display: none !important; }
+html[data-plan="free"] [data-plan="paid"], html[data-plan="paid"] [data-plan="free"],
+html:not([data-ai]) .ai-pick [data-ai], html:not([data-ai]) .plannote [data-ai], html[data-plan] [data-plan-none], html[data-plan="free"] [data-plan-not="free"], html[data-plan="paid"] [data-plan-not="paid"], html:not([data-plan]) .plannote { display: none !important; }
+.switches { display: flex; flex-wrap: wrap; gap: 8px; }
+.ai-pick-btns button[aria-pressed="true"] { border-color: var(--leaf); background: var(--leaf-soft); }
+.pick-q { margin: 6px 0 0; font-size: 16px; font-weight: 600; }
+.plannote { display: flex; gap: 10px; align-items: baseline; margin: 4px 0 0; padding: 9px 12px; border-radius: 12px; border: 1px solid var(--leaf); background: var(--paper); font-size: 14.5px; line-height: 1.55; max-width: 72ch; }
+.plannote[data-plan="paid"] { border-color: var(--carrot); }
+.plannote .tag { flex: none; font-size: 12px; font-weight: 600; border-radius: 999px; padding: 2px 9px; background: var(--leaf-soft); color: var(--ink); }
+.plannote[data-plan="paid"] .tag { background: var(--carrot); color: var(--paper); }
+html[data-plan="paid"] .fp-paid { order: -1; border-color: var(--carrot); }
+html[data-plan="free"] .fp-paid, html[data-plan="paid"] .fp-free { opacity: .72; }
+html[data-plan="free"] .fp-free b::after { content: " · 지금 내 방식"; color: var(--muted); font-weight: 400; letter-spacing: 0; }
+.loop { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; position: relative; }
+.loop .box { position: relative; }
+.loop .box em { display: block; font-style: normal; font-family: var(--f-num); font-size: 12px; color: var(--leaf); margin-bottom: 2px; }
+.loop-back { margin-top: 10px; font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.loop-back::before { content: "↺"; font-size: 18px; color: var(--leaf); }
+@container vis (max-width: 640px) { .loop { grid-template-columns: minmax(0, 1fr); } }
+.desk.wide { grid-column: 1 / -1; }
+.msg.wide-lab .line { grid-template-columns: 7em minmax(0, 1fr); }
 
 /* steps */
 .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; counter-reset: st; }
@@ -323,7 +343,10 @@ td b { font-weight: 600; }
       <div class="label"><span>내 진도</span><b id="pct">0%</b></div>
       <div class="bar"><i id="pbar"></i></div>
     </div>
-    <div class="ai-switch" role="group" aria-label="내 AI 고르기"><span>내 AI</span><button type="button" data-pick="claude" aria-pressed="false">Claude</button><button type="button" data-pick="gpt" aria-pressed="false">ChatGPT</button></div>
+    <div class="switches">
+      <div class="ai-switch" role="group" aria-label="내 AI 고르기"><span>내 AI</span><button type="button" data-pick="claude" aria-pressed="false">Claude</button><button type="button" data-pick="gpt" aria-pressed="false">ChatGPT</button></div>
+      <div class="ai-switch" role="group" aria-label="요금제 고르기"><span>요금제</span><button type="button" data-plan-pick="free" aria-pressed="false">무료</button><button type="button" data-plan-pick="paid" aria-pressed="false">유료</button></div>
+    </div>
     <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false" aria-controls="toc">목차 열기</button>
   </div>
 
@@ -337,13 +360,19 @@ td b { font-weight: 600; }
 
     <main id="lessons">
 <div class="ai-pick" id="aiPick" hidden>
-  <h2>어떤 AI로 따라 하시나요?</h2>
-  <p>고른 AI의 설명만 보여 드려요. 나중에 위쪽 '내 AI'에서 언제든 바꿀 수 있어요.</p>
+  <h2>시작 전에 두 가지만 골라 주세요</h2>
+  <p>고른 AI와 요금제에 맞는 설명만 보여 드려요. 나중에 위쪽 '내 AI'와 '요금제'에서 언제든 바꿀 수 있어요.</p>
+  <p class="pick-q">1. 어떤 AI로 따라 하시나요?</p>
   <div class="ai-pick-btns">
     <button type="button" data-pick="claude"><strong>Claude</strong><span>claude.ai · 프로젝트와 예약 작업, 구글 드라이브 연결이 쉬워요</span></button>
     <button type="button" data-pick="gpt"><strong>ChatGPT</strong><span>chatgpt.com · 이미 쓰고 있다면 이쪽으로</span></button>
   </div>
-  <p class="ai-pick-note">아직 둘 다 없다면 아무거나 하나 골라도 이 코스를 끝까지 할 수 있어요. 이미 쓰고 있는 쪽을 고르세요.</p>
+  <p class="pick-q">2. 그 AI를 유료로 쓰시나요?</p>
+  <div class="ai-pick-btns">
+    <button type="button" data-plan-pick="free"><strong>무료</strong><span>돈 들이지 않고 시작해요. 유료 기능이 필요한 곳에는 무료로 같은 일을 하는 방법을 보여 드려요</span></button>
+    <button type="button" data-plan-pick="paid"><strong>유료</strong><span><span data-ai="claude">Claude Pro 이상</span><span data-ai="gpt">ChatGPT Plus 이상</span><span data-ai-none>Claude Pro나 ChatGPT Plus 이상</span> · 예약 작업으로 AI가 알아서 일하게 만들어요</span></button>
+  </div>
+  <p class="ai-pick-note">아직 AI 계정이 없다면 하나를 골라 무료로 시작하세요. 이 코스를 끝까지 할 수 있고, 필요해지면 그때 유료로 바꾸면 돼요.</p>
 </div>
 <section class="lesson" id="l0" data-part="시작" data-title="이 코스로 만드는 것">
   <div class="lesson-head">
@@ -380,7 +409,7 @@ td b { font-weight: 600; }
     <li><input type="checkbox" id="c0a" data-key="c0a"><label for="c0a">스마트폰 (매일 입력용)</label></li>
     <li><input type="checkbox" id="c0b" data-key="c0b"><label for="c0b">PC (처음 설정용, 공공데이터 신청은 PC에서만)</label></li>
     <li><input type="checkbox" id="c0c" data-key="c0c"><label for="c0c">구글 계정 (gmail 주소)</label></li>
-    <li><input type="checkbox" id="c0d" data-key="c0d"><label for="c0d"><span class="ainame" data-both="Claude 또는 ChatGPT"></span> 계정 (유료 플랜 권장)</label></li>
+    <li><input type="checkbox" id="c0d" data-key="c0d"><label for="c0d"><span class="ainame" data-both="Claude 또는 ChatGPT"></span> 계정 (<span data-plan-none>무료로 시작 가능, 유료면 자동화가 더 편해요</span><span data-plan="free">무료 플랜 · 유료 기능 자리에는 무료 대안이 함께 나와요</span><span data-plan="paid">유료 플랜 · 예약 작업까지 모두 따라 할 수 있어요</span>)</label></li>
     <li><input type="checkbox" id="c0e" data-key="c0e"><label for="c0e">포스 관리자 계정, 배달앱 사장님 사이트 계정</label></li>
   </ul>
   <h3>배우는 순서</h3>
@@ -418,7 +447,9 @@ td b { font-weight: 600; }
         <li data-ai="claude">Claude: <span class="path">claude.ai</span> 접속 → <span class="path">Google로 계속하기</span> → 방금 쓴 구글 계정 선택</li>
         <li data-ai="gpt">ChatGPT: <span class="path">chatgpt.com</span> 접속 → <span class="path">회원가입 → Google로 계속하기</span></li>
         <li>휴대폰 앱스토어(아이폰) 또는 플레이스토어(안드로이드)에서 같은 이름의 앱 설치 → 같은 계정으로 로그인</li>
-        <li>파일 분석·예약 작업을 넉넉히 쓰려면 설정의 요금제 메뉴에서 유료 플랜으로 바꾸기<span class="fix">무료로 먼저 시험해 보고, 막히는 기능이 생기면 그때 바꿔도 돼요.</span></li>
+        <li data-plan-none>파일 분석·예약 작업을 넉넉히 쓰려면 설정의 요금제 메뉴에서 유료 플랜으로 바꾸기<span class="fix">무료로 먼저 시험해 보고, 막히는 기능이 생기면 그때 바꿔도 돼요. 위쪽 '요금제'에서 고르면 그에 맞는 설명만 보여요.</span></li>
+        <li data-plan="free">지금은 무료 플랜으로 진행해요. 예약 작업처럼 유료 기능이 필요한 곳에서는 휴대폰 알림 + 한 줄 부탁, 구글 스크립트 같은 무료 방법을 안내해요<span class="fix">나중에 유료로 바꾸면 위쪽 '요금제'를 '유료'로 바꾸세요. 설명이 유료 기준으로 바뀌어요.</span></li>
+        <li data-plan="paid">설정의 요금제(플랜) 메뉴에서 <span data-ai="claude">Pro 이상</span><span data-ai="gpt">Plus 이상</span><span data-ai-none>유료 플랜</span>인지 확인하기<span class="fix">휴대폰 앱에서 결제하면 앱스토어 가격이 적용돼 웹보다 비쌀 수 있어요. PC 웹에서 결제하는 게 보통 더 싸요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="c2c" data-key="c2c"><div class="body"><label for="c2c">포스의 매출 엑셀 내보내기 메뉴 찾기</label><small><a href="#l3" class="ref" data-ref="l3">강의</a>에 토스 포스 순서가 있어요. 다른 포스는 고객센터에 물어보세요.</small></div></li>
     <li><input type="checkbox" id="c2d" data-key="c2d"><div class="body"><label for="c2d">배달앱 사장님 사이트에 로그인해 정산 메뉴 찾기</label><small>배민·쿠팡이츠·요기요 중 쓰는 곳 모두</small></div></li>
@@ -547,6 +578,8 @@ td b { font-weight: 600; }
     <span class="kicker">실습 · 약 1시간</span>
     <h2>Claude에 '우리 가게 본사'를 차려요</h2>
     <p class="goal"><dfn data-t="project">프로젝트</dfn> 하나를 경영 비서의 본사로 만들고, 장부를 연결합니다.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>프로젝트는 5개까지 만들 수 있어요. 이 코스는 '우리 가게 경영 비서' 하나면 충분해요. Google Drive 커넥터도 무료로 연결돼요. 사용량이 적은 편이라 긴 분석은 "1월만 먼저"처럼 나눠서 부탁하세요.</span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>사용량이 넉넉해서 장부 전체 분석도 한 번에 돼요. 이 프로젝트에서 다음 단계의 <dfn data-t="scheduled">예약 작업</dfn>까지 이어서 써요.</span></p>
   </div>
   <ol class="steps">
     <li><input type="checkbox" id="s5a" data-key="s5a"><div class="body"><label for="s5a">새 프로젝트 만들기</label><small>이름은 '우리 가게 경영 비서'</small>
@@ -592,6 +625,8 @@ td b { font-weight: 600; }
     <span class="kicker">실습 · 약 1시간</span>
     <h2>ChatGPT에 '우리 가게 본사'를 차려요</h2>
     <p class="goal"><dfn data-t="project">프로젝트</dfn> 하나를 경영 비서의 본사로 만들고, 장부를 연결합니다. 메뉴 이름은 업데이트로 바뀔 수 있으니 비슷한 이름을 찾으세요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>프로젝트 파일은 5개까지예요. 매장 장부, 기존 정산표, 업무일지 3개를 먼저 넣고, 메뉴 레시피는 장부의 '메뉴원가' 시트에 합치세요. Google Drive가 연결 목록에 안 보이면 장부를 엑셀로 받아 올리면 돼요.</span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>프로젝트 파일을 25개까지 넣을 수 있어요. 예약 작업에 정확한 시각을 정할 수 있고, 동시에 5개 이상 켜 둘 수 있어요.</span></p>
   </div>
   <ol class="steps">
     <li><input type="checkbox" id="s7a" data-key="s7a"><div class="body"><label for="s7a">새 프로젝트 만들기</label><small>이름은 '우리 가게 경영 비서'. 매주 <dfn data-t="scheduled">예약 작업</dfn>은 <dfn data-t="gpt">GPT</dfn> 안에서는 안 되니 프로젝트로 만들어요.</small>
@@ -650,7 +685,7 @@ td b { font-weight: 600; }
         <li>가운데 입력창에 아래 '직원 첫 메시지'를 붙여 넣고, ○○ 자리에 <b>장부 과장</b>과 맡은 일을 적어 보내기</li>
         <li>채팅이 열리면 위쪽 채팅 제목을 눌러 <span class="path">이름 바꾸기</span> → <b>01 장부·정산</b><span class="fix">일반 대화 화면에서 시작하면 프로젝트 밖 채팅이 돼요. 꼭 프로젝트 화면에서 시작하세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s6b" data-key="s6b"><div class="body"><label for="s6b">나머지 직원 8명도 같은 방법으로</label><small>02 월요일 브리핑, 03 식자재·메뉴 원가, 04 알바 관리, 05 공과금·지원사업, 06 SNS 운영, 07 카톡 AI 상담, 08 자동화·연결, 09 배달앱·매장 개선</small>
+    <li><input type="checkbox" id="s6b" data-key="s6b"><div class="body"><label for="s6b">나머지 직원 8명도 같은 방법으로</label><small>02 월요일 브리핑, 03 식자재·메뉴 원가, 04 알바 관리, 05 공과금·지원사업, 06 SNS 운영, 07 카톡 AI 상담, 08 자동화·연결, 09 배달앱·매장 개선. 시스템이 커지면 특강에서 10 시스템 관리도 둬요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>프로젝트 화면으로 돌아가 새 메시지로 다음 직원을 만들기</li>
         <li>번호를 붙여 이름을 바꿔 두면 목록에서 한눈에 구분돼요</li>
@@ -699,6 +734,8 @@ td b { font-weight: 600; }
     <span class="kicker">실습 · 약 30분</span>
     <h2>월요일 아침, 브리핑이 알아서 와요</h2>
     <p class="goal">지난주 매출, 매출 올리는 제안, 알아야 할 정책, 업계 뉴스를 <dfn data-t="scheduled">예약 작업</dfn>으로 매주 받습니다.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span><span data-ai="claude">Claude 무료 플랜에는 예약 작업이 없어요. 대신 휴대폰 반복 알림을 맞춰 두고, 알림이 오면 브리핑 채팅에 한 줄만 보내요. 내용은 똑같이 받아요.</span><span data-ai="gpt">ChatGPT 무료 플랜도 예약 작업이 돼요. 하루 1번 이하로, '아침'처럼 대략적인 시간에 오고, 동시에 3개까지 켜 둘 수 있어요.</span><span data-ai-none>Claude 무료는 예약 작업이 없어 알림 + 한 줄 부탁으로, ChatGPT 무료는 하루 1번 이하 예약 작업으로 받아요.</span></span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>월요일 오전 7시처럼 정확한 시각에 AI가 알아서 브리핑을 보내요. 컴퓨터가 꺼져 있어도 돼요.</span></p>
   </div>
   <div class="vis">
     <div class="msg">
@@ -718,7 +755,13 @@ td b { font-weight: 600; }
         <li>새 이름표를 두 번 눌러(휴대폰은 길게 눌러 → 이름 바꾸기) <b>제안기록</b>로 바꾸고 엔터</li>
         <li>A1 칸을 한 번 누르고, 아래 '제안기록 제목 줄'의 복사 → 붙여 넣기. 그 아래 줄부터는 칸마다 하나씩 적어요. 예: A2 칸 10/27, B2 칸 평일 점심 도시락 세트, C2 칸 했음, D2 칸 단체 주문 2건<span class="fix">새 스프레드시트 파일을 따로 만들었다면 그 파일은 지우고 '매장 장부' 안에 다시 추가하세요. AI 비서는 '매장 장부' 한 파일만 읽어요.</span></li>
       </ol><div class="prompt" data-tsv><div class="bar"><span>제안기록 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 제안 | 실행 여부 | 결과</pre></div></details></div></li>
-    <li data-ai="claude"><input type="checkbox" id="s8b" data-key="s8b"><div class="body"><label for="s8b">Claude에서 예약하기</label><small>'02 월요일 브리핑' 채팅에서 하세요. 예약 작업은 유료 플랜에서 되고, 컴퓨터가 꺼져 있어도 실행돼요.</small>
+    <li data-ai="claude" data-plan="free"><input type="checkbox" id="s8e" data-key="s8e"><div class="body"><label for="s8e">Claude 무료: 알림 맞추고 한 줄로 받기</label><small>예약 작업 대신 휴대폰이 사장님을 깨워 주고, 브리핑은 채팅 한 줄로 받아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'02 월요일 브리핑' 채팅에 아래 '월요일 브리핑 지시문'을 한 번 보내고, 맨 앞에 <b>"앞으로 내가 '브리핑 해줘'라고 하면 이 순서대로 해줘."</b>를 붙여요</li>
+        <li>휴대폰 캘린더(아이폰 캘린더나 구글 캘린더)에 새 일정 <b>브리핑 받기</b> → 월요일 오전 7시 → 반복 <span class="path">매주</span> → 알림 <span class="path">일정 시간</span></li>
+        <li>알림이 오면 Claude 앱 → '02 월요일 브리핑' 채팅 → <b>브리핑 해줘</b> 보내기<span class="fix">채팅이 길어져 지시를 잊으면 지시문을 다시 붙여 넣으세요. 유료로 바꾸면 위쪽 '요금제'를 '유료'로 바꿔 예약 작업 방법을 보세요.</span></li>
+      </ol></details></div></li>
+    <li data-ai="claude" data-plan-not="free"><input type="checkbox" id="s8b" data-key="s8b"><div class="body"><label for="s8b">Claude에서 예약하기</label><small>'02 월요일 브리핑' 채팅에서 하세요. 예약 작업은 유료 플랜에서 되고, 컴퓨터가 꺼져 있어도 실행돼요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>아래 '월요일 브리핑 지시문'을 복사하고, ○○에 매장 주소 넣기</li>
         <li>맨 앞에 <b>"매주 월요일 오전 7시에 아래 브리핑을 해줘."</b>를 붙여 보내기</li>
@@ -729,7 +772,7 @@ td b { font-weight: 600; }
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>대화창에 "매주 월요일 오전 7시에 아래 브리핑을 해줘" + 지시문 보내기</li>
         <li>나타난 예약 카드에서 요일·시간 확인 → 저장</li>
-        <li><span class="path">설정 → 알림</span>에서 푸시·이메일 켜기<span class="fix">정확한 시각 지정은 유료 플랜에서 돼요. Plus 플랜은 예약 작업을 동시에 5개까지 켜 둘 수 있어요.</span></li>
+        <li><span class="path">설정 → 알림</span>에서 푸시·이메일 켜기<span class="fix"><span data-plan-not="paid">무료 플랜은 '월요일 아침'처럼 대략적인 시간으로 정해지고, 예약 작업은 동시에 3개까지예요. </span><span data-plan-not="free">유료 플랜은 오전 7시처럼 정확한 시각을 정할 수 있어요. Plus는 동시에 5개까지 켜 둘 수 있어요.</span></span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="s8d" data-key="s8d"><div class="body"><label for="s8d">매주 제안 하나 실행하고 기록</label><small>제안기록 탭에 적어 두면 다음 주 브리핑이 효과를 비교해 줘요.</small></div></li>
   </ol>
@@ -996,7 +1039,7 @@ td b { font-weight: 600; }
         <li>오른쪽 아래 <span class="path">+ 트리거 추가</span></li>
         <li>실행할 함수: AI가 알려 준 이름 / 이벤트 소스: <span class="path">시간 기반</span> / 유형: <span class="path">일 단위 타이머</span> / 시간: <span class="path">오전 6시~7시</span> → 저장</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s11f" data-key="s11f"><div class="body"><label for="s11f"><dfn data-t="mcp">MCP</dfn> 커넥터 (선택)</label><small>쓰려는 서비스가 <dfn data-t="remotemcp">원격 MCP 서버</dfn> 주소를 줄 때만 연결해요. 한국 서비스로는 카카오의 <dfn data-t="playmcp">PlayMCP</dfn>(카톡 나와의 채팅방, 톡캘린더, 카카오맵 등)가 대표적이에요. <span data-ai-not="gpt">Claude는 <span class="path">설정 → 커넥터 → 사용자 지정 커넥터 추가</span>에서 등록해요. </span><span data-ai-not="claude">ChatGPT는 유료 플랜의 개발자 모드에서 등록해요.</span></small></div></li>
+    <li><input type="checkbox" id="s11f" data-key="s11f"><div class="body"><label for="s11f"><dfn data-t="mcp">MCP</dfn> 커넥터 (선택)</label><small>쓰려는 서비스가 <dfn data-t="remotemcp">원격 MCP 서버</dfn> 주소를 줄 때만 연결해요. 한국 서비스로는 카카오의 <dfn data-t="playmcp">PlayMCP</dfn>(카톡 나와의 채팅방, 톡캘린더, 카카오맵 등)가 대표적이에요. <span data-ai-not="gpt">Claude는 <span class="path">설정 → 커넥터 → 사용자 지정 커넥터 추가</span>에서 등록해요. </span><span data-ai-not="claude">ChatGPT는 유료 플랜의 개발자 모드에서 등록해요.</span><span data-plan="free"><span data-ai="claude"> 무료 플랜은 사용자 지정 커넥터를 1개까지 쓸 수 있으니 가장 필요한 것 하나만 고르세요.</span><span data-ai="gpt"> 무료 플랜은 개발자 모드가 없으니 이 단계는 건너뛰고 앱스 스크립트로 연결하세요.</span></span></small></div></li>
   </ol>
   <div class="prompt"><div class="bar"><span>채소 시세 자동 수집 부탁문</span><button class="copy" type="button">복사</button></div><pre>공공데이터포털 '농수축산물 유통단계별 가격' API를 구글 시트 Apps Script로 매일 호출해서 '시세' 탭에 로메인, 양상추, 토마토, 오이 소매가격을 날짜별로 쌓는 코드를 만들어줘. 인증키 넣을 자리를 표시하고, 실행할 함수 이름과 트리거 설정 방법도 초보 기준으로 단계별로 알려줘.</pre></div>
   <div class="prompt"><div class="bar"><span>포스사 연동 문의 문장</span><button class="copy" type="button">복사</button></div><pre>안녕하세요, ○○매장입니다. 매출·메뉴별 판매 데이터를 엑셀 정기 다운로드나 API로 받을 수 있는지 문의드립니다. 가능하다면 신청 방법과 비용, 제공 항목(결제수단, 채널, 메뉴, 시간대)을 알려 주세요.</pre></div>
@@ -1142,7 +1185,8 @@ td b { font-weight: 600; }
       </ol></details>
       <details class="how" data-ai="gpt"><summary><span class="closed-label">자세히 따라 하기 · ChatGPT</span><span class="open-label">접기</span></summary><ol class="sub">
         <li><span class="path">설정 → 앱</span>에서 Gmail 연결</li>
-        <li>유료 플랜이면 메일이 올 때 바로 실행되는 예약 작업도 만들 수 있어요. 대화창에 "Gmail에 '배달매출자료' 라벨 메일이 오면 첨부 내용을 요약해서 알려줘"</li>
+        <li data-plan-not="free"><span data-ai="claude">Claude 유료 플랜은 위 한 줄을 붙인 월요일 브리핑 예약 작업이 그대로 점검해 줘요.</span><span data-ai-not="claude">ChatGPT 유료 플랜이면 메일이 올 때 바로 실행되는 예약 작업도 만들 수 있어요. 대화창에 "Gmail에 '배달매출자료' 라벨 메일이 오면 첨부 내용을 요약해서 알려줘"</span></li>
+        <li data-plan="free">무료 플랜이어도 메일 수집과 장부 반영은 위의 구글 스크립트가 다 해요. AI 점검은 <span data-ai="claude">월요일 알림이 올 때 "브리핑 해줘"에 같이 들어가요</span><span data-ai-not="claude">무료 예약 작업(하루 1번 이하)으로 월요일 아침에 받아요</span></li>
         <li>월요일 브리핑 지시문에도 "지난주 '배달매출자료' 메일이 앱마다 왔는지 확인해줘" 한 줄 추가</li>
       </ol></details></div></li>
   </ol>
@@ -1346,7 +1390,7 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
     <li><input type="checkbox" id="c18e" data-key="c18e"><label for="c18e">안 쓰는 커넥터·공유 링크 끊기</label></li>
     <li><input type="checkbox" id="c18f" data-key="c18f"><label for="c18f">홈페이지 메뉴·가격·영업시간 최신화</label></li>
   </ul>
-  <p class="tip"><b>점검도 직원에게.</b> '02 월요일 브리핑' 예약 작업에 "매달 첫 월요일에는 운영 점검표도 같이 알려줘"를 덧붙이면 빠뜨리지 않아요.</p>
+  <p class="tip"><b>점검도 직원에게.</b> '02 월요일 브리핑'에 "매달 첫 월요일에는 운영 점검표도 같이 알려줘"를 덧붙이면 빠뜨리지 않아요. 고칠 거리를 AI가 보고하고 사장님이 승인하는 구조는 특강 <a href="#l28" class="ref" data-ref="l28">강의</a>에서 만들어요.</p>
 
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>GitHub Pages<span data-ai-not="gpt">나 Claude 페이지 링크</span>로 홈페이지 0원</li><li>네이버 플레이스·카카오맵 정보 등록도 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>내 도메인(예: ○○salad.com) 구입</li><li>홈페이지 빌더 서비스, 유지보수 외주</li></ul></div></div>
 </section>
@@ -1496,13 +1540,16 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
         <li>PC에서 playmcp.kakao.com → 카카오 계정으로 로그인</li>
         <li>카카오 공식 도구 중 <b>카카오톡 나와의 채팅방</b>을 찾아 <span class="path">도구함에 담기</span>. 다른 회사가 올린 도구는 같이 담지 않아요</li>
         <li data-ai-not="gpt">Claude: <span class="path">설정(또는 사용자 지정) → 커넥터 → + → 사용자 지정 커넥터 추가</span> → 이름 <b>PlayMCP</b>, 주소 <b>https://playmcp.kakao.com/mcp</b> → 추가 → 연결</li>
-        <li data-ai="gpt">ChatGPT: 유료 플랜에서 <span class="path">설정 → 앱(커넥터) → 고급 → 개발자 모드</span> 켜기 → 맞춤 MCP 서버로 PlayMCP 도구함 주소 등록 (주소는 PlayMCP 화면에 나와요)</li>
+        <li data-ai="gpt" data-plan="free">ChatGPT 무료 플랜은 개발자 모드(MCP 연결)가 없어요. 아이폰이면 ① 단축어 방법을, 안드로이드면 아래 '카카오 개발자 앱으로 직접 만들기'를 쓰세요</li>
+        <li data-ai-not="gpt" data-plan="free">Claude 무료 플랜은 사용자 지정 커넥터를 1개까지 쓸 수 있어요. PlayMCP 하나에 카카오 도구를 모아 담으면 충분해요</li>
+        <li data-ai="gpt" data-plan-not="free">ChatGPT: 유료 플랜에서 <span class="path">설정 → 앱(커넥터) → 고급 → 개발자 모드</span> 켜기 → 맞춤 MCP 서버로 PlayMCP 도구함 주소 등록 (주소는 PlayMCP 화면에 나와요)</li>
         <li>카카오 로그인·동의 화면이 뜨면 주소창이 <b>kakao.com</b>인지 확인하고 동의</li>
         <li>시험: 대화창에 "카톡 나와의 채팅으로 '연결 시험'이라고 보내줘" → 보낼 내용 확인 창에서 허용 → 내 카톡에 왔는지 확인<span class="fix">도구 목록이 비어 있으면 PlayMCP 도구함에 도구가 담겼는지 확인하세요. 카톡 한 통은 짧게(200자 안팎) 보내지므로 거래처마다 한 통씩 나눠 보내 달라고 하세요.</span></li>
       </ol></details>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기 · 매일 밤 자동으로</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>'03 식자재·메뉴 원가' 채팅에서 아래 'PlayMCP 발주 예약' 지시문으로 매일 밤 10시 <dfn data-t="scheduled">예약 작업</dfn> 만들기</li>
-        <li data-ai-not="gpt">Claude 예약 작업은 유료 플랜에서 되고, 컴퓨터가 꺼져 있어도 돌아가요. 장부는 Google Drive 커넥터로 읽어요</li>
+        <li data-ai-not="gpt" data-plan-not="free">Claude 예약 작업은 유료 플랜에서 되고, 컴퓨터가 꺼져 있어도 돌아가요. 장부는 Google Drive 커넥터로 읽어요</li>
+        <li data-ai-not="gpt" data-plan="free">Claude 무료 플랜은 예약 작업이 없어요. 휴대폰에 매일 밤 10시 반복 알림을 맞추고, 알림이 오면 '03 식자재·메뉴 원가' 채팅에 <b>"오늘 발주 카톡으로 보내줘"</b> 한 줄 (처음 한 번은 아래 지시문을 먼저 보내 두기)</li>
         <li data-ai="gpt">ChatGPT 예약 작업에서 개발자 모드 커넥터가 실행되는지는 플랜과 시점에 따라 달라요. 안 되면 밤 10시 알림을 받고 대화창에 "오늘 발주 카톡으로 보내줘"라고 한 줄 보내세요</li>
         <li>처음 며칠은 메시지를 보낼 때마다 허용을 눌러 내용을 확인해요. 받는 곳이 '나와의 채팅'뿐이라 익숙해지면 이 도구만 항상 허용해도 위험이 낮아요</li>
         <li>내 카톡에 온 거래처별 초안을 길게 눌러 <span class="path">전달 → 거래처 채팅방</span></li>
@@ -1793,6 +1840,204 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
 </section>
 
 
+<section class="lesson" id="l28" data-part="특강 · 시스템 점검과 업데이트" data-title="보고·승인 구조 만들기" hidden>
+  <div class="lesson-head">
+    <span class="kicker">특강 · 실습 · 약 2시간</span>
+    <h2>AI가 고칠 거리를 보고하고, 사장님이 승인해요</h2>
+    <p class="goal">시스템을 쓰다 보면 손볼 일이 계속 생겨요. 스크립트가 멈추거나, 배달앱 정산 양식이 바뀌거나, 최저임금이 오르거나, AI에 새 기능이 나와요. 'AI 시스템 관리자'가 정기적으로 점검해 보고하고, 사장님이 <dfn data-t="approval">승인</dfn>한 것만 적용되는 구조를 만듭니다.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>구조 전체가 무료예요. 장부 시트 3개, 구글 스크립트 자동 점검, 휴대폰에서 승인하기까지 돈이 들지 않아요. 정기 보고만 <span data-ai="claude">휴대폰 알림 + 한 줄 부탁</span><span data-ai="gpt">무료 예약 작업(하루 1번 이하)</span><span data-ai-none>무료 방식</span>으로 받아요.</span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>구조는 똑같고, 다음 강의의 월간 보고를 예약 작업으로 맡겨 AI가 알아서 보고서를 보내요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="loop">
+      <div class="box pop" style="--d:.1s"><em>1 점검</em><strong>매일 자동</strong><span>스크립트가 빠진 입력·멈춘 자동화를 찾아 점검로그에</span></div>
+      <div class="box pop" style="--d:.3s"><em>2 보고</em><strong>매주 한 줄 · 매달 보고서</strong><span>시스템 관리 직원이 고칠 것·바꿀 것을 번호 붙여 정리</span></div>
+      <div class="box hi pop" style="--d:.5s"><em>3 승인</em><strong>사장님이 휴대폰에서</strong><span>개선요청 시트 상태 칸을 '승인'으로</span></div>
+      <div class="box pop" style="--d:.7s"><em>4 적용</em><strong>백업 후 하나씩</strong><span>승인된 것만, 시험까지 마치고</span></div>
+      <div class="box ai pop" style="--d:.9s"><em style="color:inherit">5 기록</em><strong>변경기록</strong><span>무엇을 왜 바꿨는지, 되돌리는 법</span></div>
+    </div>
+    <p class="loop-back a" style="--d:1.2s">기록이 다음 점검의 기준이 돼요. 이 바퀴가 돌면 시스템이 저절로 낡지 않아요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s28a" data-key="s28a"><div class="body"><label for="s28a">새 직원 채팅: 10 시스템 관리</label><small>'우리 가게 경영 비서' 프로젝트에 시스템 관리 직원을 한 명 더 둬요. 이 직원은 고치지 않고 보고만 해요. 고치는 건 승인 뒤에 해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>프로젝트 첫 화면 입력창에 아래 '시스템 관리 직원 첫 메시지'를 붙여 넣어 보내기</li>
+        <li>채팅 제목을 눌러 <span class="path">이름 바꾸기</span> → <b>10 시스템 관리</b></li>
+        <li>업무일지 맨 위에 "10 시스템 관리 직원 배치. 시스템 변경은 개선요청 시트 승인 후에만"이라고 한 줄 남기기<span class="fix">가상 사무실을 아직 안 만들었다면 <a href="#l6" class="ref" data-ref="l6">강의</a>를 먼저 보세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s28b" data-key="s28b"><div class="body"><label for="s28b">'매장 장부'에 '개선요청' 시트 추가</label><small>AI의 제안, 직원 건의, 사장님 아이디어가 모두 여기 한 줄씩 올라와요. 상태 칸이 결재란이에요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기 · 시트 만들기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' 파일 열기 → 맨 아래 시트 이름표 왼쪽의 <span class="path">+</span> → 새 이름표를 두 번 눌러 <b>개선요청</b></li>
+        <li>A1 칸을 누르고 아래 '개선요청 제목 줄'을 복사해 붙여 넣기 (A~L열 12칸)</li>
+        <li>1행을 고정: <span class="path">보기 → 고정 → 1행</span><span class="fix">시트가 아니라 새 파일을 만들었다면 지우고 '매장 장부' 안에 다시 만드세요. AI는 장부 한 파일만 읽어요.</span></li>
+      </ol><div class="prompt" data-tsv><div class="bar"><span>개선요청 제목 줄</span><button class="copy" type="button">복사</button></div><pre>번호 | 올린 날 | 올린 곳 | 구분 | 내용 | 이유·기대 효과 | 바뀌는 곳 | 위험·비용 | 상태 | 승인일 | 적용일 | 메모</pre></div></details>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기 · 상태 칸을 결재란으로</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 왼쪽 위 칸 이름이 보이는 상자(A1이라고 적힌 곳)를 누르고 <b>I2:I500</b> 입력 → 엔터. 상태 칸 499개가 한 번에 선택돼요</li>
+        <li><span class="path">삽입 → 드롭다운</span> → 오른쪽 창의 옵션에 <b>제안</b>, <b>승인</b>, <b>보류</b>, <b>반려</b>, <b>적용완료</b>를 하나씩 입력 (항목 추가 버튼으로 칸 늘리기)</li>
+        <li>각 옵션 옆 색 동그라미로 색 고르기. 예: 제안 노랑, 승인 초록, 보류 회색, 반려 빨강, 적용완료 파랑 → <span class="path">완료</span></li>
+        <li>같은 방법으로 <b>D2:D500</b>(구분)에 <b>오류</b>, <b>보완</b>, <b>업데이트</b>, <b>새 기능</b> <dfn data-t="dropdown">드롭다운</dfn> 만들기<span class="fix">'삽입 → 드롭다운'이 안 보이면 <span class="path">데이터 → 데이터 확인 → 규칙 추가 → 기준: 드롭다운</span>으로 해도 같아요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s28c" data-key="s28c"><div class="body"><label for="s28c">'변경기록' 시트 추가</label><small>승인한 것을 적용할 때마다 한 줄. 문제가 생기면 여기를 보고 <dfn data-t="rollback">되돌리기</dfn>해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>같은 방법으로 시트를 하나 더 만들고 이름을 <b>변경기록</b>으로</li>
+        <li>A1 칸에 아래 '변경기록 제목 줄' 붙여 넣기</li>
+        <li>드라이브 '우리가게 장부' 폴더에 Google 문서 <b>코드 보관함</b>도 하나 만들어 두기. 스크립트를 바꾸기 전 원래 코드를 날짜와 함께 붙여 두는 곳이에요</li>
+      </ol><div class="prompt" data-tsv><div class="bar"><span>변경기록 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 개선요청 번호 | 바꾼 것 | 바꾼 곳 | 바꾸기 전 백업 | 되돌리는 법 | 확인한 사람</pre></div></details></div></li>
+    <li><input type="checkbox" id="s28d" data-key="s28d"><div class="body"><label for="s28d"><dfn data-t="healthcheck">자동 점검</dfn> 스크립트 붙이기</label><small>매일 아침 6시, 스크립트가 장부를 훑어요. 문제가 있을 때만 메일이 오고, 결과는 '점검로그' 시트에 쌓여요. 상태를 '승인'으로 바꾸면 승인일도 자동으로 들어가요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'10 시스템 관리' 채팅에 아래 '자동 점검 스크립트 부탁문'을 보내기. 장부에 실제로 있는 시트 이름을 같이 적어 주면 정확해요</li>
+        <li>장부에서 <span class="path">확장 프로그램 → Apps Script</span> → 왼쪽 <span class="path">파일 +</span> → 스크립트 → 이름 <b>점검</b> → 받은 코드 붙여 넣기 → 저장</li>
+        <li>위쪽 함수 목록에서 점검 함수를 고르고 <span class="path">실행</span> → 권한 허용 → 장부에 '점검로그' 시트가 생기고 결과가 적혔는지 확인</li>
+        <li>왼쪽 시계 모양 <span class="path"><dfn data-t="trigger">트리거</dfn> → 트리거 추가</span> → 점검 함수, 시간 기반, 일 단위, 오전 6~7시 → 저장</li>
+        <li>시험: 개선요청 시트에 아무 줄이나 만들고 상태를 '승인'으로 → 승인일(J열)에 오늘 날짜가 들어오는지 확인<span class="fix">날짜가 안 들어오면 스크립트에 onEdit 함수가 있는지, 상태가 I열인지 확인하고, 화면을 캡처해 '10 시스템 관리' 채팅에 보내세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s28e" data-key="s28e"><div class="body"><label for="s28e">휴대폰에서 승인하는 법 익히기</label><small>결재는 휴대폰으로 충분해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>휴대폰 'Google Sheets' 앱 → '매장 장부' → 아래 이름표에서 <b>개선요청</b></li>
+        <li>승인할 줄의 상태 칸(I열)을 누르기 → 목록에서 <b>승인</b>, 미룰 거면 <b>보류</b>, 안 할 거면 <b>반려</b></li>
+        <li>궁금한 게 있으면 메모 칸(L열)에 적어 두기. 다음 보고 때 AI가 답해요<span class="fix">자주 쓰면 앱에서 장부를 별표(중요 문서함)로 표시하거나 홈 화면에 바로가기를 만들어 두세요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>시스템 관리 직원 첫 메시지</span><button class="copy" type="button">복사</button></div><pre>너는 우리 가게의 시스템 관리자야. 맡은 일은 장부·스크립트·직원 웹앱·예약 작업이 잘 돌아가는지 점검하고, 고칠 것과 바꿀 것을 보고하는 거야.
+규칙:
+- 직접 고치지 않는다. 모든 변경은 '매장 장부'의 '개선요청' 시트에 올리고, 내가 상태를 '승인'으로 바꾼 것만 다룬다.
+- 제안마다 번호, 구분(오류/보완/업데이트/새 기능), 이유·기대 효과, 바뀌는 곳, 위험·비용, 걸리는 시간, 되돌리는 법을 적는다.
+- 돈이 드는 것, 직원 화면·권한, 개인정보·급여, 손님이나 거래처에 나가는 메시지, 데이터 삭제는 '사장님 직접 확인'이라고 표시한다.
+- 적용할 때는 한 번에 하나만, 백업 먼저, 끝나면 '변경기록'에 붙일 한 줄을 준다.
+첫 업무로, 지금 우리 시스템(업무일지와 장부 시트 목록 참고)에서 점검해야 할 곳 목록을 만들어줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>자동 점검 스크립트 부탁문 · 시스템 관리</span><button class="copy" type="button">복사</button></div><pre>'매장 장부' 구글 시트에 붙일 자동 점검 앱스 스크립트를 만들어줘. 나는 코딩을 몰라서 붙여 넣는 곳과 트리거 설정까지 순서대로 알려줘.
+- 매일 아침 6시 실행. 점검 대상은 스크립트 맨 위 목록에서 내가 고칠 수 있게 [시트 이름, 날짜 열, 허용 공백 일수]로
+  예: 매출 1일, 근태 1일, 소진 1일, 마감 1일, 배달매출 8일, 시세 1일, 발주기록 2일 (우리 장부 시트: ○○)
+- 시트가 없거나, 마지막 기록이 허용 일수보다 오래됐거나, 금액 칸에 음수나 글자가 있으면 '주의'
+- 결과는 '점검로그' 시트에 [날짜, 항목, 결과(정상/주의/오류), 내용] 한 줄씩. 시트가 없으면 만들기
+- 주의·오류가 하나라도 있으면 내 Gmail로 요약 메일. 모두 정상이면 메일 보내지 않기
+- '개선요청' 시트에서 상태(I열)를 '승인'으로 바꾸면 승인일(J열)에 오늘 날짜, '적용완료'로 바꾸면 적용일(K열)에 오늘 날짜가 자동으로 들어가게
+- 다른 스크립트(시세, 배달매출, 발주 등)가 실패하면 '점검로그'에 '오류' 한 줄을 남기도록, 기존 함수에 덧붙일 짧은 코드도 따로 알려줘
+- 장부의 매출·급여 숫자를 고치거나 지우는 코드는 절대 넣지 마</pre></div>
+  <p class="tip warnbox"><b>결재란은 사장님만.</b> AI나 직원이 상태를 '승인'으로 바꾸지 않게 하세요. 직원과 장부를 공유하고 있다면 <span class="path">데이터 → 시트 및 범위 보호</span>로 '개선요청' 시트를 사장님만 수정하게 잠가 두세요.</p>
+  <p class="src">출처: <a href="https://support.google.com/docs/answer/186103?hl=ko" target="_blank" rel="noopener">구글 시트 드롭다운 만들기</a> · <a href="https://developers.google.com/apps-script/guides/triggers/installable?hl=ko" target="_blank" rel="noopener">앱스 스크립트 설치형 트리거</a> · <a href="https://developers.google.com/apps-script/guides/triggers?hl=ko" target="_blank" rel="noopener">onEdit 단순 트리거</a></p>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>개선요청·변경기록·점검로그 시트와 드롭다운 결재란</li><li>구글 스크립트 자동 점검 + 문제 있을 때만 Gmail 알림</li><li>휴대폰 구글 시트 앱으로 승인</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>월간 보고를 AI 예약 작업으로 자동 발송</li><li>사용량이 넉넉해 장부 전체·스크립트 전체를 한 번에 검토</li></ul></div></div>
+</section>
+
+<section class="lesson" id="l29" data-part="특강 · 시스템 점검과 업데이트" data-title="정기 보고 받고 승인·적용하기" hidden>
+  <div class="lesson-head">
+    <span class="kicker">특강 · 실습 · 매주 5분 · 매달 30분</span>
+    <h2>보고는 정기적으로, 적용은 승인한 것만</h2>
+    <p class="goal">매주 월요일 브리핑에 시스템 한 줄, 매달 첫째 월요일에 월간 시스템 보고서를 받아요. 승인한 것은 백업 → 적용 → 시험 → <dfn data-t="changelog">변경기록</dfn> 순서로 하나씩 반영합니다.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span><span data-ai="claude">Claude 무료 플랜은 예약 작업이 없어서 매달 첫째 월요일 휴대폰 알림이 오면 "이번 달 시스템 보고 해줘" 한 줄을 보내요.</span><span data-ai="gpt">ChatGPT 무료 플랜도 매달 한 번 예약 작업을 걸 수 있어요. 시간은 '아침'처럼 대략적으로 정해지고, 예약은 동시에 3개까지예요.</span><span data-ai-none>Claude 무료는 알림 + 한 줄 부탁, ChatGPT 무료는 대략적인 시간의 예약 작업으로 받아요.</span></span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>월간 보고를 예약 작업으로 맡겨요. 매달 정해진 시각에 보고서가 오고, 사장님은 승인만 하면 돼요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="msg wide-lab">
+      <div class="from a" style="--d:.1s"><span>월간 시스템 보고 · 매달 첫째 월요일 · 예시</span><span>10 시스템 관리</span></div>
+      <div class="line a" style="--d:.5s"><b>상태</b><span>자동 점검 31번 중 주의 2번. 배달매출 메일 1주 누락, 시세 인증키 다음 달 만료 예정</span></div>
+      <div class="line alert a" style="--d:1s"><b>#12 오류</b><span>쿠팡이츠 정산 파일의 열 이름이 바뀌어 배달매출 반영이 멈춤. 스크립트 3줄 수정, 10분, 위험 낮음</span></div>
+      <div class="line a" style="--d:1.5s"><b>#13 업데이트</b><span>내년 최저임금이 바뀌어 알바근무 시트 기본 시급 변경 필요. 사장님 직접 확인</span></div>
+      <div class="line a" style="--d:2s"><b>#14 새 기능</b><span>직원 웹앱에 폐기 사진 올리기. 비용 0원, 30분, 직원 화면 바뀜 → 사장님 직접 확인</span></div>
+      <div class="line a" style="--d:2.5s"><b>지난달</b><span>#9·#10 적용완료, 되돌린 것 없음. #11 보류 중</span></div>
+    </div>
+  </div>
+  <h3>보고 주기</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>언제</th><th>무엇을</th><th>누가</th></tr></thead>
+    <tbody>
+      <tr><td>매일 오전 6시</td><td>빠진 입력, 이상한 숫자, 멈춘 자동화 점검. 문제 있을 때만 메일</td><td>자동 점검 스크립트</td></tr>
+      <tr><td>매주 월요일</td><td>월요일 브리핑에 시스템 한 줄: 지난주 주의·오류 수, 승인 기다리는 개선요청 수</td><td>02 월요일 브리핑</td></tr>
+      <tr><td>매달 첫째 월요일</td><td>월간 시스템 보고: 오류·보완·업데이트·새 기능 제안 → 개선요청에 올리기</td><td>10 시스템 관리</td></tr>
+      <tr><td>석 달에 한 번</td><td>대점검: 백업 되살리기 연습, 직원 권한·PIN 정리, 안 쓰는 기능·커넥터 정리</td><td>사장님 + 10 시스템 관리</td></tr>
+    </tbody>
+  </table></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s29a" data-key="s29a"><div class="body"><label for="s29a">월요일 브리핑에 시스템 한 줄 덧붙이기</label><small>'02 월요일 브리핑' 지시문 맨 아래에 아래 '시스템 한 줄' 문장을 붙여요. <span data-plan-not="free">예약 작업이면 그 작업의 지시를 고쳐 달라고 말하면 돼요.</span></small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'02 월요일 브리핑' 채팅에 "브리핑 지시에 아래 내용을 6번으로 추가해줘" + '시스템 한 줄' 문장 보내기</li>
+        <li data-plan-not="free" data-ai-not="gpt">Claude 유료: 왼쪽 메뉴의 예약 화면에서 월요일 브리핑 작업을 열어 지시가 바뀌었는지 확인</li>
+        <li data-plan-not="free" data-ai-not="claude">ChatGPT: 예약 작업 목록에서 월요일 브리핑을 열어 지시가 바뀌었는지 확인</li>
+        <li data-plan="free">무료 플랜이면 다음 월요일 "브리핑 해줘"를 보낼 때부터 6번이 함께 나와요</li>
+      </ol></details></div></li>
+    <li data-ai="claude" data-plan-not="free"><input type="checkbox" id="s29b" data-key="s29b"><div class="body"><label for="s29b">Claude에서 월간 보고 예약</label><small>'10 시스템 관리' 채팅에서 예약해요. 컴퓨터가 꺼져 있어도 실행돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>아래 '월간 시스템 보고 지시문' 맨 앞에 <b>"매달 첫째 월요일 오전 8시에 아래 보고를 해줘."</b>를 붙여 보내기</li>
+        <li>Claude가 이름·주기·지시를 정리해 보여 주면 확인 → 예약</li>
+        <li>왼쪽 메뉴 예약 화면에서 다음 실행일이 다음 달 첫째 월요일인지 확인<span class="fix">첫째 월요일 지정이 안 되면 "매달 1일 오전 8시"로 해도 괜찮아요.</span></li>
+      </ol></details></div></li>
+    <li data-ai="gpt"><input type="checkbox" id="s29c" data-key="s29c"><div class="body"><label for="s29c">ChatGPT에서 월간 보고 예약</label><small>'우리 가게 경영 비서' 프로젝트의 '10 시스템 관리' 채팅에서 해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>"매달 첫째 월요일 아침에 아래 보고를 해줘" + '월간 시스템 보고 지시문' 보내기</li>
+        <li>나타난 예약 카드에서 주기 확인 → 저장</li>
+        <li><span data-plan-not="paid">무료 플랜은 '아침'처럼 대략적인 시간으로 오고, 예약은 동시에 3개까지라 월요일 브리핑과 합쳐 2개를 써요. </span><span data-plan-not="free">유료 플랜은 오전 8시처럼 정확한 시각을 정할 수 있어요. </span>장부를 엑셀로 올려 쓰고 있다면 보고 전날 최신 장부로 바꿔 올리세요<span class="fix">예약 작업 목록은 프로필 메뉴의 예약 작업(Tasks)에서 볼 수 있어요.</span></li>
+      </ol></details></div></li>
+    <li data-ai="claude" data-plan="free"><input type="checkbox" id="s29d" data-key="s29d"><div class="body"><label for="s29d">Claude 무료: 매달 알림 + 한 줄로 받기</label><small>예약 작업 대신 휴대폰 알림을 써요. 보고 내용은 똑같아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'10 시스템 관리' 채팅에 '월간 시스템 보고 지시문'을 한 번 보내고, 맨 앞에 <b>"앞으로 내가 '이번 달 시스템 보고 해줘'라고 하면 이 순서대로 해줘."</b>를 붙이기</li>
+        <li>휴대폰 캘린더에 새 일정 <b>시스템 보고 받기</b> → 다음 달 첫째 월요일 오전 8시 → 반복 <span class="path">매월 → 첫째 월요일</span></li>
+        <li>알림이 오면 '10 시스템 관리' 채팅에 <b>이번 달 시스템 보고 해줘</b></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s29e" data-key="s29e"><div class="body"><label for="s29e">보고서의 제안을 개선요청에 올리고 결재</label><small>보고서 끝의 표를 그대로 붙이면 한 줄씩 들어가요. 그다음 휴대폰에서 상태만 고르면 돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>보고서 맨 아래 '개선요청에 붙일 줄' 표를 드래그해 복사</li>
+        <li>장부 '개선요청' 시트에서 비어 있는 첫 줄의 A열 칸을 누르고 붙여 넣기. 상태 칸은 모두 '제안'으로 들어가요</li>
+        <li>아래 '승인 기준' 표를 보고 상태를 승인·보류·반려로 바꾸기. '사장님 직접 확인' 표시가 있는 건 내용을 끝까지 읽고 정해요<span class="fix">칸이 한 줄에 몰려 들어가면 붙여 넣은 뒤 나오는 작은 아이콘에서 <span class="path">텍스트를 열로 분할</span>을 누르세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s29f" data-key="s29f"><div class="body"><label for="s29f">승인한 것 하나씩 적용</label><small>한 번에 하나, 백업 먼저. '10 시스템 관리' 채팅에 아래 '승인 항목 적용 부탁문'을 보내고 안내대로 해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><b>백업 ①</b> 장부를 바꾸는 일이면 <span class="path">파일 → 사본 만들기</span> → 이름 <b>장부 백업 (날짜)</b> → '백업' 폴더에</li>
+        <li><b>백업 ②</b> 스크립트를 바꾸는 일이면 지금 코드를 전부 복사해 '코드 보관함' 문서 맨 위에 날짜·번호와 함께 붙여 넣기</li>
+        <li>AI가 준 순서대로 바꾸기. 코드는 파일 전체를 바꿔 붙이고 저장</li>
+        <li>직원 웹앱이면 <span class="path">배포 → 배포 관리 → 연필 → 버전: 새 버전 → 배포</span>. 주소는 그대로예요</li>
+        <li>AI가 알려 준 시험 3가지를 해 보고, 다 되면 '변경기록'에 AI가 준 한 줄 붙여 넣기 → 개선요청 상태를 <b>적용완료</b>로</li>
+        <li>직원 화면이 바뀌었으면 AI가 써 준 공지문을 직원 단톡방에 올리기<span class="fix">시험이 하나라도 안 되면 바로 아래 '되돌리기'를 하고, 상태를 '보류'로 바꾼 뒤 메모 칸에 무엇이 안 됐는지 적어요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s29g" data-key="s29g"><div class="body"><label for="s29g">문제 생기면 <dfn data-t="rollback">되돌리기</dfn></label><small>바꾸기 전으로 돌아갈 길을 알고 있으면 업데이트가 무섭지 않아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>시트 내용: <span class="path">파일 → 버전 기록 → 버전 기록 보기</span> → 바꾸기 전 시각 선택 → <span class="path">이 버전 복원</span>. 또는 백업 사본에서 복사</li>
+        <li>스크립트: '코드 보관함'에서 바꾸기 전 코드를 복사해 다시 붙여 넣고 저장</li>
+        <li>직원 웹앱: <span class="path">배포 → 배포 관리 → 연필 → 버전</span>에서 바로 전 번호를 골라 배포</li>
+        <li>'변경기록'에 "○번 되돌림, 이유" 한 줄 남기기</li>
+      </ol></details></div></li>
+  </ol>
+  <h3>승인 기준</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>이런 제안이면</th><th>결재</th></tr></thead>
+    <tbody>
+      <tr><td>멈춘 자동화 고치기, 점검 항목 추가, 오타·문구 수정</td><td><b>바로 승인</b>해도 돼요. 위험이 낮고 되돌리기 쉬워요</td></tr>
+      <tr><td>돈이 드는 것, 직원 화면·권한 변경, 급여·개인정보, 손님·거래처에게 나가는 메시지, 데이터 삭제</td><td><b>사장님 직접 확인</b> 후 승인. 필요하면 세무사·노무사에게 먼저 물어요</td></tr>
+      <tr><td>바쁜 시즌의 큰 변경, 효과가 불확실한 새 기능</td><td><b>보류</b>하고 메모에 언제 다시 볼지 적기</td></tr>
+      <tr><td>지금 방식으로 충분하거나 비용 대비 효과가 작음</td><td><b>반려</b>. 이유를 메모에 남기면 같은 제안이 반복되지 않아요</td></tr>
+    </tbody>
+  </table></div>
+  <h3>석 달에 한 번 대점검</h3>
+  <ul class="checks">
+    <li><input type="checkbox" id="c29a" data-key="c29a"><label for="c29a">백업 사본으로 장부 되살리기 연습 (사본을 열어 숫자가 맞는지만 확인)</label></li>
+    <li><input type="checkbox" id="c29b" data-key="c29b"><label for="c29b">직원 웹앱의 직원 목록·PIN·권한 정리, 퇴사자 지우기</label></li>
+    <li><input type="checkbox" id="c29c" data-key="c29c"><label for="c29c">안 쓰는 시트·트리거·예약 작업·커넥터·공유 링크 정리</label></li>
+    <li><input type="checkbox" id="c29d" data-key="c29d"><label for="c29d">'보류' 상태인 개선요청 다시 보기</label></li>
+    <li><input type="checkbox" id="c29e" data-key="c29e"><label for="c29e">AI 요금제가 지금 쓰는 기능에 맞는지 확인 (위쪽 '요금제' 선택도 맞추기)</label></li>
+  </ul>
+  <div class="prompt"><div class="bar"><span>시스템 한 줄 · 월요일 브리핑에 덧붙이기</span><button class="copy" type="button">복사</button></div><pre>6) 시스템: '매장 장부'의 '점검로그'에서 지난주 주의·오류 개수와 내용 한 줄, '개선요청'에서 상태가 '제안'인 것과 '승인'인데 아직 적용 안 된 것의 개수</pre></div>
+  <div class="prompt"><div class="bar"><span>월간 시스템 보고 지시문 · 시스템 관리</span><button class="copy" type="button">복사</button></div><pre>우리 가게 시스템 월간 보고서를 만들어줘. 너는 '시스템 관리' 직원이야.
+1) 지난달 상태: '매장 장부'의 '점검로그'에서 주의·오류 횟수와 반복된 문제
+2) 오류: 고쳐야 할 것, 원인 추정, 급한 정도
+3) 보완: 입력이 자주 비는 시트, 업무일지에 나온 직원들이 헷갈려한 부분, 더 쉽게 바꿀 수 있는 절차
+4) 업데이트: 지난달 바뀐 것 중 우리 시스템에 영향이 있는 것. 최저임금·세금 일정, 배달앱 정산 양식·수수료, 공공데이터 API, 우리가 쓰는 AI의 새 기능, 구글 앱스 스크립트 변경. 원문 링크를 붙이고 확실하지 않으면 '확인 필요'
+5) 새 기능: 장부 숫자로 효과를 설명할 수 있는 것만 1개 이하
+6) 지난달 '승인'됐는데 아직 '적용완료'가 아닌 항목
+각 제안은 번호를 이어서 붙이고, 이유·기대 효과 / 바뀌는 곳 / 위험·비용 / 걸리는 시간 / 되돌리는 법을 한 줄씩.
+돈, 직원 화면·권한, 급여·개인정보, 외부 발송, 삭제에 해당하면 '사장님 직접 확인'이라고 표시.
+마지막에 '개선요청' 시트에 그대로 붙일 표를 줘. 열 순서: 번호, 올린 날, 올린 곳(AI 점검), 구분, 내용, 이유·기대 효과, 바뀌는 곳, 위험·비용, 상태(제안), 승인일(빈칸), 적용일(빈칸), 메모.
+전체는 휴대폰 두 화면 이내로. 절대 직접 고치지 마.</pre></div>
+  <div class="prompt"><div class="bar"><span>승인 항목 적용 부탁문 · 시스템 관리</span><button class="copy" type="button">복사</button></div><pre>'개선요청' 시트에서 승인한 ○번을 적용하자. 다른 항목은 손대지 마.
+1) 적용 전에 해야 할 백업을 먼저 알려줘 (장부 사본, 코드 보관함, 웹앱 버전 중 필요한 것)
+2) 바꿀 곳과 순서를 누를 메뉴까지. 코드는 바뀐 파일 전체로
+3) 적용 후 해 볼 시험 3가지
+4) 문제가 생기면 되돌리는 방법
+5) '변경기록'에 붙일 한 줄(날짜, 번호, 바꾼 것, 바꾼 곳, 백업, 되돌리는 법, 확인한 사람)
+6) 직원 화면이 바뀌면 직원 단톡방 공지문 3줄</pre></div>
+  <p class="tip warnbox"><b>AI가 시스템을 직접 바꾸게 두지 마세요.</b> 커넥터로 AI가 파일을 고칠 수 있게 되더라도 결재와 적용은 이 순서를 지키세요. 승인 없는 변경, 백업 없는 변경, 한 번에 여러 개 변경이 사고의 대부분이에요.</p>
+  <p class="src">출처: <a href="https://support.google.com/docs/answer/190843?hl=ko" target="_blank" rel="noopener">구글 문서·시트 버전 기록</a> · <a href="https://developers.google.com/apps-script/concepts/deployments?hl=ko" target="_blank" rel="noopener">앱스 스크립트 배포와 버전</a> · <a data-ai-not="gpt" href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork" target="_blank" rel="noopener">Claude 예약 작업</a> <a data-ai-not="claude" href="https://help.openai.com/ko-kr/articles/10291617-scheduled-tasks-in-chatgpt" target="_blank" rel="noopener">ChatGPT 예약 작업</a></p>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>매일 자동 점검과 메일 알림은 구글 스크립트로 0원</li><li data-ai-not="gpt">Claude 무료: 매달 알림이 오면 한 줄로 보고 받기</li><li data-ai-not="claude">ChatGPT 무료: 매달 아침 예약 작업으로 보고 받기</li><li>버전 기록·사본·코드 보관함으로 되돌리기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>정해진 시각에 월간 보고가 자동으로 도착</li><li>스크립트 전체·장부 전체를 한 번에 검토할 만큼 넉넉한 사용량</li><li>웹 검색을 많이 써서 정책·배달앱 변경 소식까지 꼼꼼히 확인</li></ul></div></div>
+</section>
+
 <section class="lesson" id="l1" data-part="자료실" data-title="용어 사전" hidden>
   <div class="lesson-head">
     <span class="kicker">필요할 때 펼쳐 보기</span>
@@ -1938,6 +2183,12 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
     gfilter: ['필터 (Gmail)', '조건에 맞는 메일이 오면 자동으로 라벨을 붙이거나 옮기는 규칙', '우편물 자동 분류함', 'PC Gmail 검색창 오른쪽 검색 옵션 표시 → 조건 입력 → 필터 만들기 → 라벨 적용.'],
     shortcut: ['단축어', '아이폰·맥에 기본으로 있는 자동화 앱. 동작 블록을 쌓아 정해진 일을 하게 해요', '휴대폰 속 작은 로봇', '단축어 앱 → + 로 단축어를 만들고, 자동화 탭에서 특정 시간에 실행되게 해요.'],
     alimtalk: ['알림톡', '카카오톡 비즈니스 채널이 보내는 정보성 메시지. 받는 사람이 채널을 추가하지 않아도 전화번호로 와요', '카톡으로 오는 등기 우편', '비즈니스 채널 인증 → 발송 대행사 가입 → 문구 템플릿 심사 → 건당 요금으로 발송해요.'],
+    changelog: ['변경기록', '시스템에서 언제, 무엇을, 왜 바꿨는지와 되돌리는 법을 적어 두는 시트', '가게 수리 일지', "장부에 '변경기록' 시트를 만들고, 승인한 수정을 적용할 때마다 AI가 준 한 줄을 붙여 넣어요."],
+    healthcheck: ['자동 점검', '매일 정해진 시간에 스크립트가 장부를 훑어 빠진 입력, 이상한 숫자, 멈춘 자동화를 찾아 주는 것', '매일 아침 도는 순찰', "AI에게 받은 점검 스크립트를 장부에 붙이고 시간 트리거를 걸어요. 문제 있을 때만 메일이 와요."],
+    approval: ['승인', 'AI가 올린 개선 제안을 사장님이 확인하고 해도 된다고 표시하는 것', '결재 도장', "'개선요청' 시트의 상태 칸을 눌러 '승인'을 고르면 돼요. 휴대폰 구글 시트 앱에서도 돼요."],
+    rollback: ['되돌리기', '바꾼 뒤 문제가 생겼을 때 바꾸기 전 상태로 돌리는 것', '실행 취소 버튼', "시트는 파일 → 버전 기록, 웹앱은 배포 관리에서 이전 버전 선택, 스크립트는 '코드 보관함'에 둔 이전 코드를 다시 붙여 넣어요."],
+    dropdown: ['드롭다운', '칸을 누르면 고를 수 있는 목록이 펼쳐지는 입력 방식', '정해진 도장만 찍는 칸', "칸을 고르고 삽입 → 드롭다운 → 옵션을 하나씩 입력하고 색을 골라요."],
+    plan: ['요금제 (플랜)', 'AI 서비스를 무료로 쓸지, 월 구독료를 내고 더 많은 기능과 사용량을 쓸지 정한 것', '휴대폰 요금제', "Claude는 설정 → 요금제(Billing), ChatGPT는 설정 → 계정에서 지금 플랜을 확인해요. 이 코스 위쪽 '요금제'도 똑같이 맞춰 두세요."],
     playmcp: ['PlayMCP', '카카오가 운영하는 MCP 도구 모음. 카톡 나와의 채팅방, 톡캘린더, 카카오맵 같은 도구를 AI 비서에 연결해요', 'AI 비서에게 주는 카카오 열쇠꾸러미', 'playmcp.kakao.com에서 도구함에 도구를 담고, Claude 사용자 지정 커넥터(주소 https://playmcp.kakao.com/mcp)나 ChatGPT 개발자 모드로 연결해요.'],
     callback: ['콜백', '답이 늦을 때 안내 문구를 먼저 보내고 완성된 답을 나중에 보내는 기능', '"잠시만요" 하고 답하기', '챗봇 블록의 Callback API 설정. 개발자 영역이에요.']
   };
@@ -2026,6 +2277,7 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
   var lessons = Array.prototype.slice.call(document.querySelectorAll('.lesson'));
   var AI = (state.ai === 'claude' || state.ai === 'gpt') ? state.ai : '';
   var AINAME = { claude: 'Claude', gpt: 'ChatGPT' };
+  var PLAN = (state.plan === 'free' || state.plan === 'paid') ? state.plan : '';
   var idx = {}, num = {};
   lessons.forEach(function (sec, i) { idx[sec.id] = i; var k = sec.querySelector('.kicker'); if (k) k.dataset.k = k.textContent; });
   function isOn(sec) { return !sec.dataset.ai || !AI || sec.dataset.ai === AI; }
@@ -2082,8 +2334,10 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
   }
   function applyAI() {
     if (AI) document.documentElement.dataset.ai = AI; else delete document.documentElement.dataset.ai;
-    document.getElementById('aiPick').hidden = !!AI;
-    document.querySelectorAll('[data-pick]').forEach(function (b) { if (b.closest('.ai-switch')) b.setAttribute('aria-pressed', b.dataset.pick === AI ? 'true' : 'false'); });
+    if (PLAN) document.documentElement.dataset.plan = PLAN; else delete document.documentElement.dataset.plan;
+    document.getElementById('aiPick').hidden = !!(AI && PLAN);
+    document.querySelectorAll('[data-pick]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.pick === AI ? 'true' : 'false'); });
+    document.querySelectorAll('[data-plan-pick]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.planPick === PLAN ? 'true' : 'false'); });
     document.querySelectorAll('.ainame').forEach(function (el) { el.textContent = AI ? AINAME[AI] : el.dataset.both; });
     var act = active();
     num = {};
@@ -2105,6 +2359,8 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
     if (cur && !isOn(cur)) show(idx[(cur.id === 'l5' ? 'l7' : 'l5')], false);
   }
   document.querySelectorAll('[data-pick]').forEach(function (b) { b.addEventListener('click', function () { setAI(b.dataset.pick); }); });
+  function setPlan(v) { PLAN = v; state.plan = v; save(); applyAI(); }
+  document.querySelectorAll('[data-plan-pick]').forEach(function (b) { b.addEventListener('click', function () { setPlan(b.dataset.planPick); }); });
 
   function paint() {
     var n = 0, total = 0;
@@ -2172,13 +2428,14 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
     { name: 'SNS 마케터', chat: '06 SNS 운영', job: '게시 계획·캡션·답글', ask: '다음 주 인스타 계획 짜줘', reply: '월 신메뉴 웜볼 사진, 수 15초 릴스, 금 재료 이야기. 캡션과 해시태그까지 준비했어요. 사진만 찍어 주세요.' },
     { name: '카톡 상담원', chat: '07 카톡 AI 상담', job: '자주 묻는 질문 관리', ask: '단체 주문 답변 만들어줘', reply: '단체 주문은 하루 전까지, 10인분부터 가능하다는 답변 문구를 만들었어요. 채널 관리 화면에 붙여 넣으면 돼요.' },
     { name: '자동화 엔지니어', chat: '08 자동화·연결', job: 'API 키·스크립트 기록', ask: '오늘 시세가 안 들어왔어', reply: '오류 문장을 보니 인증키가 잘못 들어갔어요. 공공데이터포털 마이페이지에서 키를 복사해 스크립트 3번째 줄에 붙여 넣어 주세요.' },
-    { name: '매장 컨설턴트', chat: '09 배달앱·매장 개선', job: '가게 화면·메뉴 배치·동선', ask: '배달앱 메뉴판 좀 봐줘', reply: '메뉴 15개를 4개 묶음으로 줄이고, 대표메뉴를 판매 1위 닭가슴살 볼로 바꿔 보세요. 소개글 첫 줄에 매일 아침 손질한 채소라는 점을 넣으면 좋겠어요.' }
+    { name: '매장 컨설턴트', chat: '09 배달앱·매장 개선', job: '가게 화면·메뉴 배치·동선', ask: '배달앱 메뉴판 좀 봐줘', reply: '메뉴 15개를 4개 묶음으로 줄이고, 대표메뉴를 판매 1위 닭가슴살 볼로 바꿔 보세요. 소개글 첫 줄에 매일 아침 손질한 채소라는 점을 넣으면 좋겠어요.' },
+    { name: '시스템 관리자', chat: '10 시스템 관리', job: '점검 보고 · 승인받은 수정 · 변경기록', wide: true, ask: '이번 달 시스템 보고해줘', reply: '자동 점검 31번 중 주의가 2번 있었어요. 쿠팡이츠 정산 파일의 열 이름이 바뀌어 고칠 거리 1건, 내년 최저임금 반영 1건을 개선요청 시트에 올렸어요. 승인해 주시면 백업하고 하나씩 적용할게요.' }
   ];
   var office = document.getElementById('office');
   var talk = document.getElementById('officeTalk');
   var desks = staff.map(function (s, k) {
     var b = document.createElement('button');
-    b.type = 'button'; b.className = 'desk pop'; b.style.setProperty('--d', (0.3 + k * 0.08) + 's');
+    b.type = 'button'; b.className = 'desk pop' + (s.wide ? ' wide' : ''); b.style.setProperty('--d', (0.3 + k * 0.08) + 's');
     b.innerHTML = '<strong></strong><span class="c"></span><span class="j"></span>';
     b.querySelector('strong').textContent = s.name;
     b.querySelector('.c').textContent = s.chat + ' 채팅';
