@@ -207,6 +207,17 @@ dfn { font-style: normal; white-space: nowrap; }
 .kpi.hi { border-color: var(--leaf); background: var(--leaf-soft); }
 .kpi.warn b { color: var(--tomato); font-size: 20px; }
 
+
+/* tab bar mock */
+.tabbar { display: flex; gap: 2px; align-items: stretch; margin-top: 8px; background: var(--sunk); border: 1px solid var(--line); border-radius: 8px; padding: 4px; overflow-x: auto; max-width: 100%; }
+.tabbar span { flex: none; font-size: 13px; padding: 4px 10px; border-radius: 6px; color: var(--muted); }
+.tabbar .tb-plus, .tabbar .tb-menu { font-weight: 600; color: var(--ink); }
+.tabbar .tb-plus { border: 1px solid var(--leaf); color: var(--leaf); }
+.tabbar .tb.on { background: var(--paper); color: var(--ink); font-weight: 600; box-shadow: inset 0 -2px 0 var(--leaf); }
+.tb-cap { display: block; margin-top: 4px; }
+details.how .prompt { margin: 8px 0 2px; }
+.steps .body > .prompt { margin-top: 8px; }
+
 /* steps */
 .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; counter-reset: st; }
 .steps > li { counter-increment: st; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px 12px 12px; display: grid; grid-template-columns: 28px 26px minmax(0, 1fr); gap: 10px; align-items: start; }
@@ -458,7 +469,9 @@ td b { font-weight: 600; }
         <li><span class="path">+ 새로 만들기 → Google 스프레드시트</span></li>
         <li>왼쪽 위 '제목 없는 스프레드시트' 글자를 눌러 <b>매장 장부</b>로 바꾸고 엔터<span class="fix">저장 버튼은 없어요. 입력하는 순간 자동 저장됩니다.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s4b" data-key="s4b"><div class="body"><label for="s4b"><dfn data-t="tab">탭</dfn> 6개 만들기</label><small>매출, 지출, 고정비, 거래처, 알바근무, 메뉴원가</small>
+    <li><input type="checkbox" id="s4b" data-key="s4b"><div class="body"><label for="s4b"><dfn data-t="tab">탭</dfn>(시트) 6개 만들기</label><small>매출, 지출, 고정비, 거래처, 알바근무, 메뉴원가. 파일은 '매장 장부' 하나, 그 안에 시트가 6개예요.</small>
+      <div class="tabbar" aria-label="구글 시트 아래쪽 시트 이름표 예시"><span class="tb-plus">+</span><span class="tb-menu">≡</span><span class="tb on">매출</span><span class="tb">지출</span><span class="tb">고정비</span><span class="tb">거래처</span><span class="tb">알바근무</span><span class="tb">메뉴원가</span></div>
+      <small class="tb-cap">화면 맨 아래 모습이에요. 앞으로 '장부에 ○○ 탭 만들기'가 나오면 이 줄에 이름표를 하나 더 붙이면 돼요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>화면 맨 아래 '시트1' 글자를 두 번 눌러 <b>매출</b>로 바꾸기</li>
         <li>그 왼쪽의 <span class="path">+</span> 버튼을 눌러 새 탭 만들기 → 같은 방법으로 이름 바꾸기</li>
@@ -474,7 +487,7 @@ td b { font-weight: 600; }
     <li><input type="checkbox" id="s4d" data-key="s4d"><div class="body"><label for="s4d">AI에게 요약 수식 부탁하기</label><small>월별 합계와 순이익, 식재료 <dfn data-t="costratio">원가율</dfn>을 자동으로 계산하는 '요약' 탭을 만들어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>Claude나 ChatGPT 새 대화에 아래 '장부 수식 만들기' 부탁문을 붙여 넣고 보내기</li>
-        <li>AI가 알려 준 대로 시트에 '요약' 탭을 하나 더 만들기</li>
+        <li>같은 파일 맨 아래 <span class="path">+</span>로 시트를 하나 더 추가하고 이름을 <b>요약</b>으로</li>
         <li>AI가 적어 준 칸(예: B2)에 수식을 그대로 복사해 붙여 넣기 → 숫자가 나오는지 확인<span class="fix">#ERROR! 같은 글자가 나오면 그 글자와 수식을 그대로 AI에게 보내 "고쳐줘"라고 하세요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="s4e" data-key="s4e"><div class="body"><label for="s4e">휴대폰 입력 화면(<dfn data-t="form">구글 폼</dfn>) 만들기</label><small>마감 때 휴대폰으로 숫자만 넣으면 시트에 쌓이게 해요.</small>
@@ -602,12 +615,25 @@ td b { font-weight: 600; }
         <li>번호를 붙여 이름을 바꿔 두면 목록에서 한눈에 구분돼요</li>
         <li>한 번에 다 만들 필요는 없어요. 그 업무를 시작할 때 만들면 됩니다</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s6c" data-key="s6c"><div class="body"><label for="s6c"><dfn data-t="worklog">업무일지</dfn> 문서 만들기</label><small>채팅끼리는 서로의 대화를 보지 못해서, 정한 내용을 한곳에 모아요.</small>
-      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>드라이브 장부 폴더에서 <span class="path">+ 새로 만들기 → Google 문서</span>, 이름 '업무일지'</li>
-        <li>각 채팅에서 일이 끝나면 <a href="#l12" class="ref" data-ref="l12">강의</a>의 '업무일지 정리' 부탁문 보내기 → 답을 업무일지에 붙여 넣기</li>
-        <li>업무일지를 프로젝트 파일에 Google Drive로 추가해 두기 (한 번만)</li>
-      </ol></details></div></li>
+    <li><input type="checkbox" id="s6c" data-key="s6c"><div class="body"><label for="s6c"><dfn data-t="worklog">업무일지</dfn> 문서 만들고 프로젝트에 한 번 연결하기</label><small>채팅끼리는 서로의 대화를 보지 못해요. 업무일지 문서 하나를 프로젝트에 연결해 두면, 모든 직원 채팅이 그 문서를 읽어요. 연결은 처음 한 번만 하면 돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기 · ① 문서 만들기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>드라이브 '우리가게 장부' 폴더 → <span class="path">+ 새로 만들기 → Google 문서</span></li>
+        <li>왼쪽 위 '제목 없는 문서'를 눌러 이름을 <b>업무일지</b>로</li>
+        <li>첫 줄에 <b>업무일지 (최신 내용이 맨 위)</b>라고 적고 닫기. 시트가 아니라 '문서'예요</li>
+      </ol></details>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기 · ② 프로젝트에 연결하기 (한 번만)</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>Claude에서 '우리 가게 경영 비서' 프로젝트 화면 열기 (채팅 화면이 아니라 프로젝트 첫 화면)</li>
+        <li>오른쪽 <span class="path">파일(Files)</span> 칸의 <span class="path">+</span> → <span class="path">Google Drive에서 추가</span></li>
+        <li>검색창에 <b>업무일지</b> 입력 → 문서 선택 → 추가. 파일 칸에 '업무일지'가 보이면 끝</li>
+        <li>구글 문서는 드라이브와 바로 이어져서, 나중에 내용을 고쳐도 다시 올릴 필요가 없어요<span class="fix">'Google Drive에서 추가'가 안 보이면 설정 → 커넥터에서 Google Drive가 연결됐는지, 개인 프로젝트인지 확인하세요. 그래도 안 되면 주 1회 업무일지 내용을 복사해 프로젝트 지침 맨 아래 '최근 결정' 칸에 붙여 넣어도 돼요.</span></li>
+        <li>제대로 연결됐는지 확인: 아무 직원 채팅에서 "업무일지에서 가장 최근 결정 3개 알려줘"</li>
+      </ol></details>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기 · ③ 매번 적는 법</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>직원 채팅에서 일이 끝나면 아래 '업무일지 정리' 부탁문을 복사해 보내기</li>
+        <li>AI가 준 5줄을 복사 → 업무일지 문서의 맨 위(첫 줄 바로 아래)에 붙여 넣기</li>
+        <li>매번 할 필요는 없어요. 가격·메뉴·근무표처럼 다른 직원도 알아야 하는 결정만 적어요</li>
+      </ol></details>
+      <div class="prompt"><div class="bar"><span>업무일지 정리 부탁문</span><button class="copy" type="button">복사</button></div><pre>오늘 이 채팅에서 정한 내용을 업무일지 형식으로 정리해줘. 날짜, 담당 직원, 결정한 것, 다음에 할 일, 다른 직원이 알아야 할 것으로 나눠서 5줄 이내로.</pre></div></div></li>
   </ol>
   <div class="prompt"><div class="bar"><span>직원 첫 메시지</span><button class="copy" type="button">복사</button></div><pre>너는 우리 가게의 ○○(직책)야. 맡은 일은 ○○(업무)이야.
 이 채팅에서는 그 업무만 다루고, 프로젝트 파일의 '매장 장부'와 '업무일지'를 참고해.
@@ -643,7 +669,13 @@ td b { font-weight: 600; }
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="s8a" data-key="s8a"><div class="body"><label for="s8a">장부에 '제안기록' 탭 만들기</label><small>제목 줄: 날짜 | 제안 | 실행 여부 | 결과</small></div></li>
+    <li><input type="checkbox" id="s8a" data-key="s8a"><div class="body"><label for="s8a">'매장 장부'에 '제안기록' 시트(탭) 추가하기</label><small>새 파일이 아니라, 이미 있는 '매장 장부' 파일 안에 시트를 하나 더 붙이는 거예요. AI 비서가 매주 제안한 것과 실행 결과를 여기에 적어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>드라이브에서 <b>'매장 장부'</b> 파일을 열어요. 새 파일을 만드는 게 아니에요</li>
+        <li>화면 맨 아래 시트 이름표(매출, 지출, 고정비…) 왼쪽 끝의 <span class="path">+</span>를 눌러요. '시트7' 같은 새 시트가 생겨요</li>
+        <li>새 이름표를 두 번 눌러(휴대폰은 길게 눌러 → 이름 바꾸기) <b>제안기록</b>로 바꾸고 엔터</li>
+        <li>A1 칸을 한 번 누르고, 아래 '제안기록 제목 줄'의 복사 → 붙여 넣기. 그 아래 줄부터는 칸마다 하나씩 적어요. 예: A2 칸 10/27, B2 칸 평일 점심 도시락 세트, C2 칸 했음, D2 칸 단체 주문 2건<span class="fix">새 스프레드시트 파일을 따로 만들었다면 그 파일은 지우고 '매장 장부' 안에 다시 추가하세요. AI 비서는 '매장 장부' 한 파일만 읽어요.</span></li>
+      </ol><div class="prompt" data-tsv><div class="bar"><span>제안기록 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 제안 | 실행 여부 | 결과</pre></div></details></div></li>
     <li><input type="checkbox" id="s8b" data-key="s8b"><div class="body"><label for="s8b">Claude에서 예약하기</label><small>'02 월요일 브리핑' 채팅에서 하세요. 예약 작업은 유료 플랜에서 되고, 컴퓨터가 꺼져 있어도 실행돼요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>아래 '월요일 브리핑 지시문'을 복사하고, ○○에 매장 주소 넣기</li>
@@ -909,7 +941,7 @@ td b { font-weight: 600; }
     <li><input type="checkbox" id="s11c" data-key="s11c"><div class="body"><label for="s11c">AI에게 스크립트 받기</label><small>'08 자동화·연결' 채팅에 아래 부탁문 보내기</small></div></li>
     <li><input type="checkbox" id="s11d" data-key="s11d"><div class="body"><label for="s11d">시트에 스크립트 붙여 넣고 실행</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>매장 장부에 '시세' 탭 만들기</li>
+        <li>'매장 장부' 파일 맨 아래 <span class="path">+</span>로 시트를 하나 추가하고 이름을 <b>시세</b>로 (새 파일 아님)</li>
         <li>시트 위쪽 메뉴 <span class="path">확장 프로그램 → Apps Script</span></li>
         <li>새 창에 있던 글자를 모두 지우고 AI가 준 코드를 붙여 넣기 → 키 자리에 내 인증키 붙여 넣기</li>
         <li>위쪽 디스크 모양 <span class="path">저장</span> → <span class="path">실행</span></li>
@@ -961,7 +993,13 @@ td b { font-weight: 600; }
     </tbody>
   </table></div>
   <ol class="steps">
-    <li><input type="checkbox" id="s15a" data-key="s15a"><div class="body"><label for="s15a">장부에 '직원' 탭 만들기</label><small>제목 줄: 이름 | 이메일 | 역할 | 입사일 | 상태. 이메일은 직원의 구글 계정(gmail)이에요.</small></div></li>
+    <li><input type="checkbox" id="s15a" data-key="s15a"><div class="body"><label for="s15a">'매장 장부'에 '직원' 시트(탭) 추가하기</label><small>역할은 사장·매니저·알바 중 하나, 상태는 근무·퇴사 중 하나로 적어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>드라이브에서 <b>'매장 장부'</b> 파일을 열어요. 새 파일을 만드는 게 아니에요</li>
+        <li>화면 맨 아래 시트 이름표(매출, 지출, 고정비…) 왼쪽 끝의 <span class="path">+</span>를 눌러요. '시트7' 같은 새 시트가 생겨요</li>
+        <li>새 이름표를 두 번 눌러(휴대폰은 길게 눌러 → 이름 바꾸기) <b>직원</b>로 바꾸고 엔터</li>
+        <li>A1 칸을 한 번 누르고, 아래 '직원 제목 줄'의 복사 → 붙여 넣기. 이메일은 직원의 구글 계정(gmail)<span class="fix">새 스프레드시트 파일을 따로 만들었다면 그 파일은 지우고 '매장 장부' 안에 다시 추가하세요. AI 비서는 '매장 장부' 한 파일만 읽어요.</span></li>
+      </ol><div class="prompt" data-tsv><div class="bar"><span>직원 제목 줄</span><button class="copy" type="button">복사</button></div><pre>이름 | 이메일 | 역할 | 입사일 | 상태</pre></div></details></div></li>
     <li><input type="checkbox" id="s15b" data-key="s15b"><div class="body"><label for="s15b">우리 가게 권한표 정하기</label><small>위 표를 바탕으로 '04 알바 관리' 채팅에 "우리 가게는 매니저 1명, 알바 3명이야. 권한표 만들어줘"</small></div></li>
     <li><input type="checkbox" id="s15c" data-key="s15c"><div class="body"><label for="s15c">구글 시트 <dfn data-t="share">공유</dfn> 원칙 지키기</label><small>매출이 들어 있는 '매장 장부'는 누구에게도 편집 공유하지 않아요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
@@ -1135,7 +1173,7 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="s19a" data-key="s19a"><div class="body"><label for="s19a">장부에 '오늘' 탭 만들기</label><small>'01 장부·정산' 채팅에 "대시보드용 '오늘' 탭에 오늘 매출, 이번 달 순이익, 손익분기 달성률, 재고 부족 품목을 계산하는 수식을 만들어줘"</small></div></li>
+    <li><input type="checkbox" id="s19a" data-key="s19a"><div class="body"><label for="s19a">'매장 장부'에 '오늘' 시트(탭) 추가하고 수식 받기</label><small>시트를 추가하는 방법은 <a href="#l8" class="ref" data-ref="l8">강의</a>의 '제안기록'과 같아요. 그다음 '01 장부·정산' 채팅에 "대시보드용 '오늘' 탭에 오늘 매출, 이번 달 순이익, 손익분기 달성률, 재고 부족 품목을 계산하는 수식을 만들어줘"</small></div></li>
     <li><input type="checkbox" id="s19b" data-key="s19b"><div class="body"><label for="s19b">방법 하나 고르기</label><small>가장 쉬운 건 <dfn data-t="looker">Looker Studio</dfn>(무료)예요. 직원 웹앱에 '사장님 화면'을 덧붙여도 돼요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기 (Looker Studio)</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>lookerstudio.google.com → <span class="path">빈 보고서</span> → 데이터 추가에서 <span class="path">Google Sheets</span> → 매장 장부 → '오늘' 탭</li>
@@ -1165,7 +1203,13 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="s20a" data-key="s20a"><div class="body"><label for="s20a">'재고' 탭 만들기</label><small>제목 줄: 품목 | 단위 | 최소 재고 | 거래처 | 거래처 연락처 | 현재 재고. 최소 재고는 하루 평균 사용량의 1.5배쯤으로 시작해 보세요.</small></div></li>
+    <li><input type="checkbox" id="s20a" data-key="s20a"><div class="body"><label for="s20a">'매장 장부'에 '재고' 시트(탭) 추가하기</label><small>최소 재고는 하루 평균 사용량의 1.5배쯤으로 시작해 보세요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>드라이브에서 <b>'매장 장부'</b> 파일을 열어요. 새 파일을 만드는 게 아니에요</li>
+        <li>화면 맨 아래 시트 이름표(매출, 지출, 고정비…) 왼쪽 끝의 <span class="path">+</span>를 눌러요. '시트7' 같은 새 시트가 생겨요</li>
+        <li>새 이름표를 두 번 눌러(휴대폰은 길게 눌러 → 이름 바꾸기) <b>재고</b>로 바꾸고 엔터</li>
+        <li>A1 칸을 한 번 누르고, 아래 '재고 제목 줄'의 복사 → 붙여 넣기<span class="fix">새 스프레드시트 파일을 따로 만들었다면 그 파일은 지우고 '매장 장부' 안에 다시 추가하세요. AI 비서는 '매장 장부' 한 파일만 읽어요.</span></li>
+      </ol><div class="prompt" data-tsv><div class="bar"><span>재고 제목 줄</span><button class="copy" type="button">복사</button></div><pre>품목 | 단위 | 최소 재고 | 거래처 | 거래처 연락처 | 현재 재고</pre></div></details></div></li>
     <li><input type="checkbox" id="s20b" data-key="s20b"><div class="body"><label for="s20b">현재 재고 계산 수식 받기</label><small>'03 식자재·메뉴 원가' 채팅에 "지출 탭의 입고량에서 소진 탭의 소진량을 빼서 재고 탭의 현재 재고를 계산하는 수식을 만들어줘"</small></div></li>
     <li><input type="checkbox" id="s20c" data-key="s20c"><div class="body"><label for="s20c">발주 메일 스크립트 붙이기</label><small>아래 부탁문으로 코드를 받아 <a href="#l11" class="ref" data-ref="l11">강의</a>의 방법대로 붙여 넣고, <dfn data-t="trigger">트리거</dfn>를 매일 밤 10시로 설정해요.</small></div></li>
     <li><input type="checkbox" id="s20d" data-key="s20d"><div class="body"><label for="s20d">문자는 사장님이 확인 후 보내기</label><small>메일에 온 초안을 확인하고 복사해 거래처에 보내요. 처음 2주는 AI 추천량과 실제 필요량을 비교해 최소 재고를 고쳐요.</small></div></li>
@@ -1382,7 +1426,7 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
     prompt: ['프롬프트', 'AI에게 보내는 부탁 문장', '알바생에게 주는 작업 지시서', '무엇을, 어떤 자료로, 어떤 모양으로 받고 싶은지 넣어 쓰세요. 이 코스의 복사 버튼 문장이 모두 프롬프트예요.'],
     drive: ['구글 드라이브', '구글 계정에 딸린 인터넷 저장 공간', '어디서나 열리는 온라인 서류함', 'drive.google.com에 구글 계정으로 로그인하세요. 휴대폰에는 Google Drive 앱을 설치합니다.'],
     sheet: ['구글 시트 (스프레드시트)', '구글이 무료로 주는 엑셀 같은 표 프로그램', '인터넷에 있는 엑셀', '드라이브에서 + 새로 만들기 → Google 스프레드시트. 저장 버튼 없이 자동 저장돼요.'],
-    tab: ['탭 (시트)', '한 스프레드시트 안의 여러 페이지', '장부책의 칸막이', '화면 맨 아래 + 버튼으로 추가하고, 탭 이름을 두 번 눌러 이름을 바꿔요.'],
+    tab: ['탭 (= 시트)', '구글 시트 파일 맨 아래에 보이는 \'시트1\' 같은 이름표. 이 코스에서 \'탭\'과 \'시트\'는 같은 말이에요', '장부책 한 권 안의 칸막이', '\'장부에 ○○ 탭 만들기\'는 새 파일이 아니라 \'매장 장부\' 파일을 열고 맨 아래 + 를 눌러 시트를 하나 더 추가하라는 뜻이에요. 이름표를 두 번 눌러 이름을 바꿔요.'],
     header: ['제목 줄', '표 맨 윗줄, 각 칸에 무엇을 적을지 정하는 줄', '장부 칸 머리글', 'A1 칸을 누르고 붙여 넣으세요. 이 코스의 제목 줄은 칸마다 자동으로 나뉘게 만들어 두었어요.'],
     form: ['구글 폼', '질문에 답하면 시트에 자동으로 쌓이는 입력 화면', '휴대폰용 마감 입력지', '시트 메뉴 도구 → 새 양식. 답은 시트에 새 탭으로 쌓여요.'],
     homescreen: ['홈 화면에 추가', '웹 주소를 앱 아이콘처럼 휴대폰 첫 화면에 두기', '바로가기 아이콘', '아이폰 Safari: 아래 공유 버튼 → 홈 화면에 추가. 안드로이드 Chrome: 오른쪽 위 ⋮ → 홈 화면에 추가.'],
@@ -1395,7 +1439,7 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
     connector: ['커넥터', 'AI가 다른 앱의 자료를 읽거나 쓰게 해 주는 연결', '냉장고 전원 플러그', 'Claude 설정 → 커넥터 → 앱 옆 연결 → 그 앱 계정으로 로그인하고 허용.'],
     gpt: ['GPT (맞춤형 GPT)', 'ChatGPT 안에서 지침과 파일을 넣어 만든 나만의 비서', 'ChatGPT 속 전담 직원', '왼쪽 메뉴 GPT → 만들기 → 구성 탭에서 이름·지침·지식 파일 입력. 예약 작업은 GPT 안에서 안 돼요.'],
     scheduled: ['예약 작업', '정해진 때마다 AI가 자동으로 하는 일', '매주 월요일 아침 회의', '대화에서 "매주 월요일 오전 7시에 ~ 해줘"라고 말하고, AI가 보여 주는 일정 카드를 확인해 저장.'],
-    worklog: ['업무일지', '채팅마다 정한 내용을 모아 두는 문서', '직원 공용 일지', '각 채팅에서 "업무일지 형식으로 정리해줘" → 답을 업무일지 문서에 붙이고, 그 문서를 프로젝트 파일에 추가.'],
+    worklog: ['업무일지', '채팅마다 정한 내용을 모아 두는 구글 문서 한 개', '직원 공용 일지', '드라이브에 구글 문서 \'업무일지\'를 만들고 프로젝트 파일에 한 번만 추가해요. 그 뒤로는 각 채팅의 정리 내용을 문서 맨 위에 붙이기만 하면 돼요.'],
     costratio: ['식재료 원가율', '매출 중 식재료비가 차지하는 비율', '100원 팔 때 재료값이 몇 원인지', '식재료비 ÷ 매출 × 100. 장부의 요약 탭이 계산하게 만들어요.'],
     netmargin: ['채널별 실수익률', '그 채널의 수수료·배달비·광고비·포장재를 뺀 뒤 남는 비율', '진짜 남는 돈', '(채널 매출 − 그 채널 비용) ÷ 채널 매출. 장부 과장 채팅에 계산을 부탁하세요.'],
     breakeven: ['손익분기 매출', '적자도 흑자도 아닌 최소 매출', '본전 매출', '고정비 ÷ (1 − 변동비율). 장부 과장에게 "이번 달 손익분기 매출 알려줘".'],
