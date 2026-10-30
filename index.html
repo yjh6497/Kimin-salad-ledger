@@ -1160,6 +1160,21 @@ td b { font-weight: 600; }
       </ol></details></div></li>
     <li><input type="checkbox" id="s9e" data-key="s9e"><div class="body"><label for="s9e">월 1회 성과 점검</label><small><dfn data-t="insights">인사이트</dfn> 화면을 캡처해 '06 SNS 운영' 채팅에 올리고 "잘된 게시물의 공통점과 다음 달 방향". 잘된 형식은 다음 달 계획에 더 넣어요.</small></div></li>
   </ol>
+  <h3>Canva 말고 쓸 수 있는 디자인 도구</h3>
+  <p>모두 AI 대화창에서 부르거나 커넥터로 연결해 써요. 메뉴 이름은 업데이트로 조금씩 바뀔 수 있어요. 웹앱·홈페이지 디자인 도구는 <a href="#l26" class="ref" data-ref="l26">강의</a>에 따로 있어요.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>도구</th><th>이럴 때</th><th>연결법</th><th>비용</th></tr></thead>
+    <tbody>
+      <tr data-ai-not="claude"><td><b>Adobe Photoshop 앱</b><br><small>ChatGPT 안</small></td><td>사진 밝기·노출·그림자 조절, 효과. 슬라이더로 직접 미세 조정</td><td>대화창 <span class="path">+ → 앱 → Photoshop</span> 또는 "Photoshop으로 이 사진 밝게"처럼 이름 부르기</td><td>ChatGPT 안에서 무료(일부 제한)</td></tr>
+      <tr data-ai-not="claude"><td><b>Adobe Express 앱</b><br><small>ChatGPT 안</small></td><td>인스타 카드·공지 이미지를 템플릿으로 빠르게</td><td>같은 방법으로 Adobe Express 선택 → Adobe 계정 로그인</td><td>무료(일부 제한)</td></tr>
+      <tr data-ai-not="gpt"><td><b>Adobe Creative Cloud 커넥터</b><br><small>Claude</small></td><td>Photoshop 등 Adobe 도구를 대화로: 배경 정리, 크기 맞추기, 보정</td><td><span class="path">설정(사용자 지정) → 커넥터 → 둘러보기</span> → Adobe 검색 → 연결 → Adobe 계정 로그인·허용</td><td>Adobe 계정 필요, 기능에 따라 Adobe 유료 구독</td></tr>
+      <tr data-ai-not="gpt"><td><b>canvas-design 스킬</b><br><small>Anthropic 공식 · Claude</small></td><td>사진 없이 글자·도형으로 만드는 공지 카드, 썸네일, 포스터를 PNG 파일로</td><td><span class="path">설정 → 기능(Capabilities) → 스킬</span>에서 canvas-design 켜기 (코드 실행도 켜기) → "1080×1350 휴무 공지 카드 PNG로, 색은 ○○"</td><td>무료 플랜부터</td></tr>
+      <tr><td><b>Figma 커넥터</b></td><td>가게 템플릿을 Figma에 두고 매주 문구만 바꿔 내보내기. 디자인을 정교하게 관리할 때</td><td><span data-ai-not="gpt">Claude: 설정 → 커넥터 → Figma 연결. </span><span data-ai-not="claude">ChatGPT: 대화창 + → 앱 → Figma. </span>Figma 계정 로그인</td><td>Figma 무료 계정부터</td></tr>
+      <tr><td><b>Gemini 이미지 편집</b></td><td>사진의 방해물 지우기, 배경·빛 정리 (커넥터 없이 앱에서)</td><td>gemini.google.com 또는 Gemini 앱에 사진 올리고 '사진 다듬기 부탁문'</td><td>무료(횟수 제한)</td></tr>
+      <tr><td><b>Runway 커넥터</b></td><td>릴스용 짧은 영상, 썸네일 시안 생성</td><td><span data-ai-not="gpt">Claude: 설정 → 커넥터에서 Runway 연결 → Runway 로그인</span><span data-ai="gpt">Runway 웹에서 직접</span></td><td>Runway 크레딧(유료)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="tip"><b>고르는 법.</b> 사진을 손보는 건 <span data-ai-not="claude">Photoshop 앱·</span>Gemini, 글자 카드는 <span data-ai-not="gpt">canvas-design 스킬·</span>템플릿 도구, 매주 같은 모양을 찍어 내는 건 Figma나 다음 강의의 꾸미기 봇이에요. 어떤 도구든 음식의 양·모양은 바꾸지 않아요.</p>
   <div class="prompt"><div class="bar"><span>월간 인스타 계획 부탁문 · SNS 마케터</span><button class="copy" type="button">복사</button></div><pre>우리는 ○○동 샐러드 가게야. 주 고객은 근처 직장인과 헬스장 회원이야.
 다음 달 인스타그램 게시물을 주 3회로 계획해줘. 형식은 피드 사진, 캐러셀, 릴스를 섞고 릴스는 2개 이상.
 '게시계획' 시트에 붙일 표로 줘. 열: 게시일, 시각, 형식(피드/캐러셀/릴스), 원본 사진(사진 이름 제안, 예: 1104_웜볼), 썸네일 문구(8자 이내 2줄), 캡션(200자 이내, 첫 줄에 핵심), 해시태그(10개, 우리 동네 이름 포함), 상태(초안), 완성 이미지(빈칸), 게시 링크(빈칸), 메모(사진 구도·릴스 장면 대본). 칸은 탭으로 구분.
