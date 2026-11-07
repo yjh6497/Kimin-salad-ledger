@@ -748,7 +748,7 @@ td b { font-weight: 600; }
   <div class="table-wrap"><table>
     <thead><tr><th>자리</th><th>태블릿에서 하는 일</th><th>강의</th></tr></thead>
     <tbody>
-      <tr><td><b>대기실</b> (보호자)</td><td>첫 방문 접수·동의(개인정보 필수, 광고 수신·사진 활용 선택, 손가락 서명) → 구글 시트에 저장, 보호자 설문</td><td><span class="refs" data-refs="l93 l56 l98"></span></td></tr>
+      <tr><td><b>대기실</b> (보호자)</td><td>첫 방문 접수·동의(보통/큰 글씨 고르기, 반려동물 사진 한 장, 개인정보 필수·광고 수신·사진 활용 선택, 손가락 서명) → 구글 시트에 저장, 보호자 설문</td><td><span class="refs" data-refs="l93 l56 l98"></span></td></tr>
       <tr><td><b>대기실</b> (안내)</td><td>진료 순서·예방접종·퇴원 안내, 병원 소개를 큰 화면으로</td><td><span class="refs" data-refs="l97 l93"></span></td></tr>
       <tr><td><b>접수대</b> (직원)</td><td>PIN 출퇴근, 오늘 근무, 휴가 신청, 인수인계 메모</td><td><span class="refs" data-refs="l82 l92"></span></td></tr>
       <tr><td><b>진료실·처치실</b> (직원)</td><td>체크리스트, 재고 사용 버튼, 약장·냉장고 앞에서 재고 실사, 백신 냉장고 온도 기록, 매뉴얼 보기</td><td><span class="refs" data-refs="l76 l77 l78 l83"></span></td></tr>
@@ -1698,7 +1698,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 - 가운데: 동의 3가지, 항목마다 체크 칸 따로(① 개인정보 수집·이용 필수 ② 광고성 정보 수신 선택 ③ 사진·진료 이야기 활용 선택), 문구는 아래 그대로: ○○
 - 아래: 날짜, 서명란, "선택 동의를 하지 않아도 진료에 불이익이 없어요"
 - 글자는 11pt 이상, 흑백 인쇄해도 읽히게
-- 같은 내용으로 큰 글씨 버전(14pt 이상, 2장까지 괜찮음)도 따로 하나 더
+- 보통 글씨 버전(A4 1장)과 큰 글씨 버전(14pt 이상, A4 2장까지)을 <b>두 개의 디자인</b>으로 따로 만들고 파일 이름에 (보통)/(큰 글씨)
+- 접수 칸에 "반려동물 사진(진료 기록용, 선택) — 접수대에서 찍어요" 한 줄
 - 만든 뒤 PDF로 내보내고 링크를 줘. 보호자 개인정보는 넣지 않은 빈 양식이야</pre></div>
   <div class="prompt"><div class="bar"><span>앱 화면 시안 부탁문 (Figma)</span><button class="copy" type="button">복사</button></div><pre>이 Figma 파일(○○ 주소)에 대기실 태블릿 접수·동의 앱 화면 시안을 만들어 줘.
 - 1024×768 가로 프레임 5개: 보호자 정보, 반려동물(종류·방문 이유는 큰 버튼), 동의(필수·선택 표시, 전문 펼치기), 손가락 서명, 접수 완료(접수번호)
@@ -3492,14 +3493,15 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
     <li><input type="checkbox" id="a56a" data-key="a56a"><div class="body"><label for="a56a">접수지 동의 칸 고치기</label><small>앞에서 만든 사진 활용 동의(<a href="#l2" class="ref" data-ref="l2">강의</a>)에 개인정보 동의와 광고 수신 동의를 더해 한 장으로. 아래 부탁문으로 받으세요.</small></div></li>
     <li><input type="checkbox" id="a56b" data-key="a56b"><div class="body"><label for="a56b">동의 여부를 차트에 기록</label><small>차트에 '광고 수신 동의' 칸이 있으면 거기에, 없으면 메모 칸에 '광고Y 2026-12-01'처럼. 재방문 시트(다음 강의)는 이 칸을 보고 대상을 골라요.</small></div></li>
     <li><input type="checkbox" id="a56c" data-key="a56c"><div class="body"><label for="a56c">수신 거부 처리 규칙</label><small>"그만 받을게요" 답장이 오면 그날 차트의 동의를 N으로, 시트에서도 빼요. 담당은 실장님 한 사람으로.</small></div></li>
-      <li><input type="checkbox" id="a56t" data-key="a56t"><div class="body"><label for="a56t">태블릿으로 동의 받기</label><small>종이 대신 대기실 태블릿에서 ① 개인정보(필수) ② 광고 수신(선택) ③ 사진 활용(선택)을 따로 체크하고 손가락 서명까지 받아 구글 시트에 저장하는 앱을 만들 수 있어요. 코드와 순서는 '태블릿으로 쓰고 링크로 공유하기'(<a href="#l93" class="ref" data-ref="l93">강의</a>)의 '실전' 부분에 있어요. 아래 동의서 부탁문으로 만든 문구를 그 앱의 '동의문구' 탭에 넣으면 돼요. 보호자를 위해 <b>큰 글씨 버전</b>도 같이 준비해요(태블릿 앱의 「가 큰 글씨」 버튼, 큰 글씨 종이 양식). 태블릿이 고장 난 날을 위한 종이 양식은 같은 문구로 Canva에서 A4 PDF로(<a href="#l39" class="ref" data-ref="l39">강의</a>).</small></div></li>
+      <li><input type="checkbox" id="a56t" data-key="a56t"><div class="body"><label for="a56t">태블릿으로 동의 받기</label><small>종이 대신 대기실 태블릿에서 ① 개인정보(필수) ② 광고 수신(선택) ③ 사진 활용(선택)을 따로 체크하고 손가락 서명까지 받아 구글 시트에 저장하는 앱을 만들 수 있어요. 코드와 순서는 '태블릿으로 쓰고 링크로 공유하기'(<a href="#l93" class="ref" data-ref="l93">강의</a>)의 '실전' 부분에 있어요. 아래 동의서 부탁문으로 만든 문구를 그 앱의 '동의문구' 탭에 넣으면 돼요. 보호자가 고를 수 있게 <b>보통 글씨·큰 글씨 두 버전</b>으로 나눠요(태블릿 첫 화면에서 고르기 또는 큰 글씨 전용 주소, 종이 양식도 두 파일). 접수 때 <b>반려동물 사진</b>도 한 장 찍어 두면 차트에서 아이를 바로 알아봐요. 태블릿이 고장 난 날을 위한 종이 양식은 같은 문구로 Canva에서 A4 PDF로(<a href="#l39" class="ref" data-ref="l39">강의</a>).</small></div></li>
   </ol>
   <div class="prompt"><div class="bar"><span>동의서 부탁문</span><button class="copy" type="button">복사</button></div><pre>동물병원 첫 내원 접수지에 들어갈 동의 문구를 A4 반 장으로 써 줘.
 ① 개인정보 수집·이용 동의(필수): 수집 항목(보호자 이름·연락처·주소, 반려동물 정보), 목적(진료, 예약·접종 안내), 보관 기간, 거부할 권리와 불이익
 ② 광고성 정보 수신 동의(선택): 이벤트·혜택 안내를 문자·카카오톡으로 받기, 언제든 철회 가능
 ③ 사진·진료 이야기 활용 동의(선택): 블로그·플레이스·인스타, 보호자 이름·연락처는 쓰지 않음, 철회하면 내림
 체크 칸은 항목마다 따로. 항목마다 맨 위에 쉬운 말 세 줄 요약도.
-태블릿·종이 모두 <b>큰 글씨 버전</b>(태블릿 24px 이상, 종이 14pt 이상)으로 쓸 수 있게 문장을 짧게.
+두 버전으로 나눠서: <b>보통 글씨 버전</b>(태블릿 18px·종이 A4 1장)과 <b>큰 글씨 버전</b>(태블릿 24px 이상·종이 14pt 이상, A4 2장까지). 큰 글씨 버전은 문장을 더 짧게.
+접수지에 "반려동물 사진(진료 기록용, 선택)" 칸도 하나.
 개인정보보호법·정보통신망법상 빠진 항목이 있으면 알려 주고, 법률 검토가 필요한 부분은 [확인 필요]로 표시해 줘.</pre></div>
   <p class="src">근거: 정보통신망 이용촉진 및 정보보호 등에 관한 법률 제50조(2026. 10. 2. 시행본) — 법령 MCP로 2026. 11. 7. 현행 조회 · <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a></p>
         <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>동의한 분만 목록에</b><span>안내 대상 목록은 FILTER로 동의 칸이 '예'인 줄만 보이게.</span></div></li></ul></div>
@@ -4399,7 +4401,7 @@ function ask(kind, text, options, target, values, replies) {
   </ol>
 
   <h3>실전: 대기실 태블릿 접수·동의 앱 만들기</h3>
-  <p class="goal">보호자가 태블릿에서 <b>보호자 정보 → 반려동물 → 동의 3가지 → 손가락 서명</b>을 하면, 원장님 구글 시트 '접수동의' 탭에 한 줄, 서명은 드라이브 폴더에 저장돼요. 동의 문구는 시트에서 고치면 다음 보호자부터 바뀌어요. 코드는 아래 두 개를 복사해 붙이기만 하면 돼요.</p>
+  <p class="goal">보호자가 태블릿에서 <b>글씨 크기 고르기 → 보호자 정보 → 반려동물(사진 한 장) → 동의 3가지 → 손가락 서명</b>을 하면, 원장님 구글 시트 '접수동의' 탭에 한 줄, 서명은 드라이브 폴더에 저장돼요. 동의 문구는 시트에서 고치면 다음 보호자부터 바뀌어요. 코드는 아래 두 개를 복사해 붙이기만 하면 돼요.</p>
   <div class="vis">
     <div class="tabmock">
       <div class="tm-h"><b>○○동물병원</b><span>첫 방문 접수 · 동의</span></div>
@@ -4410,24 +4412,25 @@ function ask(kind, text, options, target, values, replies) {
         <div class="tm-term"><i></i><span>사진·진료 이야기 활용 동의</span><em class="o">선택</em></div>
         <div class="tm-nav"><span>이전</span><span class="go">다음</span></div></div>
     </div>
-    <p class="cap">실제 앱 화면(대기실 태블릿 가로). 1 보호자 → 2 반려동물 → 3 동의 → 4 서명 → 접수번호. 12초 뒤, 또는 3분 동안 손대지 않으면 첫 화면으로 돌아가고 입력이 지워져요. 오른쪽 위 <b>「가 큰 글씨」</b> 버튼을 누르면 글자·버튼·서명 칸이 크게 바뀌어요.</p>
+    <p class="cap">실제 앱 화면(대기실 태블릿 가로). 첫 화면 「보통 글씨로 시작 / 큰 글씨로 시작」 → 1 보호자 → 2 반려동물(사진) → 3 동의 → 4 서명 → 접수번호. 12초 뒤, 또는 3분 동안 손대지 않으면 첫 화면으로 돌아가고 입력·사진이 지워져요. 도중에도 오른쪽 위 「가 큰 글씨」로 바꿀 수 있어요.</p>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a93h" data-key="a93h"><div class="body"><label for="a93h">시트와 서명 폴더 만들기</label><small>병원 구글 계정 → 새 스프레드시트 '접수·동의' → 탭 두 개 '접수동의', '동의문구'. 아래 제목 줄을 각 A1에. 동의문구 탭 2~4행에 privacy·ad·photo 세 줄을 넣고, 전문은 동의서 부탁문(<a href="#l56" class="ref" data-ref="l56">강의</a>)으로 만든 문구를 붙여요. 드라이브에 '서명' 폴더도 하나. 두 곳 모두 원장님·실장님만 볼 수 있게.</small></div></li>
+    <li><input type="checkbox" id="a93h" data-key="a93h"><div class="body"><label for="a93h">시트와 서명 폴더 만들기</label><small>병원 구글 계정 → 새 스프레드시트 '접수·동의' → 탭 두 개 '접수동의', '동의문구'. 아래 제목 줄을 각 A1에. 동의문구 탭 2~4행에 privacy·ad·photo 세 줄을 넣고, 전문은 동의서 부탁문(<a href="#l56" class="ref" data-ref="l56">강의</a>)으로 만든 문구를 붙여요. 드라이브에 '서명' 폴더와 '반려동물 사진' 폴더도 하나씩. 두 곳 모두 원장님·실장님만 볼 수 있게.</small></div></li>
     <li><input type="checkbox" id="a93i" data-key="a93i"><div class="body"><label for="a93i">코드 붙이기</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>'접수·동의' 시트 → <span class="path">확장 프로그램 → Apps Script</span> → 원래 있던 Code.gs 내용을 지우고 아래 'Code.gs'를 붙여 넣기</li>
         <li>왼쪽 파일 옆 + → <span class="path">HTML</span> → 이름 <b>index</b>(확장자 없이) → 아래 'index.html'을 붙여 넣기 → 저장</li>
-        <li>톱니바퀴(프로젝트 설정) → 스크립트 속성: SHEET_ID(시트 주소 /d/ 와 /edit 사이), SIGN_FOLDER(서명 폴더 주소 folders/ 뒤), KIOSK_KEY(아무도 모를 영문·숫자 12자 이상), CLINIC_NAME, TERMS_VER(예: 2026-11). 텔레그램 알림을 원하면 TG_TOKEN·TG_CHAT(<a href="#l79" class="ref" data-ref="l79">강의</a>)</li>
+        <li>톱니바퀴(프로젝트 설정) → 스크립트 속성: SHEET_ID(시트 주소 /d/ 와 /edit 사이), SIGN_FOLDER(서명 폴더 주소 folders/ 뒤), KIOSK_KEY(아무도 모를 영문·숫자 12자 이상), CLINIC_NAME, TERMS_VER(예: 2026-11), PHOTO_FOLDER(반려동물 사진 폴더 주소 folders/ 뒤). 텔레그램 알림을 원하면 TG_TOKEN·TG_CHAT(<a href="#l79" class="ref" data-ref="l79">강의</a>)</li>
         <li>함수 readTerms 선택 → ▶ 실행 → 권한 허용(시트·드라이브)</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a93j" data-key="a93j"><div class="body"><label for="a93j">배포하고 태블릿 주소 만들기</label><small><span class="path">배포 → 새 배포 → 웹 앱</span> · 실행: 나 · 액세스: 모든 사용자 → 배포 → 웹 앱 URL 복사. 태블릿 주소는 그 URL 끝에 <code>?k=KIOSK_KEY값</code>을 붙인 것이에요. 이 주소는 태블릿에만 넣고 어디에도 게시하지 않아요. 키가 없거나 틀리면 "주소를 확인해 주세요"만 보여요.</small></div></li>
+    <li><input type="checkbox" id="a93j" data-key="a93j"><div class="body"><label for="a93j">배포하고 태블릿 주소 만들기</label><small><span class="path">배포 → 새 배포 → 웹 앱</span> · 실행: 나 · 액세스: 모든 사용자 → 배포 → 웹 앱 URL 복사. 태블릿 주소는 그 URL 끝에 <code>?k=KIOSK_KEY값</code>을 붙인 것이에요. <b>큰 글씨 전용 주소</b>는 끝에 <code>&amp;big=1</code>을 더 붙여요. 이 주소로 열면 글씨 고르기 없이 늘 큰 글씨로 시작해요. 이 주소는 태블릿에만 넣고 어디에도 게시하지 않아요. 키가 없거나 틀리면 "주소를 확인해 주세요"만 보여요.</small></div></li>
     <li><input type="checkbox" id="a93k" data-key="a93k"><div class="body"><label for="a93k">태블릿에 앱처럼 고정</label><small>태블릿 Safari(아이패드)·Chrome(갤럭시 탭)으로 태블릿 주소 열기 → 홈 화면에 추가(이름 '접수') → 대기실 태블릿은 위 단계의 '사용법 유도'·'앱 고정'으로 이 화면만. 위쪽에 구글이 띄우는 "이 애플리케이션은 Google 사용자가 만들었습니다" 안내는 앱스 스크립트 웹앱이면 늘 보여요.</small></div></li>
-    <li><input type="checkbox" id="a93n" data-key="a93n"><div class="body"><label for="a93n">큰 글씨 버전은 꼭 같이</label><small>대기실 보호자 중에는 어르신, 돋보기를 안 가져온 분, 아픈 아이를 안고 한 손으로 누르는 분이 많아요. 태블릿에서 받는 화면(웹앱이든 아티팩트든)은 <b>큰 글씨 버전</b>을 같이 만들어요. 이 앱은 오른쪽 위 「가 큰 글씨」 버튼으로 글자 24px 이상, 버튼·체크 칸·서명 칸이 커지고, 다음 보호자가 오면 보통 글씨로 돌아가요. 함께 챙길 것: ① 동의 전문 위에 <b>쉬운 말 세 줄 요약</b> ② 접수대에 "글씨 크게 / 직원이 도와드려요" 안내 ③ 같은 문구의 <b>큰 글씨 종이 양식</b>(A4, 14pt 이상, Canva <a href="#l39" class="ref" data-ref="l39">강의</a>). 직원이 대신 입력할 때도 서명은 보호자가.</small></div></li>
+    <li><input type="checkbox" id="a93n" data-key="a93n"><div class="body"><label for="a93n">큰 글씨 버전과 보통 글씨 버전 나누기</label><small>대기실 보호자 중에는 어르신, 돋보기를 안 가져온 분, 아픈 아이를 안고 한 손으로 누르는 분이 많아요. 태블릿에서 받는 화면(웹앱이든 아티팩트든)은 두 버전으로 나눠요. <b>① 태블릿 한 대</b>: 첫 화면에서 「보통 글씨로 시작 / 큰 글씨로 시작」을 고르게(이 앱 기본). <b>② 태블릿 두 대</b>: 한 대는 보통 주소, 한 대는 큰 글씨 전용 주소(<code>&amp;big=1</code>)로 홈 화면에 '접수', '접수(큰 글씨)' 아이콘. 큰 글씨는 글자 24px 이상, 버튼·체크 칸·서명 칸도 커져요. 함께 챙길 것: 동의 전문 위 <b>쉬운 말 세 줄 요약</b>, 접수대 "글씨 크게 / 직원이 도와드려요" 안내, 종이 양식도 <b>보통(A4 1장)·큰 글씨(14pt 이상, A4 2장)</b> 두 파일(Canva <a href="#l39" class="ref" data-ref="l39">강의</a>). 직원이 대신 입력해도 서명은 보호자가.</small></div></li>
+    <li><input type="checkbox" id="a93o" data-key="a93o"><div class="body"><label for="a93o">반려동물 사진 한 장</label><small>반려동물 단계에 「📷 사진 찍기」가 있어요. 태블릿 카메라로 찍으면 가로 1280px로 줄여 '반려동물 사진' 폴더에 접수번호 이름으로 저장되고, 시트에 링크가 남아요. 같은 이름(콩이·초코)이 많아도 <b>차트에서 아이를 바로 알아보고</b>, 입원·호텔·미용 때 바뀔 일이 줄고, 재방문 안내·블로그에 쓸 사진도 고르기 쉬워요. 단, 사진은 진료 기록용이고 블로그·SNS에는 ③ 사진 활용 동의가 있을 때만(<a href="#l56" class="ref" data-ref="l56">강의</a>). 보호자 얼굴은 안 나오게 찍어 달라고 안내해요. 접수 때 못 찍었으면 진료실에서 직원이 찍어 차트에 붙여요.</small></div></li>
     <li><input type="checkbox" id="a93l" data-key="a93l"><div class="body"><label for="a93l">시험 접수 3번</label><small>직원이 보호자인 척 ① 필수만 동의 ② 모두 동의 ③ 필수 빼고 '다음' 눌러 보기. 시트 줄, 서명 파일, 오류 문구, 첫 화면 복귀, 앞사람 입력이 지워지는지 확인해요. 시험 줄은 지우고 서명 파일도 지워요.</small></div></li>
     <li><input type="checkbox" id="a93m" data-key="a93m"><div class="body"><label for="a93m">접수 뒤 데스크 할 일</label><small>접수동의 탭의 새 줄을 보고 차트에 입력 → N열 '차트 입력' 체크. 광고 수신 Y/N은 차트 동의 칸(<a href="#l56" class="ref" data-ref="l56">강의</a>)과 재방문 시트로. 동의 문구를 바꾸면 TERMS_VER도 바꿔 어느 문구로 동의했는지 남겨요. 시트와 서명 폴더의 보관 기간은 병원 개인정보 규칙대로.</small></div></li>
   </ol>
-  <div class="prompt" data-tsv><div class="bar"><span>접수동의 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>접수 시각 | 접수번호 | 보호자 이름 | 연락처 | 반려동물 이름 | 종류 | 나이 | 방문 이유 | 개인정보(필수) | 광고 수신 | 사진 활용 | 서명 | 동의 문구 버전 | 차트 입력</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>접수동의 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>접수 시각 | 접수번호 | 보호자 이름 | 연락처 | 반려동물 이름 | 종류 | 나이 | 방문 이유 | 개인정보(필수) | 광고 수신 | 사진 활용 | 서명 | 동의 문구 버전 | 차트 입력 | 반려동물 사진 | 글씨</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>동의문구 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>코드 | 제목 | 전문 | 필수(Y/N)</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>동의문구 탭 2~4행 (전문은 우리 병원 문구로)</span><button class="copy" type="button">복사</button></div><pre>privacy | 개인정보 수집·이용 동의 | (수집 항목, 목적, 보관 기간, 거부할 권리와 불이익) | Y
 ad | 광고성 정보 수신 동의 | (이벤트·혜택 안내를 문자·카카오톡으로, 언제든 철회 가능) | N
@@ -4441,6 +4444,7 @@ function doGet(e) {
   }
   var t = HtmlService.createTemplateFromFile('index');
   t.key = e.parameter.k;
+  t.big = e.parameter.big === '1'; // 큰 글씨 전용 주소: ...?k=키&amp;big=1
   t.clinic = P.getProperty('CLINIC_NAME') || '우리 동물병원';
   t.terms = JSON.stringify(readTerms());
   return t.evaluate()
@@ -4465,10 +4469,15 @@ function saveIntake(d) {
     var blob = Utilities.newBlob(Utilities.base64Decode(d.sign.split(',')[1]), 'image/png', no + '.png');
     sign = DriveApp.getFolderById(P.getProperty('SIGN_FOLDER')).createFile(blob).getUrl();
   }
+  var photo = '';
+  if (d.photo &amp;&amp; d.photo.indexOf('data:image/jpeg;base64,') === 0 &amp;&amp; P.getProperty('PHOTO_FOLDER')) {
+    var pb = Utilities.newBlob(Utilities.base64Decode(d.photo.split(',')[1]), 'image/jpeg', no + '_반려동물.jpg');
+    photo = DriveApp.getFolderById(P.getProperty('PHOTO_FOLDER')).createFile(pb).getUrl();
+  }
   var sh = SpreadsheetApp.openById(P.getProperty('SHEET_ID')).getSheetByName('접수동의');
   sh.appendRow([new Date(), no, d.owner, "'" + d.phone, d.pet, d.species, d.age, d.reason,
     d.agree.privacy ? 'Y' : 'N', d.agree.ad ? 'Y' : 'N', d.agree.photo ? 'Y' : 'N',
-    sign, P.getProperty('TERMS_VER') || '', false]);
+    sign, P.getProperty('TERMS_VER') || '', false, photo, d.big ? '큰 글씨' : '보통']);
   if (P.getProperty('TG_TOKEN')) { // 텔레그램에는 이름·번호 없이 건수만
     UrlFetchApp.fetch('https://api.telegram.org/bot' + P.getProperty('TG_TOKEN') + '/sendMessage', {
       method: 'post', payload: { chat_id: P.getProperty('TG_CHAT'), text: '📝 새 접수 ' + no }, muteHttpExceptions: true });
@@ -4510,6 +4519,19 @@ function saveIntake(d) {
   .btn.go { background:var(--leaf); border-color:var(--leaf); color:#fff; font-weight:700; }
   .btn:disabled { opacity:.45; }
   .err { color:var(--warn); font-weight:600; min-height:1.6em; margin-top:10px; }
+  .start { text-align:center; padding:30px 10px; }
+  .start h2 { font-size:30px; } .start p { color:var(--muted); }
+  .pick { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:26px; }
+  .pick button { border:3px solid var(--line); background:#fff; border-radius:20px; padding:28px 12px; color:var(--ink); }
+  .pick button b { display:block; } .pick .n b { font-size:26px; } .pick .g b { font-size:40px; }
+  .pick button span { display:block; color:var(--muted); font-size:17px; margin-top:6px; }
+  .pick button:active { border-color:var(--leaf); }
+  .photo { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:6px; }
+  .photo label.cam { display:inline-flex; align-items:center; gap:8px; font-size:20px; padding:14px 20px; border:2px dashed var(--leaf); border-radius:14px; color:var(--leaf); font-weight:700; }
+  .photo input { display:none; }
+  .photo img { width:120px; height:120px; object-fit:cover; border-radius:14px; border:2px solid var(--line); }
+  .photo small { color:var(--muted); font-size:15px; flex-basis:100%; }
+  body.big .photo label.cam { font-size:26px; padding:18px 24px; } body.big .photo img { width:160px; height:160px; } body.big .photo small { font-size:20px; }
   .done { text-align:center; padding:40px 10px; } .done b { font-size:32px; display:block; margin:10px 0; }
   .dots { display:flex; gap:8px; justify-content:center; margin-bottom:16px; } .dots i { width:12px; height:12px; border-radius:50%; background:var(--line); } .dots i.on { background:var(--leaf); }
   header button { font-size:18px; font-weight:700; padding:8px 14px; border-radius:10px; border:2px solid #fff; background:transparent; color:#fff; }
@@ -4530,9 +4552,17 @@ function saveIntake(d) {
 &lt;body&gt;
 &lt;header&gt;&lt;span&gt;&lt;?= clinic ?&gt;&lt;/span&gt;&lt;small&gt;첫 방문 접수 · 동의&lt;/small&gt;&lt;button type="button" id="bigBtn" onclick="toggleBig()"&gt;가 큰 글씨&lt;/button&gt;&lt;/header&gt;
 &lt;main&gt;
-  &lt;div class="dots"&gt;&lt;i class="on"&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;div class="dots"&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
 
-  &lt;section class="step on" id="s1"&gt;
+  &lt;section class="step on" id="s0"&gt;&lt;div class="start"&gt;
+    &lt;h2&gt;어서 오세요&lt;/h2&gt;&lt;p&gt;첫 방문 접수를 시작할게요. 편한 글씨 크기를 골라 주세요.&lt;/p&gt;
+    &lt;div class="pick"&gt;
+      &lt;button type="button" class="n" onclick="start(false)"&gt;&lt;b&gt;보통 글씨로 시작&lt;/b&gt;&lt;span&gt;가&lt;/span&gt;&lt;/button&gt;
+      &lt;button type="button" class="g" onclick="start(true)"&gt;&lt;b&gt;큰 글씨로 시작&lt;/b&gt;&lt;span&gt;글씨와 버튼이 크게 나와요&lt;/span&gt;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class="step" id="s1"&gt;
     &lt;h2&gt;보호자 정보&lt;/h2&gt;&lt;p class="sub"&gt;진료와 예약·접종 안내에 써요.&lt;/p&gt;
     &lt;label class="f" for="owner"&gt;보호자 이름&lt;/label&gt;&lt;input type="text" id="owner" autocomplete="off"&gt;
     &lt;label class="f" for="phone"&gt;휴대폰 번호&lt;/label&gt;&lt;input type="tel" id="phone" inputmode="numeric" autocomplete="off" placeholder="010-0000-0000"&gt;
@@ -4548,6 +4578,9 @@ function saveIntake(d) {
     &lt;/div&gt;
     &lt;label class="f"&gt;종류&lt;/label&gt;
     &lt;div class="chips" id="species"&gt;&lt;button type="button"&gt;강아지&lt;/button&gt;&lt;button type="button"&gt;고양이&lt;/button&gt;&lt;button type="button"&gt;그 밖의 동물&lt;/button&gt;&lt;/div&gt;
+    &lt;label class="f"&gt;사진 (선택)&lt;/label&gt;
+    &lt;div class="photo"&gt;&lt;label class="cam"&gt;📷 사진 찍기&lt;input type="file" id="photo" accept="image/*" capture="environment"&gt;&lt;/label&gt;&lt;img id="pv" alt="" hidden&gt;
+      &lt;small&gt;진료 기록에서 아이를 알아보는 데만 써요. 블로그·SNS에는 사진 활용에 동의하신 경우에만 써요.&lt;/small&gt;&lt;/div&gt;
     &lt;label class="f"&gt;오늘 오신 이유&lt;/label&gt;
     &lt;div class="chips" id="reason"&gt;&lt;button type="button"&gt;예방접종&lt;/button&gt;&lt;button type="button"&gt;건강검진&lt;/button&gt;&lt;button type="button"&gt;아파요&lt;/button&gt;&lt;button type="button"&gt;중성화·수술 상담&lt;/button&gt;&lt;button type="button"&gt;그 밖에&lt;/button&gt;&lt;/div&gt;
     &lt;div class="err" id="e2"&gt;&lt;/div&gt;
@@ -4577,10 +4610,16 @@ function saveIntake(d) {
 &lt;script&gt;
 var KEY = &lt;?!= JSON.stringify(key) ?&gt;;
 var TERMS = &lt;?!= terms ?&gt;;
-var state = { species: '', reason: '' };
+var BIGFIXED = &lt;?!= JSON.stringify(big) ?&gt;;
+var state = { species: '', reason: '' }, photoData = '';
 var idle;
 
 function $(id) { return document.getElementById(id); }
+function start(big) {
+  document.body.classList.toggle('big', big);
+  $('bigBtn').textContent = big ? '가 보통 글씨' : '가 큰 글씨';
+  go(1);
+}
 function toggleBig() {
   var on = document.body.classList.toggle('big');
   $('bigBtn').textContent = on ? '가 보통 글씨' : '가 큰 글씨';
@@ -4590,6 +4629,7 @@ function go(n) {
   document.querySelectorAll('.step').forEach(function (s) { s.classList.remove('on'); });
   $('s' + n).classList.add('on');
   document.querySelectorAll('.dots i').forEach(function (d, i) { d.classList.toggle('on', i &lt; Math.min(n, 4)); });
+  document.querySelector('.dots').style.visibility = n === 0 ? 'hidden' : 'visible';
   if (n === 4) sizePad();
   window.scrollTo(0, 0);
 }
@@ -4622,6 +4662,18 @@ $('terms').innerHTML = TERMS.map(function (t) {
     '&lt;details&gt;&lt;summary&gt;전문 보기&lt;/summary&gt;' + esc(t.body) + '&lt;/details&gt;&lt;/div&gt;';
 }).join('');
 
+$('photo').addEventListener('change', function () { // 사진은 가로 1280px JPEG로 줄여서 보내요
+  var f = this.files &amp;&amp; this.files[0]; if (!f) return;
+  var img = new Image(), url = URL.createObjectURL(f);
+  img.onload = function () {
+    var s = Math.min(1, 1280 / Math.max(img.width, img.height)), c = document.createElement('canvas');
+    c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    photoData = c.toDataURL('image/jpeg', 0.8); $('pv').src = photoData; $('pv').hidden = false; URL.revokeObjectURL(url);
+  };
+  img.src = url;
+});
+
 var pad = $('pad'), ctx = pad.getContext('2d'), drawing = false, inked = false;
 function sizePad() {
   var r = pad.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
@@ -4640,7 +4692,7 @@ function submitAll() {
   var agree = {};
   TERMS.forEach(function (t) { agree[t.id] = $('t_' + t.id).checked; });
   var data = { key: KEY, owner: $('owner').value.trim(), phone: $('phone').value.trim(), pet: $('pet').value.trim(),
-    age: $('age').value.trim(), species: state.species, reason: state.reason, agree: agree, sign: pad.toDataURL('image/png') };
+    age: $('age').value.trim(), species: state.species, reason: state.reason, agree: agree, sign: pad.toDataURL('image/png'), photo: photoData, big: document.body.classList.contains('big') };
   $('send').disabled = true; $('send').textContent = '저장 중…';
   google.script.run
     .withSuccessHandler(function (no) { $('no').textContent = no; go(5); setTimeout(resetAll, 12000); })
@@ -4652,10 +4704,12 @@ function resetAll() {
   document.querySelectorAll('.chips button').forEach(function (b) { b.classList.remove('on'); });
   document.querySelectorAll('.err').forEach(function (e) { e.textContent = ''; });
   state = { species: '', reason: '' }; clearPad();
-  document.body.classList.remove('big'); $('bigBtn').textContent = '가 큰 글씨'; // 다음 보호자는 보통 글씨부터
+  photoData = ''; $('photo').value = ''; $('pv').hidden = true; $('pv').removeAttribute('src');
   $('send').disabled = false; $('send').textContent = '접수하기';
-  go(1);
+  if (BIGFIXED) { document.body.classList.add('big'); $('bigBtn').textContent = '가 보통 글씨'; go(1); } // 큰 글씨 전용 주소
+  else { document.body.classList.remove('big'); $('bigBtn').textContent = '가 큰 글씨'; go(0); } // 다음 보호자는 글씨 크기부터 고르기
 }
+if (BIGFIXED) { document.body.classList.add('big'); $('bigBtn').textContent = '가 보통 글씨'; go(1); }
 ['pointerdown', 'keydown'].forEach(function (ev) {
   document.addEventListener(ev, function () { clearTimeout(idle); idle = setTimeout(resetAll, 180000); });
 });
