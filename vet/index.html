@@ -553,6 +553,27 @@ td b { font-weight: 600; }
 .rv-ok { border: 1px solid var(--leaf); background: var(--leaf); color: var(--paper); border-radius: 999px; padding: 6px 14px; font-size: 14px; cursor: pointer; min-height: 38px; }
 .rv-s { font-size: 13px; color: var(--leaf); }
 
+/* layout planner */
+.lp { display: flex; flex-direction: column; gap: 10px; }
+.lp-ctl { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 14px; }
+.lp-ctl label { display: inline-flex; gap: 4px; align-items: center; }
+.lp-ctl input, .lp-ctl select { font: inherit; font-size: 14px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; min-height: 38px; }
+.lp-ctl input[type="number"] { width: 5.2em; }
+.lp-ctl select { max-width: 100%; }
+.lp-ctl button { font: inherit; font-size: 14px; border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 6px 14px; min-height: 38px; cursor: pointer; }
+.lp-ctl .lp-main { background: var(--leaf); border-color: var(--leaf); color: var(--paper); font-weight: 600; }
+.lp-sel { font-size: 13px; color: var(--muted); flex: 1 1 100%; }
+.lp-msg { font-size: 13px; color: var(--leaf); }
+.lp-stage { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 6px; max-height: 70vh; overflow: auto; }
+.lp-stage svg { display: block; width: 100%; max-width: 560px; margin: 0 auto; height: auto; touch-action: none; user-select: none; }
+.lp-room { fill: var(--code); stroke: var(--ink); stroke-width: 6; }
+.lp-g { stroke: var(--line); stroke-width: 1; } .lp-g2 { stroke: var(--line); stroke-width: 2.5; }
+.lp-dim { fill: var(--muted); font-family: var(--f-num); font-size: 26px; }
+.lp-it { cursor: grab; } .lp-it rect { fill: var(--leaf-soft); stroke: var(--leaf); stroke-width: 3; }
+.lp-it text { fill: var(--ink); font-family: var(--f-body); font-size: 22px; pointer-events: none; }
+.lp-it.on rect { fill: var(--tag); stroke: var(--tag-ink); stroke-width: 4; }
+.lp-out { white-space: pre-wrap; font-size: 13px; background: var(--code); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+
 </style>
 
 <div class="shell">
@@ -655,7 +676,7 @@ td b { font-weight: 600; }
   <div class="table-wrap"><table>
     <thead><tr><th>단계</th><th>만드는 것</th><th>강의</th><th>시간</th></tr></thead>
     <tbody>
-      <tr><td><b>1단계 · 병원 만들기</b></td><td>AI 인터뷰로 병원 이름과 브랜드 톤을 정하고, 인테리어·동선·기구 배치를 정리하고, 보호자와 아이의 눈으로 방문 경험을 설계하고, 동네 보호자의 말을 직접 들어요.</td><td><span class="refs" data-refs="l95 l96 l97 l98"></span></td><td>개원 4~6개월 전</td></tr>
+      <tr><td><b>1단계 · 병원 만들기</b></td><td>AI 인터뷰로 병원 이름과 브랜드 톤을 정하고, 인테리어·동선·기구 배치를 정리하고 손그림 배치도를 AI와 검토하고, 보호자와 아이의 눈으로 방문 경험을 설계하고, 동네 보호자의 말을 직접 들어요.</td><td><span class="refs" data-refs="l95 l96 l99 l97 l98"></span></td><td>개원 4~6개월 전</td></tr>
       <tr><td><b>2단계 · 개원 기초 자료</b></td><td>병원 한 장 소개서, 마케팅 장부, 개원 D-60 일정표. 뒤의 모든 글과 시스템이 이 세 가지를 재료로 써요.</td><td><span class="refs" data-refs="l3 l4 l9"></span></td><td>개원 8~9주 전</td></tr>
       <tr><td><b>3단계 · AI 비서실</b></td><td>AI 프로젝트에 병원 본사를 차리고, 채널별 직원과 광고 점검관, 법령 MCP로 근거를 찾는 법률·세무 도우미까지 꾸려요.</td><td><span class="refs" data-refs="l5 l7 l6 l8 l70"></span></td><td>개원 8주 전</td></tr>
       <tr><td><b>4단계 · 개원 법무·결제</b></td><td>개설·방사선 신고와 게시 의무, 진료비 부가세 면세·과세 구분, 결제 단말기와 차트 연동을 개원 전에 정리해요.</td><td><span class="refs" data-refs="l71 l72 l50 l51"></span></td><td>개원 6~8주 전</td></tr>
@@ -852,7 +873,7 @@ td b { font-weight: 600; }
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>이 강의는 전부 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>음성 대화를 길게, 사진 여러 장을 한 번에</li></ul></div></div>
 </section>
 <section class="lesson" id="l95" data-part="1단계 · 병원 만들기" data-title="병원 이름과 브랜드 톤" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">1</span><span class="pt"><b>병원 만들기</b>4강 · 개원 4~6개월 전</span><p class="po">AI 인터뷰로 병원 이름과 브랜드 톤을 정하고, 인테리어·동선·기구 배치를 정리하고, 보호자와 아이의 눈으로 방문 경험을 설계하고, 동네 보호자의 말을 직접 들어요.</p><div class="plist"><span>병원 이름과 브랜드 톤</span><span>인테리어·동선·기구 배치</span><span>보호자·환자 경험 설계</span><span>보호자 인터뷰와 설문</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+    <div class="partcard a" style="--d:0s"><span class="pn">1</span><span class="pt"><b>병원 만들기</b>5강 · 개원 4~6개월 전</span><p class="po">AI 인터뷰로 병원 이름과 브랜드 톤을 정하고, 인테리어·동선·기구 배치를 정리하고 손그림 배치도를 AI와 검토하고, 보호자와 아이의 눈으로 방문 경험을 설계하고, 동네 보호자의 말을 직접 들어요.</p><div class="plist"><span>병원 이름과 브랜드 톤</span><span>인테리어·동선·기구 배치</span><span>손그림 배치도 검토·컨설팅</span><span>보호자·환자 경험 설계</span><span>보호자 인터뷰와 설문</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · 개원 4~6개월 전</span>
     <h2>이름 하나가 간판·지도·블로그 전부를 정해요</h2>
@@ -917,7 +938,7 @@ td b { font-weight: 600; }
   <p class="cap">근거: 수의사법 시행규칙 별표 1 「동물병원의 세부 시설기준」(2024. 4. 25. 개정) — 법령 MCP로 2026. 11. 7. 조회. 방사선 장비는 설치 신고·안전관리 기준(<a href="#l71" class="ref" data-ref="l71">강의</a>)을, 건물 용도는 건축물대장을 업체·도우미와 같이 확인해요.</p>
   <ol class="steps">
     <li><input type="checkbox" id="a96a" data-key="a96a"><div class="body"><label for="a96a">① 진료 흐름 인터뷰</label><small>아래 '인테리어 인터뷰' 부탁문. 하루 예상 내원 수, 수술 비중, 입원 칸 수, 미용 여부, 고양이 비율, 장비 목록, 직원 수를 물어봐요.</small></div></li>
-    <li><input type="checkbox" id="a96b" data-key="a96b"><div class="body"><label for="a96b">② 평면도로 구역 배치 스케치</label><small>임대 공간 평면도(사진이어도 돼요)를 올리고 "구역 배치 2안을 그려 줘". <span data-ai-not="gpt">Claude는 구역 배치를 그림(SVG)으로 바로 그려 줘요.</span><span data-ai-none> </span><span data-ai-not="claude">ChatGPT는 평면 위 구역 표시 이미지를 만들어 줘요.</span> 치수는 정확하지 않으니 '생각 정리용'으로만.</small></div></li>
+    <li><input type="checkbox" id="a96b" data-key="a96b"><div class="body"><label for="a96b">② 평면도로 구역 배치 스케치</label><small>임대 공간 평면도(사진이어도 돼요)를 올리고 "구역 배치 2안을 그려 줘". <span data-ai-not="gpt">Claude는 구역 배치를 그림(SVG)으로 바로 그려 줘요.</span><span data-ai-none> </span><span data-ai-not="claude">ChatGPT는 평면 위 구역 표시 이미지를 만들어 줘요.</span> 치수는 정확하지 않으니 '생각 정리용'으로만. 종이에 직접 그려 검토받는 법과 배치 연습판은 다음 강의(<a href="#l99" class="ref" data-ref="l99">강의</a>)에.</small></div></li>
     <li><input type="checkbox" id="a96c" data-key="a96c"><div class="body"><label for="a96c">③ 무드보드와 톤</label><small>브랜드 한 장(<a href="#l95" class="ref" data-ref="l95">강의</a>)의 색으로 대기실·진료실 분위기 이미지를 만들어요. 바닥·벽은 미끄럽지 않고 소독하기 쉬운 재질, 냄새 빠지는 환기, 동물이 무서워하지 않는 조명·소리를 요구사항에 넣어요.</small></div></li>
     <li><input type="checkbox" id="a96d" data-key="a96d"><div class="body"><label for="a96d">④ 기구·소품 목록</label><small>장비(진료대, 무영등, 소독·멸균, 영상, 혈액검사, 산소·마취, 입원장)와 소품(입구 체중계, 이동장 선반, 고양이 가림막, 보호자 의자, 배변 처리함, 페로몬 디퓨저, 진료비 게시판, 안내 모니터)을 구역별 표로. 전기 콘센트·수도·배수 위치가 장비마다 필요해요.</small></div></li>
     <li><input type="checkbox" id="a96e" data-key="a96e"><div class="body"><label for="a96e">⑤ 업체 요구사항서와 견적 비교</label><small>위 결과를 한 장 요구사항서로 만들어 업체 2~3곳에 똑같이 보내고, 견적서는 AI로 비교해요(<a href="#l51" class="ref" data-ref="l51">강의</a>와 같은 방식).</small></div></li>
@@ -934,6 +955,166 @@ td b { font-weight: 600; }
   <div class="prompt"><div class="bar"><span>무드보드 이미지 지시문</span><button class="copy" type="button">복사</button></div><pre>동물병원 대기실 인테리어 무드보드 이미지. 색: ○○(브랜드 색 3가지). 분위기: ○○. 요소: 밝고 미끄럽지 않은 바닥, 개·고양이 대기 공간이 낮은 칸막이로 나뉨, 벽 높이의 이동장 선반, 따뜻한 간접 조명, 식물, 접수대. 사람 얼굴과 실제 브랜드 로고는 넣지 않기. 사진처럼, 정면 넓은 시야.</pre></div>
   <p class="tip warnbox"><b>AI 그림은 생각 정리용이에요.</b> AI가 그린 배치·투시도는 치수와 구조가 정확하지 않아요. 실제 도면·소방·전기·방사선 차폐는 인테리어 업체와 전문가가 확인하고, AI 이미지를 실제 병원 사진처럼 홍보에 쓰지 않아요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>인터뷰·요구사항서·견적 비교, Claude 배치 스케치</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>이미지 생성 넉넉히(무드보드 여러 안), 3D 인테리어 시뮬레이션 앱</li></ul></div></div>
+</section>
+<section class="lesson" id="l99" data-part="1단계 · 병원 만들기" data-title="손그림 배치도 검토·컨설팅" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 2시간 · 종이·연필·줄자</span>
+    <h2>종이에 그린 배치도를 AI가 읽고, 다듬고, 짚어 줘요</h2>
+    <p class="goal">원장님이 모눈종이에 공간과 장비를 대략 그리면, AI가 사진을 읽어 <b>치수표로 옮기고 → 깔끔한 배치도로 다시 그리고 → 동선·간격·감염 관리를 검토</b>해요. 아래 <b>배치 연습판</b>에서 장비를 끌어 옮기며 여러 안을 만들어 보고, 그 배치를 그대로 복사해 AI에게 검토받을 수도 있어요.</p>
+  </div>
+
+  <h3>1 · 종이에 그리기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="a99a" data-key="a99a"><div class="body"><label for="a99a">모눈종이 한 칸 = 50cm로 정하기</label><small>A4 모눈종이(또는 줄 노트)에 맨 위에 <b>"1칸 = 50cm"</b>라고 크게 써요. 임대 공간 도면이 있으면 그 위에 트레이싱지를 대고 그려도 돼요.</small></div></li>
+    <li><input type="checkbox" id="a99b" data-key="a99b"><div class="body"><label for="a99b">벽·문·창·기둥부터, 길이를 숫자로</label><small>벽마다 길이를 m로 적어요(예: 8.2m). 문은 열리는 방향을 호(⌒)로, 창은 두 줄, 기둥은 까만 네모. <b>북쪽 화살표</b>와 <b>입구</b>를 꼭 표시해요.</small></div></li>
+    <li><input type="checkbox" id="a99c" data-key="a99c"><div class="body"><label for="a99c">설비 위치 표시</label><small>수도(○수), 배수(○배), 큰 전기 콘센트(⚡), 환기구(≋), 화장실. 수술실·입원실·싱크대는 배수 가까이 있어야 공사비가 덜 들어요.</small></div></li>
+    <li><input type="checkbox" id="a99d" data-key="a99d"><div class="body"><label for="a99d">구역과 장비를 네모로</label><small>구역(접수·대기·진료·처치·격리·수술·입원·조제·직원)을 연필로 나누고, 장비는 실제 크기 비율로 네모를 그려 이름과 크기(가로×세로 cm)를 적어요. 크기를 모르면 장비 업체 카탈로그 숫자로.</small></div></li>
+    <li><input type="checkbox" id="a99e" data-key="a99e"><div class="body"><label for="a99e">사진 찍기</label><small>종이를 바닥에 놓고 <b>바로 위에서</b>, 그림자 없이 밝게, 종이 네 모서리가 다 나오게. 글씨가 작으면 부분 사진을 2~3장 더.</small></div></li>
+  </ol>
+
+  <h3>2 · AI에게 읽히고, 다시 그리게 하고, 검토받기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="a99f" data-key="a99f"><div class="body"><label for="a99f">① 치수표로 옮기기 (읽기 확인이 먼저)</label><small>사진과 아래 '손그림 읽기' 부탁문. AI가 읽은 벽 길이·장비 크기를 표로 주면 <b>원장님이 종이와 한 줄씩 맞춰 봐요</b>. 손글씨 숫자는 잘못 읽기 쉬워서, 이 단계를 건너뛰면 뒤의 검토가 다 틀려요.</small></div></li>
+    <li><input type="checkbox" id="a99g" data-key="a99g"><div class="body"><label for="a99g">② 깔끔한 배치도로 다시 그리기</label><small>확인한 표로 <span data-ai-not="gpt">Claude가 축척이 맞는 배치도(SVG)를 그려요. 구역 색, 장비 네모, 통로 폭 치수, 동선 화살표까지.</span><span data-ai-none> </span><span data-ai-not="claude">ChatGPT는 표를 바탕으로 배치도 이미지나 표 형태 평면을 만들어요. 축척이 중요하면 아래 연습판에 옮겨 보세요.</span></small></div></li>
+    <li><input type="checkbox" id="a99h" data-key="a99h"><div class="body"><label for="a99h">③ 검토와 2안 받기</label><small>'배치 검토' 부탁문으로 문제점과 고친 2안을 받아요. 안마다 장점·단점·공사비가 늘어나는 곳(배수 이동 등)을 같이.</small></div></li>
+    <li><input type="checkbox" id="a99i" data-key="a99i"><div class="body"><label for="a99i">④ 종이로 돌아가 다시 그리기</label><small>마음에 드는 안을 종이에 다시 그려 보고, 같은 과정을 한 번 더. 두세 번이면 업체에 보여 줄 '원장님 안'이 생겨요. 인테리어 요구사항서(<a href="#l96" class="ref" data-ref="l96">강의</a>)에 붙여요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>손그림 읽기 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 사진은 내가 모눈종이에 그린 동물병원 배치도야. 1칸 = 50cm.
+먼저 읽은 내용만 표로 정리해 줘. 아직 검토하지 마.
+1) 벽: 이름(북쪽 벽 등) | 길이(m) | 문·창 위치
+2) 설비: 수도·배수·콘센트·환기구 위치(어느 벽에서 몇 m)
+3) 구역: 이름 | 대략 가로×세로(m) | 면적(㎡)
+4) 장비: 이름 | 가로×세로(cm) | 어느 구역 | 어느 벽에서 얼마나 떨어져 있는지
+5) 읽기 어려웠던 글씨·숫자 목록 (추측하지 말고 '읽기 어려움'으로)
+전체 면적 합계와 종이에 적힌 벽 길이로 계산한 면적이 다르면 알려 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>배치도 다시 그리기 부탁문</span><button class="copy" type="button">복사</button></div><pre>내가 확인한 아래 치수표로 배치도를 다시 그려 줘. (치수표 붙여 넣기)
+- 축척을 지켜서, 1m 눈금 표시, 북쪽 화살표, 입구 표시
+- 구역은 연한 색으로 구분하고 이름·면적 표시
+- 장비는 네모와 이름, 장비 사이·벽 사이 통로 폭을 cm로 표시
+- 동선 화살표 4가지 색: 보호자, 동물(진료·입원), 직원, 오염물(폐기물·사체)
+- 수도·배수·콘센트는 기호로
+SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 표로.</pre></div>
+  <div class="prompt"><div class="bar"><span>배치 검토 부탁문</span><button class="copy" type="button">복사</button></div><pre>이 동물병원 배치를 검토해 줘. 하루 예상 내원 ○명, 수술 주 ○건, 입원 ○칸, 직원 ○명, 고양이 비율 ○%.
+검토 항목마다 '문제 없음 / 고칠 것 / 확인 필요'로:
+1) 통로 폭: 보호자가 이동장·카트를 들고 지나갈 수 있는지, 진료대 둘레에서 두 사람이 움직일 수 있는지
+2) 동선 교차: 보호자 대기 동선과 수술·입원·오염물 동선이 겹치는 곳
+3) 감염 관리: 전염 의심 환자가 대기실을 지나지 않고 격리 공간에 갈 수 있는지
+4) 고양이·개 분리, 대기실에서 진료실 소리가 들리는지
+5) 설비: 싱크대·수술실·입원실과 배수 거리, 큰 장비 콘센트, 산소·환기
+6) 문: 열리는 방향이 통로·장비와 부딪히는지
+7) 법정 시설(진료실·처치실·구획된 조제실·수도시설, 다른 시설과 분리)을 갖췄는지 — 법령 도구가 있으면 수의사법 시행규칙 별표 1 조회
+8) 방사선 장비 자리: 차폐·신고는 업체·전문가 확인 필요로 표시
+그다음 고친 2안(각각 바뀐 점, 장점, 단점, 공사비가 늘 수 있는 곳). 치수를 지어내지 말고 표에 있는 값만 써.</pre></div>
+
+  <h3>3 · 배치 연습판</h3>
+  <p>방 크기를 넣고 장비를 추가한 뒤 손가락이나 마우스로 끌어 옮겨 보세요. 장비를 한 번 누르면 선택되고, '돌리기'로 90도 회전해요. 다 되면 '배치 복사'를 눌러 위의 '배치 검토' 부탁문과 함께 AI에게 붙여 넣어요.</p>
+  <div class="vis">
+    <div class="lp" id="lp">
+      <div class="lp-ctl">
+        <label>방 가로 <input type="number" id="lpW" min="2" max="40" step="0.1" value="9"> m</label>
+        <label>세로 <input type="number" id="lpH" min="2" max="40" step="0.1" value="12"> m</label>
+        <select id="lpPreset" aria-label="장비 고르기">
+          <option value="접수대|180|60">접수대 180×60</option>
+          <option value="대기 의자 3인|150|50">대기 의자 3인 150×50</option>
+          <option value="이동장 선반|120|40">이동장 선반 120×40</option>
+          <option value="진료대|120|60">진료대 120×60</option>
+          <option value="수술대|150|70">수술대 150×70</option>
+          <option value="마취기|60|60">마취기 60×60</option>
+          <option value="입원장 묶음|180|70">입원장 묶음 180×70</option>
+          <option value="엑스레이 테이블|200|90">엑스레이 테이블 200×90</option>
+          <option value="싱크대|120|60">싱크대 120×60</option>
+          <option value="조제대|150|60">조제대 150×60</option>
+          <option value="약품 냉장고|70|70">약품 냉장고 70×70</option>
+          <option value="벽(칸막이)|300|10">벽(칸막이) 300×10</option>
+        </select>
+        <label>가로 <input type="number" id="lpEw" min="10" max="1000" step="5" value="180"> cm</label>
+        <label>세로 <input type="number" id="lpEh" min="5" max="1000" step="5" value="60"> cm</label>
+        <button type="button" id="lpAdd">장비 추가</button>
+      </div>
+      <div class="lp-stage" id="lpStage" aria-label="배치 판"><svg id="lpSvg" role="img" aria-label="배치도"></svg></div>
+      <div class="lp-ctl">
+        <span id="lpSel" class="lp-sel">선택한 장비 없음</span>
+        <button type="button" id="lpRot">돌리기</button>
+        <button type="button" id="lpDel">지우기</button>
+        <button type="button" id="lpCopy" class="lp-main">배치 복사</button>
+        <span id="lpMsg" class="lp-msg" aria-live="polite"></span>
+      </div>
+    </div>
+    <p class="cap">장비 크기는 예시예요. 실제 장비 카탈로그 치수로 바꿔 넣으세요. 판의 한 칸은 50cm, 장비는 10cm 단위로 맞춰져요. 이 연습판은 이 기기에서만 움직이고 어디에도 저장·전송되지 않아요.</p>
+  </div>
+  <script>
+  (function () {
+    var svg = document.getElementById('lpSvg'); if (!svg) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    var W = 900, H = 1200, items = [], sel = -1, drag = null;
+    var inW = document.getElementById('lpW'), inH = document.getElementById('lpH');
+    var pre = document.getElementById('lpPreset'), ew = document.getElementById('lpEw'), eh = document.getElementById('lpEh');
+    var selLbl = document.getElementById('lpSel'), msg = document.getElementById('lpMsg');
+    function el(n, a) { var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); return e; }
+    function snap(v) { return Math.round(v / 10) * 10; }
+    function clamp(it) { var w = it.r ? it.h : it.w, h = it.r ? it.w : it.h; it.x = Math.max(0, Math.min(W - w, it.x)); it.y = Math.max(0, Math.min(H - h, it.y)); }
+    function draw() {
+      svg.setAttribute('viewBox', '-30 -30 ' + (W + 60) + ' ' + (H + 60));
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(el('rect', { x: 0, y: 0, width: W, height: H, class: 'lp-room' }));
+      for (var x = 50; x < W; x += 50) svg.appendChild(el('line', { x1: x, y1: 0, x2: x, y2: H, class: x % 100 ? 'lp-g' : 'lp-g2' }));
+      for (var y = 50; y < H; y += 50) svg.appendChild(el('line', { x1: 0, y1: y, x2: W, y2: y, class: y % 100 ? 'lp-g' : 'lp-g2' }));
+      var t = el('text', { x: W / 2, y: -10, class: 'lp-dim', 'text-anchor': 'middle' }); t.textContent = (W / 100) + ' m'; svg.appendChild(t);
+      var t2 = el('text', { x: -12, y: H / 2, class: 'lp-dim', 'text-anchor': 'middle', transform: 'rotate(-90 -12 ' + (H / 2) + ')' }); t2.textContent = (H / 100) + ' m'; svg.appendChild(t2);
+      items.forEach(function (it, i) {
+        var w = it.r ? it.h : it.w, h = it.r ? it.w : it.h;
+        var g = el('g', { class: 'lp-it' + (i === sel ? ' on' : ''), 'data-i': i, transform: 'translate(' + it.x + ' ' + it.y + ')' });
+        g.appendChild(el('rect', { width: w, height: h, rx: 4 }));
+        var tx = el('text', { x: w / 2, y: h / 2, 'text-anchor': 'middle', 'dominant-baseline': 'middle' });
+        tx.textContent = it.n; g.appendChild(tx);
+        svg.appendChild(g);
+      });
+      selLbl.textContent = sel < 0 ? '선택한 장비 없음' : '선택: ' + items[sel].n + ' ' + (items[sel].r ? items[sel].h + '×' + items[sel].w : items[sel].w + '×' + items[sel].h) + 'cm';
+    }
+    function pt(e) { var r = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal; return { x: (e.clientX - r.left) / r.width * vb.width + vb.x, y: (e.clientY - r.top) / r.height * vb.height + vb.y }; }
+    svg.addEventListener('pointerdown', function (e) {
+      var g = e.target.closest ? e.target.closest('.lp-it') : null;
+      if (!g) { sel = -1; draw(); return; }
+      sel = +g.getAttribute('data-i'); var p = pt(e);
+      drag = { dx: p.x - items[sel].x, dy: p.y - items[sel].y };
+      try { svg.setPointerCapture(e.pointerId); } catch (err) {}
+      e.preventDefault(); draw();
+    });
+    svg.addEventListener('pointermove', function (e) {
+      if (!drag || sel < 0) return; var p = pt(e), it = items[sel];
+      it.x = snap(p.x - drag.dx); it.y = snap(p.y - drag.dy); clamp(it); draw();
+    });
+    function end() { drag = null; }
+    svg.addEventListener('pointerup', end); svg.addEventListener('pointercancel', end);
+    pre.addEventListener('change', function () { var v = pre.value.split('|'); ew.value = v[1]; eh.value = v[2]; });
+    document.getElementById('lpAdd').addEventListener('click', function () {
+      var w = Math.max(10, snap(+ew.value || 60)), h = Math.max(10, snap(+eh.value || 60));
+      var it = { n: pre.value.split('|')[0], w: w, h: h, x: 20, y: 20, r: false };
+      clamp(it); items.push(it); sel = items.length - 1; draw();
+    });
+    document.getElementById('lpRot').addEventListener('click', function () { if (sel < 0) return; items[sel].r = !items[sel].r; clamp(items[sel]); draw(); });
+    document.getElementById('lpDel').addEventListener('click', function () { if (sel < 0) return; items.splice(sel, 1); sel = -1; draw(); });
+    function resize() { W = Math.round(Math.max(2, Math.min(40, +inW.value || 9)) * 100); H = Math.round(Math.max(2, Math.min(40, +inH.value || 12)) * 100); items.forEach(clamp); draw(); }
+    inW.addEventListener('change', resize); inH.addEventListener('change', resize);
+    document.getElementById('lpCopy').addEventListener('click', function () {
+      var lines = ['동물병원 배치 (연습판에서 복사)', '방: 가로 ' + (W / 100) + 'm × 세로 ' + (H / 100) + 'm. 단위 cm, 왼쪽 위가 (0,0), 오른쪽이 x, 아래가 y.'];
+      items.forEach(function (it, i) {
+        var w = it.r ? it.h : it.w, h = it.r ? it.w : it.h;
+        lines.push((i + 1) + '. ' + it.n + ': 위치 x=' + it.x + ', y=' + it.y + ' / 크기 ' + w + '×' + h + (it.r ? ' (90도 돌림)' : '') + ' / 오른쪽 벽까지 ' + (W - it.x - w) + ', 아래 벽까지 ' + (H - it.y - h));
+      });
+      if (!items.length) lines.push('(장비 없음)');
+      var text = lines.join('\n');
+      function ok() { msg.textContent = '복사됐어요. 배치 검토 부탁문과 함께 붙여 넣으세요.'; }
+      function fail() { msg.textContent = '복사가 막혔어요. 아래 글을 길게 눌러 복사하세요.'; var pre2 = document.getElementById('lpOut'); pre2.hidden = false; pre2.textContent = text; }
+      try { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(ok, fail); else fail(); } catch (err) { fail(); }
+    });
+    [['접수대', 180, 60, 40, 40], ['대기 의자 3인', 150, 50, 40, 200], ['진료대', 120, 60, 520, 420]].forEach(function (s) { items.push({ n: s[0], w: s[1], h: s[2], x: s[3], y: s[4], r: false }); });
+    draw();
+  })();
+  </script>
+  <pre class="lp-out" id="lpOut" hidden></pre>
+  <p class="tip warnbox"><b>AI 검토는 1차 점검이에요.</b> 손그림 치수와 AI 계산에는 오차가 있어요. 실제 시공 도면, 소방·전기·급배수, 방사선 차폐, 건물 용도는 인테리어 업체와 전문가가 실측해서 확인해요.</p>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>모눈종이·줄자, 연습판, AI 읽기·검토</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>사진 여러 장을 한 번에 읽기, 긴 검토 대화</li><li>업체의 3D 시뮬레이션·실측</li></ul></div></div>
 </section>
 <section class="lesson" id="l97" data-part="1단계 · 병원 만들기" data-title="보호자·환자 경험 설계" hidden>
   <div class="lesson-head">
