@@ -605,6 +605,12 @@ td b { font-weight: 600; }
 .aib-row { display: grid; grid-template-columns: 5.2em minmax(0, 1fr); gap: 8px; font-size: 13.5px; line-height: 1.55; }
 .aib-row > b { color: var(--muted); font-weight: 500; font-size: 12.5px; padding-top: 2px; }
 
+/* automation: three tiers + pc chip */
+.zones.tri { grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+.zones.tri .zn span { font-size: 13px; line-height: 1.5; }
+.k-pc::before { background: var(--tag); }
+.chip.k-pc { border-color: color-mix(in srgb, var(--tag) 45%, var(--line)); }
+
 </style>
 
 <div class="shell">
@@ -711,20 +717,21 @@ td b { font-weight: 600; }
       <tr><td><b>2단계 · 개원 기초 자료</b></td><td>병원 한 장 소개서, 마케팅 장부, 개원 D-60 일정표. 뒤의 모든 글과 시스템이 이 세 가지를 재료로 써요.</td><td><span class="refs" data-refs="l3 l4 l9"></span></td><td>개원 8~9주 전</td></tr>
       <tr><td><b>3단계 · AI 비서실</b></td><td>AI 프로젝트에 병원 본사를 차리고, 채널별 직원과 광고 점검관, 법령 MCP로 근거를 찾는 법률·세무 도우미까지 꾸려요.</td><td><span class="refs" data-refs="l5 l7 l6 l38 l8 l70"></span></td><td>개원 8주 전</td></tr>
       <tr><td><b>4단계 · 개원 법무·결제</b></td><td>개설·방사선 신고와 게시 의무, 진료비 부가세 면세·과세 구분, 결제 단말기와 차트 연동을 개원 전에 정리해요.</td><td><span class="refs" data-refs="l71 l72 l50 l51"></span></td><td>개원 6~8주 전</td></tr>
-      <tr><td><b>5단계 · 지도: 네이버·카카오</b></td><td>네이버 플레이스와 카카오맵에 병원을 올리고 정보를 꽉 채운 뒤, 리뷰 답글과 소식으로 살아 있는 병원처럼 보이게 해요. 두 지도의 정보는 늘 같게, 새 리뷰는 알림과 AI 답글 제안으로 그날 안에.</td><td><span class="refs" data-refs="l10 l11 l12 l13 l14 l15 l16 l17"></span></td><td>개원 3주 전부터</td></tr>
+      <tr><td><b>5단계 · 지도·내비: 네이버·카카오·티맵·구글</b></td><td>네이버 플레이스와 카카오맵에 병원을 올리고 티맵·구글·애플 지도까지 맞추고 정보를 꽉 채운 뒤, 리뷰 답글과 소식으로 살아 있는 병원처럼 보이게 해요. 두 지도의 정보는 늘 같게, 새 리뷰는 알림과 AI 답글 제안으로 그날 안에.</td><td><span class="refs" data-refs="l10 l11 l12 l13 l14 l15 l18 l16 l17"></span></td><td>개원 3주 전부터</td></tr>
       <tr><td><b>6단계 · 네이버 블로그</b></td><td>AI 인터뷰로 블로그 이름·소개·대문 이미지를 정하고, 보호자가 검색하는 질문에 답하는 글을 사진 5장과 메모 세 줄로 써요.</td><td><span class="refs" data-refs="l19 l20 l21 l22"></span></td><td>주 1~2편</td></tr>
       <tr><td><b>7단계 · 인스타그램</b></td><td>진료실의 30초를 릴스로, 일요일에 일주일 치를 예약하고, DM으로는 진단하지 않아요.</td><td><span class="refs" data-refs="l25 l26 l27 l28"></span></td><td>주 3회</td></tr>
       <tr><td><b>8단계 · 카카오톡 채널</b></td><td>다녀간 보호자와 이어지는 줄. 채팅 상담, 공지, 접종 안내를 규칙에 맞게 보내요.</td><td><span class="refs" data-refs="l35 l36 l37"></span></td><td>개원 3주 전부터</td></tr>
       <tr><td><b>9단계 · 매주 운영 루틴</b></td><td>일요일 1시간으로 네 채널을 굴리고, 월요일 브리핑과 한 달 성과로 방향을 잡아요.</td><td><span class="refs" data-refs="l40 l41 l42"></span></td><td>주 1~2시간</td></tr>
       <tr><td><b>10단계 · 병원 캘린더</b></td><td>예약 블록, 근무, SNS 발행일, 임대료·공과금·수수료, 신고 기한, 장비 점검을 구글 캘린더 7개로 한 화면에. 스크립트가 반복 일정을 만들고, 일정 비서가 원장님과 직원의 하루를 챙겨요.</td><td><span class="refs" data-refs="l85 l86 l87 l88 l89 l92"></span></td><td>개원 4주 전부터</td></tr>
       <tr><td><b>11단계 · 고객관리·재방문 안내</b></td><td>차트·단말기·지도에 쌓이는 기록으로 진료 예정일·검진 예정일을 먼저 챙겨요. 안내 타이밍과 템플릿을 정하고, 맥·아이폰 문자, 카카오톡 채널, 알림톡으로 동의한 분께 보내고, 예약으로 이어졌는지 봐요.</td><td><span class="refs" data-refs="l55 l56 l57 l64 l65 l66 l67 l68 l58"></span></td><td>개원 후 첫 달부터</td></tr>
-      <tr><td><b>12단계 · 데이터 시스템</b></td><td>숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들어요.</td><td><span class="refs" data-refs="l60 l61 l62 l63"></span></td><td>익숙해진 뒤</td></tr>
+      <tr><td><b>12단계 · 데이터·자동화 시스템</b></td><td>숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들고, 안 쓰는 맥북·노트북을 24시간 자동화 컴퓨터로 써요.</td><td><span class="refs" data-refs="l60 l61 l62 l63 l69"></span></td><td>익숙해진 뒤</td></tr>
       <tr><td><b>13단계 · 직원 관리 시스템</b></td><td>사람마다 계정과 권한, 근무표·출퇴근·휴가를 한 파일에, PIN 직원 웹앱으로 출퇴근과 체크리스트, 매뉴얼과 신입 교육, 원장님 인력 대시보드까지.</td><td><span class="refs" data-refs="l80 l81 l82 l83 l84"></span></td><td>첫 직원 채용 전부터</td></tr>
       <tr><td><b>14단계 · 세무·노무·분쟁</b></td><td>세무 자료 정리, 직원·임대차 계약 점검, 분쟁·민원 대응을 법률·세무 도우미와 함께해요.</td><td><span class="refs" data-refs="l73 l74 l75"></span></td><td>필요할 때</td></tr>
     </tbody>
   </table></div>
   <p class="tip"><b>목표는 '주 2시간'이에요.</b> 개원하면 진료로 바빠요. 이 코스는 일요일 1시간에 한 주 치를 몰아 쓰고 예약 걸기, 평일엔 리뷰 답글 5분으로 굴러가게 짰어요. 강의마다 맨 아래 <b>'이 강의 자동화'</b>와 <b>'무료로 하기 / 유료라면 좋은 점'</b> 상자가 있어요.</p>
   <p class="tip warnbox"><b>먼저 약속 하나.</b> 동물병원 광고는 <b>수의사법</b>의 적용을 받아요. 거짓·과대 광고와 다른 병원 보호자를 끌어오는 유인 행위는 면허효력 정지 사유예요(<a href="#l8" class="ref" data-ref="l8">강의</a>). 이 코스의 모든 글은 <b>올리기 전 광고 문구 점검</b>까지가 한 세트입니다.</p>
+    <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>이번 주 할 강의</b><span>캘린더에 매주 월요일 "강의 2개" 반복 알림. 끝낸 강의는 체크하면 진도에 남아요.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>자동화는 손에 익은 뒤</b><span>처음엔 손으로 해 보고, 세 번 반복한 일만 자동화로 옮겨요. 컴퓨터를 켜 둬야 하는 일은 따로 정리했어요<a href="#l69" class="ref" data-ref="l69">강의</a>.</span></div></li></ul></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><p class="rec-note">시작은 커넥터 없이도 돼요. 스킬·커넥터 지도는 3단계에 있어요.</p></div>
 </section>
 <section class="lesson" id="l33" data-part="시작" data-title="왜 이 네 채널을 운영할까" hidden>
@@ -785,7 +792,8 @@ td b { font-weight: 600; }
 과장 없이, 우리 병원에 맞지 않는 채널은 맞지 않다고 말해 줘.</pre></div>
   <p class="tip warnbox"><b>채널은 진료를 대신하지 않아요.</b> 지도와 글은 '처음 오게' 만들고, '다시 오게' 하는 건 진료와 설명이에요. 그래서 이 코스의 모든 글은 사실만, 수의사법 광고 규칙 안에서(<a href="#l8" class="ref" data-ref="l8">강의</a>).</p>
   <p class="src">출처: <a href="https://www.dailyvet.co.kr/?p=245570" target="_blank" rel="noopener">1인 동물병원의 AI 마케팅 (데일리벳, 2025.5)</a> · <a href="https://navercorp.com/media/pressReleasesDetail?seq=10034394" target="_blank" rel="noopener">동물병원 플레이스 진료 통계·필터 (네이버, 2026.6)</a> · <a href="https://kakaobusiness.gitbook.io/main/channel/run/mystore" target="_blank" rel="noopener">카카오맵 매장관리</a> · <a href="https://www.dailygaewon.com/news/articleView.html?idxno=16986" target="_blank" rel="noopener">KB경영연구소 2025 한국 반려동물 보고서 (데일리개원)</a> · <a href="https://www.dailyvet.co.kr/news/practice/companion-animal/273782" target="_blank" rel="noopener">2025 반려동물 양육현황조사 (데일리벳, 2026.2)</a></p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>채널 우선순위 결과 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>석 달 뒤 숫자 점검</b><span>우선순위를 정한 날 + 90일에 "숫자 3개 다시 보기" 알림.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>채널 우선순위 결과 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span></div></div><p class="rec-note">채널별 우선순위는 웹 검색으로 우리 동네 경쟁 병원 현황을 함께 보며 정해요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>네 채널 모두 개설·운영 무료</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>광고는 네 채널 정보가 꽉 찬 뒤에, 소액으로 시험</li></ul></div></div>
 </section>
@@ -840,7 +848,8 @@ td b { font-weight: 600; }
       <tr><td><b>매달</b></td><td>세 채널 통계 캡처 → AI가 분석, 다음 달 글 주제 정하기</td><td>30분</td></tr>
     </tbody>
   </table></div>
-    <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><b>일반 채팅</b></span></div><div class="aib-row"><b>넣어 둘 것</b><span>동의서 → 드라이브 '병원 마케팅' 폴더</span></div><div class="aib-row"><b>세션</b><span>아직 프로젝트 전이면 일반 채팅으로 해도 돼요. 결과는 드라이브에 저장해 두고, 3단계에서 프로젝트 파일로 옮겨요.</span></div></div>
+      <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-conn">커넥터</span><div class="ad"><b>동의서 원본 한 곳</b><span>동의서를 드라이브 '병원 마케팅' 폴더에 두고 커넥터로 읽게 하면 안내문마다 같은 문구가 들어가요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><b>일반 채팅</b></span></div><div class="aib-row"><b>넣어 둘 것</b><span>동의서 → 드라이브 '병원 마케팅' 폴더</span></div><div class="aib-row"><b>세션</b><span>아직 프로젝트 전이면 일반 채팅으로 해도 돼요. 결과는 드라이브에 저장해 두고, 3단계에서 프로젝트 파일로 옮겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">Word 문서</span></div></div><p class="rec-note">동의서는 Word 파일로 받아 접수지에 붙여요.</p></div>
 </section>
 <section class="lesson" id="l32" data-part="시작" data-title="업체를 쓸까, 직접 할까" hidden>
@@ -910,7 +919,8 @@ td b { font-weight: 600; }
 (글 붙여 넣기)</pre></div>
   <div class="prompt"><div class="bar"><span>레퍼런스 질문지 부탁문</span><button class="copy" type="button">복사</button></div><pre>마케팅 업체가 맡았던 동물병원 원장님께 전화로 물어볼 질문 8개를 만들어 줘. 5분 안에 끝나게. 실제 성과(신규 보호자 변화), 원고 품질과 감수, 담당자 교체, 보고의 정직함, 해지할 때 계정·자료 인계, 추가 비용, 다시 맡길지.</pre></div>
   <p class="src">출처: <a href="https://vet.bemypet.kr/marketing/" target="_blank" rel="noopener">비마이펫 동물병원 마케팅 서비스</a> · <a href="https://www.dailyvet.co.kr/news/practice/companion-animal/141133" target="_blank" rel="noopener">아인플로우 기사 (데일리벳, 2021.1)</a> · <a href="https://www.dailyvet.co.kr/?p=139803" target="_blank" rel="noopener">원업크리에이티브 기사 (데일리벳, 2020.12)</a> · <a href="https://www.dailyvet.co.kr/news/industry/273423" target="_blank" rel="noopener">인투씨엔에스 커넥트 지원 (데일리벳, 2026.2)</a> · <a href="https://vetching.cc/" target="_blank" rel="noopener">벳칭 플러스벳</a> · <a href="https://www.dailyvet.co.kr/?p=245570" target="_blank" rel="noopener">1인 동물병원의 AI 마케팅 (데일리벳, 2025.5)</a></p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>업체 비교표·제안서 PDF → 이 채팅에만, 결정은 업무일지</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-conn">커넥터</span><div class="ad"><b>제안서 메일 모으기</b><span>Gmail 커넥터로 "제안서" "견적" 메일을 찾아 비교표에 한 줄씩.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>계약 만료 30일 전</b><span>업체를 쓰면 만료일 칸이 30일 안으로 들어올 때 빨갛게.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>업체 비교표·제안서 PDF → 이 채팅에만, 결정은 업무일지</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">제안서 메일을 Gmail에서 찾아 비교표를 엑셀로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>후보 찾기·제안서 비교·포트폴리오 점검 모두 AI로</li><li>업체 무료 진단은 받아 보되, 계정 비밀번호는 주지 않기</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>한 번에 끝나는 일(사진·로고·홈페이지)부터, 정기 대행은 3개월 시범으로</li></ul></div></div>
 </section>
@@ -942,7 +952,8 @@ td b { font-weight: 600; }
 4) 월 비용을 1년으로 환산한 금액, 그 돈으로 대신할 수 있는 것(사진 촬영, AI 유료 플랜 등)
 5) 계약한다면 꼭 넣을 조항 3개 (계정 소유, 해지, 성과 보고 방식)
 확실하지 않은 법 판단은 '확인 필요'로.</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>거절 문장 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">텍스트 대치</span><div class="ad"><b>거절 문장 한 번에</b><span>아이폰 설정 → 키보드 → 텍스트 대치에 "거절1"을 등록하면 문자 답이 한 번에 완성돼요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>거절 문장 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">광고 점검</span></div></div><p class="rec-note">메일로 온 영업 제안서를 바로 점검해요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>이 코스 전체가 업체 대신</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>개원 사진 촬영 1회, 로고·간판 디자인, 릴스 편집 외주(건당)</li></ul></div></div>
 </section>
@@ -1007,7 +1018,8 @@ td b { font-weight: 600; }
 4) 브랜드 한 장: 색 3가지(이름과 HEX), 글꼴 느낌(둥근/곧은/손글씨), 로고 방향 2안, 말투 규칙 5줄, 피할 것 3가지
 최상급·비교 표현 없이.</pre></div>
   <div class="prompt"><div class="bar"><span>이름 검증 정리 부탁문 (웹 검색 켜고)</span><button class="copy" type="button">복사</button></div><pre>동물병원 이름 후보 '○○', '○○', '○○'을 검증해 줘. 웹 검색으로: 전국에 같은·비슷한 이름의 동물병원이 있는지(지역 포함), 같은 이름의 반려동물 관련 브랜드가 있는지. 표로 정리하고 출처 주소를 붙여. 상표 등록 여부는 키프리스에서 내가 직접 확인할 수 있게 검색어를 알려 줘. 확실하지 않은 건 '확인 필요'.</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>확정한 이름·브랜드 한 장 → 두 프로젝트 모두 프로젝트 파일에</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>브랜드 한 장을 스킬로</b><span>확정한 이름·톤을 '병원 브랜드·말투' 스킬로 저장하면 모든 글에 저절로 들어가요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>확정한 이름·브랜드 한 장 → 두 프로젝트 모두 프로젝트 파일에</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">인터뷰 컨설턴트</span><span class="rc s">병원 브랜드·말투</span></div></div><p class="rec-note">인터뷰 결과를 '병원 브랜드·말투' 스킬로 저장해 두면 모든 글이 같은 목소리가 돼요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>AI 인터뷰·후보·검증 정리, 키프리스 검색 무료</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>최종 로고 디자인, 상표 출원(변리사)</li></ul></div></div>
 </section>
@@ -1059,7 +1071,8 @@ td b { font-weight: 600; }
 치수·법 기준 중 확실하지 않은 건 '확인 필요'.</pre></div>
   <div class="prompt"><div class="bar"><span>무드보드 이미지 지시문</span><button class="copy" type="button">복사</button></div><pre>동물병원 대기실 인테리어 무드보드 이미지. 색: ○○(브랜드 색 3가지). 분위기: ○○. 요소: 밝고 미끄럽지 않은 바닥, 개·고양이 대기 공간이 낮은 칸막이로 나뉨, 벽 높이의 이동장 선반, 따뜻한 간접 조명, 식물, 접수대. 사람 얼굴과 실제 브랜드 로고는 넣지 않기. 사진처럼, 정면 넓은 시야.</pre></div>
   <p class="tip warnbox"><b>AI 그림은 생각 정리용이에요.</b> AI가 그린 배치·투시도는 치수와 구조가 정확하지 않아요. 실제 도면·소방·전기·방사선 차폐는 인테리어 업체와 전문가가 확인하고, AI 이미지를 실제 병원 사진처럼 홍보에 쓰지 않아요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>평면도·현장 사진은 이 채팅에만, 요구사항서 → 개원 준비실 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-conn">커넥터</span><div class="ad"><b>견적·사진 폴더</b><span>드라이브 '인테리어' 폴더를 커넥터로 읽게 하면 새 견적이 올 때 "비교표 갱신" 한 줄이면 돼요.</span></div></li><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>공정 전날 알림</b><span>철거·전기·마감·입주 청소 같은 공정 날짜를 '병원 일정' 캘린더에, 전날 알림.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>평면도·현장 사진은 이 채팅에만, 요구사항서 → 개원 준비실 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Canva</span><span class="rc c">법령 MCP</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">인터뷰 컨설턴트</span><span class="rc s">Word 문서</span></div></div><p class="rec-note">요구사항서는 Word로, 무드보드는 Canva로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>인터뷰·요구사항서·견적 비교, Claude 배치 스케치</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>이미지 생성 넉넉히(무드보드 여러 안), 3D 인테리어 시뮬레이션 앱</li></ul></div></div>
 </section>
@@ -1221,7 +1234,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   </script>
   <pre class="lp-out" id="lpOut" hidden></pre>
   <p class="tip warnbox"><b>AI 검토는 1차 점검이에요.</b> 손그림 치수와 AI 계산에는 오차가 있어요. 실제 시공 도면, 소방·전기·급배수, 방사선 차폐, 건물 용도는 인테리어 업체와 전문가가 실측해서 확인해요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>손그림 사진은 이 채팅에만, 확정 배치 → 요구사항서에</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">단축어</span><div class="ad"><b>배치도 사진 한 번에</b><span>아이폰 단축어로 '배치도' 앨범 사진을 파일 앱의 Google Drive 인테리어 폴더로 한 번에 저장.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>손그림 사진은 이 채팅에만, 확정 배치 → 요구사항서에</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">법령 MCP</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">인터뷰 컨설턴트</span></div></div><p class="rec-note">사진을 드라이브 '인테리어' 폴더에 모아 두면 여러 안을 비교하기 쉬워요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>모눈종이·줄자, 연습판, AI 읽기·검토</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>사진 여러 장을 한 번에 읽기, 긴 검토 대화</li><li>업체의 3D 시뮬레이션·실측</li></ul></div></div>
 </section>
@@ -1252,7 +1266,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 도착 → 주차 → 입구 → 접수 → 대기 → 진료 → 처치 → 수납 → 귀가 → 다음 날 순서로, 한 단계씩 그 역할로 느끼는 것과 궁금한 것을 말하고 나에게 "병원은 이때 무엇을 해 주나요?"라고 물어. 내 답을 듣고 다음 단계로.
 끝나면: 불편한 순간 TOP 5, 각각 공간/안내/말로 줄이는 방법, 비용이 거의 안 드는 것부터 순서대로.</pre></div>
   <div class="prompt"><div class="bar"><span>안내물 세트 부탁문</span><button class="copy" type="button">복사</button></div><pre>브랜드 한 장의 말투로 보호자 안내물을 만들어 줘: ① 첫 방문 안내(주차·입구·접수·대기, 5줄) ② 접수대 '진료비 안내' 문구(게시표를 보는 법, 견적을 먼저 묻는 법) ③ 귀가 안내문 틀(처치명, 집에서 볼 것, 바로 전화할 신호, 다음 예정일 칸) ④ 짧은 영어 안내 3줄. 의학 숫자는 [원장 확인]으로.</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>안내물 세트 → 드라이브 문서, 개선 목록 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>오래된 안내물</b><span>안내물 목록에 '마지막 수정일'을 두고 6개월이 지나면 노랗게.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>안내물 세트 → 드라이브 문서, 개선 목록 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Canva</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">인터뷰 컨설턴트</span><span class="rc s">보호자 안내 문구</span><span class="rc s">PDF</span></div></div><p class="rec-note">안내물은 PDF로 뽑아 접수대에.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>역할극·안내물 모두 AI로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>저스트레스 진료·고양이 친화 병원 교육·인증 프로그램(수의사회·관련 단체) 참고</li></ul></div></div>
 </section>
@@ -1287,7 +1302,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 5) 인용할 만한 한 문장(누구인지 알 수 없게)
 없는 내용은 지어내지 마.</pre></div>
   <p class="tip warnbox"><b>인터뷰·설문도 개인정보예요.</b> 녹음은 동의를 받고 정리 뒤 지우고, AI에는 이름·연락처 없이 내용만. 설문 응답을 리뷰처럼 홍보에 쓰려면 응답자 동의가 따로 필요해요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>인터뷰 정리 결과 → 병원 소개서의 '주 보호자' 칸</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">폼 알림</span><div class="ad"><b>새 응답 메일</b><span>구글 폼 응답 탭 ⋮ → 새 응답에 대한 이메일 알림 받기.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>월말 설문 요약</b><span>유료면 월요일 예약 작업에 "이번 주가 그달 첫 주면 지난달 응답 요약"을 넣어요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>인터뷰 정리 결과 → 병원 소개서의 '주 보호자' 칸</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">인터뷰 컨설턴트</span><span class="rc s">엑셀</span></div></div><p class="rec-note">구글 폼 응답 시트를 드라이브 커넥터로 바로 분석해요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 폼·시트, AI 분석</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>녹음 받아쓰기 앱, 차트 CRM의 만족도 조사 기능</li></ul></div></div>
 </section>
@@ -1384,7 +1400,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 - 플레이스 등록은 사업자등록증·개설신고 뒤에 가능하고 검수 기간이 있다는 점을 반영해 줘.
 - 개원 이벤트(할인·무료)는 넣지 마. 대신 보호자에게 도움 되는 정보 글로.</pre></div>
   <p class="tip"><b>왜 '개원 할인'을 빼나요?</b> 할인·무료 이벤트는 금액과 방식에 따라 다른 병원 보호자를 끌어오는 <b>유인 행위</b>로 문제될 수 있어요(<a href="#l8" class="ref" data-ref="l8">강의</a>). 꼭 하고 싶다면 수의사회나 관할 시·군·구에 먼저 물어보세요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>D-60 일정표 → 업무일지 맨 위</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>큰 날짜 3일 전</b><span>일정표의 등록·촬영·개원일을 캘린더에 넣고 3일 전 알림.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>밀린 일 빨강</b><span>날짜가 지났는데 상태가 '완료'가 아니면 빨갛게.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>D-60 일정표 → 업무일지 맨 위</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">일정표의 큰 날짜는 캘린더 커넥터로 바로 넣어요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>일정표 받기·캘린더 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 매주 "이번 주 할 일" 알림(<a href="#l41" class="ref" data-ref="l41">강의</a>)</li></ul></div></div>
 </section>
@@ -1585,7 +1602,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 - 우리 병원 정보는 '병원 소개서'를 참고하라고만 쓰고, 보호자·직원 개인정보는 넣지 않기
 - 만든 뒤 시험용 예시 하나로 한 번 돌려서 결과를 보여 줘</pre></div>
   <p class="tip warnbox"><b>스킬·커넥터도 관리 대상이에요.</b> 믿을 수 있는 곳의 커넥터만 연결하고, 안 쓰는 연결은 끊어요. 남이 만든 스킬을 받으면 내용을 읽어 보고 쓰세요. 스킬에 비밀번호·계좌번호·보호자 연락처를 넣지 않아요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>만든 스킬 목록 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>스킬이 곧 자동화의 재료</b><span>같은 부탁을 세 번 했다면 스킬로. 예약 작업은 그 스킬을 불러 같은 방식으로 일해요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>만든 스킬 목록 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span><span class="rc c">Gmail</span><span class="rc c">Canva</span><span class="rc c">법령 MCP</span><span class="rc c">Claude in Chrome</span><span class="rc c">웹 검색</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">병원 브랜드·말투</span><span class="rc s">광고 점검</span><span class="rc s">리뷰 답글</span><span class="rc s">블로그 글</span><span class="rc s">법령 조사</span></div></div><p class="rec-note">이 강의에서 한 번에 준비해요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>주요 커넥터는 무료 플랜에서도 연결되는 경우가 많아요(사용량 제한)</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>커넥터 여러 개 동시, 긴 작업, 예약 작업과 함께 쓰기</li></ul></div></div>
 </section>
@@ -1722,7 +1740,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 - 보호자 서명·날짜, 설명한 수의사 서명
 - 시행규칙에서 정한 방법·보존 같은 요건이 있으면 표시</pre></div>
   <p class="src">근거: 수의사법 제13조의2·제17조의3·제20조·제20조의2(2024. 7. 24. 시행본), 소득세법 제162조의3(2026. 1. 1. 시행본), 소득세법 시행령 별표 3의3 — 법령 MCP로 2026. 11. 7. 현행 조회</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>08 법률·세무 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>체크리스트 → 법무·세무 메모, 기한 → 캘린더</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>신고·검사·게시 기한</b><span>방사선 장비 검사, 진료비 게시 점검, 계약 갱신을 '장비·법정 의무' 캘린더에 한 달 전 알림.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>08 법률·세무 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>체크리스트 → 법무·세무 메모, 기한 → 캘린더</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">법령 MCP</span><span class="rc c">Google Calendar</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">법령 조사</span><span class="rc s">Word 문서</span><span class="rc s">엑셀</span></div></div><p class="rec-note">신고 기한은 캘린더 '장비·법정 의무'에 바로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>체크리스트·동의서 초안은 도우미로</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>개원 컨설팅이 아니라도, 동의서·처리방침은 전문가 검토 한 번</li></ul></div></div>
 </section>
@@ -1753,7 +1772,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 - 끝에 세무사에게 물을 질문 3개</pre></div>
   <p class="tip warnbox"><b>고시는 바뀌어요.</b> 이 고시는 2023년 10월과 2026년 1월에 개정됐고, 3년마다 재검토해요. 표를 한 번 만들고 끝내지 말고, 매달 개정 소식 예약 작업(<a href="#l70" class="ref" data-ref="l70">강의</a>)에 이 고시를 넣어 두세요.</p>
   <p class="src">근거: 부가가치세법 시행령 제35조(2026. 2. 27. 시행본), 「부가가치세 면제대상인 동물의 진료용역」(농림축산식품부 고시 제2025-92호, 2026. 1. 1. 시행), 소득세법 제162조의3제4항 — 법령 MCP로 2026. 11. 7. 조회</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>08 법률·세무 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>진료비 게시표(이미 프로젝트 파일) + 과세 구분표 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>면세·과세 자동 표시</b><span>진료 항목표에 면세/과세 칸을 두고 매출 줄에서 VLOOKUP으로 끌어와요. 새 항목만 법률·세무 도우미에게.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>08 법률·세무 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>진료비 게시표(이미 프로젝트 파일) + 과세 구분표 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">법령 MCP</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">법령 조사</span><span class="rc s">엑셀</span></div></div><p class="rec-note">진료 항목 과세 구분표는 엑셀로 받아 차트 세팅에 써요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구분표는 도우미로, 고시 원문은 국가법령정보센터 행정규칙에서</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>사업자 유형과 신고는 세무사(기장 계약)</li></ul></div></div>
 </section>
@@ -1796,7 +1816,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 5) 고객·내원 목록을 엑셀로 내보낼 수 있는지, 어떤 칸이 나오는지
 정중하고 짧게, 답을 서면(메일·카톡)으로 받고 싶다고.</pre></div>
   <p class="src">출처: <a href="https://bizhankook.com/articles/139357.html" target="_blank" rel="noopener">토스 vs 네이버 결제 단말기 비교 (비즈한국)</a> · <a href="https://www.navercorp.com/media/pressReleasesDetail?seq=33306" target="_blank" rel="noopener">Npay 커넥트 보도자료 (네이버, 2025.9)</a> · <a href="https://www.dailyvet.co.kr/news/industry/273423" target="_blank" rel="noopener">인투씨엔에스 커넥트 지원 (데일리벳, 2026.2)</a> · <a href="https://navercorp.com/media/pressReleasesDetail?seq=10034394" target="_blank" rel="noopener">동물병원 플레이스 진료 통계 (네이버, 2026.6)</a> · <a href="https://tossplace.com/sector/plugin" target="_blank" rel="noopener">토스플레이스 SDK·API 연동</a> · <a href="https://news.mtn.co.kr/article/2026110515581824762" target="_blank" rel="noopener">토스 공정위 신고 (MTN, 2026.11)</a></p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>차트 회사 답변 → 이 채팅에, 결정 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-conn">대시보드</span><div class="ad"><b>결제 데이터 내려받기</b><span>단말기 관리 화면에서 월 매출 파일을 받아 허브 시트에 붙이면 그래프는 저절로<a href="#l60" class="ref" data-ref="l60">강의</a>.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>차트 회사 답변 → 이 채팅에, 결정 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">차트 회사 답변 메일을 Gmail에서 찾아 비교에 넣어요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>두 회사 모두 프로그램 이용료는 대체로 없어요(대리점 정책 확인)</li></ul></div><div class="fp-col fp-paid"><b>돈이 드는 곳</b><ul><li>단말기·프린터, 차트 연동비, 약정 기간의 월 관리비</li></ul></div></div>
 </section>
@@ -1817,12 +1838,13 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 3) 견적서에 없어서 다시 물어봐야 할 조건
 4) 위약금·자동 연장처럼 조심할 문구
 숫자가 견적서에 없으면 지어내지 말고 '없음'.</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>견적서 사진은 이 채팅에만</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>3년 총액 자동 계산</b><span>대리점별 월 수수료·렌탈료·약정 기간으로 3년 총액을 수식으로 비교.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'개원 준비실'</b> → <b>09 개원 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>견적서 사진은 이 채팅에만</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Gmail</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span><span class="rc s">PDF</span></div></div><p class="rec-note">견적서 PDF를 드라이브에 모아 한 번에 비교.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>비교표·합계 계산은 무료로 충분</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>견적서 여러 장 사진을 한 번에</li></ul></div></div>
 </section>
-<section class="lesson" id="l10" data-part="5단계 · 지도: 네이버·카카오" data-title="스마트플레이스 등록" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">5</span><span class="pt"><b>지도: 네이버·카카오</b>8강 · 개원 3주 전부터</span><p class="po">네이버 플레이스와 카카오맵에 병원을 올리고 정보를 꽉 채운 뒤, 리뷰 답글과 소식으로 살아 있는 병원처럼 보이게 해요. 두 지도의 정보는 늘 같게, 새 리뷰는 알림과 AI 답글 제안으로 그날 안에.</p><div class="plist"><span>스마트플레이스 등록</span><span>플레이스 정보 꽉 채우기</span><span>리뷰 관리와 답글</span><span>소식·예약·톡톡</span><span>카카오맵 매장관리</span><span>지도 정보 한꺼번에 맞추기</span><span>리뷰 알림과 답글 제안</span><span>브라우저 봇으로 리뷰 답글 테스트</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l10" data-part="5단계 · 지도·내비: 네이버·카카오·티맵·구글" data-title="스마트플레이스 등록" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">5</span><span class="pt"><b>지도·내비: 네이버·카카오·티맵·구글</b>9강 · 개원 3주 전부터</span><p class="po">네이버 플레이스와 카카오맵에 병원을 올리고 티맵·구글·애플 지도까지 맞추고 정보를 꽉 채운 뒤, 리뷰 답글과 소식으로 살아 있는 병원처럼 보이게 해요. 두 지도의 정보는 늘 같게, 새 리뷰는 알림과 AI 답글 제안으로 그날 안에.</p><div class="plist"><span>스마트플레이스 등록</span><span>플레이스 정보 꽉 채우기</span><span>리뷰 관리와 답글</span><span>소식·예약·톡톡</span><span>카카오맵 매장관리</span><span>지도 정보 한꺼번에 맞추기</span><span>티맵·구글·애플 지도와 내비 등록</span><span>리뷰 알림과 답글 제안</span><span>브라우저 봇으로 리뷰 답글 테스트</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · PC · 개원 3주 전</span>
     <h2>지도에 우리 병원 깃발 꽂기</h2>
@@ -1842,11 +1864,12 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   </ol>
   <p class="tip"><b>소개글·사진은 검수 끝난 뒤에 채워요.</b> 등록이 승인되면 다음 강의에서 정보를 꽉 채워요. 그 전까지 AI에게 소개글을 미리 받아 두면 승인 당일 10분이면 끝나요.</p>
   <p class="src">출처: <a href="https://tossplace.com/story/smartplace-prepare" target="_blank" rel="noopener">스마트플레이스 등록 준비물 정리 (토스플레이스)</a> · 메뉴 이름은 네이버 업데이트로 바뀔 수 있어요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>등록 화면 캡처는 이 채팅에</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>등록 확인</b><span>신청한 날 + 3일, + 7일에 "네이버 지도에서 검색되나" 알림.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>등록 화면 캡처는 이 채팅에</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">병원 브랜드·말투</span></div></div><p class="rec-note">네이버는 공식 커넥터가 없어 화면 캡처로 이어 붙여요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>스마트플레이스 등록·관리 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>네이버 플레이스 광고(클릭당 과금)는 리뷰 20개쯤 쌓인 뒤 소액으로 시험해도 늦지 않아요</li></ul></div></div>
 </section>
-<section class="lesson" id="l11" data-part="5단계 · 지도: 네이버·카카오" data-title="플레이스 정보 꽉 채우기" hidden>
+<section class="lesson" id="l11" data-part="5단계 · 지도·내비: 네이버·카카오·티맵·구글" data-title="플레이스 정보 꽉 채우기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>보호자가 전화하기 전에 궁금한 것을 다 답해 두기</h2>
@@ -1894,7 +1917,7 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">웹 검색</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">병원 브랜드·말투</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">키워드 도구 결과는 캡처로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>스마트플레이스·키워드 도구 무료</li><li>사진은 휴대폰으로, 맑은 날 오전에</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>전문 사진 촬영 한 번(개원 때): 플레이스 첫인상이 가장 크게 달라져요</li></ul></div></div>
 </section>
-<section class="lesson" id="l12" data-part="5단계 · 지도: 네이버·카카오" data-title="리뷰 관리와 답글" hidden>
+<section class="lesson" id="l12" data-part="5단계 · 지도·내비: 네이버·카카오·티맵·구글" data-title="리뷰 관리와 답글" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 매일 5분 · 휴대폰</span>
     <h2>리뷰 답글은 다음 보호자가 읽어요</h2>
@@ -1936,7 +1959,7 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">리뷰 답글</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">리뷰 탭은 드라이브 커넥터로 읽어 월간 요약.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>스마트플레이스센터 앱 답글 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>리뷰 여러 개를 한 번에 붙여 한꺼번에 답글 초안</li></ul></div></div>
 </section>
-<section class="lesson" id="l13" data-part="5단계 · 지도: 네이버·카카오" data-title="소식·예약·톡톡" hidden>
+<section class="lesson" id="l13" data-part="5단계 · 지도·내비: 네이버·카카오·티맵·구글" data-title="소식·예약·톡톡" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>살아 있는 병원처럼 보이게</h2>
@@ -1970,7 +1993,7 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">보호자 안내 문구</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">소식 날짜는 캘린더 'SNS·콘텐츠'에.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>소식·톡톡 무료</li><li>네이버 예약 기본 기능 무료 (결제 연동 시 수수료는 네이버 안내 확인)</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>한 달 치 소식·사진 설명을 한 번에</li></ul></div></div>
 </section>
-<section class="lesson" id="l14" data-part="5단계 · 지도: 네이버·카카오" data-title="카카오맵 매장관리" hidden>
+<section class="lesson" id="l14" data-part="5단계 · 지도·내비: 네이버·카카오·티맵·구글" data-title="카카오맵 매장관리" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 50분 · PC · 개원 3주 전</span>
     <h2>카카오맵에서도 우리 병원이 보이게</h2>
@@ -2011,11 +2034,12 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 5) 제공 서비스(주차, 엘리베이터 등)와 연결할 링크 순서(블로그·인스타·카톡 채널)
 비교·최상급 표현 없이, 끝에 점검 한 줄.</pre></div>
   <p class="src">출처: <a href="https://kakaobusiness.gitbook.io/main/channel/run/mystore" target="_blank" rel="noopener">카카오 비즈니스 가이드 · 매장관리</a> · <a href="https://www.kakaocorp.com/page/detail/11167" target="_blank" rel="noopener">카카오맵 장소상세 개편 (카카오, 2024.8)</a> · <a href="https://cs.kakao.com/helps_html/1073192977?locale=ko" target="_blank" rel="noopener">카카오 고객센터 · 장소 등록</a></p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>카카오맵 정보 → 장부 지도정보 탭</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>분기 정보 점검</b><span>석 달마다 카카오맵 영업시간·사진 확인 알림. 지도정보 점검<a href="#l15" class="ref" data-ref="l15">강의</a>과 같은 날로.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>카카오맵 정보 → 장부 지도정보 탭</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">병원 브랜드·말투</span></div></div><p class="rec-note">카카오맵도 공식 커넥터가 없어 캡처로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>매장 등록·정보 수정·후기 답글, 전용번호 발급 무료</li></ul></div><div class="fp-col fp-paid"><b>돈이 드는 곳</b><ul><li>카카오 광고(선택). 지도 정보부터 꽉 채운 뒤에 생각해도 늦지 않아요</li></ul></div></div>
 </section>
-<section class="lesson" id="l15" data-part="5단계 · 지도: 네이버·카카오" data-title="지도 정보 한꺼번에 맞추기" hidden>
+<section class="lesson" id="l15" data-part="5단계 · 지도·내비: 네이버·카카오·티맵·구글" data-title="지도 정보 한꺼번에 맞추기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 30분 · 바뀔 때마다 10분</span>
     <h2>네이버와 카카오의 진료 시간이 다르면 안 돼요</h2>
@@ -2033,14 +2057,14 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
         <tr><td><b>리뷰·후기</b></td><td>답글</td><td>답글·사장님픽</td><td>답글</td><td>-</td></tr>
       </tbody>
     </table></div>
-    <p class="cap a" style="--d:.4s">구글 지도는 Google 비즈니스 프로필(무료)로 등록해요. 외국인 보호자나 구글 지도를 쓰는 분이 많은 동네라면 함께.</p>
+    <p class="cap a" style="--d:.4s">구글 지도는 Google 비즈니스 프로필(무료)로 등록해요. 외국인 보호자나 구글 지도를 쓰는 분이 많은 동네라면 함께. 티맵·애플 지도·차량 내비 등록은 따로 정리했어요(<a href="#l18" class="ref" data-ref="l18">강의</a>).</p>
   </div>
   <ol class="steps">
     <li><input type="checkbox" id="a15a" data-key="a15a"><div class="body"><label for="a15a">장부에 '지도정보' 탭</label><small>항목마다 원본 값과 채널별 반영 날짜를 적어요. 아래 제목 줄을 붙여 넣어요.</small></div></li>
     <li><input type="checkbox" id="a15b" data-key="a15b"><div class="body"><label for="a15b">바뀌면 한 번에</label><small>진료 시간·휴진·전화번호가 바뀌면 소개서를 고치고, 아래 부탁문으로 채널별 고칠 문구를 한 번에 받아 같은 날 반영해요.</small></div></li>
     <li><input type="checkbox" id="a15c" data-key="a15c"><div class="body"><label for="a15c">분기마다 보호자 눈으로 점검</label><small>네이버 지도·카카오맵에서 병원을 검색해 화면을 캡처하고 "소개서와 다른 곳 찾아 줘"라고 AI에게 보여 줘요.</small></div></li>
   </ol>
-  <div class="prompt" data-tsv><div class="bar"><span>지도정보 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>항목 | 원본 값(소개서) | 바뀐 날 | 네이버 플레이스 | 카카오맵 | 구글 지도 | 카톡 채널 | 블로그·인스타 프로필 | 메모</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>지도정보 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>항목 | 원본 값(소개서) | 바뀐 날 | 네이버 플레이스 | 카카오맵 | 구글 지도 | 티맵 | 애플 지도 | 카톡 채널 | 블로그·인스타 프로필 | 메모</pre></div>
   <div class="prompt"><div class="bar"><span>지도 정보 변경 부탁문</span><button class="copy" type="button">복사</button></div><pre>병원 정보가 바뀌었어: ○○ (예: 12월부터 수요일 야간 진료 21시까지, 점심시간 13~14시)
 채널별로 고칠 곳과 넣을 문구를 표로 줘: 채널 | 메뉴 위치 | 넣을 문구.
 네이버 플레이스(영업시간·소식), 카카오맵(영업시간·한줄소개), 구글 지도(영업시간), 카톡 채널(프로필·채팅 답변 시간·소식), 블로그·인스타 프로필.
@@ -2051,7 +2075,68 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">보호자 안내 문구</span></div></div><p class="rec-note">휴진은 캘린더에 넣으면 할 일 목록까지 한 번에(캘린더 강의).</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>네이버·카카오·구글 지도 등록·수정 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>여러 지도를 한 번에 고치는 유료 관리 서비스도 있지만, 병원 한 곳이면 체크표로 충분해요</li></ul></div></div>
 </section>
-<section class="lesson" id="l16" data-part="5단계 · 지도: 네이버·카카오" data-title="리뷰 알림과 답글 제안" hidden>
+<section class="lesson" id="l18" data-part="5단계 · 지도·내비: 네이버·카카오·티맵·구글" data-title="티맵·구글·애플 지도와 내비 등록" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · 분기마다 10분</span>
+    <h2>아픈 아이를 안고 차로 오는 보호자는 내비에서 병원을 찾아요</h2>
+    <p class="goal">네이버 플레이스와 카카오맵만으로는 빈칸이 생겨요. 운전하는 보호자는 <b>티맵</b>을 켜고, 외국인과 아이폰 사용자는 <b>구글 지도·애플 지도</b>를 열어요. 내비에서 병원이 안 나오거나 옛 주소·건물 뒤편으로 안내되면 응급 상황에서 시간이 새요. 앱마다 한 번씩 등록하고, 석 달마다 검색해서 확인해요.</p>
+  </div>
+  <div class="dash">
+    <div class="kpi pop" style="--d:.2s"><span>네이버지도</span><b>3,054만 명</b></div>
+    <div class="kpi hi pop" style="--d:.35s"><span>티맵</span><b>1,520만 명</b></div>
+    <div class="kpi pop" style="--d:.5s"><span>카카오맵</span><b>1,340만 명</b></div>
+    <div class="kpi warn pop" style="--d:.65s"><span>구글지도 (1년 새 15.1%↑)</span><b>1,019만 명</b></div>
+  </div>
+  <p class="cap">2026년 9월 월간 이용자(모바일인덱스). 티맵은 카카오맵보다 이용자가 많고, 구글지도는 네 앱 중 가장 빠르게 늘고 있어요.</p>
+
+  <h3>앱마다 등록하는 곳</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>앱</th><th>등록·수정하는 곳</th><th>알아 둘 점</th></tr></thead>
+    <tbody>
+      <tr><td><b>네이버 지도 길찾기</b></td><td>스마트플레이스(<a href="#l10" class="ref" data-ref="l10">강의</a>)</td><td>플레이스 정보가 그대로 길찾기 목적지가 돼요</td></tr>
+      <tr><td><b>카카오맵·카카오내비</b></td><td>카카오맵 매장관리(<a href="#l14" class="ref" data-ref="l14">강의</a>)</td><td>카카오맵을 고친 뒤 카카오내비에서도 병원 이름으로 검색해 같은 위치가 나오는지 확인해요</td></tr>
+      <tr><td><b>티맵</b></td><td>티맵 누리집 '장소정보 제보' → 주소 검색 → <span class="path">업체 신규 등록</span> (있는 장소는 <span class="path">수정 요청</span>)</td><td>로그인 없이 신청돼요. 업체명·주소·전화·업종·홈페이지·주차·휴무·영업시간·찾아가는 길·소개를 적어요. 결과 회신이 없어 직접 검색해서 확인해요</td></tr>
+      <tr><td><b>구글 지도</b></td><td>Google 비즈니스 프로필(무료)</td><td>2026년 2월 고정밀 지도 반출이 조건부로 허가돼 길안내 기능이 준비 중이에요. 외국인 보호자, 구글 지도를 쓰는 보호자가 늘어요</td></tr>
+      <tr><td><b>애플 지도</b></td><td>아이폰 지도 앱에서 병원 위치 검색 → 아래 <span class="path">문제 리포트</span> → 장소 추가·수정</td><td>사업자용 관리 도구(Apple Business Connect)는 한국 매장 관리가 아직 확인되지 않아요. 지도 앱 제보로 요청해요</td></tr>
+      <tr><td><b>차량 내비·기타 내비</b></td><td>회사마다 고객센터에 신규 장소 등록 요청이 있어요</td><td>보호자 중 순정 내비를 쓰는 분이 "안 나와요"라고 하면 그 회사 이름으로 찾아 신청해요. 아래 부탁문으로 최신 경로를 찾게 하세요</td></tr>
+    </tbody>
+  </table></div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="a18a" data-key="a18a"><div class="body"><label for="a18a">등록용 한 줄 정보 정하기</label><small>병원 소개서(<a href="#l3" class="ref" data-ref="l3">강의</a>) 그대로: 병원 이름(띄어쓰기까지 네이버와 같게), 도로명 주소, 대표번호, 업종 '동물병원', 진료 시간, 주차, <b>차가 들어오는 입구</b>. 큰 건물이면 "○○로 쪽 주차장 입구, 1층 ○○ 옆"처럼 찾아가는 길을 한 문장으로.</small></div></li>
+    <li><input type="checkbox" id="a18b" data-key="a18b"><div class="body"><label for="a18b">티맵에 신규 등록</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>티맵 누리집(tmap.co.kr) 장소정보 제보 페이지 → 병원 주소 검색 → 목록에서 건물 선택</li>
+        <li><span class="path">업체 신규 등록</span> → 업체명, 주소, 전화번호, 업종, 홈페이지(플레이스·블로그 주소), 주차 가능 여부</li>
+        <li>휴무일, 영업시간, 찾아가는 길, 소개글(사실만 한두 줄) → <span class="path">신규 등록 요청</span></li>
+        <li>장부 지도정보 탭(<a href="#l15" class="ref" data-ref="l15">강의</a>)에 '티맵' 칸을 더하고 신청한 날을 적어요<span class="fix">이전한 병원이면 옛 주소의 장소를 검색해 삭제(폐업) 요청도 같이 해요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a18c" data-key="a18c"><div class="body"><label for="a18c">구글 비즈니스 프로필 등록</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>병원 구글 계정으로 business.google.com → 비즈니스 추가 → 이름, 카테고리 '동물병원', 주소, 전화, 진료 시간</li>
+        <li>안내에 따라 인증(영상·우편·전화 등 구글이 고르는 방법). 인증이 끝나야 지도에 정보가 반영돼요</li>
+        <li>사진 10장, 진료 안내, 예약 링크(네이버 예약 주소) 넣기. 영문 이름을 함께 쓰면 외국인 보호자가 찾기 쉬워요<span class="fix">인증 영상은 간판, 출입문, 진료실 일부가 한 번에 보이게 찍어요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a18d" data-key="a18d"><div class="body"><label for="a18d">애플 지도에 제보</label><small>아이폰 지도 앱 → 병원 건물을 길게 눌러 위치 선택 또는 검색 → 아래로 내려 <span class="path">문제 리포트</span> → 장소 추가(없을 때) 또는 정보 수정. 이름·전화·진료 시간을 적고, 입구 위치에 핀을 맞춰요. 메뉴 이름은 iOS 버전에 따라 조금 달라요.</small></div></li>
+    <li><input type="checkbox" id="a18e" data-key="a18e"><div class="body"><label for="a18e">2~3주 뒤 보호자 눈으로 확인</label><small>각 앱에서 '병원 이름'과 '○○동 동물병원'으로 검색하고, 집에서 병원까지 길안내를 눌러 목적지 핀이 입구에 찍히는지 봐요. 캡처를 모아 AI에게 "소개서와 다른 곳 찾아 줘"(<a href="#l15" class="ref" data-ref="l15">강의</a>).</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>내비 등록 경로 찾기 부탁문 (웹 검색)</span><button class="copy" type="button">복사</button></div><pre>웹 검색으로 지금 기준 지도·내비 앱에 새 업체(동물병원)를 등록하거나 정보를 고치는 방법을 찾아 줘.
+앱: 티맵, 카카오내비, 구글 지도(비즈니스 프로필), 애플 지도, 아이나비, 현대·기아 차량 내비, ○○(보호자가 말한 앱)
+표로: 앱 | 신청하는 곳(메뉴 경로·누리집 주소) | 필요한 것 | 걸리는 기간 | 결과 확인 방법
+공식 안내 페이지 주소를 함께 적고, 찾지 못한 앱은 '공식 경로 확인 못 함'이라고 적어 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>지도·내비 화면 점검 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 티맵·카카오내비·구글 지도·애플 지도 검색 화면과 길안내 화면 캡처를 병원 소개서와 비교해 줘.
+1) 앱별로 다른 정보(이름, 주소, 전화, 진료 시간, 휴무)
+2) 목적지 핀이 주차장 입구가 아니라 건물 뒤·다른 건물에 찍힌 곳
+3) 앱마다 고칠 곳과 넣을 문구
+4) 장부 지도정보 탭에 넣을 한 줄</pre></div>
+  <p class="tip"><b>응급 보호자를 생각하면</b> 찾아가는 길 문장 하나가 사진 열 장보다 중요해요. "○○사거리에서 우회전, 건물 뒤 지하주차장 말고 앞쪽 지상 주차" 같은 문장을 모든 앱에 똑같이 넣어요. 야간 진료를 하면 야간 출입문도 적어요.</p>
+  <p class="src">출처: <a href="https://www.metroseoul.co.kr/article/20261020500250" target="_blank" rel="noopener">지도 앱 월간 이용자 (메트로신문·모바일인덱스, 2026.10)</a> · <a href="https://specialmanual.com/%ED%8B%B0%EB%A7%B5-%EC%A3%BC%EC%86%8C-%EB%B3%80%EA%B2%BD-%EB%B0%8F-%EC%8B%A0%EA%B7%9C-%EB%93%B1%EB%A1%9D-%EB%B0%A9%EB%B2%95-2%EA%B0%80%EC%A7%80/" target="_blank" rel="noopener">티맵 신규 등록·주소 변경 방법</a> · <a href="https://asianews.network/google-builds-south-korea-team-for-full-functioning-maps-service/" target="_blank" rel="noopener">구글 지도 한국 서비스 확대 (2026.8)</a> · <a href="https://support.google.com/business?hl=ko" target="_blank" rel="noopener">Google 비즈니스 프로필 고객센터</a> · <a href="https://discussionskorea.apple.com/thread/256368611" target="_blank" rel="noopener">애플 지도 한국 위치 변경 문의 (Apple 커뮤니티)</a></p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>분기 내비 점검</b><span>석 달마다 티맵·카카오내비·구글·애플 지도에서 병원 검색 → 캡처 → AI에게 비교.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>반영 안 된 앱</b><span>지도정보 탭의 티맵·애플 칸이 비었거나 '바뀐 날'보다 이르면 노랗게.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>앱별 등록 날짜 → 장부 지도정보 탭</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">보호자 안내 문구</span></div></div><p class="rec-note">웹 검색으로 앱별 최신 등록 경로를 찾고, 찾아가는 길 문장은 소개서에서 그대로.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>티맵 제보, 구글 비즈니스 프로필, 애플 지도 제보 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>내비 광고는 네 지도 정보가 다 맞춰진 뒤에, 소액으로 시험</li></ul></div></div>
+</section>
+<section class="lesson" id="l16" data-part="5단계 · 지도·내비: 네이버·카카오·티맵·구글" data-title="리뷰 알림과 답글 제안" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · 휴대폰</span>
     <h2>새 리뷰가 오면 휴대폰이 울리고, 답글 초안이 30초 안에</h2>
@@ -2111,12 +2196,12 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   <div class="prompt"><div class="bar"><span>단축어용 짧은 부탁문</span><button class="copy" type="button">복사</button></div><pre>리뷰 답글 규칙대로 급한 정도, 초안 A·B·C, 리뷰 탭 한 줄을 줘. 리뷰:
 </pre></div>
   <div class="prompt" data-ai-not="gpt"><div class="bar"><span>PC 모아 보기 부탁문 (Claude in Chrome)</span><button class="copy" type="button">복사</button></div><pre>지금 열린 스마트플레이스 리뷰 화면을 읽어 줘. 답글이 없는 리뷰만 골라 표로: 날짜 | 별점 | 리뷰 요약 | 급한 정도 | 답글 초안(B 따뜻하게). 보호자 닉네임은 표에 쓰지 마. 화면의 어떤 버튼도 누르지 말고, 답글 등록은 내가 직접 할게.</pre></div>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>규칙은 한 번, 그다음은 붙여 넣기만</b><span>답글 규칙을 채팅에 고정해 두면 리뷰 한 줄만 붙여도 같은 형식으로 나와요.</span></div></li><li><span class="chip k-trig">단축어</span><div class="ad"><b>복사 → 한 번 누르기</b><span>휴대폰 단축어가 부탁문과 리뷰를 합쳐 AI 앱을 열어 줘요. 비용 없음.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>주간 리뷰 요약</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매주 월요일 "장부 리뷰 탭에서 지난주 네이버·카카오 리뷰 수, 평균 별점, 답 안 한 것, 반복된 불만"을 브리핑에 넣어요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>월요일 휴대폰 알림이 울리면 같은 문장을 한 번 보내요.</span></span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>규칙은 한 번, 그다음은 붙여 넣기만</b><span>답글 규칙을 채팅에 고정해 두면 리뷰 한 줄만 붙여도 같은 형식으로 나와요.</span></div></li><li><span class="chip k-trig">단축어</span><div class="ad"><b>복사 → 한 번 누르기</b><span>휴대폰 단축어가 부탁문과 리뷰를 합쳐 AI 앱을 열어 줘요. 비용 없음.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>주간 리뷰 요약</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매주 월요일 "장부 리뷰 탭에서 지난주 네이버·카카오 리뷰 수, 평균 별점, 답 안 한 것, 반복된 불만"을 브리핑에 넣어요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>월요일 휴대폰 알림이 울리면 같은 문장을 한 번 보내요.</span></span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>리뷰 화면 하루 2번 읽기</b><span>자동화 컴퓨터의 Chrome에서 예약 작업이 새 리뷰와 답글 초안만 알려 줘요. 올리기는 원장님이, 접근 제한 화면이 뜨면 그 예약은 꺼요<a href="#l69" class="ref" data-ref="l69">강의</a>.</span></div></li></ul></div>
       <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>답글 규칙 → 이 채팅 첫 메시지(또는 '리뷰 답글' 스킬)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Claude in Chrome</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">리뷰 답글</span></div></div><p class="rec-note">리뷰 답글 스킬 하나면 단축어 부탁문이 한 줄로 줄어요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>두 회사 공식 앱 알림, 휴대폰 단축어·상용구, AI 무료 플랜</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>리뷰 여러 개를 한 번에 붙여 한꺼번에 초안</li><li data-ai-not="gpt">Claude in Chrome으로 PC에서 모아 보기</li><li>네이버의 AI 답글 기능이 동물병원에 열리면 같은 규칙으로 함께 쓰기</li></ul></div></div>
 </section>
-<section class="lesson" id="l17" data-part="5단계 · 지도: 네이버·카카오" data-title="브라우저 봇으로 리뷰 답글 테스트" hidden>
+<section class="lesson" id="l17" data-part="5단계 · 지도·내비: 네이버·카카오·티맵·구글" data-title="브라우저 봇으로 리뷰 답글 테스트" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC 크롬 · 고급·선택</span>
     <h2>AI가 크롬을 직접 움직여 답글을 쓰게 해 보기</h2>
@@ -2180,7 +2265,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
     </tbody>
   </table></div>
   <p class="tip"><b>왜 등록은 사람이?</b> 답글은 병원 이름으로 영구히 남고, 다음 보호자가 읽어요. 봇이 다른 리뷰에 답을 붙이거나 틀린 날짜를 쓰면 되돌리기 어려워요. 또 자동 등록은 네이버의 자동화 제한에 걸릴 가능성이 가장 큰 동작이에요. 봇은 읽고·쓰고·멈추기까지, 등록은 원장님 손으로.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>브라우저 봇은 크롬 패널에서, 규칙은 이 채팅과 같게</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>예약 실행은 연습판에서만</b><span>봇 예약 실행을 시험할 때도 이 코스의 연습판에서. 실제 네이버·카카오 화면에는 쓰기 작업을 예약하지 않아요<a href="#l69" class="ref" data-ref="l69">강의</a>.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>브라우저 봇은 크롬 패널에서, 규칙은 이 채팅과 같게</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Claude in Chrome</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">리뷰 답글</span></div></div><p class="rec-note">브라우저 봇은 연습판부터.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>연습판 읽기, 단축어 방식(<a href="#l16" class="ref" data-ref="l16">강의</a>)</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>브라우저 봇으로 읽기·초안 입력까지(등록은 사람)</li></ul></div></div>
 </section>
@@ -2271,7 +2357,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 - 동네 이름이 들어간 키워드 5개 포함
 - 장부 키워드 탭에 붙여 넣을 수 있게 탭으로 구분</pre></div>
   <p class="tip warnbox"><b>'최적화 블로그'를 사거나 빌리지 마세요.</b> 업체가 파는 오래된 블로그·블로그 임대는 네이버 이용약관 위반으로 제한될 수 있고, 다른 사람이 쓴 글이 우리 병원 이름으로 남아요. 새 블로그도 보호자 질문에 성실히 답하면 몇 달 안에 검색에 나와요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>02 블로그 작가</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>키워드 30개 → 장부 키워드 탭</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">예약 발행</span><div class="ad"><b>화·목 아침 발행</b><span>글쓰기 화면 발행 → 예약으로 보호자가 많이 보는 시간에.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>안 쓴 키워드</b><span>키워드 표에서 '글 쓴 날'이 비어 있으면 노랗게.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>02 블로그 작가</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>키워드 30개 → 장부 키워드 탭</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">블로그 글</span></div></div><p class="rec-note">키워드 캡처는 드라이브 '블로그' 폴더에.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>블로그·데이터랩·키워드 도구 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>키워드 캡처 여러 장을 한 번에 분석</li></ul></div></div>
 </section>
@@ -2381,7 +2468,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 - 진료 시간, 예약 방법(네이버 예약 / 전화)
 - 이모지는 2개까지, 최상급 표현 없이
 - 하이라이트 4개 이름(각 6자 안쪽)과 표지 아이콘 아이디어도</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>03 인스타 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>프로필 소개 → 소개서 '브랜딩' 칸</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">자동응답</span><div class="ad"><b>자주 묻는 질문 버튼</b><span>인스타 메시지 설정의 자주 묻는 질문에 진료 시간·예약 방법·위치를 넣어요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>03 인스타 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>프로필 소개 → 소개서 '브랜딩' 칸</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Canva</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">병원 브랜드·말투</span><span class="rc s">인스타 캡션</span></div></div><p class="rec-note">인스타도 공식 커넥터가 없어요. 문구만 AI로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>프로페셔널 계정·통계·예약 게시 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Meta 인증(유료 구독)은 사칭 계정이 생겼을 때 고려</li></ul></div></div>
 </section>
@@ -2475,7 +2563,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 5) 칭찬 메시지 → 감사 인사
 6) 응급으로 보이는 메시지 → 바로 전화, 진료 시간 외에는 가까운 24시 병원
 과장·할인 약속 없이, 따뜻하게.</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>DM 답장 틀 → 이 채팅, 인스타 저장된 답장</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">저장된 답장</span><div class="ad"><b>"사진으로 진단 어려워요"</b><span>진단 대신 예약 안내로 이어지는 답을 저장된 답장으로 등록.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>DM 답장 틀 → 이 채팅, 인스타 저장된 답장</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>스킬</b><div><span class="rc s">보호자 안내 문구</span><span class="rc s">리뷰 답글</span></div></div><p class="rec-note">DM 답장 틀을 스킬로 묶어 두면 실장님도 같은 답을 써요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>저장된 답장·숨기기 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>DM이 하루 수십 개가 되면 그때 상담 직원·자동응답 도구를 고려</li></ul></div></div>
 </section>
@@ -2515,7 +2604,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 4) 영수증·안내문 아래에 넣을 한 줄
 최상급 표현 없이, 끝에 점검 한 줄.</pre></div>
   <p class="src">출처: <a href="https://www.kakaocorp.com/page/service/service/KakaoTalkChannel" target="_blank" rel="noopener">카카오톡 채널 소개 (카카오)</a> · <a href="https://kakaobusiness.gitbook.io/main/channel/run/message" target="_blank" rel="noopener">카카오 비즈니스 가이드 · 메시지</a></p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>채널 소개·QR 문구 → 소개서 '브랜딩' 칸</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">자동응답</span><div class="ad"><b>상담 시간 외 응답</b><span>채팅 자동응답과 키워드 응답으로 진료 시간·위치·응급 연락을 바로<a href="#l36" class="ref" data-ref="l36">강의</a>.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>채널 소개·QR 문구 → 소개서 '브랜딩' 칸</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Canva</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">병원 브랜드·말투</span></div></div><p class="rec-note">QR 스탠드 디자인은 Canva로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>채널 개설·프로필·1:1 채팅·소식 무료</li></ul></div><div class="fp-col fp-paid"><b>돈이 드는 곳</b><ul><li>친구에게 보내는 메시지(건당 과금, <a href="#l37" class="ref" data-ref="l37">강의</a>)</li></ul></div></div>
 </section>
@@ -2675,7 +2765,7 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   MailApp.sendEmail(Session.getActiveUser().getEmail(), '[병원 마케팅] 이번 주 글을 확인해 주세요', body);
 }</pre></div>
   <p class="src">출처: <a href="https://help.openai.com/ko-kr/articles/10291617-scheduled-tasks-in-chatgpt" target="_blank" rel="noopener">ChatGPT 예약 작업 도움말</a> · <a href="https://developers.google.com/apps-script/guides/triggers/installable" target="_blank" rel="noopener">Apps Script 설치형 트리거 안내</a></p>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>월요일 8시 브리핑</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>예약 작업이 장부를 읽고 보고해요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>휴대폰 반복 알림 + 한 줄 보내기.</span></span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>일요일 저녁 메일</b><span>빈 주와 밀린 글이 있을 때만 메일이 와요. 비용 없음.</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>월요일 8시 브리핑</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>예약 작업이 장부를 읽고 보고해요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>휴대폰 반복 알림 + 한 줄 보내기.</span></span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>일요일 저녁 메일</b><span>빈 주와 밀린 글이 있을 때만 메일이 와요. 비용 없음.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>컴퓨터 파일도 읽는 브리핑</b><span>로컬 폴더를 읽는 브리핑은 자동화 컴퓨터에서<a href="#l69" class="ref" data-ref="l69">강의</a>. 장부·캘린더만 읽으면 클라우드 예약으로.</span></div></li></ul></div>
       <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>브리핑 부탁문 → 이 채팅(유료면 예약 작업)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">캘린더·Gmail 알림 메일까지 읽어 브리핑.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트·메일 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 브리핑이 저절로</li></ul></div></div>
@@ -2697,7 +2787,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 3) 신규 보호자가 가장 많이 온 경로와, 그 채널에 다음 달 더 할 것 1개
 4) 다음 달 하나만 바꿀 실험 제안 (게시 시간 / 주제 / 형식 중 하나)
 캡처에 없는 숫자는 지어내지 말고, 해석이 불확실하면 그렇다고 적어 줘.</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>통계 캡처는 이 채팅에, 숫자 → 장부 월성과</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 첫 주 성과 정리</b><span>예약 작업은 매주 단위라, 월요일 작업에 "그달 첫 주면 지난달 정리"를 붙여요. 통계 캡처는 사람이 올려요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>통계 캡처는 이 채팅에, 숫자 → 장부 월성과</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span><span class="rc s">발표자료</span></div></div><p class="rec-note">분기 성과는 발표자료로 만들어 직원 회의에.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>세 채널 통계 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>석 달 치 캡처를 한 번에 비교</li></ul></div></div>
 </section>
@@ -2738,7 +2829,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 3) 알림 규칙: 어떤 일정은 며칠 전, 몇 시에
 4) 캘린더에 쓰지 말아야 할 정보
 원장 일정과 개인 일정은 섞지 않게.</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>11 일정 비서</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>캘린더 구성표 → 업무일지, 캘린더 규칙 → 프로젝트 지침</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>캘린더는 스크립트가 채워요</b><span>반복 일정은 스크립트<a href="#l87" class="ref" data-ref="l87">강의</a><a href="#l88" class="ref" data-ref="l88">강의</a><a href="#l92" class="ref" data-ref="l92">강의</a>가 넣고, 사람은 예외만 넣어요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>11 일정 비서</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>캘린더 구성표 → 업무일지, 캘린더 규칙 → 프로젝트 지침</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Calendar</span></div></div><p class="rec-note">캘린더 커넥터가 이 단계의 핵심이에요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 캘린더·공유·휴대폰 동기화 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: 병원 도메인 계정, 회의실·장비 같은 '리소스' 예약</li></ul></div></div>
 </section>
@@ -2769,7 +2861,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 - 하루 전 18시 알림, 설명에 준비할 것 3줄
 - 캘린더에 이미 같은 시간 일정이 있으면 넣지 말고 알려 줘
 캘린더 도구가 없으면 넣을 일정 목록만 표로.</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>11 일정 비서</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>예약 원본 규칙 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>금요일 수술 블록 확인</b><span>금요일 오후 "다음 주 수술 블록과 근무 겹침" 예약 작업. 커넥터만 써서 클라우드에서 돌아요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>11 일정 비서</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>예약 원본 규칙 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Calendar</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">보호자 안내 문구</span></div></div><p class="rec-note">수술 블록은 캘린더 커넥터로 바로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 캘린더, 네이버 예약 기본 기능, AI 캘린더 커넥터</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트의 예약 연동 부가 기능, Google Workspace 예약 일정 고급 기능</li></ul></div></div>
 </section>
@@ -2870,7 +2963,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   <div class="prompt"><div class="bar"><span>고지서 → 고정지출 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 고지서·계약서 사진을 '고정지출' 탭 형식으로 옮겨 줘: 항목 | 캘린더(돈 나가는 날/세무·신고) | 매월 며칠 | 대략 금액 | 결제 방법 | 며칠 전 알림 | 메모.
 고객번호·계좌번호·카드번호는 옮기지 마. 날짜가 안 보이면 '확인 필요'. 1년에 한 번 오는 일정은 따로 목록으로.</pre></div>
   <p class="tip warnbox"><b>계좌번호·카드번호는 캘린더와 시트에 쓰지 않아요.</b> '병원 통장 자동이체', '법인카드 끝 4자리'처럼만. 캘린더는 공유 설정 실수 하나로 남에게 보일 수 있어요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>고지서 사진은 이 채팅에만(계좌번호 가리기)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>매달 1일 syncBills</b><span>고정지출 탭에 새로 적은 줄만 1일 아침에 캘린더로.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>고지서 사진은 이 채팅에만(계좌번호 가리기)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Calendar</span><span class="rc c">Google Drive</span><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">고지서 메일을 Gmail에서 찾아 고정지출 표로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트·캘린더 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>세무사 기장 프로그램의 납부 알림과 같이 쓰기</li></ul></div></div>
 </section>
@@ -2909,7 +3003,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 - 일정 삭제·여러 개 이동은 목록을 보여 주고 확인받은 뒤에만
 - 제목·설명에 보호자 이름·연락처, 계좌·카드번호를 쓰지 않기
 - 시간대는 서울 기준</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>11 일정 비서</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>캘린더 규칙 → 프로젝트 지침 끝</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>월요일 7시 주간 정리</b><span>'캘린더 주간 정리' 부탁문을 예약 작업으로. 캘린더 커넥터만 쓰니 컴퓨터가 꺼져도 돼요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>11 일정 비서</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>캘린더 규칙 → 프로젝트 지침 끝</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Calendar</span><span class="rc c">Google Drive</span><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">보호자 안내 문구</span></div></div><p class="rec-note">캘린더 규칙을 스킬로 묶어 두면 안전해요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>캘린더 커넥터, 음성으로 일정 넣기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 월요일 아침 캘린더 브리핑 자동</li></ul></div></div>
 </section>
@@ -3047,7 +3142,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 기존 코드에 어디를 더하는지 줄 위치와 함께 알려 줘.</pre></div>
   <p class="tip warnbox"><b>직원 일정도 개인정보예요.</b> 근무·휴가 일정 제목에는 직원번호와 종류만 적어요(병가 사유, 진단명 쓰지 않기). 캘린더 메일은 직원이 동의한 경우에만 적고, 퇴사하면 '직원' 탭 상태를 '퇴사'로 바꾸고 캘린더 공유도 끊어요(<a href="#l80" class="ref" data-ref="l80">강의</a>). 법정 교육을 했으면 날짜·참석자·자료를 드라이브에 남겨요. 장애인 인식개선 교육은 3년 보관이에요.</p>
   <p class="src">출처: 법령 MCP(mcp.gomdori.app/law)로 2026. 11. 7. 조회 — 수의사법 제34조·시행규칙 제26조, 남녀고용평등과 일·가정 양립 지원에 관한 법률 제13조·시행령 제3조, 장애인고용촉진 및 직업재활법 제5조의2·시행령 제5조의2, 근로기준법 제60조 · <a href="https://developers.google.com/apps-script/reference/calendar/calendar" target="_blank" rel="noopener">Apps Script CalendarApp (Google)</a></p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>11 일정 비서</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>일정 비서 지침 → 이 채팅 첫 메시지(유료면 스킬), 직원 데이터는 직원번호로만</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>매일 밤 syncPeople</b><span>승인한 휴가와 새 근무가 밤 9시에 직원 캘린더로.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>평일 8시 30분 브리핑</b><span>로컬 파일까지 읽는 아침 브리핑은 자동화 컴퓨터의 데스크톱 앱에서<a href="#l69" class="ref" data-ref="l69">강의</a>. 커넥터만 쓰면 클라우드로.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>11 일정 비서</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>일정 비서 지침 → 이 채팅 첫 메시지(유료면 스킬), 직원 데이터는 직원번호로만</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Calendar</span><span class="rc c">Google Drive</span><span class="rc c">Gmail</span><span class="rc c">법령 MCP</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">근무표 점검</span><span class="rc s">일정 비서</span></div></div><p class="rec-note">일정 비서 지침을 '일정 비서' 스킬로 묶고, 휴가·교육 기준은 법령 MCP로 확인해요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 캘린더 초대·알림, Apps Script 트리거, 캘린더 커넥터</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>아침 브리핑 예약 작업, '일정 비서' 스킬, 긴 근무표 한 번에 검토</li></ul></div></div>
 </section>
@@ -3083,7 +3179,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 - 보호자 이름·전화·주소는 '차트에만'으로 표시
 - 내가 모르는 부분(엑셀 내보내기 가능 여부 등)은 '차트 회사에 확인'으로
 - 마지막에, 이 데이터로 할 수 있는 고객관리 5가지를 쉬운 것부터</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>데이터 지도 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>데이터 지도 점검일</b><span>데이터 지도 표에 '마지막 확인' 칸, 6개월이 지나면 노랗게.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>데이터 지도 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">데이터 지도는 구글 문서로, 드라이브 커넥터로 참고.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>지도 만들기는 문서 하나면 끝</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트의 CRM·문자 부가서비스가 있으면 비교해 보기</li></ul></div></div>
 </section>
@@ -3111,7 +3208,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 ③ 사진·진료 이야기 활용 동의(선택): 블로그·플레이스·인스타, 보호자 이름·연락처는 쓰지 않음, 철회하면 내림
 체크 칸은 항목마다 따로. 개인정보보호법·정보통신망법상 빠진 항목이 있으면 알려 주고, 법률 검토가 필요한 부분은 [확인 필요]로 표시해 줘.</pre></div>
   <p class="src">근거: 정보통신망 이용촉진 및 정보보호 등에 관한 법률 제50조(2026. 10. 2. 시행본) — 법령 MCP로 2026. 11. 7. 현행 조회 · <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a></p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>08 법률·세무 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>동의서 최종본 → 드라이브, 결정 → 법무·세무 메모</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>동의한 분만 목록에</b><span>안내 대상 목록은 FILTER로 동의 칸이 '예'인 줄만 보이게.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>08 법률·세무 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>동의서 최종본 → 드라이브, 결정 → 법무·세무 메모</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">법령 MCP</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">법령 조사</span><span class="rc s">Word 문서</span></div></div><p class="rec-note">동의서는 법령 MCP로 개인정보보호법·정보통신망법을 조회해 Word로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>동의서 초안, 차트 메모 칸 활용</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>동의서 최종본은 개인정보 전문가 검토 한 번</li></ul></div></div>
 </section>
@@ -3167,7 +3265,7 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   <p class="tip">이 시트를 바탕으로 안내 타이밍·템플릿·문자(맥·아이폰)·카톡 채널·알림톡 발송과 결과 기록까지 이어지는 강의가 바로 뒤에 있어요(<a href="#l64" class="ref" data-ref="l64">강의</a>).</p>
   <div class="prompt"><div class="bar"><span>안내 문자 부탁문</span><button class="copy" type="button">복사</button></div><pre>예방 진료 안내 문자 틀 3개를 써 줘: 종합백신 추가접종, 심장사상충 예방, 건강검진. 각 90자 안쪽.
 [병원 이름] 인사, 아이 이름 자리 ○○, 예정 시기, 예약 방법(네이버 예약/전화)만. 할인·이벤트는 넣지 마(광고가 되지 않게). 마지막 줄에 "안내를 원치 않으시면 답장 주세요".</pre></div>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>다음 예정일 자동 계산</b><span>마지막 날짜만 바꾸면 예정일이 다시 계산돼요.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>지난 날짜 빨간색</b><span>G열이 오늘보다 이전이고 I열이 비어 있으면 빨갛게.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>월요일 아침 메일</b><span>대상이 있을 때만 메일이 와요. 보호자에게 자동으로 보내지는 않아요.</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>다음 예정일 자동 계산</b><span>마지막 날짜만 바꾸면 예정일이 다시 계산돼요.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>지난 날짜 빨간색</b><span>G열이 오늘보다 이전이고 I열이 비어 있으면 빨갛게.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>월요일 아침 메일</b><span>대상이 있을 때만 메일이 와요. 보호자에게 자동으로 보내지는 않아요.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>차트 파일 → 재방문 탭</b><span>차트에서 내보낸 마지막 내원일을 자동화 컴퓨터가 정리해 재방문 탭에 붙여요. 전화번호는 넣지 않아요<a href="#l58" class="ref" data-ref="l58">강의</a>.</span></div></li></ul></div>
       <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>재방문 탭은 허브 시트에(전화번호 없이)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">월요일 재방문 메일을 Gmail 커넥터로 읽어 정리.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>시트·스크립트·메일 무료, 문자는 병원 휴대폰으로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트의 문자·알림톡 부가 서비스(건당 비용)로 발송 기록까지 한곳에</li></ul></div></div>
@@ -3199,7 +3297,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 - 의학적 간격(접종 간격, 검진 주기, 실밥 제거일)은 숫자를 지어내지 말고 [원장 확인]으로 비워 둬
 - 할인·이벤트는 넣지 말고, 넣을 경우 '광고'로 표시하고 동의·시간 규칙을 메모
 - 한 보호자에게 한 달 최대 2번 규칙을 지키도록 겹칠 때 우선순위</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>안내 규칙표 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>안내일 자동 계산</b><span>진료일 + 항목별 주기로 안내일을 수식으로. 재방문 탭<a href="#l57" class="ref" data-ref="l57">강의</a>과 같은 시트에.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>안내 규칙표 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">보호자 안내 문구</span><span class="rc s">엑셀</span></div></div><p class="rec-note">안내 규칙표가 '보호자 안내 문구' 스킬의 뼈대예요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>규칙표는 문서 하나, 시트 칸 몇 개</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트 CRM 기능이 있으면 이 규칙표를 그대로 차트 알림 설정에 옮기기</li></ul></div></div>
 </section>
@@ -3228,7 +3327,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 끝에 광고 규칙 점검 한 줄.</pre></div>
   <div class="prompt"><div class="bar"><span>문구 수식 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 재방문 탭에서 N열(안내 문구)을 수식으로 채우고 싶어. D열 항목, G열 다음 예정일, M열 아이 이름(비어 있으면 '아이'), L열 채널.
 '템플릿' 탭(A 항목 | B 채널 | C 문구, 문구 안에 {이름} {날짜} 자리)을 만들고, 항목+채널이 맞는 문구를 찾아 {이름}{날짜}를 바꿔 넣는 수식을 알려 줘. 날짜는 '12월 9일(화)' 모양으로.</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>안내 템플릿 문서 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>템플릿을 스킬로</b><span>안내 템플릿을 '보호자 안내 문구' 스킬로 묶으면 채널이 바뀌어도 같은 말투.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>안내 템플릿 문서 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">보호자 안내 문구</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">템플릿 문서를 드라이브에 두고 커넥터로 읽게.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>템플릿 문서와 시트 수식</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>알림톡 서비스의 템플릿 관리·심사 화면</li></ul></div></div>
 </section>
@@ -3276,7 +3376,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
     <li><input type="checkbox" id="a66e" data-key="a66e"><div class="body"><label for="a66e">보낸 뒤 정리</label><small>재방문 탭 I열(연락한 날)에 날짜, 발송목록.txt와 연락처 엑셀은 <b>삭제</b>. 답장("예약할게요", "그만 받을게요")은 실장님이 메시지 앱에서 보고 차트·시트에 반영해요.</small></div></li>
   </ol>
   <p class="tip warnbox"><b>개인 휴대폰 문자도 같은 규칙이에요.</b> 진료 안내는 진료에 필요한 범위로, 광고가 섞이면 사전 동의·밤 9시~아침 8시 제한·수신거부 안내가 필요해요(정보통신망법 제50조, <a href="#l56" class="ref" data-ref="l56">강의</a>). 보내는 사람 이름([병원 이름])은 첫머리에.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>문구만 이 채팅에서. 전화번호 파일은 어떤 채팅에도 올리지 않기</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">단축어 자동화</span><div class="ad"><b>월요일 아침 문자 준비</b><span>macOS 26 단축어 앱 → 자동화 → 특정 시각 → 월요일 9시 '안내 문자' 단축어. 실행 전 확인을 켜 두고 보내기는 원장님이.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>맥이 깨어 있어야</b><span>이 자동화는 맥이 켜져 있을 때만 돌아요. 안 쓰는 맥북·맥 미니를 자동화 컴퓨터로<a href="#l69" class="ref" data-ref="l69">강의</a>.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>문구만 이 채팅에서. 전화번호 파일은 어떤 채팅에도 올리지 않기</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>스킬</b><div><span class="rc s">보호자 안내 문구</span></div></div><p class="rec-note">전화번호가 든 파일은 커넥터·AI에 올리지 않아요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>맥 메시지·단축어 무료, 문자 요금은 휴대폰 요금제대로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>문자 발송 서비스(건당 요금): 대량 발송, 발신번호 등록, 발송 결과 기록</li></ul></div></div>
 </section>
@@ -3310,7 +3411,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   </ol>
   <div class="prompt"><div class="bar"><span>알림톡 서비스 비교 부탁문 (웹 검색 켜고)</span><button class="copy" type="button">복사</button></div><pre>동물병원이 접종·검진 예정일 알림톡을 보내려고 해. 우리 차트(○○)에 알림톡 부가 서비스가 있는지, 없다면 카카오 공식 딜러사 중 소상공인이 쓰기 쉬운 곳 3곳을 웹에서 찾아 표로: 서비스 | 알림톡 건당 요금(공개된 것) | 대체 문자 | 엑셀 대량 발송 | 템플릿 심사 지원 | 가입 조건 | 출처 주소. 추천하지 말고 정리만, 가격은 페이지 기준 날짜와 함께.</pre></div>
   <p class="src">출처: <a href="https://kakaobusiness.gitbook.io/main/channel/run/message" target="_blank" rel="noopener">카카오 비즈니스 가이드 · 메시지(친구그룹·단가)</a> · <a href="https://inside.ampm.co.kr/insight/59098" target="_blank" rel="noopener">2026 카카오 비즈니스 메시지 정리 (AMPM)</a></p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>알림톡 템플릿 → 안내 템플릿 문서</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">예약 발송</span><div class="ad"><b>알림톡 예약</b><span>대행사 화면의 예약 발송으로. 목록 확인은 발송 전날 원장님이.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>알림톡 템플릿 → 안내 템플릿 문서</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">보호자 안내 문구</span></div></div><p class="rec-note">알림톡 서비스 비교는 웹 검색으로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>1:1 채팅 안내는 무료</li></ul></div><div class="fp-col fp-paid"><b>돈이 드는 곳</b><ul><li>친구그룹 메시지 건당 20원(VAT 별도), 알림톡은 서비스 요금</li></ul></div></div>
 </section>
@@ -3374,12 +3476,13 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 5) 요일·시간대 붐비는 때(내원일에 시간이 있으면)
 계산은 파일로 직접 하고, 계산 방법을 짧게 보여 줘. 파일에 없는 건 추측하지 마. 결과에 이름·연락처가 보이면 바로 알려 줘.</pre></div>
   <p class="tip warnbox"><b>원본 파일은 AI에 올리지 마세요.</b> 보호자 이름·연락처가 들어 있는 원본은 차트와 병원 PC 안에만. AI·구글 드라이브에는 '_AI용' 파일만 둬요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>'_AI용' 파일만 이 채팅에</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>매일 밤 _AI용 파일</b><span>차트 내보내기 파일에서 이름·연락처를 지운 '_AI용' 파일을 자동화 컴퓨터 폴더에서 만들어요. 원본은 그 컴퓨터 밖으로 나가지 않게<a href="#l69" class="ref" data-ref="l69">강의</a>.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>'_AI용' 파일만 이 채팅에</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">개인정보 지운 '_AI용' 파일만.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>석 달씩 나눠 분석</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>1년 치 한 번에, 그래프까지</li></ul></div></div>
 </section>
-<section class="lesson" id="l60" data-part="12단계 · 데이터 시스템" data-title="병원 데이터 허브 시트" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">12</span><span class="pt"><b>데이터 시스템</b>4강 · 익숙해진 뒤</span><p class="po">숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들어요.</p><div class="plist"><span>병원 데이터 허브 시트</span><span>공공데이터로 동네 읽기</span><span>원장님 대시보드와 월간 브리핑</span><span>자동화 지도</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l60" data-part="12단계 · 데이터·자동화 시스템" data-title="병원 데이터 허브 시트" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">12</span><span class="pt"><b>데이터·자동화 시스템</b>5강 · 익숙해진 뒤</span><p class="po">숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들고, 안 쓰는 맥북·노트북을 24시간 자동화 컴퓨터로 써요.</p><div class="plist"><span>병원 데이터 허브 시트</span><span>공공데이터로 동네 읽기</span><span>원장님 대시보드와 월간 브리핑</span><span>자동화 지도</span><span>24시간 자동화 컴퓨터</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2>숫자는 한 파일에, 해석은 AI에게</h2>
@@ -3414,12 +3517,12 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 일매출(A 날짜 | B 카드 | C 현금·이체 | D 건수 | E 신규 | F 재진), 유입경로(A 월 | B~F 경로별 수), 재방문(G 다음 예정일, H 연락 동의, I 연락한 날), 리뷰(A 날짜 | C 별점).
 요약 탭에 보여 줄 것: 이번 달 매출·건수·객단가, 지난달 대비 %, 신규 비율, 이번 달 유입 1위 경로, 2주 안 재방문 대상 수, 이번 달 리뷰 수와 평균 별점.
 칸 위치와 수식을 하나씩, 붙여 넣는 순서대로 알려 줘. 오늘 날짜 기준으로 자동으로 바뀌게.</pre></div>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>요약은 저절로</b><span>숫자를 넣으면 요약 탭이 다시 계산돼요.</span></div></li><li><span class="chip k-conn">커넥터</span><div class="ad"><b>AI가 최신 허브를 읽음</b><span>Google Drive 커넥터로 연결해 두면 다시 올릴 필요가 없어요.</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>요약은 저절로</b><span>숫자를 넣으면 요약 탭이 다시 계산돼요.</span></div></li><li><span class="chip k-conn">커넥터</span><div class="ad"><b>AI가 최신 허브를 읽음</b><span>Google Drive 커넥터로 연결해 두면 다시 올릴 필요가 없어요.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>매주 엑셀 백업</b><span>일요일 밤 장부·허브를 엑셀로 받아 외장 디스크에(단축어·예약 작업).</span></div></li></ul></div>
       <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>병원 데이터 허브 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">허브 시트는 드라이브 커넥터로 늘 최신.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·IMPORTRANGE 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>단말기·차트 회사가 API를 열어 주면 일매출 자동 입력(개발 비용)</li></ul></div></div>
 </section>
-<section class="lesson" id="l61" data-part="12단계 · 데이터 시스템" data-title="공공데이터로 동네 읽기" hidden>
+<section class="lesson" id="l61" data-part="12단계 · 데이터·자동화 시스템" data-title="공공데이터로 동네 읽기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC · 개원 전에 특히</span>
     <h2>우리 동네 반려동물과 경쟁 병원</h2>
@@ -3447,11 +3550,12 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 5) 블로그·플레이스에 쓸 동네 키워드 후보
 파일에 없는 숫자는 지어내지 말고, 다른 병원을 깎아내리는 표현은 쓰지 마.</pre></div>
   <p class="src">출처: <a href="https://www.data.go.kr" target="_blank" rel="noopener">공공데이터포털</a> · <a href="https://datalab.naver.com" target="_blank" rel="noopener">네이버 데이터랩</a></p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>동네 리포트 → 소개서 '주 보호자' 칸</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>분기마다 새 자료</b><span>공공데이터는 갱신이 느려요. 분기마다 한 번 새로 받기 알림.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>동네 리포트 → 소개서 '주 보호자' 칸</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">공공데이터 파일은 드라이브 '데이터' 폴더에.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>공공데이터·소상공인365·데이터랩 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>큰 파일을 그대로 올려 지도와 표까지 한 번에</li></ul></div></div>
 </section>
-<section class="lesson" id="l62" data-part="12단계 · 데이터 시스템" data-title="원장님 대시보드와 월간 브리핑" hidden>
+<section class="lesson" id="l62" data-part="12단계 · 데이터·자동화 시스템" data-title="원장님 대시보드와 월간 브리핑" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>휴대폰 한 화면으로 병원 상태 보기</h2>
@@ -3480,7 +3584,7 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span><span class="rc s">발표자료</span></div></div><p class="rec-note">월간 브리핑을 발표자료로도.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Looker Studio 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 브리핑 자동화</li></ul></div></div>
 </section>
-<section class="lesson" id="l63" data-part="12단계 · 데이터 시스템" data-title="자동화 지도" hidden>
+<section class="lesson" id="l63" data-part="12단계 · 데이터·자동화 시스템" data-title="자동화 지도" hidden>
   <div class="lesson-head">
     <span class="kicker">읽기 · 약 20분</span>
     <h2>무엇을 어떤 도구로 자동화할까</h2>
@@ -3506,6 +3610,7 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
     <div class="term"><strong>차트 원본을 클라우드로</strong><span>이름·연락처가 든 원본을 드라이브나 AI에 올리기</span></div>
     <div class="term"><strong>모르는 회사에 계정 연결</strong><span>"자동으로 다 해 드려요" 앱에 네이버·인스타 비밀번호 주기</span></div>
   </div>
+  <p class="tip"><b>컴퓨터를 켜 둬야 하는 자동화</b>는 따로 있어요. 표의 대부분은 구글 서버나 AI 클라우드에서 돌아 컴퓨터가 꺼져도 되지만, 내 컴퓨터 파일·로그인한 브라우저·맥 메시지를 쓰는 일은 24시간 자동화 컴퓨터가 필요해요(<a href="#l69" class="ref" data-ref="l69">강의</a>). 강의마다 아래쪽 '이 강의 자동화' 상자에 그 강의에서 줄일 수 있는 일을 적어 뒀어요.</p>
   <div class="prompt"><div class="bar"><span>자동화 상담 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 병원에서 매주 반복되는 일: ○○. 이걸 줄이고 싶어.
 가진 도구: 구글 시트(병원 데이터 허브, 마케팅 장부), Apps Script, <span class="ainame" data-both="Claude/ChatGPT"></span> 예약 작업, 차트 ○○, 결제 단말기 ○○.
 1) 자동으로 둘 부분과 사람이 할 부분을 나눠 줘 (보호자에게 나가는 건 사람)
@@ -3514,6 +3619,88 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
       <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>자동화 목록 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span><span class="rc c">Gmail</span></div></div><p class="rec-note">무엇을 자동화할지 고를 때 이 표를 다시 봐요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>표의 도구 대부분 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI 예약 작업, 차트 문자 부가 서비스</li></ul></div></div>
+</section>
+<section class="lesson" id="l69" data-part="12단계 · 데이터·자동화 시스템" data-title="24시간 자동화 컴퓨터" hidden>
+  <div class="lesson-head">
+    <span class="kicker">읽기·실습 · 약 2시간 · 매주 2분 점검</span>
+    <h2>잠자는 동안에도 일하는 컴퓨터 한 대, 단 꼭 필요한 일만</h2>
+    <p class="goal">이 코스의 자동화는 대부분 <b>구글 서버에서 돌아요</b>(앱스 스크립트 트리거, 캘린더 알림, 예약 발행, AI 클라우드 예약 작업). 컴퓨터를 켜 둘 필요가 없어요. 그런데 <b>내 컴퓨터에 있는 파일, 로그인한 브라우저 화면, 맥의 메시지·단축어</b>를 쓰는 일은 컴퓨터가 깨어 있어야 해요. 안 쓰는 맥북·노트북·PC나 맥 미니 한 대를 '자동화 컴퓨터'로 정해 24시간 켜 두는 방법이에요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>AI 예약 작업은 유료 기능이에요. 무료로는 앱스 스크립트 트리거와 맥 단축어 자동화까지 쓰고, AI에게는 아침에 한 줄 보내요.</span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>Claude 데스크톱 앱의 예약 작업은 <b>컴퓨터가 깨어 있고 앱이 열려 있을 때만</b> 돌아요. 꺼져 있던 동안 놓친 작업은 다시 켜지면 한 번 돌아요. 커넥터만 쓰는 작업은 클라우드에서도 돌릴 수 있어요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="zones tri">
+      <div class="zn a" style="--d:.1s"><b>클라우드 · 컴퓨터 꺼져도 됨</b><span>앱스 스크립트 트리거(빈 주 알림, 재방문 메일, syncBills·syncPeople), 캘린더 알림, 블로그 예약 발행, 인스타 예약 게시, 카톡 채널 예약 발송, 커넥터만 쓰는 AI 예약 작업</span></div>
+      <div class="zn a" style="--d:.4s"><b>24시간 자동화 컴퓨터</b><span>차트에서 내보낸 파일을 '_AI용'으로 정리, 로그인한 브라우저로 리뷰 화면 읽기, 맥 메시지로 안내 문자 준비, 맥 단축어 시각 자동화, 로컬 폴더를 읽는 AI 예약 작업, 외장 디스크 백업</span></div>
+      <div class="zn warn a" style="--d:.7s"><b>원장님 손 · 자동화하지 않음</b><span>보호자에게 나가는 최종 발송, 리뷰 답글 올리기, 결제·환불, 휴가 승인, 법·세무 결정</span></div>
+    </div>
+    <p class="cap a" style="--d:1s">먼저 ①로 할 수 있는지 보고, 안 될 때만 ②로. ③은 끝까지 사람이에요.</p>
+  </div>
+
+  <h3>어떤 컴퓨터를 쓸까</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>기기</th><th>좋은 점</th><th>조심할 점</th><th>추천</th></tr></thead>
+    <tbody>
+      <tr><td><b>맥 미니</b> (새로 산다면)</td><td>작고 조용, 대기 전력이 적어요(애플 공개값 M1 6.8W, M2 7W 수준). 2024년 이후 모델은 macOS Tahoe 26.5부터 <b>전원이 들어오면 저절로 켜져요</b>. 아이메시지·단축어 자동화 가능</td><td>모니터·키보드는 처음 설정할 때만. 화면 공유로 원격 관리</td><td>★★★ 새로 산다면 1순위</td></tr>
+      <tr><td><b>안 쓰는 맥북</b> (M1 이상)</td><td>추가 비용 없음. 배터리가 있어 짧은 정전에도 버텨요. 메시지·단축어 가능</td><td>24시간 충전 → 배터리 부풂 주의. 덮개를 열어 두고 화면만 꺼요. 인텔 맥북은 열과 소음이 커요</td><td>★★★ 집에 있다면 바로 시작</td></tr>
+      <tr><td><b>안 쓰는 윈도우 노트북</b></td><td>추가 비용 없음. 배터리 있음. Chrome·Claude 데스크톱 앱 사용 가능</td><td>아이메시지 불가(문자는 차트·알림톡으로). 윈도우 업데이트 재시작, 오래된 배터리는 빼고 쓰거나 교체</td><td>★★ 브라우저·파일 정리만이면 충분</td></tr>
+      <tr><td><b>안 쓰는 데스크톱 PC</b></td><td>성능 여유</td><td>전력이 노트북보다 훨씬 커요. 정전 뒤 자동 켜짐은 바이오스 설정 필요</td><td>★ 전기요금 계산해 보고</td></tr>
+      <tr><td><b>접수대 차트 PC</b></td><td>이미 켜져 있음</td><td>보호자 원본이 있는 PC라 자동화 도구·브라우저 확장을 섞지 않아요. 내보내기만 하고 파일은 자동화 컴퓨터로</td><td>✕ 겸용하지 않기</td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap">전기 사용량 = 소비 전력(W) × 24 × 365 ÷ 1000(kWh). 10W면 1년 약 88kWh, 50W면 약 438kWh. 콘센트형 전력 측정기로 한 번 재 보면 정확해요.</p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="a69a" data-key="a69a"><div class="body"><label for="a69a">할 일 목록부터: ①로 안 되는 것만 고르기</label><small>아래 '자동화 컴퓨터 설계 부탁문'으로 이 코스에서 하는 반복 일을 ①②③으로 나눠요. ②가 하나도 없으면 컴퓨터를 켜 둘 필요가 없어요.</small></div></li>
+    <li><input type="checkbox" id="a69b" data-key="a69b"><div class="body"><label for="a69b">맥: 잠들지 않게, 정전 뒤 다시 켜지게</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>맥 미니: <span class="path">시스템 설정 → 에너지</span> → '디스플레이가 꺼져 있을 때 자동으로 잠자기 방지' 켜기, '네트워크 접근 시 깨우기' 켜기, '전원이 연결되면 시작' → 항상(2024년 이후 맥 미니, macOS 26.5 이후)</li>
+        <li>맥북: <span class="path">시스템 설정 → 배터리 → 옵션</span> → '전원 어댑터에 연결되어 있을 때 디스플레이가 꺼지면 자동으로 잠자기 방지' 켜기. 덮개는 열어 두고 화면 밝기를 가장 낮게. '최적화된 배터리 충전'은 켜 둬요</li>
+        <li><span class="path">시스템 설정 → 일반 → 로그인 항목</span>에 Claude, 메시지, Chrome을 더해 켜질 때 저절로 열리게</li>
+        <li><span class="path">시스템 설정 → 일반 → 공유 → 화면 공유</span>를 켜면 원장님 맥북에서 원격으로 들여다볼 수 있어요(같은 와이파이)<span class="fix">메뉴 이름은 macOS 버전에 따라 조금 달라요. 시스템 설정 검색창에 '잠자기', '로그인 항목'을 쳐 보세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a69c" data-key="a69c"><div class="body"><label for="a69c">윈도우: 절전 끄고 업데이트 시간 정하기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">설정 → 시스템 → 전원(및 배터리)</span> → 화면 끄기 10분, 절전 모드 '안 함'</li>
+        <li>노트북: <span class="path">제어판 → 전원 옵션 → 덮개를 닫으면 수행할 작업</span> → 전원 연결 시 '아무 것도 안 함'</li>
+        <li><span class="path">설정 → Windows 업데이트 → 고급 옵션 → 사용 시간</span>을 7시~23시로 → 업데이트 재시작이 새벽에</li>
+        <li>Chrome·Claude를 시작 앱으로 등록(<span class="path">설정 → 앱 → 시작 프로그램</span>)<span class="fix">정전 뒤 자동 켜짐은 바이오스의 'Restore on AC Power Loss' 같은 항목이에요. 기종마다 이름이 달라 AI에게 모델명으로 물어보세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a69d" data-key="a69d"><div class="body"><label for="a69d">자동화 전용 계정과 폴더</label><small>컴퓨터에 '자동화' 사용자 계정을 따로 만들고, 병원 구글 계정·AI 계정만 로그인해요. 폴더는 <b>받은 파일</b>(차트 내보내기 원본) → <b>_AI용</b>(이름·연락처 지운 파일) → <b>보관</b> 세 개. AI와 커넥터는 _AI용만 보게 해요(<a href="#l58" class="ref" data-ref="l58">강의</a>). 화면 잠금과 디스크 암호화(맥 FileVault, 윈도우 BitLocker·장치 암호화)는 켜 둬요.</small></div></li>
+    <li><input type="checkbox" id="a69e" data-key="a69e"><div class="body"><label for="a69e">예약 작업 걸기</label><small><span data-ai-not="gpt">Claude 데스크톱 앱 → 예약(Scheduled) → 새 작업. 폴더를 쓰는 작업은 이 컴퓨터에서, 커넥터만 쓰는 작업은 클라우드에서 돌아요. 빈도는 매시간·매일·평일·매주 중에서 골라요(월 1회는 "이번 주가 그달 첫 주면"을 부탁문에 넣어요).</span><span data-ai="gpt">ChatGPT 예약 작업(Tasks)은 클라우드에서 돌아요. 이 컴퓨터의 파일·브라우저가 필요한 일은 맥 단축어나 앱스 스크립트로 나눠요.</span> 맥은 macOS 26 단축어 앱의 <span class="path">자동화 → 특정 시각</span>으로도 매일 단축어를 돌릴 수 있어요.</small></div></li>
+    <li><input type="checkbox" id="a69f" data-key="a69f"><div class="body"><label for="a69f">멈췄는지 아는 법</label><small>자동화 컴퓨터가 매일 아침 '오늘 브리핑'(<a href="#l92" class="ref" data-ref="l92">강의</a>)을 보내게 해 두면, 브리핑이 안 온 날이 곧 '컴퓨터가 멈춘 날'이에요. 정전 뒤 다시 켜져도 디스크 암호화 때문에 로그인 화면에서 기다릴 수 있으니, 출근하면 로그인부터 해요. 정전이 잦으면 작은 무정전 전원장치(UPS)를 둬요.</small></div></li>
+  </ol>
+
+  <h3>이 코스에서 자동화 컴퓨터가 맡는 일</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>일</th><th>언제</th><th>강의</th></tr></thead>
+    <tbody>
+      <tr><td>차트 내보내기 → 이름·연락처 지운 '_AI용' 파일 만들기</td><td>매일 밤</td><td><span class="refs" data-refs="l58 l60"></span></td></tr>
+      <tr><td>네이버·카카오 리뷰 화면 읽고 새 리뷰와 답글 초안 알림 (읽기만)</td><td>하루 2번</td><td><span class="refs" data-refs="l16"></span></td></tr>
+      <tr><td>이번 주 안내 대상 문자 준비(보내기는 원장님 확인 뒤)</td><td>월요일 아침</td><td><span class="refs" data-refs="l66"></span></td></tr>
+      <tr><td>아침 브리핑(직원 데이터·캘린더·로컬 파일)</td><td>평일 8시 30분</td><td><span class="refs" data-refs="l92 l41"></span></td></tr>
+      <tr><td>장부·허브 시트 엑셀 백업 → 외장 디스크</td><td>매주 일요일</td><td><span class="refs" data-refs="l60"></span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="prompt"><div class="bar"><span>자동화 컴퓨터 설계 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 병원에서 반복하는 일: ○○(예: 매일 차트 내보내기 정리, 하루 2번 리뷰 확인, 월요일 안내 문자 준비, 아침 브리핑)
+가진 것: 구글 시트·앱스 스크립트, ○○ AI(무료/유료), 안 쓰는 기기 ○○(예: 2020년 M1 맥북 에어 / 2018년 윈도우 노트북)
+1) 일마다 ① 클라우드로 가능 ② 24시간 컴퓨터 필요 ③ 사람이 할 일로 나누고 이유 한 줄
+2) ②가 있으면 우리 기기로 되는지, 꼭 바꿀 설정(잠자기, 정전 뒤 켜짐, 업데이트, 로그인 항목)
+3) 1년 전기 사용량 대략(기기 소비 전력은 모르면 범위로)
+4) 개인정보가 이 컴퓨터 밖으로 나가지 않게 폴더·계정 나누는 법
+보호자에게 자동으로 나가는 발송은 만들지 마.</pre></div>
+  <div class="prompt"><div class="bar"><span>예약 작업 예시: 리뷰 확인 (읽기만)</span><button class="copy" type="button">복사</button></div><pre>Chrome에서 네이버 스마트플레이스와 카카오맵 매장관리의 리뷰 화면을 열어 지난 확인 이후 새 리뷰만 읽어 줘.
+- 아무것도 누르거나 입력하지 말고 읽기만
+- 새 리뷰마다: 채널, 별점, 급한 정도, 답글 초안 2개('리뷰 답글' 스킬 규칙대로)
+- 로그인이 풀렸거나 보안 문자·접근 제한 화면이 나오면 멈추고 그 사실만 알려 줘
+결과는 나에게 알림으로, 보호자 이름은 이니셜로.</pre></div>
+  <p class="tip warnbox"><b>네이버·카카오는 자동 접근을 막을 수 있어요.</b> 예약 작업으로 리뷰 화면을 <b>읽는 것</b>까지만 하고, 답글 올리기·게시·로그인 반복은 사람이 해요. 접근 제한 화면이 한 번이라도 뜨면 그 예약은 끄고 휴대폰 앱 알림(<a href="#l16" class="ref" data-ref="l16">강의</a>)으로 돌아가요. 자동화 컴퓨터에는 보호자 원본 파일을 오래 두지 말고, 처리한 원본은 매주 지워요.</p>
+  <p class="src">출처: <a href="https://support.claude.com/en/articles/13854387" target="_blank" rel="noopener">Claude 예약 작업 (컴퓨터가 깨어 있고 앱이 열려 있을 때 실행)</a> · <a href="https://support.apple.com/ko-kr/125517" target="_blank" rel="noopener">전원 버튼 없이 Mac mini 켜기 (Apple)</a> · <a href="https://macmost.com/an-introduction-to-shortcuts-automation-in-macos-tahoe.html" target="_blank" rel="noopener">macOS Tahoe 단축어 자동화 (MacMost)</a> · <a href="https://www.xatakaon.com/computers/apple-has-a-new-offering-for-those-who-dont-switch-off-their-computers-the-m4-mac-mini" target="_blank" rel="noopener">맥 미니 대기 전력 (Xataka On)</a></p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>하루 2번 리뷰 읽기</b><span>데스크톱 앱 예약 작업 + Chrome. 읽기만, 답글은 사람이.</span></div></li><li><span class="chip k-trig">단축어 자동화</span><div class="ad"><b>맥 시각 자동화</b><span>단축어 앱 → 자동화 → 특정 시각. 파일 정리·문자 준비처럼 맥 안에서 끝나는 일.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>커넥터만 쓰면 클라우드</b><span>캘린더·드라이브·Gmail만 읽는 브리핑은 클라우드 예약으로 옮기면 컴퓨터가 꺼져도 돼요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>자동화 컴퓨터 설계표 → 업무일지, 예약 작업은 자동화 컴퓨터의 데스크톱 앱에서</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span><span class="rc c">Gmail</span><span class="rc c">Claude in Chrome</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">리뷰 답글</span><span class="rc s">일정 비서</span></div></div><p class="rec-note">폴더·브라우저를 쓰는 예약 작업만 자동화 컴퓨터에, 나머지는 클라우드에.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>안 쓰는 맥북·노트북, 앱스 스크립트 트리거, 맥 단축어 자동화</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>맥 미니 한 대, AI 유료 플랜의 예약 작업, 작은 UPS</li></ul></div></div>
 </section>
 <section class="lesson" id="l80" data-part="13단계 · 직원 관리 시스템" data-title="직원 관리 지도와 권한" hidden>
     <div class="partcard a" style="--d:0s"><span class="pn">13</span><span class="pt"><b>직원 관리 시스템</b>5강 · 첫 직원 채용 전부터</span><p class="po">사람마다 계정과 권한, 근무표·출퇴근·휴가를 한 파일에, PIN 직원 웹앱으로 출퇴근과 체크리스트, 매뉴얼과 신입 교육, 원장님 인력 대시보드까지.</p><div class="plist"><span>직원 관리 지도와 권한</span><span>근무표와 출퇴근 기록</span><span>직원 웹앱 만들기</span><span>병원 매뉴얼과 신입 교육</span><span>원장님 인력 대시보드와 면담</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
@@ -3545,7 +3732,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 2) 입사 날 체크리스트, 퇴사 날 체크리스트 (계정별로 누를 메뉴 이름까지 알 수 있으면)
 3) 원장만 가져야 할 것과 그 이유
 매출·급여·보호자 개인정보는 직원이 볼 필요가 없으면 '없음'으로.</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>권한표 → 원장님만 보는 '병원 운영' 폴더</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>퇴사일 계정 회수</b><span>사람 일정 탭에 퇴사일을 적으면 그날 '계정·공유 끊기' 알림<a href="#l92" class="ref" data-ref="l92">강의</a>.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>권한표 → 원장님만 보는 '병원 운영' 폴더</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">Word 문서</span></div></div><p class="rec-note">권한표·입퇴사 체크리스트는 Word로.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>각 서비스의 관리자 초대·드라이브 공유 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: 병원 도메인 계정, 퇴사해도 파일이 병원에 남는 공유 드라이브</li></ul></div></div>
 </section>
@@ -3584,7 +3772,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 직원번호별 이번 달: 실근무시간, 22시~6시 야간 시간, 주별 소정근로 초과 시간, 사용 휴가, 남은 휴가(입사일 기준 계산법은 노무사 확인 전 '임시'로 표시).
 칸 위치와 수식을 붙여 넣는 순서대로.</pre></div>
   <p class="tip warnbox"><b>급여 계산은 세무사·노무사와 맞춰요.</b> 시트는 시간을 정확히 모으는 곳이고, 가산수당·연차수당·퇴직금 계산과 임금명세서 발급은 급여 프로그램이나 세무사 기준으로 해요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>직원 이름 대신 직원번호로만, 근무표 초안 → 직원 데이터 시트</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>주 근무시간 경고</b><span>주별 합계가 계약 시간을 넘으면 빨갛게.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>직원 이름 대신 직원번호로만, 근무표 초안 → 직원 데이터 시트</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">법령 MCP</span><span class="rc c">Google Calendar</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">근무표 점검</span><span class="rc s">엑셀</span></div></div><p class="rec-note">근무표 점검 스킬 + 법령 MCP로 휴게·주휴 확인.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·폼, 법령 MCP로 기준 확인</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>근태·급여 앱: 출퇴근 위치 확인, 연차 자동 계산, 임금명세서 발송</li></ul></div></div>
 </section>
@@ -3622,7 +3811,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 붙여 넣는 곳, 배포, 고칠 때 새 버전으로 하는 법까지 순서대로.</pre></div>
   <div class="prompt"><div class="bar"><span>체크리스트 항목 부탁문</span><button class="copy" type="button">복사</button></div><pre>동물병원 오픈·마감·소독 체크리스트를 역할별로 만들어 줘(실장·코디/동물보건사/미용). 항목은 한 줄 15자 안쪽으로, 시간대(오픈/마감/소독)와 담당 역할을 붙여 '체크리스트' 탭에 바로 붙일 표로. 마취기·산소, 냉장 약품 온도, 입원장, 진료대 소독, 의료폐기물, 방사선 장비 전원 같은 동물병원 항목 포함. 기준값(온도 등)은 [원장 확인]으로 비워 두기.</pre></div>
   <p class="tip warnbox"><b>PIN 웹앱은 작은 병원용이에요.</b> 강한 보안이 아니니 급여·매출·보호자 개인정보는 넣지 마세요. 출퇴근 기록은 실장님이 매주 한 번 근무표와 맞춰 봐요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>웹앱 코드·오류는 이 채팅에</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">메일</span><div class="ad"><b>휴가 신청 알림</b><span>웹앱이 휴가 신청을 저장할 때 원장님께 메일 한 통(MailApp). 부탁문에 한 줄 더하면 돼요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>웹앱 코드·오류는 이 채팅에</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><p class="rec-note">웹앱 코드는 '07 자동화 도우미'에게.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트 웹앱 무료, 앱 설치 없음</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: PIN 대신 병원 계정 로그인</li><li>근태 앱: 위치 기반 출퇴근, 전자결재</li></ul></div></div>
 </section>
@@ -3647,7 +3837,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 1) 첫날 / 첫 주 / 첫 달에 익힐 것 체크리스트(가르칠 사람 칸 포함)
 2) 장마다 확인 문제 5개(정답과 매뉴얼 위치)
 3) 첫 달 끝 면담 때 물어볼 질문 5개</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>매뉴얼 문서 → 팀 요금제면 '병원 매뉴얼 비서' 프로젝트 따로</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>매뉴얼 비서</b><span>매뉴얼 문서를 프로젝트 파일로 두면 신입 질문에 늘 같은 답.</span></div></li><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>6개월 점검</b><span>매뉴얼이 지금 진료와 맞는지 6개월마다 알림.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>매뉴얼 문서 → 팀 요금제면 '병원 매뉴얼 비서' 프로젝트 따로</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">매뉴얼 정리</span><span class="rc s">Word 문서</span></div></div><p class="rec-note">매뉴얼 정리 스킬로 한 장씩 같은 형식.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 문서 매뉴얼, 음성 입력, AI 정리</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>팀 요금제로 직원과 매뉴얼 비서 공유</li></ul></div></div>
 </section>
@@ -3681,7 +3872,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   <div class="prompt"><div class="bar"><span>면담 준비 부탁문</span><button class="copy" type="button">복사</button></div><pre>직원 ○○번 분기 면담을 준비해 줘. 근무 요약: ○○ / 내 메모: ○○ (잘한 점, 아쉬운 점, 본인이 말한 바람).
 면담 순서(20분), 먼저 들을 질문 5개, 칭찬할 구체적 장면 2개, 함께 정할 목표 1~2개, 하지 말아야 할 말. 평가처럼 들리지 않게.</pre></div>
   <p class="tip warnbox"><b>직원 정보도 개인정보예요.</b> 건강·가족·평가 같은 민감한 내용은 AI에 넣지 말고, 면담 기록은 원장님만 보는 곳에 둬요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>면담 메모는 직원번호로, 채팅 대신 원장님 문서에</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 첫 주 인력 브리핑</b><span>월요일 예약 작업에 "그달 첫 주면 인력 브리핑". 면담 메모는 넣지 않아요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>면담 메모는 직원번호로, 채팅 대신 원장님 문서에</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">법령 MCP</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">근무표 점검</span><span class="rc s">발표자료</span></div></div><p class="rec-note">인력 브리핑은 발표자료로 분기 회의에.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Looker Studio, 시트 수식, AI 브리핑</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 매달 자동 브리핑, 인사·급여 프로그램 연동</li></ul></div></div>
 </section>
@@ -3745,7 +3937,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 3) 동물병원 영업(소음·냄새·간판·의료폐기물·방사선 장비)과 관련해 넣으면 좋은 특약 3개
 4) 계약 전에 집주인·중개사에게 물을 질문
 결론은 '검토 의견'으로, 최종 판단은 변호사·공인중개사 확인이 필요하다고 표시.</pre></div>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>08 법률·세무 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>계약서는 개인정보 가리고 이 채팅에</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>계약 만료 90·30일 전</b><span>근로·임대·리스 계약 만료일을 사람 일정·장비 캘린더에.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>08 법률·세무 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>계약서는 개인정보 가리고 이 채팅에</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">법령 MCP</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">법령 조사</span><span class="rc s">Word 문서</span></div></div><p class="rec-note">근로계약서 점검 결과는 Word로 노무사에게.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>고용노동부 표준근로계약서, 도우미 점검</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>첫 근로계약서·취업규칙은 노무사, 임대차 분쟁 소지가 크면 변호사</li></ul></div></div>
 </section>
@@ -3776,7 +3969,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 4) 하지 말아야 할 것(보호자 정보 공개, 협박으로 읽힐 말)
 판단은 '검토 의견'으로.</pre></div>
   <p class="tip warnbox"><b>도우미는 변호사가 아니에요.</b> 소송·합의·형사 고소처럼 되돌리기 어려운 결정은 꼭 변호사와. 도우미가 정리한 시간표와 근거 목록을 들고 가면 상담 시간과 비용이 줄어요.</p>
-      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>08 법률·세무 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>사건별 시간표 → 법무·세무 메모</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>사건 기록 틀</b><span>분쟁이 생기면 같은 틀(시간표·자료 목록·답변 초안)로 시작하게 스킬로. 답변 발송은 자동화하지 않아요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>08 법률·세무 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>사건별 시간표 → 법무·세무 메모</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 보호자 A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">법령 MCP</span><span class="rc c">Google Drive</span><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">법령 조사</span><span class="rc s">Word 문서</span></div></div><p class="rec-note">분쟁 시간표는 Word로 정리해 변호사 상담에.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>사실 정리·조문 찾기, 한국소비자원·법률구조공단 상담</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>배상 요구·소송·고소는 변호사, 수의사 배상책임보험 확인</li></ul></div></div>
 </section>
@@ -3813,7 +4007,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   <div class="prompt"><div class="bar"><span>법령 근거 찾기 · 08 법률·세무 도우미</span><button class="copy" type="button">복사</button></div><pre>법령 도구로 현행 원문을 먼저 조회하고 답해 줘. 질문: ○○. ① 결론 한 줄('~로 보여요') ② 근거(법령명·조문·별표·시행일) ③ 예외·달라질 조건 ④ 내가 할 일 ⑤ 세무사·노무사·변호사에게 물을 질문 2개. 필요하면 해석례·국세청 회신·판례도.</pre></div>
   <div class="prompt"><div class="bar"><span>면세·과세 확인 · 08 법률·세무 도우미</span><button class="copy" type="button">복사</button></div><pre>법령 도구로 「부가가치세 면제대상인 동물의 진료용역」 고시 현행 별표를 조회해서, ○○(진료 항목)이 면세인지 과세인지 연번과 함께 알려 줘. 애매하면 국세청 회신을 찾고 '확인 필요'.</pre></div>
   <div class="prompt"><div class="bar"><span>막혔을 때 · 모든 직원</span><button class="copy" type="button">복사</button></div><pre>나는 컴퓨터와 AI 초보야. 지금 ○○를 하다가 막혔어. 화면에는 ○○가 보여(캡처 첨부). 다음에 무엇을 눌러야 하는지 한 단계씩, 메뉴 이름 그대로 알려줘. 한 번에 한 단계만 알려 주고 내가 '됐어'라고 하면 다음 단계를 알려줘.</pre></div>
-    <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>각 부탁문 제목의 직원 채팅</b></span></div><div class="aib-row"><b>넣어 둘 것</b><span>자주 쓰는 부탁문 → 스킬로</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+      <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>부탁문 → 스킬 → 예약</b><span>자주 쓰는 부탁문을 스킬로 묶고, 예약 작업이 그 스킬을 부르게 해요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>각 부탁문 제목의 직원 채팅</b></span></div><div class="aib-row"><b>넣어 둘 것</b><span>자주 쓰는 부탁문 → 스킬로</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>스킬</b><div><span class="rc s">병원 브랜드·말투</span><span class="rc s">광고 점검</span><span class="rc s">리뷰 답글</span></div></div><p class="rec-note">자주 쓰는 부탁문은 스킬로 옮겨 두세요.</p></div>
 </section>
 <section class="lesson" id="l91" data-part="자료실" data-title="안전 수칙과 문제 해결" hidden>
@@ -3842,7 +4037,8 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
     </tbody>
   </table></div>
   <p class="tip"><b>다 끝내셨나요?</b> 이제 매일 리뷰 답글 5분, 일요일 1시간, 매달 1일 캡처 세 장. 이 세 가지만 이어 가면 됩니다.</p>
-</section>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>멈춘 자동화 찾기</b><span>아침 브리핑이 안 오면 자동화 컴퓨터가 잠들었거나 로그인 화면에서 멈춘 것부터 확인<a href="#l69" class="ref" data-ref="l69">강의</a>.</span></div></li></ul></div>
+  </section>
     </main>
   </div>
 </div>
