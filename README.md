@@ -4,6 +4,6 @@
 
 - `index.html`: 혼자 따라 하는 실습 코스 (14개 강의)
 - `intro.html`: 1분 소개 영상
-- `vet/index.html`: 동물병원 개원 마케팅 AI 실습 코스 (41개 강의)
+- `vet/index.html`: 동물병원 개원 마케팅 AI 실습 코스 (47개 강의)
 
 GitHub Pages로 배포됩니다.
