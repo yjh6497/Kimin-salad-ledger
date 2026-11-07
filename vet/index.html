@@ -515,6 +515,13 @@ td b { font-weight: 600; }
   .lesson.on .vitals .trace, .lesson.on .partcard svg path, .lesson.on .vitals .blip, .lesson.on .steps > li, .lesson.on .lesson-head > * { animation: none !important; }
 }
 
+/* calendar stack */
+.calgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.cal { background: var(--paper); border: 1px solid var(--line); border-left: 6px solid var(--c, var(--leaf)); border-radius: 10px; padding: 9px 11px; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.cal b { font-size: 14px; }
+.cal span { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
+.cal em { font-style: normal; font-family: var(--f-num); font-size: 11px; color: var(--leaf); margin-top: 4px; }
+
 </style>
 
 <div class="shell">
@@ -625,10 +632,11 @@ td b { font-weight: 600; }
       <tr><td><b>6단계 · 인스타그램</b></td><td>진료실의 30초를 릴스로, 일요일에 일주일 치를 예약하고, DM으로는 진단하지 않아요.</td><td><span class="refs" data-refs="l25 l26 l27 l28"></span></td><td>주 3회</td></tr>
       <tr><td><b>7단계 · 카카오톡 채널</b></td><td>다녀간 보호자와 이어지는 줄. 채팅 상담, 공지, 접종 안내를 규칙에 맞게 보내요.</td><td><span class="refs" data-refs="l35 l36 l37"></span></td><td>개원 3주 전부터</td></tr>
       <tr><td><b>8단계 · 매주 운영 루틴</b></td><td>일요일 1시간으로 네 채널을 굴리고, 월요일 브리핑과 한 달 성과로 방향을 잡아요.</td><td><span class="refs" data-refs="l40 l41 l42"></span></td><td>주 1~2시간</td></tr>
-      <tr><td><b>9단계 · 데이터로 고객관리</b></td><td>차트·단말기·플레이스에 쌓이는 기록으로 재방문을 돕고, 동의 받은 분에게만 연락해요.</td><td><span class="refs" data-refs="l55 l56 l57 l58"></span></td><td>개원 후 첫 달부터</td></tr>
-      <tr><td><b>10단계 · 데이터 시스템</b></td><td>숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들어요.</td><td><span class="refs" data-refs="l60 l61 l62 l63"></span></td><td>익숙해진 뒤</td></tr>
-      <tr><td><b>11단계 · 직원 관리 시스템</b></td><td>사람마다 계정과 권한, 근무표·출퇴근·휴가를 한 파일에, PIN 직원 웹앱으로 출퇴근과 체크리스트, 매뉴얼과 신입 교육, 원장님 인력 대시보드까지.</td><td><span class="refs" data-refs="l80 l81 l82 l83 l84"></span></td><td>첫 직원 채용 전부터</td></tr>
-      <tr><td><b>12단계 · 세무·노무·분쟁</b></td><td>세무 자료 정리, 직원·임대차 계약 점검, 분쟁·민원 대응을 법률·세무 도우미와 함께해요.</td><td><span class="refs" data-refs="l73 l74 l75"></span></td><td>필요할 때</td></tr>
+      <tr><td><b>9단계 · 병원 캘린더</b></td><td>예약 블록, 근무, SNS 발행일, 임대료·공과금·수수료, 신고 기한, 장비 점검을 구글 캘린더 7개로 한 화면에. 스크립트가 반복 일정을 만들고, AI가 겹치는 것과 놓칠 것을 찾아요.</td><td><span class="refs" data-refs="l85 l86 l87 l88 l89"></span></td><td>개원 4주 전부터</td></tr>
+      <tr><td><b>10단계 · 데이터로 고객관리</b></td><td>차트·단말기·플레이스에 쌓이는 기록으로 재방문을 돕고, 동의 받은 분에게만 연락해요.</td><td><span class="refs" data-refs="l55 l56 l57 l58"></span></td><td>개원 후 첫 달부터</td></tr>
+      <tr><td><b>11단계 · 데이터 시스템</b></td><td>숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들어요.</td><td><span class="refs" data-refs="l60 l61 l62 l63"></span></td><td>익숙해진 뒤</td></tr>
+      <tr><td><b>12단계 · 직원 관리 시스템</b></td><td>사람마다 계정과 권한, 근무표·출퇴근·휴가를 한 파일에, PIN 직원 웹앱으로 출퇴근과 체크리스트, 매뉴얼과 신입 교육, 원장님 인력 대시보드까지.</td><td><span class="refs" data-refs="l80 l81 l82 l83 l84"></span></td><td>첫 직원 채용 전부터</td></tr>
+      <tr><td><b>13단계 · 세무·노무·분쟁</b></td><td>세무 자료 정리, 직원·임대차 계약 점검, 분쟁·민원 대응을 법률·세무 도우미와 함께해요.</td><td><span class="refs" data-refs="l73 l74 l75"></span></td><td>필요할 때</td></tr>
     </tbody>
   </table></div>
   <p class="tip"><b>목표는 '주 2시간'이에요.</b> 개원하면 진료로 바빠요. 이 코스는 일요일 1시간에 한 주 치를 몰아 쓰고 예약 걸기, 평일엔 리뷰 답글 5분으로 굴러가게 짰어요. 강의마다 맨 아래 <b>'이 강의 자동화'</b>와 <b>'무료로 하기 / 유료라면 좋은 점'</b> 상자가 있어요.</p>
@@ -1928,6 +1936,7 @@ td b { font-weight: 600; }
         <li>왼쪽 시계 아이콘 <span class="path">트리거 → + 트리거 추가</span> → checkWeek, 시간 기반, 주 단위, 일요일, 오후 6~7시 → 저장<span class="fix">'확인되지 않은 앱' 경고가 나오면 고급 → (프로젝트 이름)으로 이동을 누르세요. 원장님이 만든 스크립트라 괜찮아요.</span></li>
       </ol></details></div></li>
   </ol>
+  <p class="tip">구글 캘린더를 연결했다면 이 브리핑 앞에 캘린더 주간 정리(<a href="#l89" class="ref" data-ref="l89">강의</a>)를 붙이면 예약 블록·돈 나가는 날·신고 기한까지 한 번에 나와요.</p>
   <div class="prompt"><div class="bar"><span>월요일 브리핑 부탁문</span><button class="copy" type="button">복사</button></div><pre>병원 마케팅 장부와 업무일지를 보고 이번 주 마케팅 브리핑을 10줄 안쪽으로 줘.
 1) 이번 주 예약된 글: 채널별 날짜·제목
 2) 비어 있는 날과 채우기 쉬운 주제 하나씩
@@ -1975,8 +1984,210 @@ td b { font-weight: 600; }
 캡처에 없는 숫자는 지어내지 말고, 해석이 불확실하면 그렇다고 적어 줘.</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>세 채널 통계 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>석 달 치 캡처를 한 번에 비교</li></ul></div></div>
 </section>
-<section class="lesson" id="l55" data-part="9단계 · 데이터로 고객관리" data-title="우리 병원 데이터 지도" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">9</span><span class="pt"><b>데이터로 고객관리</b>4강 · 개원 후 첫 달부터</span><p class="po">차트·단말기·플레이스에 쌓이는 기록으로 재방문을 돕고, 동의 받은 분에게만 연락해요.</p><div class="plist"><span>우리 병원 데이터 지도</span><span>동의 받고 연락하기</span><span>재방문 알림 시스템</span><span>단골·이탈 분석</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l85" data-part="9단계 · 병원 캘린더" data-title="병원 캘린더 설계" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">9</span><span class="pt"><b>병원 캘린더</b>5강 · 개원 4주 전부터</span><p class="po">예약 블록, 근무, SNS 발행일, 임대료·공과금·수수료, 신고 기한, 장비 점검을 구글 캘린더 7개로 한 화면에. 스크립트가 반복 일정을 만들고, AI가 겹치는 것과 놓칠 것을 찾아요.</p><div class="plist"><span>병원 캘린더 설계</span><span>예약 관리와 캘린더</span><span>SNS 일정을 캘린더로</span><span>돈 나가는 날과 법정 기한</span><span>AI와 캘린더 같이 쓰기</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+  <div class="lesson-head">
+    <span class="kicker">설계·실습 · 약 1시간 · PC</span>
+    <h2>병원의 모든 날짜를 한 화면에, 색깔별로</h2>
+    <p class="goal">예약, 근무, SNS 발행일, 돈 나가는 날, 신고 기한, 장비 점검이 차트·시트·문자·메모에 흩어져 있으면 하나씩 놓쳐요. <dfn data-t="gcal">구글 캘린더</dfn>에 <b>주제별 캘린더 7개</b>를 만들어 한 화면에 겹쳐 보고, 직원에게는 필요한 캘린더만 공유해요.</p>
+  </div>
+  <div class="vis">
+    <div class="calgrid" aria-label="캘린더 7개 예시">
+      <div class="cal a" style="--d:.1s;--c:#1D6B61"><b>진료 예약·수술</b><span>긴 진료, 수술, 상담 블록</span><em>원장·실장</em></div>
+      <div class="cal a" style="--d:.2s;--c:#3E7CB1"><b>근무·휴가</b><span>근무표, 당직, 휴가</span><em>전 직원 보기</em></div>
+      <div class="cal a" style="--d:.3s;--c:#B97A12"><b>SNS·콘텐츠</b><span>블로그·인스타·소식·카톡 발행</span><em>원장·실장</em></div>
+      <div class="cal a" style="--d:.4s;--c:#B4432C"><b>돈 나가는 날</b><span>임대료, 공과금, 리스, 단말기 관리비</span><em>원장만</em></div>
+      <div class="cal a" style="--d:.5s;--c:#6B4FA0"><b>세무·신고</b><span>원천세, 4대보험, 부가세, 종소세</span><em>원장만</em></div>
+      <div class="cal a" style="--d:.6s;--c:#4F7A28"><b>장비·법정 의무</b><span>방사선 검사, 소독·폐기물, 계약 갱신</span><em>원장·실장</em></div>
+      <div class="cal a" style="--d:.7s;--c:#8A5A44"><b>병원 일정</b><span>휴진, 학회, 교육, 행사</span><em>전 직원 보기</em></div>
+    </div>
+    <p class="cap a" style="--d:.9s">색과 공유 범위는 예시예요. 보호자 이름·연락처는 캘린더에 쓰지 않고 차트 번호나 '초코(말티즈)'처럼 동의 받은 정도만.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a85a" data-key="a85a"><div class="body"><label for="a85a">병원 구글 계정에 캘린더 7개 만들기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 <span class="path">calendar.google.com</span> → 병원 구글 계정으로 로그인</li>
+        <li>왼쪽 '다른 캘린더' 옆 <span class="path">+ → 새 캘린더 만들기</span> → 이름(위 7개) → 만들기. 7번 반복</li>
+        <li>왼쪽 목록에서 캘린더 이름 옆 ⋮ → 색 고르기</li>
+        <li>각 캘린더 <span class="path">설정 → 시간대</span>가 <b>서울</b>인지 확인<span class="fix">캘린더 이름은 아래 스크립트들이 그대로 찾아 써요. 띄어쓰기까지 똑같이 적어 두세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a85b" data-key="a85b"><div class="body"><label for="a85b">직원에게 필요한 것만 공유</label><small>캘린더 설정 → <span class="path">특정 사용자 또는 그룹과 공유</span> → 직원 구글 계정 → 권한(일정 보기 / 일정 변경). '돈 나가는 날'과 '세무·신고'는 공유하지 않아요. 권한표(<a href="#l80" class="ref" data-ref="l80">강의</a>)에 한 줄 추가.</small></div></li>
+    <li><input type="checkbox" id="a85c" data-key="a85c"><div class="body"><label for="a85c">휴대폰·맥에서 보기</label><small>아이폰은 <span class="path">설정 → 캘린더 → 계정 → Google 추가</span> 또는 Google 캘린더 앱. 맥은 캘린더 앱에 구글 계정 추가. 휴대폰에서는 자주 보는 캘린더만 켜 두세요.</small></div></li>
+    <li><input type="checkbox" id="a85d" data-key="a85d"><div class="body"><label for="a85d">AI에 캘린더 연결</label><small><span data-ai-not="gpt">Claude <span class="path">설정 → 커넥터 → Google Calendar 연결</span>.</span><span data-ai-none> / </span><span data-ai-not="claude">ChatGPT <span class="path">설정 → 앱(커넥터) → Google Calendar</span>.</span> 연결하면 "이번 주 일정 정리해 줘", "다음 달 휴진 넣어 줘"를 AI가 직접 해요(<a href="#l89" class="ref" data-ref="l89">강의</a>).</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>우리 병원 캘린더 설계 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 동물병원 구글 캘린더 구성을 설계해 줘. 직원: ○○, 쓰는 것: 차트 예약, 네이버 예약, 블로그·인스타·카톡 채널, 직원 근무표.
+1) 캘린더 목록: 이름 | 넣을 일정 | 색 | 공유 대상과 권한(보기/변경)
+2) 각 캘린더에 처음 넣을 반복 일정 예시 5개씩 (매달·매주·매년)
+3) 알림 규칙: 어떤 일정은 며칠 전, 몇 시에
+4) 캘린더에 쓰지 말아야 할 정보
+원장 일정과 개인 일정은 섞지 않게.</pre></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 캘린더·공유·휴대폰 동기화 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: 병원 도메인 계정, 회의실·장비 같은 '리소스' 예약</li></ul></div></div>
+</section>
+<section class="lesson" id="l86" data-part="9단계 · 병원 캘린더" data-title="예약 관리와 캘린더" hidden>
+  <div class="lesson-head">
+    <span class="kicker">설계·실습 · 약 1시간</span>
+    <h2>예약은 한 곳이 원본, 캘린더는 큰 그림</h2>
+    <p class="goal">예약이 차트, 네이버 예약, 전화 메모, 카톡에 따로 있으면 겹치기(더블 부킹)가 생겨요. <b>진료 예약의 원본은 차트(또는 네이버 예약) 하나</b>로 정하고, 구글 캘린더에는 수술·긴 상담·외부 일정처럼 <b>시간을 크게 막는 블록</b>만 올려요.</p>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>예약 종류</th><th>원본</th><th>구글 캘린더에</th></tr></thead>
+    <tbody>
+      <tr><td><b>일반 진료·접종</b></td><td>차트 예약(네이버 예약 연동되면 차트로 모으기)</td><td>올리지 않음</td></tr>
+      <tr><td><b>수술·마취 진료</b></td><td>차트</td><td>'진료 예약·수술'에 수술실 블록(차트 번호, 수술명, 준비 담당)</td></tr>
+      <tr><td><b>건강검진·긴 상담</b></td><td>네이버 예약 또는 차트</td><td>2시간 이상이면 블록</td></tr>
+      <tr><td><b>원장 외부 일정</b></td><td>캘린더</td><td>그대로(이 시간엔 네이버 예약 막기)</td></tr>
+      <tr><td><b>휴진·학회</b></td><td>캘린더 '병원 일정'</td><td>올리고, 같은 날 플레이스·카카오맵·카톡 정보 수정(<a href="#l15" class="ref" data-ref="l15">강의</a>)</td></tr>
+    </tbody>
+  </table></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a86a" data-key="a86a"><div class="body"><label for="a86a">원본 정하기</label><small>차트 회사에 "네이버 예약이 차트로 들어오는지", "차트 예약을 구글 캘린더로 내보낼 수 있는지" 물어봐요(<a href="#l50" class="ref" data-ref="l50">강의</a>의 문의글에 한 줄 추가). 연동이 안 되면 실장님이 하루 두 번 네이버 예약을 차트로 옮기는 규칙을.</small></div></li>
+    <li><input type="checkbox" id="a86b" data-key="a86b"><div class="body"><label for="a86b">수술 블록은 AI가 넣게</label><small>캘린더가 연결된 AI에게 "다음 주 수술 예약: 화 10시 중성화(차트 1234), 목 14시 슬개골(차트 1290). '진료 예약·수술'에 2시간씩 넣고 하루 전 18시 알림, 설명에 준비 체크리스트 링크"라고 하면 직접 넣어 줘요.</small></div></li>
+    <li><input type="checkbox" id="a86c" data-key="a86c"><div class="body"><label for="a86c">네이버 예약과 겹치지 않게</label><small>원장님 외부 일정·수술 블록이 생기면 같은 시간을 네이버 예약에서 '예약 불가'로 막아요. 매주 월요일 브리핑(<a href="#l41" class="ref" data-ref="l41">강의</a>)에 "캘린더 블록과 네이버 예약 가능 시간이 겹치는 곳"을 묻는 줄을 넣어요.</small></div></li>
+    <li><input type="checkbox" id="a86d" data-key="a86d"><div class="body"><label for="a86d">구글 '예약 일정' 기능 (선택)</label><small>구글 캘린더의 예약 일정(예약 페이지)으로 '보호자 상담 30분'이나 '업체 미팅' 같은 시간을 열어 둘 수 있어요. 기본 기능은 개인 계정에서도 쓸 수 있고, 결제·여러 페이지 같은 기능은 유료 계정에서 늘어나요. 진료 예약은 네이버 예약·차트로, 이건 상담·미팅용으로만.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>예약 화면 → 캘린더 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 네이버 예약 관리 화면(또는 차트 예약표) 캡처에서 2시간 이상 걸리는 예약과 수술만 골라, 구글 캘린더 '진료 예약·수술'에 넣어 줘.
+- 제목: [수술] 중성화 · 차트 1234 처럼 (보호자 이름·전화 빼고)
+- 하루 전 18시 알림, 설명에 준비할 것 3줄
+- 캘린더에 이미 같은 시간 일정이 있으면 넣지 말고 알려 줘
+캘린더 도구가 없으면 넣을 일정 목록만 표로.</pre></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 캘린더, 네이버 예약 기본 기능, AI 캘린더 커넥터</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트의 예약 연동 부가 기능, Google Workspace 예약 일정 고급 기능</li></ul></div></div>
+</section>
+<section class="lesson" id="l87" data-part="9단계 · 병원 캘린더" data-title="SNS 일정을 캘린더로" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 40분 · PC</span>
+    <h2>장부의 글달력이 저절로 캘린더에</h2>
+    <p class="goal">마케팅 장부 글달력(<a href="#l4" class="ref" data-ref="l4">강의</a>)에 적은 블로그·인스타·소식·카톡 발행일을, 버튼 한 번(또는 매일 밤 자동)으로 '<b>SNS·콘텐츠</b>' 캘린더에 옮겨요. 휴대폰에서 "오늘 올릴 글"이 바로 보여요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a87a" data-key="a87a"><div class="body"><label for="a87a">글달력 탭 맨 오른쪽에 '캘린더ID' 칸</label><small>K1 칸에 <b>캘린더ID</b>라고 적어요. 스크립트가 만든 일정 번호를 여기에 적어 두어서, 두 번 만들지 않아요.</small></div></li>
+    <li><input type="checkbox" id="a87b" data-key="a87b"><div class="body"><label for="a87b">스크립트 붙여 넣고 실행</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>마케팅 장부 → <span class="path">확장 프로그램 → Apps Script</span> → 새 파일에 아래 '글달력 → 캘린더 스크립트' 붙여 넣기 → 저장</li>
+        <li>함수 <b>syncContent</b> → 실행 → 권한 허용(캘린더 접근)</li>
+        <li>구글 캘린더 'SNS·콘텐츠'에 일정이 생겼는지 확인</li>
+        <li>시계 아이콘 → <span class="path">+ 트리거 추가</span> → syncContent, 시간 기반, 일 단위, 밤 11시~자정 → 저장</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a87c" data-key="a87c"><div class="body"><label for="a87c">상태가 바뀌면 제목도 바뀌어요</label><small>상태를 '게시'로 바꾸면 다음 실행 때 일정 제목 앞에 ✓가 붙어요. 날짜를 바꾸면 일정도 그 날로 옮겨져요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>글달력 → 캘린더 스크립트</span><button class="copy" type="button">복사</button></div><pre>function syncContent() {
+  var cal = CalendarApp.getCalendarsByName('SNS·콘텐츠')[0];
+  if (!cal) throw new Error("'SNS·콘텐츠' 캘린더가 없어요. 이름을 확인하세요.");
+  var sh = SpreadsheetApp.getActive().getSheetByName('글달력');
+  var rows = sh.getDataRange().getValues();
+  for (var i = 1; i < rows.length; i++) {
+    var d = rows[i][0], ch = rows[i][2], topic = rows[i][3], st = rows[i][5], id = rows[i][10];
+    if (!(d instanceof Date) || !topic) continue;
+    var title = (st === '게시' ? '✓ ' : '') + '[' + ch + '] ' + topic + (st && st !== '게시' ? ' (' + st + ')' : '');
+    var ev = id ? cal.getEventById(id) : null;
+    if (ev) {
+      if (ev.getTitle() !== title) ev.setTitle(title);
+      var s = ev.getAllDayStartDate();
+      if (s.toDateString() !== d.toDateString()) ev.setAllDayDate(d);
+    } else {
+      ev = cal.createAllDayEvent(title, d, { description: '대표키워드: ' + rows[i][4] });
+      ev.addPopupReminder(15 * 60); // 전날 09시쯤 알림
+      sh.getRange(i + 1, 11).setValue(ev.getId());
+    }
+  }
+}</pre></div>
+  <p class="tip">스크립트는 장부와 캘린더만 다뤄요. 네이버·인스타에 접속하거나 글을 올리지 않아요. 실제 게시는 예약 발행·예약 게시(<a href="#l21" class="ref" data-ref="l21">강의</a>, <a href="#l27" class="ref" data-ref="l27">강의</a>)로.</p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>매일 밤 자동 동기화</b><span>글달력을 고치면 다음 날 아침엔 캘린더에 반영돼 있어요.</span></div></li></ul></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트·캘린더 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>따로 필요 없어요</li></ul></div></div>
+</section>
+<section class="lesson" id="l88" data-part="9단계 · 병원 캘린더" data-title="돈 나가는 날과 법정 기한" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · PC</span>
+    <h2>임대료·공과금·수수료·신고, 3일 전에 먼저 알기</h2>
+    <p class="goal">병원 통장에서 매달 빠져나가는 돈과 신고 기한을 '고정지출' 표 하나에 적으면, 스크립트가 '<b>돈 나가는 날</b>'·'<b>세무·신고</b>' 캘린더에 반복 일정과 알림을 한 번에 만들어요. 금액이 평소와 다르면 바로 눈에 띄어요.</p>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>분류</th><th>예</th><th>언제(보통)</th></tr></thead>
+    <tbody>
+      <tr><td><b>임차·관리</b></td><td>임대료, 관리비</td><td>계약서 날짜</td></tr>
+      <tr><td><b>공과금</b></td><td>전기, 수도, 가스, 인터넷·전화</td><td>고지서 납기일</td></tr>
+      <tr><td><b>결제 수수료</b></td><td>카드 단말기 월 관리비, 밴 대리점 약정, 카드사 매출 입금 확인</td><td>견적서·계약서(<a href="#l51" class="ref" data-ref="l51">강의</a>) 기준</td></tr>
+      <tr><td><b>리스·구독</b></td><td>장비 리스, 차트 이용료, AI·디자인 구독, 문자 충전</td><td>계약일</td></tr>
+      <tr><td><b>인건비·보험</b></td><td>급여일, 4대보험</td><td>급여일, 4대보험은 다음 달 10일</td></tr>
+      <tr><td><b>세무·신고</b></td><td>원천세, 부가세, 종합소득세</td><td>세무 일정(<a href="#l73" class="ref" data-ref="l73">강의</a>)</td></tr>
+      <tr><td><b>장비·법정 의무</b></td><td>방사선발생장치 정기 검사·측정, 의료폐기물 위탁 계약 갱신, 보험 갱신</td><td>검사·계약서의 날짜(주기는 법률·세무 도우미로 확인)</td></tr>
+    </tbody>
+  </table></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a88a" data-key="a88a"><div class="body"><label for="a88a">'고정지출' 탭 만들기</label><small>병원 데이터 허브(<a href="#l60" class="ref" data-ref="l60">강의</a>)에 탭을 더하고 제목 줄을 붙여 넣어요. 고지서·계약서 사진을 AI에게 주면 이 표로 옮겨 줘요.</small></div></li>
+    <li><input type="checkbox" id="a88b" data-key="a88b"><div class="body"><label for="a88b">스크립트로 반복 일정 만들기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>허브 시트 → <span class="path">확장 프로그램 → Apps Script</span> → 아래 '고정지출 → 캘린더 스크립트' 붙여 넣기 → 저장</li>
+        <li>함수 <b>syncBills</b> → 실행 → 권한 허용</li>
+        <li>캘린더에서 매달 반복 일정과 알림이 생겼는지 확인. 표에 줄을 더하면 다시 실행<span class="fix">'매월 며칠'이 29~31일이면 짧은 달에 빠질 수 있어요. 말일은 28일로 적고 메모에 '말일'이라고 쓰세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a88c" data-key="a88c"><div class="body"><label for="a88c">매년 한 번만 오는 날은 직접</label><small>종합소득세, 계약 갱신, 방사선 검사처럼 1년·3년 주기는 AI에게 "'장비·법정 의무' 캘린더에 매년 ○월 ○일, 한 달 전·일주일 전 알림"이라고 부탁해요.</small></div></li>
+    <li><input type="checkbox" id="a88d" data-key="a88d"><div class="body"><label for="a88d">매달 1일, 지난달 고지서와 비교</label><small>고지서 사진을 모아 "고정지출 탭 대략 금액과 다른 것"을 물어요. 전기 요금이 갑자기 늘면 입원실 히터·냉장 장비 점검 신호일 수도 있어요.</small></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>고정지출 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>항목 | 캘린더(돈 나가는 날/세무·신고) | 매월 며칠 | 대략 금액 | 결제 방법 | 며칠 전 알림 | 메모 | 캘린더ID</pre></div>
+  <div class="prompt"><div class="bar"><span>고정지출 → 캘린더 스크립트</span><button class="copy" type="button">복사</button></div><pre>function syncBills() {
+  var sh = SpreadsheetApp.getActive().getSheetByName('고정지출');
+  var rows = sh.getDataRange().getValues();
+  var today = new Date();
+  for (var i = 1; i < rows.length; i++) {
+    var name = rows[i][0], calName = rows[i][1], day = Number(rows[i][2]);
+    var amount = rows[i][3], how = rows[i][4], before = Number(rows[i][5]) || 3, memo = rows[i][6], id = rows[i][7];
+    if (!name || !calName || !day || id) continue;
+    var cal = CalendarApp.getCalendarsByName(calName)[0];
+    if (!cal) { sh.getRange(i + 1, 8).setValue('캘린더 이름 확인'); continue; }
+    var start = new Date(today.getFullYear(), today.getMonth(), day);
+    if (start < today) start = new Date(today.getFullYear(), today.getMonth() + 1, day);
+    var title = '💳 ' + name + (amount ? ' · 약 ' + Number(amount).toLocaleString('ko-KR') + '원' : '');
+    var series = cal.createAllDayEventSeries(title, start,
+      CalendarApp.newRecurrence().addMonthlyRule(),
+      { description: [how ? '결제: ' + how : '', memo || ''].filter(String).join('\n') });
+    series.addPopupReminder(Math.max(1, before) * 1440 - 540); // N일 전 오전 9시
+    sh.getRange(i + 1, 8).setValue(series.getId());
+  }
+}</pre></div>
+  <div class="prompt"><div class="bar"><span>고지서 → 고정지출 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 고지서·계약서 사진을 '고정지출' 탭 형식으로 옮겨 줘: 항목 | 캘린더(돈 나가는 날/세무·신고) | 매월 며칠 | 대략 금액 | 결제 방법 | 며칠 전 알림 | 메모.
+고객번호·계좌번호·카드번호는 옮기지 마. 날짜가 안 보이면 '확인 필요'. 1년에 한 번 오는 일정은 따로 목록으로.</pre></div>
+  <p class="tip warnbox"><b>계좌번호·카드번호는 캘린더와 시트에 쓰지 않아요.</b> '병원 통장 자동이체', '법인카드 끝 4자리'처럼만. 캘린더는 공유 설정 실수 하나로 남에게 보일 수 있어요.</p>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트·캘린더 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>세무사 기장 프로그램의 납부 알림과 같이 쓰기</li></ul></div></div>
+</section>
+<section class="lesson" id="l89" data-part="9단계 · 병원 캘린더" data-title="AI와 캘린더 같이 쓰기" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 30분 · 매주 5분</span>
+    <h2>"이번 주 뭐 있어?"에 캘린더 7개가 한 번에 답해요</h2>
+    <p class="goal">캘린더가 연결된 AI에게 물으면 예약 블록, 근무, 발행일, 돈 나가는 날, 신고 기한을 한 번에 읽고 <b>겹치는 것, 빠진 것, 미리 할 일</b>을 정리해요. 휴진 하나를 넣으면 공지 문구까지 같이 나와요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>캘린더 커넥터는 무료 플랜에서도 연결할 수 있는 경우가 많아요. 예약 작업이 없으면 월요일 아침 휴대폰 알림 → 한 줄 보내기로.</span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>월요일 브리핑 예약 작업(<a href="#l41" class="ref" data-ref="l41">강의</a>)에 캘린더 읽기를 넣으면 저절로 와요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="chat">
+      <div class="bubble me a" style="--d:.2s"><span class="who">원장님</span>다음 주 일정 정리해 줘. 겹치거나 놓칠 것 위주로.</div>
+      <div class="bubble ai a" style="--d:1s"><span class="who">AI · 캘린더 7개를 읽은 예시</span><ul><li>목 14시 슬개골 수술 블록인데 실장님 휴가와 겹쳐요. 마취 보조 근무자 확인 필요</li><li>수요일 블로그 예약 글이 아직 '초안'이에요</li><li>10일 원천세·4대보험, 12일 임대료 · 약 ○○○만 원</li><li>금 18시 이후 일정 없음 → 카톡 채널 소식 올리기 좋은 때</li></ul></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a89a" data-key="a89a"><div class="body"><label for="a89a">월요일 브리핑에 캘린더 넣기</label><small>월요일 브리핑 부탁문(<a href="#l41" class="ref" data-ref="l41">강의</a>) 맨 앞에 아래 '캘린더 주간 정리'를 붙여요.</small></div></li>
+    <li><input type="checkbox" id="a89b" data-key="a89b"><div class="body"><label for="a89b">휴진 하나 → 할 일 전부</label><small>"12월 24일 오후 휴진"이라고만 하면 AI가 캘린더 '병원 일정'에 넣고, 네이버·카카오맵 영업시간, 카톡 채널 소식, 네이버 예약 막기, 근무표 변경까지 할 일 목록과 문구를 줘요.</small></div></li>
+    <li><input type="checkbox" id="a89c" data-key="a89c"><div class="body"><label for="a89c">말로 일정 넣기</label><small>휴대폰 AI 앱에 음성으로 "다음 달 첫째 주 목요일 저녁 7시 직원 교육, 병원 일정 캘린더, 전날 알림"이라고 하면 캘린더에 들어가요. 넣은 뒤 캘린더 앱에서 한 번 확인해요.</small></div></li>
+    <li><input type="checkbox" id="a89d" data-key="a89d"><div class="body"><label for="a89d">AI가 바꾸면 안 되는 것</label><small>AI가 일정을 지우거나 여러 개를 한꺼번에 옮기려 하면, 실행 전에 목록을 보여 달라고 규칙으로 정해요. 아래 '캘린더 규칙'을 프로젝트 지침 끝에 붙여 두세요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>캘린더 주간 정리 부탁문</span><button class="copy" type="button">복사</button></div><pre>캘린더 도구로 다음 7일 동안 '진료 예약·수술', '근무·휴가', 'SNS·콘텐츠', '돈 나가는 날', '세무·신고', '장비·법정 의무', '병원 일정' 캘린더를 모두 읽고 정리해 줘.
+1) 날짜별 한 줄 요약
+2) 겹치는 것: 수술 블록과 휴가·근무 공백, 원장 외부 일정과 예약 가능 시간
+3) 놓치기 쉬운 것: 발행일인데 초안인 글, 3일 안에 나가는 돈, 신고 기한
+4) 미리 할 일 3가지
+보호자 이름이 일정에 있으면 답에는 쓰지 마.</pre></div>
+  <div class="prompt"><div class="bar"><span>휴진 한 번에 처리 부탁문</span><button class="copy" type="button">복사</button></div><pre>○월 ○일 ○○ 휴진이야(사유: ○○).
+1) 캘린더 '병원 일정'에 넣기(캘린더 도구가 있으면 직접, 넣기 전에 확인받기)
+2) 할 일 목록: 네이버 플레이스·카카오맵 임시휴무, 네이버 예약 막기, 근무표 변경, 진료 예약 있는 보호자 연락(차트 확인)
+3) 문구: 플레이스 소식 150자, 카톡 채널 소식 150자, 인스타 스토리 2줄, 병원 문 앞 안내 3줄(응급 시 갈 곳 자리 포함)</pre></div>
+  <div class="prompt"><div class="bar"><span>캘린더 규칙 (프로젝트 지침 끝에)</span><button class="copy" type="button">복사</button></div><pre>[캘린더 규칙]
+- 일정을 만들 때는 캘린더 이름, 제목, 날짜·시간, 알림을 먼저 보여 주고 내가 '좋아'라고 하면 넣기
+- 일정 삭제·여러 개 이동은 목록을 보여 주고 확인받은 뒤에만
+- 제목·설명에 보호자 이름·연락처, 계좌·카드번호를 쓰지 않기
+- 시간대는 서울 기준</pre></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>캘린더 커넥터, 음성으로 일정 넣기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 월요일 아침 캘린더 브리핑 자동</li></ul></div></div>
+</section>
+<section class="lesson" id="l55" data-part="10단계 · 데이터로 고객관리" data-title="우리 병원 데이터 지도" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">10</span><span class="pt"><b>데이터로 고객관리</b>4강 · 개원 후 첫 달부터</span><p class="po">차트·단말기·플레이스에 쌓이는 기록으로 재방문을 돕고, 동의 받은 분에게만 연락해요.</p><div class="plist"><span>우리 병원 데이터 지도</span><span>동의 받고 연락하기</span><span>재방문 알림 시스템</span><span>단골·이탈 분석</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">읽기·실습 · 약 40분</span>
     <h2>데이터는 이미 여덟 군데에 쌓이고 있어요</h2>
@@ -2009,7 +2220,7 @@ td b { font-weight: 600; }
 - 마지막에, 이 데이터로 할 수 있는 고객관리 5가지를 쉬운 것부터</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>지도 만들기는 문서 하나면 끝</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트의 CRM·문자 부가서비스가 있으면 비교해 보기</li></ul></div></div>
 </section>
-<section class="lesson" id="l56" data-part="9단계 · 데이터로 고객관리" data-title="동의 받고 연락하기" hidden>
+<section class="lesson" id="l56" data-part="10단계 · 데이터로 고객관리" data-title="동의 받고 연락하기" hidden>
   <div class="lesson-head">
     <span class="kicker">읽기·실습 · 약 30분</span>
     <h2>연락처가 있다고 다 보낼 수는 없어요</h2>
@@ -2035,7 +2246,7 @@ td b { font-weight: 600; }
   <p class="src">근거: 정보통신망 이용촉진 및 정보보호 등에 관한 법률 제50조(2026. 10. 2. 시행본) — 법령 MCP로 2026. 11. 7. 현행 조회 · <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>동의서 초안, 차트 메모 칸 활용</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>동의서 최종본은 개인정보 전문가 검토 한 번</li></ul></div></div>
 </section>
-<section class="lesson" id="l57" data-part="9단계 · 데이터로 고객관리" data-title="재방문 알림 시스템" hidden>
+<section class="lesson" id="l57" data-part="10단계 · 데이터로 고객관리" data-title="재방문 알림 시스템" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2>다음 접종일을 병원이 먼저 기억해요</h2>
@@ -2089,7 +2300,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>다음 예정일 자동 계산</b><span>마지막 날짜만 바꾸면 예정일이 다시 계산돼요.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>지난 날짜 빨간색</b><span>G열이 오늘보다 이전이고 I열이 비어 있으면 빨갛게.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>월요일 아침 메일</b><span>대상이 있을 때만 메일이 와요. 보호자에게 자동으로 보내지는 않아요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>시트·스크립트·메일 무료, 문자는 병원 휴대폰으로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트의 문자·알림톡 부가 서비스(건당 비용)로 발송 기록까지 한곳에</li></ul></div></div>
 </section>
-<section class="lesson" id="l58" data-part="9단계 · 데이터로 고객관리" data-title="단골·이탈 분석" hidden>
+<section class="lesson" id="l58" data-part="10단계 · 데이터로 고객관리" data-title="단골·이탈 분석" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 분기마다 약 1시간</span>
     <h2>"요즘 안 오시는 분"을 숫자로 찾기</h2>
@@ -2117,8 +2328,8 @@ td b { font-weight: 600; }
   <p class="tip warnbox"><b>원본 파일은 AI에 올리지 마세요.</b> 보호자 이름·연락처가 들어 있는 원본은 차트와 병원 PC 안에만. AI·구글 드라이브에는 '_AI용' 파일만 둬요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>석 달씩 나눠 분석</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>1년 치 한 번에, 그래프까지</li></ul></div></div>
 </section>
-<section class="lesson" id="l60" data-part="10단계 · 데이터 시스템" data-title="병원 데이터 허브 시트" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">10</span><span class="pt"><b>데이터 시스템</b>4강 · 익숙해진 뒤</span><p class="po">숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들어요.</p><div class="plist"><span>병원 데이터 허브 시트</span><span>공공데이터로 동네 읽기</span><span>원장님 대시보드와 월간 브리핑</span><span>자동화 지도</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l60" data-part="11단계 · 데이터 시스템" data-title="병원 데이터 허브 시트" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">11</span><span class="pt"><b>데이터 시스템</b>4강 · 익숙해진 뒤</span><p class="po">숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들어요.</p><div class="plist"><span>병원 데이터 허브 시트</span><span>공공데이터로 동네 읽기</span><span>원장님 대시보드와 월간 브리핑</span><span>자동화 지도</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2>숫자는 한 파일에, 해석은 AI에게</h2>
@@ -2156,7 +2367,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>요약은 저절로</b><span>숫자를 넣으면 요약 탭이 다시 계산돼요.</span></div></li><li><span class="chip k-conn">커넥터</span><div class="ad"><b>AI가 최신 허브를 읽음</b><span>Google Drive 커넥터로 연결해 두면 다시 올릴 필요가 없어요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·IMPORTRANGE 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>단말기·차트 회사가 API를 열어 주면 일매출 자동 입력(개발 비용)</li></ul></div></div>
 </section>
-<section class="lesson" id="l61" data-part="10단계 · 데이터 시스템" data-title="공공데이터로 동네 읽기" hidden>
+<section class="lesson" id="l61" data-part="11단계 · 데이터 시스템" data-title="공공데이터로 동네 읽기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC · 개원 전에 특히</span>
     <h2>우리 동네 반려동물과 경쟁 병원</h2>
@@ -2186,7 +2397,7 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://www.data.go.kr" target="_blank" rel="noopener">공공데이터포털</a> · <a href="https://datalab.naver.com" target="_blank" rel="noopener">네이버 데이터랩</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>공공데이터·소상공인365·데이터랩 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>큰 파일을 그대로 올려 지도와 표까지 한 번에</li></ul></div></div>
 </section>
-<section class="lesson" id="l62" data-part="10단계 · 데이터 시스템" data-title="원장님 대시보드와 월간 브리핑" hidden>
+<section class="lesson" id="l62" data-part="11단계 · 데이터 시스템" data-title="원장님 대시보드와 월간 브리핑" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>휴대폰 한 화면으로 병원 상태 보기</h2>
@@ -2213,7 +2424,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-conn">대시보드</span><div class="ad"><b>열 때마다 최신</b><span>Looker Studio는 시트가 바뀌면 그래프도 바뀌어요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 1일 브리핑</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>예약 작업으로 저절로.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>매달 1일 휴대폰 알림 → 한 줄 보내기.</span></span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Looker Studio 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 브리핑 자동화</li></ul></div></div>
 </section>
-<section class="lesson" id="l63" data-part="10단계 · 데이터 시스템" data-title="자동화 지도" hidden>
+<section class="lesson" id="l63" data-part="11단계 · 데이터 시스템" data-title="자동화 지도" hidden>
   <div class="lesson-head">
     <span class="kicker">읽기 · 약 20분</span>
     <h2>무엇을 어떤 도구로 자동화할까</h2>
@@ -2246,8 +2457,8 @@ td b { font-weight: 600; }
 3) 개인정보가 새지 않게 조심할 점</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>표의 도구 대부분 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI 예약 작업, 차트 문자 부가 서비스</li></ul></div></div>
 </section>
-<section class="lesson" id="l80" data-part="11단계 · 직원 관리 시스템" data-title="직원 관리 지도와 권한" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">11</span><span class="pt"><b>직원 관리 시스템</b>5강 · 첫 직원 채용 전부터</span><p class="po">사람마다 계정과 권한, 근무표·출퇴근·휴가를 한 파일에, PIN 직원 웹앱으로 출퇴근과 체크리스트, 매뉴얼과 신입 교육, 원장님 인력 대시보드까지.</p><div class="plist"><span>직원 관리 지도와 권한</span><span>근무표와 출퇴근 기록</span><span>직원 웹앱 만들기</span><span>병원 매뉴얼과 신입 교육</span><span>원장님 인력 대시보드와 면담</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l80" data-part="12단계 · 직원 관리 시스템" data-title="직원 관리 지도와 권한" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">12</span><span class="pt"><b>직원 관리 시스템</b>5강 · 첫 직원 채용 전부터</span><p class="po">사람마다 계정과 권한, 근무표·출퇴근·휴가를 한 파일에, PIN 직원 웹앱으로 출퇴근과 체크리스트, 매뉴얼과 신입 교육, 원장님 인력 대시보드까지.</p><div class="plist"><span>직원 관리 지도와 권한</span><span>근무표와 출퇴근 기록</span><span>직원 웹앱 만들기</span><span>병원 매뉴얼과 신입 교육</span><span>원장님 인력 대시보드와 면담</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">설계 · 약 40분 · 첫 직원 채용 전</span>
     <h2>누가 어떤 계정으로, 무엇을 보나</h2>
@@ -2278,7 +2489,7 @@ td b { font-weight: 600; }
 매출·급여·보호자 개인정보는 직원이 볼 필요가 없으면 '없음'으로.</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>각 서비스의 관리자 초대·드라이브 공유 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: 병원 도메인 계정, 퇴사해도 파일이 병원에 남는 공유 드라이브</li></ul></div></div>
 </section>
-<section class="lesson" id="l81" data-part="11단계 · 직원 관리 시스템" data-title="근무표와 출퇴근 기록" hidden>
+<section class="lesson" id="l81" data-part="12단계 · 직원 관리 시스템" data-title="근무표와 출퇴근 기록" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2>근무표, 출퇴근, 휴가를 한 파일에</h2>
@@ -2315,7 +2526,7 @@ td b { font-weight: 600; }
   <p class="tip warnbox"><b>급여 계산은 세무사·노무사와 맞춰요.</b> 시트는 시간을 정확히 모으는 곳이고, 가산수당·연차수당·퇴직금 계산과 임금명세서 발급은 급여 프로그램이나 세무사 기준으로 해요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·폼, 법령 MCP로 기준 확인</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>근태·급여 앱: 출퇴근 위치 확인, 연차 자동 계산, 임금명세서 발송</li></ul></div></div>
 </section>
-<section class="lesson" id="l82" data-part="11단계 · 직원 관리 시스템" data-title="직원 웹앱 만들기" hidden>
+<section class="lesson" id="l82" data-part="12단계 · 직원 관리 시스템" data-title="직원 웹앱 만들기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절 · PC</span>
     <h2>직원 휴대폰에 병원 전용 앱 하나</h2>
@@ -2351,7 +2562,7 @@ td b { font-weight: 600; }
   <p class="tip warnbox"><b>PIN 웹앱은 작은 병원용이에요.</b> 강한 보안이 아니니 급여·매출·보호자 개인정보는 넣지 마세요. 출퇴근 기록은 실장님이 매주 한 번 근무표와 맞춰 봐요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트 웹앱 무료, 앱 설치 없음</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: PIN 대신 병원 계정 로그인</li><li>근태 앱: 위치 기반 출퇴근, 전자결재</li></ul></div></div>
 </section>
-<section class="lesson" id="l83" data-part="11단계 · 직원 관리 시스템" data-title="병원 매뉴얼과 신입 교육" hidden>
+<section class="lesson" id="l83" data-part="12단계 · 직원 관리 시스템" data-title="병원 매뉴얼과 신입 교육" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 하루 · 조금씩</span>
     <h2>원장님 머릿속 규칙을 문서로</h2>
@@ -2374,7 +2585,7 @@ td b { font-weight: 600; }
 3) 첫 달 끝 면담 때 물어볼 질문 5개</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 문서 매뉴얼, 음성 입력, AI 정리</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>팀 요금제로 직원과 매뉴얼 비서 공유</li></ul></div></div>
 </section>
-<section class="lesson" id="l84" data-part="11단계 · 직원 관리 시스템" data-title="원장님 인력 대시보드와 면담" hidden>
+<section class="lesson" id="l84" data-part="12단계 · 직원 관리 시스템" data-title="원장님 인력 대시보드와 면담" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · 매달 15분</span>
     <h2>사람이 부족한지, 몰리는지 숫자로</h2>
@@ -2406,8 +2617,8 @@ td b { font-weight: 600; }
   <p class="tip warnbox"><b>직원 정보도 개인정보예요.</b> 건강·가족·평가 같은 민감한 내용은 AI에 넣지 말고, 면담 기록은 원장님만 보는 곳에 둬요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Looker Studio, 시트 수식, AI 브리핑</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 매달 자동 브리핑, 인사·급여 프로그램 연동</li></ul></div></div>
 </section>
-<section class="lesson" id="l73" data-part="12단계 · 세무·노무·분쟁" data-title="세무 일정과 자료 정리" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">12</span><span class="pt"><b>세무·노무·분쟁</b>3강 · 필요할 때</span><p class="po">세무 자료 정리, 직원·임대차 계약 점검, 분쟁·민원 대응을 법률·세무 도우미와 함께해요.</p><div class="plist"><span>세무 일정과 자료 정리</span><span>직원·계약 도우미</span><span>분쟁·민원 대응</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l73" data-part="13단계 · 세무·노무·분쟁" data-title="세무 일정과 자료 정리" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">13</span><span class="pt"><b>세무·노무·분쟁</b>3강 · 필요할 때</span><p class="po">세무 자료 정리, 직원·임대차 계약 점검, 분쟁·민원 대응을 법률·세무 도우미와 함께해요.</p><div class="plist"><span>세무 일정과 자료 정리</span><span>직원·계약 도우미</span><span>분쟁·민원 대응</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>세무사에게 넘길 자료를 매달 30분에</h2>
@@ -2424,6 +2635,7 @@ td b { font-weight: 600; }
   </table></div>
   <p class="tip">날짜와 대상은 사업자 유형과 해마다 달라질 수 있어요. 개원하면 "올해 우리 병원 세무 일정을 국세청 기준으로 확인해 줘"를 도우미에게 한 번, 세무사에게 한 번 확인하고 구글 캘린더에 넣으세요.</p>
   <ol class="steps">
+    <li><input type="checkbox" id="a73z" data-key="a73z"><div class="body"><label for="a73z">신고 기한은 캘린더에</label><small>원천세·4대보험·부가세·종소세를 '세무·신고' 캘린더에 반복 일정과 알림으로(<a href="#l88" class="ref" data-ref="l88">강의</a>).</small></div></li>
     <li><input type="checkbox" id="a73a" data-key="a73a"><div class="body"><label for="a73a">허브 시트에 '세무' 탭</label><small>제목 줄을 붙여 넣고, 영수증은 드라이브 '세무' 폴더에 월별로.</small></div></li>
     <li><input type="checkbox" id="a73b" data-key="a73b"><div class="body"><label for="a73b">영수증 사진을 표로</label><small>장비·소모품 영수증 사진을 도우미에게 주면 날짜·거래처·금액·부가세·분류로 옮겨 줘요. 카드 매입은 홈택스에서 내려받은 파일을 그대로 정리.</small></div></li>
     <li><input type="checkbox" id="a73c" data-key="a73c"><div class="body"><label for="a73c">궁금한 경비는 국세청 회신으로</label><small>"개원 전 산 장비, 개업일 전 경비도 넣을 수 있나", "원장 자동차 리스료는" 같은 질문을 도우미에게 국세청 회신·조세심판 결정까지 찾아 달라고 해요. 결론은 세무사와.</small></div></li>
@@ -2438,7 +2650,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>신고 2주 전 알림</b><span>구글 캘린더에 원천세 매달 5일, 부가세·종소세 2주 전 반복 알림.</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>분류별 합계</b><span>세무 탭 옆에 SUMIF로 월·분류별 합계. 수식은 '07 자동화 도우미'에게.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>홈택스 자료 내려받기, 시트 정리</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>세무사 기장 계약(정리된 자료가 있으면 상담이 빨라요)</li></ul></div></div>
 </section>
-<section class="lesson" id="l74" data-part="12단계 · 세무·노무·분쟁" data-title="직원·계약 도우미" hidden>
+<section class="lesson" id="l74" data-part="13단계 · 세무·노무·분쟁" data-title="직원·계약 도우미" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>첫 직원을 뽑기 전에, 첫 계약서에 도장 찍기 전에</h2>
@@ -2465,7 +2677,7 @@ td b { font-weight: 600; }
 결론은 '검토 의견'으로, 최종 판단은 변호사·공인중개사 확인이 필요하다고 표시.</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>고용노동부 표준근로계약서, 도우미 점검</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>첫 근로계약서·취업규칙은 노무사, 임대차 분쟁 소지가 크면 변호사</li></ul></div></div>
 </section>
-<section class="lesson" id="l75" data-part="12단계 · 세무·노무·분쟁" data-title="분쟁·민원 대응" hidden>
+<section class="lesson" id="l75" data-part="13단계 · 세무·노무·분쟁" data-title="분쟁·민원 대응" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 일이 생겼을 때</span>
     <h2>감정은 원장님이, 사실 정리는 도우미가</h2>
@@ -2619,6 +2831,7 @@ td b { font-weight: 600; }
     pin: ['PIN', '직원마다 정한 짧은 숫자 비밀번호', '사물함 번호 자물쇠', '직원 탭에 사람마다 다른 4자리를 적어요. 생일·전화번호 끝자리는 피하세요.'],
     deploy: ['배포', '만든 앱스 스크립트를 인터넷 주소로 열 수 있게 내놓는 것', '병원 앱 문 열기', '배포 → 새 배포 → 웹 앱. 고칠 때는 배포 관리 → 새 버전으로 해야 주소가 그대로예요.'],
     homescreen: ['홈 화면에 추가', '웹 주소를 앱 아이콘처럼 휴대폰 첫 화면에 두기', '바로가기 아이콘', '아이폰 Safari: 아래 공유 버튼 → 홈 화면에 추가. 안드로이드 Chrome: 오른쪽 위 ⋮ → 홈 화면에 추가.'],
+    gcal: ['구글 캘린더', '구글 계정에 딸린 무료 일정 관리. 주제별로 캘린더를 여러 개 만들어 겹쳐 보고 사람마다 공유할 수 있어요', '병원 벽에 걸린 색깔별 달력 여러 장', 'calendar.google.com → 왼쪽 다른 캘린더 + → 새 캘린더 만들기. 휴대폰은 Google 캘린더 앱.'],
     backup: ['백업', '중요한 자료를 따로 복사해 두는 것', '장부 사본 금고', '매달 장부를 파일 → 다운로드 → Microsoft Excel로 받아 드라이브 백업 폴더에 넣어요.']
   };
 
