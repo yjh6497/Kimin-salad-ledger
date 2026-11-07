@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko"><head><base target="_top"><meta charset="utf-8">
+<style>
+  :root { --ink:#16302C; --muted:#5B6B68; --leaf:#1D6B61; --soft:#E3F0EE; --line:#D5DEDB; --bg:#F6F8F7; --warn:#B4442F; --amber:#C98A12; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:20px/1.5 -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  header { position:sticky; top:0; z-index:2; background:var(--leaf); color:#fff; padding:12px 20px; display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+  header b { font-size:22px; flex:1; } header input { width:100px; font-size:20px; padding:8px 10px; border:0; border-radius:10px; }
+  .prog { height:8px; background:#ffffff40; border-radius:4px; flex-basis:100%; overflow:hidden; } .prog i { display:block; height:100%; width:0; background:#fff; transition:width .3s; }
+  main { max-width:900px; margin:0 auto; padding:16px 20px 140px; }
+  h2 { font-size:22px; margin:22px 0 10px; display:flex; justify-content:space-between; }
+  h2 small { font-size:16px; color:var(--muted); font-weight:500; }
+  .it { background:#fff; border:2px solid var(--line); border-radius:16px; padding:14px 16px; margin:10px 0; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .it.ok { border-color:var(--leaf); background:var(--soft); } .it.bad { border-color:var(--amber); }
+  .it .nm { flex:1; min-width:200px; font-weight:600; } .it .nm em { font-style:normal; font-size:14px; color:var(--warn); margin-left:6px; }
+  .chk { width:64px; height:64px; border-radius:14px; border:3px solid var(--line); background:#fff; font-size:34px; color:#fff; flex:none; }
+  .it.ok .chk { background:var(--leaf); border-color:var(--leaf); }
+  .num { width:120px; height:60px; font-size:26px; text-align:center; border:2px solid var(--line); border-radius:12px; }
+  .unit { color:var(--muted); } .range { font-size:15px; color:var(--muted); flex-basis:100%; }
+  .it.bad .range { color:var(--amber); font-weight:700; }
+  .skip { font-size:15px; padding:8px 12px; border-radius:10px; border:1px solid var(--line); background:#fff; color:var(--muted); }
+  .note { flex-basis:100%; font-size:17px; padding:10px 12px; border:2px solid var(--amber); border-radius:10px; }
+  textarea { width:100%; font-size:18px; padding:12px; border:2px solid var(--line); border-radius:12px; min-height:90px; }
+  footer { position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid var(--line); padding:12px 20px; display:flex; gap:12px; align-items:center; justify-content:space-between; }
+  footer .btn { font-size:22px; padding:16px 30px; border-radius:14px; border:0; background:var(--leaf); color:#fff; font-weight:700; }
+  footer .btn:disabled { opacity:.45; } #msg { color:var(--muted); font-size:17px; }
+  .done { text-align:center; padding:60px 20px; } .done b { font-size:34px; display:block; margin:12px 0; }
+</style></head>
+<body>
+<header><b>🔒 마감 체크 · <?= clinic ?></b><label>직원번호 <input id="staff" inputmode="numeric" placeholder="03"></label><div class="prog"><i id="bar"></i></div></header>
+<main id="main"><p>오늘 마감 항목을 불러오는 중…</p></main>
+<footer><span id="msg"></span><button class="btn" id="send" onclick="submitAll()">마감 완료</button></footer>
+<script>
+var KEY = <?!= JSON.stringify(key) ?>;
+var ITEMS = [], st = {};
+function $(id) { return document.getElementById(id); }
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+google.script.run.withSuccessHandler(function (items) {
+  ITEMS = items; var html = '', area = '';
+  items.forEach(function (x) {
+    st[x.id] = { done: false, value: '', note: '' };
+    if (x.area !== area) {
+      area = x.area;
+      var n = items.filter(function (y) { return y.area === area; }).length;
+      html += '<h2>' + esc(area) + '<small>' + n + '개</small></h2>';
+    }
+    var range = x.num && (x.min !== null || x.max !== null) ? '<div class="range">기준 ' + (x.min !== null ? x.min : '') + ' ~ ' + (x.max !== null ? x.max : '') + ' ' + esc(x.unit) + '</div>' : '';
+    html += '<div class="it" id="i' + x.id + '">' +
+      (x.num ? '<input class="num" inputmode="decimal" placeholder="숫자"><span class="unit">' + esc(x.unit) + '</span>' : '<button type="button" class="chk">✓</button>') +
+      '<span class="nm">' + esc(x.name) + (x.req ? '<em>필수</em>' : '') + '</span>' +
+      '<button type="button" class="skip">못 했어요</button>' + range + '</div>';
+  });
+  html += '<h2>마감 메모</h2><textarea id="memo" placeholder="입원 동물 상태, 내일 아침 할 일, 고장 난 것 등 (보호자 이름은 쓰지 않아요)"></textarea>';
+  $('main').innerHTML = html;
+  items.forEach(function (x) {
+    var box = $('i' + x.id);
+    if (x.num) {
+      box.querySelector('.num').oninput = function () {
+        var v = this.value.replace(/[^\d.\-]/g, ''); this.value = v;
+        st[x.id].value = v; st[x.id].done = v !== '';
+        var bad = v !== '' && ((x.min !== null && Number(v) < x.min) || (x.max !== null && Number(v) > x.max));
+        box.className = 'it' + (v === '' ? '' : bad ? ' bad' : ' ok'); prog();
+      };
+    } else {
+      box.querySelector('.chk').onclick = function () { st[x.id].done = !st[x.id].done; st[x.id].note = ''; var n = box.querySelector('.note'); if (n) n.remove(); box.classList.toggle('ok', st[x.id].done); prog(); };
+    }
+    box.querySelector('.skip').onclick = function () {
+      if (box.querySelector('.note')) return;
+      st[x.id].done = false; box.classList.remove('ok');
+      var n = document.createElement('input'); n.className = 'note'; n.placeholder = '못 한 이유 (예: 오토클레이브 고장, 내일 아침에)';
+      n.oninput = function () { st[x.id].note = n.value; }; box.appendChild(n); n.focus(); prog();
+    };
+  });
+  prog();
+}).withFailureHandler(function (e) { $('main').innerHTML = '<p>불러오지 못했어요: ' + esc(e.message) + '</p>'; }).closeItems(KEY);
+
+function prog() {
+  var done = ITEMS.filter(function (x) { return st[x.id].done; }).length;
+  $('bar').style.width = (ITEMS.length ? done / ITEMS.length * 100 : 0) + '%';
+  $('msg').textContent = done + ' / ' + ITEMS.length + ' 완료';
+}
+function submitAll() {
+  var staff = $('staff').value.trim();
+  if (!staff) { $('msg').textContent = '직원번호를 넣어 주세요'; $('staff').focus(); return; }
+  var lack = ITEMS.filter(function (x) { return x.req && !st[x.id].done && !st[x.id].note.trim(); });
+  if (lack.length) {
+    $('msg').textContent = '필수 항목: ' + lack[0].name + ' — 하거나 "못 했어요"에 이유를 적어 주세요';
+    $('i' + lack[0].id).scrollIntoView({ behavior: 'smooth', block: 'center' }); return;
+  }
+  var rows = ITEMS.map(function (x) { return { area: x.area, name: x.name, num: x.num, min: x.min, max: x.max, unit: x.unit, done: st[x.id].done, value: st[x.id].value, note: st[x.id].note }; });
+  $('send').disabled = true; $('msg').textContent = '저장 중…';
+  google.script.run.withSuccessHandler(function (r) {
+    $('main').innerHTML = '<div class="done"><div style="font-size:60px">🔒</div><b>마감 완료</b><p>' + r.done + ' / ' + r.total + ' 완료' +
+      (r.miss ? ' · 못 한 것 ' + r.miss + '개' : '') + (r.out ? ' · 범위 밖 ' + r.out + '개' : '') + '<br>원장님께 요약이 갔어요. 수고하셨어요!</p></div>';
+    $('msg').textContent = ''; $('send').hidden = true;
+  }).withFailureHandler(function (e) { $('send').disabled = false; $('msg').textContent = '저장하지 못했어요: ' + e.message; })
+    .saveClose(KEY, staff, rows, ($('memo') || {}).value || '');
+}
+</script>
+</body></html>

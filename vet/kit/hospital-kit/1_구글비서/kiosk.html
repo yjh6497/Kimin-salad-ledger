@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko"><head><base target="_top"><meta charset="utf-8">
+<style>
+  :root { --ink:#16302C; --muted:#5B6B68; --leaf:#1D6B61; --line:#D5DEDB; --bg:#F6F8F7; --warn:#B4442F; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.55 -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; -webkit-user-select:none; user-select:none; }
+  header { background:var(--leaf); color:#fff; padding:16px 24px; font-size:22px; font-weight:700; display:flex; justify-content:space-between; align-items:center; }
+  header small { font-weight:500; font-size:16px; opacity:.85; }
+  main { max-width:860px; margin:0 auto; padding:24px; }
+  .step { display:none; background:#fff; border:1px solid var(--line); border-radius:18px; padding:28px; }
+  .step.on { display:block; }
+  h2 { margin:0 0 6px; font-size:26px; } p.sub { margin:0 0 20px; color:var(--muted); }
+  label.f { display:block; font-weight:600; margin:16px 0 6px; }
+  input[type=text], input[type=tel], select, textarea { width:100%; font-size:20px; padding:14px 16px; border:2px solid var(--line); border-radius:12px; background:#fff; -webkit-user-select:text; user-select:text; }
+  input:focus, select:focus, textarea:focus { outline:none; border-color:var(--leaf); }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .chips { display:flex; flex-wrap:wrap; gap:10px; }
+  .chips button { font-size:18px; padding:12px 18px; border-radius:999px; border:2px solid var(--line); background:#fff; }
+  .chips button.on { border-color:var(--leaf); background:#E3F0EE; color:var(--leaf); font-weight:700; }
+  .term { border:2px solid var(--line); border-radius:14px; padding:16px 18px; margin:14px 0; }
+  .term.req { border-color:#9CC5BE; }
+  .term .head { display:flex; gap:14px; align-items:center; }
+  .term input { width:30px; height:30px; accent-color:var(--leaf); flex:none; }
+  .term .t { font-weight:700; flex:1; }
+  .term .tag { font-size:14px; padding:2px 10px; border-radius:999px; background:#E3F0EE; color:var(--leaf); }
+  .term .tag.opt { background:#EEF1F0; color:var(--muted); }
+  .term details { margin-top:8px; color:var(--muted); font-size:16px; white-space:pre-wrap; }
+  .term summary { cursor:pointer; color:var(--leaf); }
+  #pad { width:100%; height:260px; border:2px dashed var(--line); border-radius:14px; background:#fff; touch-action:none; }
+  .nav { display:flex; justify-content:space-between; gap:12px; margin-top:24px; }
+  .btn { font-size:20px; padding:16px 28px; border-radius:14px; border:2px solid var(--line); background:#fff; min-width:140px; }
+  .btn.go { background:var(--leaf); border-color:var(--leaf); color:#fff; font-weight:700; }
+  .btn:disabled { opacity:.45; }
+  .err { color:var(--warn); font-weight:600; min-height:1.6em; margin-top:10px; }
+  .start { text-align:center; padding:30px 10px; }
+  .start h2 { font-size:30px; } .start p { color:var(--muted); }
+  .pick { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:26px; }
+  .pick button { border:3px solid var(--line); background:#fff; border-radius:20px; padding:28px 12px; color:var(--ink); }
+  .pick button b { display:block; } .pick .n b { font-size:26px; } .pick .g b { font-size:40px; }
+  .pick button span { display:block; color:var(--muted); font-size:17px; margin-top:6px; }
+  .pick button:active { border-color:var(--leaf); }
+  .photo { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:6px; }
+  .photo label.cam { display:inline-flex; align-items:center; gap:8px; font-size:20px; padding:14px 20px; border:2px dashed var(--leaf); border-radius:14px; color:var(--leaf); font-weight:700; }
+  .photo input { display:none; }
+  .photo img { width:120px; height:120px; object-fit:cover; border-radius:14px; border:2px solid var(--line); }
+  .photo small { color:var(--muted); font-size:15px; flex-basis:100%; }
+  body.big .photo label.cam { font-size:26px; padding:18px 24px; } body.big .photo img { width:160px; height:160px; } body.big .photo small { font-size:20px; }
+  .done { text-align:center; padding:40px 10px; } .done b { font-size:32px; display:block; margin:10px 0; }
+  .dots { display:flex; gap:8px; justify-content:center; margin-bottom:16px; } .dots i { width:12px; height:12px; border-radius:50%; background:var(--line); } .dots i.on { background:var(--leaf); }
+  header button { font-size:18px; font-weight:700; padding:8px 14px; border-radius:10px; border:2px solid #fff; background:transparent; color:#fff; }
+  body.big header button { background:#fff; color:var(--leaf); }
+  body.big { font-size:24px; }
+  body.big h2 { font-size:34px; } body.big p.sub { font-size:22px; }
+  body.big label.f { font-size:24px; }
+  body.big input[type=text], body.big input[type=tel] { font-size:28px; padding:18px 20px; }
+  body.big .chips button { font-size:24px; padding:16px 24px; }
+  body.big .term { padding:20px 22px; } body.big .term input { width:40px; height:40px; }
+  body.big .term .tag { font-size:18px; padding:4px 12px; } body.big header small { font-size:20px; }
+  body.big .term details { font-size:21px; line-height:1.7; }
+  body.big .btn { font-size:26px; padding:20px 34px; min-width:180px; }
+  body.big #pad { height:340px; }
+  body.big .err { font-size:22px; }
+  @media (max-width:640px) { .row { grid-template-columns:1fr; } main { padding:12px; } .step { padding:18px; } }
+</style></head>
+<body>
+<header><span><?= clinic ?></span><small>첫 방문 접수 · 동의</small><button type="button" id="bigBtn" onclick="toggleBig()">가 큰 글씨</button></header>
+<main>
+  <div class="dots"><i></i><i></i><i></i><i></i></div>
+
+  <section class="step on" id="s0"><div class="start">
+    <h2>어서 오세요</h2><p>첫 방문 접수를 시작할게요. 편한 글씨 크기를 골라 주세요.</p>
+    <div class="pick">
+      <button type="button" class="n" onclick="start(false)"><b>보통 글씨로 시작</b><span>가</span></button>
+      <button type="button" class="g" onclick="start(true)"><b>큰 글씨로 시작</b><span>글씨와 버튼이 크게 나와요</span></button>
+    </div>
+  </div></section>
+
+  <section class="step" id="s1">
+    <h2>보호자 정보</h2><p class="sub">진료와 예약·접종 안내에 써요.</p>
+    <label class="f" for="owner">보호자 이름</label><input type="text" id="owner" autocomplete="off">
+    <label class="f" for="phone">휴대폰 번호</label><input type="tel" id="phone" inputmode="numeric" autocomplete="off" placeholder="010-0000-0000">
+    <div class="err" id="e1"></div>
+    <div class="nav"><span></span><button class="btn go" onclick="next(1)">다음</button></div>
+  </section>
+
+  <section class="step" id="s2">
+    <h2>반려동물 정보</h2><p class="sub">아는 만큼만 적어 주세요.</p>
+    <div class="row">
+      <div><label class="f" for="pet">이름</label><input type="text" id="pet" autocomplete="off"></div>
+      <div><label class="f" for="age">나이</label><input type="text" id="age" autocomplete="off" placeholder="예: 3살, 8개월"></div>
+    </div>
+    <label class="f">종류</label>
+    <div class="chips" id="species"><button type="button">강아지</button><button type="button">고양이</button><button type="button">그 밖의 동물</button></div>
+    <label class="f">사진 (선택)</label>
+    <div class="photo"><label class="cam">📷 사진 찍기<input type="file" id="photo" accept="image/*" capture="environment"></label><img id="pv" alt="" hidden>
+      <small>진료 기록에서 아이를 알아보는 데만 써요. 블로그·SNS에는 사진 활용에 동의하신 경우에만 써요.</small></div>
+    <label class="f">오늘 오신 이유</label>
+    <div class="chips" id="reason"><button type="button">예방접종</button><button type="button">건강검진</button><button type="button">아파요</button><button type="button">중성화·수술 상담</button><button type="button">그 밖에</button></div>
+    <div class="err" id="e2"></div>
+    <div class="nav"><button class="btn" onclick="go(1)">이전</button><button class="btn go" onclick="next(2)">다음</button></div>
+  </section>
+
+  <section class="step" id="s3">
+    <h2>동의</h2><p class="sub">필수 동의만 하셔도 진료를 받으실 수 있어요. 선택 동의를 하지 않아도 불이익이 없어요.</p>
+    <div id="terms"></div>
+    <div class="err" id="e3"></div>
+    <div class="nav"><button class="btn" onclick="go(2)">이전</button><button class="btn go" onclick="next(3)">다음</button></div>
+  </section>
+
+  <section class="step" id="s4">
+    <h2>서명</h2><p class="sub">손가락으로 아래 칸에 서명해 주세요.</p>
+    <canvas id="pad"></canvas>
+    <div class="nav" style="margin-top:10px"><button class="btn" onclick="clearPad()">다시 쓰기</button><span></span></div>
+    <div class="err" id="e4"></div>
+    <div class="nav"><button class="btn" onclick="go(3)">이전</button><button class="btn go" id="send" onclick="submitAll()">접수하기</button></div>
+  </section>
+
+  <section class="step" id="s5"><div class="done">
+    <div style="font-size:56px">✅</div><b>접수됐어요</b>
+    <p>접수번호 <span id="no"></span><br>태블릿을 데스크에 돌려주세요. 곧 첫 화면으로 돌아가요.</p>
+  </div></section>
+</main>
+<script>
+var KEY = <?!= JSON.stringify(key) ?>;
+var TERMS = <?!= terms ?>;
+var BIGFIXED = <?!= JSON.stringify(big) ?>;
+var state = { species: '', reason: '' }, photoData = '';
+var idle;
+
+function $(id) { return document.getElementById(id); }
+function start(big) {
+  document.body.classList.toggle('big', big);
+  $('bigBtn').textContent = big ? '가 보통 글씨' : '가 큰 글씨';
+  go(1);
+}
+function toggleBig() {
+  var on = document.body.classList.toggle('big');
+  $('bigBtn').textContent = on ? '가 보통 글씨' : '가 큰 글씨';
+  if ($('s4').classList.contains('on')) sizePad();
+}
+function go(n) {
+  document.querySelectorAll('.step').forEach(function (s) { s.classList.remove('on'); });
+  $('s' + n).classList.add('on');
+  document.querySelectorAll('.dots i').forEach(function (d, i) { d.classList.toggle('on', i < Math.min(n, 4)); });
+  document.querySelector('.dots').style.visibility = n === 0 ? 'hidden' : 'visible';
+  if (n === 4) sizePad();
+  window.scrollTo(0, 0);
+}
+function next(n) {
+  var e = $('e' + n); e.textContent = '';
+  if (n === 1) {
+    if (!$('owner').value.trim()) return e.textContent = '보호자 이름을 적어 주세요';
+    if ($('phone').value.replace(/\D/g, '').length < 10) return e.textContent = '휴대폰 번호를 확인해 주세요';
+  }
+  if (n === 2 && !$('pet').value.trim()) return e.textContent = '반려동물 이름을 적어 주세요';
+  if (n === 3) {
+    var miss = TERMS.filter(function (t) { return t.required && !$('t_' + t.id).checked; });
+    if (miss.length) return e.textContent = '필수 동의(' + miss[0].title + ')에 체크해 주세요';
+  }
+  go(n + 1);
+}
+function chips(id) {
+  $(id).addEventListener('click', function (ev) {
+    if (ev.target.tagName !== 'BUTTON') return;
+    $(id).querySelectorAll('button').forEach(function (b) { b.classList.remove('on'); });
+    ev.target.classList.add('on'); state[id] = ev.target.textContent;
+  });
+}
+chips('species'); chips('reason');
+
+$('terms').innerHTML = TERMS.map(function (t) {
+  var esc = function (s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  return '<div class="term' + (t.required ? ' req' : '') + '"><label class="head"><input type="checkbox" id="t_' + esc(t.id) + '">' +
+    '<span class="t">' + esc(t.title) + '</span><span class="tag' + (t.required ? '' : ' opt') + '">' + (t.required ? '필수' : '선택') + '</span></label>' +
+    '<details><summary>전문 보기</summary>' + esc(t.body) + '</details></div>';
+}).join('');
+
+$('photo').addEventListener('change', function () { // 사진은 가로 1280px JPEG로 줄여서 보내요
+  var f = this.files && this.files[0]; if (!f) return;
+  var img = new Image(), url = URL.createObjectURL(f);
+  img.onload = function () {
+    var s = Math.min(1, 1280 / Math.max(img.width, img.height)), c = document.createElement('canvas');
+    c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    photoData = c.toDataURL('image/jpeg', 0.8); $('pv').src = photoData; $('pv').hidden = false; URL.revokeObjectURL(url);
+  };
+  img.src = url;
+});
+
+var pad = $('pad'), ctx = pad.getContext('2d'), drawing = false, inked = false;
+function sizePad() {
+  var r = pad.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+  pad.width = r.width * dpr; pad.height = r.height * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.strokeStyle = '#16302C';
+  inked = false;
+}
+function pos(e) { var r = pad.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
+pad.addEventListener('pointerdown', function (e) { drawing = true; pad.setPointerCapture(e.pointerId); var p = pos(e); ctx.beginPath(); ctx.moveTo(p[0], p[1]); });
+pad.addEventListener('pointermove', function (e) { if (!drawing) return; var p = pos(e); ctx.lineTo(p[0], p[1]); ctx.stroke(); inked = true; });
+pad.addEventListener('pointerup', function () { drawing = false; });
+function clearPad() { ctx.clearRect(0, 0, pad.width, pad.height); inked = false; }
+
+function submitAll() {
+  if (!inked) return $('e4').textContent = '서명해 주세요';
+  var agree = {};
+  TERMS.forEach(function (t) { agree[t.id] = $('t_' + t.id).checked; });
+  var data = { key: KEY, owner: $('owner').value.trim(), phone: $('phone').value.trim(), pet: $('pet').value.trim(),
+    age: $('age').value.trim(), species: state.species, reason: state.reason, agree: agree, sign: pad.toDataURL('image/png'), photo: photoData, big: document.body.classList.contains('big') };
+  $('send').disabled = true; $('send').textContent = '저장 중…';
+  google.script.run
+    .withSuccessHandler(function (no) { $('no').textContent = no; go(5); setTimeout(resetAll, 12000); })
+    .withFailureHandler(function (err) { $('send').disabled = false; $('send').textContent = '접수하기'; $('e4').textContent = '저장하지 못했어요. 데스크에 알려 주세요 (' + err.message + ')'; })
+    .saveIntake(data);
+}
+function resetAll() {
+  document.querySelectorAll('input').forEach(function (i) { if (i.type === 'checkbox') i.checked = false; else i.value = ''; });
+  document.querySelectorAll('.chips button').forEach(function (b) { b.classList.remove('on'); });
+  document.querySelectorAll('.err').forEach(function (e) { e.textContent = ''; });
+  state = { species: '', reason: '' }; clearPad();
+  photoData = ''; $('photo').value = ''; $('pv').hidden = true; $('pv').removeAttribute('src');
+  $('send').disabled = false; $('send').textContent = '접수하기';
+  if (BIGFIXED) { document.body.classList.add('big'); $('bigBtn').textContent = '가 보통 글씨'; go(1); } // 큰 글씨 전용 주소
+  else { document.body.classList.remove('big'); $('bigBtn').textContent = '가 큰 글씨'; go(0); } // 다음 보호자는 글씨 크기부터 고르기
+}
+if (BIGFIXED) { document.body.classList.add('big'); $('bigBtn').textContent = '가 보통 글씨'; go(1); }
+['pointerdown', 'keydown'].forEach(function (ev) {
+  document.addEventListener(ev, function () { clearTimeout(idle); idle = setTimeout(resetAll, 180000); });
+});
+</script>
+</body></html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko"><head><base target="_top"><meta charset="utf-8">
+<style>
+  :root { --ink:#16302C; --muted:#5B6B68; --leaf:#1D6B61; --soft:#E3F0EE; --bg:#F6F8F7; }
+  * { box-sizing:border-box; }
+  html, body { height:100%; margin:0; }
+  body { background:var(--bg); color:var(--ink); font-family:-apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; overflow:hidden; cursor:none; }
+  .bar { height:11vh; background:var(--leaf); color:#fff; display:flex; align-items:center; justify-content:space-between; padding:0 4vw; font-size:3.6vh; }
+  .bar b { font-size:4.4vh; } #clock { font-variant-numeric:tabular-nums; }
+  .stage { height:83vh; display:flex; align-items:center; gap:4vw; padding:4vh 5vw; opacity:1; transition:opacity .6s ease; }
+  .stage.fade { opacity:0; }
+  .txt { flex:1; min-width:0; }
+  .txt h1 { font-size:7.5vh; line-height:1.25; margin:0 0 3vh; }
+  .txt p { font-size:4.4vh; line-height:1.6; margin:0; white-space:pre-wrap; color:#2B4541; }
+  .side { flex:0 0 38vw; display:flex; flex-direction:column; align-items:center; gap:2vh; }
+  .side img.photo { width:100%; max-height:58vh; object-fit:cover; border-radius:3vh; }
+  .side .qr { background:#fff; padding:1.5vh; border-radius:2vh; max-width:100%; font-size:2.6vh; word-break:break-all; }
+  .side .qr img { width:24vh; height:24vh; display:block; }
+  .side small { font-size:2.8vh; color:var(--muted); }
+  .dots { height:6vh; display:flex; justify-content:center; align-items:center; gap:1vh; }
+  .dots i { width:1.4vh; height:1.4vh; border-radius:50%; background:#C9D6D3; } .dots i.on { background:var(--leaf); }
+  @media (orientation:portrait) { .stage { flex-direction:column; justify-content:center; } .side { flex:none; width:100%; } .txt h1 { font-size:5.5vh; } .txt p { font-size:3.2vh; } }
+</style></head>
+<body>
+<div class="bar"><b><?= clinic ?></b><span id="today"></span><span id="clock"></span></div>
+<div class="stage" id="stage"><div class="txt"><h1>안내를 불러오는 중이에요</h1></div></div>
+<div class="dots" id="dots"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+var KEY = <?!= JSON.stringify(key) ?>;
+var LIST = [], i = 0, timer;
+function $(id) { return document.getElementById(id); }
+function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+function load() {
+  google.script.run.withSuccessHandler(function (r) {
+    LIST = r.slides; $('today').textContent = r.today;
+    if (!LIST.length) { $('stage').innerHTML = '<div class="txt"><h1>오늘도 찾아 주셔서 고마워요</h1></div>'; return; }
+    if (i >= LIST.length) i = 0;
+    show();
+  }).withFailureHandler(function () { setTimeout(load, 60000); }).slides(KEY);
+}
+function show() {
+  clearTimeout(timer);
+  var s = LIST[i], st = $('stage');
+  st.classList.add('fade');
+  setTimeout(function () {
+    var side = '';
+    if (s.img || s.qr) {
+      side = '<div class="side">' + (s.img ? '<img class="photo" src="' + s.img + '" alt="">' : '') +
+        (s.qr ? '<div class="qr" id="qr"></div><small>휴대폰 카메라로 비춰 보세요</small>' : '') + '</div>';
+    }
+    st.innerHTML = '<div class="txt"><h1>' + esc(s.title) + '</h1><p>' + esc(s.body) + '</p></div>' + side;
+    if (s.qr) { if (window.QRCode) new QRCode($('qr'), { text: s.qr, width: 400, height: 400 }); else $('qr').textContent = s.qr; } // QR이 안 그려지면 주소 글자로
+    $('dots').innerHTML = LIST.map(function (_, k) { return '<i' + (k === i ? ' class="on"' : '') + '></i>'; }).join('');
+    st.classList.remove('fade');
+    timer = setTimeout(function () { i = (i + 1) % LIST.length; show(); }, s.sec * 1000);
+  }, 600);
+}
+function tick() { var d = new Date(); $('clock').textContent = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2); }
+tick(); setInterval(tick, 20000);
+load(); setInterval(load, 10 * 60 * 1000); // 10분마다 시트를 다시 읽어요(고친 내용이 저절로 반영)
+</script>
+</body></html>

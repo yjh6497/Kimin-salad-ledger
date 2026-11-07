@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko"><head><base target="_top"><meta charset="utf-8">
+<style>
+  :root { --ink:#16302C; --muted:#5B6B68; --leaf:#1D6B61; --line:#D5DEDB; --bg:#F6F8F7; --warn:#B4442F; --amber:#C98A12; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.5 -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  header { position:sticky; top:0; z-index:2; background:var(--leaf); color:#fff; padding:12px 20px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  header b { font-size:21px; flex:1; }
+  header input { width:110px; font-size:18px; padding:8px 10px; border-radius:10px; border:0; }
+  #places { display:flex; gap:10px; flex-wrap:wrap; padding:14px 20px; }
+  #places button { font-size:18px; padding:12px 18px; border-radius:999px; border:2px solid var(--line); background:#fff; }
+  #places button.on { border-color:var(--leaf); background:#E3F0EE; color:var(--leaf); font-weight:700; }
+  #list { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:12px; padding:0 20px 120px; }
+  .it { background:#fff; border:2px solid var(--line); border-radius:16px; padding:14px 16px; display:flex; flex-direction:column; gap:8px; }
+  .it.done { border-color:var(--leaf); } .it.diff { border-color:var(--amber); }
+  .it .nm { font-weight:700; font-size:19px; } .it .sub { color:var(--muted); font-size:15px; }
+  .ctl { display:flex; align-items:center; gap:10px; }
+  .ctl button { width:64px; height:56px; font-size:28px; border-radius:12px; border:2px solid var(--line); background:#fff; }
+  .ctl input { width:96px; height:56px; font-size:26px; text-align:center; border:2px solid var(--line); border-radius:12px; }
+  .ctl .same { width:auto; padding:0 12px; font-size:16px; white-space:nowrap; }
+  .gap { font-size:15px; font-weight:700; color:var(--amber); min-height:1.2em; }
+  footer { position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid var(--line); padding:12px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  footer .btn { font-size:20px; padding:14px 28px; border-radius:14px; border:0; background:var(--leaf); color:#fff; font-weight:700; }
+  footer .btn:disabled { opacity:.45; }
+  #msg { color:var(--muted); font-size:16px; }
+</style></head>
+<body>
+<header><b>재고 실사</b><label>직원번호 <input id="staff" inputmode="numeric" placeholder="03"></label></header>
+<div id="places"></div>
+<div id="list"><p style="padding:20px">품목을 불러오는 중…</p></div>
+<footer><span id="msg">위치를 고르고, 눈으로 센 수량을 넣어 주세요.</span><button class="btn" id="save" onclick="save()">이 위치 저장</button></footer>
+<script>
+var KEY = <?!= JSON.stringify(key) ?>;
+var ITEMS = [], place = '', counted = {};
+function $(id) { return document.getElementById(id); }
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+google.script.run.withSuccessHandler(function (items) {
+  ITEMS = items;
+  var places = items.map(function (x) { return x.place; }).filter(function (p, i, a) { return a.indexOf(p) === i; });
+  $('places').innerHTML = places.map(function (p) { return '<button type="button">' + esc(p) + '</button>'; }).join('');
+  $('places').querySelectorAll('button').forEach(function (b, i) { b.onclick = function () { pick(places[i], b); }; });
+  if (places.length) pick(places[0], $('places').querySelector('button'));
+}).withFailureHandler(function (e) { $('list').innerHTML = '<p style="padding:20px">불러오지 못했어요: ' + esc(e.message) + '</p>'; }).stockItems(KEY);
+
+function pick(p, btn) {
+  place = p; counted = {};
+  $('places').querySelectorAll('button').forEach(function (b) { b.classList.toggle('on', b === btn); });
+  var rows = ITEMS.filter(function (x) { return x.place === p; });
+  $('list').innerHTML = rows.map(function (x) {
+    return '<div class="it" id="c_' + esc(x.code) + '"><div class="nm">' + esc(x.name) + '</div>' +
+      '<div class="sub">' + esc(x.code) + ' · 시트 ' + x.sheet + ' ' + esc(x.unit || '') + '</div>' +
+      '<div class="ctl"><button type="button" data-d="-1">−</button><input inputmode="numeric" placeholder="?">' +
+      '<button type="button" data-d="1">+</button><button type="button" class="same">= 시트</button></div><div class="gap"></div></div>';
+  }).join('') || '<p style="padding:20px">이 위치에 품목이 없어요.</p>';
+  rows.forEach(function (x) {
+    var box = $('c_' + x.code), inp = box.querySelector('input');
+    function set(v) { v = Math.max(0, v); inp.value = v; counted[x.code] = v; mark(x, box, v); }
+    box.querySelectorAll('[data-d]').forEach(function (b) { b.onclick = function () { set((Number(inp.value) || 0) + Number(b.dataset.d)); }; });
+    box.querySelector('.same').onclick = function () { set(x.sheet); };
+    inp.oninput = function () { if (inp.value === '') { delete counted[x.code]; box.className = 'it'; box.querySelector('.gap').textContent = ''; } else set(Number(inp.value.replace(/\D/g, '')) || 0); };
+  });
+  $('msg').textContent = p + ' · ' + rows.length + '개 품목';
+}
+function mark(x, box, v) {
+  var d = v - x.sheet;
+  box.className = 'it ' + (d === 0 ? 'done' : 'diff');
+  box.querySelector('.gap').textContent = d === 0 ? '' : '시트와 ' + (d > 0 ? '+' : '') + d;
+}
+function save() {
+  var staff = $('staff').value.trim();
+  if (!staff) { $('msg').textContent = '직원번호를 먼저 넣어 주세요'; return; }
+  var rows = ITEMS.filter(function (x) { return x.place === place && counted[x.code] !== undefined; })
+    .map(function (x) { return { code: x.code, name: x.name, sheet: x.sheet, count: counted[x.code] }; });
+  if (!rows.length) { $('msg').textContent = '센 품목이 없어요'; return; }
+  $('save').disabled = true; $('msg').textContent = '저장 중…';
+  google.script.run.withSuccessHandler(function (r) {
+    $('save').disabled = false;
+    $('msg').textContent = '저장했어요 · ' + r.saved + '개, 차이 ' + r.diff + '개' + (r.diff ? ' → 원장님 승인 대기' : '');
+    rows.forEach(function (x) { var b = $('c_' + x.code); if (b) b.style.opacity = .5; });
+  }).withFailureHandler(function (e) { $('save').disabled = false; $('msg').textContent = '저장하지 못했어요: ' + e.message; })
+    .saveCount(KEY, staff, rows);
+}
+</script>
+</body></html>
