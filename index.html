@@ -1609,7 +1609,7 @@ html:not([data-track="takeover"]) [data-track-only="takeover"], html[data-track=
 
 <section class="lesson" id="l43" data-level="grow" data-part="4단계 · 가게 알리기 자동화" data-title="카카오맵·구글·티맵까지 지도 한 번에" hidden>
   <div class="lesson-head">
-    <span class="kicker">실습 · 약 1시간 30분</span><span class="lv lv-grow">넓히기</span>
+    <span class="kicker">실습 · 약 2시간</span><span class="lv lv-grow">넓히기</span>
     <h2>어느 지도에서 찾아도 같은 가게가 나와요</h2>
     <p class="goal">카톡을 쓰는 손님은 카카오맵으로, 운전하는 손님은 티맵으로, 외국인과 아이폰 손님은 구글·애플 지도로 찾아요. 지도마다 영업시간이 다르면 헛걸음한 손님이 리뷰에 그대로 남겨요. 원본은 장부 '지도정보' 탭 하나로 두고, 바뀔 때마다 모든 지도를 같은 날 고쳐요.</p>
   </div>
@@ -1643,6 +1643,25 @@ html:not([data-track="takeover"]) [data-track-only="takeover"], html[data-track=
         <li>2~4주 뒤 각 앱에서 '가게 이름'과 '○○동 샐러드'로 검색해 핀이 입구에 찍히는지 확인<span class="fix">배달앱 가게 정보(영업시간·휴무)도 지도정보 탭의 한 열로 같이 관리해요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="s43d" data-key="s43d"><div class="body"><label for="s43d">바뀌면 한 번에</label><small>영업시간·휴무·전화번호가 바뀌면 지도정보 탭을 고치고 아래 '지도 정보 변경 부탁문'으로 지도별 고칠 문구를 받아 같은 날 반영해요. 분기마다 각 지도를 캡처해 '지도 화면 점검 부탁문'으로 다른 곳을 찾아요.</small></div></li>
+    <li><input type="checkbox" id="s43e" data-key="s43e"><div class="body"><label for="s43e">브라우저 AI로 지도 한 바퀴 고치기</label><small>바뀐 내용을 지도마다 손으로 옮기지 않아요. 브라우저 AI가 관리자 화면을 차례로 열어 칸을 고치고, 저장 버튼 앞에서 멈춰요. 사장님은 화면을 보고 저장만 눌러요(<a href="#l45" class="ref" data-ref="l45">강의</a>).</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>처음 한 번: 브라우저 AI를 쓰는 브라우저에서 스마트플레이스·카카오맵 매장관리·구글 비즈니스 프로필·배민·쿠팡이츠·요기요 사장님 화면에 <b>사장님이 직접</b> 로그인해 둬요. 북마크 폴더 '지도 관리'에 여섯 곳을 모아 두면 편해요.</li>
+        <li><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> 또는 </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span>를 켜고 아래 <b>'지도 한 바퀴 부탁문'</b>을 붙여요</li>
+        <li>AI가 한 곳씩 고치고 저장 직전 화면을 보여 주면 확인 → 저장은 사장님이. 다 끝나면 AI가 '지도정보' 탭의 해당 지도 칸에 오늘 날짜를 적어요</li>
+        <li>티맵·애플처럼 '제보'만 되는 곳은 AI가 제보 칸을 채우고 멈춰요. 승인까지 며칠 걸려요<span class="fix">비밀번호·인증번호는 AI 채팅에 쓰지 않아요. 로그인 화면이 나오면 AI는 멈추고, 사장님이 로그인한 뒤 "계속"이라고 하면 돼요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s43f" data-key="s43f"><div class="body"><label for="s43f">텔레그램 봇으로 지도 반영판 만들기</label><small>원본 값을 고치면 봇이 "어느 지도가 아직인지"를 버튼으로 보내고, 누를 때마다 반영 날짜가 장부에 적혀요. 한 곳이라도 남아 있으면 다음 날 아침 다시 알려줘요. 알림판·승인함은 <a href="#l44" class="ref" data-ref="l44">강의</a>에서 만든 봇을 그대로 써요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' → <span class="path">확장 프로그램 → Apps Script</span> → 텔레그램 봇 스크립트가 있는 프로젝트에 새 파일 <b>지도반영</b></li>
+        <li>매장 컨설턴트 채팅에 아래 <b>'지도 반영판 스크립트 부탁문'</b> → 받은 코드를 붙여 넣고 저장</li>
+        <li>트리거: <code>onMapEdit</code> 수정 시, <code>mapMorning</code> 매일 오전 9~10시</li>
+        <li>시험: 지도정보 탭에서 영업시간 원본 값을 바꿔 보면 텔레그램에 지도별 버튼이 와요 → '네이버' 누르기 → 네이버 칸에 오늘 날짜가 찍히면 성공<span class="fix">봇은 장부의 날짜 칸만 바꿔요. 지도 자체는 브라우저 AI와 사장님이 고쳐요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s43g" data-key="s43g"><div class="body"><label for="s43g">분기 점검도 맡기기</label><small>석 달에 한 번, AI 예약 작업이 지도 검색 결과를 읽어 원본과 다른 곳을 찾아 텔레그램 승인함에 '고칠까요?'로 올려요. '고쳐요'를 누르면 다음에 브라우저 AI로 한 바퀴 돌 목록에 들어가요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span data-ai-not="gpt">Claude 예약 작업</span><span data-ai-none> 또는 </span><span data-ai-not="claude">ChatGPT 작업(Tasks)</span>에 '지도 분기 점검 부탁문'을 1·4·7·10월 첫 월요일로 예약 (<a href="#l32" class="ref" data-ref="l32">강의</a>)</li>
+        <li>결과 표를 승인함 한 줄 부탁문(<a href="#l44" class="ref" data-ref="l44">강의</a>)으로 승인함에 올리면 텔레그램 버튼으로 와요<span class="fix">로그인이 필요한 관리자 화면은 예약 작업이 못 열어요. 누구나 보는 검색 결과만 비교해요.</span></li>
+      </ol></details></div></li>
   </ol>
   <div class="prompt"><div class="bar"><span>지도 정보 변경 부탁문 · 매장 컨설턴트</span><button class="copy" type="button">복사</button></div><pre>우리 가게 정보가 바뀌었어. 바뀐 것: ○○ (예: 12/24 오후 휴무, 평일 마감 21시 → 20시)
 '매장 장부'의 '지도정보' 탭을 보고 지도·앱별로 고칠 곳과 붙여 넣을 문구를 표로 줘.
@@ -1650,9 +1669,29 @@ html:not([data-track="takeover"]) [data-track-only="takeover"], html[data-track=
 글자 수 제한이 있는 곳(카카오맵 한줄소개 50자 등)은 맞춰 줄여줘.</pre></div>
   <div class="prompt"><div class="bar"><span>지도 화면 점검 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 지도·배달앱 화면 캡처들을 '지도정보' 탭(붙여 넣음)과 비교해서 다른 곳을 표로 찾아줘.
 열: 지도, 항목, 화면 값, 원본 값, 고칠 방법. 다른 곳이 없으면 '모두 같음'.</pre></div>
-<div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#l34" class="ref" data-ref="l34">강의</a></span></div><ul><li><span class="chip k-br">브라우저 AI</span><div class="ad"><b>신청 칸 채우기</b><span>구글·티맵 등록 화면을 브라우저 AI가 지도정보 탭대로 채우고 제출 앞에서 멈춰요.</span></div></li><li><span class="chip k-br">브라우저 AI</span><div class="ad"><b>지도 검색 결과 읽기</b><span>분기마다 브라우저 AI가 웹 지도 검색 결과를 읽어 원본과 다른 곳을 표로.</span></div></li><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>휴무 공지 전날 알림</b><span>임시휴무가 캘린더에 들어가면 전날 "지도·배달앱 휴무 반영했나" 알림(<a href="#l49" class="ref" data-ref="l49">강의</a>).</span></div></li></ul></div>
-  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>09 배달앱·매장 개선</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>지도 정보 변경·점검 부탁문</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
-  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l41" class="ref" data-ref="l41">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Claude in Chrome</span></div></div></div>
+  <div class="prompt"><div class="bar"><span>지도 한 바퀴 부탁문 · 브라우저 AI</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'의 '지도정보' 탭에서 마지막 확인 날짜보다 원본 값이 새로 바뀐 항목을 찾아줘.
+북마크 폴더 '지도 관리'의 관리자 화면을 하나씩 열어서 그 항목만 원본 값대로 고쳐줘.
+순서: 네이버 스마트플레이스 → 카카오맵 매장관리 → 구글 비즈니스 프로필 → 배민 → 쿠팡이츠 → 요기요 → 티맵·애플 제보.
+규칙
+- 저장·제출·게시 버튼은 누르지 말고, 그 앞에서 멈춰 바꾼 칸을 알려줘. 내가 "저장했어"라고 하면 다음 곳으로
+- 로그인·인증 화면이 나오면 멈추고 기다려. 비밀번호는 묻지 마
+- 가격·메뉴 삭제·광고·결제 화면은 건드리지 마
+- 한 곳이 끝날 때마다 '지도정보' 탭 해당 지도 칸에 오늘 날짜를 적어줘
+- 마지막에 표로: 지도, 바꾼 항목, 결과(저장/제보/못 함), 못 한 이유</pre></div>
+  <div class="prompt"><div class="bar"><span>지도 반영판 스크립트 부탁문 · 매장 컨설턴트</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'에 붙일 앱스 스크립트를 만들어줘. 이미 텔레그램 봇 스크립트(tg, ask, pollTelegram, 승인함 탭)가 같은 프로젝트에 있어. 나는 코딩 초보라 붙이는 곳과 트리거까지 순서대로 알려줘.
+- '지도정보' 탭: A 항목, B 원본 값, C~H 네이버·카카오맵·구글·티맵·애플·배달앱(반영 날짜), I 마지막 확인
+- onMapEdit(e): 지도정보 탭 B열이 바뀌면 그 줄 C~H를 비우고 I에 오늘 날짜. 그리고 텔레그램으로 "○○이 바뀌었어요: 새 값" + 지도별 버튼 6개 보내기
+- 버튼을 누르면 pollTelegram이 그 줄 해당 칸에 오늘 날짜를 적고 "네이버 반영 완료 (남은 곳: …)"로 답장. 콜백 데이터는 map:줄번호:열번호
+- mapMorning(): 매일 아침 날짜가 빈 칸이 남은 항목만 모아 "아직 안 고친 지도" 메시지와 버튼
+- 다 채워지면 "모든 지도 반영 끝" 한 번 보내기
+- 토큰은 스크립트 속성에서 읽고, 지도정보 탭 말고는 아무것도 바꾸지 마</pre></div>
+  <div class="prompt"><div class="bar"><span>지도 분기 점검 부탁문 · AI 예약 작업</span><button class="copy" type="button">복사</button></div><pre>네이버 지도·카카오맵·구글 지도 웹에서 '우리 가게 이름'과 '○○동 샐러드'를 검색해 우리 가게 정보를 읽어줘.
+'지도정보' 탭(Google Drive)의 원본 값과 영업시간·휴무·전화·주소·대표 메뉴 가격을 비교해서 다른 곳만 표로.
+열: 지도, 항목, 지도에 보이는 값, 원본 값. 다른 곳이 없으면 '모두 같음' 한 줄.
+그다음 다른 곳마다 승인함 한 줄(종류 '지도 수정', 선택지 '고쳐요,그대로')을 탭으로 구분해 만들어줘.</pre></div>
+<div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#l34" class="ref" data-ref="l34">강의</a></span></div><ul><li><span class="chip k-br">브라우저 AI</span><div class="ad"><b>지도 한 바퀴 고치기</b><span>바뀐 항목을 관리자 화면마다 브라우저 AI가 고치고 저장 앞에서 멈춰요. 사장님은 저장만.</span></div></li><li><span class="chip k-tg">텔레그램</span><div class="ad"><b>지도 반영판</b><span>원본을 고치면 지도별 버튼이 오고, 누르면 반영 날짜가 장부에. 남은 곳은 다음 날 아침 다시 알림.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>분기 점검 → 승인함</b><span>석 달마다 검색 결과를 원본과 비교해 다른 곳을 '고칠까요?' 버튼으로.</span></div></li><li><span class="chip k-br">브라우저 AI</span><div class="ad"><b>신청 칸 채우기</b><span>구글·티맵 등록 화면을 브라우저 AI가 지도정보 탭대로 채우고 제출 앞에서 멈춰요.</span></div></li><li><span class="chip k-br">브라우저 AI</span><div class="ad"><b>지도 검색 결과 읽기</b><span>분기마다 브라우저 AI가 웹 지도 검색 결과를 읽어 원본과 다른 곳을 표로.</span></div></li><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>휴무 공지 전날 알림</b><span>임시휴무가 캘린더에 들어가면 전날 "지도·배달앱 휴무 반영했나" 알림(<a href="#l49" class="ref" data-ref="l49">강의</a>).</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>09 배달앱·매장 개선</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>지도 정보 변경·점검 부탁문, 지도 한 바퀴 부탁문, 지도 반영판 스크립트</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l41" class="ref" data-ref="l41">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Claude in Chrome</span><span class="rc c">텔레그램 봇(<a href="#l44" class="ref" data-ref="l44">강의</a>)</span></div></div></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>모든 지도 등록·관리 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>지도 정보 일괄 관리 유료 서비스(여러 매장일 때)</li></ul></div></div>
 </section>
 
