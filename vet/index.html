@@ -532,6 +532,13 @@ td b { font-weight: 600; }
 .ll span { font-size: 12px; color: var(--muted); line-height: 1.35; }
 @container vis (max-width: 640px) { .lifeline { grid-template-columns: minmax(0, 1fr); } .lifeline::before { left: 16px; right: auto; top: 6%; bottom: 6%; width: 2px; height: auto; background: repeating-linear-gradient(180deg, var(--pulse) 0 8px, transparent 8px 14px); } .ll { padding: 10px 12px 10px 34px; } .ll::before { top: 12px; left: 10px; } }
 
+/* hospital zones */
+.zones { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; counter-reset: zn; }
+.zn { position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 10px 11px 10px 38px; min-width: 0; display: flex; flex-direction: column; gap: 2px; counter-increment: zn; }
+.zn::before { content: counter(zn); position: absolute; left: 10px; top: 10px; width: 20px; height: 20px; border-radius: 50%; background: var(--leaf-soft); color: var(--leaf); font-family: var(--f-num); font-size: 11.5px; display: grid; place-items: center; }
+.zn b { font-size: 14px; } .zn span { font-size: 12px; color: var(--muted); line-height: 1.35; }
+.zn.warn { border-color: var(--tomato); } .zn.warn::before { background: var(--tomato); color: var(--paper); }
+
 </style>
 
 <div class="shell">
@@ -601,7 +608,7 @@ td b { font-weight: 600; }
       <div class="vitals">
         <svg viewBox="0 0 600 110" role="img" aria-label="개원 준비부터 운영까지 네 시기를 심전도 선으로 이은 그림"><line class="grid" x1="0" y1="8" x2="0" y2="100"/><line class="grid" x1="50" y1="8" x2="50" y2="100"/><line class="grid" x1="100" y1="8" x2="100" y2="100"/><line class="grid" x1="150" y1="8" x2="150" y2="100"/><line class="grid" x1="200" y1="8" x2="200" y2="100"/><line class="grid" x1="250" y1="8" x2="250" y2="100"/><line class="grid" x1="300" y1="8" x2="300" y2="100"/><line class="grid" x1="350" y1="8" x2="350" y2="100"/><line class="grid" x1="400" y1="8" x2="400" y2="100"/><line class="grid" x1="450" y1="8" x2="450" y2="100"/><line class="grid" x1="500" y1="8" x2="500" y2="100"/><line class="grid" x1="550" y1="8" x2="550" y2="100"/><line class="grid" x1="600" y1="8" x2="600" y2="100"/><path class="trace" d="M0 62 H49 l7 -7 l6 7 l6 -46 l8 70 l6 -32 l6 8 H199 l7 -7 l6 7 l6 -46 l8 70 l6 -32 l6 8 H349 l7 -7 l6 7 l6 -46 l8 70 l6 -32 l6 8 H499 l7 -7 l6 7 l6 -46 l8 70 l6 -32 l6 8 H600"/><circle class="dot" cx="75" cy="62" r="5"/><circle class="dot" cx="225" cy="62" r="5"/><circle class="dot" cx="375" cy="62" r="5"/><circle class="dot" cx="525" cy="62" r="5"/><circle class="blip" cx="525" cy="62" r="5"/></svg>
         <div class="phases">
-          <div class="a" style="--d:.5s"><em>D-60 ~ D-30</em><b>기초 자료·AI 비서실</b><span>소개서, 장부, 법률·세무 도우미</span></div>
+          <div class="a" style="--d:.5s"><em>개원 6개월 ~ D-30</em><b>병원 만들기·AI 비서실</b><span>이름, 인테리어, 소개서, 도우미</span></div>
           <div class="a" style="--d:.9s"><em>D-30 ~ D-day</em><b>신고·결제·채널 열기</b><span>법무 체크, 단말기, 플레이스·카톡</span></div>
           <div class="a" style="--d:1.3s"><em>개원 ~ 3개월</em><b>매주 루틴</b><span>일요일 1시간, 리뷰 답글 5분</span></div>
           <div class="a" style="--d:1.7s"><em>3개월 이후</em><b>데이터로 키우기</b><span>재방문 알림, 대시보드, 세무 정리</span></div>
@@ -634,19 +641,20 @@ td b { font-weight: 600; }
   <div class="table-wrap"><table>
     <thead><tr><th>단계</th><th>만드는 것</th><th>강의</th><th>시간</th></tr></thead>
     <tbody>
-      <tr><td><b>1단계 · 개원 기초 자료</b></td><td>병원 한 장 소개서, 마케팅 장부, 개원 D-60 일정표. 뒤의 모든 글과 시스템이 이 세 가지를 재료로 써요.</td><td><span class="refs" data-refs="l3 l4 l9"></span></td><td>개원 8~9주 전</td></tr>
-      <tr><td><b>2단계 · AI 비서실</b></td><td>AI 프로젝트에 병원 본사를 차리고, 채널별 직원과 광고 점검관, 법령 MCP로 근거를 찾는 법률·세무 도우미까지 꾸려요.</td><td><span class="refs" data-refs="l5 l7 l6 l8 l70"></span></td><td>개원 8주 전</td></tr>
-      <tr><td><b>3단계 · 개원 법무·결제</b></td><td>개설·방사선 신고와 게시 의무, 진료비 부가세 면세·과세 구분, 결제 단말기와 차트 연동을 개원 전에 정리해요.</td><td><span class="refs" data-refs="l71 l72 l50 l51"></span></td><td>개원 6~8주 전</td></tr>
-      <tr><td><b>4단계 · 지도: 네이버·카카오</b></td><td>네이버 플레이스와 카카오맵에 병원을 올리고 정보를 꽉 채운 뒤, 리뷰 답글과 소식으로 살아 있는 병원처럼 보이게 해요. 두 지도의 정보는 늘 같게, 새 리뷰는 알림과 AI 답글 제안으로 그날 안에.</td><td><span class="refs" data-refs="l10 l11 l12 l13 l14 l15 l16"></span></td><td>개원 3주 전부터</td></tr>
-      <tr><td><b>5단계 · 네이버 블로그</b></td><td>AI 인터뷰로 블로그 이름·소개·대문 이미지를 정하고, 보호자가 검색하는 질문에 답하는 글을 사진 5장과 메모 세 줄로 써요.</td><td><span class="refs" data-refs="l19 l20 l21 l22"></span></td><td>주 1~2편</td></tr>
-      <tr><td><b>6단계 · 인스타그램</b></td><td>진료실의 30초를 릴스로, 일요일에 일주일 치를 예약하고, DM으로는 진단하지 않아요.</td><td><span class="refs" data-refs="l25 l26 l27 l28"></span></td><td>주 3회</td></tr>
-      <tr><td><b>7단계 · 카카오톡 채널</b></td><td>다녀간 보호자와 이어지는 줄. 채팅 상담, 공지, 접종 안내를 규칙에 맞게 보내요.</td><td><span class="refs" data-refs="l35 l36 l37"></span></td><td>개원 3주 전부터</td></tr>
-      <tr><td><b>8단계 · 매주 운영 루틴</b></td><td>일요일 1시간으로 네 채널을 굴리고, 월요일 브리핑과 한 달 성과로 방향을 잡아요.</td><td><span class="refs" data-refs="l40 l41 l42"></span></td><td>주 1~2시간</td></tr>
-      <tr><td><b>9단계 · 병원 캘린더</b></td><td>예약 블록, 근무, SNS 발행일, 임대료·공과금·수수료, 신고 기한, 장비 점검을 구글 캘린더 7개로 한 화면에. 스크립트가 반복 일정을 만들고, AI가 겹치는 것과 놓칠 것을 찾아요.</td><td><span class="refs" data-refs="l85 l86 l87 l88 l89"></span></td><td>개원 4주 전부터</td></tr>
-      <tr><td><b>10단계 · 고객관리·재방문 안내</b></td><td>차트·단말기·지도에 쌓이는 기록으로 진료 예정일·검진 예정일을 먼저 챙겨요. 안내 타이밍과 템플릿을 정하고, 맥·아이폰 문자, 카카오톡 채널, 알림톡으로 동의한 분께 보내고, 예약으로 이어졌는지 봐요.</td><td><span class="refs" data-refs="l55 l56 l57 l64 l65 l66 l67 l68 l58"></span></td><td>개원 후 첫 달부터</td></tr>
-      <tr><td><b>11단계 · 데이터 시스템</b></td><td>숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들어요.</td><td><span class="refs" data-refs="l60 l61 l62 l63"></span></td><td>익숙해진 뒤</td></tr>
-      <tr><td><b>12단계 · 직원 관리 시스템</b></td><td>사람마다 계정과 권한, 근무표·출퇴근·휴가를 한 파일에, PIN 직원 웹앱으로 출퇴근과 체크리스트, 매뉴얼과 신입 교육, 원장님 인력 대시보드까지.</td><td><span class="refs" data-refs="l80 l81 l82 l83 l84"></span></td><td>첫 직원 채용 전부터</td></tr>
-      <tr><td><b>13단계 · 세무·노무·분쟁</b></td><td>세무 자료 정리, 직원·임대차 계약 점검, 분쟁·민원 대응을 법률·세무 도우미와 함께해요.</td><td><span class="refs" data-refs="l73 l74 l75"></span></td><td>필요할 때</td></tr>
+      <tr><td><b>1단계 · 병원 만들기</b></td><td>AI 인터뷰로 병원 이름과 브랜드 톤을 정하고, 인테리어·동선·기구 배치를 정리하고, 보호자와 아이의 눈으로 방문 경험을 설계하고, 동네 보호자의 말을 직접 들어요.</td><td><span class="refs" data-refs="l95 l96 l97 l98"></span></td><td>개원 4~6개월 전</td></tr>
+      <tr><td><b>2단계 · 개원 기초 자료</b></td><td>병원 한 장 소개서, 마케팅 장부, 개원 D-60 일정표. 뒤의 모든 글과 시스템이 이 세 가지를 재료로 써요.</td><td><span class="refs" data-refs="l3 l4 l9"></span></td><td>개원 8~9주 전</td></tr>
+      <tr><td><b>3단계 · AI 비서실</b></td><td>AI 프로젝트에 병원 본사를 차리고, 채널별 직원과 광고 점검관, 법령 MCP로 근거를 찾는 법률·세무 도우미까지 꾸려요.</td><td><span class="refs" data-refs="l5 l7 l6 l8 l70"></span></td><td>개원 8주 전</td></tr>
+      <tr><td><b>4단계 · 개원 법무·결제</b></td><td>개설·방사선 신고와 게시 의무, 진료비 부가세 면세·과세 구분, 결제 단말기와 차트 연동을 개원 전에 정리해요.</td><td><span class="refs" data-refs="l71 l72 l50 l51"></span></td><td>개원 6~8주 전</td></tr>
+      <tr><td><b>5단계 · 지도: 네이버·카카오</b></td><td>네이버 플레이스와 카카오맵에 병원을 올리고 정보를 꽉 채운 뒤, 리뷰 답글과 소식으로 살아 있는 병원처럼 보이게 해요. 두 지도의 정보는 늘 같게, 새 리뷰는 알림과 AI 답글 제안으로 그날 안에.</td><td><span class="refs" data-refs="l10 l11 l12 l13 l14 l15 l16"></span></td><td>개원 3주 전부터</td></tr>
+      <tr><td><b>6단계 · 네이버 블로그</b></td><td>AI 인터뷰로 블로그 이름·소개·대문 이미지를 정하고, 보호자가 검색하는 질문에 답하는 글을 사진 5장과 메모 세 줄로 써요.</td><td><span class="refs" data-refs="l19 l20 l21 l22"></span></td><td>주 1~2편</td></tr>
+      <tr><td><b>7단계 · 인스타그램</b></td><td>진료실의 30초를 릴스로, 일요일에 일주일 치를 예약하고, DM으로는 진단하지 않아요.</td><td><span class="refs" data-refs="l25 l26 l27 l28"></span></td><td>주 3회</td></tr>
+      <tr><td><b>8단계 · 카카오톡 채널</b></td><td>다녀간 보호자와 이어지는 줄. 채팅 상담, 공지, 접종 안내를 규칙에 맞게 보내요.</td><td><span class="refs" data-refs="l35 l36 l37"></span></td><td>개원 3주 전부터</td></tr>
+      <tr><td><b>9단계 · 매주 운영 루틴</b></td><td>일요일 1시간으로 네 채널을 굴리고, 월요일 브리핑과 한 달 성과로 방향을 잡아요.</td><td><span class="refs" data-refs="l40 l41 l42"></span></td><td>주 1~2시간</td></tr>
+      <tr><td><b>10단계 · 병원 캘린더</b></td><td>예약 블록, 근무, SNS 발행일, 임대료·공과금·수수료, 신고 기한, 장비 점검을 구글 캘린더 7개로 한 화면에. 스크립트가 반복 일정을 만들고, AI가 겹치는 것과 놓칠 것을 찾아요.</td><td><span class="refs" data-refs="l85 l86 l87 l88 l89"></span></td><td>개원 4주 전부터</td></tr>
+      <tr><td><b>11단계 · 고객관리·재방문 안내</b></td><td>차트·단말기·지도에 쌓이는 기록으로 진료 예정일·검진 예정일을 먼저 챙겨요. 안내 타이밍과 템플릿을 정하고, 맥·아이폰 문자, 카카오톡 채널, 알림톡으로 동의한 분께 보내고, 예약으로 이어졌는지 봐요.</td><td><span class="refs" data-refs="l55 l56 l57 l64 l65 l66 l67 l68 l58"></span></td><td>개원 후 첫 달부터</td></tr>
+      <tr><td><b>12단계 · 데이터 시스템</b></td><td>숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들어요.</td><td><span class="refs" data-refs="l60 l61 l62 l63"></span></td><td>익숙해진 뒤</td></tr>
+      <tr><td><b>13단계 · 직원 관리 시스템</b></td><td>사람마다 계정과 권한, 근무표·출퇴근·휴가를 한 파일에, PIN 직원 웹앱으로 출퇴근과 체크리스트, 매뉴얼과 신입 교육, 원장님 인력 대시보드까지.</td><td><span class="refs" data-refs="l80 l81 l82 l83 l84"></span></td><td>첫 직원 채용 전부터</td></tr>
+      <tr><td><b>14단계 · 세무·노무·분쟁</b></td><td>세무 자료 정리, 직원·임대차 계약 점검, 분쟁·민원 대응을 법률·세무 도우미와 함께해요.</td><td><span class="refs" data-refs="l73 l74 l75"></span></td><td>필요할 때</td></tr>
     </tbody>
   </table></div>
   <p class="tip"><b>목표는 '주 2시간'이에요.</b> 개원하면 진료로 바빠요. 이 코스는 일요일 1시간에 한 주 치를 몰아 쓰고 예약 걸기, 평일엔 리뷰 답글 5분으로 굴러가게 짰어요. 강의마다 맨 아래 <b>'이 강의 자동화'</b>와 <b>'무료로 하기 / 유료라면 좋은 점'</b> 상자가 있어요.</p>
@@ -829,8 +837,154 @@ td b { font-weight: 600; }
   <p class="tip"><b>이것만 기억하세요.</b> 모르는 화면이 나오면 <b>캡처해서 AI에게 보여 주고 "이 화면에서 다음에 뭘 눌러야 해?"</b>라고 물어보면 돼요. 이 코스의 만능 열쇠예요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>이 강의는 전부 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>음성 대화를 길게, 사진 여러 장을 한 번에</li></ul></div></div>
 </section>
-<section class="lesson" id="l3" data-part="1단계 · 개원 기초 자료" data-title="병원 한 장 소개서" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">1</span><span class="pt"><b>개원 기초 자료</b>3강 · 개원 8~9주 전</span><p class="po">병원 한 장 소개서, 마케팅 장부, 개원 D-60 일정표. 뒤의 모든 글과 시스템이 이 세 가지를 재료로 써요.</p><div class="plist"><span>병원 한 장 소개서</span><span>마케팅 장부 만들기</span><span>개원 D-60 마케팅 일정표</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l95" data-part="1단계 · 병원 만들기" data-title="병원 이름과 브랜드 톤" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">1</span><span class="pt"><b>병원 만들기</b>4강 · 개원 4~6개월 전</span><p class="po">AI 인터뷰로 병원 이름과 브랜드 톤을 정하고, 인테리어·동선·기구 배치를 정리하고, 보호자와 아이의 눈으로 방문 경험을 설계하고, 동네 보호자의 말을 직접 들어요.</p><div class="plist"><span>병원 이름과 브랜드 톤</span><span>인테리어·동선·기구 배치</span><span>보호자·환자 경험 설계</span><span>보호자 인터뷰와 설문</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 30분 · 개원 4~6개월 전</span>
+    <h2>이름 하나가 간판·지도·블로그 전부를 정해요</h2>
+    <p class="goal">병원 이름은 사업자등록, 간판, 네이버 플레이스, 카카오맵, 블로그, 인스타 아이디까지 한 번 정하면 바꾸기 어려워요. AI가 <b>인터뷰로 원장님의 진료 철학과 동네를 듣고</b> 이름 후보를 만든 뒤, 겹치는 이름·상표·아이디까지 함께 검증해요. 같은 인터뷰에서 색·글꼴·말투 같은 <b>브랜드 톤</b>도 정해요.</p>
+  </div>
+  <div class="vis">
+    <div class="flowgrid">
+      <div class="box pop" style="--d:.2s"><strong>AI 인터뷰 10문항</strong><span>철학 · 동네 · 보호자 · 피하고 싶은 느낌</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.5s"></span><span style="--d:1.2s"></span></div>
+      <div class="box ai pop" style="--d:.5s"><strong>이름 후보 10 → 3</strong><span>뜻 · 발음 · 검색 · 오해 소지</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.8s"></span><span style="--d:1.5s"></span></div>
+      <div class="box hi pop" style="--d:.8s"><strong>검증 후 확정</strong><span>지도 · 상표 · 아이디 · 소리 내 읽기</span></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a95a" data-key="a95a"><div class="body"><label for="a95a">① 인터뷰 받기</label><small>아래 '병원 이름 인터뷰' 부탁문을 보내면 AI가 한 번에 하나씩 질문해요. 음성으로 길게 답할수록 이름이 원장님다워져요.</small></div></li>
+    <li><input type="checkbox" id="a95b" data-key="a95b"><div class="body"><label for="a95b">② 후보 10개에서 3개로</label><small>소리 내서 전화 받듯 읽어 보세요("네, ○○동물병원입니다"). 보호자가 한 번 듣고 받아 적을 수 있어야 해요. 가족·직원에게 3개를 보여 주고 기억에 남는 걸 물어요.</small></div></li>
+    <li><input type="checkbox" id="a95c" data-key="a95c"><div class="body"><label for="a95c">③ 검증 4가지</label><small><b>지도</b>: 네이버 지도·카카오맵에서 같은·비슷한 이름의 동물병원이 가까이 있는지 / <b>상표</b>: 키프리스(kipris.or.kr)에서 같은 이름이 등록돼 있는지 / <b>아이디</b>: 네이버 블로그·인스타·카톡 채널 아이디가 비어 있는지 / <b>오해</b>: '센터', '메디컬', '전문'처럼 실제보다 크게 보이는 말이 실제 규모·진료와 맞는지(<a href="#l8" class="ref" data-ref="l8">강의</a>).</small></div></li>
+    <li><input type="checkbox" id="a95d" data-key="a95d"><div class="body"><label for="a95d">④ 브랜드 톤 한 장</label><small>확정한 이름으로 색 3가지, 글꼴 느낌, 로고 방향, 말투 규칙을 '브랜드 한 장'으로 받아요. 인테리어(<a href="#l96" class="ref" data-ref="l96">강의</a>), 블로그(<a href="#l19" class="ref" data-ref="l19">강의</a>), 간판이 모두 이 한 장을 따라요.</small></div></li>
+    <li><input type="checkbox" id="a95e" data-key="a95e"><div class="body"><label for="a95e">⑤ 로고 시안</label><small>AI로 방향을 잡고(ChatGPT·Gemini 이미지, Claude SVG 시안), 오래 쓸 최종 로고는 디자이너에게(<a href="#l32" class="ref" data-ref="l32">강의</a>). 상표 출원은 변리사와 상의해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>병원 이름 인터뷰 부탁문</span><button class="copy" type="button">복사</button></div><pre>너는 동물병원 브랜딩 컨설턴트야. 내가 개원할 동물병원 이름과 브랜드 톤을 정하고 싶어. 나에게 한 번에 하나씩 질문해 줘(최대 10개).
+물어볼 것: 개원 지역(동·역·랜드마크), 주 보호자(나이대, 1인 가구/가족), 진료 대상(개·고양이·특수동물), 진료 철학 한 문장, 보호자가 병원을 나서며 느꼈으면 하는 것, 피하고 싶은 느낌, 좋아하는 색·싫어하는 색, 원장 이름·별명을 넣을지, 나중에 이전·확장 가능성, 마음에 드는 다른 업종 브랜드.
+인터뷰가 끝나면:
+1) 이름 후보 10개: 이름 | 뜻·이유 | 전화로 들었을 때 받아 적기 쉬운지 | 지역명을 넣었을 때 이전 시 문제 | 오해 소지('센터·메디컬·전문' 등)
+2) 그중 추천 3개와 이유
+3) 내가 직접 검증할 것 목록(네이버 지도·카카오맵 같은 이름, 키프리스 상표, 블로그·인스타·카톡 아이디)
+4) 브랜드 한 장: 색 3가지(이름과 HEX), 글꼴 느낌(둥근/곧은/손글씨), 로고 방향 2안, 말투 규칙 5줄, 피할 것 3가지
+최상급·비교 표현 없이.</pre></div>
+  <div class="prompt"><div class="bar"><span>이름 검증 정리 부탁문 (웹 검색 켜고)</span><button class="copy" type="button">복사</button></div><pre>동물병원 이름 후보 '○○', '○○', '○○'을 검증해 줘. 웹 검색으로: 전국에 같은·비슷한 이름의 동물병원이 있는지(지역 포함), 같은 이름의 반려동물 관련 브랜드가 있는지. 표로 정리하고 출처 주소를 붙여. 상표 등록 여부는 키프리스에서 내가 직접 확인할 수 있게 검색어를 알려 줘. 확실하지 않은 건 '확인 필요'.</pre></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>AI 인터뷰·후보·검증 정리, 키프리스 검색 무료</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>최종 로고 디자인, 상표 출원(변리사)</li></ul></div></div>
+</section>
+<section class="lesson" id="l96" data-part="1단계 · 병원 만들기" data-title="인테리어·동선·기구 배치" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절 · 인테리어 업체 미팅 전</span>
+    <h2>업체를 만나기 전에, 원장님 머릿속 병원을 그려 두기</h2>
+    <p class="goal">인테리어 업체는 '예쁜 병원'을 잘 만들지만, 진료 동선과 감염 관리는 원장님이 제일 잘 알아요. AI 인터뷰로 <b>진료 흐름·장비·인원·동물 종류</b>를 정리하고, 구역 배치 스케치와 무드보드, 업체에 줄 요구사항서까지 만들어요.</p>
+  </div>
+  <div class="vis">
+    <div class="zones" aria-label="동물병원 구역 흐름 예시">
+      <div class="zn a" style="--d:.1s"><b>입구·접수</b><span>체중계, 이동장 내려놓는 선반</span></div>
+      <div class="zn a" style="--d:.2s"><b>대기</b><span>개·고양이 자리 나누기</span></div>
+      <div class="zn a" style="--d:.3s"><b>진료실</b><span>진료대, 보호자 의자, 모니터</span></div>
+      <div class="zn a" style="--d:.4s"><b>처치·검사</b><span>무영등, 소독장비, 영상 장비</span></div>
+      <div class="zn a warn" style="--d:.5s"><b>격리</b><span>전염 의심 환자 따로</span></div>
+      <div class="zn a" style="--d:.6s"><b>수술·입원</b><span>청결 동선, 환기, 소음</span></div>
+      <div class="zn a" style="--d:.7s"><b>조제·직원</b><span>조제실 구획, 직원 휴게</span></div>
+    </div>
+    <p class="cap a" style="--d:.9s">예시 흐름이에요. 실제 배치는 면적·건물 구조·장비에 따라 달라요.</p>
+  </div>
+  <h3>법에서 정한 최소 시설 (조회 확인)</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>시설</th><th>수의사가 개설할 때 기준</th></tr></thead>
+    <tbody>
+      <tr><td><b>진료실</b></td><td>진료대 등 진료에 필요한 기구·장비</td></tr>
+      <tr><td><b>처치실</b></td><td>치료·수술에 필요한 진료용 무영조명등, 소독장비 등(진료실과 함께 써도 됨)</td></tr>
+      <tr><td><b>조제실</b></td><td>약제기구, 다른 장소와 구획</td></tr>
+      <tr><td><b>그 밖의 시설</b></td><td>청결 유지·위생관리에 필요한 수도시설·장비</td></tr>
+      <tr><td><b>건물</b></td><td>독립된 건물이거나 다른 시설과 벽·층으로 분리(동물보호법상 허가·등록 영업장과 함께 있는 경우 예외)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap">근거: 수의사법 시행규칙 별표 1 「동물병원의 세부 시설기준」(2024. 4. 25. 개정) — 법령 MCP로 2026. 11. 7. 조회. 방사선 장비는 설치 신고·안전관리 기준(<a href="#l71" class="ref" data-ref="l71">강의</a>)을, 건물 용도는 건축물대장을 업체·도우미와 같이 확인해요.</p>
+  <ol class="steps">
+    <li><input type="checkbox" id="a96a" data-key="a96a"><div class="body"><label for="a96a">① 진료 흐름 인터뷰</label><small>아래 '인테리어 인터뷰' 부탁문. 하루 예상 내원 수, 수술 비중, 입원 칸 수, 미용 여부, 고양이 비율, 장비 목록, 직원 수를 물어봐요.</small></div></li>
+    <li><input type="checkbox" id="a96b" data-key="a96b"><div class="body"><label for="a96b">② 평면도로 구역 배치 스케치</label><small>임대 공간 평면도(사진이어도 돼요)를 올리고 "구역 배치 2안을 그려 줘". <span data-ai-not="gpt">Claude는 구역 배치를 그림(SVG)으로 바로 그려 줘요.</span><span data-ai-none> </span><span data-ai-not="claude">ChatGPT는 평면 위 구역 표시 이미지를 만들어 줘요.</span> 치수는 정확하지 않으니 '생각 정리용'으로만.</small></div></li>
+    <li><input type="checkbox" id="a96c" data-key="a96c"><div class="body"><label for="a96c">③ 무드보드와 톤</label><small>브랜드 한 장(<a href="#l95" class="ref" data-ref="l95">강의</a>)의 색으로 대기실·진료실 분위기 이미지를 만들어요. 바닥·벽은 미끄럽지 않고 소독하기 쉬운 재질, 냄새 빠지는 환기, 동물이 무서워하지 않는 조명·소리를 요구사항에 넣어요.</small></div></li>
+    <li><input type="checkbox" id="a96d" data-key="a96d"><div class="body"><label for="a96d">④ 기구·소품 목록</label><small>장비(진료대, 무영등, 소독·멸균, 영상, 혈액검사, 산소·마취, 입원장)와 소품(입구 체중계, 이동장 선반, 고양이 가림막, 보호자 의자, 배변 처리함, 페로몬 디퓨저, 진료비 게시판, 안내 모니터)을 구역별 표로. 전기 콘센트·수도·배수 위치가 장비마다 필요해요.</small></div></li>
+    <li><input type="checkbox" id="a96e" data-key="a96e"><div class="body"><label for="a96e">⑤ 업체 요구사항서와 견적 비교</label><small>위 결과를 한 장 요구사항서로 만들어 업체 2~3곳에 똑같이 보내고, 견적서는 AI로 비교해요(<a href="#l51" class="ref" data-ref="l51">강의</a>와 같은 방식).</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>인테리어 인터뷰 부탁문</span><button class="copy" type="button">복사</button></div><pre>너는 동물병원 공간 기획 컨설턴트야. 내 병원 인테리어 요구사항을 정리하려고 해. 한 번에 하나씩 질문해 줘(최대 12개).
+물어볼 것: 전용면적과 층·구조, 하루 예상 내원 수, 개·고양이·특수동물 비율, 수술 비중과 종류, 입원 칸 수, 미용 여부, 직원 수와 역할, 장비 목록(영상·검사·마취), 전염병 의심 환자 대응, 보호자 대기 시간, 브랜드 톤, 예산 범위.
+끝나면:
+1) 구역 목록과 면적 비율 제안, 구역 사이 동선(보호자·동물·직원·오염물 따로)
+2) 꼭 지킬 것: 수의사법 시행규칙 별표 1 시설기준(법령 도구가 있으면 조회), 조제실 구획, 격리, 방사선 장비 신고 기준 확인 필요 표시
+3) 재질·환기·조명·소음 요구사항
+4) 구역별 장비·소품 표(전기·수도·배수 필요 여부 칸 포함)
+5) 업체에 줄 요구사항서 한 장, 업체에 물을 질문 10개
+치수·법 기준 중 확실하지 않은 건 '확인 필요'.</pre></div>
+  <div class="prompt"><div class="bar"><span>무드보드 이미지 지시문</span><button class="copy" type="button">복사</button></div><pre>동물병원 대기실 인테리어 무드보드 이미지. 색: ○○(브랜드 색 3가지). 분위기: ○○. 요소: 밝고 미끄럽지 않은 바닥, 개·고양이 대기 공간이 낮은 칸막이로 나뉨, 벽 높이의 이동장 선반, 따뜻한 간접 조명, 식물, 접수대. 사람 얼굴과 실제 브랜드 로고는 넣지 않기. 사진처럼, 정면 넓은 시야.</pre></div>
+  <p class="tip warnbox"><b>AI 그림은 생각 정리용이에요.</b> AI가 그린 배치·투시도는 치수와 구조가 정확하지 않아요. 실제 도면·소방·전기·방사선 차폐는 인테리어 업체와 전문가가 확인하고, AI 이미지를 실제 병원 사진처럼 홍보에 쓰지 않아요.</p>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>인터뷰·요구사항서·견적 비교, Claude 배치 스케치</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>이미지 생성 넉넉히(무드보드 여러 안), 3D 인테리어 시뮬레이션 앱</li></ul></div></div>
+</section>
+<section class="lesson" id="l97" data-part="1단계 · 병원 만들기" data-title="보호자·환자 경험 설계" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간</span>
+    <h2>문을 열고 들어와서 나갈 때까지, 보호자와 아이의 눈으로</h2>
+    <p class="goal">보호자는 걱정을 안고 오고, 아이(환자)는 낯선 냄새와 소리에 겁을 먹어요. AI가 <b>보호자 역할과 아이 입장</b>을 번갈아 맡아 방문 과정을 한 단계씩 짚고, 불편한 순간마다 공간·안내·말 한마디로 줄이는 방법을 제안해요.</p>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>순간</th><th>보호자가 걱정하는 것</th><th>아이가 힘든 것</th><th>줄이는 방법(예)</th></tr></thead>
+    <tbody>
+      <tr><td><b>도착·주차</b></td><td>어디로 들어가지, 주차되나</td><td>차 멀미, 이동장</td><td>지도 정보·입구 사진, 주차 안내(<a href="#l15" class="ref" data-ref="l15">강의</a>)</td></tr>
+      <tr><td><b>접수·대기</b></td><td>얼마나 기다리지, 비용은</td><td>다른 동물, 소리</td><td>대기 시간 안내, 개·고양이 자리 분리, 이동장 높은 선반, 진료비 게시</td></tr>
+      <tr><td><b>진료</b></td><td>설명을 이해할 수 있을까</td><td>진료대, 붙잡힘</td><td>보호자 의자·모니터로 사진 보며 설명, 간식, 짧은 처치</td></tr>
+      <tr><td><b>수납·귀가</b></td><td>왜 이 금액인지, 집에서 뭘 봐야 하지</td><td>피곤함</td><td>항목별 영수증, 귀가 안내문, 다음 예정일 문자(<a href="#l64" class="ref" data-ref="l64">강의</a>)</td></tr>
+      <tr><td><b>다음 날</b></td><td>괜찮은 건지</td><td>회복</td><td>수술·처치 뒤 안부 연락, 카톡 채팅 상담</td></tr>
+    </tbody>
+  </table></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a97a" data-key="a97a"><div class="body"><label for="a97a">① AI 역할극으로 방문 따라가기</label><small>아래 부탁문으로 AI가 '처음 오는 보호자'와 '겁 많은 고양이'가 되어 우리 병원 방문을 한 단계씩 말해요. 원장님은 각 순간에 병원이 하는 일을 답하고, AI가 빈틈을 짚어요.</small></div></li>
+    <li><input type="checkbox" id="a97b" data-key="a97b"><div class="body"><label for="a97b">② 개선 목록을 공간·안내·말로 나누기</label><small>공간(인테리어에 반영, <a href="#l96" class="ref" data-ref="l96">강의</a>), 안내(안내문·문자·게시판), 말(접수·진료 때 하는 한마디, 매뉴얼 <a href="#l83" class="ref" data-ref="l83">강의</a>)로 나눠 담당과 날짜를 붙여요.</small></div></li>
+    <li><input type="checkbox" id="a97c" data-key="a97c"><div class="body"><label for="a97c">③ 안내물 세트 만들기</label><small>첫 방문 안내(주차·접수·대기), 진료비 안내 방식, 귀가 안내문(처치별), 수술 전후 안내를 같은 브랜드 톤으로 받아요.</small></div></li>
+    <li><input type="checkbox" id="a97d" data-key="a97d"><div class="body"><label for="a97d">④ 누구나 오기 쉬운 병원</label><small>휠체어·유모차가 들어오는지, 글씨가 큰 안내문, 외국인 보호자용 짧은 영어 안내, 시각장애인 보조견 출입도 점검 목록에 넣어요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>방문 역할극 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 동물병원 방문 경험을 점검하고 싶어. 병원 소개서와 인테리어 요구사항을 참고해.
+너는 두 역할을 번갈아 해: ① 처음 오는 30대 보호자(아이가 사흘째 밥을 안 먹어 걱정) ② 이동장 안의 겁 많은 고양이.
+도착 → 주차 → 입구 → 접수 → 대기 → 진료 → 처치 → 수납 → 귀가 → 다음 날 순서로, 한 단계씩 그 역할로 느끼는 것과 궁금한 것을 말하고 나에게 "병원은 이때 무엇을 해 주나요?"라고 물어. 내 답을 듣고 다음 단계로.
+끝나면: 불편한 순간 TOP 5, 각각 공간/안내/말로 줄이는 방법, 비용이 거의 안 드는 것부터 순서대로.</pre></div>
+  <div class="prompt"><div class="bar"><span>안내물 세트 부탁문</span><button class="copy" type="button">복사</button></div><pre>브랜드 한 장의 말투로 보호자 안내물을 만들어 줘: ① 첫 방문 안내(주차·입구·접수·대기, 5줄) ② 접수대 '진료비 안내' 문구(게시표를 보는 법, 견적을 먼저 묻는 법) ③ 귀가 안내문 틀(처치명, 집에서 볼 것, 바로 전화할 신호, 다음 예정일 칸) ④ 짧은 영어 안내 3줄. 의학 숫자는 [원장 확인]으로.</pre></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>역할극·안내물 모두 AI로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>저스트레스 진료·고양이 친화 병원 교육·인증 프로그램(수의사회·관련 단체) 참고</li></ul></div></div>
+</section>
+<section class="lesson" id="l98" data-part="1단계 · 병원 만들기" data-title="보호자 인터뷰와 설문" hidden>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 개원 전 1회 + 개원 후 매달</span>
+    <h2>동네 보호자에게 직접 묻고, AI가 정리해요</h2>
+    <p class="goal">상상보다 정확한 건 실제 보호자의 말이에요. 개원 전에는 동네 보호자 5~10명에게 <b>짧은 인터뷰</b>를, 개원 후에는 진료 뒤 <b>1분 설문</b>을 받아요. AI가 질문지를 만들고, 답을 모아 우리 병원이 고칠 것과 블로그 주제로 바꿔 줘요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a98a" data-key="a98a"><div class="body"><label for="a98a">① 개원 전 동네 보호자 인터뷰</label><small>지인, 동네 반려동물 모임, 산책로에서 만난 보호자에게 15분. "지금 다니는 병원에서 좋은 점·아쉬운 점, 병원을 고를 때 보는 것, 밤에 아이가 아프면 어떻게 하는지". 녹음은 동의를 받고, 이름은 적지 않아요.</small></div></li>
+    <li><input type="checkbox" id="a98b" data-key="a98b"><div class="body"><label for="a98b">② 인터뷰 정리</label><small>메모나 녹음 받아쓰기를 AI에게 주면 반복되는 걱정, 병원 선택 기준, 우리 병원이 할 수 있는 것으로 정리해요. 결과는 병원 소개서의 '주 보호자' 칸과 인테리어·안내물에 반영해요.</small></div></li>
+    <li><input type="checkbox" id="a98c" data-key="a98c"><div class="body"><label for="a98c">③ 개원 후 1분 설문 (구글 폼)</label><small>질문 5개 이하. 귀가 안내문·안내 문자 끝에 설문 주소(QR)를 붙여요. 이름·연락처는 묻지 않고, 원하면 '연락 원함' 칸만.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">forms.google.com</span> → 병원 계정 → 빈 양식 → 아래 '설문 문항' 부탁문 결과 붙여 넣기</li>
+        <li><span class="path">응답 → 스프레드시트에 연결</span> → 병원 데이터 허브에 '설문' 탭으로</li>
+        <li><span class="path">보내기 → 링크</span> 복사 → QR 만들기(AI에게 "이 주소 QR 코드 만들어 줘")</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a98d" data-key="a98d"><div class="body"><label for="a98d">④ 매달 설문 분석</label><small>설문 탭을 AI에게 보여 주고 "칭찬 3, 불만 3, 이번 달 고칠 것 1, 블로그로 답할 질문 2". 리뷰 분석(<a href="#l12" class="ref" data-ref="l12">강의</a>)과 같이 보면 더 정확해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>동네 보호자 인터뷰 질문지 부탁문</span><button class="copy" type="button">복사</button></div><pre>개원 예정 동물병원 원장이야. 동네 보호자에게 15분 동안 물어볼 인터뷰 질문지를 만들어 줘.
+- 열린 질문 8개(예/아니오로 끝나지 않게), 순서: 반려동물 소개 → 지금 병원 경험 → 병원을 고르는 기준 → 불안했던 순간 → 바라는 것
+- 유도 질문 피하기, 우리 병원 홍보처럼 들리지 않게
+- 시작할 때 할 말(목적, 녹음 동의, 이름 안 적음)과 끝낼 때 감사 인사
+- 인터뷰 메모 정리 양식(질문별 한 줄)</pre></div>
+  <div class="prompt"><div class="bar"><span>설문 문항 부탁문</span><button class="copy" type="button">복사</button></div><pre>진료 후 보호자 1분 설문 문항 5개를 만들어 줘(구글 폼용). 1~5점 2개(설명이 이해됐는지, 다시 오고 싶은지), 선택형 1개(가장 좋았던 것), 서술형 1개(아쉬웠던 것), 선택 '병원에서 연락 원함(연락처는 병원이 차트로 확인)'. 이름·연락처를 묻지 않게.</pre></div>
+  <div class="prompt"><div class="bar"><span>인터뷰·설문 분석 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 보호자 인터뷰 메모(또는 설문 응답)를 분석해 줘.
+1) 반복되는 걱정·기대 5가지와 각각 몇 명이 말했는지
+2) 병원을 고르는 기준 순위
+3) 우리 병원이 바로 할 수 있는 것: 공간 / 안내 / 말 / 진료 운영으로 나눠
+4) 블로그·플레이스 소식으로 답하면 좋을 질문 5개
+5) 인용할 만한 한 문장(누구인지 알 수 없게)
+없는 내용은 지어내지 마.</pre></div>
+  <p class="tip warnbox"><b>인터뷰·설문도 개인정보예요.</b> 녹음은 동의를 받고 정리 뒤 지우고, AI에는 이름·연락처 없이 내용만. 설문 응답을 리뷰처럼 홍보에 쓰려면 응답자 동의가 따로 필요해요.</p>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 폼·시트, AI 분석</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>녹음 받아쓰기 앱, 차트 CRM의 만족도 조사 기능</li></ul></div></div>
+</section>
+<section class="lesson" id="l3" data-part="2단계 · 개원 기초 자료" data-title="병원 한 장 소개서" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">2</span><span class="pt"><b>개원 기초 자료</b>3강 · 개원 8~9주 전</span><p class="po">병원 한 장 소개서, 마케팅 장부, 개원 D-60 일정표. 뒤의 모든 글과 시스템이 이 세 가지를 재료로 써요.</p><div class="plist"><span>병원 한 장 소개서</span><span>마케팅 장부 만들기</span><span>개원 D-60 마케팅 일정표</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>모든 글의 재료가 되는 A4 한 장</h2>
@@ -856,7 +1010,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>한 번 쓰고 계속 참고</b><span>소개서를 AI 프로젝트 파일에 넣으면(<a href="#l5" class="ref" data-ref="l5">강의</a>) 모든 글이 같은 진료 시간·주소·차별점으로 써져요. 진료 시간이 바뀌면 이 문서 하나만 고쳐요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>인터뷰와 정리는 무료로 충분</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>음성으로 길게 이야기해도 끊기지 않음</li></ul></div></div>
 </section>
-<section class="lesson" id="l4" data-part="1단계 · 개원 기초 자료" data-title="마케팅 장부 만들기" hidden>
+<section class="lesson" id="l4" data-part="2단계 · 개원 기초 자료" data-title="마케팅 장부 만들기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · PC</span>
     <h2>세 채널을 한 장부에서 관리해요</h2>
@@ -885,7 +1039,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>밀린 글 빨간색</b><span>날짜가 지났는데 상태가 '게시'가 아니면 빨갛게. "글달력 탭에 조건부 서식 넣는 법 알려줘"라고 AI에게 부탁하세요.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>예약 글이 비면 메일</b><span>다음 7일 안에 '예약' 상태 글이 없으면 일요일 저녁 메일을 보내는 <dfn data-t="appsscript">앱스 스크립트</dfn>를 <a href="#l41" class="ref" data-ref="l41">강의</a>에서 붙여요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·드라이브 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>따로 필요 없어요</li></ul></div></div>
 </section>
-<section class="lesson" id="l9" data-part="1단계 · 개원 기초 자료" data-title="개원 D-60 마케팅 일정표" hidden>
+<section class="lesson" id="l9" data-part="2단계 · 개원 기초 자료" data-title="개원 D-60 마케팅 일정표" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 30분</span>
     <h2>개원 날 검색되려면 두 달 전부터</h2>
@@ -920,8 +1074,8 @@ td b { font-weight: 600; }
   <p class="tip"><b>왜 '개원 할인'을 빼나요?</b> 할인·무료 이벤트는 금액과 방식에 따라 다른 병원 보호자를 끌어오는 <b>유인 행위</b>로 문제될 수 있어요(<a href="#l8" class="ref" data-ref="l8">강의</a>). 꼭 하고 싶다면 수의사회나 관할 시·군·구에 먼저 물어보세요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>일정표 받기·캘린더 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 매주 "이번 주 할 일" 알림(<a href="#l41" class="ref" data-ref="l41">강의</a>)</li></ul></div></div>
 </section>
-<section class="lesson" id="l5" data-ai="claude" data-part="2단계 · AI 비서실" data-title="AI 비서 만들기 · Claude" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">2</span><span class="pt"><b>AI 비서실</b>4강 · 개원 8주 전</span><p class="po">AI 프로젝트에 병원 본사를 차리고, 채널별 직원과 광고 점검관, 법령 MCP로 근거를 찾는 법률·세무 도우미까지 꾸려요.</p><div class="plist"><span>AI 비서 만들기 · Claude</span><span>채널별 직원 꾸리기</span><span>광고 문구 점검 비서</span><span>법률·세무 도우미 차리기</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l5" data-ai="claude" data-part="3단계 · AI 비서실" data-title="AI 비서 만들기 · Claude" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">3</span><span class="pt"><b>AI 비서실</b>4강 · 개원 8주 전</span><p class="po">AI 프로젝트에 병원 본사를 차리고, 채널별 직원과 광고 점검관, 법령 MCP로 근거를 찾는 법률·세무 도우미까지 꾸려요.</p><div class="plist"><span>AI 비서 만들기 · Claude</span><span>채널별 직원 꾸리기</span><span>광고 문구 점검 비서</span><span>법률·세무 도우미 차리기</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>Claude에 '우리 병원 AI 비서실'을 차려요</h2>
@@ -971,7 +1125,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-conn">커넥터</span><div class="ad"><b>최신 소개서를 알아서</b><span>진료 시간이 바뀌면 소개서 문서만 고치면 모든 글이 새 시간으로 써져요.</span></div></li><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>광고 규칙 자동 점검</b><span>모든 글 끝에 점검 한 줄이 붙어서, '확인 필요'가 나온 글만 다시 보면 돼요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Claude 무료로 프로젝트·커넥터 시작 가능, 사용량은 제한</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Pro 이상: 한 주 치를 한 번에, 예약 작업으로 월요일 브리핑</li></ul></div></div>
 </section>
-<section class="lesson" id="l7" data-ai="gpt" data-part="2단계 · AI 비서실" data-title="AI 비서 만들기 · ChatGPT" hidden>
+<section class="lesson" id="l7" data-ai="gpt" data-part="3단계 · AI 비서실" data-title="AI 비서 만들기 · ChatGPT" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>ChatGPT에 '우리 병원 AI 비서실'을 차려요</h2>
@@ -1021,7 +1175,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>광고 규칙 자동 점검</b><span>모든 글 끝에 점검 한 줄이 붙어서 '확인 필요'만 다시 보면 돼요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>월요일 브리핑</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>정확한 시각에 여러 개 켜 둘 수 있어요(<a href="#l41" class="ref" data-ref="l41">강의</a>).</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>무료 예약 작업은 개수·시각이 제한돼요. 월요일 브리핑 하나만 걸어 두세요.</span></span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>ChatGPT 무료: 사용량·파일 수 제한</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Plus 이상: 이미지 생성 넉넉히, 정확한 시각 예약, MCP 연결(개발자 모드)</li></ul></div></div>
 </section>
-<section class="lesson" id="l6" data-part="2단계 · AI 비서실" data-title="채널별 직원 꾸리기" hidden>
+<section class="lesson" id="l6" data-part="3단계 · AI 비서실" data-title="채널별 직원 꾸리기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 30분</span>
     <h2>채팅마다 직원 한 명, 가상 비서실</h2>
@@ -1056,7 +1210,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>말투 한 번에 맞추기</b><span>마음에 든 글 2편을 '02 블로그 작가'에게 보여 주고 "앞으로 이 말투와 길이로"라고 해 두면 다음부터 메모만 줘도 같은 글이 나와요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>채팅 나누기와 업무일지는 플랜과 상관없이 가능</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>긴 대화도 끊기지 않고, 팀 요금제면 실장님과 같이 쓰기</li></ul></div></div>
 </section>
-<section class="lesson" id="l8" data-part="2단계 · AI 비서실" data-title="광고 문구 점검 비서" hidden>
+<section class="lesson" id="l8" data-part="3단계 · AI 비서실" data-title="광고 문구 점검 비서" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>올리기 전 30초, 광고 규칙 점검</h2>
@@ -1106,7 +1260,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>모든 글에 자동 점검</b><span>프로젝트 지침의 '점검 한 줄' 규칙 덕분에, 따로 점검관에게 안 보내도 글마다 결과가 붙어요. '확인 필요'일 때만 점검관에게.</span></div></li><li><span class="chip k-conn">MCP</span><div class="ad"><b>법이 바뀌어도 최신 원문</b><span>법령 MCP는 조회 때마다 현행 조문을 가져와요. 시행 예정 개정도 알려 줘요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>원문 붙여 주기 + 점검 부탁문</li><li>법제처 OC 키 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>MCP를 여러 개 연결, 긴 글 여러 편 한 번에 점검</li><li>정말 애매한 문구는 의료광고에 밝은 변호사 자문</li></ul></div></div>
 </section>
-<section class="lesson" id="l70" data-part="2단계 · AI 비서실" data-title="법률·세무 도우미 차리기" hidden>
+<section class="lesson" id="l70" data-part="3단계 · AI 비서실" data-title="법률·세무 도우미 차리기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>법전과 국세청 회신을 직접 찾아보는 비서</h2>
@@ -1148,8 +1302,8 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 개정 소식</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 1일 "수의사법·동물보호법·부가가치세법 시행령·근로기준법의 이번 달 개정과 시행 예정을 법령 도구로 확인해 3줄씩".</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>매달 1일 휴대폰 알림 → 같은 문장을 한 번 보내요.</span></span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>법령 MCP·법제처 OC 키 무료</li><li>국가법령정보센터 원문 확인 무료</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>신고·계약·분쟁의 최종 판단은 세무사·노무사·변호사. 도우미는 상담 준비를 줄여 줘요</li></ul></div></div>
 </section>
-<section class="lesson" id="l71" data-part="3단계 · 개원 법무·결제" data-title="개원 법무 체크리스트" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">3</span><span class="pt"><b>개원 법무·결제</b>4강 · 개원 6~8주 전</span><p class="po">개설·방사선 신고와 게시 의무, 진료비 부가세 면세·과세 구분, 결제 단말기와 차트 연동을 개원 전에 정리해요.</p><div class="plist"><span>개원 법무 체크리스트</span><span>진료비 부가세 면세·과세 구분</span><span>토스 vs 네이버 커넥트</span><span>대리점 견적 비교</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l71" data-part="4단계 · 개원 법무·결제" data-title="개원 법무 체크리스트" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">4</span><span class="pt"><b>개원 법무·결제</b>4강 · 개원 6~8주 전</span><p class="po">개설·방사선 신고와 게시 의무, 진료비 부가세 면세·과세 구분, 결제 단말기와 차트 연동을 개원 전에 정리해요.</p><div class="plist"><span>개원 법무 체크리스트</span><span>진료비 부가세 면세·과세 구분</span><span>토스 vs 네이버 커넥트</span><span>대리점 견적 비교</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · 개원 8주 전</span>
     <h2>개원 전에 빠뜨리기 쉬운 신고와 게시</h2>
@@ -1190,7 +1344,7 @@ td b { font-weight: 600; }
   <p class="src">근거: 수의사법 제13조의2·제17조의3·제20조·제20조의2(2024. 7. 24. 시행본), 소득세법 제162조의3(2026. 1. 1. 시행본), 소득세법 시행령 별표 3의3 — 법령 MCP로 2026. 11. 7. 현행 조회</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>체크리스트·동의서 초안은 도우미로</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>개원 컨설팅이 아니라도, 동의서·처리방침은 전문가 검토 한 번</li></ul></div></div>
 </section>
-<section class="lesson" id="l72" data-part="3단계 · 개원 법무·결제" data-title="진료비 부가세 면세·과세 구분" hidden>
+<section class="lesson" id="l72" data-part="4단계 · 개원 법무·결제" data-title="진료비 부가세 면세·과세 구분" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · 차트 세팅 전</span>
     <h2>같은 영수증 안에 면세와 과세가 섞여요</h2>
@@ -1219,7 +1373,7 @@ td b { font-weight: 600; }
   <p class="src">근거: 부가가치세법 시행령 제35조(2026. 2. 27. 시행본), 「부가가치세 면제대상인 동물의 진료용역」(농림축산식품부 고시 제2025-92호, 2026. 1. 1. 시행), 소득세법 제162조의3제4항 — 법령 MCP로 2026. 11. 7. 조회</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구분표는 도우미로, 고시 원문은 국가법령정보센터 행정규칙에서</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>사업자 유형과 신고는 세무사(기장 계약)</li></ul></div></div>
 </section>
-<section class="lesson" id="l50" data-part="3단계 · 개원 법무·결제" data-title="토스 vs 네이버 커넥트" hidden>
+<section class="lesson" id="l50" data-part="4단계 · 개원 법무·결제" data-title="토스 vs 네이버 커넥트" hidden>
   <div class="lesson-head">
     <span class="kicker">읽기 · 약 30분 · 개원 6주 전</span>
     <h2>단말기는 결제기가 아니라 데이터 입구예요</h2>
@@ -1260,7 +1414,7 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://bizhankook.com/articles/139357.html" target="_blank" rel="noopener">토스 vs 네이버 결제 단말기 비교 (비즈한국)</a> · <a href="https://www.navercorp.com/media/pressReleasesDetail?seq=33306" target="_blank" rel="noopener">Npay 커넥트 보도자료 (네이버, 2025.9)</a> · <a href="https://www.dailyvet.co.kr/news/industry/273423" target="_blank" rel="noopener">인투씨엔에스 커넥트 지원 (데일리벳, 2026.2)</a> · <a href="https://navercorp.com/media/pressReleasesDetail?seq=10034394" target="_blank" rel="noopener">동물병원 플레이스 진료 통계 (네이버, 2026.6)</a> · <a href="https://tossplace.com/sector/plugin" target="_blank" rel="noopener">토스플레이스 SDK·API 연동</a> · <a href="https://news.mtn.co.kr/article/2026110515581824762" target="_blank" rel="noopener">토스 공정위 신고 (MTN, 2026.11)</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>두 회사 모두 프로그램 이용료는 대체로 없어요(대리점 정책 확인)</li></ul></div><div class="fp-col fp-paid"><b>돈이 드는 곳</b><ul><li>단말기·프린터, 차트 연동비, 약정 기간의 월 관리비</li></ul></div></div>
 </section>
-<section class="lesson" id="l51" data-part="3단계 · 개원 법무·결제" data-title="대리점 견적 비교" hidden>
+<section class="lesson" id="l51" data-part="4단계 · 개원 법무·결제" data-title="대리점 견적 비교" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 30분</span>
     <h2>견적서 세 장을 표 한 장으로</h2>
@@ -1279,8 +1433,8 @@ td b { font-weight: 600; }
 숫자가 견적서에 없으면 지어내지 말고 '없음'.</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>비교표·합계 계산은 무료로 충분</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>견적서 여러 장 사진을 한 번에</li></ul></div></div>
 </section>
-<section class="lesson" id="l10" data-part="4단계 · 지도: 네이버·카카오" data-title="스마트플레이스 등록" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">4</span><span class="pt"><b>지도: 네이버·카카오</b>7강 · 개원 3주 전부터</span><p class="po">네이버 플레이스와 카카오맵에 병원을 올리고 정보를 꽉 채운 뒤, 리뷰 답글과 소식으로 살아 있는 병원처럼 보이게 해요. 두 지도의 정보는 늘 같게, 새 리뷰는 알림과 AI 답글 제안으로 그날 안에.</p><div class="plist"><span>스마트플레이스 등록</span><span>플레이스 정보 꽉 채우기</span><span>리뷰 관리와 답글</span><span>소식·예약·톡톡</span><span>카카오맵 매장관리</span><span>지도 정보 한꺼번에 맞추기</span><span>리뷰 알림과 답글 제안</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l10" data-part="5단계 · 지도: 네이버·카카오" data-title="스마트플레이스 등록" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">5</span><span class="pt"><b>지도: 네이버·카카오</b>7강 · 개원 3주 전부터</span><p class="po">네이버 플레이스와 카카오맵에 병원을 올리고 정보를 꽉 채운 뒤, 리뷰 답글과 소식으로 살아 있는 병원처럼 보이게 해요. 두 지도의 정보는 늘 같게, 새 리뷰는 알림과 AI 답글 제안으로 그날 안에.</p><div class="plist"><span>스마트플레이스 등록</span><span>플레이스 정보 꽉 채우기</span><span>리뷰 관리와 답글</span><span>소식·예약·톡톡</span><span>카카오맵 매장관리</span><span>지도 정보 한꺼번에 맞추기</span><span>리뷰 알림과 답글 제안</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · PC · 개원 3주 전</span>
     <h2>지도에 우리 병원 깃발 꽂기</h2>
@@ -1302,7 +1456,7 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://tossplace.com/story/smartplace-prepare" target="_blank" rel="noopener">스마트플레이스 등록 준비물 정리 (토스플레이스)</a> · 메뉴 이름은 네이버 업데이트로 바뀔 수 있어요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>스마트플레이스 등록·관리 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>네이버 플레이스 광고(클릭당 과금)는 리뷰 20개쯤 쌓인 뒤 소액으로 시험해도 늦지 않아요</li></ul></div></div>
 </section>
-<section class="lesson" id="l11" data-part="4단계 · 지도: 네이버·카카오" data-title="플레이스 정보 꽉 채우기" hidden>
+<section class="lesson" id="l11" data-part="5단계 · 지도: 네이버·카카오" data-title="플레이스 정보 꽉 채우기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>보호자가 전화하기 전에 궁금한 것을 다 답해 두기</h2>
@@ -1348,7 +1502,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>소개서 하나가 원본</b><span>진료 시간이 바뀌면 소개서를 고치고 "소개서 바뀐 부분으로 플레이스 고칠 칸만 알려 줘"라고 해요.</span></div></li><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>명절 휴진 미리</b><span>구글 캘린더에 명절 2주 전 '플레이스 임시휴무 등록' 반복 알림.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>스마트플레이스·키워드 도구 무료</li><li>사진은 휴대폰으로, 맑은 날 오전에</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>전문 사진 촬영 한 번(개원 때): 플레이스 첫인상이 가장 크게 달라져요</li></ul></div></div>
 </section>
-<section class="lesson" id="l12" data-part="4단계 · 지도: 네이버·카카오" data-title="리뷰 관리와 답글" hidden>
+<section class="lesson" id="l12" data-part="5단계 · 지도: 네이버·카카오" data-title="리뷰 관리와 답글" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 매일 5분 · 휴대폰</span>
     <h2>리뷰 답글은 다음 보호자가 읽어요</h2>
@@ -1388,7 +1542,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>답글 말투 고정</b><span>마음에 든 답글 3개를 보여 주고 "앞으로 이 말투로"라고 해 두면 리뷰만 붙여도 돼요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>한 달 리뷰 요약</b><span>매달 1일 "리뷰 탭에서 지난달 칭찬·불만 상위 3개와 병원이 고칠 것"을 월요일 브리핑(<a href="#l41" class="ref" data-ref="l41">강의</a>)에 넣어요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>스마트플레이스센터 앱 답글 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>리뷰 여러 개를 한 번에 붙여 한꺼번에 답글 초안</li></ul></div></div>
 </section>
-<section class="lesson" id="l13" data-part="4단계 · 지도: 네이버·카카오" data-title="소식·예약·톡톡" hidden>
+<section class="lesson" id="l13" data-part="5단계 · 지도: 네이버·카카오" data-title="소식·예약·톡톡" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>살아 있는 병원처럼 보이게</h2>
@@ -1420,7 +1574,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">예약 게시</span><div class="ad"><b>블로그 글 = 소식</b><span>블로그 글을 쓰면 "이 글을 플레이스 소식 200자로"를 같이 받아, 같은 일요일에 올려요(<a href="#l40" class="ref" data-ref="l40">강의</a>).</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>소식·톡톡 무료</li><li>네이버 예약 기본 기능 무료 (결제 연동 시 수수료는 네이버 안내 확인)</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>한 달 치 소식·사진 설명을 한 번에</li></ul></div></div>
 </section>
-<section class="lesson" id="l14" data-part="4단계 · 지도: 네이버·카카오" data-title="카카오맵 매장관리" hidden>
+<section class="lesson" id="l14" data-part="5단계 · 지도: 네이버·카카오" data-title="카카오맵 매장관리" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 50분 · PC · 개원 3주 전</span>
     <h2>카카오맵에서도 우리 병원이 보이게</h2>
@@ -1463,7 +1617,7 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://kakaobusiness.gitbook.io/main/channel/run/mystore" target="_blank" rel="noopener">카카오 비즈니스 가이드 · 매장관리</a> · <a href="https://www.kakaocorp.com/page/detail/11167" target="_blank" rel="noopener">카카오맵 장소상세 개편 (카카오, 2024.8)</a> · <a href="https://cs.kakao.com/helps_html/1073192977?locale=ko" target="_blank" rel="noopener">카카오 고객센터 · 장소 등록</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>매장 등록·정보 수정·후기 답글, 전용번호 발급 무료</li></ul></div><div class="fp-col fp-paid"><b>돈이 드는 곳</b><ul><li>카카오 광고(선택). 지도 정보부터 꽉 채운 뒤에 생각해도 늦지 않아요</li></ul></div></div>
 </section>
-<section class="lesson" id="l15" data-part="4단계 · 지도: 네이버·카카오" data-title="지도 정보 한꺼번에 맞추기" hidden>
+<section class="lesson" id="l15" data-part="5단계 · 지도: 네이버·카카오" data-title="지도 정보 한꺼번에 맞추기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 30분 · 바뀔 때마다 10분</span>
     <h2>네이버와 카카오의 진료 시간이 다르면 안 돼요</h2>
@@ -1497,7 +1651,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>명절 2주 전 휴무 등록</b><span>구글 캘린더 반복 알림 하나로 네 채널 휴무를 같은 날 등록해요.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>반영 안 된 칸 노란색</b><span>지도정보 탭에서 '바뀐 날'보다 채널 반영 날짜가 이르면 노랗게.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>네이버·카카오·구글 지도 등록·수정 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>여러 지도를 한 번에 고치는 유료 관리 서비스도 있지만, 병원 한 곳이면 체크표로 충분해요</li></ul></div></div>
 </section>
-<section class="lesson" id="l16" data-part="4단계 · 지도: 네이버·카카오" data-title="리뷰 알림과 답글 제안" hidden>
+<section class="lesson" id="l16" data-part="5단계 · 지도: 네이버·카카오" data-title="리뷰 알림과 답글 제안" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · 휴대폰</span>
     <h2>새 리뷰가 오면 휴대폰이 울리고, 답글 초안이 30초 안에</h2>
@@ -1560,8 +1714,8 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>규칙은 한 번, 그다음은 붙여 넣기만</b><span>답글 규칙을 채팅에 고정해 두면 리뷰 한 줄만 붙여도 같은 형식으로 나와요.</span></div></li><li><span class="chip k-trig">단축어</span><div class="ad"><b>복사 → 한 번 누르기</b><span>휴대폰 단축어가 부탁문과 리뷰를 합쳐 AI 앱을 열어 줘요. 비용 없음.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>주간 리뷰 요약</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매주 월요일 "장부 리뷰 탭에서 지난주 네이버·카카오 리뷰 수, 평균 별점, 답 안 한 것, 반복된 불만"을 브리핑에 넣어요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>월요일 휴대폰 알림이 울리면 같은 문장을 한 번 보내요.</span></span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>두 회사 공식 앱 알림, 휴대폰 단축어·상용구, AI 무료 플랜</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>리뷰 여러 개를 한 번에 붙여 한꺼번에 초안</li><li data-ai-not="gpt">Claude in Chrome으로 PC에서 모아 보기</li><li>네이버의 AI 답글 기능이 동물병원에 열리면 같은 규칙으로 함께 쓰기</li></ul></div></div>
 </section>
-<section class="lesson" id="l19" data-part="5단계 · 네이버 블로그" data-title="블로그 이름·소개·이미지 컨설팅" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">5</span><span class="pt"><b>네이버 블로그</b>4강 · 주 1~2편</span><p class="po">AI 인터뷰로 블로그 이름·소개·대문 이미지를 정하고, 보호자가 검색하는 질문에 답하는 글을 사진 5장과 메모 세 줄로 써요.</p><div class="plist"><span>블로그 이름·소개·이미지 컨설팅</span><span>블로그 열기와 키워드</span><span>진료 이야기를 블로그 글로</span><span>글 달력과 성과 보기</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l19" data-part="6단계 · 네이버 블로그" data-title="블로그 이름·소개·이미지 컨설팅" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">6</span><span class="pt"><b>네이버 블로그</b>4강 · 주 1~2편</span><p class="po">AI 인터뷰로 블로그 이름·소개·대문 이미지를 정하고, 보호자가 검색하는 질문에 답하는 글을 사진 5장과 메모 세 줄로 써요.</p><div class="plist"><span>블로그 이름·소개·이미지 컨설팅</span><span>블로그 열기와 키워드</span><span>진료 이야기를 블로그 글로</span><span>글 달력과 성과 보기</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · 블로그 열기 전</span>
     <h2>AI와 15분 인터뷰하고, 블로그 얼굴을 정해요</h2>
@@ -1616,7 +1770,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>말투 규칙을 고정</b><span>인터뷰에서 나온 '말투 규칙 5줄'을 '02 블로그 작가' 채팅에 "앞으로 모든 글은 이 규칙으로"라고 보내 두면 이후 글이 같은 목소리로 나와요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>인터뷰·이름·소개글은 무료 플랜으로</li><li>캔바 무료 템플릿, Claude SVG 시안</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>ChatGPT·Gemini 유료: 이미지 생성 횟수 넉넉히</li><li>캔바 Pro: 병원 색·로고를 브랜드 키트로 저장</li><li>오래 쓸 로고는 디자이너에게(<a href="#l32" class="ref" data-ref="l32">강의</a>의 단건 외주)</li></ul></div></div>
 </section>
-<section class="lesson" id="l20" data-part="5단계 · 네이버 블로그" data-title="블로그 열기와 키워드" hidden>
+<section class="lesson" id="l20" data-part="6단계 · 네이버 블로그" data-title="블로그 열기와 키워드" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>보호자가 검색하는 질문에 답하는 블로그</h2>
@@ -1647,7 +1801,7 @@ td b { font-weight: 600; }
   <p class="tip warnbox"><b>'최적화 블로그'를 사거나 빌리지 마세요.</b> 업체가 파는 오래된 블로그·블로그 임대는 네이버 이용약관 위반으로 제한될 수 있고, 다른 사람이 쓴 글이 우리 병원 이름으로 남아요. 새 블로그도 보호자 질문에 성실히 답하면 몇 달 안에 검색에 나와요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>블로그·데이터랩·키워드 도구 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>키워드 캡처 여러 장을 한 번에 분석</li></ul></div></div>
 </section>
-<section class="lesson" id="l21" data-part="5단계 · 네이버 블로그" data-title="진료 이야기를 블로그 글로" hidden>
+<section class="lesson" id="l21" data-part="6단계 · 네이버 블로그" data-title="진료 이야기를 블로그 글로" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 한 편 약 30분</span>
     <h2>사진 5장과 메모 세 줄이면 한 편</h2>
@@ -1700,7 +1854,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>원장님 말투 고정</b><span>원장님이 직접 고친 글 2편을 보여 주고 "앞으로 이 말투로"라고 해 두면, 고칠 곳이 점점 줄어요.</span></div></li><li><span class="chip k-sched">예약 발행</span><div class="ad"><b>네이버가 정해진 시각에</b><span>일요일에 써 두면 화·금 오전에 저절로 올라가요. 비용 없음.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>블로그 글쓰기·예약 발행 무료</li><li>AI에는 사진 2~3장만, 나머지는 말로 설명</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>사진 여러 장과 글 두 편을 한 번에</li><li>드라이브 '사진' 폴더를 직접 읽고 초안</li></ul></div></div>
 </section>
-<section class="lesson" id="l22" data-part="5단계 · 네이버 블로그" data-title="글 달력과 성과 보기" hidden>
+<section class="lesson" id="l22" data-part="6단계 · 네이버 블로그" data-title="글 달력과 성과 보기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · 글 8편쯤 쌓인 뒤</span>
     <h2>"이번 주엔 뭘 쓰지?"를 없애기</h2>
@@ -1725,8 +1879,8 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>예약 글이 비면 메일</b><span>장부 글달력 탭만 읽는 앱스 스크립트예요(네이버에는 접속하지 않아요). <a href="#l41" class="ref" data-ref="l41">강의</a>에서 붙여요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>블로그 통계 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>캡처 여러 장 한 번에, 석 달 치 비교</li></ul></div></div>
 </section>
-<section class="lesson" id="l25" data-part="6단계 · 인스타그램" data-title="프로페셔널 계정과 프로필" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">6</span><span class="pt"><b>인스타그램</b>4강 · 주 3회</span><p class="po">진료실의 30초를 릴스로, 일요일에 일주일 치를 예약하고, DM으로는 진단하지 않아요.</p><div class="plist"><span>프로페셔널 계정과 프로필</span><span>사진·릴스 만들기</span><span>일주일 예약 게시</span><span>댓글·DM 응대</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l25" data-part="7단계 · 인스타그램" data-title="프로페셔널 계정과 프로필" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">7</span><span class="pt"><b>인스타그램</b>4강 · 주 3회</span><p class="po">진료실의 30초를 릴스로, 일요일에 일주일 치를 예약하고, DM으로는 진단하지 않아요.</p><div class="plist"><span>프로페셔널 계정과 프로필</span><span>사진·릴스 만들기</span><span>일주일 예약 게시</span><span>댓글·DM 응대</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · 휴대폰</span>
     <h2>프로필 한 화면이 병원 간판</h2>
@@ -1751,7 +1905,7 @@ td b { font-weight: 600; }
 - 하이라이트 4개 이름(각 6자 안쪽)과 표지 아이콘 아이디어도</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>프로페셔널 계정·통계·예약 게시 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Meta 인증(유료 구독)은 사칭 계정이 생겼을 때 고려</li></ul></div></div>
 </section>
-<section class="lesson" id="l26" data-part="6단계 · 인스타그램" data-title="사진·릴스 만들기" hidden>
+<section class="lesson" id="l26" data-part="7단계 · 인스타그램" data-title="사진·릴스 만들기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · 휴대폰</span>
     <h2>진료실의 30초가 가장 좋은 콘텐츠</h2>
@@ -1793,7 +1947,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>해시태그 묶음 고정</b><span>동네 해시태그 3개를 '03 인스타 담당'에게 정해 두면 매번 같은 묶음을 써요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>인스타 앱 편집·자막·사운드 무료</li><li>캔바 무료 템플릿</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>캔바 Pro: 병원 색·로고를 저장해 카드 통일</li><li><span data-ai-not="claude">ChatGPT 유료: 카드 배경 이미지 생성</span><span data-ai="claude">이미지 생성이 필요하면 캔바의 AI 기능</span></li></ul></div></div>
 </section>
-<section class="lesson" id="l27" data-part="6단계 · 인스타그램" data-title="일주일 예약 게시" hidden>
+<section class="lesson" id="l27" data-part="7단계 · 인스타그램" data-title="일주일 예약 게시" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 30분 · PC 또는 휴대폰</span>
     <h2>일요일에 올려 두면 평일엔 저절로</h2>
@@ -1818,7 +1972,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">예약 게시</span><div class="ad"><b>세 개를 한 번에</b><span>메타 비즈니스 스위트로 일주일 치를 한 자리에서 예약. 비용 없음.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>인스타 앱 예약, 메타 비즈니스 스위트 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>여러 SNS 예약 도구(유료)는 채널이 4개 이상일 때나 필요</li></ul></div></div>
 </section>
-<section class="lesson" id="l28" data-part="6단계 · 인스타그램" data-title="댓글·DM 응대" hidden>
+<section class="lesson" id="l28" data-part="7단계 · 인스타그램" data-title="댓글·DM 응대" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 30분</span>
     <h2>DM으로 진료하지 않기</h2>
@@ -1839,8 +1993,8 @@ td b { font-weight: 600; }
 과장·할인 약속 없이, 따뜻하게.</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>저장된 답장·숨기기 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>DM이 하루 수십 개가 되면 그때 상담 직원·자동응답 도구를 고려</li></ul></div></div>
 </section>
-<section class="lesson" id="l35" data-part="7단계 · 카카오톡 채널" data-title="카카오톡 채널 만들기" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">7</span><span class="pt"><b>카카오톡 채널</b>3강 · 개원 3주 전부터</span><p class="po">다녀간 보호자와 이어지는 줄. 채팅 상담, 공지, 접종 안내를 규칙에 맞게 보내요.</p><div class="plist"><span>카카오톡 채널 만들기</span><span>1:1 채팅과 자동응답</span><span>채널 메시지·알림톡</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l35" data-part="8단계 · 카카오톡 채널" data-title="카카오톡 채널 만들기" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">8</span><span class="pt"><b>카카오톡 채널</b>3강 · 개원 3주 전부터</span><p class="po">다녀간 보호자와 이어지는 줄. 채팅 상담, 공지, 접종 안내를 규칙에 맞게 보내요.</p><div class="plist"><span>카카오톡 채널 만들기</span><span>1:1 채팅과 자동응답</span><span>채널 메시지·알림톡</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC · 개원 3주 전</span>
     <h2>보호자 휴대폰 안의 병원 창구</h2>
@@ -1877,7 +2031,7 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://www.kakaocorp.com/page/service/service/KakaoTalkChannel" target="_blank" rel="noopener">카카오톡 채널 소개 (카카오)</a> · <a href="https://kakaobusiness.gitbook.io/main/channel/run/message" target="_blank" rel="noopener">카카오 비즈니스 가이드 · 메시지</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>채널 개설·프로필·1:1 채팅·소식 무료</li></ul></div><div class="fp-col fp-paid"><b>돈이 드는 곳</b><ul><li>친구에게 보내는 메시지(건당 과금, <a href="#l37" class="ref" data-ref="l37">강의</a>)</li></ul></div></div>
 </section>
-<section class="lesson" id="l36" data-part="7단계 · 카카오톡 채널" data-title="1:1 채팅과 자동응답" hidden>
+<section class="lesson" id="l36" data-part="8단계 · 카카오톡 채널" data-title="1:1 채팅과 자동응답" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>진료 중에도 카톡 문의가 멈추지 않게</h2>
@@ -1910,7 +2064,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">자동응답</span><div class="ad"><b>자주 묻는 질문은 카카오가</b><span>진료 시간·주차 같은 질문은 키워드 자동응답이 바로 답해요. 비용 없음.</span></div></li><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>답장 말투 고정</b><span>'05 상담·응대'에 실장님 답장 3개를 보여 주고 "이 말투로"라고 해 두세요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>1:1 채팅·웰컴 메시지·자동응답 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>문의가 아주 많아지면 상담톡·챗봇 서비스(딜러사, 유료)</li></ul></div></div>
 </section>
-<section class="lesson" id="l37" data-part="7단계 · 카카오톡 채널" data-title="채널 메시지·알림톡" hidden>
+<section class="lesson" id="l37" data-part="8단계 · 카카오톡 채널" data-title="채널 메시지·알림톡" hidden>
   <div class="lesson-head">
     <span class="kicker">읽기·실습 · 약 1시간</span>
     <h2>친구에게 보내는 메시지는 돈과 규칙이 같이 와요</h2>
@@ -1953,8 +2107,8 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">예약 발송</span><div class="ad"><b>날짜를 정해 두기</b><span>관리자센터 메시지는 날짜·시간 예약 발송이 돼요. 명절 휴진 안내는 일주일 전 오전 10시로.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>대상만 메일로</b><span>재방문 메일(<a href="#l57" class="ref" data-ref="l57">강의</a>)에서 '카톡 친구' 칸이 Y인 분을 따로 표시하면 그룹 만들기가 빨라져요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>채널 소식, 1:1 채팅</li></ul></div><div class="fp-col fp-paid"><b>돈이 드는 곳</b><ul><li>채널 메시지 건당 15~20원(VAT 별도)</li><li>알림톡: 딜러사·차트 부가 서비스 요금</li></ul></div></div>
 </section>
-<section class="lesson" id="l40" data-part="8단계 · 매주 운영 루틴" data-title="일요일 1시간 루틴" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">8</span><span class="pt"><b>매주 운영 루틴</b>3강 · 주 1~2시간</span><p class="po">일요일 1시간으로 네 채널을 굴리고, 월요일 브리핑과 한 달 성과로 방향을 잡아요.</p><div class="plist"><span>일요일 1시간 루틴</span><span>월요일 마케팅 브리핑</span><span>한 달 성과 보기</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l40" data-part="9단계 · 매주 운영 루틴" data-title="일요일 1시간 루틴" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">9</span><span class="pt"><b>매주 운영 루틴</b>3강 · 주 1~2시간</span><p class="po">일요일 1시간으로 네 채널을 굴리고, 월요일 브리핑과 한 달 성과로 방향을 잡아요.</p><div class="plist"><span>일요일 1시간 루틴</span><span>월요일 마케팅 브리핑</span><span>한 달 성과 보기</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 매주 1시간</span>
     <h2>사진 한 묶음으로 세 채널을 한 번에</h2>
@@ -1983,7 +2137,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-conn">커넥터</span><div class="ad"><b>사진 폴더를 직접</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>드라이브 커넥터로 "사진 폴더의 이번 주 사진으로"라고만 하면 돼요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>사진 3~4장만 채팅에 올리고 나머지는 말로 설명해요.</span></span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>채널별로 나눠 부탁하면 무료로도 돼요</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>한 번에 한 주 치, 사진 많이</li></ul></div></div>
 </section>
-<section class="lesson" id="l41" data-part="8단계 · 매주 운영 루틴" data-title="월요일 마케팅 브리핑" hidden>
+<section class="lesson" id="l41" data-part="9단계 · 매주 운영 루틴" data-title="월요일 마케팅 브리핑" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>월요일 아침, 이번 주 마케팅 한 장</h2>
@@ -2030,7 +2184,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>월요일 8시 브리핑</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>예약 작업이 장부를 읽고 보고해요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>휴대폰 반복 알림 + 한 줄 보내기.</span></span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>일요일 저녁 메일</b><span>빈 주와 밀린 글이 있을 때만 메일이 와요. 비용 없음.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트·메일 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 브리핑이 저절로</li></ul></div></div>
 </section>
-<section class="lesson" id="l42" data-part="8단계 · 매주 운영 루틴" data-title="한 달 성과 보기" hidden>
+<section class="lesson" id="l42" data-part="9단계 · 매주 운영 루틴" data-title="한 달 성과 보기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 매달 30분</span>
     <h2>업체 보고서 대신 원장님 장부 한 줄</h2>
@@ -2049,8 +2203,8 @@ td b { font-weight: 600; }
 캡처에 없는 숫자는 지어내지 말고, 해석이 불확실하면 그렇다고 적어 줘.</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>세 채널 통계 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>석 달 치 캡처를 한 번에 비교</li></ul></div></div>
 </section>
-<section class="lesson" id="l85" data-part="9단계 · 병원 캘린더" data-title="병원 캘린더 설계" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">9</span><span class="pt"><b>병원 캘린더</b>5강 · 개원 4주 전부터</span><p class="po">예약 블록, 근무, SNS 발행일, 임대료·공과금·수수료, 신고 기한, 장비 점검을 구글 캘린더 7개로 한 화면에. 스크립트가 반복 일정을 만들고, AI가 겹치는 것과 놓칠 것을 찾아요.</p><div class="plist"><span>병원 캘린더 설계</span><span>예약 관리와 캘린더</span><span>SNS 일정을 캘린더로</span><span>돈 나가는 날과 법정 기한</span><span>AI와 캘린더 같이 쓰기</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l85" data-part="10단계 · 병원 캘린더" data-title="병원 캘린더 설계" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">10</span><span class="pt"><b>병원 캘린더</b>5강 · 개원 4주 전부터</span><p class="po">예약 블록, 근무, SNS 발행일, 임대료·공과금·수수료, 신고 기한, 장비 점검을 구글 캘린더 7개로 한 화면에. 스크립트가 반복 일정을 만들고, AI가 겹치는 것과 놓칠 것을 찾아요.</p><div class="plist"><span>병원 캘린더 설계</span><span>예약 관리와 캘린더</span><span>SNS 일정을 캘린더로</span><span>돈 나가는 날과 법정 기한</span><span>AI와 캘린더 같이 쓰기</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">설계·실습 · 약 1시간 · PC</span>
     <h2>병원의 모든 날짜를 한 화면에, 색깔별로</h2>
@@ -2088,7 +2242,7 @@ td b { font-weight: 600; }
 원장 일정과 개인 일정은 섞지 않게.</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 캘린더·공유·휴대폰 동기화 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: 병원 도메인 계정, 회의실·장비 같은 '리소스' 예약</li></ul></div></div>
 </section>
-<section class="lesson" id="l86" data-part="9단계 · 병원 캘린더" data-title="예약 관리와 캘린더" hidden>
+<section class="lesson" id="l86" data-part="10단계 · 병원 캘린더" data-title="예약 관리와 캘린더" hidden>
   <div class="lesson-head">
     <span class="kicker">설계·실습 · 약 1시간</span>
     <h2>예약은 한 곳이 원본, 캘린더는 큰 그림</h2>
@@ -2117,7 +2271,7 @@ td b { font-weight: 600; }
 캘린더 도구가 없으면 넣을 일정 목록만 표로.</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 캘린더, 네이버 예약 기본 기능, AI 캘린더 커넥터</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트의 예약 연동 부가 기능, Google Workspace 예약 일정 고급 기능</li></ul></div></div>
 </section>
-<section class="lesson" id="l87" data-part="9단계 · 병원 캘린더" data-title="SNS 일정을 캘린더로" hidden>
+<section class="lesson" id="l87" data-part="10단계 · 병원 캘린더" data-title="SNS 일정을 캘린더로" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · PC</span>
     <h2>장부의 글달력이 저절로 캘린더에</h2>
@@ -2159,7 +2313,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>매일 밤 자동 동기화</b><span>글달력을 고치면 다음 날 아침엔 캘린더에 반영돼 있어요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트·캘린더 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>따로 필요 없어요</li></ul></div></div>
 </section>
-<section class="lesson" id="l88" data-part="9단계 · 병원 캘린더" data-title="돈 나가는 날과 법정 기한" hidden>
+<section class="lesson" id="l88" data-part="10단계 · 병원 캘린더" data-title="돈 나가는 날과 법정 기한" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>임대료·공과금·수수료·신고, 3일 전에 먼저 알기</h2>
@@ -2214,7 +2368,7 @@ td b { font-weight: 600; }
   <p class="tip warnbox"><b>계좌번호·카드번호는 캘린더와 시트에 쓰지 않아요.</b> '병원 통장 자동이체', '법인카드 끝 4자리'처럼만. 캘린더는 공유 설정 실수 하나로 남에게 보일 수 있어요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트·캘린더 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>세무사 기장 프로그램의 납부 알림과 같이 쓰기</li></ul></div></div>
 </section>
-<section class="lesson" id="l89" data-part="9단계 · 병원 캘린더" data-title="AI와 캘린더 같이 쓰기" hidden>
+<section class="lesson" id="l89" data-part="10단계 · 병원 캘린더" data-title="AI와 캘린더 같이 쓰기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 30분 · 매주 5분</span>
     <h2>"이번 주 뭐 있어?"에 캘린더 7개가 한 번에 답해요</h2>
@@ -2251,8 +2405,8 @@ td b { font-weight: 600; }
 - 시간대는 서울 기준</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>캘린더 커넥터, 음성으로 일정 넣기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 월요일 아침 캘린더 브리핑 자동</li></ul></div></div>
 </section>
-<section class="lesson" id="l55" data-part="10단계 · 고객관리·재방문 안내" data-title="우리 병원 데이터 지도" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">10</span><span class="pt"><b>고객관리·재방문 안내</b>9강 · 개원 후 첫 달부터</span><p class="po">차트·단말기·지도에 쌓이는 기록으로 진료 예정일·검진 예정일을 먼저 챙겨요. 안내 타이밍과 템플릿을 정하고, 맥·아이폰 문자, 카카오톡 채널, 알림톡으로 동의한 분께 보내고, 예약으로 이어졌는지 봐요.</p><div class="plist"><span>우리 병원 데이터 지도</span><span>동의 받고 연락하기</span><span>재방문 알림 시스템</span><span>안내 타이밍 설계</span><span>안내 문구와 템플릿</span><span>맥북·아이폰으로 문자 안내</span><span>카톡 채널·알림톡으로 안내</span><span>안내 결과와 재방문율</span><span>단골·이탈 분석</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l55" data-part="11단계 · 고객관리·재방문 안내" data-title="우리 병원 데이터 지도" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">11</span><span class="pt"><b>고객관리·재방문 안내</b>9강 · 개원 후 첫 달부터</span><p class="po">차트·단말기·지도에 쌓이는 기록으로 진료 예정일·검진 예정일을 먼저 챙겨요. 안내 타이밍과 템플릿을 정하고, 맥·아이폰 문자, 카카오톡 채널, 알림톡으로 동의한 분께 보내고, 예약으로 이어졌는지 봐요.</p><div class="plist"><span>우리 병원 데이터 지도</span><span>동의 받고 연락하기</span><span>재방문 알림 시스템</span><span>안내 타이밍 설계</span><span>안내 문구와 템플릿</span><span>맥북·아이폰으로 문자 안내</span><span>카톡 채널·알림톡으로 안내</span><span>안내 결과와 재방문율</span><span>단골·이탈 분석</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">읽기·실습 · 약 40분</span>
     <h2>데이터는 이미 여덟 군데에 쌓이고 있어요</h2>
@@ -2285,7 +2439,7 @@ td b { font-weight: 600; }
 - 마지막에, 이 데이터로 할 수 있는 고객관리 5가지를 쉬운 것부터</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>지도 만들기는 문서 하나면 끝</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트의 CRM·문자 부가서비스가 있으면 비교해 보기</li></ul></div></div>
 </section>
-<section class="lesson" id="l56" data-part="10단계 · 고객관리·재방문 안내" data-title="동의 받고 연락하기" hidden>
+<section class="lesson" id="l56" data-part="11단계 · 고객관리·재방문 안내" data-title="동의 받고 연락하기" hidden>
   <div class="lesson-head">
     <span class="kicker">읽기·실습 · 약 30분</span>
     <h2>연락처가 있다고 다 보낼 수는 없어요</h2>
@@ -2311,7 +2465,7 @@ td b { font-weight: 600; }
   <p class="src">근거: 정보통신망 이용촉진 및 정보보호 등에 관한 법률 제50조(2026. 10. 2. 시행본) — 법령 MCP로 2026. 11. 7. 현행 조회 · <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>동의서 초안, 차트 메모 칸 활용</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>동의서 최종본은 개인정보 전문가 검토 한 번</li></ul></div></div>
 </section>
-<section class="lesson" id="l57" data-part="10단계 · 고객관리·재방문 안내" data-title="재방문 알림 시스템" hidden>
+<section class="lesson" id="l57" data-part="11단계 · 고객관리·재방문 안내" data-title="재방문 알림 시스템" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2>다음 접종일을 병원이 먼저 기억해요</h2>
@@ -2366,7 +2520,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>다음 예정일 자동 계산</b><span>마지막 날짜만 바꾸면 예정일이 다시 계산돼요.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>지난 날짜 빨간색</b><span>G열이 오늘보다 이전이고 I열이 비어 있으면 빨갛게.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>월요일 아침 메일</b><span>대상이 있을 때만 메일이 와요. 보호자에게 자동으로 보내지는 않아요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>시트·스크립트·메일 무료, 문자는 병원 휴대폰으로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트의 문자·알림톡 부가 서비스(건당 비용)로 발송 기록까지 한곳에</li></ul></div></div>
 </section>
-<section class="lesson" id="l64" data-part="10단계 · 고객관리·재방문 안내" data-title="안내 타이밍 설계" hidden>
+<section class="lesson" id="l64" data-part="11단계 · 고객관리·재방문 안내" data-title="안내 타이밍 설계" hidden>
   <div class="lesson-head">
     <span class="kicker">설계 · 약 1시간</span>
     <h2>언제, 무엇을, 어떤 채널로 안내할까</h2>
@@ -2395,7 +2549,7 @@ td b { font-weight: 600; }
 - 한 보호자에게 한 달 최대 2번 규칙을 지키도록 겹칠 때 우선순위</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>규칙표는 문서 하나, 시트 칸 몇 개</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트 CRM 기능이 있으면 이 규칙표를 그대로 차트 알림 설정에 옮기기</li></ul></div></div>
 </section>
-<section class="lesson" id="l65" data-part="10단계 · 고객관리·재방문 안내" data-title="안내 문구와 템플릿" hidden>
+<section class="lesson" id="l65" data-part="11단계 · 고객관리·재방문 안내" data-title="안내 문구와 템플릿" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>한 번 다듬은 문구를 계속 쓰기</h2>
@@ -2422,7 +2576,7 @@ td b { font-weight: 600; }
 '템플릿' 탭(A 항목 | B 채널 | C 문구, 문구 안에 {이름} {날짜} 자리)을 만들고, 항목+채널이 맞는 문구를 찾아 {이름}{날짜}를 바꿔 넣는 수식을 알려 줘. 날짜는 '12월 9일(화)' 모양으로.</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>템플릿 문서와 시트 수식</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>알림톡 서비스의 템플릿 관리·심사 화면</li></ul></div></div>
 </section>
-<section class="lesson" id="l66" data-part="10단계 · 고객관리·재방문 안내" data-title="맥북·아이폰으로 문자 안내" hidden>
+<section class="lesson" id="l66" data-part="11단계 · 고객관리·재방문 안내" data-title="맥북·아이폰으로 문자 안내" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · 맥 + 아이폰</span>
     <h2>단축어 한 번으로 이번 주 안내 문자를</h2>
@@ -2468,7 +2622,7 @@ td b { font-weight: 600; }
   <p class="tip warnbox"><b>개인 휴대폰 문자도 같은 규칙이에요.</b> 진료 안내는 진료에 필요한 범위로, 광고가 섞이면 사전 동의·밤 9시~아침 8시 제한·수신거부 안내가 필요해요(정보통신망법 제50조, <a href="#l56" class="ref" data-ref="l56">강의</a>). 보내는 사람 이름([병원 이름])은 첫머리에.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>맥 메시지·단축어 무료, 문자 요금은 휴대폰 요금제대로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>문자 발송 서비스(건당 요금): 대량 발송, 발신번호 등록, 발송 결과 기록</li></ul></div></div>
 </section>
-<section class="lesson" id="l67" data-part="10단계 · 고객관리·재방문 안내" data-title="카톡 채널·알림톡으로 안내" hidden>
+<section class="lesson" id="l67" data-part="11단계 · 고객관리·재방문 안내" data-title="카톡 채널·알림톡으로 안내" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>카톡으로 받은 안내에는 예약 버튼이 있어요</h2>
@@ -2500,7 +2654,7 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://kakaobusiness.gitbook.io/main/channel/run/message" target="_blank" rel="noopener">카카오 비즈니스 가이드 · 메시지(친구그룹·단가)</a> · <a href="https://inside.ampm.co.kr/insight/59098" target="_blank" rel="noopener">2026 카카오 비즈니스 메시지 정리 (AMPM)</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>1:1 채팅 안내는 무료</li></ul></div><div class="fp-col fp-paid"><b>돈이 드는 곳</b><ul><li>친구그룹 메시지 건당 20원(VAT 별도), 알림톡은 서비스 요금</li></ul></div></div>
 </section>
-<section class="lesson" id="l68" data-part="10단계 · 고객관리·재방문 안내" data-title="안내 결과와 재방문율" hidden>
+<section class="lesson" id="l68" data-part="11단계 · 고객관리·재방문 안내" data-title="안내 결과와 재방문율" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · 매달 15분</span>
     <h2>보낸 안내가 예약으로 이어졌는지</h2>
@@ -2532,7 +2686,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>전환율 자동 계산</b><span>COUNTIFS로 안내·채널별 Y 비율. 요약 탭에 두면 대시보드가 바로 읽어요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 1일 안내 성과</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>월간 경영 브리핑(<a href="#l62" class="ref" data-ref="l62">강의</a>)에 이 분석을 넣어요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>매달 1일 휴대폰 알림 → 한 줄 보내기.</span></span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>시트 기록·수식·AI 분석</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>차트 CRM·알림톡 서비스의 발송 결과 화면을 그대로 내보내 붙이기</li></ul></div></div>
 </section>
-<section class="lesson" id="l58" data-part="10단계 · 고객관리·재방문 안내" data-title="단골·이탈 분석" hidden>
+<section class="lesson" id="l58" data-part="11단계 · 고객관리·재방문 안내" data-title="단골·이탈 분석" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 분기마다 약 1시간</span>
     <h2>"요즘 안 오시는 분"을 숫자로 찾기</h2>
@@ -2560,8 +2714,8 @@ td b { font-weight: 600; }
   <p class="tip warnbox"><b>원본 파일은 AI에 올리지 마세요.</b> 보호자 이름·연락처가 들어 있는 원본은 차트와 병원 PC 안에만. AI·구글 드라이브에는 '_AI용' 파일만 둬요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>석 달씩 나눠 분석</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>1년 치 한 번에, 그래프까지</li></ul></div></div>
 </section>
-<section class="lesson" id="l60" data-part="11단계 · 데이터 시스템" data-title="병원 데이터 허브 시트" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">11</span><span class="pt"><b>데이터 시스템</b>4강 · 익숙해진 뒤</span><p class="po">숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들어요.</p><div class="plist"><span>병원 데이터 허브 시트</span><span>공공데이터로 동네 읽기</span><span>원장님 대시보드와 월간 브리핑</span><span>자동화 지도</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l60" data-part="12단계 · 데이터 시스템" data-title="병원 데이터 허브 시트" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">12</span><span class="pt"><b>데이터 시스템</b>4강 · 익숙해진 뒤</span><p class="po">숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, 원장님 대시보드와 월간 브리핑을 만들어요.</p><div class="plist"><span>병원 데이터 허브 시트</span><span>공공데이터로 동네 읽기</span><span>원장님 대시보드와 월간 브리핑</span><span>자동화 지도</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2>숫자는 한 파일에, 해석은 AI에게</h2>
@@ -2599,7 +2753,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>요약은 저절로</b><span>숫자를 넣으면 요약 탭이 다시 계산돼요.</span></div></li><li><span class="chip k-conn">커넥터</span><div class="ad"><b>AI가 최신 허브를 읽음</b><span>Google Drive 커넥터로 연결해 두면 다시 올릴 필요가 없어요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·IMPORTRANGE 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>단말기·차트 회사가 API를 열어 주면 일매출 자동 입력(개발 비용)</li></ul></div></div>
 </section>
-<section class="lesson" id="l61" data-part="11단계 · 데이터 시스템" data-title="공공데이터로 동네 읽기" hidden>
+<section class="lesson" id="l61" data-part="12단계 · 데이터 시스템" data-title="공공데이터로 동네 읽기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC · 개원 전에 특히</span>
     <h2>우리 동네 반려동물과 경쟁 병원</h2>
@@ -2629,7 +2783,7 @@ td b { font-weight: 600; }
   <p class="src">출처: <a href="https://www.data.go.kr" target="_blank" rel="noopener">공공데이터포털</a> · <a href="https://datalab.naver.com" target="_blank" rel="noopener">네이버 데이터랩</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>공공데이터·소상공인365·데이터랩 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>큰 파일을 그대로 올려 지도와 표까지 한 번에</li></ul></div></div>
 </section>
-<section class="lesson" id="l62" data-part="11단계 · 데이터 시스템" data-title="원장님 대시보드와 월간 브리핑" hidden>
+<section class="lesson" id="l62" data-part="12단계 · 데이터 시스템" data-title="원장님 대시보드와 월간 브리핑" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>휴대폰 한 화면으로 병원 상태 보기</h2>
@@ -2656,7 +2810,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-conn">대시보드</span><div class="ad"><b>열 때마다 최신</b><span>Looker Studio는 시트가 바뀌면 그래프도 바뀌어요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 1일 브리핑</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>예약 작업으로 저절로.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>매달 1일 휴대폰 알림 → 한 줄 보내기.</span></span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Looker Studio 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 브리핑 자동화</li></ul></div></div>
 </section>
-<section class="lesson" id="l63" data-part="11단계 · 데이터 시스템" data-title="자동화 지도" hidden>
+<section class="lesson" id="l63" data-part="12단계 · 데이터 시스템" data-title="자동화 지도" hidden>
   <div class="lesson-head">
     <span class="kicker">읽기 · 약 20분</span>
     <h2>무엇을 어떤 도구로 자동화할까</h2>
@@ -2689,8 +2843,8 @@ td b { font-weight: 600; }
 3) 개인정보가 새지 않게 조심할 점</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>표의 도구 대부분 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI 예약 작업, 차트 문자 부가 서비스</li></ul></div></div>
 </section>
-<section class="lesson" id="l80" data-part="12단계 · 직원 관리 시스템" data-title="직원 관리 지도와 권한" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">12</span><span class="pt"><b>직원 관리 시스템</b>5강 · 첫 직원 채용 전부터</span><p class="po">사람마다 계정과 권한, 근무표·출퇴근·휴가를 한 파일에, PIN 직원 웹앱으로 출퇴근과 체크리스트, 매뉴얼과 신입 교육, 원장님 인력 대시보드까지.</p><div class="plist"><span>직원 관리 지도와 권한</span><span>근무표와 출퇴근 기록</span><span>직원 웹앱 만들기</span><span>병원 매뉴얼과 신입 교육</span><span>원장님 인력 대시보드와 면담</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l80" data-part="13단계 · 직원 관리 시스템" data-title="직원 관리 지도와 권한" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">13</span><span class="pt"><b>직원 관리 시스템</b>5강 · 첫 직원 채용 전부터</span><p class="po">사람마다 계정과 권한, 근무표·출퇴근·휴가를 한 파일에, PIN 직원 웹앱으로 출퇴근과 체크리스트, 매뉴얼과 신입 교육, 원장님 인력 대시보드까지.</p><div class="plist"><span>직원 관리 지도와 권한</span><span>근무표와 출퇴근 기록</span><span>직원 웹앱 만들기</span><span>병원 매뉴얼과 신입 교육</span><span>원장님 인력 대시보드와 면담</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">설계 · 약 40분 · 첫 직원 채용 전</span>
     <h2>누가 어떤 계정으로, 무엇을 보나</h2>
@@ -2721,7 +2875,7 @@ td b { font-weight: 600; }
 매출·급여·보호자 개인정보는 직원이 볼 필요가 없으면 '없음'으로.</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>각 서비스의 관리자 초대·드라이브 공유 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: 병원 도메인 계정, 퇴사해도 파일이 병원에 남는 공유 드라이브</li></ul></div></div>
 </section>
-<section class="lesson" id="l81" data-part="12단계 · 직원 관리 시스템" data-title="근무표와 출퇴근 기록" hidden>
+<section class="lesson" id="l81" data-part="13단계 · 직원 관리 시스템" data-title="근무표와 출퇴근 기록" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2>근무표, 출퇴근, 휴가를 한 파일에</h2>
@@ -2758,7 +2912,7 @@ td b { font-weight: 600; }
   <p class="tip warnbox"><b>급여 계산은 세무사·노무사와 맞춰요.</b> 시트는 시간을 정확히 모으는 곳이고, 가산수당·연차수당·퇴직금 계산과 임금명세서 발급은 급여 프로그램이나 세무사 기준으로 해요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·폼, 법령 MCP로 기준 확인</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>근태·급여 앱: 출퇴근 위치 확인, 연차 자동 계산, 임금명세서 발송</li></ul></div></div>
 </section>
-<section class="lesson" id="l82" data-part="12단계 · 직원 관리 시스템" data-title="직원 웹앱 만들기" hidden>
+<section class="lesson" id="l82" data-part="13단계 · 직원 관리 시스템" data-title="직원 웹앱 만들기" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절 · PC</span>
     <h2>직원 휴대폰에 병원 전용 앱 하나</h2>
@@ -2794,7 +2948,7 @@ td b { font-weight: 600; }
   <p class="tip warnbox"><b>PIN 웹앱은 작은 병원용이에요.</b> 강한 보안이 아니니 급여·매출·보호자 개인정보는 넣지 마세요. 출퇴근 기록은 실장님이 매주 한 번 근무표와 맞춰 봐요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트 웹앱 무료, 앱 설치 없음</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: PIN 대신 병원 계정 로그인</li><li>근태 앱: 위치 기반 출퇴근, 전자결재</li></ul></div></div>
 </section>
-<section class="lesson" id="l83" data-part="12단계 · 직원 관리 시스템" data-title="병원 매뉴얼과 신입 교육" hidden>
+<section class="lesson" id="l83" data-part="13단계 · 직원 관리 시스템" data-title="병원 매뉴얼과 신입 교육" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 하루 · 조금씩</span>
     <h2>원장님 머릿속 규칙을 문서로</h2>
@@ -2817,7 +2971,7 @@ td b { font-weight: 600; }
 3) 첫 달 끝 면담 때 물어볼 질문 5개</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 문서 매뉴얼, 음성 입력, AI 정리</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>팀 요금제로 직원과 매뉴얼 비서 공유</li></ul></div></div>
 </section>
-<section class="lesson" id="l84" data-part="12단계 · 직원 관리 시스템" data-title="원장님 인력 대시보드와 면담" hidden>
+<section class="lesson" id="l84" data-part="13단계 · 직원 관리 시스템" data-title="원장님 인력 대시보드와 면담" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · 매달 15분</span>
     <h2>사람이 부족한지, 몰리는지 숫자로</h2>
@@ -2849,8 +3003,8 @@ td b { font-weight: 600; }
   <p class="tip warnbox"><b>직원 정보도 개인정보예요.</b> 건강·가족·평가 같은 민감한 내용은 AI에 넣지 말고, 면담 기록은 원장님만 보는 곳에 둬요.</p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Looker Studio, 시트 수식, AI 브리핑</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 매달 자동 브리핑, 인사·급여 프로그램 연동</li></ul></div></div>
 </section>
-<section class="lesson" id="l73" data-part="13단계 · 세무·노무·분쟁" data-title="세무 일정과 자료 정리" hidden>
-    <div class="partcard a" style="--d:0s"><span class="pn">13</span><span class="pt"><b>세무·노무·분쟁</b>3강 · 필요할 때</span><p class="po">세무 자료 정리, 직원·임대차 계약 점검, 분쟁·민원 대응을 법률·세무 도우미와 함께해요.</p><div class="plist"><span>세무 일정과 자료 정리</span><span>직원·계약 도우미</span><span>분쟁·민원 대응</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+<section class="lesson" id="l73" data-part="14단계 · 세무·노무·분쟁" data-title="세무 일정과 자료 정리" hidden>
+    <div class="partcard a" style="--d:0s"><span class="pn">14</span><span class="pt"><b>세무·노무·분쟁</b>3강 · 필요할 때</span><p class="po">세무 자료 정리, 직원·임대차 계약 점검, 분쟁·민원 대응을 법률·세무 도우미와 함께해요.</p><div class="plist"><span>세무 일정과 자료 정리</span><span>직원·계약 도우미</span><span>분쟁·민원 대응</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>세무사에게 넘길 자료를 매달 30분에</h2>
@@ -2882,7 +3036,7 @@ td b { font-weight: 600; }
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>신고 2주 전 알림</b><span>구글 캘린더에 원천세 매달 5일, 부가세·종소세 2주 전 반복 알림.</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>분류별 합계</b><span>세무 탭 옆에 SUMIF로 월·분류별 합계. 수식은 '07 자동화 도우미'에게.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>홈택스 자료 내려받기, 시트 정리</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>세무사 기장 계약(정리된 자료가 있으면 상담이 빨라요)</li></ul></div></div>
 </section>
-<section class="lesson" id="l74" data-part="13단계 · 세무·노무·분쟁" data-title="직원·계약 도우미" hidden>
+<section class="lesson" id="l74" data-part="14단계 · 세무·노무·분쟁" data-title="직원·계약 도우미" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>첫 직원을 뽑기 전에, 첫 계약서에 도장 찍기 전에</h2>
@@ -2909,7 +3063,7 @@ td b { font-weight: 600; }
 결론은 '검토 의견'으로, 최종 판단은 변호사·공인중개사 확인이 필요하다고 표시.</pre></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>고용노동부 표준근로계약서, 도우미 점검</li></ul></div><div class="fp-col fp-paid"><b>돈을 써야 할 때</b><ul><li>첫 근로계약서·취업규칙은 노무사, 임대차 분쟁 소지가 크면 변호사</li></ul></div></div>
 </section>
-<section class="lesson" id="l75" data-part="13단계 · 세무·노무·분쟁" data-title="분쟁·민원 대응" hidden>
+<section class="lesson" id="l75" data-part="14단계 · 세무·노무·분쟁" data-title="분쟁·민원 대응" hidden>
   <div class="lesson-head">
     <span class="kicker">실습 · 일이 생겼을 때</span>
     <h2>감정은 원장님이, 사실 정리는 도우미가</h2>
