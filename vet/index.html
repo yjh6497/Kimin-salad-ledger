@@ -751,7 +751,7 @@ td b { font-weight: 600; }
       <tr><td><b>대기실</b> (보호자)</td><td>첫 방문 접수·동의(개인정보 필수, 광고 수신·사진 활용 선택, 손가락 서명) → 구글 시트에 저장, 보호자 설문</td><td><span class="refs" data-refs="l93 l56 l98"></span></td></tr>
       <tr><td><b>대기실</b> (안내)</td><td>진료 순서·예방접종·퇴원 안내, 병원 소개를 큰 화면으로</td><td><span class="refs" data-refs="l97 l93"></span></td></tr>
       <tr><td><b>접수대</b> (직원)</td><td>PIN 출퇴근, 오늘 근무, 휴가 신청, 인수인계 메모</td><td><span class="refs" data-refs="l82 l92"></span></td></tr>
-      <tr><td><b>진료실·처치실</b> (직원)</td><td>체크리스트, 재고 사용 버튼, 백신 냉장고 온도 기록, 매뉴얼 보기</td><td><span class="refs" data-refs="l77 l78 l83"></span></td></tr>
+      <tr><td><b>진료실·처치실</b> (직원)</td><td>체크리스트, 재고 사용 버튼, 약장·냉장고 앞에서 재고 실사, 백신 냉장고 온도 기록, 매뉴얼 보기</td><td><span class="refs" data-refs="l76 l77 l78 l83"></span></td></tr>
       <tr><td><b>원장님</b></td><td>대시보드·월간 브리핑, 텔레그램 승인(휴가·발주·답글), 손그림 배치도 사진 검토, 이 코스 보기</td><td><span class="refs" data-refs="l62 l79 l99"></span></td></tr>
     </tbody>
   </table></div>
@@ -4214,7 +4214,7 @@ function ask(kind, text, options, target, values, replies) {
   });
 }</pre></div>
   <h3>강의별로 텔레그램에서 하는 결정</h3>
-  <div class="table-wrap"><table class="tgt"><thead><tr><th>강의</th><th>결정</th><th>버튼</th></tr></thead><tbody><tr><td><a href="#l32" class="ref" data-ref="l32">강의</a> 업체를 쓸까, 직접 할까</td><td>제안서 검토</td><td>미팅 잡기 / 보류 / 거절</td></tr><tr><td><a href="#l43" class="ref" data-ref="l43">강의</a> 업체 영업 전화 거르기</td><td>영업 연락 거르기</td><td>관심 있음 / 거절</td></tr><tr><td><a href="#l95" class="ref" data-ref="l95">강의</a> 병원 이름과 브랜드 톤</td><td>이름 후보 고르기</td><td>1안 / 2안 / 3안 / 더 볼게</td></tr><tr><td><a href="#l96" class="ref" data-ref="l96">강의</a> 인테리어·동선·기구 배치</td><td>시안·견적·공정 변경</td><td>A / B / 다시 받기 · 승인 / 보류</td></tr><tr><td><a href="#l99" class="ref" data-ref="l99">강의</a> 손그림 배치도 검토·컨설팅</td><td>배치 수정안 고르기</td><td>1안 / 2안 / 더 볼게</td></tr><tr><td><a href="#l97" class="ref" data-ref="l97">강의</a> 보호자·환자 경험 설계</td><td>안내물 초안 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l98" class="ref" data-ref="l98">강의</a> 보호자 인터뷰와 설문</td><td>설문으로 할 일 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l3" class="ref" data-ref="l3">강의</a> 병원 한 장 소개서</td><td>소개서 변경 승인</td><td>승인 / 보류</td></tr><tr><td><a href="#l9" class="ref" data-ref="l9">강의</a> 개원 D-60 마케팅 일정표</td><td>개원 일정 확인</td><td>완료 / 미룸</td></tr><tr><td><a href="#l39" class="ref" data-ref="l39">강의</a> 디자인 MCP: Canva·Figma 연결</td><td>디자인 시안 고르기</td><td>1안 / 2안 / 수정</td></tr><tr><td><a href="#l8" class="ref" data-ref="l8">강의</a> 광고 문구 점검 비서</td><td>광고 게시 승인</td><td>게시 승인 / 수정 / 보류</td></tr><tr><td><a href="#l70" class="ref" data-ref="l70">강의</a> 법률·세무 도우미 차리기</td><td>조사 결과 확인</td><td>확인 / 세무사·노무사에게 묻기</td></tr><tr><td><a href="#l71" class="ref" data-ref="l71">강의</a> 개원 법무 체크리스트</td><td>신고·게시 완료 체크</td><td>완료 / 이번 주 안에</td></tr><tr><td><a href="#l72" class="ref" data-ref="l72">강의</a> 진료비 부가세 면세·과세 구분</td><td>새 진료 항목 분류</td><td>면세 / 과세 / 세무사 확인</td></tr><tr><td><a href="#l50" class="ref" data-ref="l50">강의</a> 토스 vs 네이버 커넥트</td><td>단말기 결정</td><td>토스 / 커넥트 / 더 비교</td></tr><tr><td><a href="#l51" class="ref" data-ref="l51">강의</a> 대리점 견적 비교</td><td>대리점 견적 선택</td><td>○○ / △△ / 재견적</td></tr><tr><td><a href="#l11" class="ref" data-ref="l11">강의</a> 플레이스 정보 꽉 채우기</td><td>대표 사진 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l12" class="ref" data-ref="l12">강의</a> 리뷰 관리와 답글</td><td>답글 초안 고르기</td><td>A / B / C / 직접 쓸게</td></tr><tr><td><a href="#l13" class="ref" data-ref="l13">강의</a> 소식·예약·톡톡</td><td>소식 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l14" class="ref" data-ref="l14">강의</a> 카카오맵 매장관리</td><td>카카오맵 후기 답글·정보 변경</td><td>A / B · 승인 / 보류</td></tr><tr><td><a href="#l15" class="ref" data-ref="l15">강의</a> 지도 정보 한꺼번에 맞추기</td><td>채널별 반영 완료</td><td>반영 완료</td></tr><tr><td><a href="#l18" class="ref" data-ref="l18">강의</a> 티맵·구글·애플 지도와 내비 등록</td><td>제보 결과 확인</td><td>반영됨 / 다시 제보</td></tr><tr><td><a href="#l24" class="ref" data-ref="l24">강의</a> 자동차 브랜드 내비에 병원 올리기</td><td>차 내비 확인</td><td>나옴 / 안 나옴</td></tr><tr><td><a href="#l16" class="ref" data-ref="l16">강의</a> 리뷰 알림과 답글 제안</td><td>새 리뷰 → 버튼 하나</td><td>A / B / 직접 쓸게</td></tr><tr><td><a href="#l17" class="ref" data-ref="l17">강의</a> 브라우저 봇으로 리뷰 답글 테스트</td><td>봇은 허락 뒤에만 입력</td><td>입력 허락 / 멈춤</td></tr><tr><td><a href="#l19" class="ref" data-ref="l19">강의</a> 블로그 이름·소개·이미지 컨설팅</td><td>블로그 이름·대문 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l20" class="ref" data-ref="l20">강의</a> 블로그 열기와 키워드</td><td>이번 달 키워드</td><td>쓰기 / 빼기</td></tr><tr><td><a href="#l21" class="ref" data-ref="l21">강의</a> 진료 이야기를 블로그 글로</td><td>글 초안 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l23" class="ref" data-ref="l23">강의</a> 터미널·크롬 AI로 글 대신 써 넣기</td><td>임시저장 글 검토</td><td>검토함 / 다시 써 줘</td></tr><tr><td><a href="#l22" class="ref" data-ref="l22">강의</a> 글 달력과 성과 보기</td><td>다음 주 글 순서</td><td>이대로 / 바꾸기</td></tr><tr><td><a href="#l26" class="ref" data-ref="l26">강의</a> 사진·릴스 만들기</td><td>릴스 아이디어 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l27" class="ref" data-ref="l27">강의</a> 일주일 예약 게시</td><td>예약 게시 목록 승인</td><td>승인 / 하나 빼기</td></tr><tr><td><a href="#l28" class="ref" data-ref="l28">강의</a> 댓글·DM 응대</td><td>DM 답장 고르기</td><td>A / B</td></tr><tr><td><a href="#l36" class="ref" data-ref="l36">강의</a> 1:1 채팅과 자동응답</td><td>자동응답 문구 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l37" class="ref" data-ref="l37">강의</a> 채널 메시지·알림톡</td><td>채널 메시지 발송 승인</td><td>승인 / 보류</td></tr><tr><td><a href="#l30" class="ref" data-ref="l30">강의</a> 병원 전화: 연결음·AI 전화 응대</td><td>새 안내 멘트 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l40" class="ref" data-ref="l40">강의</a> 일요일 1시간 루틴</td><td>이번 주 묶음 한 번에</td><td>모두 승인 / 하나씩 볼게</td></tr><tr><td><a href="#l41" class="ref" data-ref="l41">강의</a> 월요일 마케팅 브리핑</td><td>월요일 지시 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l42" class="ref" data-ref="l42">강의</a> 한 달 성과 보기</td><td>다음 달 방향</td><td>A안 / B안 / 그대로</td></tr><tr><td><a href="#l86" class="ref" data-ref="l86">강의</a> 예약 관리와 캘린더</td><td>수술 블록 넣기</td><td>넣기 / 시간 바꾸기</td></tr><tr><td><a href="#l88" class="ref" data-ref="l88">강의</a> 돈 나가는 날과 법정 기한</td><td>큰 금액 확인</td><td>확인함 / 문의 필요</td></tr><tr><td><a href="#l89" class="ref" data-ref="l89">강의</a> AI와 캘린더 같이 쓰기</td><td>일정 삭제·이동 승인</td><td>실행 / 취소</td></tr><tr><td><a href="#l92" class="ref" data-ref="l92">강의</a> 일정 비서: 원장님과 직원의 하루</td><td>휴가 신청 승인</td><td>승인 / 반려 / 보류 · 1안 / 2안</td></tr><tr><td><a href="#l57" class="ref" data-ref="l57">강의</a> 재방문 알림 시스템</td><td>이번 주 안내 진행</td><td>안내 진행 / 다음 주로</td></tr><tr><td><a href="#l64" class="ref" data-ref="l64">강의</a> 안내 타이밍 설계</td><td>안내 규칙 바꾸기</td><td>승인 / 보류</td></tr><tr><td><a href="#l65" class="ref" data-ref="l65">강의</a> 안내 문구와 템플릿</td><td>템플릿 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l66" class="ref" data-ref="l66">강의</a> 맥북·아이폰으로 문자 안내</td><td>보내기 전 마지막 확인</td><td>보내기 / 보류</td></tr><tr><td><a href="#l67" class="ref" data-ref="l67">강의</a> 카톡 채널·알림톡으로 안내</td><td>알림톡 예약 승인</td><td>예약 승인 / 보류</td></tr><tr><td><a href="#l58" class="ref" data-ref="l58">강의</a> 단골·이탈 분석</td><td>다시 오게 할 방법</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l62" class="ref" data-ref="l62">강의</a> 원장님 대시보드와 월간 브리핑</td><td>월간 결정</td><td>한다 / 안 한다</td></tr><tr><td><a href="#l69" class="ref" data-ref="l69">강의</a> 24시간 자동화 컴퓨터</td><td>자동화가 멈추면</td><td>다시 시도 / 이 예약 끄기</td></tr><tr><td><a href="#l80" class="ref" data-ref="l80">강의</a> 직원 관리 지도와 권한</td><td>계정 회수 완료</td><td>회수 완료</td></tr><tr><td><a href="#l81" class="ref" data-ref="l81">강의</a> 근무표와 출퇴근 기록</td><td>근무표 초안 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l82" class="ref" data-ref="l82">강의</a> 직원 웹앱 만들기</td><td>웹앱 신청이 승인함으로</td><td>승인 / 반려 / 보류</td></tr><tr><td><a href="#l93" class="ref" data-ref="l93">강의</a> 태블릿으로 쓰고 링크로 공유하기</td><td>공유 범위 넓히기 승인</td><td>공개 / 직원만</td></tr><tr><td><a href="#l83" class="ref" data-ref="l83">강의</a> 병원 매뉴얼과 신입 교육</td><td>매뉴얼 개정 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l84" class="ref" data-ref="l84">강의</a> 원장님 인력 대시보드와 면담</td><td>면담 시간 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l76" class="ref" data-ref="l76">강의</a> 재고·발주 시스템 설계</td><td>발주점 바꾸기</td><td>적용 / 그대로</td></tr><tr><td><a href="#l77" class="ref" data-ref="l77">강의</a> 발주·주문·입고 자동화</td><td>거래처별 주문 승인</td><td>주문함 / 오늘은 안 함</td></tr><tr><td><a href="#l94" class="ref" data-ref="l94">강의</a> 거래처 주문 연동: 메일·카카오톡</td><td>메일 주문 발송 전 확인</td><td>주문함 / 오늘은 안 함</td></tr><tr><td><a href="#l78" class="ref" data-ref="l78">강의</a> 약품 재고: 유효기한·냉장·마약류</td><td>폐기·실사·냉장 온도</td><td>폐기 / 반품 문의 · 조정 승인 / 다시 세기 · 조치함 / 사용 보류</td></tr><tr><td><a href="#l73" class="ref" data-ref="l73">강의</a> 세무 일정과 자료 정리</td><td>세무사 자료 보내기</td><td>보내기 / 보완</td></tr><tr><td><a href="#l74" class="ref" data-ref="l74">강의</a> 직원·계약 도우미</td><td>계약 갱신 결정</td><td>갱신 / 재협상 / 종료 검토</td></tr><tr><td><a href="#l75" class="ref" data-ref="l75">강의</a> 분쟁·민원 대응</td><td>답변 초안 검토</td><td>승인 / 수정</td></tr></tbody></table></div>
+  <div class="table-wrap"><table class="tgt"><thead><tr><th>강의</th><th>결정</th><th>버튼</th></tr></thead><tbody><tr><td><a href="#l32" class="ref" data-ref="l32">강의</a> 업체를 쓸까, 직접 할까</td><td>제안서 검토</td><td>미팅 잡기 / 보류 / 거절</td></tr><tr><td><a href="#l43" class="ref" data-ref="l43">강의</a> 업체 영업 전화 거르기</td><td>영업 연락 거르기</td><td>관심 있음 / 거절</td></tr><tr><td><a href="#l95" class="ref" data-ref="l95">강의</a> 병원 이름과 브랜드 톤</td><td>이름 후보 고르기</td><td>1안 / 2안 / 3안 / 더 볼게</td></tr><tr><td><a href="#l96" class="ref" data-ref="l96">강의</a> 인테리어·동선·기구 배치</td><td>시안·견적·공정 변경</td><td>A / B / 다시 받기 · 승인 / 보류</td></tr><tr><td><a href="#l99" class="ref" data-ref="l99">강의</a> 손그림 배치도 검토·컨설팅</td><td>배치 수정안 고르기</td><td>1안 / 2안 / 더 볼게</td></tr><tr><td><a href="#l97" class="ref" data-ref="l97">강의</a> 보호자·환자 경험 설계</td><td>안내물 초안 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l98" class="ref" data-ref="l98">강의</a> 보호자 인터뷰와 설문</td><td>설문으로 할 일 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l3" class="ref" data-ref="l3">강의</a> 병원 한 장 소개서</td><td>소개서 변경 승인</td><td>승인 / 보류</td></tr><tr><td><a href="#l9" class="ref" data-ref="l9">강의</a> 개원 D-60 마케팅 일정표</td><td>개원 일정 확인</td><td>완료 / 미룸</td></tr><tr><td><a href="#l39" class="ref" data-ref="l39">강의</a> 디자인 MCP: Canva·Figma 연결</td><td>디자인 시안 고르기</td><td>1안 / 2안 / 수정</td></tr><tr><td><a href="#l8" class="ref" data-ref="l8">강의</a> 광고 문구 점검 비서</td><td>광고 게시 승인</td><td>게시 승인 / 수정 / 보류</td></tr><tr><td><a href="#l70" class="ref" data-ref="l70">강의</a> 법률·세무 도우미 차리기</td><td>조사 결과 확인</td><td>확인 / 세무사·노무사에게 묻기</td></tr><tr><td><a href="#l71" class="ref" data-ref="l71">강의</a> 개원 법무 체크리스트</td><td>신고·게시 완료 체크</td><td>완료 / 이번 주 안에</td></tr><tr><td><a href="#l72" class="ref" data-ref="l72">강의</a> 진료비 부가세 면세·과세 구분</td><td>새 진료 항목 분류</td><td>면세 / 과세 / 세무사 확인</td></tr><tr><td><a href="#l50" class="ref" data-ref="l50">강의</a> 토스 vs 네이버 커넥트</td><td>단말기 결정</td><td>토스 / 커넥트 / 더 비교</td></tr><tr><td><a href="#l51" class="ref" data-ref="l51">강의</a> 대리점 견적 비교</td><td>대리점 견적 선택</td><td>○○ / △△ / 재견적</td></tr><tr><td><a href="#l11" class="ref" data-ref="l11">강의</a> 플레이스 정보 꽉 채우기</td><td>대표 사진 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l12" class="ref" data-ref="l12">강의</a> 리뷰 관리와 답글</td><td>답글 초안 고르기</td><td>A / B / C / 직접 쓸게</td></tr><tr><td><a href="#l13" class="ref" data-ref="l13">강의</a> 소식·예약·톡톡</td><td>소식 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l14" class="ref" data-ref="l14">강의</a> 카카오맵 매장관리</td><td>카카오맵 후기 답글·정보 변경</td><td>A / B · 승인 / 보류</td></tr><tr><td><a href="#l15" class="ref" data-ref="l15">강의</a> 지도 정보 한꺼번에 맞추기</td><td>채널별 반영 완료</td><td>반영 완료</td></tr><tr><td><a href="#l18" class="ref" data-ref="l18">강의</a> 티맵·구글·애플 지도와 내비 등록</td><td>제보 결과 확인</td><td>반영됨 / 다시 제보</td></tr><tr><td><a href="#l24" class="ref" data-ref="l24">강의</a> 자동차 브랜드 내비에 병원 올리기</td><td>차 내비 확인</td><td>나옴 / 안 나옴</td></tr><tr><td><a href="#l16" class="ref" data-ref="l16">강의</a> 리뷰 알림과 답글 제안</td><td>새 리뷰 → 버튼 하나</td><td>A / B / 직접 쓸게</td></tr><tr><td><a href="#l17" class="ref" data-ref="l17">강의</a> 브라우저 봇으로 리뷰 답글 테스트</td><td>봇은 허락 뒤에만 입력</td><td>입력 허락 / 멈춤</td></tr><tr><td><a href="#l19" class="ref" data-ref="l19">강의</a> 블로그 이름·소개·이미지 컨설팅</td><td>블로그 이름·대문 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l20" class="ref" data-ref="l20">강의</a> 블로그 열기와 키워드</td><td>이번 달 키워드</td><td>쓰기 / 빼기</td></tr><tr><td><a href="#l21" class="ref" data-ref="l21">강의</a> 진료 이야기를 블로그 글로</td><td>글 초안 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l23" class="ref" data-ref="l23">강의</a> 터미널·크롬 AI로 글 대신 써 넣기</td><td>임시저장 글 검토</td><td>검토함 / 다시 써 줘</td></tr><tr><td><a href="#l22" class="ref" data-ref="l22">강의</a> 글 달력과 성과 보기</td><td>다음 주 글 순서</td><td>이대로 / 바꾸기</td></tr><tr><td><a href="#l26" class="ref" data-ref="l26">강의</a> 사진·릴스 만들기</td><td>릴스 아이디어 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l27" class="ref" data-ref="l27">강의</a> 일주일 예약 게시</td><td>예약 게시 목록 승인</td><td>승인 / 하나 빼기</td></tr><tr><td><a href="#l28" class="ref" data-ref="l28">강의</a> 댓글·DM 응대</td><td>DM 답장 고르기</td><td>A / B</td></tr><tr><td><a href="#l36" class="ref" data-ref="l36">강의</a> 1:1 채팅과 자동응답</td><td>자동응답 문구 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l37" class="ref" data-ref="l37">강의</a> 채널 메시지·알림톡</td><td>채널 메시지 발송 승인</td><td>승인 / 보류</td></tr><tr><td><a href="#l30" class="ref" data-ref="l30">강의</a> 병원 전화: 연결음·AI 전화 응대</td><td>새 안내 멘트 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l40" class="ref" data-ref="l40">강의</a> 일요일 1시간 루틴</td><td>이번 주 묶음 한 번에</td><td>모두 승인 / 하나씩 볼게</td></tr><tr><td><a href="#l41" class="ref" data-ref="l41">강의</a> 월요일 마케팅 브리핑</td><td>월요일 지시 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l42" class="ref" data-ref="l42">강의</a> 한 달 성과 보기</td><td>다음 달 방향</td><td>A안 / B안 / 그대로</td></tr><tr><td><a href="#l86" class="ref" data-ref="l86">강의</a> 예약 관리와 캘린더</td><td>수술 블록 넣기</td><td>넣기 / 시간 바꾸기</td></tr><tr><td><a href="#l88" class="ref" data-ref="l88">강의</a> 돈 나가는 날과 법정 기한</td><td>큰 금액 확인</td><td>확인함 / 문의 필요</td></tr><tr><td><a href="#l89" class="ref" data-ref="l89">강의</a> AI와 캘린더 같이 쓰기</td><td>일정 삭제·이동 승인</td><td>실행 / 취소</td></tr><tr><td><a href="#l92" class="ref" data-ref="l92">강의</a> 일정 비서: 원장님과 직원의 하루</td><td>휴가 신청 승인</td><td>승인 / 반려 / 보류 · 1안 / 2안</td></tr><tr><td><a href="#l57" class="ref" data-ref="l57">강의</a> 재방문 알림 시스템</td><td>이번 주 안내 진행</td><td>안내 진행 / 다음 주로</td></tr><tr><td><a href="#l64" class="ref" data-ref="l64">강의</a> 안내 타이밍 설계</td><td>안내 규칙 바꾸기</td><td>승인 / 보류</td></tr><tr><td><a href="#l65" class="ref" data-ref="l65">강의</a> 안내 문구와 템플릿</td><td>템플릿 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l66" class="ref" data-ref="l66">강의</a> 맥북·아이폰으로 문자 안내</td><td>보내기 전 마지막 확인</td><td>보내기 / 보류</td></tr><tr><td><a href="#l67" class="ref" data-ref="l67">강의</a> 카톡 채널·알림톡으로 안내</td><td>알림톡 예약 승인</td><td>예약 승인 / 보류</td></tr><tr><td><a href="#l58" class="ref" data-ref="l58">강의</a> 단골·이탈 분석</td><td>다시 오게 할 방법</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l62" class="ref" data-ref="l62">강의</a> 원장님 대시보드와 월간 브리핑</td><td>월간 결정</td><td>한다 / 안 한다</td></tr><tr><td><a href="#l69" class="ref" data-ref="l69">강의</a> 24시간 자동화 컴퓨터</td><td>자동화가 멈추면</td><td>다시 시도 / 이 예약 끄기</td></tr><tr><td><a href="#l80" class="ref" data-ref="l80">강의</a> 직원 관리 지도와 권한</td><td>계정 회수 완료</td><td>회수 완료</td></tr><tr><td><a href="#l81" class="ref" data-ref="l81">강의</a> 근무표와 출퇴근 기록</td><td>근무표 초안 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l82" class="ref" data-ref="l82">강의</a> 직원 웹앱 만들기</td><td>웹앱 신청이 승인함으로</td><td>승인 / 반려 / 보류</td></tr><tr><td><a href="#l93" class="ref" data-ref="l93">강의</a> 태블릿으로 쓰고 링크로 공유하기</td><td>공유 범위 넓히기 승인</td><td>공개 / 직원만</td></tr><tr><td><a href="#l83" class="ref" data-ref="l83">강의</a> 병원 매뉴얼과 신입 교육</td><td>매뉴얼 개정 승인</td><td>승인 / 수정</td></tr><tr><td><a href="#l84" class="ref" data-ref="l84">강의</a> 원장님 인력 대시보드와 면담</td><td>면담 시간 고르기</td><td>1 / 2 / 3</td></tr><tr><td><a href="#l76" class="ref" data-ref="l76">강의</a> 재고·발주 시스템 설계</td><td>실사 차이 조정</td><td>조정 승인 / 다시 세기</td></tr><tr><td><a href="#l77" class="ref" data-ref="l77">강의</a> 발주·주문·입고 자동화</td><td>거래처별 주문 승인</td><td>주문함 / 오늘은 안 함</td></tr><tr><td><a href="#l94" class="ref" data-ref="l94">강의</a> 거래처 주문 연동: 메일·카카오톡</td><td>메일 주문 발송 전 확인</td><td>주문함 / 오늘은 안 함</td></tr><tr><td><a href="#l78" class="ref" data-ref="l78">강의</a> 약품 재고: 유효기한·냉장·마약류</td><td>폐기·실사·냉장 온도</td><td>폐기 / 반품 문의 · 조정 승인 / 다시 세기 · 조치함 / 사용 보류</td></tr><tr><td><a href="#l73" class="ref" data-ref="l73">강의</a> 세무 일정과 자료 정리</td><td>세무사 자료 보내기</td><td>보내기 / 보완</td></tr><tr><td><a href="#l74" class="ref" data-ref="l74">강의</a> 직원·계약 도우미</td><td>계약 갱신 결정</td><td>갱신 / 재협상 / 종료 검토</td></tr><tr><td><a href="#l75" class="ref" data-ref="l75">강의</a> 분쟁·민원 대응</td><td>답변 초안 검토</td><td>승인 / 수정</td></tr></tbody></table></div>
   <p class="cap">64개 강의에 텔레그램 승인 자리가 있어요. 처음엔 휴가·발주·리뷰 답글 셋만 켜고, 익숙해지면 늘려요.</p>
   <p class="tip warnbox"><b>텔레그램에 보내지 않는 것:</b> 보호자 이름·전화번호, 진단명, 마약류 기록, 계좌·카드번호, 직원 개인 사정. 봇 대화는 텔레그램 서버에 저장되는 일반 채팅이에요. 알림에는 품목·직원번호·건수·금액 정도만 담아요. 휴대폰을 잃어버리면 BotFather에서 토큰을 /revoke 하고 텔레그램 기기 연결을 끊어요.</p>
   <p class="src">출처: <a href="https://core.telegram.org/bots/tutorial" target="_blank" rel="noopener">Telegram Bot 튜토리얼</a> · <a href="https://core.telegram.org/bots/api" target="_blank" rel="noopener">Telegram Bot API (sendMessage, getUpdates)</a> · <a href="https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app" target="_blank" rel="noopener">Apps Script UrlFetchApp</a></p>
@@ -4760,7 +4760,7 @@ function resetAll() {
     <li><input type="checkbox" id="a76d" data-key="a76d"><div class="body"><label for="a76d">재고 탭 수식</label><small>재고 탭 A2에 <code>=FILTER(품목!A2:A, 품목!A2:A&lt;&gt;"")</code>, 그 옆 칸에 아래 수식을 넣고 아래로 채워요. 현재고는 입고 합계 − 사용 합계라, 처음 한 번은 '입고' 탭에 오늘 날짜로 실사 수량을 넣어 시작해요.</small></div></li>
     <li><input type="checkbox" id="a76e" data-key="a76e"><div class="body"><label for="a76e">거래처 탭 채우기</label><small>거래처마다 주문 방법(전화·카톡·온라인몰·메일), 주문 마감 시각, 배송 요일, 결제 조건. 담당자 개인 휴대폰은 거래처 명함 그대로 두고 시트에는 회사 대표 연락처만 적어요.</small></div></li>
   </ol>
-  <div class="prompt" data-tsv><div class="bar"><span>품목 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>품목코드 | 품목명 | 분류(약/백신·냉장/마약류/소모품/판매용) | 단위 | 기본 거래처 | 최근 단가 | 발주점 | 주문 수량 | 보관(상온/냉장/잠금) | 배송 기간(일) | 과세(면세/과세) | 메모</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>품목 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>품목코드 | 품목명 | 분류(약/백신·냉장/마약류/소모품/판매용) | 단위 | 기본 거래처 | 최근 단가 | 발주점 | 주문 수량 | 보관(상온/냉장/잠금) | 배송 기간(일) | 과세(면세/과세) | 메모 | 보관 위치(약장A/냉장고/창고 선반1)</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>입고 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 품목코드 | 수량 | 로트 | 유효기한 | 단가 | 거래처 | 명세서 번호 | 소진(체크)</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>사용 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 품목코드 | 수량 | 사유(진료/판매/파손/폐기/반품) | 직원번호 | 메모</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>재고 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>품목코드 | 품목명 | 현재고 | 발주점 | 상태 | 가장 빠른 유효기한 | 주문 중</pre></div>
@@ -4778,8 +4778,177 @@ G2: =SUMIFS(발주!E:E, 발주!D:D, A2, 발주!G:G, "주문")</pre></div>
 - 발주점은 '하루 평균 사용량 × (배송 기간 + 여유 3일)'로, 사용량은 우리 병원 하루 진료 ○건 기준으로 추정하고 [추정] 표시
 - 사진에서 글자가 안 보이면 [확인 필요]
 - 과세 칸: 사료·용품은 과세, 진료에 쓰는 약은 '진료 포함'으로 두고 법률·세무 도우미 확인 필요 표시</pre></div>
+  
+  <h3>태블릿으로 눈으로 보며 세기</h3>
+  <p class="goal">재고는 시트 숫자보다 <b>약장·냉장고·창고 앞에서 직접 볼 때</b> 정확해요. 태블릿을 들고 위치마다 돌면서, 시트에 적힌 수량을 보며 실제 개수를 누르면 '실사' 탭에 남고, 차이가 있으면 텔레그램 승인함(<a href="#l79" class="ref" data-ref="l79">강의</a>)으로 「조정 승인 / 다시 세기」가 와요. 승인하면 사용 탭에 '실사 조정' 줄이 저절로 들어가요.</p>
+  <div class="vis">
+    <div class="tabmock">
+      <div class="tm-h"><b>재고 실사</b><span>직원 03</span></div>
+      <div class="tm-b">
+        <div class="tm-nav" style="justify-content:flex-start;gap:6px"><span class="go">냉장고</span><span>약장A</span><span>창고 선반2</span></div>
+        <div class="tm-term on"><i>✓</i><span>종합백신 · 시트 12 → 센 수 12</span><em>일치</em></div>
+        <div class="tm-term"><i></i><span>광견병 백신 · 시트 4 → 센 수 2</span><em class="o">−2</em></div>
+        <div class="tm-nav"><span>위치 바꾸기</span><span class="go">이 위치 저장</span></div></div>
+    </div>
+    <p class="cap">위치(약장·냉장고·창고)별로 품목 카드가 나와요. 숫자 칸, −/+ 버튼, '= 시트' 버튼으로 빠르게. 마약류(N 코드)는 이 화면에 나오지 않고 금고에서 2인 확인으로 따로 세요(<a href="#l78" class="ref" data-ref="l78">강의</a>).</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a76f" data-key="a76f"><div class="body"><label for="a76f">품목 탭에 '보관 위치' 칸</label><small>품목 탭 M열 제목을 '보관 위치'로 두고 약장A, 약장B, 냉장고, 창고 선반1처럼 실제 자리 이름을 적어요. 선반에도 같은 이름표를 붙이면 신입도 바로 찾아요. 새 탭 '실사'를 만들고 아래 제목 줄을 A1에.</small></div></li>
+    <li><input type="checkbox" id="a76g" data-key="a76g"><div class="body"><label for="a76g">실사 화면 붙이기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'재고·발주' 파일 Apps Script(checkStock이 있는 곳) → + → 스크립트 → 이름 Count → 아래 'Count.gs' 붙여 넣기</li>
+        <li>+ → HTML → 이름 <b>count</b> → 아래 'count.html' 붙여 넣기 → 저장</li>
+        <li>스크립트 속성 COUNT_KEY(아무도 모를 영문·숫자 12자 이상). 승인함을 쓰면 같은 프로젝트에 ask 함수와 APPROVE_ID(<a href="#l79" class="ref" data-ref="l79">강의</a>)</li>
+        <li>배포 → 새 배포 → 웹 앱(실행: 나, 액세스: 모든 사용자) → URL 끝에 <code>?k=COUNT_KEY값</code> → 태블릿 홈 화면에 '재고'(<a href="#l93" class="ref" data-ref="l93">강의</a>)</li>
+        <li>트리거: applyCount, 시간 기반, 10분마다<span class="fix">이 프로젝트에 이미 웹앱(doGet)이 있으면 함수 이름이 겹쳐요. 그때는 '07 자동화 도우미'에게 "두 화면을 주소 뒤 ?page=로 나눠 줘"라고 하세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a76h" data-key="a76h"><div class="body"><label for="a76h">언제 세나</label><small>매일: 백신·냉장 품목(냉장고 한 위치, 2분). 매주: 많이 쓰는 소모품 위치 하나씩 돌아가며. 매달 마지막 진료일: 전체(<a href="#l78" class="ref" data-ref="l78">강의</a>). 거래처 물건이 온 날은 입고 확인 겸 그 위치만. 아래 '실사 순서 부탁문'으로 우리 병원 순서를 받아요.</small></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>실사 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 품목코드 | 품목명 | 시트 재고 | 센 수량 | 차이 | 조정 상태(일치/대기/승인/반영/다시) | 직원번호</pre></div>
+  <div class="prompt"><div class="bar"><span>Count.gs</span><button class="copy" type="button">복사</button></div><pre>// 태블릿 재고 실사 (재고·발주 파일의 Apps Script에 새 파일 Count.gs로)
+// 품목 탭 M열 '보관 위치'(예: 약장A, 냉장고, 창고 선반2), 실사 탭이 있어야 해요
+var SP = PropertiesService.getScriptProperties();
+
+function doGet(e) {
+  if (!e || !e.parameter || e.parameter.k !== SP.getProperty('COUNT_KEY')) {
+    return HtmlService.createHtmlOutput('&lt;p style="font:20px sans-serif;padding:40px"&gt;실사 태블릿 주소를 확인해 주세요.&lt;/p&gt;');
+  }
+  var t = HtmlService.createTemplateFromFile('count');
+  t.key = e.parameter.k;
+  return t.evaluate().setTitle('재고 실사').addMetaTag('viewport', 'width=device-width, initial-scale=1');
+}
+
+function stockItems(key) {
+  if (key !== SP.getProperty('COUNT_KEY')) throw new Error('기기 확인 실패');
+  var ss = SpreadsheetApp.getActive(), now = {};
+  ss.getSheetByName('재고').getDataRange().getValues().slice(1).forEach(function (r) { if (r[0]) now[r[0]] = r[2]; });
+  return ss.getSheetByName('품목').getDataRange().getValues().slice(1)
+    .filter(function (r) { return r[0] &amp;&amp; String(r[0]).charAt(0) !== 'N'; }) // 마약류는 금고에서 2인 확인으로 따로
+    .map(function (r) { return { code: r[0], name: r[1], unit: r[3], place: r[12] || '위치 미정', sheet: Number(now[r[0]] || 0) }; });
+}
+
+function saveCount(key, staff, rows) {
+  if (key !== SP.getProperty('COUNT_KEY')) throw new Error('기기 확인 실패');
+  var ss = SpreadsheetApp.getActive(), sh = ss.getSheetByName('실사');
+  var first = sh.getLastRow() + 1, today = new Date(), diffs = [];
+  rows.forEach(function (x) {
+    var d = Number(x.count) - Number(x.sheet);
+    sh.appendRow([today, x.code, x.name, x.sheet, Number(x.count), d, d === 0 ? '일치' : '대기', staff]);
+    if (d !== 0) diffs.push(x.name + ' ' + (d &gt; 0 ? '+' : '') + d);
+  });
+  var last = sh.getLastRow();
+  if (diffs.length &amp;&amp; typeof ask === 'function') { // 승인함으로: 조정 승인이면 G열 '승인' → applyCount가 사용 탭에 반영
+    ask('재고 실사 차이 ' + diffs.length + '개', diffs.join('\n'), '조정 승인,다시 세기',
+        ss.getId() + '|실사|G' + first + ':G' + last, '승인,다시', '');
+  }
+  return { saved: rows.length, diff: diffs.length };
+}
+
+function applyCount() { // 트리거 10분마다: 승인된 차이를 사용 탭에 '실사 조정'으로
+  var ss = SpreadsheetApp.getActive(), sh = ss.getSheetByName('실사'), use = ss.getSheetByName('사용');
+  var rows = sh.getDataRange().getValues();
+  for (var i = 1; i &lt; rows.length; i++) {
+    var r = rows[i];
+    if (r[6] !== '승인' || !r[5]) continue;
+    use.appendRow([new Date(), r[1], -Number(r[5]), '실사 조정', r[7], '실사 ' + Utilities.formatDate(r[0], 'Asia/Seoul', 'M/d')]);
+    sh.getRange(i + 1, 7).setValue('반영');
+  }
+}
+</pre></div>
+  <div class="prompt"><div class="bar"><span>count.html (HTML 파일 이름: count)</span><button class="copy" type="button">복사</button></div><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;&lt;head&gt;&lt;base target="_top"&gt;&lt;meta charset="utf-8"&gt;
+&lt;style&gt;
+  :root { --ink:#16302C; --muted:#5B6B68; --leaf:#1D6B61; --line:#D5DEDB; --bg:#F6F8F7; --warn:#B4442F; --amber:#C98A12; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.5 -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  header { position:sticky; top:0; z-index:2; background:var(--leaf); color:#fff; padding:12px 20px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  header b { font-size:21px; flex:1; }
+  header input { width:110px; font-size:18px; padding:8px 10px; border-radius:10px; border:0; }
+  #places { display:flex; gap:10px; flex-wrap:wrap; padding:14px 20px; }
+  #places button { font-size:18px; padding:12px 18px; border-radius:999px; border:2px solid var(--line); background:#fff; }
+  #places button.on { border-color:var(--leaf); background:#E3F0EE; color:var(--leaf); font-weight:700; }
+  #list { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:12px; padding:0 20px 120px; }
+  .it { background:#fff; border:2px solid var(--line); border-radius:16px; padding:14px 16px; display:flex; flex-direction:column; gap:8px; }
+  .it.done { border-color:var(--leaf); } .it.diff { border-color:var(--amber); }
+  .it .nm { font-weight:700; font-size:19px; } .it .sub { color:var(--muted); font-size:15px; }
+  .ctl { display:flex; align-items:center; gap:10px; }
+  .ctl button { width:64px; height:56px; font-size:28px; border-radius:12px; border:2px solid var(--line); background:#fff; }
+  .ctl input { width:96px; height:56px; font-size:26px; text-align:center; border:2px solid var(--line); border-radius:12px; }
+  .ctl .same { width:auto; padding:0 12px; font-size:16px; white-space:nowrap; }
+  .gap { font-size:15px; font-weight:700; color:var(--amber); min-height:1.2em; }
+  footer { position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid var(--line); padding:12px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  footer .btn { font-size:20px; padding:14px 28px; border-radius:14px; border:0; background:var(--leaf); color:#fff; font-weight:700; }
+  footer .btn:disabled { opacity:.45; }
+  #msg { color:var(--muted); font-size:16px; }
+&lt;/style&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;&lt;b&gt;재고 실사&lt;/b&gt;&lt;label&gt;직원번호 &lt;input id="staff" inputmode="numeric" placeholder="03"&gt;&lt;/label&gt;&lt;/header&gt;
+&lt;div id="places"&gt;&lt;/div&gt;
+&lt;div id="list"&gt;&lt;p style="padding:20px"&gt;품목을 불러오는 중…&lt;/p&gt;&lt;/div&gt;
+&lt;footer&gt;&lt;span id="msg"&gt;위치를 고르고, 눈으로 센 수량을 넣어 주세요.&lt;/span&gt;&lt;button class="btn" id="save" onclick="save()"&gt;이 위치 저장&lt;/button&gt;&lt;/footer&gt;
+&lt;script&gt;
+var KEY = &lt;?!= JSON.stringify(key) ?&gt;;
+var ITEMS = [], place = '', counted = {};
+function $(id) { return document.getElementById(id); }
+function esc(s) { return String(s == null ? '' : s).replace(/[&amp;&lt;&gt;"]/g, function (c) { return { '&amp;': '&amp;amp;', '&lt;': '&amp;lt;', '&gt;': '&amp;gt;', '"': '&amp;quot;' }[c]; }); }
+
+google.script.run.withSuccessHandler(function (items) {
+  ITEMS = items;
+  var places = items.map(function (x) { return x.place; }).filter(function (p, i, a) { return a.indexOf(p) === i; });
+  $('places').innerHTML = places.map(function (p) { return '&lt;button type="button"&gt;' + esc(p) + '&lt;/button&gt;'; }).join('');
+  $('places').querySelectorAll('button').forEach(function (b, i) { b.onclick = function () { pick(places[i], b); }; });
+  if (places.length) pick(places[0], $('places').querySelector('button'));
+}).withFailureHandler(function (e) { $('list').innerHTML = '&lt;p style="padding:20px"&gt;불러오지 못했어요: ' + esc(e.message) + '&lt;/p&gt;'; }).stockItems(KEY);
+
+function pick(p, btn) {
+  place = p; counted = {};
+  $('places').querySelectorAll('button').forEach(function (b) { b.classList.toggle('on', b === btn); });
+  var rows = ITEMS.filter(function (x) { return x.place === p; });
+  $('list').innerHTML = rows.map(function (x) {
+    return '&lt;div class="it" id="c_' + esc(x.code) + '"&gt;&lt;div class="nm"&gt;' + esc(x.name) + '&lt;/div&gt;' +
+      '&lt;div class="sub"&gt;' + esc(x.code) + ' · 시트 ' + x.sheet + ' ' + esc(x.unit || '') + '&lt;/div&gt;' +
+      '&lt;div class="ctl"&gt;&lt;button type="button" data-d="-1"&gt;−&lt;/button&gt;&lt;input inputmode="numeric" placeholder="?"&gt;' +
+      '&lt;button type="button" data-d="1"&gt;+&lt;/button&gt;&lt;button type="button" class="same"&gt;= 시트&lt;/button&gt;&lt;/div&gt;&lt;div class="gap"&gt;&lt;/div&gt;&lt;/div&gt;';
+  }).join('') || '&lt;p style="padding:20px"&gt;이 위치에 품목이 없어요.&lt;/p&gt;';
+  rows.forEach(function (x) {
+    var box = $('c_' + x.code), inp = box.querySelector('input');
+    function set(v) { v = Math.max(0, v); inp.value = v; counted[x.code] = v; mark(x, box, v); }
+    box.querySelectorAll('[data-d]').forEach(function (b) { b.onclick = function () { set((Number(inp.value) || 0) + Number(b.dataset.d)); }; });
+    box.querySelector('.same').onclick = function () { set(x.sheet); };
+    inp.oninput = function () { if (inp.value === '') { delete counted[x.code]; box.className = 'it'; box.querySelector('.gap').textContent = ''; } else set(Number(inp.value.replace(/\D/g, '')) || 0); };
+  });
+  $('msg').textContent = p + ' · ' + rows.length + '개 품목';
+}
+function mark(x, box, v) {
+  var d = v - x.sheet;
+  box.className = 'it ' + (d === 0 ? 'done' : 'diff');
+  box.querySelector('.gap').textContent = d === 0 ? '' : '시트와 ' + (d &gt; 0 ? '+' : '') + d;
+}
+function save() {
+  var staff = $('staff').value.trim();
+  if (!staff) { $('msg').textContent = '직원번호를 먼저 넣어 주세요'; return; }
+  var rows = ITEMS.filter(function (x) { return x.place === place &amp;&amp; counted[x.code] !== undefined; })
+    .map(function (x) { return { code: x.code, name: x.name, sheet: x.sheet, count: counted[x.code] }; });
+  if (!rows.length) { $('msg').textContent = '센 품목이 없어요'; return; }
+  $('save').disabled = true; $('msg').textContent = '저장 중…';
+  google.script.run.withSuccessHandler(function (r) {
+    $('save').disabled = false;
+    $('msg').textContent = '저장했어요 · ' + r.saved + '개, 차이 ' + r.diff + '개' + (r.diff ? ' → 원장님 승인 대기' : '');
+    rows.forEach(function (x) { var b = $('c_' + x.code); if (b) b.style.opacity = .5; });
+  }).withFailureHandler(function (e) { $('save').disabled = false; $('msg').textContent = '저장하지 못했어요: ' + e.message; })
+    .saveCount(KEY, staff, rows);
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre></div>
+  <div class="prompt"><div class="bar"><span>실사 순서 부탁문 (12 재고·구매)</span><button class="copy" type="button">복사</button></div><pre>'재고·발주' 파일의 품목 탭(보관 위치)과 사용 탭(지난 4주)을 보고 태블릿 실사 순서를 짜 줘.
+1) 매일 셀 위치(냉장·백신, 많이 쓰는 것)와 2분 안에 끝나는 품목 수
+2) 요일별로 돌아가며 셀 위치
+3) 월말 전체 실사 동선(약장 → 냉장고 → 창고, 직원 2명 나눠서)
+4) 지난 실사에서 차이가 자주 난 품목과 이유 추정
+마약류(N 코드)는 빼고, 금고 실사는 따로라고 적어 줘.</pre></div>
   <p class="src">참고: 재고 수식은 구글 시트 함수(SUMIF, SUMIFS, FILTER) 기준이에요. 엑셀 365에서도 같은 이름의 함수로 돼요.</p>
-        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>재고는 수식이 계산</b><span>입고·사용 탭에 줄만 더하면 현재고와 상태가 바뀌어요.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>주문할 줄 강조</b><span>재고 탭 상태가 '주문'이면 주황, 유효기한 60일 안이면 빨강.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>발주점 바꾸기</b><span>AI가 제안한 새 발주점을 품목별로.</span><span class="pv">버튼: 적용 / 그대로</span></div></li><li><span class="chip k-br">브라우저 AI · 수집</span><div class="ad"><b>거래처 몰 단가</b><span>거래처 온라인몰 상품 페이지의 단가·규격을 품목 탭에.</span></div></li></ul></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>10분마다 applyCount</b><span>승인된 실사 차이를 사용 탭에 '실사 조정'으로 넣어요.</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>재고는 수식이 계산</b><span>입고·사용 탭에 줄만 더하면 현재고와 상태가 바뀌어요.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>주문할 줄 강조</b><span>재고 탭 상태가 '주문'이면 주황, 유효기한 60일 안이면 빨강.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>실사 차이 조정</b><span>태블릿 실사에서 차이가 난 품목 목록과 함께.</span><span class="pv">버튼: 조정 승인 / 다시 세기</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>발주점 바꾸기</b><span>AI가 제안한 새 발주점을 품목별로.</span><span class="pv">버튼: 적용 / 그대로</span></div></li><li><span class="chip k-br">브라우저 AI · 수집</span><div class="ad"><b>거래처 몰 단가</b><span>거래처 온라인몰 상품 페이지의 단가·규격을 품목 탭에.</span></div></li></ul></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#l6" class="ref" data-ref="l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 병원 AI 비서실'</b> → <b>12 재고·구매</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>재고·발주 파일 → 프로젝트 파일(드라이브 연결), 약장 사진은 이 채팅에만</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span><span class="rc s">재고·발주</span></div></div><p class="rec-note">사진·명세서로 품목표를 만들고, 수식은 엑셀 스킬이 정확해요.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·수식·웹앱 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>차트(EMR)의 재고 기능이나 재고 관리 프로그램. 이 시트로 석 달 써 보고 필요한 기능을 알고 고르면 실패가 적어요</li></ul></div></div>
@@ -5033,7 +5202,7 @@ function extraCommand(t) {
     <li><input type="checkbox" id="a78a" data-key="a78a"><div class="body"><label for="a78a">유효기한: 먼저 들어온 것 먼저</label><small>입고 탭의 유효기한으로 재고 탭에 '가장 빠른 유효기한'이 떠요(<a href="#l76" class="ref" data-ref="l76">강의</a>). 아침 점검(<a href="#l77" class="ref" data-ref="l77">강의</a>)이 60일 안에 끝나는 로트를 알려 줘요. 약장에는 빠른 것을 앞에, 다 쓴 로트는 입고 탭 '소진'을 체크. 기한이 지난 약은 바로 분리해 폐기 상자로, 사용 탭에 사유 '폐기'.</small></div></li>
     <li><input type="checkbox" id="a78b" data-key="a78b"><div class="body"><label for="a78b">냉장고 온도는 하루 두 번</label><small>직원 웹앱 체크리스트(<a href="#l82" class="ref" data-ref="l82">강의</a>)에 '백신 냉장고 온도' 항목을 넣어 출근·퇴근 때 숫자를 적어요. 보관 기준 온도는 각 제품 설명서대로 적고, 벗어나면 텔레그램 알림(<a href="#l79" class="ref" data-ref="l79">강의</a>)이 오게 해요. 정전이 있었던 날은 백신을 쓰기 전에 거래처·제조사에 확인해요.</small></div></li>
     <li><input type="checkbox" id="a78c" data-key="a78c"><div class="body"><label for="a78c">마약류는 보고가 원본, 시트는 수량만</label><small>마약류 취급 내역은 차트·보고 프로그램으로 마약류통합관리시스템에 보고해요. '재고·발주' 시트의 N 코드 품목에는 <b>품목·입고 수량·월말 실사 수량</b>만 적고, 보호자 이름·동물 정보·투약 내역은 적지 않아요. AI에도 올리지 않아요. 월말에 보고 시스템의 재고량과 금고 실사 수량이 같은지만 맞춰요.</small></div></li>
-    <li><input type="checkbox" id="a78d" data-key="a78d"><div class="body"><label for="a78d">월말 실사 30분</label><small>매달 마지막 진료일에 재고 탭을 인쇄하거나 휴대폰으로 열어, 실제 수량을 옆 칸에 적어요. 차이가 나면 사용 탭에 '실사 조정' 한 줄로 맞추고, 차이가 큰 품목은 '12 재고·구매'에 원인 찾기를 부탁해요(기록 누락, 판매 미입력, 파손). 연말 실사 금액은 세무사에게 기말 재고 자료로 줘요(<a href="#l73" class="ref" data-ref="l73">강의</a>).</small></div></li>
+    <li><input type="checkbox" id="a78d" data-key="a78d"><div class="body"><label for="a78d">월말 실사 30분</label><small>매달 마지막 진료일에 태블릿 실사 화면(<a href="#l76" class="ref" data-ref="l76">강의</a>)으로 위치마다 돌며 실제 수량을 눌러요(태블릿이 없으면 재고 탭을 인쇄해 옆 칸에). 차이가 나면 사용 탭에 '실사 조정' 한 줄로 맞추고, 차이가 큰 품목은 '12 재고·구매'에 원인 찾기를 부탁해요(기록 누락, 판매 미입력, 파손). 연말 실사 금액은 세무사에게 기말 재고 자료로 줘요(<a href="#l73" class="ref" data-ref="l73">강의</a>).</small></div></li>
     <li><input type="checkbox" id="a78e" data-key="a78e"><div class="body"><label for="a78e">약품 재고 규칙을 지침으로</label><small>아래 '약품 재고 규칙'을 '12 재고·구매' 채팅 첫 메시지로 보내요. 규칙이 쌓이면 '재고·발주' 스킬로 묶어요(<a href="#l38" class="ref" data-ref="l38">강의</a>).</small></div></li>
   </ol>
   <div class="prompt"><div class="bar"><span>약품 재고 규칙 (12 재고·구매 첫 메시지)</span><button class="copy" type="button">복사</button></div><pre>너는 우리 병원 '재고·구매' 담당이야. '재고·발주' 파일(품목·입고·사용·재고·발주·거래처 탭)을 기준으로 일해.
