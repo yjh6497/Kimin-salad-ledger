@@ -4,6 +4,6 @@
 
 - `index.html`: 혼자 따라 하는 실습 코스 (14개 강의)
 - `intro.html`: 1분 소개 영상
-- `vet/index.html`: 동물병원 개원·운영 AI 실습 코스 (91개 강의)
+- `vet/index.html`: 동물병원 개원·인수·운영 AI 실습 코스 (95개 강의, 시작할 때 개원/인수 선택)
 
 GitHub Pages로 배포됩니다.
