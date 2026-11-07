@@ -1,0 +1,74 @@
+<section id="c-l39" class="lesson" data-part="aidesk" data-title="디자인 MCP: Canva·Figma 연결" data-level="adv" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간</span>
+    <h2>AI가 디자인 도구를 직접 열어 동의서·안내문·앱 화면을 만들어요</h2>
+    <p class="goal">디자인 MCP(커넥터)를 연결하면 AI가 <b>Canva</b>에서 동의서·안내문·포스터를 만들고 PDF로 내보내고, <b>Figma</b>에서 태블릿 앱 화면 시안을 그리거나 그 시안을 읽어 코드에 반영해요. "이 문구로 A4 동의서 만들어 줘" 한마디면 {{owner:은}} 고르고 고치기만 하면 돼요.</p>
+  </div>
+  <h3>무엇을 어디서 만들까</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>도구</th><th>{{place}}에서 만드는 것</th><th>연결 주소·조건</th></tr></thead>
+    <tbody>
+      <tr><td><b>Canva</b> (추천 1순위)</td><td>동의서·접수지(A4 인쇄용), 대기실 안내문, QR 안내판, <span data-biz="vet">퇴원 안내</span><span data-biz-not="vet">이용 안내</span>, 블로그 대문, 인스타 카드뉴스, 명함</td><td>Claude 커넥터 목록의 Canva, 또는 MCP 주소 <code>https://mcp.canva.com/mcp</code>. Canva 무료 계정도 연결돼요(일부 기능은 유료)</td></tr>
+      <tr><td><b>Figma</b></td><td>태블릿 접수·동의 앱(<a href="#c-l93" class="ref" data-ref="c-l93">강의</a>), 직원 웹앱(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>) 화면 시안 → 시안대로 코드 고치기, 인테리어 동선 메모(FigJam)</td><td>Claude 커넥터 목록의 Figma, 또는 MCP 주소 <code>https://mcp.figma.com/mcp</code>. Figma 유료 요금제(Professional 이상)에서 편집 권한이 있는 계정이어야 제대로 써요. Figma 용어로는 <b>Full 시트</b>(디자인 편집) 또는 <b>Dev 시트</b>(개발용 보기)이고, 무료 계정이나 보기 전용 계정은 사용 횟수가 제한될 수 있어요</td></tr>
+      <tr><td><b>Pablooo</b> (화면 레퍼런스)</td><td>만들기 전에 "다른 앱은 접수·체크인·예약·동의 화면을 어떻게 만들었나" 실제 앱 화면 스크린샷을 찾아보기. 태블릿 앱·직원 웹앱·안내 화면의 버튼 배치·순서 아이디어</td><td>MCP 주소 <code>https://mcp.pablooo.club</code>. 무료, 가입·키 없이 연결. 약 8,000장의 모바일·데스크톱 화면과 흐름(해외 앱 위주)</td></tr>
+      <tr><td><b>구글 문서</b> (연결 없이도)</td><td>동의서 문구 원본, 매뉴얼</td><td>Google Drive 커넥터(<a href="#c-l38" class="ref" data-ref="c-l38">강의</a>)로 읽기. 문구 원본은 여기, 디자인은 Canva</td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap">정리: <b>인쇄물·이미지는 Canva</b>, <b>앱 화면은 Figma</b>, <b>만들기 전 참고는 Pablooo</b>, <b>문구 원본은 구글 문서</b>. 처음엔 Canva 하나만 연결해도 충분하고, 앱 화면을 만들 때 Pablooo를 더해요. 비슷한 화면 레퍼런스 서비스로 Mobbin·Refero도 있어요(유료 위주).</p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a39a" data-key="v_a39a"><div class="body"><label for="v_a39a">Claude에 Canva 연결</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li data-ai-not="gpt">Claude 웹·데스크톱(유료 요금제): 새 채팅 입력창의 <span class="path">검색 및 도구 → 커넥터 관리</span> → Canva 찾기 → <span class="path">연결</span> → Canva 로그인 → 허용. 목록에 없으면 <span class="path">커넥터 둘러보기</span>에서 검색</li>
+        <li data-ai-not="gpt">목록에서 못 찾으면 <span class="path">설정 → 커넥터 → 사용자 지정 커넥터 추가</span>에 https://mcp.canva.com/mcp</li>
+        <li data-ai-not="claude">ChatGPT: <span class="path">설정 → 앱</span>에서 Canva를 찾아 연결해요(메뉴 이름은 자주 바뀌어요)</li>
+        <li>연결 확인: "Canva에서 A4 빈 문서 하나 만들어 줘" → Canva에 새 디자인이 생기면 성공<span class="fix">{{place}} 공용 Canva 계정으로 연결하세요. {{owner}} 개인 계정이면 디자인이 개인 폴더에 쌓여요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a39b" data-key="v_a39b"><div class="body"><label for="v_a39b">Figma 연결 (앱 화면을 만들 때)</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>Claude: 커넥터 관리에서 Figma → 연결 → Figma 로그인·허용. 목록에 없으면 사용자 지정 커넥터에 https://mcp.figma.com/mcp</li>
+        <li>터미널 Claude Code를 쓰면: <code>claude mcp add --transport http figma https://mcp.figma.com/mcp</code> → <code>/mcp</code>에서 figma 인증</li>
+        <li>Figma에서 새 디자인 파일 '{{place}} 앱' → 파일 주소를 복사해 AI에게 주면 그 파일에서 작업해요. 특정 화면만이면 그 프레임을 선택하고 <span class="path">선택 항목 링크 복사</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a39g" data-key="v_a39g"><div class="body"><label for="v_a39g">Pablooo 연결 (화면 레퍼런스)</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li data-ai-not="gpt">Claude 웹·데스크톱: <span class="path">설정 → 커넥터 → 사용자 지정 커넥터 추가</span> → 이름 Pablooo, 주소 https://mcp.pablooo.club → 추가(가입·키 없음)</li>
+        <li>터미널 Claude Code: <code>claude mcp add --transport http pablooo --scope user https://mcp.pablooo.club</code> → <code>/mcp</code>에서 확인</li>
+        <li data-ai-not="claude">ChatGPT: 앱(플러그인) 목록에서 Pablooo를 찾아 설치해요(메뉴 이름은 바뀔 수 있어요)</li>
+        <li>확인: "Pablooo에서 체크인·접수 화면 예시 6개 보여 줘" → 실제 앱 화면이 나오면 성공<span class="fix">해외 앱 위주라 글자는 영어예요. 버튼 크기·순서·진행 표시처럼 구조만 참고하고, 화면을 그대로 베끼지 않아요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a39c" data-key="v_a39c"><div class="body"><label for="v_a39c">{{place}} 디자인 기준 한 장 먼저</label><small>{{place}} 브랜드(<a href="#c-l95" class="ref" data-ref="c-l95">강의</a>)의 색 2~3개, 글꼴, 로고 파일을 Canva·Figma에 올려 두고, AI에게 "늘 이 기준으로"라고 해요. Canva 브랜드 키트는 유료 기능이라, 무료면 '디자인 기준' 디자인 한 장을 만들어 두고 매번 참고하게 해요. 글꼴은 <b>상업적 이용이 되는 것</b>만.</small></div></li>
+    <li><input type="checkbox" id="v_a39d" data-key="v_a39d"><div class="body"><label for="v_a39d">동의서·접수지 (Canva)</label><small>동의 문구(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>)가 확정되면 아래 '동의서 디자인 부탁문'. 체크 칸이 항목마다 따로인 A4 한 장과 PDF가 나와요. 태블릿 앱의 '동의문구' 탭과 <b>같은 문구·같은 버전</b>으로 맞춰 두면, 태블릿이 고장 난 날 종이로 바로 받을 수 있어요.</small></div></li>
+    <li><input type="checkbox" id="v_a39e" data-key="v_a39e"><div class="body"><label for="v_a39e">태블릿 앱 화면 (Figma → 코드)</label><small>'앱 화면 시안 부탁문'으로 태블릿 가로 화면 5장({{customer}}·<span data-biz="vet">반려동물</span><span data-biz-not="vet">방문 내용</span>·동의·서명·완료) 시안 → {{owner:이}} Figma에서 직접 고치거나 말로 고치기 → '시안대로 코드 고치기 부탁문'으로 index.html(<a href="#c-l93" class="ref" data-ref="c-l93">강의</a>)의 색·크기·배치를 맞춰요. 직원 웹앱도 같은 방법.</small></div></li>
+    <li><input type="checkbox" id="v_a39f" data-key="v_a39f"><div class="body"><label for="v_a39f">대기실·SNS 디자인 묶음 (Canva)</label><small>QR 접수 안내판, <span data-biz="vet">진료 순서 안내, 예방접종 달력,</span><span data-biz-not="vet">이용 순서 안내, 철마다 바뀌는 안내판,</span> 블로그 대문(<a href="#c-l19" class="ref" data-ref="c-l19">강의</a>), 인스타 카드뉴스(<a href="#c-l26" class="ref" data-ref="c-l26">강의</a>)를 같은 기준으로. 텔레그램 승인함(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>)에 「인쇄 / 수정」을 걸어 두면 출퇴근길에 고를 수 있어요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>화면 레퍼런스 부탁문 (Pablooo → Figma)</span><button class="copy" type="button">복사</button></div><pre>Pablooo에서 '체크인·접수·동의·서명' 흐름이 있는 앱 화면을 6~8개 찾아 줘.
+1) 화면마다: 앱 이름, 무엇을 잘했는지(버튼 크기, 단계 표시, 필수·선택 구분, 큰 글씨)
+2) 우리 대기실 태블릿 접수 앱에 가져올 점 5가지와 피할 점 3가지
+3) 그걸 반영한 우리 앱 화면 구조(5장) 설명 — 그대로 베끼지 말고 구조만
+다음 단계로 이 구조를 Figma 시안으로 만들 거야.</pre></div>
+  <div class="prompt"><div class="bar"><span>동의서 디자인 부탁문 (Canva)</span><button class="copy" type="button">복사</button></div><pre>Canva에서 우리 {{place}} 첫 방문 접수·동의서를 A4 세로 한 장으로 만들어 줘.
+- 디자인 기준: 색 ○○, ○○ / 글꼴 ○○ / 로고는 '디자인 기준' 디자인의 것
+- 위: {{place}} 이름·로고, 접수 칸({{customer}} 이름, 연락처, <span data-biz="vet">반려동물 이름·종류·나이, </span>방문 이유)
+- 가운데: 동의 3가지, 항목마다 체크 칸 따로(① 개인정보 수집·이용 필수 ② 광고성 정보 수신 선택 ③ 사진·<span data-biz="vet">진료</span><span data-biz-not="vet">이용</span> 이야기 활용 선택), 문구는 아래 그대로: ○○
+- 아래: 날짜, 서명란, "선택 동의를 하지 않아도 <span data-biz="vet">진료</span><span data-biz-not="vet">이용</span>에 불이익이 없어요"
+- 글자는 11pt 이상, 흑백 인쇄해도 읽히게
+- 보통 글씨 버전(A4 1장)과 큰 글씨 버전(14pt 이상, A4 2장까지)을 <b>두 개의 디자인</b>으로 따로 만들고 파일 이름에 (보통)/(큰 글씨)
+<span data-biz="vet">- 접수 칸에 "반려동물 사진(진료 기록용, 선택) — 접수대에서 찍어요" 한 줄
+</span>- 만든 뒤 PDF로 내보내고 링크를 줘. {{customer}} 개인정보는 넣지 않은 빈 양식이야</pre></div>
+  <div class="prompt"><div class="bar"><span>앱 화면 시안 부탁문 (Figma)</span><button class="copy" type="button">복사</button></div><pre>이 Figma 파일(○○ 주소)에 대기실 태블릿 접수·동의 앱 화면 시안을 만들어 줘.
+- 1024×768 가로 프레임 5개: {{customer}} 정보, <span data-biz="vet">반려동물(종류·방문 이유는 큰 버튼)</span><span data-biz-not="vet">방문 내용(방문 이유는 큰 버튼)</span>, 동의(필수·선택 표시, 전문 펼치기), 손가락 서명, 접수 완료(접수번호)
+- {{place}} 디자인 기준 색·글꼴, 버튼은 손가락으로 누르기 쉬운 크기(높이 56 이상), 글자 18 이상
+- 진행 표시 점 4개, 화면마다 '이전/다음'
+- 노인 {{customer}}도 읽기 쉽게 대비를 높게</pre></div>
+  <div class="prompt"><div class="bar"><span>시안대로 코드 고치기 부탁문 (07 자동화 도우미)</span><button class="copy" type="button">복사</button></div><pre>Figma 파일(○○ 주소)의 태블릿 접수 앱 시안을 읽고, 첨부한 index.html의 스타일을 시안에 맞춰 바꿔 줘.
+- 색·글자 크기·버튼 크기·간격·배치만 바꾸고, 저장 동작(google.script.run, 입력 지우기, 첫 화면 복귀)은 그대로
+- 바뀐 CSS와 HTML 부분만 보여 주고, 다시 배포는 '배포 관리 → 새 버전'</pre></div>
+  <p class="tip warnbox"><b>디자인 파일은 양식만.</b> Canva·Figma에는 빈 양식과 안내물만 두고, 작성된 동의서·{{customer}} 사진·연락처는 올리지 않아요. 공유 링크는 '보기만'으로, 외부 디자이너에게 넘길 때는 필요한 디자인만. AI가 만든 그림은 실제 <span data-biz="vet">진료</span><span data-biz-not="vet">작업</span> 사진처럼 쓰지 않아요.</p>
+  <p class="src">출처: <a href="https://www.canva.dev/docs/connect/canva-mcp-server-setup" target="_blank" rel="noopener">Canva AI Connector 설정 (mcp.canva.com/mcp)</a> · <a href="https://help.figma.com/hc/en-us/articles/35281350665623" target="_blank" rel="noopener">Figma MCP server 안내</a> · <a href="https://www.builder.io/blog/figma-remote-mcp" target="_blank" rel="noopener">Figma 원격 MCP (mcp.figma.com/mcp)</a></p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-conn">커넥터</span><div class="ad"><b>템플릿 한 번, 이후 채우기</b><span>동의서·안내문 템플릿을 한 번 만들면 다음부터는 "이 템플릿에 새 문구로" 한 줄.</span></div></li><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>분기 디자인 점검</b><span>석 달마다 대기실 안내물·동의서가 지금 문구·버전과 같은지.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>디자인 시안 고르기</b><span>Canva·Figma 시안 2~3개를 버튼으로 고르고 인쇄·반영.</span><span class="pv">버튼: 1안 / 2안 / 수정</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: Figma 시안을 읽어 태블릿 앱 index.html 스타일을 고치고 다시 배포 안내까지.</span></div><div class="run-row"><b>비서 연동</b><span>'프로젝트 화면 새 채팅' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 디자인 기준 한 장(색·글꼴·로고) → 프로젝트 파일, 디자인 결과 링크 → 업무일지</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>프로젝트 화면 새 채팅</b></span></div><div class="aib-row"><b>넣어 둘 것</b><span>디자인 기준 한 장(색·글꼴·로고) → 프로젝트 파일, 디자인 결과 링크 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 {{customer}} A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Canva</span><span class="rc c">Figma</span><span class="rc c">Pablooo</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{place}} 브랜드·말투</span><span class="rc s">PDF</span></div></div><p class="rec-note">인쇄물은 Canva, 앱 화면은 Pablooo로 레퍼런스를 보고 Figma로. 처음엔 Canva 하나로 충분해요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Canva 무료 계정 + 연결, 구글 문서로 문구 원본</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>Canva 유료(브랜드 키트·템플릿 자동 채우기), Figma 유료 요금제의 편집 계정(Full 시트, 앱 화면 편집), Claude·ChatGPT 유료(커넥터 목록 연결)</li></ul></div></div>
+</section>

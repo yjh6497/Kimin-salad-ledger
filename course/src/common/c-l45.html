@@ -1,0 +1,246 @@
+<section id="c-l45" class="lesson" data-part="staff" data-title="마감 체크리스트 (태블릿)" data-level="adv" data-stage="prep takeover operate" data-biz-not="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · 매일 5분</span>
+    <h2>문 잠그기 전 5분, 태블릿 한 바퀴로 내일 아침 사고를 막아요</h2>
+    <p class="goal"><span data-biz="vet">밤사이 냉장고 문이 살짝 열려 백신을 버리거나, 산소 밸브·마취기가 켜져 있거나, 입원 동물 메모가 없어 아침 근무자가 헤매는 일.</span><span data-biz-not="vet">밤사이 냉장고 문이 살짝 열려 {{stockitem:을}} 버리거나, 전열기·가스가 켜져 있거나, 뒷문이 열려 있어 아침 근무자가 놀라는 일.</span> 마감 담당이 <b>태블릿을 들고 구역별로 돌며 체크</b>하고, 냉장고 온도·현금 시재 같은 숫자는 직접 넣어요. 기준을 벗어나면 주황색으로 표시되고, '마감 완료'를 누르면 기록이 시트에 남고 <b>{{owner}} 텔레그램에 한 줄 요약</b>이 가요.</p>
+  </div>
+  <div class="vis">
+    <div class="chat">
+      <div class="bubble ai a" style="--d:.2s"><span class="who">우리{{place}} 알림 봇 · 21:12</span><span data-biz="vet">🔒 마감 21:12 · 직원 03 · 20/21 완료<br>⚠️ 미완료: 멸균기 정리(고장, 내일 아침 수리 기사)<br>🌡 범위 밖: 백신·약품 냉장고 온도 9.5℃<br>📝 입원 2마리, 3번 케이지 밤 10시 수액 끝남</span><span data-biz-not="vet">🔒 마감 21:12 · 직원 03 · 16/17 완료<br>⚠️ 미완료: 쓰레기 내놓기(수거일 아님, 내일 아침)<br>🌡 범위 밖: 냉장고 온도 9.5℃<br>📝 냉장고 문 고무 패킹 헐거움, 내일 수리 전화</span></div>
+    </div>
+    <p class="cap a" style="--d:.8s">{{owner:은}} 집에서 이 한 줄만 보면 돼요. 범위 밖 온도는 바로 전화로 확인.</p>
+  </div>
+  <h3>앱이 하는 일</h3>
+  <ul class="checks">
+    <li><input type="checkbox" id="v_a45a" data-key="v_a45a"><label for="v_a45a"><b>구역별 큰 체크 버튼</b> — <span data-biz="vet">입원실 → 진료실 → 약품·냉장 → 장비 → 위생 → 결제 → 시설 → 내일 준비</span><span data-biz-not="vet">작업 공간 → 냉장·보관 → 장비·전기 → 위생 → 결제 → 시설 → 내일 준비</span> 순서로, 돌며 누르기 좋게</label></li>
+    <li><input type="checkbox" id="v_a45b" data-key="v_a45b"><label for="v_a45b"><b>숫자 항목과 기준 범위</b> — 냉장고 온도(제품 설명서 기준), 현금 시재. 벗어나면 주황색</label></li>
+    <li><input type="checkbox" id="v_a45c" data-key="v_a45c"><label for="v_a45c"><b>필수 항목은 '못 했어요'에 이유를 적어야</b> 마감 완료가 눌려요. 그냥 건너뛸 수 없어요</label></li>
+    <li><input type="checkbox" id="v_a45d" data-key="v_a45d"><label for="v_a45d"><b>요일 항목</b> — 금요일만 <span data-biz="vet">차트</span><span data-biz-not="vet">장부</span> 백업 확인처럼, 시트에 요일을 적으면 그날만 나와요</label></li>
+    <li><input type="checkbox" id="v_a45e" data-key="v_a45e"><label for="v_a45e"><b>항목은 시트에서</b> — 코드를 고치지 않고 '마감항목' 탭 줄만 고치면 다음 마감부터 바뀌어요</label></li>
+  </ul>
+  <p class="cap">아티팩트로도 체크 화면은 만들 수 있지만, 마감 기록이 남고 {{owner}}께 요약이 가야 해서 이 강의는 구글 시트에 저장되는 <b>배포(웹앱) 방식</b>으로 해요(<a href="#c-l93" class="ref" data-ref="c-l93">강의</a>).</p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a45f" data-key="v_a45f"><div class="body"><label for="v_a45f">시트 만들기</label><small>새 스프레드시트 '마감' → 탭 두 개 '마감항목', '마감기록' → 아래 제목 줄. 마감항목에는 아래 '기본 <span data-biz="vet">21</span><span data-biz-not="vet">17</span>항목'을 붙인 뒤 우리 {{place}}에 맞게 고쳐요. 냉장고 온도 기준은 <b>보관 중인 제품 설명서 값</b>으로 바꿔요.</small></div></li>
+    <li><input type="checkbox" id="v_a45g" data-key="v_a45g"><div class="body"><label for="v_a45g">코드 붙이고 배포</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">확장 프로그램 → Apps Script</span> → Code.gs 자리에 'Close.gs' → + HTML 이름 <b>close</b> → 'close.html' → 저장</li>
+        <li>스크립트 속성: CLOSE_KEY(영문·숫자 12자 이상), CLINIC_NAME, 텔레그램 요약을 받으려면 TG_TOKEN·TG_CHAT(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>)</li>
+        <li>배포 → 새 배포 → 웹 앱(실행: 나, 액세스: 모든 사용자) → URL 끝에 <code>?k=CLOSE_KEY값</code></li>
+        <li>접수대·직원 태블릿 홈 화면에 '마감' 아이콘(<a href="#c-l93" class="ref" data-ref="c-l93">강의</a>). 접수 태블릿과 같은 기기여도 돼요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a45h" data-key="v_a45h"><div class="body"><label for="v_a45h">마감 담당과 순서 정하기</label><small>근무표(<a href="#c-l81" class="ref" data-ref="c-l81">강의</a>)에 그날 마감 담당을 표시하고, <span data-biz="vet">마약류 금고는 2인 확인.</span><span data-biz-not="vet">금고·현금은 되도록 2인 확인.</span> 처음 일주일은 {{owner:이}} 같이 한 바퀴 돌며 순서를 동선에 맞게 바꿔요(시트 '순서' 칸).</small></div></li>
+    <li><input type="checkbox" id="v_a45i" data-key="v_a45i"><div class="body"><label for="v_a45i">아침에 이어받기</label><small>오픈 담당은 출근하면 텔레그램 요약이나 마감기록 탭의 어젯밤 메모·미완료부터 봐요. 오픈 체크리스트도 같은 방법으로: 시트를 복사해 '오픈' 항목(<span data-biz="vet">냉장고 온도, 입원 동물 상태, 예약 확인, 접수 태블릿 켜기</span><span data-biz-not="vet">냉장고 온도, {{stockitem}} 확인, 예약·주문 확인, 결제 단말기 켜기</span>)으로.</small></div></li>
+    <li><input type="checkbox" id="v_a45j" data-key="v_a45j"><div class="body"><label for="v_a45j">매주 한 번 돌아보기</label><small>'마감 돌아보기 부탁문'으로 자주 빠지는 항목, 온도가 기준을 벗어난 날, 마감 시각 추이를 봐요. 같은 항목이 계속 빠지면 순서나 담당을 바꾸고, 매뉴얼(<a href="#c-l83" class="ref" data-ref="c-l83">강의</a>)에 반영해요.</small></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>마감항목 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>순서 | 구역 | 항목 | 필수(Y/N) | 입력(체크/숫자) | 최소 | 최대 | 단위 | 요일(비우면 매일)</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>마감기록 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 시각 | 직원번호 | 구역 | 항목 | 결과 | 값 | 범위 밖 | 메모</pre></div>
+  <div class="prompt" data-tsv data-biz="vet"><div class="bar"><span>기본 21항목 (우리 {{place}}에 맞게 고치기)</span><button class="copy" type="button">복사</button></div><pre>1 | 입원실 | 입원 동물 상태·수액·급식 확인, 야간 메모 작성 | Y | 체크 | | | | 
+2 | 입원실 | 입원실 온도 | N | 숫자 | | | ℃ | 
+3 | 입원실 | 야간 담당·비상 연락 확인 | Y | 체크 | | | | 
+4 | 진료실·처치실 | 진료대·처치대 소독 | Y | 체크 | | | | 
+5 | 진료실·처치실 | 쓴 기구 세척·멸균기에 넣기 | Y | 체크 | | | | 
+6 | 약품·냉장 | 백신·약품 냉장고 온도 | Y | 숫자 | 2 | 8 | ℃ | 
+7 | 약품·냉장 | 냉장고 문 닫힘·전원 확인 | Y | 체크 | | | | 
+8 | 약품·냉장 | 마약류 금고 잠금(2인 확인) | Y | 체크 | | | | 
+9 | 장비 | 산소 밸브 잠금·마취기 끄기 | Y | 체크 | | | | 
+10 | 장비 | 방사선 장비 전원 끄기 | Y | 체크 | | | | 
+11 | 장비 | 멸균기·초음파·현미경 정리 | N | 체크 | | | | 
+12 | 위생·폐기물 | 의료폐기물 전용 용기 밀폐·보관 장소 | Y | 체크 | | | | 
+13 | 위생·폐기물 | 대기실·진료실 바닥 청소 | N | 체크 | | | | 
+14 | 결제·서류 | 결제 단말기 하루 정산 | Y | 체크 | | | | 
+15 | 결제·서류 | 현금 시재 | N | 숫자 | | | 원 | 
+16 | 결제·서류 | 오늘 서류 정리, 접수 태블릿 충전 | N | 체크 | | | | 
+17 | 시설·보안 | 창문·뒷문 잠금 | Y | 체크 | | | | 
+18 | 시설·보안 | 냉난방·조명 끄기(입원실 제외) | N | 체크 | | | | 
+19 | 시설·보안 | 출입문 잠금·경비 켜기 | Y | 체크 | | | | 
+20 | 내일 준비 | 내일 예약·수술 확인, 준비물 꺼내 두기 | N | 체크 | | | | 
+21 | 데이터 | 차트 백업 확인 | N | 체크 | | | | 금</pre></div>
+  <div class="prompt" data-tsv data-biz-not="vet"><div class="bar"><span>기본 17항목 (우리 {{place}}에 맞게 고치기)</span><button class="copy" type="button">복사</button></div><pre>1 | 작업 공간 | 작업대·계산대 정리와 닦기 | Y | 체크 | | | |
+2 | 작업 공간 | 쓴 도구 세척·제자리 | N | 체크 | | | |
+3 | 냉장·보관 | 냉장고 온도 | Y | 숫자 | 2 | 8 | ℃ |
+4 | 냉장·보관 | 냉장고 문 닫힘·전원 확인 | Y | 체크 | | | |
+5 | 냉장·보관 | {{stockitem}} 남은 양 확인, 내일 주문할 것 적기 | N | 체크 | | | |
+6 | 장비·전기 | 전열기·가스 밸브 잠금 | Y | 체크 | | | |
+7 | 장비·전기 | 쓰지 않는 장비 전원 끄기 | N | 체크 | | | |
+8 | 위생 | 바닥·화장실 청소 | N | 체크 | | | |
+9 | 위생 | 쓰레기·분리수거 내놓기 | N | 체크 | | | |
+10 | 결제·서류 | 결제 단말기 하루 정산 | Y | 체크 | | | |
+11 | 결제·서류 | 현금 시재 | N | 숫자 | | | 원 |
+12 | 결제·서류 | 오늘 서류 정리, 태블릿 충전 | N | 체크 | | | |
+13 | 시설·보안 | 창문·뒷문 잠금 | Y | 체크 | | | |
+14 | 시설·보안 | 냉난방·조명 끄기 | N | 체크 | | | |
+15 | 시설·보안 | 출입문 잠금·경비 켜기 | Y | 체크 | | | |
+16 | 내일 준비 | 내일 예약·주문 확인, 준비물 꺼내 두기 | N | 체크 | | | |
+17 | 데이터 | 장부·사진 백업 확인 | N | 체크 | | | | 금</pre></div>
+  <div class="prompt"><div class="bar"><span>Close.gs</span><button class="copy" type="button">복사</button></div><pre>// 마감 체크리스트 (마감 시트의 Apps Script)
+// 마감항목 탭: 순서 | 구역 | 항목 | 필수(Y/N) | 입력(체크/숫자) | 최소 | 최대 | 단위 | 요일(비우면 매일, 예: 월수금)
+// 마감기록 탭: 날짜 | 시각 | 직원번호 | 구역 | 항목 | 결과 | 값 | 범위 밖 | 메모
+var P = PropertiesService.getScriptProperties();
+
+function doGet(e) {
+  if (!e || !e.parameter || e.parameter.k !== P.getProperty('CLOSE_KEY')) {
+    return HtmlService.createHtmlOutput('&lt;p style="font:20px sans-serif;padding:40px"&gt;마감 태블릿 주소를 확인해 주세요.&lt;/p&gt;');
+  }
+  var t = HtmlService.createTemplateFromFile('close');
+  t.key = e.parameter.k;
+  t.clinic = P.getProperty('CLINIC_NAME') || '우리 {{biz}}';
+  return t.evaluate().setTitle('마감 체크').addMetaTag('viewport', 'width=device-width, initial-scale=1');
+}
+
+function closeItems(key) {
+  if (key !== P.getProperty('CLOSE_KEY')) throw new Error('기기 확인 실패');
+  var day = ['일', '월', '화', '수', '목', '금', '토'][new Date().getDay()];
+  return SpreadsheetApp.getActive().getSheetByName('마감항목').getDataRange().getValues().slice(1)
+    .filter(function (r) { return r[2] &amp;&amp; (!r[8] || String(r[8]).indexOf(day) &gt;= 0); })
+    .sort(function (a, b) { return Number(a[0]) - Number(b[0]); })
+    .map(function (r, i) {
+      return { id: i, area: r[1], name: r[2], req: r[3] === 'Y', num: r[4] === '숫자',
+               min: r[5] === '' ? null : Number(r[5]), max: r[6] === '' ? null : Number(r[6]), unit: r[7] || '' };
+    });
+}
+
+function saveClose(key, staff, rows, memo) {
+  if (key !== P.getProperty('CLOSE_KEY')) throw new Error('기기 확인 실패');
+  var sh = SpreadsheetApp.getActive().getSheetByName('마감기록');
+  var now = new Date(), d = Utilities.formatDate(now, 'Asia/Seoul', 'yyyy-MM-dd'), t = Utilities.formatDate(now, 'Asia/Seoul', 'HH:mm');
+  var miss = [], out = [];
+  rows.forEach(function (x) {
+    var bad = x.num &amp;&amp; x.value !== '' &amp;&amp; ((x.min !== null &amp;&amp; Number(x.value) &lt; x.min) || (x.max !== null &amp;&amp; Number(x.value) &gt; x.max));
+    sh.appendRow([d, t, staff, x.area, x.name, x.done ? '완료' : '미완료', x.value, bad ? '범위 밖' : '', x.note || '']);
+    if (!x.done) miss.push(x.name + (x.note ? '(' + x.note + ')' : ''));
+    if (bad) out.push(x.name + ' ' + x.value + x.unit);
+  });
+  if (memo) sh.appendRow([d, t, staff, '메모', '마감 메모', '', '', '', memo]);
+  var msg = '🔒 마감 ' + t + ' · 직원 ' + staff + ' · ' + (rows.length - miss.length) + '/' + rows.length + ' 완료';
+  if (miss.length) msg += '\n⚠️ 미완료: ' + miss.join(', ');
+  if (out.length) msg += '\n🌡 범위 밖: ' + out.join(', ');
+  if (memo) msg += '\n📝 ' + memo;
+  if (P.getProperty('TG_TOKEN')) {
+    UrlFetchApp.fetch('https://api.telegram.org/bot' + P.getProperty('TG_TOKEN') + '/sendMessage', {
+      method: 'post', payload: { chat_id: P.getProperty('TG_CHAT'), text: msg }, muteHttpExceptions: true });
+  }
+  return { done: rows.length - miss.length, total: rows.length, miss: miss.length, out: out.length };
+}
+</pre></div>
+  <div class="prompt"><div class="bar"><span>close.html (HTML 파일 이름: close)</span><button class="copy" type="button">복사</button></div><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;&lt;head&gt;&lt;base target="_top"&gt;&lt;meta charset="utf-8"&gt;
+&lt;style&gt;
+  :root { --ink:#16302C; --muted:#5B6B68; --leaf:#1D6B61; --soft:#E3F0EE; --line:#D5DEDB; --bg:#F6F8F7; --warn:#B4442F; --amber:#C98A12; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:20px/1.5 -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  header { position:sticky; top:0; z-index:2; background:var(--leaf); color:#fff; padding:12px 20px; display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+  header b { font-size:22px; flex:1; } header input { width:100px; font-size:20px; padding:8px 10px; border:0; border-radius:10px; }
+  .prog { height:8px; background:#ffffff40; border-radius:4px; flex-basis:100%; overflow:hidden; } .prog i { display:block; height:100%; width:0; background:#fff; transition:width .3s; }
+  main { max-width:900px; margin:0 auto; padding:16px 20px 140px; }
+  h2 { font-size:22px; margin:22px 0 10px; display:flex; justify-content:space-between; }
+  h2 small { font-size:16px; color:var(--muted); font-weight:500; }
+  .it { background:#fff; border:2px solid var(--line); border-radius:16px; padding:14px 16px; margin:10px 0; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .it.ok { border-color:var(--leaf); background:var(--soft); } .it.bad { border-color:var(--amber); }
+  .it .nm { flex:1; min-width:200px; font-weight:600; } .it .nm em { font-style:normal; font-size:14px; color:var(--warn); margin-left:6px; }
+  .chk { width:64px; height:64px; border-radius:14px; border:3px solid var(--line); background:#fff; font-size:34px; color:#fff; flex:none; }
+  .it.ok .chk { background:var(--leaf); border-color:var(--leaf); }
+  .num { width:120px; height:60px; font-size:26px; text-align:center; border:2px solid var(--line); border-radius:12px; }
+  .unit { color:var(--muted); } .range { font-size:15px; color:var(--muted); flex-basis:100%; }
+  .it.bad .range { color:var(--amber); font-weight:700; }
+  .skip { font-size:15px; padding:8px 12px; border-radius:10px; border:1px solid var(--line); background:#fff; color:var(--muted); }
+  .note { flex-basis:100%; font-size:17px; padding:10px 12px; border:2px solid var(--amber); border-radius:10px; }
+  textarea { width:100%; font-size:18px; padding:12px; border:2px solid var(--line); border-radius:12px; min-height:90px; }
+  footer { position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid var(--line); padding:12px 20px; display:flex; gap:12px; align-items:center; justify-content:space-between; }
+  footer .btn { font-size:22px; padding:16px 30px; border-radius:14px; border:0; background:var(--leaf); color:#fff; font-weight:700; }
+  footer .btn:disabled { opacity:.45; } #msg { color:var(--muted); font-size:17px; }
+  .done { text-align:center; padding:60px 20px; } .done b { font-size:34px; display:block; margin:12px 0; }
+&lt;/style&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;&lt;b&gt;🔒 마감 체크 · &lt;?= clinic ?&gt;&lt;/b&gt;&lt;label&gt;직원번호 &lt;input id="staff" inputmode="numeric" placeholder="03"&gt;&lt;/label&gt;&lt;div class="prog"&gt;&lt;i id="bar"&gt;&lt;/i&gt;&lt;/div&gt;&lt;/header&gt;
+&lt;main id="main"&gt;&lt;p&gt;오늘 마감 항목을 불러오는 중…&lt;/p&gt;&lt;/main&gt;
+&lt;footer&gt;&lt;span id="msg"&gt;&lt;/span&gt;&lt;button class="btn" id="send" onclick="submitAll()"&gt;마감 완료&lt;/button&gt;&lt;/footer&gt;
+&lt;script&gt;
+var KEY = &lt;?!= JSON.stringify(key) ?&gt;;
+var ITEMS = [], st = {};
+function $(id) { return document.getElementById(id); }
+function esc(s) { return String(s == null ? '' : s).replace(/[&amp;&lt;&gt;"]/g, function (c) { return { '&amp;': '&amp;amp;', '&lt;': '&amp;lt;', '&gt;': '&amp;gt;', '"': '&amp;quot;' }[c]; }); }
+
+google.script.run.withSuccessHandler(function (items) {
+  ITEMS = items; var html = '', area = '';
+  items.forEach(function (x) {
+    st[x.id] = { done: false, value: '', note: '' };
+    if (x.area !== area) {
+      area = x.area;
+      var n = items.filter(function (y) { return y.area === area; }).length;
+      html += '&lt;h2&gt;' + esc(area) + '&lt;small&gt;' + n + '개&lt;/small&gt;&lt;/h2&gt;';
+    }
+    var range = x.num &amp;&amp; (x.min !== null || x.max !== null) ? '&lt;div class="range"&gt;기준 ' + (x.min !== null ? x.min : '') + ' ~ ' + (x.max !== null ? x.max : '') + ' ' + esc(x.unit) + '&lt;/div&gt;' : '';
+    html += '&lt;div class="it" id="i' + x.id + '"&gt;' +
+      (x.num ? '&lt;input class="num" inputmode="decimal" placeholder="숫자"&gt;&lt;span class="unit"&gt;' + esc(x.unit) + '&lt;/span&gt;' : '&lt;button type="button" class="chk"&gt;✓&lt;/button&gt;') +
+      '&lt;span class="nm"&gt;' + esc(x.name) + (x.req ? '&lt;em&gt;필수&lt;/em&gt;' : '') + '&lt;/span&gt;' +
+      '&lt;button type="button" class="skip"&gt;못 했어요&lt;/button&gt;' + range + '&lt;/div&gt;';
+  });
+  html += '&lt;h2&gt;마감 메모&lt;/h2&gt;&lt;textarea id="memo" placeholder="<span data-biz="vet">입원 동물 상태, </span>내일 아침 할 일, 고장 난 것 등 ({{customer}} 이름은 쓰지 않아요)"&gt;&lt;/textarea&gt;';
+  $('main').innerHTML = html;
+  items.forEach(function (x) {
+    var box = $('i' + x.id);
+    if (x.num) {
+      box.querySelector('.num').oninput = function () {
+        var v = this.value.replace(/[^\d.\-]/g, ''); this.value = v;
+        st[x.id].value = v; st[x.id].done = v !== '';
+        var bad = v !== '' &amp;&amp; ((x.min !== null &amp;&amp; Number(v) &lt; x.min) || (x.max !== null &amp;&amp; Number(v) &gt; x.max));
+        box.className = 'it' + (v === '' ? '' : bad ? ' bad' : ' ok'); prog();
+      };
+    } else {
+      box.querySelector('.chk').onclick = function () { st[x.id].done = !st[x.id].done; st[x.id].note = ''; var n = box.querySelector('.note'); if (n) n.remove(); box.classList.toggle('ok', st[x.id].done); prog(); };
+    }
+    box.querySelector('.skip').onclick = function () {
+      if (box.querySelector('.note')) return;
+      st[x.id].done = false; box.classList.remove('ok');
+      var n = document.createElement('input'); n.className = 'note'; n.placeholder = '못 한 이유 (예: <span data-biz="vet">오토클레이브 고장</span><span data-biz-not="vet">장비 고장</span>, 내일 아침에)';
+      n.oninput = function () { st[x.id].note = n.value; }; box.appendChild(n); n.focus(); prog();
+    };
+  });
+  prog();
+}).withFailureHandler(function (e) { $('main').innerHTML = '&lt;p&gt;불러오지 못했어요: ' + esc(e.message) + '&lt;/p&gt;'; }).closeItems(KEY);
+
+function prog() {
+  var done = ITEMS.filter(function (x) { return st[x.id].done; }).length;
+  $('bar').style.width = (ITEMS.length ? done / ITEMS.length * 100 : 0) + '%';
+  $('msg').textContent = done + ' / ' + ITEMS.length + ' 완료';
+}
+function submitAll() {
+  var staff = $('staff').value.trim();
+  if (!staff) { $('msg').textContent = '직원번호를 넣어 주세요'; $('staff').focus(); return; }
+  var lack = ITEMS.filter(function (x) { return x.req &amp;&amp; !st[x.id].done &amp;&amp; !st[x.id].note.trim(); });
+  if (lack.length) {
+    $('msg').textContent = '필수 항목: ' + lack[0].name + ' — 하거나 "못 했어요"에 이유를 적어 주세요';
+    $('i' + lack[0].id).scrollIntoView({ behavior: 'smooth', block: 'center' }); return;
+  }
+  var rows = ITEMS.map(function (x) { return { area: x.area, name: x.name, num: x.num, min: x.min, max: x.max, unit: x.unit, done: st[x.id].done, value: st[x.id].value, note: st[x.id].note }; });
+  $('send').disabled = true; $('msg').textContent = '저장 중…';
+  google.script.run.withSuccessHandler(function (r) {
+    $('main').innerHTML = '&lt;div class="done"&gt;&lt;div style="font-size:60px"&gt;🔒&lt;/div&gt;&lt;b&gt;마감 완료&lt;/b&gt;&lt;p&gt;' + r.done + ' / ' + r.total + ' 완료' +
+      (r.miss ? ' · 못 한 것 ' + r.miss + '개' : '') + (r.out ? ' · 범위 밖 ' + r.out + '개' : '') + '&lt;br&gt;{{owner}}께 요약이 갔어요. 수고하셨어요!&lt;/p&gt;&lt;/div&gt;';
+    $('msg').textContent = ''; $('send').hidden = true;
+  }).withFailureHandler(function (e) { $('send').disabled = false; $('msg').textContent = '저장하지 못했어요: ' + e.message; })
+    .saveClose(KEY, staff, rows, ($('memo') || {}).value || '');
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre></div>
+  <div class="prompt"><div class="bar"><span>마감 항목 맞추기 부탁문 (10 인사 담당)</span><button class="copy" type="button">복사</button></div><pre>첨부한 기본 <span data-biz="vet">21</span><span data-biz-not="vet">17</span>항목을 우리 {{place}}에 맞게 고쳐 줘.
+우리 {{place}}: <span data-biz="vet">입원실 ○(있음/없음), 장비 ○○(예: 방사선, 마취기, 산소, 멸균기)</span><span data-biz-not="vet">주요 장비 ○○(예: 냉장고, 전열기, 가스, 커피 머신)</span>, 냉장 보관 품목 ○○, 현금 결제 ○(많음/적음), 마감 인원 ○명
+- 동선 순서대로 순서 칸을 다시, 필수는 사고가 나면 되돌리기 어려운 것만
+- 숫자 항목의 기준 범위는 내가 준 제품 설명서 값만 쓰고 모르면 비워 두기
+- 요일 항목(주 1회 점검)을 2~3개 제안
+- 마감항목 탭 형식 그대로(탭으로 구분)</pre></div>
+  <div class="prompt"><div class="bar"><span>마감 돌아보기 부탁문 (매주)</span><button class="copy" type="button">복사</button></div><pre>'마감' 시트의 마감기록 탭(지난 4주)을 보고 정리해 줘.
+1) 미완료가 2번 이상 나온 항목과 적힌 이유
+2) 범위 밖 숫자(날짜, 값, 그날 메모)
+3) 마감 시각 추이(요일별), 늦은 날의 공통점
+4) 바꿀 것 3가지(순서, 담당, 항목 추가·삭제)
+직원 평가처럼 쓰지 말고, 일의 흐름을 고치는 데만.</pre></div>
+  <p class="tip warnbox"><b>체크는 대신해 주지 않아요.</b> 버튼을 누르는 건 사람이 직접 확인했다는 기록이에요. <span data-biz="vet">마약류 금고·산소·전기 장비</span><span data-biz-not="vet">가스·전열기·출입문</span>처럼 사고가 나면 되돌릴 수 없는 항목은 필수로 두고, 텔레그램 요약에서 '미완료'가 보이면 그날 밤 {{owner:이}} 확인해요. 메모에 {{customer}} 이름은 쓰지 않고 <span data-biz="vet">케이지 번호·</span>직원번호로.</p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">자동</span><div class="ad"><b>마감 요약이 텔레그램으로</b><span>마감 완료를 누르면 완료 수·미완료·범위 밖 숫자·메모가 {{owner}}께 한 줄로.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>마감 안 하면 알림</b><span>앱스 스크립트 트리거로 밤 10시에 오늘 마감기록이 없으면 텔레그램 "마감 기록이 없어요" (07 자동화 도우미에게 한 줄 부탁).</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매주 돌아보기</b><span>월요일 예약 작업에 마감 돌아보기 부탁문.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>미완료·범위 밖 확인</b><span>마감 요약에 미완료나 범위 밖이 있으면 {{owner}} 확인 버튼.</span><span class="pv">버튼: 확인함 / 내일 아침 처리</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>마감 체크 웹앱 → 텔레그램 요약, 밤 10시 미마감 알림.</span></div><div class="run-row"><b>비서 연동</b><span>'10 인사 담당' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 마감 항목표 → 이 채팅, 매주 돌아보기도 이 채팅(직원번호로만)</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>마감 항목표 → 이 채팅, 매주 돌아보기도 이 채팅(직원번호로만)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">매뉴얼 정리</span><span class="rc s">근무표 점검</span></div></div><p class="rec-note">마감기록은 드라이브 커넥터로 읽어 매주 돌아보기. 항목은 매뉴얼 스킬과 같이.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·앱스 스크립트 웹앱, 텔레그램 요약, 안 쓰는 태블릿</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>냉장고 온도 기록계(벗어나면 휴대폰 알림), 태블릿 충전 거치대</li></ul></div></div>
+</section>

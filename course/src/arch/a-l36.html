@@ -1,0 +1,110 @@
+<section id="a-l36" class="lesson" data-part="aidesk" data-title="법령 MCP 연결과 활용" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 30분 · PC</span>
+    <h2>AI가 법전을 직접 펼쳐 보게</h2>
+    <p class="goal">법제처 법령 정보를 AI가 바로 조회하는 법령 <dfn data-t="mcp">MCP</dfn>를 연결해요. 연결하면 "주차 몇 대야?"라고만 물어도 AI가 <b>현행 별표 원문을 찾아 읽고</b> 근거와 시행일을 붙여 답해요. 연결은 한 번, 그 뒤로는 질문만 하면 됩니다.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span><span data-ai-not="gpt">Claude 무료 플랜도 사용자 지정 커넥터를 1개까지 연결할 수 있어요. 이 법령 MCP를 그 1개로 쓰면 돼요.</span><span data-ai="gpt">ChatGPT는 원격 MCP 연결(개발자 모드)이 유료 플랜 기능이에요. 무료라면 앞 강의의 '원문 붙여 주기'로 하거나, Claude 무료 계정을 하나 만들어 법규 질문용으로 쓰세요.</span></span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>커넥터를 여러 개 연결할 수 있고, 예약 작업으로 매달 개정 소식까지 자동으로 받아요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="chat">
+      <div class="bubble me a" style="--d:.2s"><span class="who">소장님</span>2종 근생 360㎡ 신축이면 부설주차 몇 대야? 근거 붙여서.</div>
+      <div class="bubble ai a" style="--d:1.1s"><span class="who">AI · 법령 MCP 조회 결과로 답한 예시</span>주차장법 시행령 별표 1(2026. 8. 25. 개정, 현행) 제3호에 따라 제2종 근린생활시설은 시설면적 200㎡당 1대예요. 360 ÷ 200 = 1.8대이고, 비고 제6호에 따라 소수점 이하가 0.5 이상이면 1로 보므로 <b>2대</b>예요. 다만 시행령 제6조제2항에 따라 조례로 기준을 강화·완화할 수 있어서, ○○시 주차장 조례를 이어서 조회할게요.</div>
+    </div>
+    <p class="cap a" style="--d:1.8s">실제 법령 MCP로 별표를 조회해 만든 예시예요. 면적과 조례 결과는 프로젝트마다 다릅니다.</p>
+  </div>
+
+  <h3>1 · 연결하기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="a_a36a" data-key="a_a36a"><div class="body"><label for="a_a36a">법제처 Open API 키(OC) 받기</label><small>키 없이도 공용 한도로 쓸 수 있지만, 공용 한도가 차면 느려지거나 막혀요. 사무소에서 매일 쓸 거라면 무료 키를 받아 두세요. 법제처가 주는 키 이름이 <dfn data-t="oc">OC</dfn>예요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 <span class="path">open.law.go.kr</span> → 회원가입 → 로그인</li>
+        <li><span class="path">OPEN API → OPEN API 사용 신청</span> → 사용 목적에 '건축사사무소 내부 법규 검토'</li>
+        <li>신청이 끝나면 마이페이지의 신청 내역에서 OC 값을 확인해 메모장에 적어 두기<span class="fix">OC는 보통 가입한 아이디나 이메일 앞부분 같은 짧은 글자예요. 남에게 보내지 마세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a_a36b" data-key="a_a36b"><div class="body"><label for="a_a36b">연결 주소 만들기</label><small>공개 법령 MCP(korean-law-mcp)의 원격 주소 끝에 내 OC를 붙여요.</small>
+      <div class="prompt"><div class="bar"><span>연결 주소 (○○을 내 OC로)</span><button class="copy" type="button">복사</button></div><pre>https://mcp.gomdori.app/law?oc=○○</pre></div></div></li>
+    <li data-ai-not="gpt"><input type="checkbox" id="a_a36c" data-key="a_a36c"><div class="body"><label for="a_a36c">Claude에 사용자 지정 커넥터로 추가</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기 (claude.ai)</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 claude.ai → 왼쪽 아래 내 이름 → <span class="path">설정 → 커넥터</span></li>
+        <li><span class="path">사용자 지정 커넥터 추가</span> → 이름 <b>법령</b>, 원격 MCP 서버 주소에 위 주소 붙여 넣기 → 추가</li>
+        <li>추가된 '법령' 커넥터 옆 <span class="path">구성(또는 도구 권한)</span> → 조회 도구들을 <span class="path">항상 허용</span>으로. 질문할 때마다 허용 버튼을 누르지 않아도 돼요</li>
+        <li>휴대폰 앱에서도 같은 계정이면 그대로 쓸 수 있어요<span class="fix">메뉴 이름은 바뀔 수 있어요. 설정의 '커넥터'에서 '사용자 지정' 또는 '커스텀'이 들어간 버튼을 찾으세요. 회사 관리 계정은 관리자가 막아 둘 수 있어요.</span></li>
+      </ol></details>
+      <details class="how"><summary><span class="closed-label">Claude 데스크톱 앱 설정 파일로 넣고 싶다면</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>claude.ai에서 추가한 커넥터는 같은 계정의 데스크톱 앱에도 보여요. 보통은 이걸로 충분해요</li>
+        <li>설정 파일로 직접 넣으려면 Node.js 18 이상이 필요하고 mcp-remote 어댑터를 써요. 안내 페이지의 설정 예시를 '09 자동화·연결' 채팅에 붙이고 "맥에서 한 단계씩"이라고 부탁하세요</li>
+      </ol></details></div></li>
+    <li data-ai-not="claude"><input type="checkbox" id="a_a36d" data-key="a_a36d"><div class="body"><label for="a_a36d">ChatGPT에 앱(커넥터)으로 추가</label><small>원격 MCP 연결은 유료 플랜의 개발자 모드에서 해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>chatgpt.com → 내 이름 → <span class="path">설정 → 앱(커넥터) → 고급</span> → <span class="path">개발자 모드</span> 켜기</li>
+        <li><span class="path">앱 만들기(또는 커넥터 추가)</span> → 이름 <b>법령</b>, MCP 서버 주소에 위 주소 → 인증은 '없음' → 만들기</li>
+        <li>새 채팅의 <span class="path">+ → 더 보기 → 개발자 모드</span>에서 '법령'을 켜고 질문<span class="fix">메뉴 이름이 자주 바뀌어요. 막히면 OpenAI 도움말에서 'developer mode MCP'를 찾아보세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a_a36e" data-key="a_a36e"><div class="body"><label for="a_a36e">연결 시험</label><small>새 채팅에서 "법령 도구로 건축법 제61조 원문을 보여 줘". 답 위에 도구를 썼다는 표시(도구 이름, 조회 중)가 보이고, 원문과 시행일이 나오면 성공이에요. 표시 없이 바로 답하면 기억으로 답한 것이니 "법령 도구로 조회해서"라고 다시 부탁하세요.</small></div></li>
+  </ol>
+
+  <h3>2 · 법규 검토 직원에게 규칙 주기</h3>
+  <p>'02 대지·법규 검토' 채팅에 아래 메시지를 한 번 보내 두거나, AI 프로젝트 지침 맨 아래에 붙여 넣으세요. 그러면 법규 질문마다 조회부터 하고 답해요.</p>
+  <div class="prompt"><div class="bar"><span>법령 MCP 사용 규칙</span><button class="copy" type="button">복사</button></div><pre>법규 질문을 받으면 기억으로 답하지 말고 반드시 '법령' 도구로 현행 원문을 먼저 조회해.
+- 답 맨 아래에 조회한 법령명, 조문·별표 번호, 시행일(개정일)을 적어 줘
+- 시행령·시행규칙의 별표까지 확인하고, 조례로 정하도록 위임된 내용이면 해당 시·군 조례를 자치법규에서 이어서 조회해
+- 지구단위계획, 시·군 고시, 내부 지침처럼 도구로 찾을 수 없는 자료는 '도구로 확인 불가 · 원문 확인 필요'라고 표시해
+- 조회 결과가 없거나 여러 개면 지어내지 말고 무엇을 찾았는지 그대로 알려 줘
+- 질문에 건축주 이름이나 연락처가 있으면 빼고 조회해</pre></div>
+
+  <h3>3 · 건축 실무에서 이렇게 써요</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>이럴 때</th><th>AI가 쓰는 기능</th><th>소장님이 할 일</th></tr></thead>
+    <tbody>
+      <tr><td><b>이 용도지역에 이 용도가 되나</b></td><td>국토계획법 시행령 별표(용도지역 안 건축제한) + 시 도시계획 조례 조회</td><td>지구단위계획·고시는 별도 확인</td></tr>
+      <tr><td><b>주차·조경·피난 기준</b></td><td>시행령·시행규칙 별표 원문 조회, 조례 위임 여부 확인</td><td>계산은 면적 검토표 시트로</td></tr>
+      <tr><td><b>설계 중에 법이 바뀌었다</b></td><td>기준일 시점 법령과 부칙 경과조치 조회</td><td>허가 신청일·접수일 확인</td></tr>
+      <tr><td><b>AI·직원이 쓴 검토서 확인</b></td><td>글 속 조문·판례 인용이 실제로 있는지 교차 검증</td><td>'없음' 나온 인용은 다시 찾기</td></tr>
+      <tr><td><b>해석이 갈리는 문제</b></td><td>법제처 법령해석례·판례·행정심판 검색</td><td>비슷한 사례로 질의서 초안</td></tr>
+      <tr><td><b>우리 시 조례가 낡지 않았나</b></td><td>조례가 인용한 상위법의 개정일과 조례 시행일 대조</td><td>허가 부서에 적용 기준 문의</td></tr>
+    </tbody>
+  </table></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a_a36f" data-key="a_a36f"><div class="body"><label for="a_a36f">용도 가능 여부 묻기</label><small>대지 검토 메모(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>)를 만든 뒤 아래 '용도 검토' 부탁문으로 이어서 물어요.</small></div></li>
+    <li><input type="checkbox" id="a_a36g" data-key="a_a36g"><div class="body"><label for="a_a36g">별표 기준 받아 검토표에 옮기기</label><small>'별표 기준' 부탁문으로 주차·조경 기준을 받고, 기준값과 근거를 면적·주차 검토표(<a href="#a-l33" class="ref" data-ref="a-l33">강의</a>)의 '한도'·'주차' 탭 근거 칸에 옮겨요. 계산은 시트가 해요.</small></div></li>
+    <li><input type="checkbox" id="a_a36h" data-key="a_a36h"><div class="body"><label for="a_a36h">시점 법령 확인</label><small>오래 걸린 프로젝트나 개정 직후 접수라면 '시점 법령' 부탁문으로 접수일 기준 조문과 경과조치를 봐요.</small></div></li>
+    <li><input type="checkbox" id="a_a36i" data-key="a_a36i"><div class="body"><label for="a_a36i">인용 검증</label><small>제출 전 검토서·설계설명서의 법규 문단을 통째로 붙여 '인용 검증' 부탁문을 보내요.</small></div></li>
+    <li><input type="checkbox" id="a_a36j" data-key="a_a36j"><div class="body"><label for="a_a36j">해석례로 질의서 초안</label><small>애매한 문제는 '해석례 찾기' 부탁문으로 비슷한 사례를 모으고, 허가 부서에 보낼 질의서 초안을 받아요.</small></div></li>
+    <li><input type="checkbox" id="a_a36k" data-key="a_a36k"><div class="body"><label for="a_a36k">매달 개정 소식</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li data-plan-not="free">'02 대지·법규 검토' 채팅에 '월간 개정 정리' 부탁문을 보내 결과를 확인한 뒤 "이걸 매달 1일 오전 8시에 해 줘" → 일정 카드 확인 후 저장</li>
+        <li data-plan-not="free">예약 작업에서도 법령 커넥터가 켜져 있는지 처음 결과에서 확인하세요(조회 표시와 시행일이 있어야 해요)</li>
+        <li data-plan="free">매달 1일 휴대폰 반복 알림 → 알림이 울리면 같은 부탁문을 채팅에 보내기</li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>용도 검토 부탁문</span><button class="copy" type="button">복사</button></div><pre>법령 도구로 조회해서 답해 줘. 대지는 ○○시 ○○동, ○○지역(토지이용계획 기준)이고 ○○(용도, 예: 제2종 근린생활시설 중 일반음식점)을 신축하려고 해.
+1) 국토계획법 시행령의 해당 용도지역 건축제한 별표에서 이 용도가 '건축할 수 있는 건축물'인지, '조례로 정하는 건축물'인지
+2) 조례 위임이면 ○○시 도시계획 조례의 해당 조항 원문
+3) 이 용도의 건축법 시행령 별표 1 분류(면적 기준이 있으면 그 기준)
+4) 결론 한 줄과, 도구로 확인 못 한 것(지구단위계획 등)
+조문 원문은 짧게 인용하고 각 출처의 시행일을 적어 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>별표 기준 부탁문</span><button class="copy" type="button">복사</button></div><pre>법령 도구로 ○○(예: 주차장법 시행령 별표 1)을 조회해서, ○○(용도) 시설면적 ○○㎡의 기준을 알려 줘.
+- 적용되는 호와 비고(소수점 처리, 용도변경·증축 규정 등)를 원문 그대로 짧게
+- 계산 예시 한 줄 (내 시트 계산과 맞춰 볼 거야)
+- ○○시 조례에서 이 기준을 강화·완화했는지 자치법규 조회
+마지막에 '검토표 근거 칸'에 붙일 한 줄: 법령명 별표·호 (시행일)</pre></div>
+  <div class="prompt"><div class="bar"><span>시점 법령 부탁문</span><button class="copy" type="button">복사</button></div><pre>법령 도구의 '기준일 시점 법령' 기능으로 확인해 줘. ○○(법령명) ○○조(또는 별표 ○)를 ○○○○년 ○○월 ○○일(건축허가 신청일) 기준으로 보여 주고, 그 뒤 개정된 내용과 개정 법령 부칙의 경과조치(신청 중인 건에 종전 규정을 적용하는지)를 정리해 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>인용 검증 부탁문</span><button class="copy" type="button">복사</button></div><pre>아래 글에 나오는 법령 조문·별표·판례 인용이 실제로 있는지 법령 도구의 인용 검증 기능으로 확인해 줘. 표로: 인용 | 실존 여부 | 현행 조문과 내용이 맞는지 | 고칠 점. 없는 인용은 비슷한 실제 조문이 있으면 알려 줘.
+
+[검토서 문단 붙여 넣기]</pre></div>
+  <div class="prompt"><div class="bar"><span>해석례 찾기 부탁문</span><button class="copy" type="button">복사</button></div><pre>법령 도구로 ○○(쟁점, 예: 다락의 바닥면적 산입 여부) 관련 법제처 법령해석례, 판례, 행정심판 재결을 찾아 줘. 각 사례의 결론 한 줄과 사건번호·회신일, 우리 사안과 같은 점·다른 점을 정리하고, 마지막에 허가 부서에 보낼 질의서 초안(사실관계, 질의 요지, 관련 조문)을 써 줘. 찾은 사례가 없으면 없다고 해.</pre></div>
+  <div class="prompt"><div class="bar"><span>월간 개정 정리 부탁문</span><button class="copy" type="button">복사</button></div><pre>법령 도구로 조회해서, 지난달 개정되거나 시행된 다음 법령의 변경 내용을 정리해 줘: 건축법(시행령·시행규칙), 국토의 계획 및 이용에 관한 법률(시행령), 주차장법(시행령), 건축물의 설비기준 등에 관한 규칙, 건축물의 피난·방화구조 등의 기준에 관한 규칙, ○○시 건축 조례·도시계획 조례·주차장 조례.
+법령마다 개정일·시행일, 바뀐 조문, 진행 중인 우리 프로젝트(사무소 대장 프로젝트 탭)에 영향이 있을 수 있는 것을 3줄 이내로. 없으면 '변경 없음'.</pre></div>
+
+  <h3>결과를 믿기 전에 볼 세 가지</h3>
+  <div class="cards">
+    <div class="term"><strong>조회 표시</strong><span>답에 도구를 쓴 흔적과 시행일이 있나요? 없으면 기억으로 답한 거예요.</span></div>
+    <div class="term"><strong>현행인가</strong><span>시행 예정 개정이 함께 나올 수 있어요. 접수일에 적용되는 버전인지 시행일로 확인해요.</span></div>
+    <div class="term"><strong>빠진 층</strong><span>법령·조례 밖의 지구단위계획, 시·군 고시, 심의 기준은 도구에 없을 수 있어요. 따로 확인해요.</span></div>
+  </div>
+  <p class="tip warnbox"><b>개인이 만들어 공개한 도구예요.</b> 법제처 공식 서비스가 아니라 법제처 Open API를 묶어 공개한 오픈소스 MCP예요. 질문 문장이 그 서버를 거쳐 가니 건축주 이름·연락처·주소 전체는 넣지 마세요. 중요한 판단은 국가법령정보센터 원문으로 한 번 더 확인하고, 최종 해석은 허가권자 몫이에요.</p>
+  <p class="src">출처: <a href="https://github.com/chrisryugj/korean-law-mcp" target="_blank" rel="noopener">korean-law-mcp 안내(GitHub)</a> · <a href="https://open.law.go.kr" target="_blank" rel="noopener">국가법령정보 공동활용 Open API</a> · <a href="https://support.claude.com/ko/articles/14503689" target="_blank" rel="noopener">Claude MCP 커넥터 도움말</a></p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-conn">MCP</span><div class="ad"><b>질문만 하면 원문 조회</b><span>한 번 연결해 두면 모든 채팅에서 현행 조문·별표·조례·해석례를 직접 찾아 읽어요.</span></div></li><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>근거 붙이기가 기본값</b><span>'법령 MCP 사용 규칙'을 지침에 넣어 두면 직원 누가 물어도 조회부터 하고 시행일을 붙여요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 개정 정리</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 1일 예약 작업으로 진행 중인 프로젝트에 영향 줄 개정만 골라 받아요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>매달 1일 휴대폰 알림 + 같은 부탁문 한 번.</span></span></div></li></ul></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>법제처 Open API 키 무료, 공개 MCP 무료(공용 한도)</li><li>Claude 무료: 사용자 지정 커넥터 1개로 연결</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI 유료: 커넥터 여러 개, 긴 조회 결과도 끊기지 않게, 예약 작업</li><li>ChatGPT는 원격 MCP 연결이 유료 플랜</li><li>건축 법규 전문 서비스: 질의회신·심의 기준까지 묶음 검색</li></ul></div></div>
+</section>

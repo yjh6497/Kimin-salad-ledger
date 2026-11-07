@@ -1,0 +1,32 @@
+<section id="c-l25" class="lesson" data-part="insta" data-title="프로페셔널 계정과 프로필" data-level="core" data-stage="prep takeover operate">
+    <div class="partcard a" style="--d:0s"><span class="pn">7</span><span class="pt"><b>인스타그램</b>5강 · 주 3회</span><p class="po"><span data-biz="vet">진료실의 30초를 릴스로, 일요일에 일주일 치를 예약하고, DM으로는 진단하지 않아요.</span><span data-biz-not="vet">{{place}}의 30초를 릴스로, 일요일에 일주일 치를 예약하고, DM에는 규칙대로 답해요.</span></p><div class="plist"><span>프로페셔널 계정과 프로필</span><span>사진·릴스 만들기</span><span>일주일 예약 게시</span><span>인스타 API 자동 게시 (고급)</span><span>댓글·DM 응대</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 40분 · 휴대폰</span>
+    <h2>프로필 한 화면이 {{place}} 간판</h2>
+    <p class="goal">인스타그램은 검색보다 <b>동네 {{customer}}에게 {{place}} 분위기를 보여 주는 곳</b>이에요. 프로페셔널 계정으로 바꾸면 전화·길찾기 버튼, 통계, 예약 게시를 쓸 수 있어요. 모두 무료예요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>{{place}} 이름의 계정이면 관리자 권한·로그인 정보를 넘겨받아 바꾸고, 이전 <span data-biz="vet">원장</span><span data-biz-not="vet">대표</span> 개인 계정이면 새로 열어요.</span></p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a25a" data-key="v_a25a"><div class="body"><label for="v_a25a">{{place}} 계정 만들기</label><small>아이디는 블로그·네이버 아이디와 같게 맞추면 {{customer:가}} 찾기 쉬워요(예: <span data-biz="vet">happyvet_seoul</span><span data-biz-not="vet">happyshop_seoul</span>).</small></div></li>
+    <li><input type="checkbox" id="v_a25b" data-key="v_a25b"><div class="body"><label for="v_a25b"><dfn data-t="proacct">프로페셔널 계정</dfn>으로 전환</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>인스타그램 앱 → 오른쪽 아래 프로필 → 오른쪽 위 <span class="path">≡ → 설정 및 활동</span></li>
+        <li><span class="path">계정 유형 및 도구 → 프로페셔널 계정으로 전환</span></li>
+        <li>카테고리 검색에서 <b>{{biz}}</b><span data-biz="vet"> 또는 <b>수의사</b></span><span data-biz-not="vet">(없으면 가장 가까운 업종)</span> → <span class="path">비즈니스</span> 선택 → 연락처(전화·주소) 표시 켜기<span class="fix">메뉴 이름이 다르면 설정에서 '프로페셔널'이 들어간 메뉴를 찾으세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a25c" data-key="v_a25c"><div class="body"><label for="v_a25c">프로필 소개 150자</label><small>누구를 위한 {{place}}인지, {{hours}}, 예약 방법, 링크 하나(네이버 플레이스 주소). 아래 부탁문으로 3안 받기.</small></div></li>
+    <li><input type="checkbox" id="v_a25d" data-key="v_a25d"><div class="body"><label for="v_a25d">하이라이트 4개</label><small>스토리를 묶어 프로필 아래에 고정하는 칸이에요. {{item}} 안내 / 찾아오는 길 / {{place}} 둘러보기 / 공지. {{open}} 전에 스토리를 한 번씩 올려 하이라이트로 저장해 두세요.</small></div></li>
+    <li><input type="checkbox" id="v_a25e" data-key="v_a25e"><div class="body"><label for="v_a25e">페이스북 페이지와 연결 (예약 게시용)</label><small><dfn data-t="mbs">메타 비즈니스 스위트</dfn>로 PC에서 한 주 치를 예약하려면 페이스북 페이지 하나를 만들어 연결해 두는 게 편해요. 페이스북에 글을 안 올려도 괜찮아요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>프로필 소개 부탁문</span><button class="copy" type="button">복사</button></div><pre>{{place}} 소개서를 보고 인스타그램 프로필 소개(150자 안쪽) 3안을 써 줘.
+- 첫 줄: 동네 + 누구를 위한 {{place}}인지
+- {{hours}}, 예약 방법(네이버 예약 / 전화)
+- 이모지는 2개까지, 최상급 표현 없이
+- 하이라이트 4개 이름(각 6자 안쪽)과 표지 아이콘 아이디어도</pre></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">자동응답</span><div class="ad"><b>자주 묻는 질문 버튼</b><span>인스타 메시지 설정의 자주 묻는 질문에 {{hours}}·예약 방법·위치를 넣어요.</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "프로필 칸" 부탁: 소개·링크·연락 버튼 칸을 채우고 저장 전 멈춤. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>instagram.com</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '03 인스타 담당' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 프로필 소개 → 소개서 '브랜딩' 칸</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>03 인스타 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>프로필 소개 → 소개서 '브랜딩' 칸</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Canva</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{place}} 브랜드·말투</span><span class="rc s">인스타 캡션</span></div></div><p class="rec-note">인스타도 공식 커넥터가 없어요. 문구만 AI로.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>프로페셔널 계정·통계·예약 게시 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Meta 인증(유료 구독)은 사칭 계정이 생겼을 때 고려</li></ul></div></div>
+</section>

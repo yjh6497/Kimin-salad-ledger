@@ -1,0 +1,66 @@
+<section id="c-l16" class="lesson" data-part="map" data-title="리뷰 알림과 답글 제안" data-level="core" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · 휴대폰</span>
+    <h2>새 리뷰가 오면 휴대폰이 울리고, 답글 초안이 30초 안에</h2>
+    <p class="goal">네이버 플레이스와 카카오맵에 리뷰가 달리면 바로 알림을 받고, 리뷰를 복사해 한 번 누르면 AI가 <b>답글 초안 3개와 급한 정도</b>를 제안하는 흐름을 만들어요. {{owner:은}} 하나 골라 한 줄 고치고 올리기만 해요.</p>
+  </div>
+  <div class="vis">
+    <div class="flowgrid">
+      <div class="stack">
+        <div class="box pop" style="--d:.2s"><strong>네이버 새 리뷰</strong><span>스마트플레이스센터 앱 알림</span></div>
+        <div class="box pop" style="--d:.35s"><strong>카카오맵 새 후기</strong><span>카카오비즈니스 앱 알림</span></div>
+      </div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.8s"></span><span style="--d:1.5s"></span></div>
+      <div class="box ai pop" style="--d:.8s"><strong>답글 제안</strong><span>복사 → 단축어 한 번 → 초안 3개 · 급한 정도</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:1.1s"></span><span style="--d:1.8s"></span></div>
+      <div class="box hi pop" style="--d:1.1s"><strong>{{owner}} 확인</strong><span>골라서 한 줄 고치고 각 앱에서 답글</span></div>
+    </div>
+    <p class="cap a" style="--d:1.4s">알림은 각 회사의 공식 앱이, 답글 초안은 AI가, 게시는 {{owner:이}}. 자동으로 올리지는 않아요.</p>
+  </div>
+  <p class="tip warnbox"><b>왜 완전 자동이 아닌가요?</b> 네이버와 카카오는 리뷰를 읽고 답글을 올리는 공개 API를 {{owner}}들에게 열어 두지 않았어요. 리뷰를 긁어 오거나 답글을 자동으로 올린다는 비공식 프로그램·매크로는 계정 제한 위험이 있고, {{place}} 이름으로 잘못된 답이 올라갈 수 있어요. 그래서 이 강의는 <b>공식 앱 알림 + AI 초안 + {{owner}} 게시</b>로 시간을 줄여요.</p>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a16a" data-key="v_a16a"><div class="body"><label for="v_a16a">두 앱에서 새 리뷰 알림 켜기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><b>네이버</b>: 휴대폰 <b>네이버 스마트플레이스센터</b> 앱 → {{place}} 아이디 로그인 → 앱 설정의 <span class="path">알림</span>에서 리뷰 알림 켜기</li>
+        <li><b>카카오</b>: <b>카카오비즈니스 파트너센터</b> 앱(또는 카카오톡 채널 관리자 앱) → {{place}} 계정 로그인 → 알림 설정에서 매장 후기·채팅 알림 켜기</li>
+        <li>휴대폰 <span class="path">설정 → 알림</span>에서 두 앱의 알림이 허용돼 있는지 확인. {{work}} 중엔 소리 대신 배너로<span class="fix">알림 항목 이름은 앱 업데이트로 바뀌어요. 안 보이면 설정 화면을 캡처해 AI에게 "새 리뷰 알림은 어디서 켜?"라고 물어보세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a16b" data-key="v_a16b"><div class="body"><label for="v_a16b">답글 규칙을 한 번만 정해 두기</label><small>'01 플레이스 매니저' 채팅에 아래 '답글 규칙'을 보내 두면, 그 뒤로는 리뷰만 붙여도 같은 규칙으로 답해요. {{owner:이}} 마음에 든 답글 3개를 함께 보여 주면 말투까지 맞춰요.</small></div></li>
+    <li><input type="checkbox" id="v_a16c" data-key="v_a16c"><div class="body"><label for="v_a16c">휴대폰 '리뷰 답글' 단축어 만들기</label><small>리뷰를 복사한 뒤 단축어를 한 번 누르면 부탁문과 리뷰가 합쳐져 클립보드에 담기고 AI 앱이 열려요. 붙여 넣기만 하면 돼요.</small>
+      <details class="how"><summary><span class="closed-label">아이폰 · 단축어 앱</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><b>단축어</b> 앱 → 오른쪽 위 <span class="path">+</span> → 이름 <b>리뷰 답글</b></li>
+        <li>동작 추가: <span class="path">클립보드 가져오기</span></li>
+        <li>동작 추가: <span class="path">텍스트</span> → 아래 '단축어용 짧은 부탁문'을 붙여 넣고, 맨 끝에 변수 <b>클립보드</b>를 넣기</li>
+        <li>동작 추가: <span class="path">클립보드에 복사</span>(방금 만든 텍스트) → <span class="path">앱 열기</span> → <span data-ai-not="gpt">Claude</span><span data-ai-none> 또는 </span><span data-ai-not="claude">ChatGPT</span></li>
+        <li>완료 → 길게 눌러 <span class="path">홈 화면에 추가</span>. 쓰는 법: 리뷰 길게 눌러 복사 → 단축어 누르기 → AI 앱의 '01 플레이스 매니저' 채팅에 붙여 넣기<span class="fix">처음 실행 때 클립보드 접근 허용을 물어보면 '항상 허용'을 누르세요.</span></li>
+      </ol></details>
+      <details class="how"><summary><span class="closed-label">갤럭시 · 키보드 상용구</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>삼성 키보드 → <span class="path">설정 → 스마트 입력 → 텍스트 단축키</span>(또는 상용구) → 단축키 <b>ㄹㅂ</b>, 내용에 '단축어용 짧은 부탁문'</li>
+        <li>쓰는 법: AI 채팅창에 ㄹㅂ 입력 → 부탁문 선택 → 한 줄 띄우고 복사한 리뷰 붙여 넣기</li>
+      </ol></details></div></li>
+    <li data-ai-not="gpt"><input type="checkbox" id="v_a16d" data-key="v_a16d"><div class="body"><label for="v_a16d">PC에서 한 번에 모아 보기 (Claude in Chrome, 선택)</label><small>Claude 유료 플랜에서 쓸 수 있는 크롬 확장 프로그램(Claude in Chrome)을 설치하면, {{owner:이}} 로그인한 스마트플레이스 리뷰 화면을 Claude가 <b>읽고</b> 답글 안 한 리뷰 목록과 초안을 표로 정리해 줘요. 답글 게시 버튼은 {{owner:이}} 직접 눌러요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC 크롬에서 Claude 확장 프로그램 설치 → {{place}} Claude 계정 로그인</li>
+        <li>스마트플레이스 → 리뷰 화면을 열어 두고, 확장 프로그램 패널에 아래 'PC 모아 보기 부탁문'</li>
+        <li>사이트 접근 허용을 물으면 그 사이트만 허용. 표가 나오면 초안을 골라 {{owner:이}} 직접 붙여 넣고 등록<span class="fix">Claude에게 '답글 등록'까지 맡기지 마세요. 칸에 입력까지 시험해 보고 싶다면 다음 강의의 연습판에서 먼저(<a href="#c-l17" class="ref" data-ref="c-l17">강의</a>).</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a16e" data-key="v_a16e"><div class="body"><label for="v_a16e">급한 리뷰 규칙</label><small>별점 1~2점, 또는 '사고', <span data-biz="vet">'죽었'</span><span data-biz-not="vet">'다쳤'</span>, '고소', '환불' 같은 말이 있으면 AI가 <b>[급함]</b>으로 표시해요. 급함은 그날 안에 {{owner:이}} 직접 확인하고, 필요하면 답글보다 전화를 먼저(<a href="#c-l75" class="ref" data-ref="c-l75">강의</a>).</small></div></li>
+    <li><input type="checkbox" id="v_a16f" data-key="v_a16f"><div class="body"><label for="v_a16f">하루 두 번 확인 시간</label><small>알림이 올 때마다 답하면 일이 끊겨요. 점심시간과 <span data-biz="vet">진료 마감</span><span data-biz-not="vet">하루 마감</span> 뒤 하루 두 번, 쌓인 리뷰를 몰아서. 리뷰 탭에 한 줄씩 남기면 월요일 브리핑(<a href="#c-l41" class="ref" data-ref="c-l41">강의</a>)에 '답 안 한 리뷰 수'가 나와요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>답글 규칙 (01 플레이스 매니저에 한 번)</span><button class="copy" type="button">복사</button></div><pre>앞으로 내가 네이버 플레이스 리뷰나 카카오맵 후기를 붙이면 이렇게 해 줘.
+1) 맨 위에 급한 정도: [급함] 별점 1~2점이거나 사고·<span data-biz="vet">사망</span><span data-biz-not="vet">다침</span>·고소·환불·<span data-biz="vet">응급</span><span data-biz-not="vet">위생·안전</span> 이야기 / [보통] 불만·질문 / [여유] 칭찬
+2) 답글 초안 3개: A 짧게(2문장) / B 따뜻하게(3~4문장) / C 사실 정리형(불만일 때, 사과→사실→고친 것→연락 방법)
+3) 지킬 것: 리뷰에 없는 <span data-biz="vet">진료 내용·병명</span><span data-biz-not="vet">이용 내용</span>·가격·{{customer}} 정보 쓰지 않기, 다투지 않기, 할인 약속·다른 {{place}} 이야기·최상급 표현 금지, 같은 첫 문장 반복 금지
+4) [급함]이면 답글 전에 {{owner:이}} 할 일(전화, <span data-biz="vet">차트 확인</span><span data-biz-not="vet">예약·주문 기록 확인</span>) 한 줄
+5) 장부 리뷰 탭 한 줄: 날짜 | 채널(네이버/카카오) | 별점 | 요약 | 칭찬 | 불만 | 답글여부 | 개선할 것
+6) 끝에 광고 규칙 점검 한 줄
+알겠으면 '준비됐어요'라고만 답해.</pre></div>
+  <div class="prompt"><div class="bar"><span>단축어용 짧은 부탁문</span><button class="copy" type="button">복사</button></div><pre>리뷰 답글 규칙대로 급한 정도, 초안 A·B·C, 리뷰 탭 한 줄을 줘. 리뷰:
+</pre></div>
+  <div class="prompt" data-ai-not="gpt"><div class="bar"><span>PC 모아 보기 부탁문 (Claude in Chrome)</span><button class="copy" type="button">복사</button></div><pre>지금 열린 스마트플레이스 리뷰 화면을 읽어 줘. 답글이 없는 리뷰만 골라 표로: 날짜 | 별점 | 리뷰 요약 | 급한 정도 | 답글 초안(B 따뜻하게). {{customer}} 닉네임은 표에 쓰지 마. 화면의 어떤 버튼도 누르지 말고, 답글 등록은 내가 직접 할게.</pre></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>규칙은 한 번, 그다음은 붙여 넣기만</b><span>답글 규칙을 채팅에 고정해 두면 리뷰 한 줄만 붙여도 같은 형식으로 나와요.</span></div></li><li><span class="chip k-trig">단축어</span><div class="ad"><b>복사 → 한 번 누르기</b><span>휴대폰 단축어가 부탁문과 리뷰를 합쳐 AI 앱을 열어 줘요. 비용 없음.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>주간 리뷰 요약</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매주 월요일 "장부 리뷰 탭에서 지난주 네이버·카카오 리뷰 수, 평균 별점, 답 안 한 것, 반복된 불만"을 브리핑에 넣어요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>월요일 휴대폰 알림이 울리면 같은 문장을 한 번 보내요.</span></span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>리뷰 화면 하루 2번 읽기</b><span>자동화 컴퓨터의 Chrome에서 예약 작업이 새 리뷰와 답글 초안만 알려 줘요. 올리기는 {{owner:이}}, 접근 제한 화면이 뜨면 그 예약은 꺼요<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>새 리뷰 → 버튼 하나</b><span>새 리뷰마다 초안이 버튼으로. 고른 답글이 와서 복사만 하면 돼요. 별점 낮은 리뷰가 맨 위.</span><span class="pv">버튼: A / B / 직접 쓸게</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "새 리뷰 읽기" 부탁: 두 관리 화면의 새 리뷰를 읽어 초안까지. 예약은 읽기만<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>smartplace.naver.com, 카카오맵 매장관리</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>자동화 컴퓨터의 예약 작업이 하루 2번 리뷰를 읽고 텔레그램 「A/B/직접」<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '01 플레이스 매니저' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 답글 규칙 → 이 채팅 첫 메시지(또는 '리뷰 답글' 스킬)</span></div></div>
+      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>답글 규칙 → 이 채팅 첫 메시지(또는 '리뷰 답글' 스킬)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Claude in Chrome</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">리뷰 답글</span></div></div><p class="rec-note">리뷰 답글 스킬 하나면 단축어 부탁문이 한 줄로 줄어요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>두 회사 공식 앱 알림, 휴대폰 단축어·상용구, AI 무료 플랜</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>리뷰 여러 개를 한 번에 붙여 한꺼번에 초안</li><li data-ai-not="gpt">Claude in Chrome으로 PC에서 모아 보기</li><li>네이버의 AI 답글 기능이 {{biz}}에 열리면 같은 규칙으로 함께 쓰기</li></ul></div></div>
+</section>

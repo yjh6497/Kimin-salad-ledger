@@ -1,0 +1,31 @@
+<section id="c-l65" class="lesson" data-part="crm" data-title="안내 문구와 템플릿" data-level="grow" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 40분</span>
+    <h2>한 번 다듬은 문구를 계속 쓰기</h2>
+    <p class="goal">안내마다 문구를 새로 쓰면 시간이 들고 말투가 흔들려요. AI와 <b>채널별 템플릿</b>을 만들어 두고 <span data-biz="vet">아이 이름</span><span data-biz-not="vet">항목</span>·예정일만 바꿔 넣어요. 알림톡은 템플릿 심사가 있으니 그 형식으로도 받아요.</p>
+  </div>
+  <div class="cards">
+    <div class="term"><strong>문자</strong><span>짧은 문자는 한글 40자 남짓, 길면 장문 문자로 바뀌어 요금제에 따라 비용이 달라져요. 첫머리에 [{{place}} 이름]</span><em>짧고 정확하게</em></div>
+    <div class="term"><strong>카카오톡 채널 메시지</strong><span>기본 텍스트형 + 버튼 2개(예약하기·전화하기). 채널 친구에게만 가요</span><em>버튼이 예약을 늘려요</em></div>
+    <div class="term"><strong>알림톡</strong><span>정보성만, 템플릿 사전 심사. 바뀌는 부분은 <span data-biz="vet">#{아이이름}</span><span data-biz-not="vet">#{항목}</span>·#{예정일} 같은 변수로</span><em>광고 문구가 있으면 심사 통과 못 해요</em></div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a65a" data-key="v_a65a"><div class="body"><label for="v_a65a">안내표마다 템플릿 3종 받기</label><small>아래 부탁문으로 안내 하나당 문자·카톡·알림톡 문구를 받아 구글 문서 <b>안내 템플릿</b>에 모아요.</small></div></li>
+    <li><input type="checkbox" id="v_a65b" data-key="v_a65b"><div class="body"><label for="v_a65b">시트에서 문구 자동 완성</label><small>재방문 탭 N열(안내 문구)에 수식으로 템플릿과 <span data-biz="vet">아이 이름</span><span data-biz-not="vet">항목</span>·예정일을 합쳐요. 아래 '문구 수식' 부탁문으로 받아 붙여 넣어요. {{customer}} 이름은 넣지 않아요.</small></div></li>
+    <li><input type="checkbox" id="v_a65c" data-key="v_a65c"><div class="body"><label for="v_a65c">{{owner}} 휴대폰으로 먼저 받아 보기</label><small>새 템플릿은 {{owner}} 번호로 한 번씩 보내 보고, 길이·줄바꿈·링크가 제대로 보이는지 확인해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>템플릿 3종 부탁문</span><button class="copy" type="button">복사</button></div><pre>안내 규칙표의 '○○(예: <span data-biz="vet">종합백신 추가접종 7일 전</span><span data-biz-not="vet">다음 방문 안내 7일 전</span>)' 안내 문구를 채널별로 써 줘.
+1) 문자: 짧은 문자(한글 40자 안쪽) 1개, 장문 3줄 1개. 첫머리 [{{shopname}}]
+2) 카카오톡 채널 기본 텍스트형: 본문 200자 안쪽 + 버튼 2개(예약하기·전화하기)
+3) 알림톡 템플릿: 변수 <span data-biz="vet">#{아이이름}</span><span data-biz-not="vet">#{항목}</span> #{예정일} #{전화번호} 사용, 정보성만, 심사에서 떨어지기 쉬운 표현(할인, 이벤트, 과장) 없이
+- 모두 끝에 "안내를 원치 않으시면 답장 주세요" 또는 채널별 수신거부 안내
+- {{customer}} 이름 변수는 쓰지 않기
+끝에 광고 규칙 점검 한 줄.</pre></div>
+  <div class="prompt"><div class="bar"><span>문구 수식 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 재방문 탭에서 N열(안내 문구)을 수식으로 채우고 싶어. D열 항목, G열 다음 예정일, <span data-biz="vet">M열 아이 이름(비어 있으면 '아이')</span><span data-biz-not="vet">M열 부르는 말(비어 있으면 '{{customer}}님')</span>, L열 채널.
+'템플릿' 탭(A 항목 | B 채널 | C 문구, 문구 안에 {이름} {날짜} 자리)을 만들고, 항목+채널이 맞는 문구를 찾아 {이름}{날짜}를 바꿔 넣는 수식을 알려 줘. 날짜는 '12월 9일(화)' 모양으로.</pre></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>템플릿을 스킬로</b><span>안내 템플릿을 '{{customer}} 안내 문구' 스킬로 묶으면 채널이 바뀌어도 같은 말투.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>템플릿 승인</b><span>새 안내 템플릿. 알림톡은 승인 뒤 대행사 검수로.</span><span class="pv">버튼: 승인 / 수정</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 템플릿 문서 → 채널별(문자·알림톡·카톡) 길이 맞춘 파일.</span></div><div class="run-row"><b>비서 연동</b><span>'05 상담·응대' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 안내 템플릿 문서 → 프로젝트 파일</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>안내 템플릿 문서 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{customer}} 안내 문구</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">템플릿 문서를 드라이브에 두고 커넥터로 읽게.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>템플릿 문서와 시트 수식</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>알림톡 서비스의 템플릿 관리·심사 화면</li></ul></div></div>
+</section>

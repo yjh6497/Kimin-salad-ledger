@@ -1,0 +1,34 @@
+<section id="c-l4" class="lesson" data-part="base" data-title="마케팅 장부 만들기" data-level="core" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 40분 · PC</span>
+    <h2>세 채널을 한 장부에서 관리해요</h2>
+    <p class="goal"><dfn data-t="sheet">구글 시트</dfn> 한 파일에 글 달력, 키워드, 리뷰, 한 달 성과를 모아요. 업체가 매달 보내 주던 보고서를 {{owner}} 장부가 대신해요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>장부는 인수일부터. 인수 전 숫자는 허브 시트 '인수 전' 탭에<a href="#c-l49" class="ref" data-ref="c-l49">강의</a>.</span></p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a4a" data-key="v_a4a"><div class="body"><label for="v_a4a">새 시트 만들기: '{{place}} 마케팅 장부'</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>드라이브 '{{place}} 마케팅' 폴더 → <span class="path">+ 새로 만들기 → Google 스프레드시트</span></li>
+        <li>왼쪽 위 '제목 없는 스프레드시트'를 눌러 <b>{{place}} 마케팅 장부</b></li>
+        <li>맨 아래 <span class="path">+</span>로 <dfn data-t="tab">탭</dfn> 4개: <b>글달력</b>, <b>키워드</b>, <b>리뷰</b>, <b>월성과</b></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a4b" data-key="v_a4b"><div class="body"><label for="v_a4b">탭마다 <dfn data-t="header">제목 줄</dfn> 붙여 넣기</label><small>아래 상자를 복사해 각 탭의 A1 칸에 붙여 넣으면 칸이 저절로 나뉘어요.</small></div></li>
+    <li><input type="checkbox" id="v_a4c" data-key="v_a4c"><div class="body"><label for="v_a4c">'채널'과 '상태' 칸을 <dfn data-t="dropdown">드롭다운</dfn>으로</label><small>채널: 플레이스·블로그·인스타. 상태: 아이디어·초안·점검완료·예약·게시. 점검완료가 없는 글은 예약하지 않는 게 {{place}} 규칙이에요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>글달력 탭의 C열 머리(C 글자)를 눌러 열 전체 선택</li>
+        <li><span class="path">삽입 → 드롭다운</span> → 옵션에 플레이스, 블로그, 인스타를 하나씩 → 완료</li>
+        <li>F열(상태)도 같은 방법으로</li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>글달력 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 요일 | 채널 | 주제 | 대표키워드 | 상태 | 사진(드라이브) | {{customer}}동의 | 게시주소 | 메모</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>키워드 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>키워드 | 월검색량(PC+모바일) | 경쟁 | 우리 {{place:과}} 맞음 | 쓴 글 수 | 마지막 사용일 | 메모</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>리뷰 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 채널 | 별점 | 요약 | 칭찬 포인트 | 불만 포인트 | 답글여부 | {{place}} 개선할 것</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>월성과 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>월 | 플레이스 조회 | 길찾기 | 전화 | 예약 | 카카오맵 전화(전용번호) | 블로그 방문 | 블로그 글 수 | 인스타 도달 | 인스타 팔로워 | 신규 {{visit}} | 어떻게 알고 왔나(물어본 결과) | 메모</pre></div>
+  <p class="tip"><b>'어떻게 알고 오셨어요?'를 꼭 물어보세요.</b> <span data-biz="vet">접수지에</span><span data-biz-not="vet">주문서나 예약 메모에</span> '네이버 검색 / 지도 / 블로그 / 인스타 / 지인 / 지나가다' 체크 칸 하나면, 어느 채널에 시간을 더 쓸지 숫자로 보여요. 업체 없이 운영할 때 가장 값진 데이터예요.</p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>밀린 글 빨간색</b><span>날짜가 지났는데 상태가 '게시'가 아니면 빨갛게. "글달력 탭에 조건부 서식 넣는 법 알려줘"라고 AI에게 부탁하세요.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>예약 글이 비면 메일</b><span>다음 7일 안에 '예약' 상태 글이 없으면 일요일 저녁 메일을 보내는 <dfn data-t="appsscript">앱스 스크립트</dfn>를 <a href="#c-l41" class="ref" data-ref="c-l41">강의</a>에서 붙여요.</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 장부 CSV → 이번 달 요약 표·그래프(숫자는 코드로 계산).</span></div><div class="run-row"><b>비서 연동</b><span>'07 자동화 도우미' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 마케팅 장부 → 프로젝트 파일(드라이브 연결)</span></div></div>
+      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>마케팅 장부 → 프로젝트 파일(드라이브 연결)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">수식·조건부 서식은 엑셀 스킬이 정확해요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·드라이브 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>따로 필요 없어요</li></ul></div></div>
+</section>

@@ -1,0 +1,74 @@
+<section id="c-l23" class="lesson" data-part="blog" data-title="터미널·크롬 AI로 글 대신 써 넣기" data-level="adv" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 고급·선택 · 처음 2시간, 이후 글 1편 15분</span>
+    <h2>폴더에 사진과 메모를 넣으면, AI가 블로그 편집기에 글을 채워 '임시저장'까지</h2>
+    <p class="goal">복사·붙여 넣기도 귀찮을 때의 다음 단계예요. <b>터미널의 Claude Code</b>가 폴더 속 <span data-biz="vet">진료 사진</span><span data-biz="flower">오늘 만든 꽃다발 사진</span><span data-biz-not="vet flower">{{item}} 사진</span>·메모로 글과 사진 순서를 만들고, <b>크롬 확장 Claude in Chrome</b>(또는 ChatGPT 에이전트)이 {{owner:이}} 로그인한 네이버 블로그 편집기를 열어 제목·본문·사진·태그를 채운 뒤 <b>임시저장에서 멈춰요</b>. {{owner:은}} 휴대폰이나 PC에서 읽어 보고 직접 '발행' 또는 '예약 발행'을 눌러요.</p>
+  </div>
+  <p class="tip warnbox"><b>발행 버튼은 {{owner:이}}.</b> 네이버 블로그는 글을 대신 올려 주는 공식 API가 없고, 반복 자동 입력이 감지되면 보안문자·로그인 제한·계정 보호조치가 걸릴 수 있어요. 그래서 이 방법은 ① {{owner}} PC에서 {{owner:이}} 지켜볼 때 ② 글 1편씩 천천히 ③ <b>임시저장까지만</b>. 경고·보안문자가 한 번이라도 뜨면 그날은 멈추고 붙여 넣기 방식(<a href="#c-l21" class="ref" data-ref="c-l21">강의</a>)으로 돌아가요. 여러 글을 한꺼번에 올리거나 예약 작업으로 밤에 돌리지 않아요.</p>
+  <div class="vis">
+    <div class="journey">
+      <div class="jn a" style="--d:.1s"><em>1 · 폴더</em><b>사진 + 메모.txt</b><span>blog/<span data-biz="vet">2026-11-2주-슬개골</span><span data-biz="flower">2026-11-2주-생일꽃다발</span><span data-biz-not="vet flower">2026-11-2주-첫글</span>/</span></div>
+      <div class="jn a" style="--d:.3s"><em>2 · 터미널</em><b>Claude Code가 초안</b><span>draft.md · 사진 순서·설명 · 점검</span></div>
+      <div class="jn a" style="--d:.5s"><em>3 · 크롬</em><b>편집기에 채우기</b><span>제목·본문·사진·태그·카테고리</span></div>
+      <div class="jn a" style="--d:.7s"><em>4 · 멈춤</em><b>임시저장</b><span>텔레그램으로 "검토해 주세요"</span></div>
+      <div class="jn a" style="--d:.9s"><em>5 · {{owner}}</em><b>읽고 발행·예약</b><span>글달력 상태 '발행'</span></div>
+    </div>
+  </div>
+
+  <h3>도구 고르기</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>도구</th><th>잘하는 것</th><th>필요한 것</th></tr></thead>
+    <tbody>
+      <tr><td><b>Claude Code</b> (터미널)</td><td>내 컴퓨터 폴더의 사진·메모를 읽고 파일로 초안을 만들어 쌓아 두기. <code>claude --chrome</code>으로 크롬까지 이어서</td><td>Claude 유료 요금제, 맥·윈도우 터미널, 설치 한 번</td></tr>
+      <tr><td><b>Claude in Chrome</b> (크롬 확장)</td><td>로그인한 크롬 화면에서 클릭·입력·파일 올리기. 로그인 화면·보안문자가 나오면 멈추고 사람에게 넘겨요</td><td>크롬 웹 스토어에서 설치, Claude 유료 요금제, 사이트 권한 허용</td></tr>
+      <tr><td><b>ChatGPT 에이전트</b></td><td>ChatGPT가 브라우저를 대신 조작하는 모드. ChatGPT를 주로 쓰면 같은 순서로</td><td>ChatGPT 유료 요금제. 메뉴 이름·지원 범위는 자주 바뀌어요</td></tr>
+    </tbody>
+  </table></div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a23a" data-key="v_a23a"><div class="body"><label for="v_a23a">블로그 폴더와 규칙 파일</label><small>{{owner}} PC(또는 24시간 자동화 컴퓨터 <a href="#c-l69" class="ref" data-ref="c-l69">강의</a>)에 <code>{{place}}블로그</code> 폴더를 만들고, 글마다 하위 폴더(<code><span data-biz="vet">2026-11-2주-슬개골</span><span data-biz="flower">2026-11-2주-생일꽃다발</span><span data-biz-not="vet flower">2026-11-2주-첫글</span></code>)에 사진과 <code>메모.txt</code>(<span data-biz="vet">진료 이야기 3~5줄</span><span data-biz="flower">누구에게 어떤 날 보낸 꽃인지, 쓴 꽃 이름 3~5줄</span><span data-biz-not="vet flower">오늘 있었던 이야기 3~5줄</span>, {{customer}} 동의 여부)를 넣어요. 폴더 맨 위에 <code>CLAUDE.md</code>를 두고 아래 '블로그 규칙 파일'을 붙여 넣으면 Claude Code가 매번 그 규칙으로 일해요.</small></div></li>
+    <li><input type="checkbox" id="v_a23b" data-key="v_a23b"><div class="body"><label for="v_a23b">Claude Code 설치와 크롬 연결</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>Claude Code 설치(공식 안내의 설치 명령 한 줄) → 터미널에서 <code>claude</code> → <code>/login</code>으로 Claude 계정 로그인</li>
+        <li>크롬 웹 스토어에서 'Claude' 확장(Claude in Chrome) 설치 → 같은 계정으로 로그인</li>
+        <li>터미널에서 <code>cd {{place}}블로그</code> → <code>claude --chrome</code>. <code>/chrome</code>을 입력해 'Status: Enabled'면 연결 완료</li>
+        <li>크롬에서 네이버에 {{owner:이}} 직접 로그인해 둬요. AI에게 아이디·비밀번호를 알려 주지 않아요<span class="fix">처음 브라우저 동작 때 "Claude in Chrome wants to…" 허락 창이 떠요. blog.naver.com만 허락하고, 다른 사이트는 그때그때 확인해요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a23c" data-key="v_a23c"><div class="body"><label for="v_a23c">1단계: 터미널에서 초안 파일 만들기</label><small>아래 '초안 만들기 부탁문'을 터미널에 붙여 넣어요. 폴더 안에 <code>draft.md</code>(제목 후보 3개, 본문, [사진1]~[사진n] 자리, 태그 10개, 카테고리), <code>사진순서.txt</code>, <code>점검.txt</code>(광고 규칙 점검<span data-biz="vet"> <a href="#v-l8" class="ref" data-ref="v-l8">강의</a></span>)가 생겨요. {{owner:은}} draft.md를 한 번 읽고 고칠 곳을 말로 알려 주면 돼요.</small></div></li>
+    <li><input type="checkbox" id="v_a23d" data-key="v_a23d"><div class="body"><label for="v_a23d">2단계: 크롬 편집기에 채우고 임시저장</label><small>초안이 마음에 들면 '편집기 채우기 부탁문'. 크롬에 새 탭이 열리고 네이버 블로그 글쓰기 화면에 제목·본문이 들어가고, [사진n] 자리에 사진을 올리고, 태그와 카테고리를 고른 뒤 <b>임시저장</b>을 눌러요. 화면 앞에서 지켜보고, 이상하면 Esc나 "멈춰"라고 해요.</small></div></li>
+    <li><input type="checkbox" id="v_a23e" data-key="v_a23e"><div class="body"><label for="v_a23e">3단계: {{owner}} 검토와 발행</label><small>네이버 블로그 앱 → 글쓰기 → 임시저장 글을 열어 읽어요. 사진 순서, <span data-biz="vet">진료 내용의 정확성</span><span data-biz="flower">꽃 이름·가격이 맞는지</span><span data-biz-not="vet flower">내용과 숫자가 맞는지</span>, {{customer}} 동의를 확인하고 <span class="path">발행</span> 또는 <span class="path">예약 발행</span>. 텔레그램 승인함(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>)에 「검토함 / 다시 써 줘」를 걸어 두면 글달력 상태가 바로 바뀌어요.</small></div></li>
+    <li><input type="checkbox" id="v_a23f" data-key="v_a23f"><div class="body"><label for="v_a23f">같은 방식으로 인스타·플레이스 소식은?</label><small>인스타그램은 비즈니스 도구의 예약 게시가 공식 경로라(<a href="#c-l27" class="ref" data-ref="c-l27">강의</a>) 브라우저 봇보다 그쪽이 안전해요. 플레이스 소식도 같은 원칙: 초안·채우기까지 AI, 등록 버튼은 {{owner}}. 리뷰 답글 봇 연습(<a href="#c-l17" class="ref" data-ref="c-l17">강의</a>)과 규칙이 같아요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>블로그 규칙 파일 ({{place}}블로그/CLAUDE.md)</span><button class="copy" type="button">복사</button></div><pre># 우리 {{place}} 블로그 규칙
+- {{place}}: ○○{{biz}}(○○동), 대표 ○○○. 소개서·말투 규칙은 '{{place}} 소개서.md'를 따름
+- 글 틀: <span data-biz="vet">증상 질문형 / 진료 이야기형 / 체크리스트형</span><span data-biz="flower">꽃 고르는 법(질문형) / 오늘 만든 꽃 이야기형 / 기념일 체크리스트형</span><span data-biz-not="vet flower">질문 답변형 / 우리 {{place}} 이야기형 / 체크리스트형</span> 중 메모에 맞는 것
+- 1,500~2,000자, 문단 3~4줄, 소제목 3~4개, [사진n] 자리 표시
+<span data-biz="vet">- 수의사법 광고 규칙: 최상급·비교·치료 효과 보장 표현 금지, 가격 할인 강조 금지, 사실만</span><span data-biz-not="vet">- 광고 규칙: '최고·1등' 같은 최상급, 근거 없는 비교, 효과 보장 표현 쓰지 않기. 사실만</span>
+- {{customer}} 이름·연락처·얼굴 쓰지 않기. 메모에 '동의 없음'이면 <span data-biz="vet">동물 얼굴도 가리기 안내</span><span data-biz="flower">카드·리본에 적힌 이름과 문구도 가리기 안내</span><span data-biz-not="vet flower">사진 속 이름·주문서도 가리기 안내</span>
+- 숫자(<span data-biz="vet">회복 기간, 비용</span><span data-biz-not="vet">가격, 기간</span>)는 메모에 있는 것만, 없으면 [확인 필요]
+- 브라우저: blog.naver.com 글쓰기 화면에서만 입력, '발행'·'예약 발행' 버튼은 절대 누르지 않고 '임시저장'에서 멈춤
+- 보안문자·로그인 화면·경고 문구가 보이면 즉시 멈추고 알려 줌</pre></div>
+  <div class="prompt"><div class="bar"><span>초안 만들기 부탁문 (터미널)</span><button class="copy" type="button">복사</button></div><pre><span data-biz="vet">2026-11-2주-슬개골</span><span data-biz="flower">2026-11-2주-생일꽃다발</span><span data-biz-not="vet flower">2026-11-2주-첫글</span> 폴더의 사진과 메모.txt로 이번 주 블로그 글을 만들어 줘.
+1) draft.md: 제목 후보 3개, 본문, [사진n] 자리, 태그 10개, 카테고리
+2) 사진순서.txt: 사진 파일 이름 → [사진n] 번호와 한 줄 설명(사진 속 {{customer}}·얼굴이 보이면 '가림 필요')
+3) 점검.txt: CLAUDE.md 광고 규칙으로 점검한 결과
+파일을 만든 뒤 제목 후보와 점검 결과만 짧게 보여 줘. 브라우저는 아직 열지 마.</pre></div>
+  <div class="prompt"><div class="bar"><span>편집기 채우기 부탁문 (터미널, claude --chrome)</span><button class="copy" type="button">복사</button></div><pre>draft.md의 제목 1번과 본문으로 네이버 블로그에 임시저장 글을 만들어 줘.
+- 크롬 새 탭에서 내 블로그 글쓰기 화면 열기(이미 로그인돼 있어)
+- 제목 입력 → 본문을 소제목·문단 그대로 입력 → [사진n] 자리에 사진순서.txt의 파일 올리기('가림 필요' 사진은 건너뛰고 그 자리에 [사진 확인] 남기기)
+- 태그 입력, 카테고리 선택
+- '임시저장'을 누르고 멈추기. 발행·예약 발행은 누르지 마
+- 보안문자·로그인 요청·경고가 보이면 아무것도 누르지 말고 멈춘 뒤 알려 줘
+끝나면 임시저장 시각과 빠진 것을 알려 주고, 글달력 시트 상태를 '임시저장'으로 바꿔 줘(시트 탭이 열려 있으면).</pre></div>
+  <div class="prompt"><div class="bar"><span>ChatGPT 에이전트용 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 초안(draft.md)과 사진으로 네이버 블로그 글쓰기 화면에 임시저장 글을 만들어 줘.
+네이버 로그인은 내가 직접 할게. 로그인 화면이 나오면 멈추고 알려 줘.
+제목·본문·사진·태그를 넣고 '임시저장'에서 멈춰. 발행 버튼은 누르지 마.
+보안문자나 경고가 보이면 바로 멈춰.</pre></div>
+  <p class="tip"><b>터미널이 낯설다면</b> 1단계만 Claude 앱 프로젝트('02 블로그 작가' 채팅)에서 하고, 2단계는 크롬 확장 Claude in Chrome의 사이드 패널에 '편집기 채우기 부탁문'을 붙여 넣어도 돼요. 터미널의 좋은 점은 <b>폴더에 초안·사진순서·점검 결과가 파일로 쌓인다</b>는 것 하나예요. 석 달 쌓이면 그게 그대로 블로그 기록이 돼요.</p>
+  <p class="src">출처: <a href="https://code.claude.com/docs/en/chrome" target="_blank" rel="noopener">Use Claude Code with Chrome (claude --chrome, 로그인·보안문자에서 멈춤, 파일 업로드)</a> · <a href="https://support.claude.com/en/articles/12012173-getting-started-with-claude-in-chrome" target="_blank" rel="noopener">Claude in Chrome 시작하기</a></p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>폴더에 넣으면 초안까지</b><span>사진·메모를 폴더에 넣고 터미널 한 줄로 초안·사진순서·점검 파일. 편집기 채우기는 {{owner:이}} 지켜볼 때만, 예약 작업으로 돌리지 않아요.</span></div></li><li><span class="chip k-trig">텔레그램</span><div class="ad"><b>임시저장 알림</b><span>채우기가 끝나면 "임시저장했어요, 검토해 주세요"를 텔레그램으로.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>임시저장 글 검토</b><span>AI가 채워 둔 임시저장 글을 읽고 버튼으로. 다시 써 줘면 메모를 답장으로.</span><span class="pv">버튼: 검토함 / 다시 써 줘</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "폴더 → 편집기" 부탁: 사진·메모 폴더로 만든 초안을 claude --chrome이 채우고 임시저장. 저장·제출 버튼 앞에서 멈추게 해요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>blog.naver.com</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>터미널·봇</b><span>claude --chrome: 폴더 초안을 블로그 편집기에 채우고 임시저장.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '02 블로그 작가' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 초안은 {{owner}} PC {{place}}블로그 폴더(CLAUDE.md 규칙)에, 크롬 채우기는 claude --chrome 세션에서</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>02 블로그 작가</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>초안은 {{owner}} PC {{place}}블로그 폴더(CLAUDE.md 규칙)에, 크롬 채우기는 claude --chrome 세션에서</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 {{customer}} A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Claude in Chrome</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">블로그 글</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">Claude in Chrome은 임시저장까지만. 블로그 글·광고 점검 스킬을 폴더 규칙 파일과 같이 써요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>붙여 넣기 방식(<a href="#c-l21" class="ref" data-ref="c-l21">강의</a>)이 무료 기본이에요</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Claude Code·Claude in Chrome 또는 ChatGPT 에이전트로 글 1편 15분</li></ul></div></div>
+</section>

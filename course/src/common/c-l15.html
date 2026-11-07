@@ -1,0 +1,39 @@
+<section id="c-l15" class="lesson" data-part="map" data-title="지도 정보 한꺼번에 맞추기" data-level="core" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 30분 · 바뀔 때마다 10분</span>
+    <h2>네이버와 카카오의 {{hours:이}} 다르면 안 돼요</h2>
+    <p class="goal">지도 앱마다 정보가 다르면 {{customer:는}} 헛걸음을 하고 리뷰에 그대로 남겨요. <b>원본은 {{place}} 소개서 하나</b>로 두고, 바뀔 때마다 체크표대로 모든 지도를 같은 날 고쳐요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>인수일에 모든 지도·내비 정보를 한 번에. 지도정보 탭 '바뀐 날' = 인수일.</span></p>
+
+  <div class="vis">
+    <div class="table-wrap"><table>
+      <thead><tr><th>정보</th><th>네이버 플레이스</th><th>카카오맵</th><th>구글 지도(선택)</th><th>카톡 채널</th></tr></thead>
+      <tbody>
+        <tr><td><b>{{place}} 이름·주소·전화</b></td><td>✓</td><td>✓ (전용번호 별도)</td><td>✓</td><td>✓</td></tr>
+        <tr><td><b>{{hours}}·휴무</b></td><td>✓ 임시휴무</td><td>✓ 날짜 지정 휴무</td><td>✓ 특별 영업시간</td><td>✓ 채팅 답변 시간</td></tr>
+        <tr><td><b><span data-biz="vet">진료 안내</span><span data-biz-not="vet">{{item}} 안내</span>·가격</b></td><td>메뉴</td><td>가격정보</td><td>서비스</td><td>소식</td></tr>
+        <tr><td><b>사진</b></td><td>✓</td><td>✓ 100장, 태그</td><td>✓</td><td>배경</td></tr>
+        <tr><td><b>예약</b></td><td>네이버 예약</td><td>예약 연결</td><td>링크</td><td>버튼</td></tr>
+        <tr><td><b>리뷰·후기</b></td><td>답글</td><td>답글·사장님픽</td><td>답글</td><td>-</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap a" style="--d:.4s">구글 지도는 Google 비즈니스 프로필(무료)로 등록해요. 외국인 {{customer}}나 구글 지도를 쓰는 분이 많은 동네라면 함께. 티맵·애플 지도·차량 내비 등록은 따로 정리했어요(<a href="#c-l18" class="ref" data-ref="c-l18">강의</a>).</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a15a" data-key="v_a15a"><div class="body"><label for="v_a15a">장부에 '지도정보' 탭</label><small>항목마다 원본 값과 채널별 반영 날짜를 적어요. 아래 제목 줄을 붙여 넣어요.</small></div></li>
+    <li><input type="checkbox" id="v_a15b" data-key="v_a15b"><div class="body"><label for="v_a15b">바뀌면 한 번에</label><small>{{hours}}·<span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>·전화번호가 바뀌면 소개서를 고치고, 아래 부탁문으로 채널별 고칠 문구를 한 번에 받아 같은 날 반영해요.</small></div></li>
+    <li><input type="checkbox" id="v_a15c" data-key="v_a15c"><div class="body"><label for="v_a15c">분기마다 {{customer}} 눈으로 점검</label><small>네이버 지도·카카오맵에서 {{place:을}} 검색해 화면을 캡처하고 "소개서와 다른 곳 찾아 줘"라고 AI에게 보여 줘요.</small></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>지도정보 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>항목 | 원본 값(소개서) | 바뀐 날 | 네이버 플레이스 | 카카오맵 | 구글 지도 | 티맵 | 애플 지도 | 카톡 채널 | 블로그·인스타 프로필 | 메모</pre></div>
+  <div class="prompt"><div class="bar"><span>지도 정보 변경 부탁문</span><button class="copy" type="button">복사</button></div><pre>{{place}} 정보가 바뀌었어: ○○ (예: 12월부터 수요일 <span data-biz="vet">야간 진료</span><span data-biz-not="vet">저녁 영업</span> 21시까지, 점심시간 13~14시)
+채널별로 고칠 곳과 넣을 문구를 표로 줘: 채널 | 메뉴 위치 | 넣을 문구.
+네이버 플레이스(영업시간·소식), 카카오맵(영업시간·한줄소개), 구글 지도(영업시간), 카톡 채널(프로필·채팅 답변 시간·소식), 블로그·인스타 프로필.
+{{customer}}에게 알릴 플레이스 소식 150자와 카톡 채널 소식 150자도. 장부 지도정보 탭에 넣을 한 줄도.</pre></div>
+  <div class="prompt"><div class="bar"><span>지도 화면 점검 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 네이버 지도·카카오맵 화면 캡처를 {{place}} 소개서와 비교해 줘. 다른 곳({{hours}}, 전화, 주소, 주차, 휴무, 가격)을 표로: 항목 | 소개서 | 네이버 | 카카오 | 고칠 곳. 캡처에서 안 보이는 건 '확인 불가'.</pre></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>명절 2주 전 휴무 등록</b><span>구글 캘린더 반복 알림 하나로 네 채널 휴무를 같은 날 등록해요.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>반영 안 된 칸 노란색</b><span>지도정보 탭에서 '바뀐 날'보다 채널 반영 날짜가 이르면 노랗게.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>채널별 반영 완료</b><span>변경표의 채널마다 버튼. 누르면 지도정보 탭 날짜가 채워져요.</span><span class="pv">버튼: 반영 완료</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "지도 네 곳 대조" 부탁: 네이버·카카오·구글 지도의 우리 {{place}} 화면을 읽어 다른 값만 표로. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>map.naver.com, map.kakao.com, google.com/maps</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>봇: 지도정보 탭에서 '바뀐 날'보다 반영이 늦은 채널을 매주 텔레그램으로.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '01 플레이스 매니저' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 지도정보 탭 → 장부(프로젝트 파일)</span></div></div>
+      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>지도정보 탭 → 장부(프로젝트 파일)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{customer}} 안내 문구</span></div></div><p class="rec-note"><span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>은 캘린더에 넣으면 할 일 목록까지 한 번에(캘린더 강의).</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>네이버·카카오·구글 지도 등록·수정 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>여러 지도를 한 번에 고치는 유료 관리 서비스도 있지만, {{place}} 한 곳이면 체크표로 충분해요</li></ul></div></div>
+</section>

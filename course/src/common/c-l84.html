@@ -1,0 +1,38 @@
+<section id="c-l84" class="lesson" data-part="staff" data-title="{{owner}} 인력 대시보드와 면담" data-level="grow" data-stage="operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · 매달 15분</span>
+    <h2>사람이 부족한지, 몰리는지 숫자로</h2>
+    <p class="goal">'직원 데이터'와 '{{place}} 데이터 허브'(<a href="#c-l60" class="ref" data-ref="c-l60">강의</a>)를 함께 보면 <b>시간대별 <span data-biz="vet">진료 건수</span><span data-biz-not="vet">손님·일 건수</span> 대비 근무 인원, 직원별 야간 몰림, 매출 대비 인건비 비율</b>이 보여요. 매달 한 장 인력 브리핑을 받고, 분기마다 직원 면담을 준비해요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>첫 주에 모든 직원과 1:1 면담. 무엇이 바뀔까 걱정하는지부터 들어요.</span></p>
+
+  <div class="vis">
+    <div class="dash">
+      <div class="kpi pop" style="--d:.2s"><span>이번 달 근무시간 · 예시</span><b>812시간 · 5명</b></div>
+      <div class="kpi pop" style="--d:.35s"><span>계약보다 늘어난 시간</span><b>46시간</b></div>
+      <div class="kpi hi pop" style="--d:.5s"><span>매출 대비 인건비</span><b>31%</b></div>
+      <div class="kpi warn pop" style="--d:.65s"><span>야간·주말 몰림</span><b>직원 03 · 7회</b></div>
+    </div>
+    <p class="cap a" style="--d:.9s">숫자는 예시예요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a84a" data-key="v_a84a"><div class="body"><label for="v_a84a">대시보드에 인력 페이지 추가</label><small>Looker Studio 보고서(<a href="#c-l62" class="ref" data-ref="c-l62">강의</a>)에 '직원 데이터' 요약 탭을 데이터로 추가 → 직원별 근무시간 막대, 요일·시간대별 근무 인원. 이 페이지는 {{owner}}만.</small></div></li>
+    <li><input type="checkbox" id="v_a84b" data-key="v_a84b"><div class="body"><label for="v_a84b">매달 인력 브리핑</label><small>아래 부탁문을 '06 성과 분석' 채팅에. 유료면 매달 1일 예약 작업으로.</small></div></li>
+    <li><input type="checkbox" id="v_a84c" data-key="v_a84c"><div class="body"><label for="v_a84c">분기 면담 준비</label><small>직원별 근무 기록 요약과 {{owner}} 메모로 면담 질문을 받아요. 면담 기록은 직원과 함께 확인한 사실만 짧게 남기고, AI에는 이름 대신 직원번호로.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>월간 인력 브리핑 부탁문</span><button class="copy" type="button">복사</button></div><pre>'직원 데이터' 요약 탭과 '{{place}} 데이터 허브' 일매출 탭을 보고 지난달 인력 브리핑을 써 줘.
+1) 직원번호별 근무시간, 계약 대비 늘어난 시간, 야간 시간, 남은 휴가
+2) 요일·시간대별 <span data-biz="vet">진료 건수</span><span data-biz-not="vet">손님·주문(일) 건수</span> 대비 근무 인원: 부족한 때와 남는 때
+3) 매출 대비 인건비 비율(급여 총액은 내가 ○○원으로 알려 줄게)
+4) 한 사람에게 몰린 일(야간, 주말), 휴가를 못 쓰는 사람
+5) 다음 달 근무표에서 바꿀 것 2가지
+법 기준(5명 이상이면 연장 한도 등)에 걸릴 수 있는 곳은 법령 도구로 조회해 근거와 함께 표시. 이름 대신 직원번호.</pre></div>
+  <div class="prompt"><div class="bar"><span>면담 준비 부탁문</span><button class="copy" type="button">복사</button></div><pre>직원 ○○번 분기 면담을 준비해 줘. 근무 요약: ○○ / 내 메모: ○○ (잘한 점, 아쉬운 점, 본인이 말한 바람).
+면담 순서(20분), 먼저 들을 질문 5개, 칭찬할 구체적 장면 2개, 함께 정할 목표 1~2개, 하지 말아야 할 말. 평가처럼 들리지 않게.</pre></div>
+  <p class="tip warnbox"><b>직원 정보도 개인정보예요.</b> 건강·가족·평가 같은 민감한 내용은 AI에 넣지 말고, 면담 기록은 {{owner}}만 보는 곳에 둬요.</p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 첫 주 인력 브리핑</b><span>월요일 예약 작업에 "그달 첫 주면 인력 브리핑". 면담 메모는 넣지 않아요.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>면담 시간 고르기</b><span>후보 시간 3개. 면담 내용은 텔레그램에 쓰지 않아요.</span><span class="pv">버튼: 1 / 2 / 3</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>예약 작업 인력 브리핑(그달 첫 주).</span></div><div class="run-row"><b>비서 연동</b><span>'10 인사 담당' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 면담 메모는 직원번호로, 채팅 대신 {{owner}} 문서에</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>면담 메모는 직원번호로, 채팅 대신 {{owner}} 문서에</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 {{customer}} A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">법령 MCP</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">근무표 점검</span><span class="rc s">발표자료</span></div></div><p class="rec-note">인력 브리핑은 발표자료로 분기 회의에.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Looker Studio, 시트 수식, AI 브리핑</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 매달 자동 브리핑, 인사·급여 프로그램 연동</li></ul></div></div>
+</section>

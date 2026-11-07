@@ -1,0 +1,23 @@
+<section id="a-l43" class="lesson" data-part="auto" data-title="실거래가로 사업성 검토" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절</span>
+    <h2>"이 규모로 지으면 맞을까요?"에 숫자로</h2>
+    <p class="goal">국토교통부 실거래가 API로 대지 주변의 단독·다가구, 연립·다세대, 토지 거래가를 모아 건축주와 규모 검토를 할 때 참고 시세로 써요. 사업성 판단은 건축주 몫이고, 우리는 근거 자료를 정리해 드리는 역할이에요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a_a43a" data-key="a_a43a"><div class="body"><label for="a_a43a">필요한 실거래 API만 활용신청</label><small>data.go.kr에서 '국토교통부 실거래가'로 검색하면 주택 유형·거래 유형별로 따로 있어요. 단독·다가구 매매, 연립·다세대 매매, 토지 매매 중 사무소가 주로 다루는 것만 신청하세요. 모두 같은 인증키예요.</small></div></li>
+    <li><input type="checkbox" id="a_a43b" data-key="a_a43b"><div class="body"><label for="a_a43b">'실거래' 탭 만들고 스크립트 받기</label><small>실거래 API는 <dfn data-t="lawdcd">지역코드</dfn>(법정동코드 앞 5자리)와 계약년월(6자리)로 조회해요. 대지 탭의 시군구코드를 그대로 써요.</small></div></li>
+    <li><input type="checkbox" id="a_a43c" data-key="a_a43c"><div class="body"><label for="a_a43c">상담 자료로 요약</label><small>'07 건축주 상담'에 실거래 탭과 계획 규모(연면적, 세대 수)를 주고 '시세 요약' 부탁문을 보내요.</small></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>실거래 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>유형 | 시군구 | 법정동 | 지번(일부) | 계약년월 | 거래금액(만원) | 대지면적 | 연면적·전용면적 | 건축년도 | 조회일</pre></div>
+  <div class="prompt"><div class="bar"><span>실거래 수집 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'에서 '대지' 탭의 고른 줄의 시군구코드로 국토교통부 실거래가 API(공공데이터포털)를 조회하는 앱스 스크립트를 써 줘.
+- 조회할 API: ○○(예: 단독/다가구 매매, 연립다세대 매매, 토지 매매), 최근 24개월을 달마다 반복 조회
+- 결과 중 같은 법정동 거래만 '실거래' 탭에 넣고, 조회한 시군구를 다시 하면 지우고 새로
+- 각 API의 정확한 오퍼레이션과 응답 항목 이름은 공공데이터포털 기술문서를 확인해 맞춰 줘
+- 인증키는 스크립트 속성 DATA_GO_KEY, 메뉴 '대지조회 → 실거래 가져오기'
+제목 줄: 유형 | 시군구 | 법정동 | 지번(일부) | 계약년월 | 거래금액(만원) | 대지면적 | 연면적·전용면적 | 건축년도 | 조회일</pre></div>
+  <div class="prompt"><div class="bar"><span>시세 요약 부탁문</span><button class="copy" type="button">복사</button></div><pre>'실거래' 탭으로 건축주 상담용 시세 참고표를 만들어 줘. 유형별 거래 건수, 연면적(전용면적) ㎡당 거래금액의 중간값과 범위, 최근 거래 5건, 건축년도가 5년 이내인 신축 거래만 따로. 계산식을 보여 주고, '참고 자료이며 감정평가·사업성 판단이 아님'을 맨 아래에 적어 줘.</pre></div>
+  <p class="tip warnbox"><b>사업성 숫자는 조심스럽게.</b> 분양가·수익률을 사무소가 약속하는 것처럼 보이면 안 돼요. 실거래 요약은 '참고 시세'로만 전하고, 사업성 판단이 필요하면 감정평가사·시행 전문가를 권하세요.</p>
+  <p class="src">출처: <a href="https://www.data.go.kr" target="_blank" rel="noopener">공공데이터포털 · 국토교통부 실거래가 자료</a> · <a href="https://rt.molit.go.kr" target="_blank" rel="noopener">국토교통부 실거래가 공개시스템</a></p>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>실거래 API 무료·자동승인</li><li>실거래가 공개시스템 화면 조회</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>민간 부동산 분석 서비스: 시세 추정·사업성 계산기</li></ul></div></div>
+</section>

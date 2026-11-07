@@ -1,0 +1,45 @@
+<section id="c-l12" class="lesson" data-part="map" data-title="리뷰 관리와 답글" data-level="core" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 매일 5분 · 휴대폰</span>
+    <h2>리뷰 답글은 다음 {{customer:가}} 읽어요</h2>
+    <p class="goal">답글은 리뷰를 쓴 분보다 <b>그 리뷰를 읽는 다음 {{customer}}</b>에게 하는 말이에요. AI가 초안을 쓰고, {{owner:은}} <span data-biz="vet">그 아이를</span><span data-biz-not="vet">그 {{customer:을}} </span>떠올리며 한 줄만 고쳐서 올려요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>이전 리뷰는 그대로 두고, 인수 뒤 첫 답글들에 새 {{owner}} 인사를 짧게.</span></p>
+
+  <div class="vis">
+    <div class="chat">
+      <div class="bubble me a" style="--d:.2s"><span class="who">새 리뷰 · ★★☆☆☆</span>대기가 40분이나 됐고 설명도 급하게 하셨어요.</div>
+      <div class="bubble ai a" style="--d:1s"><span class="who">AI 답글 초안 · 예시</span>오래 기다리시게 해서 죄송합니다. <span data-biz="vet">그날 응급 수술이 겹쳐 예약 시간이 밀렸는데</span><span data-biz-not="vet">그날 주문과 예약이 한꺼번에 몰려 시간이 밀렸는데</span>, 미리 안내를 드리지 못했어요. 이제 대기가 20분을 넘으면 <span data-biz="vet">접수에서</span><span data-biz-not="vet">들어오실 때</span> 먼저 말씀드리기로 했습니다. 설명이 부족했던 부분은 전화 주시면 다시 차근차근 안내드릴게요.</div>
+    </div>
+    <p class="cap a" style="--d:1.6s">변명보다 '고친 것'을 적으면, 별점 낮은 리뷰도 신뢰가 돼요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a12a" data-key="v_a12a"><div class="body"><label for="v_a12a">리뷰 알림 켜기</label><small>스마트플레이스센터 앱 → 알림 설정에서 새 리뷰 알림을 켜요. 카카오맵 알림, 휴대폰 단축어로 답글 초안 받기까지는 <a href="#c-l16" class="ref" data-ref="c-l16">강의</a>에서, 크롬 브라우저 봇 테스트는 <a href="#c-l17" class="ref" data-ref="c-l17">강의</a>에서 해요.</small></div></li>
+    <li><input type="checkbox" id="v_a12b" data-key="v_a12b"><div class="body"><label for="v_a12b">리뷰를 복사해 AI에게</label><small>휴대폰에서 리뷰 글을 길게 눌러 복사 → '01 플레이스 매니저' 채팅에 아래 부탁문과 함께. {{customer}} 닉네임은 빼고 붙여요.</small></div></li>
+    <li><input type="checkbox" id="v_a12c" data-key="v_a12c"><div class="body"><label for="v_a12c">한 줄 고쳐서 올리기</label><small><span data-biz="vet">AI 초안에 그 아이만의 한 줄("○○이 다음 접종 때 또 만나요")을 넣으면 복사한 답글처럼 보이지 않아요. 진료 내용·병명은 {{customer:가}} 리뷰에 쓴 것 이상으로 밝히지 마세요.</span><span data-biz-not="vet">AI 초안에 그분만의 한 줄을 넣으면 복사한 답글처럼 보이지 않아요. 예를 들어 "{{ex_review}}" 같은 리뷰라면, 그 말을 받아 주는 한 줄을 직접 써요. 주문·상담 내용은 {{customer:가}} 리뷰에 쓴 것 이상으로 밝히지 마세요.</span></small></div></li>
+    <li><input type="checkbox" id="v_a12e" data-key="v_a12e"><div class="body"><label for="v_a12e">카카오맵 후기도 같은 부탁문으로</label><small>카카오맵 후기는 매장관리(<a href="#c-l14" class="ref" data-ref="c-l14">강의</a>)에서 답해요. 부탁문의 '네이버 플레이스 리뷰'만 '카카오맵 후기'로 바꾸면 돼요.</small></div></li>
+    <li><input type="checkbox" id="v_a12d" data-key="v_a12d"><div class="body"><label for="v_a12d">리뷰 탭에 한 줄 기록</label><small>칭찬·불만 포인트를 장부에 쌓으면, 한 달 뒤 "대기 시간 불만 4건"처럼 {{place}} 운영이 보여요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>리뷰 답글 부탁문</span><button class="copy" type="button">복사</button></div><pre>아래 네이버 플레이스 리뷰에 {{owner}} 답글 초안을 써 줘.
+- 3~4문장, 정중하고 따뜻하게. 같은 문장으로 시작하는 답글이 반복되지 않게
+- 칭찬 리뷰: 구체적으로 칭찬한 부분을 받아 주고, <span data-biz="vet">다음 진료 안내 한 줄</span><span data-biz-not="vet">다음 {{visit}} 때 도움이 될 안내 한 줄</span>
+- 불만 리뷰: 사과 → 사실 확인(내가 준 메모 기준) → 고친 것 → 연락 방법. {{customer:를}} 탓하거나 다투지 않기
+- 리뷰에 없는 <span data-biz="vet">진료 내용·병명</span><span data-biz-not="vet">주문·상담 내용</span>·가격은 쓰지 않기(개인정보)
+- 다른 {{place}} 이야기, 할인 약속, '최고' 같은 표현 금지
+- 장부 리뷰 탭에 넣을 한 줄: 날짜 | 별점 | 요약 | 칭찬 | 불만 | 개선할 것
+리뷰: (붙여 넣기)
+내 메모: ○○ (예: <span data-biz="vet">그날 응급 수술로 대기 길었음, 접수 안내 규칙 새로 만듦</span><span data-biz-not="vet">그날 예약이 몰려 대기 길었음, 20분 넘으면 먼저 안내하기로 함</span>)</pre></div>
+  <h3>리뷰에서 하지 말 것</h3>
+  <div class="cards">
+    <div class="term"><strong>리뷰를 사지 않기</strong><span>리뷰 대가(할인·사은품)를 주고 받은 리뷰는 공정거래위원회 「추천·보증 등에 관한 표시·광고 심사지침」에 따라 대가를 받았다는 표시가 필요하고, 네이버 운영 정책에도 걸릴 수 있어요. 업체의 '리뷰 작업'은 쓰지 마세요.</span></div>
+    <div class="term"><strong>답글로 다투지 않기</strong><span>사실과 다른 리뷰라도 답글엔 사실만 짧게. 명예훼손·허위 리뷰는 스마트플레이스의 리뷰 신고(권리 침해 신고) 기능을 써요.</span></div>
+    <div class="term"><strong>별점 공개는 {{owner}} 선택</strong><span>2026년 7월부터 플레이스 리뷰 영역에 별점 평균이 다시 보이고, 사업주가 평균 별점 노출을 직접 켜고 끌 수 있어요. 2021년 10월 뒤 개업한 곳은 기본이 '숨김'이에요.</span></div>
+    <div class="term"><strong>네이버 AI 답글 기능</strong><span>네이버가 2026년 4월부터 AI 리뷰 답글 초안 기능을 음식점(플레이스 플러스 베타)부터 시작했고 다른 업종으로 넓힐 계획이에요. {{biz}}에 열리면 같은 원칙(한 줄은 직접 고치기)으로 쓰세요.</span></div>
+  </div>
+  <p class="src">출처: <a href="https://ceoscoredaily.com/page/view/2026060113242266929" target="_blank" rel="noopener">플레이스 리뷰 별점 공개 전환 (CEO스코어데일리, 2026.6)</a> · <a href="https://biz.sbs.co.kr/amp/article/20000303863" target="_blank" rel="noopener">네이버 AI 사장님 답변 기능 (SBS Biz, 2026.4)</a></p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>답글 말투 고정</b><span>마음에 든 답글 3개를 보여 주고 "앞으로 이 말투로"라고 해 두면 리뷰만 붙여도 돼요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>한 달 리뷰 요약</b><span>매달 1일 "리뷰 탭에서 지난달 칭찬·불만 상위 3개와 {{place:이}} 고칠 것"을 월요일 브리핑(<a href="#c-l41" class="ref" data-ref="c-l41">강의</a>)에 넣어요.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>답글 초안 고르기</b><span>고른 답글이 텔레그램으로 다시 와요. 복사해 플레이스 앱에 붙여 올려요.</span><span class="pv">버튼: A / B / C / 직접 쓸게</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "답글 칸 채우기" 부탁: 고른 답글을 답글 칸에 넣고 등록 전 멈춤. 연습판부터<a href="#c-l17" class="ref" data-ref="c-l17">강의</a>. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>smartplace.naver.com</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>터미널·봇</b><span>봇: 새 리뷰 → 답글 초안 A·B → 텔레그램 승인 → 고른 글이 와서 복사<a href="#c-l16" class="ref" data-ref="c-l16">강의</a>.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '01 플레이스 매니저' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 마음에 든 답글 3개 → 이 채팅에 "이 말투로"</span></div></div>
+      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>마음에 든 답글 3개 → 이 채팅에 "이 말투로"</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">리뷰 답글</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">리뷰 탭은 드라이브 커넥터로 읽어 월간 요약.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>스마트플레이스센터 앱 답글 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>리뷰 여러 개를 한 번에 붙여 한꺼번에 답글 초안</li></ul></div></div>
+</section>

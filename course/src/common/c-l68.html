@@ -1,0 +1,35 @@
+<section id="c-l68" class="lesson" data-part="crm" data-title="안내 결과와 재방문율" data-level="grow" data-stage="operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 40분 · 매달 15분</span>
+    <h2>보낸 안내가 예약으로 이어졌는지</h2>
+    <p class="goal">안내는 보내는 것보다 <b>무엇이 예약으로 이어졌는지</b>가 중요해요. 발송 기록과 예약 여부를 시트에 남기면, 채널별·안내별 예약 전환율이 나오고, 문구와 타이밍을 고칠 근거가 생겨요.</p>
+  </div>
+  <div class="vis">
+    <div class="dash">
+      <div class="kpi pop" style="--d:.2s"><span>이번 달 안내 · 예시</span><b>118건</b></div>
+      <div class="kpi hi pop" style="--d:.35s"><span>14일 안 예약</span><b>52%</b></div>
+      <div class="kpi pop" style="--d:.5s"><span>채널별</span><b>알림톡 61% · 카톡 48% · 문자 39%</b></div>
+      <div class="kpi warn pop" style="--d:.65s"><span>수신거부</span><b>3명 · 처리 완료</b></div>
+    </div>
+    <p class="cap a" style="--d:.9s">숫자는 예시예요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a68a" data-key="v_a68a"><div class="body"><label for="v_a68a">'안내기록' 탭 만들기</label><small>허브 시트에 탭을 더해 보낸 안내를 한 줄씩. 재방문 탭의 연락한 날·예약 여부와 같이 쓰면 돼요.</small></div></li>
+    <li><input type="checkbox" id="v_a68b" data-key="v_a68b"><div class="body"><label for="v_a68b">예약 여부는 2주 뒤에 채우기</label><small>매주 월요일 <span data-biz="vet">실장님이</span><span data-biz-not="vet">담당 {{staff}}이나 {{owner:이}}</span> 2주 전 안내 대상을 <span data-biz="vet">차트</span><span data-biz-not="vet">예약 장부</span>에서 확인해 '예약함/안 함'을 넣어요. 재방문 메일(<a href="#c-l57" class="ref" data-ref="c-l57">강의</a>)에 "2주 지난 안내 중 예약 여부 빈 줄"을 같이 받게 할 수 있어요.</small></div></li>
+    <li><input type="checkbox" id="v_a68c" data-key="v_a68c"><div class="body"><label for="v_a68c">수신거부는 그날 처리</label><small>"그만 받을게요"는 그날 <span data-biz="vet">차트</span><span data-biz-not="vet">{{customer}} 장부의</span> 동의를 N으로, 재방문 탭 연락 동의 N, 카톡 그룹·알림톡 대상에서 빼고, 안내기록에 '수신거부'로. 동의는 정기적으로 다시 확인해요(정보통신망법 제50조제8항, 광고일 때).</small></div></li>
+    <li><input type="checkbox" id="v_a68d" data-key="v_a68d"><div class="body"><label for="v_a68d">매달 AI에게 분석</label><small>아래 부탁문으로 채널·안내·요일별 전환율을 보고, 다음 달 하나만 바꿔요(문구, 보내는 요일, 며칠 전). 대시보드(<a href="#c-l62" class="ref" data-ref="c-l62">강의</a>)에 '안내 전환율' 카드를 더해요.</small></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>안내기록 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>보낸 날 | 고객번호 | 안내 이름 | 채널(문자/카톡그룹/알림톡/1:1채팅) | 구분(<span data-biz="vet">진료 안내</span><span data-biz-not="vet">정보 안내</span>/광고) | 결과(도착/실패/대체문자) | 14일 안 예약(Y/N) | 답장 | 수신거부</pre></div>
+  <div class="prompt"><div class="bar"><span>안내 성과 분석 부탁문</span><button class="copy" type="button">복사</button></div><pre>'안내기록' 탭으로 지난달 {{customer}} 안내 성과를 분석해 줘.
+1) 안내 이름별·채널별 보낸 수, 14일 안 예약 비율
+2) 보낸 요일·시간대별 예약 비율(기록에 시간이 있으면)
+3) 수신거부·실패가 많은 안내
+4) 다음 달 하나만 바꿀 실험(문구, 요일, 며칠 전 중 하나)과 그 이유
+5) 대시보드에 넣을 숫자 4개
+계산은 시트로 직접, 기록에 없는 건 지어내지 마. 고객번호는 답에 쓰지 마.</pre></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>전환율 자동 계산</b><span>COUNTIFS로 안내·채널별 Y 비율. 요약 탭에 두면 대시보드가 바로 읽어요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 1일 안내 성과</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>월간 경영 브리핑(<a href="#c-l62" class="ref" data-ref="c-l62">강의</a>)에 이 분석을 넣어요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>매달 1일 휴대폰 알림 → 한 줄 보내기.</span></span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>앱스 스크립트: 안내기록 → 월말 재방문율 텔레그램.</span></div><div class="run-row"><b>비서 연동</b><span>'06 성과 분석' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 안내기록 탭은 허브 시트(프로젝트 파일)</span></div></div>
+      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>안내기록 탭은 허브 시트(프로젝트 파일)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">전환율 수식은 엑셀 스킬로.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>시트 기록·수식·AI 분석</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li><span data-biz="vet">차트 CRM</span><span data-biz-not="vet">{{customer}} 관리(CRM)</span>·알림톡 서비스의 발송 결과 화면을 그대로 내보내 붙이기</li></ul></div></div>
+</section>

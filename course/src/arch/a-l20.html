@@ -1,0 +1,44 @@
+<section id="a-l20" class="lesson" data-part="auto" data-title="건축물대장 자동 조회" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절</span>
+    <h2>주소만 넣으면 건축물대장이 시트에</h2>
+    <p class="goal">공공데이터포털의 <b>국토교통부 건축HUB 건축물대장정보 서비스</b>를 쓰면 대장 표제부(주용도, 연면적, 건폐율, 용적률, 사용승인일 등)를 시트로 자동으로 받을 수 있어요. 리모델링·용도변경 상담 전 확인이 빨라져요.</p>
+  </div>
+  <div class="vis">
+    <div class="lanes">
+      <div class="box pop" style="--d:.2s"><strong>'대지조회' 탭</strong><span>시군구코드 · 법정동코드 · 번 · 지</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.5s"></span></div>
+      <div class="box hi pop" style="--d:.5s"><strong>건축HUB API</strong><span>건축물대장 표제부</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.9s"></span></div>
+      <div class="box ai pop" style="--d:.9s"><strong>'대장결과' 탭</strong><span>주용도 · 연면적 · 사용승인일</span></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a_a20a" data-key="a_a20a"><div class="body"><label for="a_a20a">활용신청 (자동승인, 무료)</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>data.go.kr 로그인 → 검색 <b>건축HUB 건축물대장정보</b> → '국토교통부_건축HUB_건축물대장정보 서비스' 오픈API</li>
+        <li><span class="path">활용신청</span> → 목적 입력 → 신청. 자동승인이에요</li>
+        <li><span class="path">마이페이지 → 데이터활용 → Open API</span>에서 일반 인증키 복사<span class="fix">개발계정은 하루 호출 수가 정해져 있어요. 사무소 조회에는 충분해요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a_a20b" data-key="a_a20b"><div class="body"><label for="a_a20b">법정동코드 찾는 법 익히기</label><small>API는 주소 대신 <dfn data-t="bjdong">법정동코드</dfn>를 받아요. 앞 5자리가 시군구코드, 뒤 5자리가 법정동코드예요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>검색창에 <b>행정표준코드관리시스템 법정동코드</b> → 공식 사이트(code.go.kr)에서 동 이름 검색</li>
+        <li>10자리 코드에서 앞 5자리 → 시군구코드 칸, 뒤 5자리 → 법정동코드 칸</li>
+        <li>지번 123-4면 번=0123, 지=0004 (네 자리로 앞에 0을 채워요)<span class="fix">자주 쓰는 동은 '법정동' 탭에 모아 두면 다음부터 고르기만 하면 돼요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a_a20c" data-key="a_a20c"><div class="body"><label for="a_a20c">스크립트 받기 → 붙이기</label><small>'09 자동화·연결' 채팅에 아래 부탁문을 보내요. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>와 같아요. 대장 시트에 '대지조회' 메뉴가 생기게 해 달라고 했으니, 버튼처럼 눌러 쓰면 돼요.</small></div></li>
+    <li><input type="checkbox" id="a_a20d" data-key="a_a20d"><div class="body"><label for="a_a20d">정부24 열람본과 한 번 맞춰 보기</label><small>처음 몇 건은 정부24 열람본과 숫자가 같은지 확인해요. 같으면 그다음부터는 상담 준비에 바로 써요. 제출용은 여전히 발급본을 씁니다.</small></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>대지조회 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 주소(메모) | 시군구코드 | 법정동코드 | 대지구분 | 번 | 지 | 조회</pre></div>
+  <div class="prompt"><div class="bar"><span>건축물대장 조회 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'의 '대지조회' 탭(제목 줄: 프로젝트코드, 주소(메모), 시군구코드, 법정동코드, 대지구분, 번, 지, 조회)의 각 줄로 공공데이터포털 '국토교통부_건축HUB_건축물대장정보 서비스'의 표제부(getBrTitleInfo)를 조회해서 '대장결과' 탭에 넣는 앱스 스크립트를 써 줘.
+- 엔드포인트: https://apis.data.go.kr/1613000/BldRgstHubService/getBrTitleInfo , _type=json
+- 조회 칸이 비어 있는 줄만 조회하고, 끝나면 조회 칸에 날짜
+- 결과 칸: 프로젝트코드, 건물명, 동명칭, 주용도, 구조, 지상·지하 층수, 대지면적, 건축면적, 건폐율, 연면적, 용적률산정연면적, 용적률, 사용승인일, 위반건축물 여부 (응답 항목 이름은 API 문서를 확인해서 맞춰 줘)
+- 인증키는 스크립트 속성에 저장
+- 시트 위쪽 메뉴에 '대지조회 → 건축물대장 가져오기' 버튼을 만들어 줘
+붙여 넣는 곳, 인증키 넣는 법, 처음 실행 권한을 순서대로 알려줘. 나는 초보야.</pre></div>
+  <p class="tip"><b>토지이용계획은 아직 손으로.</b> 용도지역·지구 자료도 공공데이터로 있지만, 행위제한과 지구단위계획까지 보려면 토지이음 열람(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>)이 가장 확실해요.</p>
+  <p class="src">출처: <a href="https://www.data.go.kr/data/15134735/openapi.do" target="_blank" rel="noopener">공공데이터포털 · 국토교통부_건축HUB_건축물대장정보 서비스</a></p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-sc">API</span><div class="ad"><b>메뉴 한 번으로 조회</b><span>대지조회 탭에 줄을 추가하고 메뉴를 누르면 끝. 결과를 대지 검토 메모 부탁문에 그대로 붙여요.</span></div></li><li><span class="chip k-conn">MCP</span><div class="ad"><b>대화로 조회 (심화)</b><span>건축물대장 API를 AI가 쓰게 묶은 공개 MCP도 있어요. 연결하면 "○○동 123-4 건축물대장 보여 줘"로 바로 물어볼 수 있어요.</span></div></li></ul></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>공공데이터 API 무료, 자동승인</li><li>앱스 스크립트 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>민간 부동산 데이터 서비스: 주변 건물·실거래까지 지도에서</li></ul></div></div>
+</section>

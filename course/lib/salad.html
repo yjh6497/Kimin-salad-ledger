@@ -1,0 +1,1034 @@
+<section id="s-l3" class="lesson" data-part="base" data-title="매출 데이터 모으기" data-level="core" data-stage="prep takeover operate" data-biz="salad">
+    <div class="partcard a" style="--d:0s"><span class="pn">1</span><span class="pt"><b>장부 시스템 만들기</b>2강 · 첫 주</span><p class="po">포스·배달앱·카드 숫자를 한 장부로 모으고, 휴대폰으로 마감을 입력해요. 뒤의 모든 자동화가 이 장부를 읽어요.</p><div class="plist"><span>매출 데이터 모으기</span><span>장부 시스템 만들기</span></div><svg viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C40 30 50 12 90 14 S150 34 190 22 S250 6 300 12"/><path d="M90 14 c-6 -10 4 -14 10 -8 M190 22 c4 -11 14 -8 12 0"/></svg></div>
+  <div class="lesson-head">
+    <span class="kicker">약 15분</span>
+    <h2>숫자는 엑셀로 받아서 폴더에 넣어요</h2>
+    <p class="goal">소규모 매장은 포스·배달앱 데이터를 <dfn data-t="api">API</dfn>로 직접 받기 어려워요. 엑셀로 내려받아 장부 폴더에 넣으면 AI가 읽습니다.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s3a" data-key="s_s3a"><div class="body"><label for="s_s3a">토스 포스 매출 엑셀 받기</label><small>결제 시트(일자·시각, 채널, 금액, 결제수단, 취소)와 상품 주문 시트(상품명, 옵션, 수량, 할인, 실판매금액)가 들어 있어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>포스 화면 왼쪽 위 <span class="path">≡ 메뉴 → 매출 리포트 → 매출현황</span></li>
+        <li><span class="path">엑셀 내보내기</span> 누르기 → 기간 고르기(지난주 월~일)</li>
+        <li><span class="path">파일 만들기</span> → 파일 비밀번호 정하기 → <span class="path">받기</span></li>
+        <li>받은 파일을 드라이브 '우리가게 장부' 폴더에 올리기<span class="fix">AI에게 올리기 전에 비밀번호로 한 번 열어 다시 저장하면 잠금이 풀려요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s3b" data-key="s_s3b"><div class="body"><label for="s_s3b">토스 포스에 배달 매출 연결하기 (선택)</label><small>배달 3사 주문이 포스 매출에 합쳐져서 엑셀 하나로 볼 수 있어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">설정 → 배달 매출 설정</span><span class="fix">메뉴가 안 보이면 포스를 껐다 켜세요.</span></li>
+        <li>쓰는 배달앱 옆 <span class="path">연결하기</span> → 배달앱 계정으로 로그인</li>
+        <li>연결한 날 이후 주문부터 합쳐진다는 점 기억하기</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s3c" data-key="s_s3c"><div class="body"><label for="s_s3c">배민 <dfn data-t="vat">부가세 신고자료</dfn> 받기</label><small>매출구분(카드·현금·기타), 매출, 부가세, 합계</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 배민 사장님광장(ceo.baemin.com) 로그인</li>
+        <li><span class="path">우리가게관리 → 정산·주문 → 부가세 신고자료</span></li>
+        <li>기간 선택(한 번에 최대 3개월) → 조회 → 다운로드<span class="fix">만나서결제(카드·현금)는 여기 안 나와요. 별도 메뉴에서 확인하세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s3d" data-key="s_s3d"><div class="body"><label for="s_s3d">쿠팡이츠·요기요 정산 내역 받기</label><small>각 사장님 사이트의 정산 메뉴에서 다운로드 버튼을 찾으세요.</small></div></li>
+    <li><input type="checkbox" id="s_s3e" data-key="s_s3e"><div class="body"><label for="s_s3e">매달 카드매출·홈택스 자료 받기</label><small><dfn data-t="cardsales">카드매출 통합조회</dfn>와 <dfn data-t="hometax">홈택스</dfn>는 조회 기간 제한이 있어 매달 받아 두는 게 좋아요.</small></div></li>
+  </ol>
+  <p class="tip"><b>매주 손으로 받기 번거롭다면.</b> 받은 파일을 폴더에 넣기만 하면 장부에 자동으로 들어가게 만드는 방법이 <a href="#s-l25" class="ref" data-ref="s-l25">강의</a>에 있어요.</p>
+  <p class="src">출처: <a href="https://tossplace.com/story/salesreport" target="_blank" rel="noopener">토스 포스 매출 리포트</a> · <a href="https://tossplace.com/story/delivery-sales-free" target="_blank" rel="noopener">토스 포스 배달 매출 연결</a> · <a href="https://help.bznav.com/hc/ko/articles/900007650043" target="_blank" rel="noopener">배민 부가세 신고자료 조회</a> · <a href="https://news.jkn.co.kr/post/726614" target="_blank" rel="noopener">여신금융협회 카드매출조회</a></p>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>매달 자료 받는 날</b><span>캘린더에 '매달 3일 카드매출·홈택스·정산 자료 받기' 반복 일정. 메뉴 위치를 일정 메모에 적어 두면 다음 달에 헤매지 않아요.</span></div></li><li><span class="chip k-mail">메일 필터</span><div class="ad"><b>메일로 오는 자료는 그대로 장부까지</b><span>포스나 정산 자료를 메일로 받을 수 있으면 켜 두세요. 메일 첨부는 <a href="#s-l25" class="ref" data-ref="s-l25">강의</a>에서 장부까지 자동으로 이어져요.</span></div></li><li><span class="chip k-bot">맥 봇</span><div class="ad"><b>내려받기 없는 주문내역</b><span>사이트 화면에서만 보이는 주문내역은 맥 봇이 매일 읽어 와요(<a href="#s-l30" class="ref" data-ref="s-l30">강의</a>).</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>배달앱·포스 정산 화면에서 기간을 고르고 엑셀 내려받기 → 장부 폴더.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>내려받기가 없는 화면은 로그인된 크롬에서 읽어 일별 표로.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>주문내역 수집 봇(<a href="#s-l30" class="ref" data-ref="s-l30">강의</a>)이 매일 06:00 대신 해요.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'01 장부·정산'이 받은 파일을 장부 형식으로, 빠진 날은 텔레그램으로.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>01 장부·정산</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>받은 엑셀 파일 → 이 채팅이나 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>포스·배달앱 엑셀을 직접 내려받기</li><li>여신금융협회 카드매출 통합조회, 홈택스 자료는 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>매출 통합 관리 앱: 카드·배달앱 매출과 입금이 자동으로 모이고 누락 알림</li><li>포스사의 매출 연동 부가 서비스</li></ul></div></div>
+</section>
+<section id="s-l4" class="lesson" data-part="base" data-title="장부 시스템 만들기" data-level="core" data-stage="prep takeover operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절</span>
+    <h2>구글 시트로 장부부터 만들어요</h2>
+    <p class="goal">휴대폰·PC 어디서나 열리고, <span class="ainame" data-both="Claude와 ChatGPT 모두"></span>에 연결되는 장부를 만듭니다. PC에서 하는 걸 추천해요.</p>
+  </div>
+  <div class="vis">
+    <div class="chat">
+      <div class="bubble me a" style="--d:.2s"><span class="who">사장님</span>샐러드 가게 매출·지출 장부를 구글 시트로 만들어줘. 배달앱별로 따로 보고 싶어.</div>
+      <div class="bubble ai a" style="--d:1.2s"><span class="who">AI 비서</span>장부 구조를 만들었어요.<ul><li>매출·지출·고정비·거래처·알바근무·메뉴원가 탭 6개</li><li>배민·쿠팡이츠·요기요 칸과 월 요약 수식</li><li>휴대폰 입력용 구글 폼 만드는 법</li></ul></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s4a" data-key="s_s4a"><div class="body"><label for="s_s4a">새 스프레드시트 만들기</label><small>이름은 '매장 장부'로 해 주세요. 뒤의 부탁문들이 이 이름을 씁니다.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>드라이브의 '우리가게 장부' 폴더 안으로 들어가기</li>
+        <li><span class="path">+ 새로 만들기 → Google 스프레드시트</span></li>
+        <li>왼쪽 위 '제목 없는 스프레드시트' 글자를 눌러 <b>매장 장부</b>로 바꾸고 엔터<span class="fix">저장 버튼은 없어요. 입력하는 순간 자동 저장됩니다.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s4b" data-key="s_s4b"><div class="body"><label for="s_s4b"><dfn data-t="tab">탭</dfn>(시트) 6개 만들기</label><small>매출, 지출, 고정비, 거래처, 알바근무, 메뉴원가. 파일은 '매장 장부' 하나, 그 안에 시트가 6개예요.</small>
+      <div class="tabbar" aria-label="구글 시트 아래쪽 시트 이름표 예시"><span class="tb-plus">+</span><span class="tb-menu">≡</span><span class="tb on">매출</span><span class="tb">지출</span><span class="tb">고정비</span><span class="tb">거래처</span><span class="tb">알바근무</span><span class="tb">메뉴원가</span></div>
+      <small class="tb-cap">화면 맨 아래 모습이에요. 앞으로 '장부에 ○○ 탭 만들기'가 나오면 이 줄에 이름표를 하나 더 붙이면 돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>화면 맨 아래 '시트1' 글자를 두 번 눌러 <b>매출</b>로 바꾸기</li>
+        <li>그 왼쪽의 <span class="path">+</span> 버튼을 눌러 새 탭 만들기 → 같은 방법으로 이름 바꾸기</li>
+        <li>지출, 고정비, 거래처, 알바근무, 메뉴원가까지 6개가 될 때까지 반복</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s4c" data-key="s_s4c"><div class="body"><label for="s_s4c"><dfn data-t="header">제목 줄</dfn> 붙여 넣기</label><small>아래 상자의 '복사'를 누르고 각 탭의 A1 칸에 붙여 넣으면 칸마다 나뉘어 들어가요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>매출 탭을 열고 맨 왼쪽 위 칸(A1)을 한 번 누르기</li>
+        <li>아래 '매출 탭 제목 줄'의 <span class="path">복사</span> 누르기</li>
+        <li>PC는 Ctrl+V(맥은 ⌘+V), 휴대폰은 칸을 길게 눌러 '붙여넣기'</li>
+        <li>지출, 알바근무 탭도 같은 방법으로<span class="fix">한 칸에 다 들어갔다면 그 칸을 누르고 <span class="path">데이터 → 텍스트를 열로 분할</span>을 누르세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s4d" data-key="s_s4d"><div class="body"><label for="s_s4d">AI에게 요약 수식 부탁하기</label><small>월별 합계와 순이익, 식재료 <dfn data-t="costratio">원가율</dfn>을 자동으로 계산하는 '요약' 탭을 만들어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="ainame" data-both="Claude나 ChatGPT"></span> 새 대화에 아래 '장부 수식 만들기' 부탁문을 붙여 넣고 보내기</li>
+        <li>같은 파일 맨 아래 <span class="path">+</span>로 시트를 하나 더 추가하고 이름을 <b>요약</b>으로</li>
+        <li>AI가 적어 준 칸(예: B2)에 수식을 그대로 복사해 붙여 넣기 → 숫자가 나오는지 확인<span class="fix">#ERROR! 같은 글자가 나오면 그 글자와 수식을 그대로 AI에게 보내 "고쳐줘"라고 하세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s4e" data-key="s_s4e"><div class="body"><label for="s_s4e">휴대폰 입력 화면(<dfn data-t="form">구글 폼</dfn>) 만들기</label><small>마감 때 휴대폰으로 숫자만 넣으면 시트에 쌓이게 해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>시트 위쪽 메뉴 <span class="path">도구 → 새 양식</span></li>
+        <li>질문 추가: 날짜(날짜형), 카드, 현금, 계좌이체, 배민, 쿠팡이츠, 요기요(모두 단답형)</li>
+        <li>오른쪽 위 <span class="path">보내기 → 링크 아이콘 → 복사</span> 후 그 주소를 카카오톡 '나와의 채팅'에 보내기</li>
+        <li>휴대폰에서 그 링크 열기 → <dfn data-t="homescreen">홈 화면에 추가</dfn></li>
+        <li>폼 답은 시트에 새 탭('설문지 응답')으로 쌓여요. 탭 이름을 <b>매출입력</b>으로 바꾸고, AI에게 "매출입력 탭을 매출 탭으로 합쳐 주는 수식 알려줘"라고 부탁<span class="fix">폼을 시트에서 바로 못 찾으면 forms.google.com에서 만든 뒤 <span class="path">응답 → 스프레드시트에 연결</span>을 누르세요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>매출 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 카드 | 현금 | 계좌이체 | 배민 | 쿠팡이츠 | 요기요 | 주문건수 | 메모</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>지출 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 거래처 | 품목 | 수량 | 단가 | 금액 | 대분류 | 소분류 | 결제수단 | 영수증사진</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>알바근무 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 이름 | 출근 | 퇴근 | 휴게(분) | 근무시간 | 시급 | 일급</pre></div>
+  <div class="prompt"><div class="bar"><span>장부 수식 만들기 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '매장 장부'의 매출·지출 탭 제목 줄을 붙여 줄게. 월별 매출 합계, 대분류별 지출 합계, 순이익, 식재료 원가율을 보여 주는 '요약' 탭 수식을 셀 위치까지 알려줘. 나는 엑셀 초보야.
+매출: 날짜, 카드, 현금, 계좌이체, 배민, 쿠팡이츠, 요기요, 주문건수, 메모
+지출: 날짜, 거래처, 품목, 수량, 단가, 금액, 대분류, 소분류, 결제수단, 영수증사진</pre></div>
+  <p class="tip"><b>지출의 대분류는 7개로 고정</b>하세요. 식재료·포장재·인건비·공간비·판매수수료·마케팅·운영비. 같은 이름을 계속 써야 분석이 정확해요.</p>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>휴대폰 입력 → 장부</b><span>폼을 제출하면 '매출입력' 탭에 시각과 함께 쌓여요. 옮겨 적을 일이 없어요.</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>요약 자동 계산</b><span>숫자를 넣는 순간 월 합계·순이익·원가율이 다시 계산돼요.</span></div></li><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>마감 입력 알림</b><span>매일 마감 시각에 '폼 입력' 알림. 입력을 깜빡하면 밤에 알려 주는 스크립트는 <a href="#s-l32" class="ref" data-ref="s-l32">강의</a>에서 만들어요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>구글 시트를 열고 탭·제목 줄을 AI가 직접 입력.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>시트에서 수식 채우기·서식 정리를 맡겨요.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>장부 검사 스크립트(빈칸·중복·음수)를 만들어 매일 밤.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>완성된 장부를 프로젝트 파일로 연결해 모든 직원 채팅이 같은 장부를 봐요.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>01 장부·정산</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>장부 수식 만들기 부탁문</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·폼·드라이브는 개인 계정으로 무료</li><li>저장 공간 15GB 안에서 충분해요</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>구글 워크스페이스: 가게 이름 이메일, 더 큰 저장 공간, 직원 계정 관리</li><li>회계·장부 프로그램: 세무사와 자료 자동 공유</li></ul></div></div>
+</section>
+<section id="s-l32" class="lesson" data-part="practice" data-title="마감·결산 자동화하기" data-level="core" data-stage="prep takeover operate" data-biz="salad">
+    <div class="partcard a" style="--d:0s"><span class="pn">3</span><span class="pt"><b>경영 루틴 자동화</b>3강 · 첫 달</span><p class="po">매일 마감 5분, 밤 10시 요약, 월요일 브리핑, 매달 결산. 숫자를 보는 습관을 자동으로 만들어요.</p><div class="plist"><span>마감·결산 자동화하기</span><span>주간 경영 브리핑 자동화하기</span><span>배달앱·매장 AI 컨설팅 받기</span></div><svg viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C40 30 50 12 90 14 S150 34 190 22 S250 6 300 12"/><path d="M90 14 c-6 -10 4 -14 10 -8 M190 22 c4 -11 14 -8 12 0"/></svg></div>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 2시간 · 매일 5분</span>
+    <h2>마감은 5분 입력, 요약과 결산은 자동으로</h2>
+    <p class="goal">마감 때 숫자와 영수증만 넣으면, 밤에는 '오늘 요약'이 오고 매달 1일에는 지난달 결산이 와요. 입력을 깜빡하면 장부가 먼저 알려 줘요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>오늘 요약과 입력 누락 알림은 구글 스크립트라 무료예요. 월 결산 글은 <span data-ai="claude">매달 1일 휴대폰 알림이 오면 한 줄로 부탁해요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 매달 받아요.</span><span data-ai-none>무료 방식으로 받아요.</span></span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>월 결산을 예약 작업으로 맡겨요. 매달 1일 아침에 손익표와 다음 달 할 일이 도착해요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="msg">
+      <div class="from a" style="--d:.1s"><span>오늘 요약 · 매일 22:10 · 예시</span><span>매장 장부</span></div>
+      <div class="line a" style="--d:.5s"><b>매출</b><span>42만 원 (배달 61% · 매장 39%), 지난주 같은 요일보다 +4만 원</span></div>
+      <div class="line a" style="--d:1s"><b>지출</b><span>11만 원 · 식재료 9만 원 (○○상회)</span></div>
+      <div class="line a" style="--d:1.5s"><b>이번 달</b><span>손익분기 달성 78% · 식재료 원가율 32%</span></div>
+      <div class="line alert a" style="--d:2s"><b>확인</b><span>현금 매출 칸이 비었어요. 마감 폼에서 넣어 주세요.</span></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s32a" data-key="s_s32a"><div class="body"><label for="s_s32a">마감 입력 동선 정하기</label><small><a href="#s-l4" class="ref" data-ref="s-l4">강의</a>에서 만든 휴대폰 입력 폼을 홈 화면 첫 줄에 두고, 마감 순서를 정해요. 포스 마감 → 배달앱 오늘 매출 → 폼 입력 → 영수증 사진.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>휴대폰 홈 화면의 매출 입력 폼 아이콘을 맨 아래 줄(손이 바로 닿는 곳)로 옮기기</li>
+        <li>포스 마감 화면에서 카드·현금·계좌이체 합계를 보고 폼에 입력</li>
+        <li>배달앱 사장님 앱의 오늘 매출을 앱별로 입력. 주문내역 수집 봇(<a href="#s-l30" class="ref" data-ref="s-l30">강의</a>)을 쓰면 이 칸은 비워 둬도 돼요</li>
+        <li>제출 후 '매출입력' 탭에 한 줄 생겼는지 처음 며칠만 확인<span class="fix">마감 직원이 대신 넣는다면 직원 웹앱(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)의 마감 메뉴에 매출 칸을 붙이세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s32b" data-key="s_s32b"><div class="body"><label for="s_s32b">영수증은 사진 한 장으로 지출 한 줄</label><small>'01 장부·정산' 채팅에 영수증 사진을 올리고 아래 '영수증 → 지출 한 줄' 부탁문을 보내면, 장부 지출 탭에 그대로 붙일 줄을 받아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>영수증을 찍어 '01 장부·정산' 채팅에 올리고 부탁문 보내기 (여러 장을 한 번에 올려도 돼요)</li>
+        <li>받은 줄을 길게 눌러 복사 → 장부 '지출' 탭의 빈 줄 A칸에 붙여 넣기</li>
+        <li>사진 원본은 드라이브 '우리가게 장부/영수증/2026-10' 폴더에: 사진 앱 <span class="path">공유 → Drive</span> → 폴더 고르기</li>
+        <li>세무 자료 묶음(<a href="#c-l73" class="ref" data-ref="c-l73">강의</a>)이 이 폴더를 매달 모아 가요<span class="fix">대분류는 장부와 같은 7개(식재료·포장재·인건비·공간비·판매수수료·마케팅·운영비)만 쓰게 해야 요약이 맞아요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s32c" data-key="s_s32c"><div class="body"><label for="s_s32c">밤 10시 '오늘 요약'과 입력 누락 알림</label><small>아래 부탁문으로 스크립트를 받아 장부에 붙이면, 매일 밤 오늘 숫자를 메일로 보내 주고 빈 칸이 있으면 알려 줘요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 '오늘 요약 스크립트 부탁문' 보내기</li>
+        <li>장부 <span class="path">확장 프로그램 → Apps Script</span> → 받은 코드 붙여 넣기 → 저장 → <span class="path">실행</span> → 권한 허용</li>
+        <li>메일이 오는지 확인 → 왼쪽 시계 모양 <span class="path"><dfn data-t="trigger">트리거</dfn> → 트리거 추가 → 시간 기반 → 일 단위 → 오후 10~11시</span></li>
+        <li>휴대폰 Gmail 앱 알림을 켜 두면 요약이 푸시로 와요<span class="fix">트리거 화면의 <span class="path">실패 알림 설정 → 즉시 알림</span>을 고르면 스크립트가 멈췄을 때도 메일이 와요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s32d" data-key="s_s32d"><div class="body"><label for="s_s32d">매달 1일 월 결산 받기</label><small>지난달 손익표, 전월 대비 변화, 이상한 지출, 다음 달 할 일 2개를 받아요. '01 장부·정산' 채팅에서 아래 '월 결산 지시문'으로 만들어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span data-plan-not="free">유료: 지시문 맨 앞에 <b>"매달 1일 오전 8시에 아래 결산을 해줘."</b>를 붙여 예약 작업으로 만들기</span></li>
+        <li><span data-plan-not="paid"><span data-ai="claude">Claude 무료: 지시문을 한 번 보내 두고, 휴대폰 캘린더에 '매달 1일 결산' 반복 일정 → 알림이 오면 "이번 달 결산 해줘"</span><span data-ai-not="claude">ChatGPT 무료: "매달 1일 아침에 아래 결산을 해줘" + 지시문으로 예약 작업 만들기</span></span></li>
+        <li>결산에서 나온 '다음 달 할 일'은 '제안기록' 시트에 적어 두기 (<a href="#c-l41" class="ref" data-ref="c-l41">강의</a>)<span class="fix">결산 숫자는 장부의 '요약' 탭 수식이 기준이에요. AI 숫자와 요약 탭이 다르면 요약 탭을 믿고, 다른 이유를 물어보세요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>영수증 → 지출 한 줄 부탁문 · 장부 과장</span><button class="copy" type="button">복사</button></div><pre>첨부한 영수증을 '매장 장부' 지출 탭에 붙일 줄로 바꿔줘.
+열 순서: 날짜, 거래처, 품목, 수량, 단가, 금액, 대분류, 소분류, 결제수단, 영수증사진(빈칸)
+대분류는 식재료·포장재·인건비·공간비·판매수수료·마케팅·운영비 중 하나만.
+품목이 여러 개면 품목마다 한 줄. 칸 사이는 탭으로 구분해서 바로 붙여 넣을 수 있게.
+흐려서 확실하지 않은 칸은 값 뒤에 (확인)을 붙여줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>오늘 요약 스크립트 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>'매장 장부' 구글 시트에 붙일 앱스 스크립트를 만들어줘. 나는 코딩을 몰라서 붙여 넣는 곳과 트리거 설정까지 순서대로 알려줘.
+- 매일 밤 10시 실행. 오늘 날짜의 매출(매출 탭 + 매출입력 탭)과 지출(지출 탭)을 합계
+- 메일 제목: [오늘 요약] 매출 ○만 원 · 지출 ○만 원
+- 본문: 채널별 매출(카드·현금·계좌이체·배민·쿠팡이츠·요기요), 지난주 같은 요일 대비, 이번 달 누적 매출과 '요약' 탭의 손익분기 달성률·식재료 원가율
+- 오늘 매출 줄이 없거나 카드·현금 칸이 비어 있으면 본문 맨 위에 '입력 확인' 줄. 주문원장 시트가 있으면 배달 매출은 거기서 합계
+- 장부 숫자를 고치거나 지우는 코드는 넣지 마</pre></div>
+  <div class="prompt"><div class="bar"><span>월 결산 지시문 · 장부 과장</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'로 지난달 결산을 해줘. 휴대폰 두 화면 이내로.
+1) 손익표: 매출(채널별), 식재료비, 인건비, 고정비(공간비 포함), 판매수수료, 기타, 순이익
+2) 비율: 식재료 원가율, 인건비율, 배달 매출 비중, 전월·작년 같은 달 대비 변화
+3) 이상한 지출 3개: 평소보다 크게 늘었거나 처음 보는 거래처
+4) 잘된 점 1개, 걱정되는 점 1개 (장부 숫자로 근거)
+5) 다음 달 할 일 2개: 바로 할 수 있는 행동으로
+장부에 없는 숫자는 추측하지 말고 무엇이 비었는지 알려줘.</pre></div>
+<div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>마감 숫자 → 장부</b><span>폼을 제출하면 '매출입력' 탭에 시각과 함께 자동으로 쌓여요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>밤 10시 오늘 요약 + 입력 누락 알림</b><span>시간 트리거가 매일 숫자를 모아 메일로 보내고, 빈 칸이 있으면 맨 위에 알려 줘요. 무료.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 1일 월 결산</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 1일 오전 8시 예약 작업이 장부를 읽고 결산을 보내요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i><span data-ai="claude">Claude 무료는 예약 작업이 없어요. 매달 1일 아침 휴대폰 반복 알림이 울리면 그 채팅에 한 줄 보내요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 매달 1일 아침 받아요. 시간은 대략적으로 정해지고 동시에 3개까지예요.</span><span data-ai-none>Claude 무료는 매달 1일 아침 휴대폰 알림 + 한 줄, ChatGPT 무료는 예약 작업(하루 1번 이하, 3개까지)으로 받아요.</span></span></span></div></li><li><span class="chip k-conn">커넥터</span><div class="ad"><b>영수증 사진 → 지출 줄</b><span>사진 한 장으로 붙여 넣을 줄을 받아요. 영수증이 많은 날은 모아서 한 번에 올려요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>카드매출 통합조회에서 어제 승인 내역을 읽어 장부와 대조 표.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>배달앱 정산 화면의 정산 예정액을 읽어 장부 칸에.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>밤 10시 요약·누락 알림 스크립트를 만들고 텔레그램으로.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'01 장부·정산'이 매달 1일 결산 해설, 결과는 업무일지에.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>01 장부·정산</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>영수증 부탁문, 월 결산 지시문 (유료면 예약 작업)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>폼 입력, 오늘 요약 메일, 누락 알림 모두 구글 무료 기능</li><li>영수증 정리는 AI 무료 사용량 안에서 하루 몇 장씩</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>월 결산이 정해진 시각에 자동 도착</li><li>영수증 수십 장도 한 번에 정리</li><li>회계 프로그램으로 카드 내역 자동 수집</li></ul></div></div>
+</section>
+<section id="s-l14" class="lesson" data-part="practice" data-title="배달앱·매장 AI 컨설팅 받기" data-level="grow" data-stage="prep takeover operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간</span>
+    <h2>배달앱 화면과 매장 동선도 AI가 봐 줘요</h2>
+    <p class="goal">화면 캡처와 매장 사진, 장부 숫자를 '09 배달앱·매장 개선' 직원에게 주면 무엇을 어떻게 바꿀지 순서까지 제안합니다.</p>
+  </div>
+  <div class="vis">
+    <div class="mock">
+      <div class="mock-col a" style="--d:.1s">
+        <span class="mock-tag">지금</span>
+        <div class="mock-item">시저 샐러드</div><div class="mock-item">아메리카노</div><div class="mock-item">닭가슴살 볼</div><div class="mock-item">콥 샐러드</div><div class="mock-item">스프 추가</div><div class="mock-item dim">… 메뉴 15개가 한 줄로</div>
+      </div>
+      <div class="mock-arrow a" style="--d:.5s" aria-hidden="true">→</div>
+      <div class="mock-col after a" style="--d:.7s">
+        <span class="mock-tag">바꾼 뒤 · 예시</span>
+        <div class="mock-sig pop" style="--d:1s"><b>대표</b> 닭가슴살 볼 · 판매 1위</div>
+        <div class="mock-group pop" style="--d:1.2s">든든한 한 끼 · 4</div>
+        <div class="mock-group pop" style="--d:1.35s">가벼운 한 끼 · 4</div>
+        <div class="mock-group pop" style="--d:1.5s">세트 · 토핑 추가 · 3</div>
+        <div class="mock-group pop" style="--d:1.65s">사이드·음료 · 4</div>
+      </div>
+    </div>
+    <p class="cap a" style="--d:1.9s">장부의 판매량과 원가율로 대표메뉴와 순서를 정합니다. 화면과 숫자는 예시입니다.</p>
+  </div>
+
+  <h3>가. 배달앱 가게 화면 진단</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s14a" data-key="s_s14a"><div class="body"><label for="s_s14a">우리 가게 화면 캡처 모으기</label><small>손님이 보는 화면 그대로, 위에서 아래까지</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>휴대폰에서 손님용 배달앱을 열고 우리 가게 검색</li>
+        <li>가게 첫 화면(소개글·대표메뉴) → 메뉴판을 내리면서 → 리뷰 화면까지 캡처 (아이폰: 측면 버튼+음량 올리기 / 안드로이드: 전원+음량 내리기)</li>
+        <li>같은 동네에서 리뷰가 많은 샐러드·포케 가게 2~3곳도 같은 방법으로 캡처<span class="fix">캡처가 10장을 넘으면 우리 가게 것만 먼저 올리고, 경쟁 가게는 다음 메시지로 보내세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s14b" data-key="s_s14b"><div class="body"><label for="s_s14b">장부 숫자 함께 주기</label><small>메뉴별 판매 수량과 <dfn data-t="costratio">원가율</dfn>, 주문 수와 <dfn data-t="aov">객단가</dfn></small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>포스 엑셀의 '상품 주문' 시트(메뉴별 판매)를 장부 폴더에 올려 두기</li>
+        <li>'03 식자재·메뉴 원가' 직원에게 받은 메뉴별 원가율을 업무일지에 적어 두기</li>
+        <li>'09 배달앱·매장 개선' 채팅을 만들고 첫 메시지로 직책 알려 주기 (<a href="#c-l6" class="ref" data-ref="c-l6">강의</a>의 직원 첫 메시지)</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s14c" data-key="s_s14c"><div class="body"><label for="s_s14c">진단 받기</label><small>아래 '배달앱 화면 진단' 부탁문과 캡처를 함께 보내요.</small></div></li>
+    <li><input type="checkbox" id="s_s14d" data-key="s_s14d"><div class="body"><label for="s_s14d">한두 가지씩 바꾸기</label><small>한 번에 다 바꾸면 무엇이 효과였는지 알 수 없어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>배달앱 사장님 사이트(또는 사장님 앱)의 가게 관리 → 가게 소개 수정</li>
+        <li>메뉴 관리에서 <dfn data-t="signature">대표메뉴</dfn> 지정, <dfn data-t="menugroup">메뉴 그룹</dfn> 만들고 순서 옮기기, 메뉴 설명 고치기</li>
+        <li>바꾼 날짜와 내용을 장부의 '제안기록' 탭에 적기<span class="fix">메뉴 이름과 위치는 앱마다 달라요. 못 찾으면 화면을 캡처해 '막혔을 때' 부탁문과 함께 보내세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s14e" data-key="s_s14e"><div class="body"><label for="s_s14e">2주 뒤 비교하기</label><small>"바꾸기 전 2주와 후 2주의 주문 수·객단가·대표메뉴 판매를 비교해줘"</small></div></li>
+  </ol>
+  <div class="table-wrap"><table>
+    <thead><tr><th>점검할 곳</th><th>보는 기준 (경험에서 나온 권장 기준)</th></tr></thead>
+    <tbody>
+      <tr><td><b>가게 소개글</b></td><td>첫 두 줄에 무엇을, 누구에게, 무엇이 다른지. 영업시간·단체 주문 안내는 그 아래</td></tr>
+      <tr><td><b>대표메뉴</b></td><td>잘 팔리고 원가율이 괜찮은 메뉴 1~3개. 사진이 가장 좋은 메뉴로</td></tr>
+      <tr><td><b>메뉴 배치</b></td><td>비슷한 메뉴끼리 4~6개 그룹, 안 팔리는 메뉴는 정리. 손님이 고르기 쉬운 순서</td></tr>
+      <tr><td><b>메뉴 이름·설명</b></td><td>이름에 핵심 재료, 설명 1~2줄에 맛·식감·양. 효과를 단정하는 표현은 쓰지 않기</td></tr>
+      <tr><td><b>사진</b></td><td>같은 각도·밝기·그릇으로 통일, 위에서 내려다본 구도</td></tr>
+      <tr><td><b>가격·옵션</b></td><td>세트, 토핑·단백질 추가 옵션으로 객단가 올리기. 최소주문금액·배달팁 조합은 장부로 시뮬레이션</td></tr>
+      <tr><td><b>리뷰</b></td><td>불만 낱말이 반복되는지(양, 소스, 포장, 시간). 답글은 <a href="#c-l27" class="ref" data-ref="c-l27">강의</a> 부탁문으로</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prompt"><div class="bar"><span>배달앱 화면 진단 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 캡처는 우리 샐러드 가게의 배달앱 화면이고, 뒤의 캡처는 같은 동네 경쟁 가게야.
+장부의 메뉴별 판매 수량과 원가율도 참고해서 아래를 진단해줘.
+1) 가게 소개글: 첫 두 줄이 무엇을·누구에게·무엇이 다른지 말하는지, 고친 문장 2가지
+2) 대표메뉴: 판매량과 원가율로 볼 때 무엇을 대표로 둘지 1~3개와 이유
+3) 메뉴 배치: 메뉴 그룹 구성과 순서, 정리할 메뉴
+4) 메뉴 이름·설명: 고칠 메뉴 5개와 새 이름·설명 (효과를 단정하는 표현 금지)
+5) 사진: 다시 찍을 메뉴와 찍는 법
+6) 가격·옵션: 세트·토핑 옵션으로 객단가를 올릴 방법
+마지막에 이번 주에 먼저 바꿀 것 2가지만 골라줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>가게 소개글 다시 쓰기 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 가게 배달앱 소개글을 3가지 버전으로 써줘. 우리 가게 강점은 ○○, ○○이고 주 고객은 ○○야. 첫 두 줄만 읽어도 무엇을 파는 가게인지 알 수 있게 하고, 전체는 300자 이내로. 과장이나 효과를 단정하는 표현은 쓰지 마.</pre></div>
+
+  <h3>나. 매장 구조·동선 진단</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s14f" data-key="s_s14f"><div class="body"><label for="s_s14f">매장 사진 찍기</label><small>손님이 없는 시간에 8장 정도</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>입구에서 안쪽을 보며 한 장, 그다음 주문대, 메뉴판, 쇼케이스·냉장고, 픽업대, 주방 작업대, 세척대, 좌석</li>
+        <li>휴대폰을 가로로 들고 사람 눈높이에서 찍기</li>
+        <li>정리하지 않은 평소 모습 그대로 찍어야 진단이 정확해요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s14g" data-key="s_s14g"><div class="body"><label for="s_s14g">간단한 평면도 그리기</label><small>종이에 손으로 그려도 충분해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>매장 모양대로 네모를 그리고 가로·세로 길이(m)를 줄자로 재서 적기</li>
+        <li>출입문, 창문, 주문대, 픽업대, 냉장고, 작업대, 싱크대 위치를 네모로 표시</li>
+        <li>사진을 찍어 '09 배달앱·매장 개선' 채팅에 올리기</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s14h" data-key="s_s14h"><div class="body"><label for="s_s14h">불편한 점 적기</label><small>점심 피크에 막히는 곳, 배달 라이더가 기다리는 자리, 손님 줄이 서는 곳, 직원끼리 부딪히는 곳</small></div></li>
+    <li><input type="checkbox" id="s_s14i" data-key="s_s14i"><div class="body"><label for="s_s14i"><dfn data-t="flow">동선</dfn> 진단 받기</label><small>아래 '매장 구조 진단' 부탁문과 사진·평면도를 함께 보내요.</small></div></li>
+    <li><input type="checkbox" id="s_s14j" data-key="s_s14j"><div class="body"><label for="s_s14j">돈 안 드는 것부터 바꾸기</label><small>메뉴판 글씨와 순서, 픽업대 위치, 재료 놓는 순서처럼 공사 없이 되는 것부터. 1주 해 보고 피크 시간이 빨라졌는지 확인해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>매장 구조 진단 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 사진과 평면도는 우리 샐러드 가게야. 매장 크기는 가로 ○m, 세로 ○m이고, 점심 피크(11~14시)에 직원 ○명이 일해. 불편한 점은 ○○, ○○야.
+아래를 진단해줘.
+1) 손님 동선: 들어와서 주문·결제·픽업·퇴장까지 겹치거나 막히는 곳
+2) 배달 동선: 배달 주문 포장과 라이더 대기 자리를 손님 동선과 나누는 방법
+3) 주방 동선: 세척 → 손질 → 보관 → 조립 → 포장 순서로 작업대·냉장고 배치
+4) 메뉴판·진열: 멀리서도 읽히는지, 대표메뉴가 먼저 보이는지
+5) 바로 할 수 있는 것(비용 0원), 작은 비용(10만 원 이하), 공사가 필요한 것으로 나눠서
+공사가 필요한 것은 업체 견적과 위생·소방 확인이 필요하다고 표시해줘.</pre></div>
+  <p class="tip warnbox"><b>공사 전에는 전문가 확인.</b> 칸막이, 전기·가스·급배수, 환기, 소방 설비를 바꾸는 일은 업체 견적과 관할 기관 확인이 필요해요. AI 제안은 방향을 잡는 참고로만 쓰세요.</p>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-tip">요령</span><div class="ad"><b>주문 데이터로 근거 있게</b><span>주문내역 수집과 분석판(<a href="#s-l38" class="ref" data-ref="s-l38">강의</a>)이 있으면 진단 부탁문에 "주문분석 시트의 메뉴 순위·피크 시간·날씨별 차이를 근거로"를 덧붙여요.</span></div></li><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>2주 뒤 비교</b><span>화면이나 동선을 바꾼 날, 캘린더에 14일 뒤 '효과 비교' 일정을 같이 넣어요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>분기마다 다시 진단</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>분기 첫 월요일 예약 작업: "채널별 실수익률과 지난 분기 변화로 배달앱 개선 2개".</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i><span data-ai="claude">Claude 무료는 예약 작업이 없어요. 분기 첫 월요일 휴대폰 반복 알림이 울리면 그 채팅에 한 줄 보내요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 분기 첫 월요일 받아요. 시간은 대략적으로 정해지고 동시에 3개까지예요.</span><span data-ai-none>Claude 무료는 분기 첫 월요일 휴대폰 알림 + 한 줄, ChatGPT 무료는 예약 작업(하루 1번 이하, 3개까지)으로 받아요.</span></span></span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>근처 샐러드 가게 배달앱 화면(공개)을 읽어 메뉴·가격·최소주문 비교 표.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>내 가게 사장님 화면의 메뉴 노출·쿠폰 설정을 읽어 진단표.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>주문원장과 비교 표를 합쳐 메뉴별 순위를 계산.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'09 배달앱·매장 개선'이 진단 → 바꿀 것을 승인함에 → 승인되면 브라우저 손이 칸 채우기.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>09 배달앱·매장 개선</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>진단 부탁문 + 화면·매장 사진</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Claude in Chrome</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>AI 비서에게 화면·사진 진단 받기</li><li>정부 무료 컨설팅: 소상공인마당(sbiz.or.kr)에서 전문가 방문 컨설팅 신청 (조건은 공고 확인)</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>배달앱 광고 상품으로 노출 늘리기</li><li>메뉴 사진 촬영, 인테리어, 전문 컨설턴트</li></ul></div></div>
+</section>
+<section id="s-l35" class="lesson" data-part="practice" data-title="메뉴 원가 경보 시스템 만들기" data-level="grow" data-stage="prep takeover operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절 · 매달 20분</span>
+    <h2>재료값이 오르면 메뉴 원가가 먼저 알려 줘요</h2>
+    <p class="goal">메뉴마다 g 단위 레시피로 원가를 계산하고, 재료값이 올라 원가율이 기준을 넘은 메뉴를 매주 알려 줘요. 매달 한 번은 팔리는 양과 남는 돈을 같이 보고 가격·양·메뉴 구성을 정해요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>레시피 원가 수식과 원가율 경보 스크립트는 무료예요. 월 가격 점검은 첫째 월요일 알림이 오면 한 줄로 부탁해요.</span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>월 가격 점검을 예약 작업으로 받고, 판매량이 많은 데이터도 한 번에 분석해요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="msg">
+      <div class="from a" style="--d:.1s"><span>원가율 경보 · 매주 월요일 · 예시</span><span>매장 장부</span></div>
+      <div class="line alert a" style="--d:.5s"><b>기준 넘음</b><span>연어 포케 원가율 38% (기준 33%). 연어 단가가 3주 새 18% 올랐어요</span></div>
+      <div class="line a" style="--d:1s"><b>선택지</b><span>가격 +1,000원이면 33% · 연어 100g→80g이면 33% · 세트 음료로 객단가 보완</span></div>
+      <div class="line a" style="--d:1.5s"><b>괜찮음</b><span>닭가슴살 볼 29%, 두부 샐러드 24%</span></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s35a" data-key="s_s35a"><div class="body"><label for="s_s35a">'레시피' 시트에 메뉴별 재료 g 적기</label><small>메뉴 하나에 재료가 여러 줄이에요. 한 번 정확히 저울에 달아 적어 두면 원가가 자동으로 계산돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' → <span class="path">+</span> → 이름 <b>레시피</b> → A1에 '레시피 제목 줄' 붙여 넣기</li>
+        <li>대표 메뉴 5개부터: 메뉴, 재료, 사용량(g 또는 개)을 한 줄씩. 포장 용기·소스 컵·수저도 재료처럼 적기</li>
+        <li>직원 매뉴얼(<a href="#c-l83" class="ref" data-ref="c-l83">강의</a>)의 레시피와 숫자를 똑같이 맞추기<span class="fix">레시피를 처음 정리할 때는 '03 식자재·메뉴 원가' 채팅에 메뉴 사진과 대략의 양을 말해 초안 표를 받은 뒤 저울로 고쳐요.</span></li>
+      </ol><div class="prompt" data-tsv><div class="bar"><span>레시피 제목 줄</span><button class="copy" type="button">복사</button></div><pre>메뉴 | 재료 | 사용량 | 단위 | 재료 단가(원/단위) | 재료비 | 단가 출처</pre></div></details></div></li>
+    <li><input type="checkbox" id="s_s35b" data-key="s_s35b"><div class="body"><label for="s_s35b">재료 단가를 장부에서 자동으로</label><small>재료 단가는 '지출' 탭의 최근 구매 단가(또는 시세 시트)를 수식으로 가져와요. 직접 적지 않아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'03 식자재·메뉴 원가' 채팅에 '레시피 원가 수식 부탁문' 보내기</li>
+        <li>받은 수식을 레시피 시트 E·F열과 '메뉴원가' 탭에 붙여 넣기</li>
+        <li>메뉴원가 탭에서 메뉴마다 판매가·재료비·원가율·배달 수수료를 뺀 남는 돈이 보이는지 확인<span class="fix">단위가 다르면(박스 vs g) 계산이 틀려요. 거래처 박스당 g을 '거래처' 탭에 한 번 적어 두면 수식이 바꿔 계산해요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s35c" data-key="s_s35c"><div class="body"><label for="s_s35c">우리 가게 기준 원가율 정하기</label><small>메뉴원가 탭 맨 위에 기준 원가율 한 칸(예: 33%)을 두어요. 이 숫자는 사장님이 정하는 목표예요. 장부 '요약'의 실제 식재료 원가율과 비교하며 고쳐 가요.</small></div></li>
+    <li><input type="checkbox" id="s_s35d" data-key="s_s35d"><div class="body"><label for="s_s35d">매주 월요일 원가율 경보</label><small>기준을 넘은 메뉴만 메일로 와요. 무엇 때문에 올랐는지, 가격·양을 얼마나 바꾸면 기준에 맞는지까지 계산해 줘요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 '원가율 경보 스크립트 부탁문' 보내기</li>
+        <li>장부 <span class="path">확장 프로그램 → Apps Script</span>에 붙이고 실행 → 권한 허용</li>
+        <li><span class="path">트리거 → 시간 기반 → 주 단위 → 월요일 → 오전 6~7시</span><span class="fix">메일이 너무 자주 오면 기준을 1~2% 올리지 말고, 먼저 단가 출처(지출 탭)가 맞는지 확인하세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s35e" data-key="s_s35e"><div class="body"><label for="s_s35e">매달 한 번 가격 점검</label><small>판매량과 메뉴별 남는 돈을 같이 보고 메뉴를 네 무리로 나눠요(<dfn data-t="menueng">메뉴 엔지니어링</dfn>). 많이 팔리고 많이 남는 메뉴는 앞에, 안 팔리고 안 남는 메뉴는 정리 후보로.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'03 식자재·메뉴 원가' 채팅에 '메뉴 가격 점검 부탁문'. 판매량은 포스 상품별 엑셀이나 주문원장에서</li>
+        <li><span data-plan-not="free">유료: 앞에 "매달 첫째 월요일 오전 9시에"를 붙여 예약 작업으로</span><span data-plan-not="paid">무료: 캘린더 '매달 첫째 월요일 가격 점검' 알림 → 같은 부탁문</span></li>
+        <li>고르는 건 사장님: 가격 조정, 양 조정, 세트 구성, 메뉴 정리 중 이번 달에 하나만<span class="fix">가격을 바꾸면 배달앱 3사, 매장 메뉴판, 포스, 홈페이지, 카톡 채널, 직원 매뉴얼을 같은 날 바꿔요. 아래 '가격 변경 체크'를 그대로 쓰세요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <h3>가격 변경 체크 (같은 날 모두)</h3>
+  <ul class="checks">
+    <li><input type="checkbox" id="s_c35a" data-key="s_c35a"><label for="s_c35a">포스 상품 가격</label></li>
+    <li><input type="checkbox" id="s_c35b" data-key="s_c35b"><label for="s_c35b">배민·쿠팡이츠·요기요 메뉴 가격 (앱마다 반영 시간이 다를 수 있어요)</label></li>
+    <li><input type="checkbox" id="s_c35c" data-key="s_c35c"><label for="s_c35c">매장 메뉴판·QR 메뉴, 가게 홈페이지, 카카오톡 채널 정보</label></li>
+    <li><input type="checkbox" id="s_c35d" data-key="s_c35d"><label for="s_c35d">장부 '메뉴원가' 판매가, 직원 매뉴얼, 업무일지 한 줄</label></li>
+    <li><input type="checkbox" id="s_c35e" data-key="s_c35e"><label for="s_c35e">단골·손님 안내 문구 (필요하면 AI에게 "가격 조정 안내문 3줄")</label></li>
+  </ul>
+  <div class="prompt"><div class="bar"><span>레시피 원가 수식 부탁문 · 장부 과장</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'에 메뉴 원가 수식을 만들어줘. 나는 엑셀 초보라 붙일 칸까지 알려줘.
+- '레시피' 시트 열: 메뉴, 재료, 사용량, 단위, 재료 단가(원/단위), 재료비, 단가 출처
+- 재료 단가는 '지출' 탭(열: 날짜, 거래처, 품목, 수량, 단가, 금액, 대분류…)에서 그 품목의 가장 최근 구매 단가를 가져오기. 박스 단위면 '거래처' 탭의 박스당 g으로 나눠 g당 단가로
+- '메뉴원가' 탭: 메뉴, 판매가, 재료비 합계, 원가율, 배달 수수료율(내가 입력), 배달 1건 남는 돈. 맨 위 B1에 기준 원가율
+- 기준을 넘은 원가율은 빨간색 (조건부 서식 방법도)</pre></div>
+  <div class="prompt"><div class="bar"><span>원가율 경보 스크립트 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'의 '메뉴원가' 탭을 매주 월요일 아침 확인하는 앱스 스크립트를 만들어줘.
+- B1의 기준 원가율보다 높은 메뉴만 골라 메일. 없으면 메일 보내지 않기
+- 메뉴마다: 지금 원가율, 지난주 대비 변화, 가장 많이 오른 재료와 상승률(레시피·지출 탭 기준)
+- 기준에 맞추려면 판매가를 얼마로, 또는 가장 비싼 재료를 몇 g으로 줄여야 하는지 계산
+- 결과를 '점검로그' 시트가 있으면 한 줄 남기기. 장부 숫자는 바꾸지 마</pre></div>
+  <div class="prompt"><div class="bar"><span>메뉴 가격 점검 부탁문 · 식자재 대리</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'의 메뉴원가 탭과 지난달 메뉴별 판매량(첨부 또는 주문원장)으로 메뉴 가격 점검을 해줘.
+1) 메뉴별 판매량, 1개당 남는 돈, 총 남는 돈
+2) 네 무리로 나누기: 잘 팔리고 많이 남음 / 잘 팔리는데 덜 남음 / 덜 팔리는데 많이 남음 / 덜 팔리고 덜 남음
+3) 무리별 할 일 한 줄씩 (예: 덜 남는 인기 메뉴는 양 조정이나 세트, 덜 팔리는 고마진 메뉴는 사진·배치 개선)
+4) 이번 달 하나만 한다면 무엇을, 예상 효과는 얼마
+5) 가격을 올린다면 얼마가 적당한지, 근처 비슷한 가게 가격을 모르면 내가 확인할 것을 알려줘</pre></div>
+<div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>재료값 → 원가 자동 계산</b><span>지출 탭에 새 단가가 들어오면 레시피·메뉴원가가 바로 다시 계산돼요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>매주 월요일 원가율 경보</b><span>기준을 넘은 메뉴만 메일. 무엇이 올랐고 얼마를 바꾸면 되는지까지. 무료.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 가격 점검</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 첫째 월요일 예약 작업이 판매량과 남는 돈으로 메뉴를 네 무리로 나눠 보내요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i><span data-ai="claude">Claude 무료는 예약 작업이 없어요. 매달 첫째 월요일 휴대폰 반복 알림이 울리면 그 채팅에 한 줄 보내요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 매달 첫째 월요일 받아요. 시간은 대략적으로 정해지고 동시에 3개까지예요.</span><span data-ai-none>Claude 무료는 매달 첫째 월요일 휴대폰 알림 + 한 줄, ChatGPT 무료는 예약 작업(하루 1번 이하, 3개까지)으로 받아요.</span></span></span></div></li><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>가격 바꾸는 날 체크</b><span>가격을 바꾸기로 하면 캘린더에 그날 일정과 '가격 변경 체크' 링크를 넣어 두세요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>시세 사이트에서 재료 단가 읽기.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>로그인된 거래처 몰의 이번 주 단가를 원가 탭에.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>월요일 원가율 경보 스크립트.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'03'이 가격 조정 제안 → 승인함 → 바뀐 가격은 지도·배달앱에도(<a href="#c-l15" class="ref" data-ref="c-l15">강의</a>)</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>03 식자재·메뉴 원가</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>레시피 원가 수식·가격 점검 부탁문</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">메뉴 원가 계산</span><span class="rc s">엑셀</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>레시피 원가 수식·조건부 서식·원가율 경보 모두 무료</li><li>판매량은 포스 상품별 엑셀이나 주문원장으로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>월 가격 점검 예약 작업</li><li>포스의 메뉴별 원가 관리 기능이나 외식 원가 관리 서비스</li></ul></div></div>
+</section>
+<section id="s-l21" class="lesson" data-part="practice" data-title="단체 주문 접수 자동화하기" data-level="grow" data-stage="prep takeover operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절</span>
+    <h2>단체 주문은 접수부터 재료 준비까지 한 번에</h2>
+    <p class="goal">손님이 주문 폼을 내면 장부에 쌓이고, 구글 캘린더에 일정이 자동으로 생기고, 필요한 재료량까지 계산돼요.</p>
+  </div>
+  <div class="vis">
+    <div class="msg">
+      <div class="from a" style="--d:.1s"><span>구글 캘린더 · 자동 등록 · 예시</span><span>목 12:00</span></div>
+      <div class="line a" style="--d:.5s"><b>주문</b><span>○○회사 · 닭가슴살 볼 10, 연어 포케 5 · 픽업</span></div>
+      <div class="line a" style="--d:1s"><b>준비</b><span>로메인 1.2kg · 닭가슴살 1.5kg · 연어 0.9kg</span></div>
+      <div class="line alert a" style="--d:1.5s"><b>알림</b><span>하루 전 오전 10시 재료 확인, 당일 10시 조립 시작</span></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s21a" data-key="s_s21a"><div class="body"><label for="s_s21a">단체 주문 폼 만들기</label><small>구글 폼: 회사·이름, 연락처, 날짜, 시간, 메뉴별 수량, 픽업/배달, 요청 사항. 응답은 매장 장부 '단체주문' 탭으로 연결해요.</small></div></li>
+    <li><input type="checkbox" id="s_s21b" data-key="s_s21b"><div class="body"><label for="s_s21b">폼 주소를 여기저기 걸기</label><small>카카오톡 채널 메뉴, 가게 홈페이지, 배달앱 소개글 끝, 매장 QR코드</small></div></li>
+    <li><input type="checkbox" id="s_s21c" data-key="s_s21c"><div class="body"><label for="s_s21c">캘린더 자동 등록 스크립트</label><small>아래 부탁문으로 코드를 받아 붙이고, 트리거는 <b>양식 제출 시</b>로 설정해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>매장 장부 <span class="path">확장 프로그램 → Apps Script</span> → 코드 붙여 넣기 → 저장</li>
+        <li><span class="path">트리거 → + 트리거 추가 → 이벤트 소스: 스프레드시트에서 → 이벤트 유형: 양식 제출 시</span> → 저장</li>
+        <li>내가 폼을 한 번 내 보고 구글 캘린더에 일정이 생겼는지 확인</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s21d" data-key="s_s21d"><div class="body"><label for="s_s21d">확정 연락은 사장님이</label><small>폼 확인 메시지는 "접수됐어요, 사장님이 확정 연락을 드려요"로. 재료와 인력이 되는지 보고 확정해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>단체 주문 자동화 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>매장 장부의 '단체주문' 탭(구글 폼 응답: 회사·이름, 연락처, 날짜, 시간, 메뉴별 수량, 픽업/배달, 요청 사항)에 새 응답이 들어오면,
+1) 내 구글 캘린더에 '[단체] 회사명 · 총 ○개' 일정을 만들고 설명에 메뉴·연락처·요청 사항 넣기
+2) '메뉴원가' 탭의 레시피(재료별 g)로 필요한 재료량을 계산해 일정 설명에 넣기
+3) 하루 전 오전 10시 알림 추가
+Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기준으로 알려줘.</pre></div>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>접수는 폼으로</b><span>단체 주문 폼 설정에서 <span class="path">응답 → 응답자에게 사본 보내기</span>를 켜면 손님에게 접수 확인 메일이 자동으로 가요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>캘린더 자동 등록</b><span>양식 제출 시 트리거가 구글 캘린더에 일정과 메뉴·수량을 넣어요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>전날 오후 준비 알림</b><span>"단체 주문 전날 오후 3시에 재료·인력 준비 목록을 메일로" 한 줄을 부탁문에 덧붙여요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>단체 주문 폼 만들기 화면에서 질문 칸 채우기.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>메일로 온 단체 문의를 읽어 폼 형식으로 정리.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>접수 → 캘린더 자동 등록·전날 준비 알림 스크립트.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'11 일정 비서'가 주간 단체 주문 일정을 브리핑.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>08 자동화·연결</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>단체 주문 자동화 부탁문</span></div><div class="aib-row"><b>세션</b><span>코드를 받은 대화는 그 채팅에 남겨 두세요. 고칠 때 "지난번 코드에서"로 이어서 물을 수 있어요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Calendar</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 폼 + 시트 + 캘린더 + 앱스 스크립트로 0원</li><li>네이버 예약 같은 무료 예약 서비스와 함께 써도 돼요</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약·주문 플랫폼: 선결제, 자동 확정 알림톡, 노쇼 방지</li><li>단체 도시락 중개 서비스로 새 기업 고객 찾기 (수수료)</li><li>알림톡으로 손님에게 자동 확정 메시지 (건당 요금)</li></ul></div></div>
+</section>
+<section id="s-l37" class="lesson" data-part="insta" data-title="인스타그램 자동화 ③ 사진 받기·알림 시스템" data-level="adv" data-stage="prep takeover operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">심화 · 실습 · 반나절 · 무료</span>
+    <h2>인스타그램 자동화 ③ 사진은 페이지로, 차례는 알림이</h2>
+    <p class="goal">자동 게시 봇(<a href="#c-l52" class="ref" data-ref="c-l52">강의</a>)을 오래 편하게 돌리는 구조예요. 직원과 사장님이 휴대폰 <b>사진 보내기 페이지</b>로 사진을 올리면 이름이 자동으로 붙고, 사진이 비거나 승인이 밀리면 <b>알림</b>이 오고, 승인도 <b>승인함 페이지</b>에서 버튼 하나로 해요. 휴무·품절 같은 긴급 공지도 여기서 바로 올려요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>사진 보내기·승인함 페이지와 알림은 구글 앱스 스크립트 웹앱이라 무료예요. 게시는 앞 강의의 맥 봇이 해요.</span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>같은 구조에 AI 예약 작업으로 주간 성과 해설과 다음 주 계획을 붙여요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="msg">
+      <div class="from a" style="--d:.1s"><span>인스타 자동화실 알림 · 예시</span><span>매장 장부</span></div>
+      <div class="line alert a" style="--d:.5s"><b>09:00 사진</b><span>모레(11/6) '웜볼 단면' 사진이 아직 없어요. 사진 보내기 페이지 열기 →</span></div>
+      <div class="line a" style="--d:1s"><b>17:00 승인</b><span>꾸민 게시물 3개가 승인을 기다려요. 승인함 열기 →</span></div>
+      <div class="line a" style="--d:1.5s"><b>게시</b><span>11/5 12:00 '오늘의 재료' 게시됨 · 링크</span></div>
+      <div class="line a" style="--d:2s"><b>월요일</b><span>지난주 3건 게시 · 저장 많은 1위 '드레싱 만드는 법' · 이번 주 사진 필요 4장</span></div>
+    </div>
+  </div>
+  <h3>한 게시물이 지나가는 길</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>상태</th><th>누가</th><th>넘어가기</th></tr></thead>
+    <tbody>
+      <tr><td><b>초안</b></td><td>AI 월간 계획</td><td>게시계획 시트에 줄이 생기면 '사진 필요'로 셈</td></tr>
+      <tr><td><b>사진 도착</b></td><td>직원·사장님</td><td>사진 보내기 페이지로 올리면 자동으로 바뀜</td></tr>
+      <tr><td><b>꾸밈완료</b></td><td>꾸미기 봇</td><td>15분마다 사진 도착 줄을 꾸밈</td></tr>
+      <tr><td><b>승인</b> / 수정요청</td><td>사장님</td><td>승인함 페이지 버튼. 수정요청은 메모와 함께 다시 꾸미기로</td></tr>
+      <tr><td><b>게시됨</b> / 지연 / 실패</td><td>게시 봇</td><td>시각이 되면 공식 API로 게시, 결과는 알림</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>1단계 · 사진 보내기·승인함 페이지</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s37a" data-key="s_s37a"><div class="body"><label for="s_s37a">게시계획 시트에 두 칸 더하기</label><small>L열 <b>사진 올린 사람</b>, M열 <b>사진 기한</b>(게시 2일 전, 수식으로). 상태 드롭다운에 <b>사진 도착</b>, <b>수정요청</b>, <b>제안</b>을 더해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'게시계획' L1에 <b>사진 올린 사람</b>, M1에 <b>사진 기한</b></li>
+        <li>M2 칸에 <b>=IF(A2="","",A2-2)</b> 입력 → M2를 복사해 아래 줄에 붙여 넣기</li>
+        <li>H열 상태 드롭다운을 <span class="path">데이터 → 데이터 확인</span>에서 열어 옵션 추가: 초안, 사진 도착, 꾸밈완료, 수정요청, 승인, 게시됨, 지연, 실패, 제안</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s37b" data-key="s_s37b"><div class="body"><label for="s_s37b">'사진 은행' 폴더 만들기</label><small>드라이브 'SNS/사진은행'에 언제 써도 되는 사진(매장 전경, 대표 메뉴 기본 컷, 재료 클로즈업)을 20장쯤 모아 둬요. 기한까지 사진이 없을 때 대신 쓸 수 있어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>드라이브 '우리가게 장부/SNS' 안에 <b>사진은행</b> 폴더</li>
+        <li>사진 이름 앞에 종류를 붙이기: 전경_01, 웜볼_기본, 재료_로메인</li>
+        <li>석 달에 한 번 계절에 맞게 몇 장씩 바꾸기</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s37c" data-key="s_s37c"><div class="body"><label for="s_s37c">AI에게 '인스타 자동화실' 웹앱 받기</label><small>'08 자동화·연결' 채팅에 아래 '인스타 자동화실 웹앱 부탁문'을 보내면 Code.gs와 index.html 두 파일 코드를 줘요. 직원 웹앱(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)과 같은 방식이에요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' → <span class="path">확장 프로그램 → Apps Script</span> → 왼쪽 <span class="path">파일 +</span>로 받은 파일 두 개 붙여 넣기 (이미 있는 스크립트와 이름이 겹치지 않게 AI가 정해 줘요)</li>
+        <li><span class="path">배포 → 새 배포 → 웹 앱</span> → 실행: <b>나</b>, 액세스: <b>모든 사용자</b> → 배포 → 권한 허용</li>
+        <li>받은 주소를 휴대폰으로 열어 사장님 PIN으로 들어가 보기 → 사진 보내기와 승인함 두 화면이 보이면 성공</li>
+        <li>Safari 공유 버튼 → <span class="path">홈 화면에 추가</span> → 이름 '인스타 자동화실'<span class="fix">주소를 아는 사람은 페이지를 열 수 있어요. 그래서 PIN이 꼭 필요하고, 이 웹앱은 장부의 '게시계획'과 '직원' 시트만 읽게 만들어요. 매출 숫자는 절대 보이지 않게 부탁문에 적혀 있어요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s37d" data-key="s_s37d"><div class="body"><label for="s_s37d">직원에게 '사진 보내기'만 열어 주기</label><small>알바생은 사진 보내기 화면만, 승인함은 사장님(원하면 매니저)만 보여요. 권한은 직원 시트의 역할을 그대로 써요(<a href="#c-l80" class="ref" data-ref="c-l80">강의</a>).</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>직원 단톡방에 주소와 사용법 3줄 보내기 (AI에게 "직원용 사진 보내기 안내 3줄" 부탁)</li>
+        <li>첫 주는 사장님이 직접 한 장 올려 보여 주기: 할 일 카드 → <span class="path">사진 찍기</span> → 올리기 → '받았어요'</li>
+        <li>좋은 사진을 올린 직원은 게시물 캡션이나 단톡방에서 이름을 불러 고마움을 전해요. 계속 올리게 하는 가장 쉬운 방법이에요<span class="fix">직원 얼굴이 나온 사진은 본인 동의를 받은 것만 승인해요. 손님 얼굴이 나온 사진은 쓰지 않아요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>인스타 자동화실 웹앱 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>'매장 장부' 구글 시트에 붙일 휴대폰용 웹앱 '인스타 자동화실'을 앱스 스크립트로 만들어줘. Code.gs와 index.html로 나눠서, 붙이는 곳과 배포 방법까지 순서대로 알려줘.
+- 로그인: '직원' 시트(이름, 역할, PIN, 상태)의 PIN으로. 상태가 '퇴사'면 못 들어오게. 5번 틀리면 10분 잠금
+- 이 웹앱은 '게시계획'과 '직원' 시트만 읽고 쓰기. 다른 시트(매출·지출·급여)는 절대 열지 마
+- 화면 1 · 사진 보내기 (모든 역할): 게시일이 오늘~7일 뒤이고 원본 사진이 없는 줄을 카드로 (게시일, 주제, 메모의 사진 구도). 카드마다 사진 찍기/고르기 버튼(여러 장 가능)
+  올린 사진은 드라이브 폴더 ○○(SNS/원본 폴더 ID)에 계획의 원본 사진 이름으로 저장 (여러 장이면 _1, _2). 상태 '사진 도착', L열에 올린 사람 이름. 한 장 15MB 넘으면 안내
+  아래쪽에 '아이디어 사진 보내기': 사진 + 한 줄 메모 → 게시계획에 새 줄, 상태 '제안'
+- 화면 2 · 승인함 (역할 '사장'만, 매니저 허용은 ○○): 상태 '꾸밈완료' 줄을 카드로. 완성 이미지 미리보기(폴더 ○○), 게시일·시각, 캡션·해시태그
+  버튼: [승인] → 상태 '승인' / [수정 요청] → 메모 입력 후 상태 '수정요청' / [시각 바꾸기] / [사진 은행에서 고르기] → 폴더 ○○(SNS/사진은행) 사진 목록에서 골라 원본으로 복사, 상태 '사진 도착' / [앱에서 직접 올리기] → 이미지 열기 + 캡션 복사 버튼
+- 화면 3 · 긴급 공지 (사장만): 문구 한 줄 입력 → 게시계획에 새 줄 (형식 '스토리', 게시일·시각 지금, 썸네일 문구 = 입력한 문구, 상태 '승인', 메모 '긴급')
+- 휴대폰 기준 큰 버튼, 다크 모드, 글씨 16px 이상. 디자인 가이드 색 ○○</pre></div>
+
+  <h3>2단계 · 알림 세 가지</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s37e" data-key="s_s37e"><div class="body"><label for="s_s37e">알림 스크립트 붙이기</label><small>같은 Apps Script 프로젝트에 아래 '자동화실 알림 부탁문'으로 받은 코드를 붙이고 트리거 세 개를 걸어요. 문제가 있을 때만 알림이 와요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 부탁문 보내기 → 받은 코드를 새 파일 <b>알림</b>에 붙여 넣기 → 저장</li>
+        <li>왼쪽 시계 모양 <span class="path">트리거 → 트리거 추가</span>: 사진 알림 함수 · 시간 기반 · 일 단위 · 오전 9~10시</li>
+        <li>같은 방법으로 승인 알림 함수 · 오후 5~6시, 주간 요약 함수 · 주 단위 · 월요일 오전 8~9시</li>
+        <li>세 트리거 모두 <span class="path">실패 알림 설정 → 즉시 알림</span></li>
+        <li>'자동화' 시트(<a href="#c-l63" class="ref" data-ref="c-l63">강의</a>)에 세 줄 적기<span class="fix">휴대폰 Gmail 앱에서 알림 메일에 별표 라벨을 자동으로 붙이는 필터를 만들면(보낸사람 나, 제목 [인스타]), 중요 알림만 소리 나게 할 수 있어요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s37f" data-key="s_s37f"><div class="body"><label for="s_s37f">꾸미기·게시 봇이 새 상태를 알게 하기</label><small>앞 강의의 두 봇에 한 줄씩 덧붙여요. 꾸미기 봇도 15분마다 돌면, 사진이 올라오고 30분 안에 승인함에 꾸민 게시물이 들어와요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 decorate.py, post.py를 첨부하고 아래 '봇 수정 부탁문' 보내기</li>
+        <li>받은 코드로 바꾸고 <b>python decorate.py --row 행번호</b>로 한 줄 시험</li>
+        <li>launchd 설정을 꾸미기 봇까지 15분마다 돌게 바꾸기 (AI가 명령을 줘요)<span class="fix">봇 코드를 바꾸는 건 시스템 변경이라, 특강의 '개선요청'에 올리고 승인한 뒤 적용해요(<a href="#c-s29" class="ref" data-ref="c-s29">강의</a>).</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>자동화실 알림 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'의 '게시계획' 시트로 인스타그램 자동화 알림을 보내는 앱스 스크립트 함수 세 개를 만들어줘. 같은 프로젝트에 '인스타 자동화실' 웹앱이 있고 주소는 ○○야.
+1) 사진 알림 (매일 오전 9시): 사진 기한(M열)이 오늘 이전·오늘인데 원본 사진이 없는 줄. 메일 제목 [인스타] 사진 필요 ○장, 본문에 줄마다 게시일·주제·사진 구도와 웹앱 주소. 게시까지 하루도 안 남은 줄은 맨 위에 '사진 은행 사진으로 바꿀까요?'
+2) 승인 알림 (매일 오후 5시): 상태 '꾸밈완료'나 '제안'인 줄 개수와 게시일이 가장 빠른 줄, 승인함 주소. 없으면 보내지 마
+3) 주간 요약 (월요일 오전 8시): 지난주 게시됨·지연·실패 수, '인스타성과' 시트가 있으면 저장·공유 1위 게시물, 이번 주 사진 필요 목록
+- 받는 사람: 나(○○@gmail.com). 직원 시트에 이메일이 있고 '사진 알림 받기'가 예인 직원에게는 1번만 같이
+- 아무 일도 없으면 메일을 보내지 마. 장부 숫자는 바꾸지 마</pre></div>
+  <div class="prompt"><div class="bar"><span>봇 수정 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>첨부한 decorate.py와 post.py를 '인스타 자동화실'에 맞게 고쳐줘. 바뀐 파일 전체를 주고 무엇을 바꿨는지 5줄로 알려줘.
+- decorate.py: 상태 '사진 도착'과 '수정요청' 줄을 처리 (수정요청은 메모 칸의 요청을 반영할 수 있으면 반영, 못 하면 그대로 다시 만들고 메모에 '수동 확인 필요'). 끝나면 '꾸밈완료'
+- decorate.py: 형식 '스토리'이고 원본 사진이 없으면 1080×1920 공지 템플릿(대표색 배경 + 썸네일 문구 크게 + 로고)으로 만들고 바로 '승인' 유지
+- post.py: 형식 '스토리'는 media_type STORIES로 게시. 메모가 '긴급'이면 다른 줄보다 먼저
+- 두 봇 모두 15분마다 실행되게 launchd 설정을 하나로 합치고, 꾸미기 → 게시 순서로 돌게</pre></div>
+
+  <h3>오래 편하게 운영하는 리듬</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>언제</th><th>내가 할 일</th><th>자동</th></tr></thead>
+    <tbody>
+      <tr><td><b>매달 마지막 주</b></td><td>다음 달 게시계획 표를 시트에 붙이기 (5분)</td><td><span data-plan-not="free">예약 작업이 계획 표를 보내 줘요</span><span data-plan-not="paid">알림이 오면 SNS 채팅에 한 줄</span></td></tr>
+      <tr><td><b>월요일</b></td><td>주간 요약 메일 보기</td><td>지난주 결과·이번 주 사진 필요 목록</td></tr>
+      <tr><td><b>화·수</b></td><td>할 일 카드 보고 사진 찍어 올리기 (직원과 나눠서)</td><td>사진 이름 붙이기, 30분 안에 꾸밈</td></tr>
+      <tr><td><b>매일 17시</b></td><td>승인함에서 승인 (1~2분)</td><td>정해진 시각에 게시, 결과 알림</td></tr>
+      <tr><td><b>급할 때</b></td><td>긴급 공지에 한 줄</td><td>15분 안에 스토리로 게시</td></tr>
+      <tr><td><b>매달 1일</b></td><td>점검 5분 (아래 목록)</td><td>성과 수집, 토큰 갱신</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="checks">
+    <li><input type="checkbox" id="s_c37a" data-key="s_c37a"><label for="s_c37a"><b>시리즈로 고정</b>: 요일마다 같은 꼭지(예: 월 '이번 주 재료', 금 '주말 한정')를 정하면 계획·촬영·템플릿이 반복돼서 쉬워져요</label></li>
+    <li><input type="checkbox" id="s_c37b" data-key="s_c37b"><label for="s_c37b"><b>잘된 게시물 다시 쓰기</b>: 석 달 지난 상위 게시물은 사진만 새로 찍어 다시 계획에 넣기 (월간 계획 부탁문에 "인스타성과 상위 3개 재활용" 한 줄)</label></li>
+    <li><input type="checkbox" id="s_c37c" data-key="s_c37c"><label for="s_c37c"><b>맥이 꺼진 날</b>: 승인함의 '앱에서 직접 올리기'로 이미지와 캡션을 받아 인스타그램 앱에서 올리고, 시트 상태를 '게시됨'으로</label></li>
+    <li><input type="checkbox" id="s_c37d" data-key="s_c37d"><label for="s_c37d"><b>매달 1일 점검</b>: 토큰 갱신 날짜, 이미지 저장소에서 석 달 지난 사진 지우기, 사진 은행 바꾸기, 퇴사 직원 PIN 막기</label></li>
+    <li><input type="checkbox" id="s_c37e" data-key="s_c37e"><label for="s_c37e"><b>바꾸고 싶은 건 개선요청으로</b>: 템플릿·알림 시각·봇 동작을 바꿀 땐 특강의 보고·승인 구조(<a href="#c-s28" class="ref" data-ref="c-s28">강의</a>)를 거쳐요</label></li>
+  </ul>
+  <p class="tip warnbox"><b>사진 보내기 페이지 주소는 직원끼리만.</b> 퇴사하면 직원 시트 상태를 '퇴사'로 바꾸면 바로 막혀요. 페이지에는 매출·급여가 보이지 않게 만들었는지 처음 한 번 직접 확인하세요.</p>
+  <p class="src">출처: <a href="https://developers.google.com/apps-script/guides/web?hl=ko" target="_blank" rel="noopener">앱스 스크립트 웹앱</a> · <a href="https://developers.google.com/apps-script/guides/triggers/installable?hl=ko" target="_blank" rel="noopener">설치형 트리거</a> · <a href="https://developers.facebook.com/docs/instagram-platform/content-publishing" target="_blank" rel="noopener">Instagram API 게시(스토리 포함)</a></p>
+<div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-webapp">웹앱</span><div class="ad"><b>사진 보내기·승인함·긴급 공지</b><span>직원은 사진만 올리고, 사장님은 버튼으로 승인. 이름 붙이기·상태 바꾸기는 웹앱이 해요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>09시 사진 · 17시 승인 · 월요일 요약</b><span>시간 트리거 세 개. 할 일이 있을 때만 메일이 와요.</span></div></li><li><span class="chip k-bot">맥 봇</span><div class="ad"><b>15분마다 꾸미기 → 게시</b><span>사진이 올라오면 30분 안에 승인함에, 승인하면 정해진 시각에 게시. 긴급 공지는 다음 실행에 바로 스토리로.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>성과 해설과 다음 달 계획</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 마지막 주 예약 작업이 인스타성과를 보고 다음 달 게시계획 표를 보내요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i><span data-ai="claude">Claude 무료는 예약 작업이 없어요. 매달 마지막 주 휴대폰 반복 알림이 울리면 그 채팅에 한 줄 보내요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 매달 마지막 주 받아요. 시간은 대략적으로 정해지고 동시에 3개까지예요.</span><span data-ai-none>Claude 무료는 매달 마지막 주 휴대폰 알림 + 한 줄, ChatGPT 무료는 예약 작업(하루 1번 이하, 3개까지)으로 받아요.</span></span></span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>사진 받기 웹앱을 휴대폰 크기로 열어 버튼·문구 시험.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>Apps Script 배포 화면에서 새 버전 칸 채우기. 배포는 사장님.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>웹앱·알림 스크립트를 만들고 고쳐요.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'06 SNS'가 사진 요청 문구, 승인은 텔레그램.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>08 자동화·연결</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>자동화실 웹앱·알림·봇 수정 부탁문</span></div><div class="aib-row"><b>세션</b><span>코드를 받은 대화는 그 채팅에 남겨 두세요. 고칠 때 "지난번 코드에서"로 이어서 물을 수 있어요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>웹앱·알림·트리거 모두 구글 무료, 게시 봇은 맥에서 무료</li><li>사진 은행으로 사진이 비는 날도 게시</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI 예약 작업으로 계획·성과 해설 자동</li><li>SNS 관리 도구의 팀 승인 기능으로 같은 흐름을 코딩 없이</li></ul></div></div>
+</section>
+<section id="s-l11" class="lesson" data-part="auto" data-title="API로 데이터 자동 수집하기" data-level="grow" data-stage="prep takeover operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 2~4주</span>
+    <h2>채소 시세가 매일 장부에 들어오게</h2>
+    <p class="goal">가장 쉬운 길은 '<dfn data-t="apikey">API 키</dfn> 받기 → AI가 짜 준 <dfn data-t="appsscript">앱스 스크립트</dfn> 붙여 넣기 → <dfn data-t="trigger">트리거</dfn>로 매일 실행'입니다.</p>
+  </div>
+  <div class="vis">
+    <div class="lanes">
+      <div class="box pop" style="--d:.2s"><strong>공공데이터포털</strong><span>API 키 발급</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.6s"></span><span style="--d:1.3s"></span></div>
+      <div class="box pop" style="--d:.5s"><strong>앱스 스크립트</strong><span>AI가 짠 코드, 매일 6시</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.9s"></span><span style="--d:1.6s"></span></div>
+      <div class="box hi pop" style="--d:.8s"><strong>'시세' 탭</strong><span>날짜별로 자동 기록</span></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s11a" data-key="s_s11a"><div class="body"><label for="s_s11a"><dfn data-t="datago">공공데이터포털</dfn> 가입하고 활용신청</label><small>PC에서만 신청할 수 있어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>data.go.kr 오른쪽 위 <span class="path">회원가입 → 개인회원</span> → 휴대폰 본인 인증</li>
+        <li>로그인 후 <a href="https://www.data.go.kr/data/15109062/openapi.do" target="_blank" rel="noopener">농수축산물 유통단계별 가격</a> 페이지 열기</li>
+        <li><span class="path">활용신청</span> → 활용 목적에 "매장 식자재 시세 참고" 입력 → 약관 동의 → 신청</li>
+        <li>같은 방법으로 <a href="https://www.data.go.kr/data/15012005/openapi.do" target="_blank" rel="noopener">상가(상권)정보</a>도 신청 (상권 분석용)</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s11b" data-key="s_s11b"><div class="body"><label for="s_s11b">인증키 복사해 두기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">마이페이지 → 데이터활용 → Open API → 활용신청 현황</span></li>
+        <li>신청한 API를 눌러 일반 인증키(Decoding) 복사</li>
+        <li>휴대폰 메모에 '공공데이터 키'로 저장. 다른 사람에게 보내지 마세요<span class="fix">승인 직후에는 키가 바로 안 될 수 있어요. 몇 시간 뒤 다시 시도하세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s11c" data-key="s_s11c"><div class="body"><label for="s_s11c">AI에게 스크립트 받기</label><small>'08 자동화·연결' 채팅에 아래 부탁문 보내기</small></div></li>
+    <li><input type="checkbox" id="s_s11d" data-key="s_s11d"><div class="body"><label for="s_s11d">시트에 스크립트 붙여 넣고 실행</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' 파일 맨 아래 <span class="path">+</span>로 시트를 하나 추가하고 이름을 <b>시세</b>로 (새 파일 아님)</li>
+        <li>시트 위쪽 메뉴 <span class="path">확장 프로그램 → Apps Script</span></li>
+        <li>새 창에 있던 글자를 모두 지우고 AI가 준 코드를 붙여 넣기 → 키 자리에 내 인증키 붙여 넣기</li>
+        <li>위쪽 디스크 모양 <span class="path">저장</span> → <span class="path">실행</span></li>
+        <li>권한 창이 뜨면 <span class="path">권한 검토 → 내 계정 선택 → 고급 → (프로젝트 이름)(으)로 이동 → 허용</span><span class="fix">'Google에서 확인하지 않은 앱' 경고는 내가 만든 스크립트라서 뜨는 정상 안내예요.</span></li>
+        <li>'시세' 탭에 숫자가 들어왔는지 확인. 빨간 오류가 나면 오류 문장을 그대로 자동화 채팅에 붙여 넣기</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s11e" data-key="s_s11e"><div class="body"><label for="s_s11e">트리거로 매일 자동 실행</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>Apps Script 왼쪽의 시계 모양 <span class="path">트리거</span></li>
+        <li>오른쪽 아래 <span class="path">+ 트리거 추가</span></li>
+        <li>실행할 함수: AI가 알려 준 이름 / 이벤트 소스: <span class="path">시간 기반</span> / 유형: <span class="path">일 단위 타이머</span> / 시간: <span class="path">오전 6시~7시</span> → 저장</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s11f" data-key="s_s11f"><div class="body"><label for="s_s11f"><dfn data-t="mcp">MCP</dfn> 커넥터 (선택)</label><small>쓰려는 서비스가 <dfn data-t="remotemcp">원격 MCP 서버</dfn> 주소를 줄 때만 연결해요. 한국 서비스로는 카카오의 <dfn data-t="playmcp">PlayMCP</dfn>(카톡 나와의 채팅방, 톡캘린더, 카카오맵 등)가 대표적이에요. <span data-ai-not="gpt">Claude는 <span class="path">설정 → 커넥터 → 사용자 지정 커넥터 추가</span>에서 등록해요. </span><span data-ai-not="claude">ChatGPT는 유료 플랜의 개발자 모드에서 등록해요.</span><span data-plan="free"><span data-ai="claude"> 무료 플랜은 사용자 지정 커넥터를 1개까지 쓸 수 있으니 가장 필요한 것 하나만 고르세요.</span><span data-ai="gpt"> 무료 플랜은 개발자 모드가 없으니 이 단계는 건너뛰고 앱스 스크립트로 연결하세요.</span></span></small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>채소 시세 자동 수집 부탁문</span><button class="copy" type="button">복사</button></div><pre>공공데이터포털 '농수축산물 유통단계별 가격' API를 구글 시트 Apps Script로 매일 호출해서 '시세' 탭에 로메인, 양상추, 토마토, 오이 소매가격을 날짜별로 쌓는 코드를 만들어줘. 인증키 넣을 자리를 표시하고, 실행할 함수 이름과 트리거 설정 방법도 초보 기준으로 단계별로 알려줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>포스사 연동 문의 문장</span><button class="copy" type="button">복사</button></div><pre>안녕하세요, ○○매장입니다. 매출·메뉴별 판매 데이터를 엑셀 정기 다운로드나 API로 받을 수 있는지 문의드립니다. 가능하다면 신청 방법과 비용, 제공 항목(결제수단, 채널, 메뉴, 시간대)을 알려 주세요.</pre></div>
+  <p class="src">출처: <a href="https://www.data.go.kr/ugs/selectPublicDataUseGuideView.do" target="_blank" rel="noopener">공공데이터포털 이용가이드</a> · <a href="https://support.claude.com/en/articles/11175166-about-custom-connectors-remote-mcp" target="_blank" rel="noopener">Claude 사용자 지정 커넥터</a> · <a href="https://www.infoq.com/news/2025/10/chat-gpt-mcp" target="_blank" rel="noopener">ChatGPT 개발자 모드 MCP</a></p>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>매일 아침 시세</b><span>시간 트리거로 매일 같은 시각에 시세를 받아 장부에 쌓아요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>멈추면 바로 알림</b><span>트리거 설정의 <span class="path">실패 알림 설정 → 즉시 알림</span>을 고르면 인증키 만료나 오류를 메일로 받아요.</span></div></li><li><span class="chip k-conn">커넥터</span><div class="ad"><b>MCP 커넥터</b><span>AI가 외부 서비스 도구를 직접 쓰게 해요. 카카오 PlayMCP처럼 믿을 수 있는 회사 것만 연결해요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>공공데이터포털 활용신청 칸 채우기(신청 버튼 앞).</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>시세 사이트 화면을 읽어 API 결과와 맞는지 확인.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>API 호출 스크립트를 만들고 매일 아침 트리거.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'03 식자재'가 시세 변화를 원가 경보에 반영.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>08 자동화·연결</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>채소 시세 자동 수집 부탁문</span></div><div class="aib-row"><b>세션</b><span>코드를 받은 대화는 그 채팅에 남겨 두세요. 고칠 때 "지난번 코드에서"로 이어서 물을 수 있어요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><p class="rec-note">인증키는 스크립트 속성에.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>공공데이터 API와 앱스 스크립트는 무료</li><li>AI가 코드를 짜 주니 개발비 0원</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Make·Zapier 같은 자동화 서비스: 화면에서 끌어다 연결, 오류 알림</li><li>개발 외주, MCP 서버 운영</li></ul></div></div>
+</section>
+<section id="s-l25" class="lesson" data-part="auto" data-title="배달앱 매출 자동화하기" data-level="grow" data-stage="operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 하루~이틀 · 무료</span>
+    <h2>배달앱 매출이 메일·폴더로 들어오면 장부가 알아서</h2>
+    <p class="goal">배민·쿠팡이츠·요기요의 주문·수수료·정산 금액을 장부의 '배달매출' 시트로 자동으로 모아요. 자동화는 세 단계로 올려요. ① 폴더에 넣으면 자동 반영, ② 메일로 오면 자동 저장, ③ 빠지면 알림. 다 하면 사장님 손은 '메일 한 통 보내기'나 그마저도 없이 끝나요.</p>
+  </div>
+  <div class="vis">
+    <div class="flowgrid">
+      <div class="stack">
+        <div class="box pop" style="--d:.2s"><strong>배달의민족</strong><span>사장님광장 정산 파일</span></div>
+        <div class="box pop" style="--d:.35s"><strong>쿠팡이츠</strong><span>사장님 사이트 정산 파일</span></div>
+        <div class="box pop" style="--d:.5s"><strong>요기요</strong><span>사장님 사이트 정산 파일</span></div>
+        <div class="box pop" style="--d:.65s"><strong>정기 메일 · 나에게 보낸 메일</strong><span>첨부파일을 Gmail이 자동 분류</span></div>
+      </div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.8s"></span><span style="--d:1.5s"></span></div>
+      <div class="box pop" style="--d:.8s"><strong>'배달앱 받은 파일' 폴더</strong><span>사장님은 여기에 넣기만</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:1.1s"></span><span style="--d:1.8s"></span></div>
+      <div class="box hi pop" style="--d:1.1s"><strong>'배달매출' 시트</strong><span>1시간마다 자동 정리, 중복 제거</span></div>
+    </div>
+    <p class="cap a" style="--d:1.4s">처리가 끝난 파일은 '처리 완료' 폴더로 옮겨져서 두 번 들어가지 않아요.</p>
+  </div>
+
+  <h3>먼저 알아 둘 것</h3>
+  <p>배달앱 3사는 사장님이 직접 쓸 수 있는 공개 <dfn data-t="api">API</dfn>를 주지 않아요. 주문 연동 API는 포스 회사 같은 제휴사용이에요. 그래서 자동화하는 길은 아래 셋이에요. 이 강의는 비용이 들지 않는 <b>③</b>을 실습하고, ①·②를 쓰면 파일 받는 일까지 줄어요.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>길</th><th>어떻게</th><th>사장님 손</th><th>비용</th></tr></thead>
+    <tbody>
+      <tr><td><b>① 포스 배달 연동</b></td><td>토스 포스처럼 포스에 배달앱을 연결하면 배달 매출이 포스 매출 리포트에 합쳐지고, 엑셀도 앱별로 나뉘어 나와요</td><td>포스 엑셀 하나만 받기</td><td>포스마다 다름</td></tr>
+      <tr><td><b>② 매출 통합 앱</b></td><td>캐시노트·오늘얼마 같은 앱에 배달앱 사장님 계정을 연결하면 3사 매출이 자동으로 모여요. 앱에서 자료를 내려받아요</td><td>통합 자료 하나만 받기</td><td>앱·기능마다 다름</td></tr>
+      <tr><td><b>③ 폴더 자동 반영 (이 강의 1단계)</b></td><td>받은 파일을 드라이브 폴더에 넣으면 앱스 스크립트가 읽어서 장부에 정리</td><td>주 1회 파일 받아 폴더에 넣기 (5분)</td><td>무료</td></tr>
+      <tr><td><b>⑤ 주문내역 수집 봇 (다음 <a href="#s-l30" class="ref" data-ref="s-l30">강의</a>)</b></td><td>주문내역은 내려받기 버튼이 없어요. 사장님 맥에서 매일 아침 봇이 배민·요기요 주문 목록을 화면에서 읽어 장부 '주문원장' 시트에 바로 쌓아요</td><td>몇 주에 한 번 다시 로그인</td><td>무료 (맥이 켜져 있어야 해요)</td></tr>
+      <tr><td><b>④ 메일 자동 수집 (이 강의 2단계)</b></td><td>정기적으로 오는 매출 자료 메일, 또는 휴대폰에서 '나에게 보낸' 메일의 첨부파일을 Gmail이 분류하고 스크립트가 폴더로 옮겨요</td><td>메일 한 통 보내기, 정기 메일이면 없음</td><td>무료</td></tr>
+    </tbody>
+  </table></div>
+  <p class="tip warnbox"><b>배달앱 아이디·비밀번호를 구글 스크립트나 AI 채팅에 넣지 마세요.</b> 로그인 정보가 남의 서버에 남아요. 사이트 원본이 꼭 필요하면 ⑤처럼 사장님 맥에서만 도는 봇을 쓰고, 로그인은 사람이 직접 해요. 자동 접속을 막는 약관이 있을 수 있으니 ①·②가 되면 그쪽이 먼저예요. ② 같은 통합 앱에 계정을 연결할 때도 믿을 수 있는 회사만 쓰고, 비밀번호를 바꾸면 다시 연동해야 해요.</p>
+
+  <h3>1단계 · 폴더에 넣으면 장부에 자동 반영</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s25a" data-key="s_s25a"><div class="body"><label for="s_s25a">'매장 장부'에 '배달매출' 시트(탭) 추가하기</label><small>배달앱 주문 한 건이 한 줄이 돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>드라이브에서 <b>'매장 장부'</b> 파일 열기 (새 파일 아님)</li>
+        <li>맨 아래 시트 이름표 왼쪽 <span class="path">+</span> → 새 이름표를 두 번 눌러 <b>배달매출</b></li>
+        <li>A1 칸을 누르고 아래 '배달매출 제목 줄' 복사 → 붙여 넣기</li>
+      </ol>
+      <div class="prompt" data-tsv><div class="bar"><span>배달매출 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 배달앱 | 주문번호 | 주문금액 | 할인 | 중개수수료 | 배달비 | 광고비 | 결제수수료 | 정산금액 | 원본파일</pre></div></details></div></li>
+    <li><input type="checkbox" id="s_s25b" data-key="s_s25b"><div class="body"><label for="s_s25b">드라이브에 폴더 두 개 만들고 <dfn data-t="folderid">폴더 ID</dfn> 적어 두기</label><small>'배달앱 받은 파일'과 '처리 완료'</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>드라이브 '우리가게 장부' 폴더 안에서 <span class="path">+ 새로 만들기 → 새 폴더</span> → <b>배달앱 받은 파일</b></li>
+        <li>같은 방법으로 <b>처리 완료</b> 폴더 만들기</li>
+        <li>PC에서 '배달앱 받은 파일' 폴더를 열고 인터넷 주소창을 보면 <span class="path">…/folders/<b>1AbC…xyz</b></span>처럼 나와요. folders/ 뒤의 긴 글자를 복사해 메모. '처리 완료' 폴더도 똑같이<span class="fix">주소 끝에 ?usp=… 같은 글자가 붙어 있으면 ? 앞까지만 복사하세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s25c" data-key="s_s25c"><div class="body"><label for="s_s25c">앱마다 정산 파일 한 번씩 받아 보기</label><small>한 번 받아 봐야 AI가 파일 모양을 알고 맞는 스크립트를 짜 줘요. 메뉴 이름은 앱 업데이트로 바뀔 수 있어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><b>배민</b>: PC에서 배민 사장님광장(ceo.baemin.com) 로그인 → <span class="path">우리가게관리 → 정산·주문</span>에서 정산 명세나 주문 내역을 지난주 기간으로 조회 → 엑셀 다운로드</li>
+        <li><b>쿠팡이츠</b>: 쿠팡이츠 사장님 사이트(또는 앱)의 <span class="path">정산</span> 메뉴 → 지난주 기간 → 다운로드</li>
+        <li><b>요기요</b>: 요기요 사장님 사이트의 <span class="path">정산 내역</span> 메뉴 → 지난주 기간 → 다운로드</li>
+        <li>받은 파일 3개를 '배달앱 받은 파일' 폴더로 끌어다 놓기<span class="fix">다운로드 버튼을 못 찾겠으면 그 화면을 캡처해 '08 자동화·연결' 채팅에 보내고 "정산 내역을 엑셀로 받는 버튼이 어디야?"라고 물어보세요. ①포스 연동이나 ②통합 앱을 쓰면 그 파일 하나만 넣어도 돼요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s25d" data-key="s_s25d"><div class="body"><label for="s_s25d">AI에게 자동 반영 스크립트 받기</label><small>'08 자동화·연결' 채팅에 받은 파일 3개를 첨부하고 아래 부탁문을 보내요. 파일마다 어느 열이 날짜·금액·수수료인지 AI가 맞춰 줘요.</small></div></li>
+    <li><input type="checkbox" id="s_s25e" data-key="s_s25e"><div class="body"><label for="s_s25e">장부에 붙이고 한 번 실행</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' 메뉴 <span class="path">확장 프로그램 → Apps Script</span> → 왼쪽 <span class="path">+ → 스크립트</span> → 이름 <b>배달매출</b> → AI가 준 코드 붙여 넣기</li>
+        <li>코드 맨 위의 폴더 ID 두 자리에 메모해 둔 ID 붙여 넣기</li>
+        <li>엑셀(.xlsx)을 읽으려면 왼쪽 <span class="path">서비스 → + → Drive API → 추가</span> (AI가 필요하다고 하면)</li>
+        <li><span class="path">저장 → 실행</span> → 권한 창에서 <span class="path">권한 검토 → 내 계정 → 고급 → 이동 → 허용</span></li>
+        <li>'배달매출' 시트에 줄이 생기고, 파일이 '처리 완료' 폴더로 옮겨졌는지 확인<span class="fix">빨간 오류가 나면 오류 문장과 함께 "어느 파일에서 났는지"를 그대로 채팅에 보내세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s25f" data-key="s_s25f"><div class="body"><label for="s_s25f"><dfn data-t="trigger">트리거</dfn>로 1시간마다 자동 확인</label><small>Apps Script 왼쪽 시계 아이콘 <span class="path">트리거 → + 트리거 추가 → 실행할 함수: AI가 알려 준 이름 → 시간 기반 → 시간 단위 타이머 → 1시간마다</span> → 저장</small></div></li>
+    <li><input type="checkbox" id="s_s25g" data-key="s_s25g"><div class="body"><label for="s_s25g">매주 5분 루틴 만들기</label><small>월요일 아침 3사 사이트에서 지난주 파일을 받아 폴더에 넣어요. 휴대폰이라면 Google Drive 앱에서 폴더 열기 → <span class="path">+ → 업로드</span>. 1시간 안에 장부에 들어가고, 월요일 브리핑이 그 숫자로 실수익률을 계산해요.</small></div></li>
+    <li><input type="checkbox" id="s_s25h" data-key="s_s25h"><div class="body"><label for="s_s25h">첫 달은 합계 맞춰 보기</label><small>'01 장부·정산' 채팅에 "배달매출 시트의 지난주 앱별 정산금액 합계를 알려줘" → 각 사장님 사이트의 정산 합계와 같은지 확인해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>배달매출 자동 반영 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>첨부한 파일은 배달의민족, 쿠팡이츠, 요기요 사장님 사이트에서 받은 정산(주문) 파일이야. 나는 코딩 초보야.
+구글 시트 '매장 장부'에 붙일 Apps Script를 만들어줘.
+- 드라이브 폴더 '배달앱 받은 파일'(ID: ○○)에 새 파일이 있으면 읽어서 '배달매출' 시트에 한 줄씩 추가
+- 시트 열: 날짜, 배달앱, 주문번호, 주문금액, 할인, 중개수수료, 배달비, 광고비, 결제수수료, 정산금액, 원본파일
+- 파일 이름이나 첫 줄 모양으로 어느 배달앱 파일인지 알아내고, 각 파일의 열 이름을 위 열에 맞춰줘. 없는 항목은 빈칸
+- 엑셀(.xlsx)은 Drive 고급 서비스로 구글 시트로 바꿔서 읽고, CSV도 읽을 수 있게
+- 같은 배달앱·주문번호가 이미 있으면 건너뛰기 (중복 방지)
+- 다 읽은 파일은 '처리 완료' 폴더(ID: ○○)로 옮기기
+- 끝나면 몇 건을 넣었는지 내 메일로 알려 주기
+코드 전체와 함께, 붙여 넣는 곳·Drive API 추가 방법·1시간 트리거 설정을 단계별로 알려줘.</pre></div>
+
+  <h3>2단계 · 메일로 오면 자동으로 폴더에 저장</h3>
+  <p>배달앱 3사가 정산 파일을 메일로 정기 발송한다는 공식 안내는 찾지 못했어요. 그래서 두 가지 메일을 씁니다. <b>정기적으로 오는 매출 자료 메일</b>(예: 토스의 부가세 매출 자료 받기는 배달앱 3사와 카드 매출을 이메일로 보내 줘요. 포스·매출 통합 앱의 리포트 메일, 세금계산서 메일도 해당)과, <b>사장님이 휴대폰에서 '나에게' 보내는 메일</b>이에요. 휴대폰으로 파일을 받은 그 자리에서 공유 → Gmail로 한 번 보내면, 드라이브 폴더를 찾아 올리는 일이 없어져요.</p>
+  <div class="vis">
+    <div class="lanes">
+      <div class="box pop" style="--d:.2s"><strong>내아이디+delivery@gmail.com</strong><span>정기 메일 수신 주소 · 나에게 보내기</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.6s"></span><span style="--d:1.3s"></span></div>
+      <div class="box pop" style="--d:.5s"><strong>Gmail 필터</strong><span>'배달매출자료' 라벨 자동</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.9s"></span><span style="--d:1.6s"></span></div>
+      <div class="box hi pop" style="--d:.8s"><strong>스크립트 (1시간마다)</strong><span>첨부파일 → 폴더 → 1단계 반영</span></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s25i" data-key="s_s25i"><div class="body"><label for="s_s25i">매출 자료 전용 메일 주소 정하기</label><small>Gmail은 아이디 뒤에 <b>+단어</b>를 붙여도 같은 메일함으로 받아요. 예: <b>내아이디+delivery@gmail.com</b>. 새 계정을 만들 필요가 없어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>내 Gmail이 salad123@gmail.com이라면 전용 주소는 <b>salad123+delivery@gmail.com</b></li>
+        <li>매출 자료를 메일로 보내 주는 서비스(토스 매출 자료, 포스·매출 통합 앱 리포트, 세무 기장 서비스 등)의 받는 주소를 이 주소로 바꾸기</li>
+        <li>휴대폰 연락처에 '매출자료함'이라는 이름으로 이 주소 저장 (나에게 보낼 때 쓰기 쉽게)<span class="fix">회사·학교 계정이면 + 주소가 막혀 있을 수 있어요. 개인 gmail을 쓰세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s25j" data-key="s_s25j"><div class="body"><label for="s_s25j">Gmail <dfn data-t="gfilter">필터</dfn>로 자동 라벨 붙이기</label><small>그 주소로 온 메일에 '배달매출자료' <dfn data-t="glabel">라벨</dfn>이 자동으로 붙게 해요. PC에서 해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 Gmail 열기 → 맨 위 검색창 오른쪽의 <span class="path">검색 옵션 표시</span> 아이콘</li>
+        <li><b>받는사람</b> 칸에 salad123+delivery@gmail.com, <b>첨부파일 있음</b> 체크</li>
+        <li>아래 <span class="path">필터 만들기</span> → <span class="path">라벨 적용 → 새 라벨</span> → 이름 <b>배달매출자료</b> → 만들기</li>
+        <li>'받은편지함 건너뛰기'는 체크하지 않아도 돼요 → <span class="path">필터 만들기</span><span class="fix">정기 메일이 + 주소로 오지 않고 원래 주소로 온다면, '보낸사람' 칸에 그 서비스의 메일 주소를 넣어 같은 라벨을 붙이는 필터를 하나 더 만드세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s25k" data-key="s_s25k"><div class="body"><label for="s_s25k">메일 첨부파일 자동 저장 스크립트 받기</label><small>'08 자동화·연결' 채팅에 아래 '메일 자동 수집' 부탁문을 보내요. 1단계 스크립트와 같은 프로젝트에 붙여서, 저장이 끝나면 바로 장부 반영까지 이어지게 해요.</small></div></li>
+    <li><input type="checkbox" id="s_s25l" data-key="s_s25l"><div class="body"><label for="s_s25l">붙이고 권한 허용, 트리거 설정</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' → <span class="path">확장 프로그램 → Apps Script</span> → <span class="path">+ → 스크립트</span> → 이름 <b>메일수집</b> → 코드 붙여 넣기 → 저장</li>
+        <li><span class="path">실행</span> → 권한 창에서 Gmail 읽기 권한까지 <span class="path">허용</span>. 내가 만든 스크립트라 '확인하지 않은 앱' 경고가 뜨는 건 정상이에요</li>
+        <li>트리거: 실행할 함수는 AI가 알려 준 이름, <span class="path">시간 기반 → 시간 단위 타이머 → 1시간마다</span></li>
+        <li>시험: 휴대폰에서 배민 파일 하나를 '매출자료함' 주소로 보내고, 1시간 안에 '배달매출' 시트에 들어오는지 확인<span class="fix">메일에 '처리됨' 라벨만 붙고 시트에 안 들어오면, 첨부파일이 비밀번호로 잠겨 있지 않은지 확인하세요. 스크립트는 비밀번호 걸린 파일을 열지 못해요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s25m" data-key="s_s25m"><div class="body"><label for="s_s25m">휴대폰에서 '나에게 보내기' 습관</label><small>배달앱 사장님 앱이나 사이트에서 파일을 받으면 <span class="path">공유 → Gmail → 받는사람: 매출자료함 → 보내기</span>. 이게 사장님이 하는 일의 전부예요.</small></div></li>
+    <li><input type="checkbox" id="s_s25n" data-key="s_s25n"><div class="body"><label for="s_s25n">본문에 숫자만 있는 알림 메일도 (선택)</label><small>첨부파일 없이 본문에 '정산 예정 금액 ○○원' 같은 숫자만 오는 메일이 있다면, 그 메일 하나를 복사해 AI에게 주고 "이 모양 메일에서 날짜·배달앱·금액을 뽑아 '메일정산' 시트에 쌓는 코드를 추가해줘"라고 부탁해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>메일 자동 수집 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>Gmail 라벨 '배달매출자료'가 붙은 메일의 첨부파일(.xlsx, .xls, .csv)을 드라이브 폴더 '배달앱 받은 파일'(ID: ○○)에 저장하는 Apps Script를 만들어줘. 나는 코딩 초보야.
+- 검색 조건은 반드시 label:배달매출자료 has:attachment 이고, '처리됨' 라벨이 없는 메일만 (다른 메일은 절대 읽지 않기)
+- 저장할 때 파일 이름 앞에 받은 날짜와 보낸사람을 붙여 구분
+- 저장이 끝난 메일에는 '처리됨' 라벨 붙이기
+- 저장 후 같은 프로젝트에 있는 배달매출 반영 함수(이름: ○○)를 이어서 실행
+- 비밀번호로 잠긴 파일은 건너뛰고, 건너뛴 파일 이름을 내 메일로 알려 주기
+코드 전체와, 붙여 넣는 곳, 권한 허용, 1시간 트리거 설정 방법을 단계별로 알려줘.</pre></div>
+
+  <h3>3단계 · 빠진 날 알림과 AI 점검</h3>
+  <p>자동화는 조용히 멈추는 게 가장 무서워요. 들어오지 않았을 때 사장님이 바로 알 수 있게 알림을 붙여요.</p>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s25o" data-key="s_s25o"><div class="body"><label for="s_s25o">월요일 낮 12시 '빠진 앱' 알림</label><small>지난주 배민·쿠팡이츠·요기요 중 '배달매출' 시트에 한 건도 없는 앱이 있으면 "쿠팡이츠 지난주 파일이 아직 없어요" 메일을 보내요. 아래 '점검 알림' 부탁문으로 코드를 받아, 트리거를 <span class="path">주 단위 타이머 → 월요일 → 낮 12시~오후 1시</span>로 설정해요.</small></div></li>
+    <li><input type="checkbox" id="s_s25p" data-key="s_s25p"><div class="body"><label for="s_s25p">반영 완료 요약 메일</label><small>파일이 들어오면 "배민 132건, 정산 412만 원 반영" 같은 한 줄 메일을 받아요. 숫자가 이상하면 그날 바로 알 수 있어요.</small></div></li>
+    <li><input type="checkbox" id="s_s25q" data-key="s_s25q"><div class="body"><label for="s_s25q">AI 예약 작업으로 이중 점검</label><small>월요일 브리핑에 한 줄을 덧붙여 AI가 메일함과 장부를 함께 확인하게 해요.</small>
+      <details class="how" data-ai-not="gpt"><summary><span class="closed-label">자세히 따라 하기 · Claude</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">설정 → 커넥터</span>에서 Gmail 연결 (Google Drive와 같은 방법)</li>
+        <li>'02 월요일 브리핑' 예약 작업 지시문 맨 아래에 "Gmail에서 지난주 '배달매출자료' 라벨 메일이 앱마다 왔는지 확인하고, 장부 '배달매출' 시트 합계와 다르면 알려줘" 추가</li>
+      </ol></details>
+      <details class="how" data-ai="gpt"><summary><span class="closed-label">자세히 따라 하기 · ChatGPT</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">설정 → 앱</span>에서 Gmail 연결</li>
+        <li data-plan-not="free"><span data-ai="claude">Claude 유료 플랜은 위 한 줄을 붙인 월요일 브리핑 예약 작업이 그대로 점검해 줘요.</span><span data-ai-not="claude">ChatGPT 유료 플랜이면 메일이 올 때 바로 실행되는 예약 작업도 만들 수 있어요. 대화창에 "Gmail에 '배달매출자료' 라벨 메일이 오면 첨부 내용을 요약해서 알려줘"</span></li>
+        <li data-plan="free">무료 플랜이어도 메일 수집과 장부 반영은 위의 구글 스크립트가 다 해요. AI 점검은 <span data-ai="claude">월요일 알림이 올 때 "브리핑 해줘"에 같이 들어가요</span><span data-ai-not="claude">무료 예약 작업(하루 1번 이하)으로 월요일 아침에 받아요</span></li>
+        <li>월요일 브리핑 지시문에도 "지난주 '배달매출자료' 메일이 앱마다 왔는지 확인해줘" 한 줄 추가</li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>점검 알림 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>매장 장부 '배달매출' 시트(날짜, 배달앱, 주문번호, 정산금액 …)를 확인하는 Apps Script를 만들어줘.
+1) 월요일 낮에 실행: 지난주(월~일) 배달의민족·쿠팡이츠·요기요 중 한 건도 없는 앱이 있으면 "○○ 지난주 파일이 아직 없어요"라고 내 메일로 보내기
+2) 배달매출 반영 함수가 끝날 때마다: 이번에 넣은 앱별 건수와 정산금액 합계를 한 줄로 메일 보내기. 지난주 같은 요일보다 50% 넘게 차이 나면 '확인 필요' 표시
+트리거 설정 방법(주 단위 월요일 낮 12시)도 초보 기준으로 알려줘.</pre></div>
+  <p class="tip warnbox"><b>메일 권한은 좁게.</b> 메일 수집 스크립트는 Gmail을 읽을 수 있는 권한을 받아요. 그래서 검색 조건이 '배달매출자료' 라벨로만 되어 있는지 꼭 확인하고, 이 스크립트가 든 장부는 다른 사람에게 편집 공유하지 마세요.</p>
+  <p class="src">출처: <a href="https://tossplace.com/story/yueki_delivery" target="_blank" rel="noopener">토스 포스 배달 주문·매출 연동 사례</a> · <a href="https://tossplace.com/story/delivery-sales-free" target="_blank" rel="noopener">토스 포스 배달 매출 연결</a> · <a href="https://docs.channel.io/todayhelpcenter/ko/articles/%EB%B0%B0%EB%8B%AC%EC%95%B1-%EC%97%B0%EB%8F%99%EC%9D%B4-%EC%95%88%EB%8F%BC%EC%9A%94-e7f59ce4" target="_blank" rel="noopener">오늘얼마 배달앱 연동 안내</a> · <a href="https://toss.im/tossfeed/article/vat-download" target="_blank" rel="noopener">토스 매출 자료 받기</a> · <a href="https://gmail.googleblog.com/2008/03/2-hidden-ways-to-get-more-from-your.html" target="_blank" rel="noopener">Gmail + 주소</a> · <a href="https://support.google.com/mail/answer/6579?hl=en" target="_blank" rel="noopener">Gmail 필터 만들기</a> · <a href="https://help.openai.com/ko-kr/articles/10291617-scheduled-tasks-in-chatgpt" target="_blank" rel="noopener">ChatGPT 메일 기반 예약 작업</a></p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-mail">메일 필터</span><div class="ad"><b>매출 메일 자동 분류</b><span>Gmail 필터가 매출 자료 메일에 라벨을 붙여요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>1시간마다 폴더·메일 확인</b><span>스크립트가 새 파일을 장부 '배달매출'에 넣고 처리된 파일은 옮겨요. 중복은 걸러요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>빠진 앱 알림</b><span>월요일 낮 12시, 지난주 자료가 빠진 앱이 있으면 메일로 알려요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>배달앱 정산 화면에서 지난주 파일 내려받기 → 장부 폴더.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>메일이 안 오는 앱은 로그인된 크롬에서 정산 화면을 읽어 표로.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>1시간마다 폴더·메일 확인 스크립트, 빠진 앱은 텔레그램.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'01 장부·정산'이 앱별 수수료·정산 차이를 월 결산에.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>08 자동화·연결</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>자동 반영·메일 수집·점검 알림 부탁문</span></div><div class="aib-row"><b>세션</b><span>코드를 받은 대화는 그 채팅에 남겨 두세요. 고칠 때 "지난번 코드에서"로 이어서 물을 수 있어요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Gmail</span><span class="rc c">Google Drive</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>폴더 자동 반영 + Gmail 필터 + 메일 수집 스크립트 + 알림까지 모두 0원</li><li>Gmail + 주소로 새 계정 없이 매출 자료 전용 메일함</li><li>사장님 손은 휴대폰에서 메일 한 통</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>매출 통합 앱의 유료 기능: 3사 매출·정산 자동 수집, 리포트 메일, 미입금·수수료 알림</li><li>Make·Zapier 같은 자동화 서비스: 메일 → 드라이브 → 시트를 화면에서 연결, 실패 알림</li><li data-ai-not="claude">ChatGPT 유료 플랜: 메일이 오면 바로 실행되는 예약 작업</li><li>포스 배달 연동: 주문 접수부터 매출 리포트까지 한곳에서</li><li>세무 기장 서비스: 배달앱 자료를 대신 모아 신고까지</li></ul></div></div>
+</section>
+<section id="s-l30" class="lesson" data-part="auto" data-title="주문내역 수집 봇 만들기 (심화)" data-level="adv" data-stage="operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">심화 · 실습 · 하루 · 맥</span>
+    <h2>매일 아침, 봇이 주문내역을 장부에 쌓아요</h2>
+    <p class="goal">배민·요기요 사장님 사이트의 주문내역에는 엑셀 내려받기 버튼이 없어요. 그래서 봇이 사람처럼 주문내역 화면을 열어 목록을 읽고, <dfn data-t="sheetsapi">Google Sheets API</dfn>로 장부에 바로 적어요. 처음 한 번 최근 30일을 모으고, 그다음부터는 매일 아침 자동으로 쌓아요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>파이썬, <dfn data-t="playwright">Playwright</dfn>, Google Sheets API, 맥 예약 실행 모두 일반 사용 범위에서 무료예요. 코드는 AI 채팅에서 받는데, 무료 사용량이 모자라면 플랫폼 하나씩 나눠서 부탁하세요.</span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>코드를 길게 주고받아도 사용량이 넉넉해서, 사이트 화면이 바뀌었을 때 고치는 대화가 끊기지 않아요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="flowgrid">
+      <div class="stack">
+        <div class="box pop" style="--d:.2s"><strong>배민 사장님 사이트</strong><span>주문내역 화면</span></div>
+        <div class="box pop" style="--d:.35s"><strong>요기요 사장님 사이트</strong><span>주문내역 화면</span></div>
+        <div class="box pop" style="--d:.5s"><strong>쿠팡이츠 (선택)</strong><span>같은 방법으로 추가</span></div>
+      </div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.8s"></span><span style="--d:1.5s"></span></div>
+      <div class="box hi pop" style="--d:.8s"><strong>수집 봇 · 사장님 맥</strong><span>매일 06:00 · 저장된 로그인 확인 · 목록 읽기 · 형식 통일 · 중복 제거 · 오류 기록</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:1.1s"></span><span style="--d:1.8s"></span></div>
+      <div class="box ai pop" style="--d:1.1s"><strong>매장 장부</strong><span>주문원장 · 주문일별 · 플랫폼비교 · 수집로그</span></div>
+    </div>
+    <p class="cap a" style="--d:1.4s">로그인과 본인 인증은 사람이 직접 하고, 봇은 그 로그인 상태를 빌려 써요. 손님 이름·전화·주소는 읽지도 저장하지도 않아요.</p>
+  </div>
+
+  <h3>먼저 알아 둘 것</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>지킬 것</th><th>이유</th></tr></thead>
+    <tbody>
+      <tr><td><b>내려받기가 되면 그게 먼저</b></td><td>사이트가 엑셀·CSV 내려받기를 주는 메뉴(예: 정산 내역)는 화면 읽기보다 정확하고 덜 깨져요. 화면 읽기는 내려받기가 없는 주문내역에만 써요</td></tr>
+      <tr><td><b>로그인은 사람이 직접.</b> 봇은 저장된 로그인 상태만 써요</td><td>아이디·비밀번호를 코드에 넣지 않아요. 로그인 확인, 보안 문자(캡차), 추가 인증이 나오면 봇은 멈추고 사장님에게 알려요. 우회하지 않아요</td></tr>
+      <tr><td><b>하루 한 번, 사람 속도로</b></td><td>짧은 시간에 많이 접속하면 계정이 잠길 수 있어요. 아침에 한 번, 페이지 사이에 몇 초씩 쉬어요</td></tr>
+      <tr><td><b>약관 확인</b></td><td>각 앱 사장님 사이트 이용 조건에 자동 조회 제한이 있을 수 있어요. 경고를 받으면 봇을 멈추고 포스 연동이나 매출 통합 앱으로 바꿔요</td></tr>
+      <tr><td><b>손님 개인정보는 가져오지 않기</b></td><td>주문 목록에 보이는 손님 이름·전화번호·주소·요청사항은 장부에 필요 없어요. 봇이 아예 읽지 않게 해요</td></tr>
+      <tr><td><b>열쇠 파일 3종은 금고처럼</b></td><td>로그인 저장 파일, 구글 인증 파일(credentials.json), 토큰(token.json)은 맥 밖으로 보내지 말고 AI에도 올리지 마세요. 맥의 FileVault(디스크 암호화)를 켜 두세요</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>1단계 · 장부에 시트 4개 만들기</h3>
+  <p>구축안에서는 '배달 주문 통합 관리' 파일을 따로 만들지만, 이 코스는 AI 비서가 '매장 장부' 한 파일만 읽어요. 그래서 '매장 장부' 안에 시트 4개를 붙여요.</p>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s30a" data-key="s_s30a"><div class="body"><label for="s_s30a">'주문원장'과 '수집로그' 시트 추가</label><small>주문원장은 주문 한 건이 한 줄인 원본이에요. 봇만 적고, 사람은 고치지 않아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' → 아래 이름표 왼쪽 <span class="path">+</span> → 이름 <b>주문원장</b> → A1에 아래 '주문원장 제목 줄' 붙여 넣기</li>
+        <li>같은 방법으로 <b>수집로그</b> 시트 → A1에 '수집로그 제목 줄' 붙여 넣기</li>
+        <li>두 시트 모두 <span class="path">보기 → 고정 → 1행</span></li>
+        <li>장부 주소창의 <b>/d/</b>와 <b>/edit</b> 사이 긴 글자(시트 ID)를 복사해 메모해 두기. 봇 부탁문에 넣어요<span class="fix">주문원장의 <dfn data-t="uniquekey">고유키</dfn>(L열)는 '배민-12345'처럼 플랫폼과 주문번호를 합친 값이에요. 같은 주문번호가 두 플랫폼에 있어도 섞이지 않아요.</span></li>
+      </ol>
+      <div class="prompt" data-tsv><div class="bar"><span>주문원장 제목 줄</span><button class="copy" type="button">복사</button></div><pre>주문일시 | 주문번호 | 플랫폼 | 주문금액 | 할인금액 | 고객 결제액 | 배달비 | 수수료 | 정산액 | 주문상태 | 최종 확인일 | 고유키</pre></div>
+      <div class="prompt" data-tsv><div class="bar"><span>수집로그 제목 줄</span><button class="copy" type="button">복사</button></div><pre>실행 시각 | 플랫폼 | 조회 기간 | 읽은 건수 | 새로 추가 | 갱신 | 결과 | 오류 내용</pre></div></details></div></li>
+    <li><input type="checkbox" id="s_s30b" data-key="s_s30b"><div class="body"><label for="s_s30b">'주문일별'과 '플랫폼비교' 시트는 수식으로</label><small>날짜별 매출·주문 수·취소 수·정산액, 배민과 요기요 비교는 주문원장을 보고 수식이 알아서 계산해요. 첫 수집이 끝난 뒤 4단계에서 만들어요.</small></div></li>
+  </ol>
+  <p class="tip"><b>금액 세 가지는 달라요.</b> 주문금액(메뉴 합계), 고객 결제액(할인 뒤 손님이 낸 돈), 정산액(수수료·배달비를 빼고 사장님이 받는 돈)은 따로 적어요. 주문내역 화면에 정산액이 없으면 빈칸으로 두고, 앞 강의의 '배달매출'(정산 파일)으로 맞춰 봐요.</p>
+
+  <h3>2단계 · 맥에 작업실과 구글 시트 연결</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s30c" data-key="s_s30c"><div class="body"><label for="s_s30c">터미널에서 작업실 만들기</label><small>아래 '작업실 만들기 명령'을 그대로 붙여 넣어요. 수집 프로그램 자체는 아직 없고, 돌릴 준비만 하는 단계예요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">⌘ + 스페이스</span> → <b>터미널</b> → 엔터</li>
+        <li><b>python3 --version</b> 입력 → 버전 숫자가 나오면 통과. '명령어 개발자 도구' 설치 창이 뜨면 설치 후 다시</li>
+        <li>'작업실 만들기 명령' 붙여 넣고 엔터. 몇 분 걸려요<span class="fix">실패하면 터미널 화면을 캡처해 '08 자동화·연결' 채팅에 보내고 "어디서 막혔어?"라고 물어보세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s30d" data-key="s_s30d"><div class="body"><label for="s_s30d">구글 클라우드에서 Sheets API 켜고 열쇠 받기</label><small>봇이 사장님 구글 계정으로 장부에 쓸 수 있게 허락받는 단계예요. 한 번만 해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>console.cloud.google.com 접속 → 장부와 같은 구글 계정 → 위쪽 프로젝트 선택 → <span class="path">새 프로젝트</span> → 이름 <b>baedal-bot</b> → 만들기</li>
+        <li>왼쪽 메뉴 <span class="path">API 및 서비스 → 라이브러리</span> → <b>Google Sheets API</b> 검색 → <span class="path">사용</span></li>
+        <li><span class="path">API 및 서비스 → OAuth 동의 화면</span>(또는 Google 인증 플랫폼) → 시작하기 → 앱 이름 <b>baedal-bot</b>, 지원 이메일 내 메일 → 대상 <b>외부</b> → 연락처 내 메일 → 만들기</li>
+        <li><span class="path">대상(Audience) → 테스트 사용자 → 사용자 추가</span> → 내 Gmail 주소</li>
+        <li><span class="path">클라이언트 → 클라이언트 만들기</span> → 애플리케이션 유형 <b>데스크톱 앱</b> → 이름 아무거나 → 만들기 → <span class="path">JSON 다운로드</span></li>
+        <li>받은 파일 이름을 <b>credentials.json</b>으로 바꿔 <b>~/baedal-bot</b> 폴더에 넣기 (Finder에서 <span class="path">이동 → 폴더로 이동 → ~/baedal-bot</span>)<span class="fix">'테스트' 상태로 두면 일주일마다 구글 로그인이 풀려요. 다 되면 <span class="path">대상 → 앱 게시</span>로 '프로덕션'으로 바꾸세요. 나만 쓰는 앱이라 첫 로그인 때 '확인되지 않은 앱' 경고가 뜨면 <span class="path">고급 → baedal-bot(으)로 이동</span>을 누르면 돼요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>작업실 만들기 명령 · 터미널</span><button class="copy" type="button">복사</button></div><pre>mkdir -p ~/baedal-bot/login ~/baedal-bot/rec ~/baedal-bot/errors
+cd ~/baedal-bot
+python3 -m venv venv
+source venv/bin/activate
+python -m pip install --upgrade pip
+pip install playwright pandas google-api-python-client google-auth-httplib2 google-auth-oauthlib
+playwright install chromium</pre></div>
+
+  <h3>3단계 · 로그인 한 번, 주문내역 화면 녹화 한 번</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s30e" data-key="s_s30e"><div class="body"><label for="s_s30e">사이트마다 로그인 상태 저장</label><small>봇 전용 창이 열리면 평소처럼 로그인하고 닫아요. 로그인 상태가 파일로 남아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>아래 '로그인 저장 명령'의 배민 두 줄 붙여 넣기 → 새 창에서 로그인, 휴대폰 인증이 있으면 진행 → 사장님 첫 화면이 보이면 창 닫기</li>
+        <li>요기요 두 줄도 똑같이 (쿠팡이츠를 넣고 싶으면 그 줄도)</li>
+        <li>확인: <b>ls ~/baedal-bot/login</b> → baemin.json, yogiyo.json이 보이면 끝<span class="fix">사이트 주소가 다르면 평소 쓰는 사장님 사이트 주소로 바꿔 넣으세요. '로그인 상태 유지'가 있으면 체크하면 덜 풀려요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s30f" data-key="s_s30f"><div class="body"><label for="s_s30f">주문내역 화면을 <dfn data-t="codegen">녹화</dfn>하기</label><small>봇이 따라 할 길을 보여 주는 단계예요. 주문내역 메뉴, 기간 고르기, 다음 페이지 넘기기를 한 번씩 눌러 줘요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>아래 '화면 녹화 명령'의 배민 두 줄 붙여 넣기 → 로그인된 브라우저와 'Playwright Inspector' 창이 같이 열려요</li>
+        <li>브라우저에서: 주문내역 메뉴 → 기간을 어제로 → 조회 → (있으면) 다음 페이지나 더보기 → 주문 하나를 눌러 상세 보기</li>
+        <li>Inspector의 <span class="path">Pick locator</span>(과녁 모양)를 누르고 주문번호, 주문금액, 상태 글자를 하나씩 눌러 보기. 그 칸을 찾는 이름이 코드에 남아요</li>
+        <li>Inspector 코드를 전부 복사 → <b>~/baedal-bot/rec/baemin.txt</b>로 저장. 요기요도 똑같이 yogiyo.txt</li>
+        <li>주문 목록 화면을 캡처하고, 맥 미리보기의 <span class="path">마크업 → 사각형</span>으로 손님 이름·전화·주소를 가린 뒤 저장 (AI에게 보낼 화면 예시)<span class="fix">녹화 파일에 fill이 들어간 줄에 아이디·비밀번호나 손님 정보가 있으면 그 줄을 지우세요. 녹화 중 로그인 화면이 나오면 로그인 저장부터 다시 하세요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>로그인 저장 명령 · 터미널</span><button class="copy" type="button">복사</button></div><pre>cd ~/baedal-bot && source venv/bin/activate
+playwright open --save-storage=login/baemin.json https://self.baemin.com
+
+cd ~/baedal-bot && source venv/bin/activate
+playwright open --save-storage=login/yogiyo.json https://ceo.yogiyo.co.kr</pre></div>
+  <div class="prompt"><div class="bar"><span>화면 녹화 명령 · 터미널</span><button class="copy" type="button">복사</button></div><pre>cd ~/baedal-bot && source venv/bin/activate
+playwright codegen --target=python --load-storage=login/baemin.json https://self.baemin.com
+
+cd ~/baedal-bot && source venv/bin/activate
+playwright codegen --target=python --load-storage=login/yogiyo.json https://ceo.yogiyo.co.kr</pre></div>
+
+  <h3>4단계 · 봇 받아서 시험하고, 30일 처음 수집</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s30g" data-key="s_s30g"><div class="body"><label for="s_s30g">AI에게 봇 코드 받기</label><small>'08 자동화·연결' 채팅에 녹화 파일(rec 폴더)과 가린 캡처를 첨부하고 아래 '주문내역 수집 봇 부탁문'을 보내요. login 폴더, credentials.json, token.json은 절대 첨부하지 않아요.</small></div></li>
+    <li><input type="checkbox" id="s_s30h" data-key="s_s30h"><div class="body"><label for="s_s30h">시트에 쓰지 않고 먼저 읽어 보기</label><small>봇이 칸을 제대로 읽는지 터미널 화면으로만 확인해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>AI가 준 bot.py를 ~/baedal-bot에 저장</li>
+        <li>터미널: <b>cd ~/baedal-bot && source venv/bin/activate && python bot.py --dry-run --show</b></li>
+        <li>처음엔 구글 로그인 창이 떠요 → 장부 계정 선택 → 허용. token.json이 생겨요</li>
+        <li>터미널에 나온 주문 5건을 사이트 화면과 한 칸씩 비교: 주문번호, 금액, 상태가 맞는지<span class="fix">틀리면 터미널 출력(손님 정보 없음)을 '08 자동화·연결' 채팅에 붙여 넣고 "주문금액 자리에 배달비가 들어가"처럼 무엇이 틀렸는지 말해 주세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s30i" data-key="s_s30i"><div class="body"><label for="s_s30i">최근 30일 처음 수집</label><small>한 번만 해요. 끝나면 사이트에 나온 주문 수와 장부 주문 수를 맞춰 봐요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>터미널: <b>python bot.py --backfill 30</b></li>
+        <li>'수집로그' 시트에 플랫폼마다 한 줄씩, 결과 '성공'인지 확인</li>
+        <li>사이트에서 지난 30일 주문 건수를 보고, '주문원장'에서 그 플랫폼 줄 수와 같은지 확인 (필터: 플랫폼)</li>
+        <li>같은 명령을 한 번 더 돌려 '새로 추가'가 0인지 확인. 0이면 중복 방지가 잘 되는 거예요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s30j" data-key="s_s30j"><div class="body"><label for="s_s30j">'주문일별'·'플랫폼비교' 시트 만들기</label><small>'01 장부·정산' 채팅에 아래 '주문 집계 수식 부탁문'을 보내고, 받은 수식을 각 시트 A1에 붙여 넣어요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>주문내역 수집 봇 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>맥에서 매일 아침 돌릴 '배달앱 주문내역 수집 봇'을 파이썬 Playwright로 만들어줘. 배민·요기요 주문내역 화면에는 내려받기 버튼이 없어서 화면의 주문 목록을 읽어야 해. 나는 코딩 초보라 저장할 파일 이름과 터미널 명령까지 순서대로 알려줘.
+첨부: 사이트별 주문내역 화면 녹화 코드, 손님 정보를 가린 주문 목록 캡처
+- 작업 폴더 ~/baedal-bot, 가상환경 venv. 로그인은 login/baemin.json, login/yogiyo.json 저장 상태를 불러와서 써. 아이디·비밀번호는 코드에 넣지 마
+- 주문내역에서 기간을 정해 조회하고, 다음 페이지나 더보기가 있으면 끝까지. 주문마다 주문일시, 주문번호, 주문금액, 할인금액, 고객 결제액, 배달비, 수수료, 정산액, 주문상태를 읽고, 화면에 없는 값은 빈칸
+- 손님 이름·전화번호·주소·요청사항은 읽지도 저장하지도 마
+- 고유키 = 플랫폼-주문번호. 구글 시트 '매장 장부'(시트 ID: ○○)의 '주문원장' 시트에 없는 키는 추가, 있는 키는 상태나 금액이 바뀌었을 때 갱신하고 최종 확인일을 오늘로. Google Sheets API와 credentials.json, token.json 사용
+- 옵션: --backfill 30 은 최근 30일 처음 수집, 옵션이 없으면 최근 3일을 다시 확인(늦게 들어오는 취소·환불 반영), --dry-run 은 시트에 쓰지 않고 처음 5건만 화면에 출력, --show 는 브라우저 보이게
+- 화면에 총 건수가 나오면 읽은 건수와 비교해서 다르면 실패로 처리
+- 로그인 화면, 보안 문자, 추가 인증이 나오면 그 플랫폼은 멈추고 '다시 로그인 필요'. 비밀번호 자동 입력이나 보안 문자 우회는 하지 마
+- 페이지 사이에 몇 초씩 쉬기. 실패하면 오류 문장과 화면 캡처를 ~/baedal-bot/errors 에 저장
+- 실행마다 '수집로그' 시트에 플랫폼별 한 줄: 실행 시각, 플랫폼, 조회 기간, 읽은 건수, 새로 추가, 갱신, 결과, 오류 내용. 실패를 성공으로 적지 마
+- 끝나면 맥 알림, 실패가 있으면 내 아이폰으로 iMessage 한 통 (번호 ○○)
+- 매일 오전 6시에 실행하는 launchd 설정 파일과 등록·해제 명령, 5시 55분에 맥을 깨우는 pmset 명령도</pre></div>
+  <div class="prompt"><div class="bar"><span>주문 집계 수식 부탁문 · 장부 과장</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'의 '주문원장' 시트(열: 주문일시, 주문번호, 플랫폼, 주문금액, 할인금액, 고객 결제액, 배달비, 수수료, 정산액, 주문상태, 최종 확인일, 고유키)를 보고 수식만으로 계산되는 시트 두 개를 만들어줘.
+1) '주문일별': 날짜별 주문 수, 취소 수, 주문금액 합계, 고객 결제액 합계, 정산액 합계. 취소된 주문은 매출 합계에서 빼기. 최근 날짜가 위로
+2) '플랫폼비교': 이번 달과 지난달, 플랫폼별 주문 수, 매출, 객단가, 취소율
+주문상태에 실제로 쓰이는 글자는 ○○(예: 배달완료, 주문취소)야. A1 칸에 붙여 넣을 QUERY 수식과 붙이는 순서를 알려줘.</pre></div>
+
+  <h3>5단계 · 매일 아침 자동으로</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s30k" data-key="s_s30k"><div class="body"><label for="s_s30k">맥 예약 실행 등록 (매일 오전 6시)</label><small>AI가 준 <dfn data-t="launchd">launchd</dfn> 설정 파일을 넣고 등록해요. 매일 최근 3일을 다시 확인해서 늦게 들어온 취소·환불도 반영돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>설정 파일(…plist)을 Finder <span class="path">이동 → 폴더로 이동</span> → <b>~/Library/LaunchAgents</b>에 저장</li>
+        <li>AI가 준 등록 명령을 터미널에 붙여 넣기</li>
+        <li>맥 깨우기: AI가 준 <b>sudo pmset repeat …</b> 명령 → 맥 로그인 비밀번호 입력 (글자는 안 보여요)</li>
+        <li>다음 날 아침 '수집로그'에 오전 6시 줄이 생겼는지 확인<span class="fix">맥이 잠자기거나 꺼져 있으면 그날은 건너뛰어요. 노트북은 충전기를 꽂고 덮개를 연 채 두거나, 늘 켜 두는 맥을 쓰세요. 실행 시각은 주문 반영이 끝나는 시간에 맞춰 바꿔도 돼요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s30l" data-key="s_s30l"><div class="body"><label for="s_s30l">'다시 로그인 필요' 알림이 오면</label><small>3단계의 그 사이트 '로그인 저장 명령'만 다시 해요. 구글 로그인이 풀렸다면 token.json을 지우고 봇을 한 번 손으로 돌려 다시 허용해요.</small></div></li>
+    <li><input type="checkbox" id="s_s30m" data-key="s_s30m"><div class="body"><label for="s_s30m">점검표에 연결</label><small>특강의 <dfn data-t="healthcheck">자동 점검</dfn>을 만들었다면 점검 목록에 '주문원장 1일', '수집로그 1일'을 더해요. 봇이 하루라도 멈추면 바로 알 수 있어요. 사이트 화면이 바뀌어 봇을 고쳐야 하면 '개선요청'에 올리고 승인 후 고쳐요 (<a href="#c-s28" class="ref" data-ref="c-s28">강의</a>).</small></div></li>
+  </ol>
+  <details class="how"><summary><span class="closed-label">선택 · 정산 엑셀이 받아지는 메뉴가 있다면 (배민 암호 풀기)</span><span class="open-label">접기</span></summary><ol class="sub">
+    <li>정산 내역처럼 엑셀 내려받기가 되는 메뉴는 봇이 같이 받아 앞 강의의 '배달앱 받은 파일' 폴더(데스크톱용 Google Drive로 맥에 연결)에 넣을 수 있어요</li>
+    <li>배민 엑셀 비밀번호는 코드가 아니라 맥 <dfn data-t="keychain">키체인</dfn>에 넣어요. 터미널: <b>security add-generic-password -a "$USER" -s baemin-excel -w</b> → 비밀번호 두 번 입력 (화면에 안 보여요)</li>
+    <li>터미널에서 <b>pip install msoffcrypto-tool</b>을 하고, 수집 봇 부탁문 끝에 "정산 내역 메뉴에서 어제 엑셀도 받아서, 잠겨 있으면 키체인 'baemin-excel' 비밀번호로 msoffcrypto를 써서 풀고 ○○ 폴더에 배민_날짜.xlsx로 저장해줘"를 덧붙이기</li>
+  </ol></details>
+  <details class="how"><summary><span class="closed-label">윈도우 PC라면</span><span class="open-label">접기</span></summary><ol class="sub">
+    <li>파이썬과 Playwright는 윈도우에서도 같아요. 부탁문의 '맥'을 '윈도우'로, launchd를 '작업 스케줄러'로, iMessage를 '메일 알림'으로 바꿔 보내세요</li>
+    <li>코딩 없이 녹화만으로 하고 싶으면 윈도우의 무료 Power Automate Desktop 레코더로 주문내역 화면을 따라 하게 할 수도 있어요. 다만 목록을 장부에 정확히 쌓는 일은 파이썬 쪽이 더 안정적이에요</li>
+  </ol></details>
+  <p class="tip warnbox"><b>봇이 멈춰도 장부는 안전하게.</b> 사이트 화면이 바뀌면 봇은 언제든 멈출 수 있어요. 그래서 실패는 반드시 '수집로그'에 실패로 남기고, 주문원장은 봇만 고쳐요. 멈춘 날은 다음 날 봇이 최근 3일을 다시 확인하면서 채우고, 더 길게 멈췄다면 <b>python bot.py --backfill 7</b>처럼 기간을 넣어 다시 모아요.</p>
+  <p class="src">출처: <a href="https://developers.google.com/workspace/sheets/api/quickstart/python?hl=ko" target="_blank" rel="noopener">Google Sheets API 파이썬 빠른 시작</a> · <a href="https://developers.google.com/identity/protocols/oauth2?hl=ko#expiration" target="_blank" rel="noopener">구글 OAuth 토큰 만료(테스트 상태 7일)</a> · <a href="https://playwright.dev/python/docs/codegen" target="_blank" rel="noopener">Playwright 녹화(codegen)</a> · <a href="https://playwright.dev/python/docs/auth" target="_blank" rel="noopener">Playwright 로그인 상태 저장</a> · <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/ScheduledJobs.html" target="_blank" rel="noopener">맥 launchd 예약 실행</a> · <a href="https://github.com/nolze/msoffcrypto-tool" target="_blank" rel="noopener">msoffcrypto-tool</a></p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-bot">맥 봇</span><div class="ad"><b>매일 06:00 주문내역 수집</b><span>맥 launchd가 봇을 깨워 주문내역을 읽고 주문원장에 쌓아요. 매일 최근 3일을 다시 확인해요. 쌓인 주문으로 메뉴·시간대·날씨 분석과 월간 컨설팅을 받는 법은 <a href="#s-l38" class="ref" data-ref="s-l38">강의</a>.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>봇이 멈추면 알림</b><span>수집로그에 실패를 남기고, 자동 점검(<a href="#c-s28" class="ref" data-ref="c-s28">강의</a>)이 하루 공백을 알려요. 로그인이 풀리면 아이폰으로 문자가 와요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>봇을 만들기 전에 주문내역 화면의 열 이름·버튼 위치를 표로 정리.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>봇이 멈춘 날은 크롬 AI로 그날만 읽어 채우기.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>Playwright 봇을 만들고 launchd로 매일 06:00. 로그인 상태 파일은 맥에만.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'08 자동화·연결'이 봇 오류 기록을 읽어 고칠 곳 제안 → 터미널 AI가 수정.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>08 자동화·연결</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>주문내역 수집 봇 부탁문 (로그인 파일·열쇠는 첨부 금지)</span></div><div class="aib-row"><b>세션</b><span>코드를 받은 대화는 그 채팅에 남겨 두세요. 고칠 때 "지난번 코드에서"로 이어서 물을 수 있어요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc s">없어도 돼요</span></div></div><p class="rec-note">봇은 사장님 맥에서 돌아요. AI에는 녹화 코드만.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>파이썬·Playwright·launchd 무료, Google Sheets API도 이 정도 사용량은 무료 범위</li><li>주문원장 → 수식으로 일별·플랫폼 집계</li><li>멈추면 앞 강의처럼 손으로 받아 폴더에 넣기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>포스 배달 연동이나 매출 통합 앱으로 봇 없이 주문 자료 받기</li><li>AI 사용량이 넉넉해 화면이 바뀌었을 때 고치는 대화가 끊기지 않음</li><li>늘 켜 두는 작은 맥(맥 미니)을 매장 서버로</li></ul></div></div>
+</section>
+<section id="s-l38" class="lesson" data-part="auto" data-title="주문 데이터 분석·컨설팅 자동화하기" data-level="adv" data-stage="operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 하루 · 매달 30분</span>
+    <h2>무엇이, 언제, 어떤 날 팔리는지 숫자로 보고 정해요</h2>
+    <p class="goal">주문내역 수집 봇(<a href="#s-l30" class="ref" data-ref="s-l30">강의</a>)이 쌓은 주문에 <b>메뉴</b>와 <b>그날의 조건</b>(요일·공휴일·연휴·날씨·지역 행사·계절)을 붙여요. 장부가 메뉴 순위와 요일·시간대 지도를 저절로 그리고, 매달 AI가 "다음 달에 무엇을 얼마나 준비할지" 컨설팅해 줘요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>메뉴 기록, 달력 자동 채우기, 분석 수식은 모두 무료예요. 월간 컨설팅은 <span data-ai="claude">매달 1일 알림이 오면 한 줄로 부탁해요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 매달 받아요.</span><span data-ai-none>무료 방식으로 받아요.</span></span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>월간 주문 컨설팅을 예약 작업으로 받아요. 몇 달 치 주문도 한 번에 분석할 만큼 사용량이 넉넉해요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="heat" aria-label="요일·시간대별 주문 수 예시"><span></span><span class="hh">11시</span><span class="hh">12시</span><span class="hh">13시</span><span class="hh">17시</span><span class="hh">18시</span><span class="hh">19시</span><span class="hd">월</span><i class="h2 pop" style="--d:0.10s"></i><i class="h5 pop" style="--d:0.13s"></i><i class="h3 pop" style="--d:0.16s"></i><i class="h1 pop" style="--d:0.19s"></i><i class="h3 pop" style="--d:0.22s"></i><i class="h2 pop" style="--d:0.25s"></i><span class="hd">화</span><i class="h2 pop" style="--d:0.10s"></i><i class="h5 pop" style="--d:0.13s"></i><i class="h3 pop" style="--d:0.16s"></i><i class="h1 pop" style="--d:0.19s"></i><i class="h3 pop" style="--d:0.22s"></i><i class="h2 pop" style="--d:0.25s"></i><span class="hd">수</span><i class="h2 pop" style="--d:0.10s"></i><i class="h4 pop" style="--d:0.13s"></i><i class="h3 pop" style="--d:0.16s"></i><i class="h1 pop" style="--d:0.19s"></i><i class="h3 pop" style="--d:0.22s"></i><i class="h2 pop" style="--d:0.25s"></i><span class="hd">목</span><i class="h2 pop" style="--d:0.10s"></i><i class="h5 pop" style="--d:0.13s"></i><i class="h3 pop" style="--d:0.16s"></i><i class="h1 pop" style="--d:0.19s"></i><i class="h4 pop" style="--d:0.22s"></i><i class="h3 pop" style="--d:0.25s"></i><span class="hd">금</span><i class="h3 pop" style="--d:0.10s"></i><i class="h5 pop" style="--d:0.13s"></i><i class="h4 pop" style="--d:0.16s"></i><i class="h2 pop" style="--d:0.19s"></i><i class="h5 pop" style="--d:0.22s"></i><i class="h4 pop" style="--d:0.25s"></i><span class="hd">토</span><i class="h3 pop" style="--d:0.10s"></i><i class="h4 pop" style="--d:0.13s"></i><i class="h4 pop" style="--d:0.16s"></i><i class="h3 pop" style="--d:0.19s"></i><i class="h5 pop" style="--d:0.22s"></i><i class="h5 pop" style="--d:0.25s"></i><span class="hd">일</span><i class="h2 pop" style="--d:0.10s"></i><i class="h3 pop" style="--d:0.13s"></i><i class="h3 pop" style="--d:0.16s"></i><i class="h3 pop" style="--d:0.19s"></i><i class="h5 pop" style="--d:0.22s"></i><i class="h4 pop" style="--d:0.25s"></i></div>
+    <p class="cap a" style="--d:1.2s">예시 · 요일·시간대별 주문 수. 진할수록 많아요. 장부의 조건부 서식으로 이 지도가 매일 다시 그려져요.</p>
+  </div>
+  <div class="msg wide-lab">
+    <div class="from"><span>월간 주문 컨설팅 · 매달 1일 · 예시</span><span>09 배달앱·매장 개선</span></div>
+    <div class="line"><b>시간대</b><span>금·토 18~19시 주문이 평일의 1.7배. 이 시간 알바 1명 추가, 배달앱 광고를 18시 전후로 집중</span></div>
+    <div class="line"><b>날씨</b><span>비 오는 날 배달 주문 +32%, 매장 주문 −25%. 비 예보 전날 로메인 발주를 배달 기준으로</span></div>
+    <div class="line"><b>메뉴</b><span>닭가슴살 볼 + 콤부차가 함께 팔린 주문 41건. 세트로 묶어 대표 메뉴 옆에</span></div>
+    <div class="line alert"><b>다음 달</b><span>12/24~25 연휴, 12/13 ○○동 겨울 축제. 지난해 연휴 직전 단체 주문이 2배 → 단체 주문 안내를 2주 전에</span></div>
+  </div>
+  <h3>1단계 · 주문에 메뉴 붙이기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s38a" data-key="s_s38a"><div class="body"><label for="s_s38a">'주문메뉴' 시트 추가</label><small>주문원장은 주문 한 건이 한 줄이에요. 메뉴 분석을 하려면 주문 안의 메뉴가 한 줄씩 있어야 해요. 매장(포스) 주문도 같은 시트에 모아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' → <span class="path">+</span> → 이름 <b>주문메뉴</b> → A1에 '주문메뉴 제목 줄'</li>
+        <li>플랫폼 칸에는 배민·요기요·쿠팡이츠·매장 중 하나. 고유키는 주문원장과 같은 값(배민-12345)이라 두 시트를 이어 볼 수 있어요</li>
+      </ol><div class="prompt" data-tsv><div class="bar"><span>주문메뉴 제목 줄</span><button class="copy" type="button">복사</button></div><pre>주문일시 | 고유키 | 플랫폼 | 메뉴 | 옵션 | 수량 | 메뉴 금액</pre></div></details></div></li>
+    <li><input type="checkbox" id="s_s38b" data-key="s_s38b"><div class="body"><label for="s_s38b">수집 봇이 메뉴까지 읽게 고치기</label><small>주문내역 수집 봇에 '주문 상세 화면의 메뉴·옵션·수량을 주문메뉴 시트에'를 더해요. 봇 수정은 시스템 변경이니 개선요청에 올리고 승인 후에 해요(<a href="#c-s29" class="ref" data-ref="c-s29">강의</a>).</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 bot.py를 첨부하고 아래 '메뉴 수집 추가 부탁문' 보내기 (손님 정보는 여전히 읽지 않게)</li>
+        <li><b>python bot.py --dry-run</b>으로 메뉴 5줄이 화면과 같은지 확인</li>
+        <li><b>python bot.py --backfill 30</b>을 한 번 더 돌려 지난 30일 메뉴도 채우기<span class="fix">주문 상세를 하나씩 열면 시간이 걸려요. 처음 30일 수집은 밤에 돌려 두세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s38c" data-key="s_s38c"><div class="body"><label for="s_s38c">매장 주문도 합치기</label><small>포스의 상품별 엑셀(<a href="#s-l3" class="ref" data-ref="s-l3">강의</a>)을 '배달앱 받은 파일' 폴더에 넣으면, 반영 스크립트(<a href="#s-l25" class="ref" data-ref="s-l25">강의</a>)가 주문메뉴에 플랫폼 '매장'으로 넣게 해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 포스 상품 엑셀 하나와 반영 스크립트를 첨부하고 "이 파일이 들어오면 주문메뉴 시트에 플랫폼 '매장'으로 넣어줘"</li>
+        <li>매주 포스 상품 엑셀을 폴더에 넣는 루틴에 포함<span class="fix">포스 엑셀에 주문 번호가 없으면 고유키는 '매장-날짜-순번'처럼 AI가 만들어 줘요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>메뉴 수집 추가 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>첨부한 bot.py(배달앱 주문내역 수집 봇)에 메뉴 수집을 더해줘. 바뀐 파일 전체와 바뀐 점 5줄을 줘.
+- 주문마다 상세 화면에서 메뉴 이름, 옵션, 수량, 메뉴 금액을 읽어 '주문메뉴' 시트에 한 메뉴 한 줄로 (열: 주문일시, 고유키, 플랫폼, 메뉴, 옵션, 수량, 메뉴 금액)
+- 같은 고유키의 메뉴 줄이 이미 있으면 지우고 다시 쓰기 (주문 변경·취소 반영). 취소 주문은 주문원장 상태만 보고 분석에서 빼게 두기
+- 손님 이름·전화·주소·요청사항은 여전히 읽지도 저장하지도 마
+- 상세 화면을 여는 사이 2~3초씩 쉬기. --dry-run 은 메뉴 5줄만 화면에 출력</pre></div>
+
+  <h3>2단계 · 그날의 조건 '달력' 자동으로 채우기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s38d" data-key="s_s38d"><div class="body"><label for="s_s38d">'달력' 시트 만들기</label><small>날짜마다 요일, 주말 여부, 공휴일·연휴, 계절, 날씨, 지역 행사를 한 줄씩. 이 시트가 있어야 "비 오는 날", "연휴 전날" 같은 분석이 돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' → <span class="path">+</span> → 이름 <b>달력</b> → A1에 '달력 제목 줄'</li>
+        <li>지역 행사는 자동으로 다 잡히지 않아요. 구청 소식, 근처 학교·회사 행사, 동네 축제를 알게 되면 '메모'에 직접 한 줄</li>
+      </ol><div class="prompt" data-tsv><div class="bar"><span>달력 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 요일 | 주말 | 공휴일·연휴 | 연휴 전날 | 계절 | 최고기온 | 강수량 | 날씨 구분 | 지역 행사 | 메모</pre></div></details></div></li>
+    <li><input type="checkbox" id="s_s38e" data-key="s_s38e"><div class="body"><label for="s_s38e">공휴일·날씨·행사 API 신청</label><small>시세 수집(<a href="#s-l11" class="ref" data-ref="s-l11">강의</a>)에서 가입한 공공데이터포털에서 세 가지를 더 활용신청해요. 인증키는 같은 것을 써요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>data.go.kr 검색 <b>한국천문연구원 특일 정보</b> → 활용신청 (공휴일·대체공휴일)</li>
+        <li>검색 <b>기상청 지상(종관, ASOS) 일자료</b> → 활용신청 (어제 최고기온·강수량). 가게와 가까운 관측소 번호는 AI에게 "○○동에서 가까운 ASOS 관측소 번호"</li>
+        <li>검색 <b>한국관광공사 국문 관광정보 서비스</b> → 활용신청 (지역 축제·행사 일정)</li>
+        <li>마이페이지에서 세 개 모두 '승인'인지 확인 (자동 승인은 보통 바로, 늦으면 1~2일)<span class="fix">날씨 '예보'가 아니라 지난 날의 '실제 날씨'를 기록하는 거예요. 분석은 실제 날씨로, 다음 주 준비는 월요일 브리핑의 예보로 해요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s38f" data-key="s_s38f"><div class="body"><label for="s_s38f">달력 자동 채우기 스크립트</label><small>매일 아침 어제 날씨를 적고, 매달 1일에 다음 두 달의 공휴일·연휴 전날·주변 행사를 미리 채워요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 '달력 자동 채우기 부탁문' 보내기</li>
+        <li>장부 Apps Script에 붙이고 실행 → 권한 허용 → 달력 시트에 올해 줄이 생겼는지 확인</li>
+        <li><span class="path">트리거</span>: 날씨 함수 매일 오전 6~7시, 공휴일·행사 함수 매달 1일, 실패 알림 즉시<span class="fix">인증키는 스크립트 속성(Script Properties)에 넣어 달라고 하세요. 코드에 그대로 적지 않아요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>달력 자동 채우기 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'의 '달력' 시트를 채우는 앱스 스크립트를 만들어줘. 나는 코딩 초보라 붙이는 곳과 트리거까지 순서대로.
+- 열: 날짜, 요일, 주말(예/아니오), 공휴일·연휴(이름), 연휴 전날(예/아니오), 계절(봄 3~5월 등), 최고기온, 강수량, 날씨 구분(맑음·흐림·비·눈·폭염·한파), 지역 행사, 메모
+- 처음 실행: 올해 1월 1일부터 오늘+60일까지 줄 만들기, 요일·주말·계절 채우기
+- 공휴일: 공공데이터포털 '한국천문연구원 특일 정보'(getRestDeInfo)로 매달 1일 다음 두 달 채우기. 공휴일이 이어지는 연휴와 그 전날 표시
+- 날씨: '기상청 지상(종관, ASOS) 일자료'로 매일 아침 어제 최고기온·강수량, 관측소 번호 ○○. 지난 날짜 빈칸도 채우기
+- 행사: '한국관광공사 국문 관광정보 서비스' 행사정보조회로 우리 지역(○○시 ○○구) 행사를 매달 1일 다음 두 달 채우기
+- 인증키는 스크립트 속성 DATA_KEY에서 읽기. '메모' 칸은 절대 덮어쓰지 마. API가 실패하면 그 칸은 비우고 '점검로그'에 한 줄</pre></div>
+
+  <h3>3단계 · 장부가 저절로 그리는 분석판</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s38g" data-key="s_s38g"><div class="body"><label for="s_s38g">'주문분석' 시트 수식 받기</label><small>'01 장부·정산' 채팅에 '주문분석 수식 부탁문'을 보내 표 6개 수식을 받아요. 한 번 붙이면 주문이 쌓일 때마다 저절로 바뀌어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' → <span class="path">+</span> → 이름 <b>주문분석</b></li>
+        <li>AI가 알려 준 칸마다 수식 붙여 넣기 (표마다 위에 제목 한 줄)</li>
+        <li>요일×시간대 표를 드래그 → <span class="path">서식 → 조건부 서식 → 색상 스케일</span> → 흰색에서 초록으로. 위의 지도가 생겨요</li>
+        <li>맨 위 B1에 기간(예: 최근 90일)을 바꿀 수 있는 칸을 두면 시즌별로 바꿔 볼 수 있어요<span class="fix">#REF!나 #N/A가 나오면 그 칸의 수식과 오류를 그대로 AI에게 보내 "고쳐줘".</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s38h" data-key="s_s38h"><div class="body"><label for="s_s38h">휴대폰으로 보는 화면 (선택)</label><small>대시보드(<a href="#c-l62" class="ref" data-ref="c-l62">강의</a>)에 메뉴 순위 상위 5개와 이번 주 피크 시간대 카드를 더하면 아침에 한 화면으로 봐요. Looker Studio를 쓰면 요일·시간대 지도를 그래프로 볼 수 있어요.</small></div></li>
+  </ol>
+  <div class="table-wrap"><table>
+    <thead><tr><th>표</th><th>알 수 있는 것</th><th>바로 쓰는 곳</th></tr></thead>
+    <tbody>
+      <tr><td><b>메뉴 순위</b></td><td>수량·매출 순위, 플랫폼별 순위 차이</td><td>배달앱 대표 메뉴, 메뉴 원가 점검(<a href="#s-l35" class="ref" data-ref="s-l35">강의</a>)</td></tr>
+      <tr><td><b>요일 × 시간대</b></td><td>피크와 한가한 시간</td><td>근무표, 배달앱 광고 시간, 재료 손질 시각</td></tr>
+      <tr><td><b>주말·평일, 공휴일·연휴</b></td><td>연휴 전날과 연휴 당일 차이</td><td>휴무일 정하기, 연휴 전 단체 주문 안내</td></tr>
+      <tr><td><b>날씨</b></td><td>비·폭염·한파일 때 배달·매장 비율과 메뉴</td><td>비 예보 전날 발주량, 따뜻한 메뉴 시작 시점</td></tr>
+      <tr><td><b>계절·월</b></td><td>메뉴별 계절 흐름, 작년 같은 달</td><td>계절 메뉴 출시·종료 시기</td></tr>
+      <tr><td><b>함께 팔린 메뉴</b></td><td>한 주문에 자주 같이 담긴 조합</td><td>세트 구성, 추가 메뉴 추천</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prompt"><div class="bar"><span>주문분석 수식 부탁문 · 장부 과장</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'에 '주문분석' 시트를 수식으로 만들어줘. 나는 엑셀 초보라 붙일 칸까지 알려줘.
+시트: 주문원장(주문일시, 주문번호, 플랫폼, 주문금액, 할인금액, 고객 결제액, 배달비, 수수료, 정산액, 주문상태, 최종 확인일, 고유키), 주문메뉴(주문일시, 고유키, 플랫폼, 메뉴, 옵션, 수량, 메뉴 금액), 달력(날짜, 요일, 주말, 공휴일·연휴, 연휴 전날, 계절, 최고기온, 강수량, 날씨 구분, 지역 행사, 메모)
+B1에 분석 기간(일수)을 넣으면 그 기간만 계산. 취소 주문은 빼기.
+1) 메뉴 순위: 메뉴별 수량·매출, 플랫폼별 열
+2) 요일 × 시간대(11~21시) 주문 수 표
+3) 평일 / 주말 / 공휴일·연휴 / 연휴 전날 하루 평균 주문 수·매출
+4) 날씨 구분별 하루 평균 주문 수, 배달·매장 비율
+5) 월별·계절별 메뉴 상위 5개
+6) 함께 팔린 메뉴 쌍 상위 10개 (같은 고유키 안의 메뉴 조합)
+QUERY, FILTER, COUNTIFS 위주로, 조건부 서식 방법도.</pre></div>
+
+  <h3>4단계 · 매달 주문 컨설팅 받고, 다음 달 준비하기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s38i" data-key="s_s38i"><div class="body"><label for="s_s38i">월간 주문 컨설팅</label><small>'09 배달앱·매장 개선' 채팅에서 아래 '월간 주문 컨설팅 지시문'으로 매달 1일 받아요. 나온 제안은 '제안기록'에 적고 실행해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span data-plan-not="free">유료: 지시문 맨 앞에 "매달 1일 오전 9시에"를 붙여 예약 작업으로</span><span data-plan-not="paid"><span data-ai="claude">Claude 무료: 지시문을 한 번 보내 두고, 매달 1일 알림이 오면 "이번 달 주문 컨설팅 해줘"</span><span data-ai-not="claude">ChatGPT 무료: "매달 1일 아침에" + 지시문으로 예약 작업</span></span></li>
+        <li><span data-ai-not="gpt">Claude는 Google Drive 커넥터로 장부를 직접 읽어요</span><span data-ai="gpt">ChatGPT에 장부를 엑셀로 올려 쓰면 컨설팅 전날 최신 장부로 바꿔 올리기</span></li>
+        <li>제안 중 이번 달 할 것 1~2개를 '제안기록'에, 연휴·행사 준비는 캘린더에<span class="fix">주문 수가 적은 달은 결론이 흔들려요. 석 달 이상 쌓인 뒤 판단하고, AI가 "자료가 적다"고 하면 그대로 믿으세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s38j" data-key="s_s38j"><div class="body"><label for="s_s38j">다른 자동화에 연결하기</label><small>분석 결과를 다른 강의의 자동화가 쓰게 하면, 사장님이 따로 옮기지 않아도 돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>재고·발주(<a href="#c-l76" class="ref" data-ref="c-l76">강의</a>): 발주 메일 부탁문에 "달력의 다음 날 날씨 구분·연휴를 보고 최소 재고를 조정"을 덧붙이기</li>
+        <li>근무표(<a href="#c-l6" class="ref" data-ref="c-l6">강의</a> 인사 담당): "주문분석의 요일×시간대 피크에 맞춰 다음 주 근무표 초안"</li>
+        <li>인스타그램(<a href="#c-l27" class="ref" data-ref="c-l27">강의</a>): 월간 계획 부탁문에 "주문분석 메뉴 순위 상위 3개와 다음 달 연휴·행사를 반영"</li>
+        <li>월요일 브리핑(<a href="#c-l41" class="ref" data-ref="c-l41">강의</a>): "지난주 메뉴 순위 변화와 이번 주 연휴·행사·비 예보" 한 줄</li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>월간 주문 컨설팅 지시문 · 매장 컨설턴트</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'의 주문원장·주문메뉴·달력·주문분석 시트로 지난달 주문 컨설팅을 해줘. 휴대폰 두 화면 이내로, 숫자 근거를 붙여서.
+1) 메뉴: 많이 팔린 메뉴, 떨어진 메뉴, 플랫폼마다 다른 1위. 원가 경보가 걸린 메뉴(메뉴원가 탭)는 따로 표시
+2) 시간: 요일·시간대 피크와 한가한 시간. 근무 인원, 배달앱 광고 시간, 재료 손질 시각 제안
+3) 날·날씨: 주말·공휴일·연휴 전날·비 오는 날·더운 날 차이와 그날 잘 팔린 메뉴
+4) 계절: 작년 같은 달과 비교(자료가 있으면), 계절 메뉴를 시작·끝낼 때인지
+5) 다음 달 준비: 달력의 연휴·지역 행사를 보고 날짜별로 준비할 것(재료량, 인원, 단체 주문 안내, 인스타 게시)
+6) 이번 달 할 일 2개: 바로 할 수 있는 행동, 예상 효과
+자료가 부족한 결론은 '자료 부족'이라고 쓰고 추측하지 마.</pre></div>
+  <p class="tip warnbox"><b>손님 정보 없이도 충분해요.</b> 이 분석은 시간·메뉴·금액·날의 조건만 써요. 손님 이름·주소·전화로 "누가 자주 시키나"를 만들지 마세요. 단골 관리는 동의를 받은 단골 명단(<a href="#c-l58" class="ref" data-ref="c-l58">강의</a>)으로만 해요.</p>
+  <p class="src">출처: <a href="https://data.go.kr/dataset/15012690/openapi.do" target="_blank" rel="noopener">한국천문연구원 특일 정보 API</a> · <a href="https://www.data.go.kr/tcs/dss/selectDataSetList.do?keyword=ASOS%20%EC%9D%BC%EC%9E%90%EB%A3%8C" target="_blank" rel="noopener">기상청 ASOS 일자료 API 검색</a> · <a href="https://www.data.go.kr/tcs/dss/selectDataSetList.do?keyword=%EA%B5%AD%EB%AC%B8%20%EA%B4%80%EA%B4%91%EC%A0%95%EB%B3%B4" target="_blank" rel="noopener">한국관광공사 국문 관광정보 API 검색</a> · <a href="https://support.google.com/docs/answer/78413?hl=ko" target="_blank" rel="noopener">구글 시트 조건부 서식</a></p>
+<div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-bot">맥 봇</span><div class="ad"><b>매일 06:00 주문 + 메뉴 수집</b><span>수집 봇이 주문원장과 주문메뉴를 함께 채워요. 매장 주문은 포스 엑셀이 폴더에 들어오면 반영 스크립트가 합쳐요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>달력 자동 채우기</b><span>매일 아침 어제 날씨, 매달 1일 다음 두 달 공휴일·연휴·지역 행사. 메모 칸만 사람이.</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>분석판은 저절로</b><span>주문이 쌓이면 메뉴 순위·요일×시간대 지도·날씨별 표가 바로 다시 계산돼요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 1일 주문 컨설팅</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 1일 오전 9시 예약 작업이 지난달 분석과 다음 달 준비 목록을 보내요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i><span data-ai="claude">Claude 무료는 예약 작업이 없어요. 매달 1일 아침 휴대폰 반복 알림이 울리면 그 채팅에 한 줄 보내요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 매달 1일 아침 받아요. 시간은 대략적으로 정해지고 동시에 3개까지예요.</span><span data-ai-none>Claude 무료는 매달 1일 아침 휴대폰 알림 + 한 줄, ChatGPT 무료는 예약 작업(하루 1번 이하, 3개까지)으로 받아요.</span></span></span></div></li><li><span class="chip k-tip">요령</span><div class="ad"><b>다른 자동화가 분석을 쓰게</b><span>발주·근무표·인스타 계획·월요일 브리핑 지시문에 분석 시트를 읽으라는 한 줄을 덧붙여요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>지역 행사·날씨 사이트를 읽어 달력 탭에 행사 표시.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>배달앱 메뉴 화면을 읽어 메뉴 이름 기준표 정리.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>주문원장 → 분석판 계산, 매달 1일 리포트 파일.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'09'가 리포트 해설·다음 달 메뉴 제안 → 승인함.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>09 배달앱·매장 개선</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>월간 주문 컨설팅 지시문 (수식·스크립트는 01·08 채팅)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">주문 분석 보고</span><span class="rc s">엑셀</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>주문·메뉴 수집 봇, 공공데이터 API 3종, 구글 시트 수식·조건부 서식 모두 무료</li><li>월간 컨설팅은 알림 + 한 줄</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>월간 컨설팅 예약 작업과 넉넉한 분석 사용량</li><li>포스·배달 통합 분석 서비스로 수집 없이 메뉴·시간대 통계</li><li>Looker Studio 대신 유료 BI 도구</li></ul></div></div>
+</section>

@@ -1,0 +1,39 @@
+<section id="c-l58" class="lesson" data-part="crm" data-title="단골·이탈 분석" data-level="grow" data-stage="operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 분기마다 약 1시간</span>
+    <h2>"요즘 안 오시는 분"을 숫자로 찾기</h2>
+    <p class="goal"><span data-biz="vet">차트에서 내보낸 내원 목록(이름·연락처를 지운 것)을 AI에게 주면, 재방문율, 1년 넘게 안 온 아이, 종·나이별 진료 패턴을 정리해 줘요.</span><span data-biz-not="vet">예약·결제 프로그램에서 내보낸 {{visit}} 목록(이름·연락처를 지운 것)을 AI에게 주면, 재방문율, 1년 넘게 안 온 {{customer}}, 많이 찾는 {{item}} 패턴을 정리해 줘요.</span> 이 결과가 블로그 주제와 재방문 안내의 우선순위가 돼요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>파일 크기 제한이 있어요. 1년 치를 한 번에 올리기 어려우면 석 달씩 나눠 올리세요.</span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span><span data-ai-not="gpt">Claude는 올린 엑셀을 직접 계산해 표와 그래프로 보여 줘요.</span><span data-ai="gpt">ChatGPT는 올린 엑셀을 직접 계산해 표와 그래프로 보여 줘요.</span> 1년 치도 한 번에 돼요.</span></p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>이탈 분석은 인수 전·후 비교로. 주인이 바뀐 뒤 끊긴 단골이 누구인지(<span data-biz="vet">차트 번호</span><span data-biz-not="vet">고객번호</span>로).</span></p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a58a" data-key="v_a58a"><div class="body"><label for="v_a58a"><span data-biz="vet">차트에서 내원 목록 내보내기</span><span data-biz-not="vet">쓰는 프로그램에서 {{visit}} 목록 내보내기</span></label><small data-biz="vet">필요한 칸: 고객번호, 종, 나이, 내원일, 진료 항목(대분류), 진료비. 차트 회사에 "이 칸으로 엑셀 내보내기" 방법을 물어보세요.</small><small data-biz-not="vet">필요한 칸: 고객번호, 방문·주문일, {{item}} 항목(대분류), 금액. 예약·POS·배달앱 같은 쓰는 프로그램 회사에 "이 칸으로 엑셀 내보내기" 방법을 물어보세요. 프로그램이 없으면 장부를 그대로 써도 돼요.</small></div></li>
+    <li><input type="checkbox" id="v_a58b" data-key="v_a58b"><div class="body"><label for="v_a58b">개인정보 칸 지우기</label><small>엑셀에서 {{customer}} 이름·전화·주소<span data-biz="vet">·아이 이름</span> 열을 <b>삭제</b>(숨기기 말고)한 뒤 다른 이름으로 저장. 이 파일만 AI에 올려요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>지울 열 머리(알파벳)를 눌러 선택 → 오른쪽 클릭 → <span class="path">열 삭제</span></li>
+        <li><span class="path">파일 → 다른 이름으로 저장</span> → 이름 끝에 '_AI용'</li>
+        <li>올리기 전 한 번 더 훑어보기: 메모 칸에 전화번호가 적혀 있는 경우가 있어요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a58c" data-key="v_a58c"><div class="body"><label for="v_a58c">'06 성과 분석'에 분석 부탁</label><small>아래 부탁문. 결과 중 '이탈 위험 고객번호 목록'은 재방문 탭에 옮겨 연락 대상으로.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>단골·이탈 분석 부탁문</span><button class="copy" type="button">복사</button></div><pre><span data-biz="vet">첨부한 내원 목록(개인정보 지운 파일)을 분석해 줘. 기준일 ○○.
+1) 고객번호별 첫 내원일, 마지막 내원일, 내원 횟수, 총 진료비
+2) 재방문율: 첫 내원 뒤 6개월 안에 다시 온 비율, 종별(개/고양이)
+3) 이탈 위험: 마지막 내원이 12개월이 넘은 고객번호 목록과 마지막 진료 항목
+4) 종·나이대별로 많은 진료 항목 상위 5개 → 블로그 주제 후보 5개
+5) 요일·시간대 붐비는 때(내원일에 시간이 있으면)</span><span data-biz-not="vet">첨부한 {{visit}} 목록(개인정보 지운 파일)을 분석해 줘. 기준일 ○○.
+1) 고객번호별 첫 방문일, 마지막 방문일, 방문 횟수, 총 금액
+2) 재방문율: 첫 방문 뒤 6개월 안에 다시 온 비율
+3) 이탈 위험: 마지막 방문이 12개월이 넘은 고객번호 목록과 마지막 {{item}} 항목
+4) 많이 찾는 {{item}} 항목 상위 5개 → 블로그 주제 후보 5개
+5) 요일·시간대 붐비는 때(방문일에 시간이 있으면)</span>
+계산은 파일로 직접 하고, 계산 방법을 짧게 보여 줘. 파일에 없는 건 추측하지 마. 결과에 이름·연락처가 보이면 바로 알려 줘.</pre></div>
+  <p class="tip warnbox"><b>원본 파일은 AI에 올리지 마세요.</b> {{customer}} 이름·연락처가 들어 있는 원본은 <span data-biz="vet">차트</span><span data-biz-not="vet">쓰는 프로그램</span>와 {{place}} PC 안에만. AI·구글 드라이브에는 '_AI용' 파일만 둬요.</p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>매일 밤 _AI용 파일</b><span><span data-biz="vet">차트</span><span data-biz-not="vet">프로그램</span> 내보내기 파일에서 이름·연락처를 지운 '_AI용' 파일을 자동화 컴퓨터 폴더에서 만들어요. 원본은 그 컴퓨터 밖으로 나가지 않게<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>다시 오게 할 방법</b><span>이탈 분석 제안 중 이번 달 할 것.</span><span class="pv">버튼: 1 / 2 / 3</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "<span data-biz="vet">차트 화면</span><span data-biz-not="vet">고객 명단 화면</span>은 맡기지 않기" 부탁: {{customer}} 정보가 보이는 <span data-biz="vet">차트 화면</span><span data-biz-not="vet">고객 명단 화면</span>은 브라우저 AI에 보여 주지 않아요. 내보낸 '_AI용' 파일만. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>해당 사이트</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: <span data-biz="vet">차트 내보내기</span><span data-biz-not="vet">고객 명단 내보내기</span> CSV에서 이름·연락처 지우는 스크립트(자동화 컴퓨터 안에서만).</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '06 성과 분석' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: '_AI용' 파일만 이 채팅에</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>'_AI용' 파일만 이 채팅에</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "분쟁 2026-12 {{customer}} A"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">개인정보 지운 '_AI용' 파일만.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>석 달씩 나눠 분석</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>1년 치 한 번에, 그래프까지</li></ul></div></div>
+</section>

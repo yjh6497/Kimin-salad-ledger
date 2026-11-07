@@ -1,0 +1,40 @@
+<section id="c-l36" class="lesson" data-part="kakao" data-title="1:1 채팅과 자동응답" data-level="core" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 40분</span>
+    <h2>바쁜 시간에도 카톡 문의가 멈추지 않게</h2>
+    <p class="goal">카톡 채팅은 {{customer:가}} 가장 편하게 묻는 창구라서, {{open}}하면 하루 수십 건이 와요. <b>답변 시간 안내, 자주 묻는 질문 자동응답, <span data-biz="vet">진단하지 않는 답장 틀</span><span data-biz-not="vet">함부로 약속하지 않는 답장 틀</span></b> 세 가지를 먼저 세워 두면 실장님 한 명이 감당할 수 있어요.</p>
+  </div>
+  <div class="vis">
+    <div class="chat">
+      <div class="bubble me a" style="--d:.2s" data-biz="vet"><span class="who">{{customer}}</span>(사진) 아이가 어제부터 밥을 안 먹어요. 괜찮을까요?</div>
+      <div class="bubble ai a" style="--d:1s" data-biz="vet"><span class="who">{{place}} · 답장 틀 예시</span>걱정되시죠. 사진과 글만으로는 상태를 판단하기 어려워서 진료를 권해 드려요. 오늘 저녁 7시까지 진료해요. 숨을 힘들게 쉬거나, 구토가 계속되거나, 기운 없이 누워만 있으면 기다리지 말고 바로 전화 주세요. 📞 ○○○-○○○○</div>
+      <div class="bubble me a" style="--d:.2s" data-biz-not="vet"><span class="who">{{customer}}</span>(사진) 이런 느낌으로 오늘 가능할까요? 가격은 얼마예요?</div>
+      <div class="bubble ai a" style="--d:1s" data-biz-not="vet"><span class="who">{{place}} · 답장 틀 예시</span>사진 보내 주셔서 고마워요. 정확한 가능 여부와 금액은 확인하고 30분 안에 다시 알려 드릴게요. 오늘은 저녁 7시까지 열어요. 급하시면 바로 전화 주세요. 📞 ○○○-○○○○</div>
+    </div>
+    <p class="cap a" style="--d:1.6s" data-biz="vet">친절하게, 하지만 진단은 진료실에서. 응급 신호는 꼭 같이.</p>
+    <p class="cap a" style="--d:1.6s" data-biz-not="vet">친절하게, 하지만 확인 안 된 약속은 하지 않기. 급한 일은 전화로.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a36a" data-key="v_a36a"><div class="body"><label for="v_a36a">채팅 켜고 상담 가능 시간 정하기</label><small>관리자센터 <span class="path">채팅 → 채팅 설정</span>(이름은 바뀔 수 있어요)에서 1:1 채팅을 켜고, 답변 가능 시간을 {{hours:과}} 맞춰요. 시간 밖에 온 채팅엔 "내일 아침 답장, 급하면 전화" 안내가 가게.</small></div></li>
+    <li><input type="checkbox" id="v_a36b" data-key="v_a36b"><div class="body"><label for="v_a36b">자동응답·웰컴 메시지</label><small>친구 추가 때 가는 <b>웰컴 메시지</b>(최대 400자, 버튼 2개)에 {{hours}}·예약·<span data-biz="vet">응급</span><span data-biz-not="vet">급한 문의</span> 안내. 자주 묻는 질문은 키워드 자동응답으로({{hours}}, 주차, 예약, <span data-biz="vet">진료비 문의, 응급</span><span data-biz-not="vet">가격 문의, 급한 문의</span>).</small></div></li>
+    <li><input type="checkbox" id="v_a36c" data-key="v_a36c"><div class="body"><label for="v_a36c">답장 틀 만들기</label><small>아래 부탁문으로 받아 관리자 앱의 <span class="path">자주 쓰는 답변</span>(저장된 답변)에 넣어요. 인스타 DM 틀(<a href="#c-l28" class="ref" data-ref="c-l28">강의</a>)과 같은 원칙이에요.</small></div></li>
+    <li><input type="checkbox" id="v_a36d" data-key="v_a36d"><div class="body"><label for="v_a36d">어려운 채팅은 AI에게 초안</label><small>항의·긴 상담은 채팅 내용을 복사해({{customer}} 이름·번호 빼고) '05 상담·응대' 채팅에 붙여 답장 초안을 받아요.</small></div></li>
+    <li><input type="checkbox" id="v_a36e" data-key="v_a36e"><div class="body"><label for="v_a36e">채팅 담당과 규칙 정하기</label><small>담당 실장님 한 명, 답장 목표 시간(예: {{hours}} 안 30분), <span data-biz="vet">진료 내용 상담은</span><span data-biz-not="vet">가격·일정 약속처럼 중요한 답은</span> {{owner}} 확인 후. 직원은 관리자센터 <span class="path">관리자 초대</span>로 권한을 주고 퇴사 날 지워요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>카톡 답장 틀 부탁문</span><button class="copy" type="button">복사</button></div><pre>{{place}} 소개서를 보고 카카오톡 채널 1:1 채팅용 답장 틀 8개를 써 줘. 각각 제목(6자 안쪽)과 4줄 이내 답장.
+<span data-biz="vet">1) 사진 보고 판단해 달라는 문의 → 판단 어려움, 진료 권유, 응급 신호
+2) 진료비 문의 → 진료비 게시표에 있는 항목만 그 금액, 나머지는 진료 후 안내</span><span data-biz-not="vet">1) 사진 보내며 가능한지 묻는 문의 → 확인 후 답장 시각 안내, 확인 안 된 약속은 하지 않기
+2) 가격 문의 → 가격표에 있는 것만 그 금액, 나머지는 확인 후 안내</span>
+3) 예약 문의 → 네이버 예약 링크 자리 / 전화
+4) {{hours}}·<span data-biz="vet">휴진</span><span data-biz-not="vet">쉬는 날</span>
+5) 주차·찾아오는 길
+6) <span data-biz="vet">검사 결과·약 복용 문의</span><span data-biz-not="vet">주문·작업 진행 상황 문의</span> → {{owner}} 확인 후 연락드림
+7) 불만 → 사과, 사실 확인 요청, 전화 연락 제안
+8) 답변 시간 밖 자동 안내 → 다음 답장 시각, <span data-biz="vet">응급은 전화·가까운 24시 {{place}}</span><span data-biz-not="vet">급한 일은 전화</span>
+과장·할인 약속 없이, 따뜻하게. 웰컴 메시지 400자 안쪽 1안도.</pre></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">자동응답</span><div class="ad"><b>자주 묻는 질문은 카카오가</b><span>{{hours}}·주차 같은 질문은 키워드 자동응답이 바로 답해요. 비용 없음.</span></div></li><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>답장 말투 고정</b><span>'05 상담·응대'에 실장님 답장 3개를 보여 주고 "이 말투로"라고 해 두세요.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>자동응답 문구 승인</b><span>바꾼 자동응답·키워드 응답 문구.</span><span class="pv">버튼: 승인 / 수정</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "자동응답 문구 입력" 부탁: 승인한 자동응답·키워드 응답을 칸마다 입력. 저장·제출 버튼 앞에서 멈추게 해요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>business.kakao.com</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 자주 묻는 질문 목록 → 자동응답·키워드 응답 문구 파일.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '05 상담·응대' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 카톡 답장 틀 8개 → 이 채팅 첫 메시지</span></div></div>
+      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>카톡 답장 틀 8개 → 이 채팅 첫 메시지</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{customer}} 안내 문구</span></div></div><p class="rec-note">카톡 채널도 공식 커넥터가 없어 복사·붙여 넣기로.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>1:1 채팅·웰컴 메시지·자동응답 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>문의가 아주 많아지면 상담톡·챗봇 서비스(딜러사, 유료)</li></ul></div></div>
+</section>

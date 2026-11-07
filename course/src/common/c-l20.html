@@ -1,0 +1,37 @@
+<section id="c-l20" class="lesson" data-part="blog" data-title="블로그 열기와 키워드" data-level="core" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · PC</span>
+    <h2>{{customer:가}} 검색하는 질문에 답하는 블로그</h2>
+    <p class="goal"><span data-biz="vet">"강아지 슬개골 탈구 수술 비용", "고양이 구토 노란색"</span><span data-biz-not="vet">"{{ex_keyword}}", "{{ex_faq}}"</span> 같은 검색에 우리 {{place}} 글이 나오면, 그 {{customer:가}} 동네 사람일 때 {{visit:으로}} 이어져요. 블로그는 <b>{{customer}} 질문에 대한 답 모음</b>으로 운영해요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>새 블로그 첫 글은 '{{owner:이}} 바뀌었어요, {{work:은}} 그대로 이어져요'.</span></p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a20a" data-key="v_a20a"><div class="body"><label for="v_a20a">블로그 열고 기본 설정</label><small>이름·별명·소개글·이미지는 앞 강의(<a href="#c-l19" class="ref" data-ref="c-l19">강의</a>)의 인터뷰 결과를 그대로 넣어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>{{place}} 아이디로 <span class="path">blog.naver.com</span> → 내 블로그</li>
+        <li><span class="path">관리 → 기본 설정 → 블로그 정보</span>: 블로그명 '{{shopname}} <span data-biz="vet">진료</span><span data-biz-not="vet">{{item}}</span> 이야기', 별명 '{{shopname}} <span data-biz="vet">원장</span><span data-biz-not="vet">{{owner}}</span> ○○○', 소개글 두 줄(동네·주요 {{item}}·{{hours}})</li>
+        <li>프로필 사진은 {{place}} 로고 또는 {{owner}} 사진</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a20b" data-key="v_a20b"><div class="body"><label for="v_a20b">카테고리 5개</label><small>예: {{place}} 소개·공지 / <span data-biz="vet">강아지 건강 / 고양이 건강 / 예방접종·검진 / 진료 이야기</span><span data-biz-not="vet">{{item}} 소개 / 자주 묻는 질문 / 철마다 이야기 / {{place}} 일상</span>. 아래 부탁문으로 우리 {{place}}에 맞게 받으세요.</small></div></li>
+    <li><input type="checkbox" id="v_a20c" data-key="v_a20c"><div class="body"><label for="v_a20c">글 주제 키워드 30개 모으기</label><small>네이버 검색광고 키워드 도구와 <dfn data-t="datalab">네이버 데이터랩</dfn>에서 {{customer}} 질문형 검색어를 찾아 장부 키워드 탭에 적어요. {{open}} 전에 30개면 반년 치 주제예요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>키워드 도구에 <span data-biz="vet">"강아지 예방접종", "고양이 중성화", "노령견"</span><span data-biz-not="vet">"{{ex_keyword}}", 대표 {{item}} 이름</span> 같은 큰 말을 넣고 연관 키워드 목록을 캡처</li>
+        <li><span class="path">datalab.naver.com → 검색어트렌드</span>에서 계절별로 오르는 말(예: <span data-biz="vet">진드기, 열사병</span><span data-biz-not="vet">{{ex_season}}</span>) 확인</li>
+        <li>캡처를 '02 블로그 작가'에게 보내고 아래 '키워드 고르기' 부탁문</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a20d" data-key="v_a20d"><div class="body"><label for="v_a20d">플레이스와 블로그 서로 잇기</label><small>스마트플레이스 업체정보의 '홈페이지·블로그' 칸에 블로그 주소, 블로그 프로필에 플레이스(네이버 지도) 주소를 넣어요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>카테고리·키워드 고르기 부탁문</span><button class="copy" type="button">복사</button></div><pre>{{place}} 소개서와 첨부한 키워드 캡처를 보고:
+1) 네이버 블로그 카테고리 5개 (이름 10자 안쪽, 각 카테고리에 쓸 글 예시 2개)
+2) 글 주제 키워드 30개를 표로: 키워드 | {{customer:가}} 궁금한 것(질문 형태) | 계절 | 우리 {{place}} {{item:과}} 맞음(상/중/하) | 카테고리
+- 우리 {{place:이}} 실제로 하는 {{item:과}} 맞는 것 위주로
+- 동네 이름이 들어간 키워드 5개 포함
+- 장부 키워드 탭에 붙여 넣을 수 있게 탭으로 구분</pre></div>
+  <p class="tip warnbox"><b>'최적화 블로그'를 사거나 빌리지 마세요.</b> 업체가 파는 오래된 블로그·블로그 임대는 네이버 이용약관 위반으로 제한될 수 있고, 다른 사람이 쓴 글이 우리 {{place}} 이름으로 남아요. 새 블로그도 {{customer}} 질문에 성실히 답하면 몇 달 안에 검색에 나와요.</p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">예약 발행</span><div class="ad"><b>화·목 아침 발행</b><span>글쓰기 화면 발행 → 예약으로 {{customer:가}} 많이 보는 시간에.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>안 쓴 키워드</b><span>키워드 표에서 '글 쓴 날'이 비어 있으면 노랗게.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>이번 달 키워드</b><span>후보 키워드를 하나씩.</span><span class="pv">버튼: 쓰기 / 빼기</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "검색어 흐름 읽기" 부탁: 네이버 데이터랩 결과 화면의 검색어 순위·추이를 표로. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>datalab.naver.com</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 데이터랩 결과 CSV → 이번 달 키워드 표.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '02 블로그 작가' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 키워드 30개 → 장부 키워드 탭</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>02 블로그 작가</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>키워드 30개 → 장부 키워드 탭</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">블로그 글</span></div></div><p class="rec-note">키워드 캡처는 드라이브 '블로그' 폴더에.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>블로그·데이터랩·키워드 도구 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>키워드 캡처 여러 장을 한 번에 분석</li></ul></div></div>
+</section>

@@ -1,0 +1,76 @@
+<section id="c-l96" class="lesson" data-part="build" data-title="인테리어·동선·기구 배치" data-level="grow" data-stage="prep takeover" data-biz-not="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절 · 인테리어 업체 미팅 전</span>
+    <h2>업체를 만나기 전에, {{owner}} 머릿속 {{place:을}} 그려 두기</h2>
+    <p class="goal">인테리어 업체는 '예쁜 {{place}}'을 잘 만들지만, <span data-biz="vet">진료 동선과 감염 관리는</span><span data-biz-not="vet">일하는 동선과 위생·정리는</span> {{owner:이}} 제일 잘 알아요. AI 인터뷰로 <b><span data-biz="vet">진료 흐름·장비·인원·동물 종류</span><span data-biz-not="vet">일의 흐름·장비·인원·{{customer}} 수</span></b>를 정리하고, 구역 배치 스케치와 무드보드, 업체에 줄 요구사항서까지 만들어요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>전체 공사 대신 '고칠 곳 목록'부터. 지금 배치 사진·평면도로 동선 문제와 시설 기준을 점검해요.</span></p>
+
+  <div class="vis" data-biz="vet">
+    <div class="zones" aria-label="{{biz}} 구역 흐름 예시">
+      <div class="zn a" style="--d:.1s"><b>입구·접수</b><span>체중계, 이동장 내려놓는 선반</span></div>
+      <div class="zn a" style="--d:.2s"><b>대기</b><span>개·고양이 자리 나누기</span></div>
+      <div class="zn a" style="--d:.3s"><b>진료실</b><span>진료대, {{customer}} 의자, 모니터</span></div>
+      <div class="zn a" style="--d:.4s"><b>처치·검사</b><span>무영등, 소독장비, 영상 장비</span></div>
+      <div class="zn a warn" style="--d:.5s"><b>격리</b><span>전염 의심 환자 따로</span></div>
+      <div class="zn a" style="--d:.6s"><b>수술·입원</b><span>청결 동선, 환기, 소음</span></div>
+      <div class="zn a" style="--d:.7s"><b>조제·직원</b><span>조제실 구획, 직원 휴게</span></div>
+    </div>
+    <p class="cap a" style="--d:.9s">예시 흐름이에요. 실제 배치는 면적·건물 구조·장비에 따라 달라요.</p>
+  </div>
+  <div class="vis" data-biz-not="vet">
+    <div class="zones" aria-label="{{biz}} 구역 흐름 예시">
+      <div class="zn a" style="--d:.1s"><b>입구</b><span>간판, 문 앞 안내, 우산·짐 둘 곳</span></div>
+      <div class="zn a" style="--d:.2s"><b>맞이·카운터</b><span>계산, 포장, {{customer}} 응대</span></div>
+      <div class="zn a" style="--d:.3s"><b>진열·상담</b><span>대표 {{item}} 보이는 자리, 앉을 곳</span></div>
+      <div class="zn a" style="--d:.4s"><b>작업 공간</b><span>작업대, 물·전기 쓰는 자리</span></div>
+      <div class="zn a" style="--d:.5s"><b>보관</b><span>{{stockitem}} 보관, 받는 동선</span></div>
+      <div class="zn a" style="--d:.6s"><b>직원</b><span>옷 갈아입는 곳, 쉬는 자리</span></div>
+    </div>
+    <p class="cap a" style="--d:.9s">예시 흐름이에요. 실제 배치는 면적·건물 구조·장비에 따라 달라요.</p>
+  </div>
+  <h3 data-biz="vet">법에서 정한 최소 시설 (조회 확인)</h3>
+  <h3 data-biz-not="vet">시설 기준은 먼저 확인</h3>
+  <div class="table-wrap" data-biz="vet"><table>
+    <thead><tr><th>시설</th><th>수의사가 개설할 때 기준</th></tr></thead>
+    <tbody>
+      <tr><td><b>진료실</b></td><td>진료대 등 진료에 필요한 기구·장비</td></tr>
+      <tr><td><b>처치실</b></td><td>치료·수술에 필요한 진료용 무영조명등, 소독장비 등(진료실과 함께 써도 됨)</td></tr>
+      <tr><td><b>조제실</b></td><td>약제기구, 다른 장소와 구획</td></tr>
+      <tr><td><b>그 밖의 시설</b></td><td>청결 유지·위생관리에 필요한 수도시설·장비</td></tr>
+      <tr><td><b>건물</b></td><td>독립된 건물이거나 다른 시설과 벽·층으로 분리(동물보호법상 허가·등록 영업장과 함께 있는 경우 예외)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap" data-biz="vet">근거: 수의사법 시행규칙 별표 1 「{{biz}}의 세부 시설기준」(2024. 4. 25. 개정) — 법령 MCP로 2026. 11. 7. 조회. 방사선 장비는 설치 신고·안전관리 기준(<a href="#v-l71" class="ref" data-ref="v-l71">강의</a>)을, 건물 용도는 건축물대장을 업체·도우미와 같이 확인해요.</p>
+  <p class="cap" data-biz-not="vet">업종마다 영업 신고·위생·소방 시설 기준이 따로 있어요. 우리 업종에 맞는 규정은 법령 MCP로 확인하고, 건물 용도는 건축물대장을 업체·도우미와 같이 확인해요.</p>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a96a" data-key="v_a96a"><div class="body"><label for="v_a96a">① <span data-biz="vet">진료</span><span data-biz-not="vet">일</span> 흐름 인터뷰</label><small>아래 '인테리어 인터뷰' 부탁문. <span data-biz="vet">하루 예상 내원 수, 수술 비중, 입원 칸 수, 미용 여부, 고양이 비율, 장비 목록, 직원 수를</span><span data-biz-not="vet">하루 예상 {{customer}} 수, 바쁜 시간대, 대표 {{item}}, 장비 목록, 보관할 것, 직원 수를</span> 물어봐요.</small></div></li>
+    <li><input type="checkbox" id="v_a96b" data-key="v_a96b"><div class="body"><label for="v_a96b">② 평면도로 구역 배치 스케치</label><small>임대 공간 평면도(사진이어도 돼요)를 올리고 "구역 배치 2안을 그려 줘". <span data-ai-not="gpt">Claude는 구역 배치를 그림(SVG)으로 바로 그려 줘요.</span><span data-ai-none> </span><span data-ai-not="claude">ChatGPT는 평면 위 구역 표시 이미지를 만들어 줘요.</span> 치수는 정확하지 않으니 '생각 정리용'으로만. 종이에 직접 그려 검토받는 법과 배치 연습판은 다음 강의(<a href="#c-l99" class="ref" data-ref="c-l99">강의</a>)에.</small></div></li>
+    <li><input type="checkbox" id="v_a96c" data-key="v_a96c"><div class="body"><label for="v_a96c">③ 무드보드와 톤</label><small>브랜드 한 장(<a href="#c-l95" class="ref" data-ref="c-l95">강의</a>)의 색으로 <span data-biz="vet">대기실·진료실</span><span data-biz-not="vet">매장·상담 공간</span> 분위기 이미지를 만들어요. 바닥·벽은 미끄럽지 않고 <span data-biz="vet">소독하기</span><span data-biz-not="vet">청소하기</span> 쉬운 재질, 냄새 빠지는 환기, <span data-biz="vet">동물이 무서워하지 않는 조명·소리</span><span data-biz-not="vet">{{customer:가}} 편한 조명·소리</span>를 요구사항에 넣어요.</small></div></li>
+    <li><input type="checkbox" id="v_a96d" data-key="v_a96d"><div class="body"><label for="v_a96d">④ 기구·소품 목록</label><small><span data-biz="vet">장비(진료대, 무영등, 소독·멸균, 영상, 혈액검사, 산소·마취, 입원장)와 소품(입구 체중계, 이동장 선반, 고양이 가림막, {{customer}} 의자, 배변 처리함, 페로몬 디퓨저, 진료비 게시판, 안내 모니터)</span><span data-biz-not="vet">장비(작업대, 냉장·보관 장비, 포스, 조명)와 소품({{customer}} 의자, 진열대, 가격표, 안내 모니터, 쓰레기 분리함)</span>을 구역별 표로. 전기 콘센트·수도·배수 위치가 장비마다 필요해요.</small></div></li>
+    <li><input type="checkbox" id="v_a96e" data-key="v_a96e"><div class="body"><label for="v_a96e">⑤ 업체 요구사항서와 견적 비교</label><small>위 결과를 한 장 요구사항서로 만들어 업체 2~3곳에 똑같이 보내고, 견적서는 AI로 비교해요(<a href="#c-l51" class="ref" data-ref="c-l51">강의</a>와 같은 방식).</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>인테리어 인터뷰 부탁문</span><button class="copy" type="button">복사</button></div><pre>너는 {{biz}} 공간 기획 컨설턴트야. 내 {{place}} 인테리어 요구사항을 정리하려고 해. 한 번에 하나씩 질문해 줘(최대 12개).
+<span data-biz="vet">물어볼 것: 전용면적과 층·구조, 하루 예상 내원 수, 개·고양이·특수동물 비율, 수술 비중과 종류, 입원 칸 수, 미용 여부, 직원 수와 역할, 장비 목록(영상·검사·마취), 전염병 의심 환자 대응, {{customer}} 대기 시간, 브랜드 톤, 예산 범위.
+끝나면:
+1) 구역 목록과 면적 비율 제안, 구역 사이 동선({{customer}}·동물·직원·오염물 따로)
+2) 꼭 지킬 것: 수의사법 시행규칙 별표 1 시설기준(법령 도구가 있으면 조회), 조제실 구획, 격리, 방사선 장비 신고 기준 확인 필요 표시
+3) 재질·환기·조명·소음 요구사항
+4) 구역별 장비·소품 표(전기·수도·배수 필요 여부 칸 포함)
+5) 업체에 줄 요구사항서 한 장, 업체에 물을 질문 10개
+</span><span data-biz-not="vet">물어볼 것: 전용면적과 층·구조, 하루 예상 {{customer}} 수와 바쁜 시간대, 대표 {{item}}, 직원 수와 역할, 장비 목록, 보관할 {{stockitem}}, {{customer}} 기다리는 시간, 브랜드 톤, 예산 범위.
+끝나면:
+1) 구역 목록과 면적 비율 제안, 구역 사이 동선({{customer}}·직원·물건 들어오고 나가는 길 따로)
+2) 꼭 지킬 것: 우리 업종의 시설·위생·소방 기준(법령 도구가 있으면 조회), 확인 필요 표시
+3) 재질·환기·조명·소음 요구사항
+4) 구역별 장비·소품 표(전기·수도·배수 필요 여부 칸 포함)
+5) 업체에 줄 요구사항서 한 장, 업체에 물을 질문 10개
+</span>치수·법 기준 중 확실하지 않은 건 '확인 필요'.</pre></div>
+  <div class="prompt"><div class="bar"><span>무드보드 이미지 지시문</span><button class="copy" type="button">복사</button></div><pre>{{biz}} <span data-biz="vet">대기실</span><span data-biz-not="vet">매장</span> 인테리어 무드보드 이미지. 색: ○○(브랜드 색 3가지). 분위기: ○○. 요소: 밝고 미끄럽지 않은 바닥, <span data-biz="vet">개·고양이 대기 공간이 낮은 칸막이로 나뉨, 벽 높이의 이동장 선반</span><span data-biz-not="vet">대표 {{item:이}} 잘 보이는 진열, 편하게 앉을 자리</span>, 따뜻한 간접 조명, 식물, <span data-biz="vet">접수대</span><span data-biz-not="vet">카운터</span>. 사람 얼굴과 실제 브랜드 로고는 넣지 않기. 사진처럼, 정면 넓은 시야.</pre></div>
+  <p class="tip warnbox"><b>AI 그림은 생각 정리용이에요.</b> AI가 그린 배치·투시도는 치수와 구조가 정확하지 않아요. 실제 도면·소방·전기<span data-biz="vet">·방사선 차폐</span><span data-biz-not="vet"></span>는 인테리어 업체와 전문가가 확인하고, AI 이미지를 실제 {{place}} 사진처럼 홍보에 쓰지 않아요.</p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-conn">커넥터</span><div class="ad"><b>견적·사진 폴더</b><span>드라이브 '인테리어' 폴더를 커넥터로 읽게 하면 새 견적이 올 때 "비교표 갱신" 한 줄이면 돼요.</span></div></li><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>공정 전날 알림</b><span>철거·전기·마감·입주 청소 같은 공정 날짜를 '{{place}} 일정' 캘린더에, 전날 알림.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>시안·견적·공정 변경</b><span>인테리어 시안과 업체 견적, 공정 변경 요청을 버튼으로.</span><span class="pv">버튼: A / B / 다시 받기 · 승인 / 보류</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "가구·장비 규격 모으기" 부탁: 쇼핑몰 상품 페이지의 가로·세로·높이·전원을 표로 → 배치도 검토에. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>가구·장비 쇼핑몰</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 견적서 PDF 폴더 → 항목별 비교표, 평면도 사진 폴더 → 동선 메모.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '09 {{open}} 컨설턴트' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 평면도·현장 사진은 이 채팅에만, 요구사항서 → {{open}} 준비실 프로젝트 파일</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'{{open}} 준비실'</b> → <b>09 {{open}} 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>평면도·현장 사진은 이 채팅에만, 요구사항서 → {{open}} 준비실 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Canva</span><span class="rc c">법령 MCP</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">인터뷰 컨설턴트</span><span class="rc s">Word 문서</span></div></div><p class="rec-note">요구사항서는 Word로, 무드보드는 Canva로.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>인터뷰·요구사항서·견적 비교, Claude 배치 스케치</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>이미지 생성 넉넉히(무드보드 여러 안), 3D 인테리어 시뮬레이션 앱</li></ul></div></div>
+</section>

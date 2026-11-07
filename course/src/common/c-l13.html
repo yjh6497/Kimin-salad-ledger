@@ -1,0 +1,40 @@
+<section id="c-l13" class="lesson" data-part="map" data-title="소식·예약·톡톡" data-level="grow" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 40분</span>
+    <h2>살아 있는 {{place}}처럼 보이게</h2>
+    <p class="goal">플레이스의 '소식'은 동네 게시판이에요. 주 1회 짧은 소식, 네이버 예약, 톡톡(채팅 문의)을 켜 두면 {{customer:가}} 전화하지 않고도 {{place:과}} 닿아요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>인수 안내 소식 하나: <span data-biz="vet">'○월부터 ○○○ 원장이 진료해요, 진료 기록·전화번호는 그대로예요'.</span><span data-biz-not="vet">'○월부터 ○○○ {{owner:이}} 맡아요, 예약·전화번호는 그대로예요'.</span> 개인정보 이전 고지와는 별개예요.</span></p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a13a" data-key="v_a13a"><div class="body"><label for="v_a13a">소식 주 1회</label><small><span data-biz="vet">휴진 안내, 계절 건강 정보(진드기 철, 겨울 관절)</span><span data-biz-not="vet">휴무 안내, 계절 소식(예: {{ex_season}})</span>, 새 직원 소개, {{place}} 일상 한 장면. 블로그 글을 쓴 주에는 그 글 요약을 소식으로 올리면 돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>스마트플레이스 → 내 업체 → <span class="path">마케팅 → 소식</span>(또는 '새소식') → 글쓰기</li>
+        <li>사진 1~3장, AI가 쓴 200자 글 붙여 넣기 → 등록</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a13b" data-key="v_a13b"><div class="body"><label for="v_a13b">네이버 예약 켜기 (선택)</label><small><dfn data-t="nbooking">네이버 예약</dfn>은 <span data-biz="vet">진료 예약을 지도에서 바로 받게 해 줘요. 예방접종·건강검진처럼 시간이 정해진 진료만 먼저 열고, 응급은 '전화 주세요'로 두는 게 안전해요.</span><span data-biz-not="vet">예약을 지도에서 바로 받게 해 줘요. 시간이 딱 정해지는 {{item}}부터 먼저 열고, 상담이 필요한 건 '전화 주세요'로 두는 게 안전해요.</span></small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>스마트플레이스 → <span class="path">예약·주문</span> 메뉴 → 네이버 예약 신청</li>
+        <li>예약 상품: <span data-biz="vet">'예방접종', '건강검진 상담'처럼 진료별로</span><span data-biz-not="vet">{{item}}별로 하나씩</span>, 시간 단위와 하루 최대 건수 정하기</li>
+        <li>예약 확정 문자를 받을 휴대폰 번호 등록<span class="fix">예약 상품에 가격을 넣을 땐 <span data-biz="vet">진료비 게시표</span><span data-biz-not="vet">{{place}}에 붙인 가격표</span> 금액과 똑같이. 상황에 따라 달라지면 '<span data-biz="vet">내원</span><span data-biz-not="vet">{{visit}}</span> 후 안내'로.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a13c" data-key="v_a13c"><div class="body"><label for="v_a13c">톡톡(채팅 문의) 켜고 자동 답변 넣기</label><small><span data-biz="vet">진료 중엔 답을 못 하니, 첫 자동 답변에 진료 시간·전화번호·"응급이면 바로 전화"를 넣어요.</span><span data-biz-not="vet">일하는 중엔 답을 못 하니, 첫 자동 답변에 {{hours}}·전화번호·"급하면 바로 전화"를 넣어요.</span></small></div></li>
+    <li><input type="checkbox" id="v_a13d" data-key="v_a13d"><div class="body"><label for="v_a13d">한 달 소식 4개를 미리</label><small>아래 부탁문으로 이번 달 소식 4개를 한 번에 받아 장부 글달력에 넣어요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>한 달 소식 부탁문</span><button class="copy" type="button">복사</button></div><pre>이번 달(○월) 네이버 플레이스 '소식' 4개를 써 줘. 주 1개.
+<span data-biz="vet">- 계절에 맞는 보호자 건강 정보 2개 (예: ○○), 병원 소식 1개 (휴진·새 직원 등: ○○), 병원 일상 1개
+- 각 200자 안쪽, 제목 15자 안쪽, 넣을 사진 설명 한 줄
+- 건강 정보는 일반 내용만, 증상이 있으면 내원하라는 한 줄
+</span><span data-biz-not="vet">- 계절에 맞는 {{customer}} 정보 2개 (예: {{ex_season}}), {{place}} 소식 1개 (휴무·새 직원 등: ○○), {{place}} 일상 1개
+- 각 200자 안쪽, 제목 15자 안쪽, 넣을 사진 설명 한 줄
+- 정보는 일반 내용만, 자세한 건 문의해 달라는 한 줄
+</span>- 할인·무료 이벤트 없이
+- 장부 글달력 탭에 붙여 넣을 줄: 날짜 | 요일 | 플레이스 | 주제 | 대표키워드 | 초안
+끝에 점검 한 줄.</pre></div>
+  <div class="prompt"><div class="bar"><span>톡톡 자동 답변 부탁문</span><button class="copy" type="button">복사</button></div><pre>네이버 톡톡 첫 자동 답변을 써 줘. 3줄 이내: 인사, <span data-biz="vet">진료 중이라 답이 늦을 수 있음, 진료 시간과 전화번호(소개서 기준), "숨이 가쁘거나 의식이 없거나 피가 멈추지 않으면 바로 전화" 같은 응급 안내.</span><span data-biz-not="vet">일하는 중이라 답이 늦을 수 있음, {{hours:과}} 전화번호(소개서 기준), "급하면 바로 전화" 안내.</span></pre></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">예약 게시</span><div class="ad"><b>블로그 글 = 소식</b><span>블로그 글을 쓰면 "이 글을 플레이스 소식 200자로"를 같이 받아, 같은 일요일에 올려요(<a href="#c-l40" class="ref" data-ref="c-l40">강의</a>).</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>소식 승인</b><span>이번 주 소식 초안. 승인하면 글이 와서 복사해 올려요.</span><span class="pv">버튼: 승인 / 수정</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "소식 작성 칸" 부탁: 승인한 소식 글과 사진을 넣고 등록 전 멈춤. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>smartplace.naver.com</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 이번 주 사진 폴더 → 소식 글 3개 파일.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '01 플레이스 매니저' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 한 달 소식 → 장부 글달력</span></div></div>
+      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>한 달 소식 → 장부 글달력</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{customer}} 안내 문구</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">소식 날짜는 캘린더 'SNS·콘텐츠'에.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>소식·톡톡 무료</li><li>네이버 예약 기본 기능 무료 (결제 연동 시 수수료는 네이버 안내 확인)</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>한 달 치 소식·사진 설명을 한 번에</li></ul></div></div>
+</section>

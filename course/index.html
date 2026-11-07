@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI 실습 코스 통합관</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="course.css">
+<link rel="stylesheet" href="hub.css">
+</head>
+<body>
+
+<!-- 1. 고르는 화면 -->
+<div class="setup" id="setup" hidden>
+  <header class="s-head">
+    <span class="eyebrow">업체 없이 직접 하는 개업·인수·운영 AI 실습 코스</span>
+    <h1>우리 가게 AI 코스 만들기</h1>
+    <p>업종과 지금 상황을 고르면, 공통 강의와 업종 전용 강의를 골라 한 코스로 엮어 드려요.</p>
+  </header>
+
+  <section class="s-step" aria-labelledby="qBiz">
+    <h2 id="qBiz"><span class="s-n">1</span>어떤 일을 하세요?</h2>
+    <div class="s-search">
+      <input id="bizQ" type="search" autocomplete="off" placeholder="업종 검색 · 예: 꽃집, 동물병원, 미용실, 학원" aria-label="업종 검색">
+    </div>
+    <div class="s-chips" id="bizChips" role="list"></div>
+    <div class="s-custom" id="customBox" hidden>
+      <p><b id="customName"></b> 전용 강의는 아직 없어요. 공통 강의로 코스를 만들고, 호칭은 아래 유형에 맞춰 바꿔 드려요.</p>
+      <div class="s-types" id="customTypes" role="radiogroup" aria-label="업종 유형"></div>
+    </div>
+  </section>
+
+  <section class="s-step" aria-labelledby="qStage">
+    <h2 id="qStage"><span class="s-n">2</span>지금 어느 단계예요?</h2>
+    <div class="s-cards" id="stageCards" role="radiogroup" aria-labelledby="qStage"></div>
+  </section>
+
+  <section class="s-step" aria-labelledby="qAi">
+    <h2 id="qAi"><span class="s-n">3</span>어떤 AI로 따라 하세요? <small>나중에 바꿀 수 있어요</small></h2>
+    <div class="s-cards two" role="radiogroup" aria-labelledby="qAi">
+      <button type="button" data-s-ai="claude" aria-pressed="false"><strong>Claude</strong><span>긴 글을 차분하게, 프로젝트·예약 작업·드라이브 연결이 쉬워요</span></button>
+      <button type="button" data-s-ai="gpt" aria-pressed="false"><strong>ChatGPT</strong><span>손이 빠르고 이미지 만들기도 같은 곳에서 돼요</span></button>
+    </div>
+    <div class="s-cards two" role="radiogroup" aria-label="요금제">
+      <button type="button" data-s-plan="free" aria-pressed="false"><strong>무료로</strong><span>유료 기능 자리에 무료 대안이 함께 나와요</span></button>
+      <button type="button" data-s-plan="paid" aria-pressed="false"><strong>유료 플랜</strong><span>예약 작업·커넥터까지 모두 따라 해요</span></button>
+    </div>
+  </section>
+
+  <div class="s-go">
+    <p id="goSum" aria-live="polite">업종과 단계를 골라 주세요.</p>
+    <button type="button" id="goBtn" class="s-btn" disabled>내 코스 만들기</button>
+  </div>
+
+  <section class="s-recent" id="recentBox" hidden aria-labelledby="qRecent">
+    <h2 id="qRecent">최근에 만든 코스</h2>
+    <div class="s-chips" id="recentList"></div>
+  </section>
+</div>
+
+<!-- 2. 코스 화면 -->
+<div class="shell" id="shell" hidden>
+  <div class="mbar" id="mbar">
+    <button type="button" class="mbar-toc" id="mbarToc" aria-controls="toc" aria-expanded="false"><span aria-hidden="true">☰</span> 목차</button>
+    <span class="mbar-t" id="mbarT"></span>
+    <b class="mbar-p" id="mbarP"></b>
+    <i class="mbar-bar" aria-hidden="true"><i id="mbarBar"></i></i>
+  </div>
+  <div class="top">
+    <div class="brand">
+      <span class="eyebrow" id="eyebrow"></span>
+      <h1 id="courseTitle"></h1>
+      <div class="hub-tags"><button type="button" class="hub-tag" id="changeBiz"><span id="bizTag"></span> · <span id="stageTag"></span> <u>바꾸기</u></button></div>
+    </div>
+    <div class="meter" aria-live="polite">
+      <div class="label"><span>내 진도</span><b id="pct">0%</b></div>
+      <div class="bar"><i id="pbar"></i></div>
+    </div>
+    <div class="switches">
+      <div class="ai-switch" role="group" aria-label="보기 고르기"><span>보기</span><button type="button" data-view-pick="all" aria-pressed="true">전체</button><button type="button" data-view-pick="core" aria-pressed="false">핵심만</button></div>
+      <div class="ai-switch" role="group" aria-label="내 AI 고르기"><span>내 AI</span><button type="button" data-pick="claude" aria-pressed="false">Claude</button><button type="button" data-pick="gpt" aria-pressed="false">ChatGPT</button></div>
+      <div class="ai-switch" role="group" aria-label="요금제 고르기"><span>요금제</span><button type="button" data-plan-pick="free" aria-pressed="false">무료</button><button type="button" data-plan-pick="paid" aria-pressed="false">유료</button></div>
+      <button type="button" class="hub-btn" id="pickBtn">강의 고르기</button>
+      <button type="button" class="hub-btn" id="shareBtn">코스 링크 복사</button>
+    </div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false" aria-controls="toc">목차 열기</button>
+  </div>
+  <p class="hub-msg" id="hubMsg" role="status" hidden></p>
+
+  <div class="grid">
+    <nav class="toc" id="toc" aria-label="강의 목차">
+      <div class="toc-head"><h2>강의 목차</h2><button type="button" class="toc-close" id="tocClose">닫기 ✕</button></div>
+      <ol id="tocList"></ol>
+      <button class="reset" id="reset" type="button">진도 기록 지우기</button>
+      <p class="src" id="resetMsg" hidden>진도 기록을 지웠어요.</p>
+    </nav>
+    <main id="lessons"><p class="hub-loading" id="loading">강의를 엮는 중이에요…</p></main>
+  </div>
+</div>
+
+<!-- 강의 고르기 -->
+<dialog class="picker" id="picker" aria-labelledby="pickTitle">
+  <div class="p-head">
+    <h2 id="pickTitle">강의 고르기</h2>
+    <button type="button" class="g-close" id="pickClose">닫기</button>
+  </div>
+  <p class="p-lead">체크를 풀면 목차에서 빠지고, 검색해서 다른 업종·단계의 강의를 더할 수도 있어요. 고른 내용은 이 기기와 <b>코스 링크</b>에 함께 담겨요.</p>
+  <div class="s-search"><input id="pickQ" type="search" autocomplete="off" placeholder="강의 검색 · 예: 법령, 인스타, 재고, 홈페이지" aria-label="강의 검색"></div>
+  <div class="p-tabs" role="tablist">
+    <button type="button" role="tab" data-ptab="mine" aria-selected="true">내 코스 강의</button>
+    <button type="button" role="tab" data-ptab="all" aria-selected="false">모든 강의 창고</button>
+  </div>
+  <div class="p-list" id="pickList"></div>
+  <div class="p-foot">
+    <span id="pickSum"></span>
+    <button type="button" class="hub-btn" id="pickReset">처음 구성으로</button>
+    <button type="button" class="s-btn" id="pickApply">적용</button>
+  </div>
+</dialog>
+
+<div id="gloss" role="dialog" aria-modal="false" aria-labelledby="glossTitle" hidden>
+  <div class="g-head"><h4 id="glossTitle"></h4><button type="button" class="g-close" id="glossClose">닫기</button></div>
+  <div class="g-row"><b>정의</b><span id="glossDef"></span></div>
+  <div class="g-row easy"><b>쉽게 말하면</b><span id="glossEasy"></span></div>
+  <div class="g-row"><b>어떻게 하나요</b><span id="glossHow"></span></div>
+</div>
+
+<nav class="mnav" id="mnav" aria-label="강의 이동" hidden><button type="button" id="mPrev">‹ 이전</button><button type="button" id="mDone" class="m-done">이 강의 완료</button><button type="button" id="mNext">다음 ›</button></nav>
+
+<script src="industries.js"></script>
+<script src="data.js"></script>
+<script src="course.js"></script>
+</body>
+</html>

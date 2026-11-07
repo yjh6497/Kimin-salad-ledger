@@ -1,0 +1,50 @@
+<section id="c-l66" class="lesson" data-part="crm" data-title="맥북·아이폰으로 문자 안내" data-level="adv" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 30분 · 맥 + 아이폰</span>
+    <h2>단축어 한 번으로 이번 주 안내 문자를</h2>
+    <p class="goal">{{place}} 휴대폰이 아이폰이고 맥북을 쓴다면, 맥의 <b>메시지</b> 앱과 <dfn data-t="shortcut">단축어</dfn>로 이번 주 안내 대상에게 한 명씩 문자를 보낼 수 있어요. 상대가 아이폰이면 아이메시지(파란 말풍선), 아니면 아이폰을 거쳐 일반 문자(초록)로 가요. 연락처 파일은 <b>맥 안에서만</b> 쓰고 지워요.</p>
+  </div>
+  <div class="vis">
+    <div class="flowgrid">
+      <div class="stack">
+        <div class="box pop" style="--d:.2s"><strong>재방문 시트</strong><span>고객번호 · 안내 문구 (구글)</span></div>
+        <div class="box pop" style="--d:.35s"><strong><span data-biz="vet">차트</span><span data-biz-not="vet">고객 명단</span> 연락처</strong><span>고객번호 · 전화 (맥에만)</span></div>
+      </div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.8s"></span><span style="--d:1.5s"></span></div>
+      <div class="box hi pop" style="--d:.8s"><strong>발송목록.txt</strong><span>전화|문구 · 맥 '{{place}} 발송' 폴더</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:1.1s"></span><span style="--d:1.8s"></span></div>
+      <div class="box ai pop" style="--d:1.1s"><strong>단축어 '안내 문자'</strong><span>한 줄씩 메시지 앱으로 보내기</span></div>
+    </div>
+    <p class="cap a" style="--d:1.4s">전화번호가 클라우드·AI로 가지 않게 나눠 두는 흐름이에요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a66a" data-key="v_a66a"><div class="body"><label for="v_a66a">아이폰 문자를 맥에서 보내게 연결</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>맥과 아이폰을 같은 Apple 계정으로 로그인</li>
+        <li>아이폰 <span class="path">설정 → 앱 → 메시지 → 문자 메시지 전달</span> → 맥 이름 켜기(메뉴 위치는 iOS 버전에 따라 조금 달라요)</li>
+        <li>맥 <b>메시지</b> 앱 → <span class="path">설정 → iMessage</span>에서 {{place}} 휴대폰 번호가 '연락 받을 주소'로 체크돼 있는지 확인</li>
+        <li>맥 메시지 앱에서 {{owner}} 다른 번호로 문자 한 통 보내 보기<span class="fix">{{place}} 번호가 개인 번호와 같은 휴대폰이면, {{place}} 전용 아이폰이나 업무용 번호를 쓰는 걸 권해요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a66b" data-key="v_a66b"><div class="body"><label for="v_a66b">이번 주 대상 고르기 (구글 시트)</label><small>월요일 재방문 메일(<a href="#c-l57" class="ref" data-ref="c-l57">강의</a>)에서 채널이 '문자'이고 동의 Y인 줄만 필터로 걸러, 고객번호와 안내 문구 두 칸을 복사해요.</small></div></li>
+    <li><input type="checkbox" id="v_a66c" data-key="v_a66c"><div class="body"><label for="v_a66c">맥에서 연락처와 합치기 (맥 안에서만)</label><small><span data-biz="vet">차트</span><span data-biz-not="vet">고객 명단(예약·포스 프로그램)</span>에서 이번 주 대상의 고객번호·전화를 엑셀로 내보내 맥의 '{{place}} 발송' 폴더에 저장 → Numbers(또는 엑셀)로 열어 복사한 문구를 고객번호로 맞춰 붙여요(VLOOKUP·XLOOKUP). 마지막 열에 <span class="path">=전화&"|"&문구</span> → 그 열만 복사해 텍스트 편집기에 붙여 <b>발송목록.txt</b>로 저장.</small>
+      <details class="how"><summary><span class="closed-label">합치기 수식이 어렵다면</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>AI에게 전화번호 없이 "A열 고객번호, B열 전화, D열 고객번호, E열 문구. B와 E를 고객번호로 맞춰 '전화|문구' 한 칸으로 만드는 Numbers 수식"이라고 물어요</li>
+        <li>전화번호가 담긴 파일은 AI 채팅·구글 드라이브에 올리지 않아요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a66d" data-key="v_a66d"><div class="body"><label for="v_a66d">단축어 '안내 문자' 만들기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기 (맥 단축어 앱)</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>맥 <b>단축어</b> 앱 → <span class="path">+</span> → 이름 <b>안내 문자</b></li>
+        <li><span class="path">파일 선택</span>(발송목록.txt) → <span class="path">텍스트 가져오기</span> → <span class="path">텍스트 분할: 새로운 줄</span></li>
+        <li><span class="path">각 항목을 반복</span> 안에: <span class="path">텍스트 분할: 사용자 지정 '|'</span> → <span class="path">목록에서 항목 가져오기: 첫 번째 항목</span>(전화) → <span class="path">목록에서 항목 가져오기: 마지막 항목</span>(문구) → <span class="path">메시지 보내기</span>(메시지=문구, 받는 사람=전화) → <span class="path">대기 3초</span></li>
+        <li>반복 끝 뒤에 <span class="path">알림 보기: 보내기 끝</span></li>
+        <li>처음엔 '메시지 보내기'의 <b>실행할 때 보기</b>를 켠 채로, {{owner}} 번호 2줄만 든 파일로 시험<span class="fix">익숙해진 뒤에도 한 번에 보내는 양은 적게. 하루 수십 건이 넘으면 통신사 스팸 차단이 생길 수 있어 문자 발송 서비스나 알림톡이 맞아요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a66e" data-key="v_a66e"><div class="body"><label for="v_a66e">보낸 뒤 정리</label><small>재방문 탭 I열(연락한 날)에 날짜, 발송목록.txt와 연락처 엑셀은 <b>삭제</b>. 답장("예약할게요", "그만 받을게요")은 <span data-biz="vet">실장님이 메시지 앱에서 보고 차트·시트에</span><span data-biz-not="vet">담당 {{staff:이}} 메시지 앱에서 보고 고객 명단·시트에</span> 반영해요.</small></div></li>
+  </ol>
+  <p class="tip warnbox"><b>개인 휴대폰 문자도 같은 규칙이에요.</b> <span data-biz="vet">진료 안내는 진료에 필요한 범위로,</span><span data-biz-not="vet">예약·이용 안내는 꼭 필요한 범위로,</span> 광고가 섞이면 사전 동의·밤 9시~아침 8시 제한·수신거부 안내가 필요해요(정보통신망법 제50조, <a href="#c-l56" class="ref" data-ref="c-l56">강의</a>). 보내는 사람 이름([{{place}} 이름])은 첫머리에.</p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">단축어 자동화</span><div class="ad"><b>월요일 아침 문자 준비</b><span>macOS 26 단축어 앱 → 자동화 → 특정 시각 → 월요일 9시 '안내 문자' 단축어. 실행 전 확인을 켜 두고 보내기는 {{owner:이}}.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>맥이 깨어 있어야</b><span>이 자동화는 맥이 켜져 있을 때만 돌아요. 안 쓰는 맥북·맥 미니를 자동화 컴퓨터로<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>보내기 전 마지막 확인</b><span>맥 단축어를 돌리기 전에 건수만. 연락처는 텔레그램에 오지 않아요.</span><span class="pv">버튼: 보내기 / 보류</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>맥 단축어 자동화(월요일 9시) + 텔레그램 「보내기/보류」.</span></div><div class="run-row"><b>비서 연동</b><span>'05 상담·응대' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 문구만 이 채팅에서. 전화번호 파일은 어떤 채팅에도 올리지 않기</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>문구만 이 채팅에서. 전화번호 파일은 어떤 채팅에도 올리지 않기</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{customer}} 안내 문구</span></div></div><p class="rec-note">전화번호가 든 파일은 커넥터·AI에 올리지 않아요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>맥 메시지·단축어 무료, 문자 요금은 휴대폰 요금제대로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>문자 발송 서비스(건당 요금): 대량 발송, 발신번호 등록, 발송 결과 기록</li></ul></div></div>
+</section>

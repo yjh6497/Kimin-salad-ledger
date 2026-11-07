@@ -1,0 +1,37 @@
+<section id="s-l21" class="lesson" data-part="practice" data-title="단체 주문 접수 자동화하기" data-level="grow" data-stage="prep takeover operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절</span>
+    <h2>단체 주문은 접수부터 재료 준비까지 한 번에</h2>
+    <p class="goal">손님이 주문 폼을 내면 장부에 쌓이고, 구글 캘린더에 일정이 자동으로 생기고, 필요한 재료량까지 계산돼요.</p>
+  </div>
+  <div class="vis">
+    <div class="msg">
+      <div class="from a" style="--d:.1s"><span>구글 캘린더 · 자동 등록 · 예시</span><span>목 12:00</span></div>
+      <div class="line a" style="--d:.5s"><b>주문</b><span>○○회사 · 닭가슴살 볼 10, 연어 포케 5 · 픽업</span></div>
+      <div class="line a" style="--d:1s"><b>준비</b><span>로메인 1.2kg · 닭가슴살 1.5kg · 연어 0.9kg</span></div>
+      <div class="line alert a" style="--d:1.5s"><b>알림</b><span>하루 전 오전 10시 재료 확인, 당일 10시 조립 시작</span></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s21a" data-key="s_s21a"><div class="body"><label for="s_s21a">단체 주문 폼 만들기</label><small>구글 폼: 회사·이름, 연락처, 날짜, 시간, 메뉴별 수량, 픽업/배달, 요청 사항. 응답은 매장 장부 '단체주문' 탭으로 연결해요.</small></div></li>
+    <li><input type="checkbox" id="s_s21b" data-key="s_s21b"><div class="body"><label for="s_s21b">폼 주소를 여기저기 걸기</label><small>카카오톡 채널 메뉴, 가게 홈페이지, 배달앱 소개글 끝, 매장 QR코드</small></div></li>
+    <li><input type="checkbox" id="s_s21c" data-key="s_s21c"><div class="body"><label for="s_s21c">캘린더 자동 등록 스크립트</label><small>아래 부탁문으로 코드를 받아 붙이고, 트리거는 <b>양식 제출 시</b>로 설정해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>매장 장부 <span class="path">확장 프로그램 → Apps Script</span> → 코드 붙여 넣기 → 저장</li>
+        <li><span class="path">트리거 → + 트리거 추가 → 이벤트 소스: 스프레드시트에서 → 이벤트 유형: 양식 제출 시</span> → 저장</li>
+        <li>내가 폼을 한 번 내 보고 구글 캘린더에 일정이 생겼는지 확인</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s21d" data-key="s_s21d"><div class="body"><label for="s_s21d">확정 연락은 사장님이</label><small>폼 확인 메시지는 "접수됐어요, 사장님이 확정 연락을 드려요"로. 재료와 인력이 되는지 보고 확정해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>단체 주문 자동화 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>매장 장부의 '단체주문' 탭(구글 폼 응답: 회사·이름, 연락처, 날짜, 시간, 메뉴별 수량, 픽업/배달, 요청 사항)에 새 응답이 들어오면,
+1) 내 구글 캘린더에 '[단체] 회사명 · 총 ○개' 일정을 만들고 설명에 메뉴·연락처·요청 사항 넣기
+2) '메뉴원가' 탭의 레시피(재료별 g)로 필요한 재료량을 계산해 일정 설명에 넣기
+3) 하루 전 오전 10시 알림 추가
+Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기준으로 알려줘.</pre></div>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>접수는 폼으로</b><span>단체 주문 폼 설정에서 <span class="path">응답 → 응답자에게 사본 보내기</span>를 켜면 손님에게 접수 확인 메일이 자동으로 가요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>캘린더 자동 등록</b><span>양식 제출 시 트리거가 구글 캘린더에 일정과 메뉴·수량을 넣어요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>전날 오후 준비 알림</b><span>"단체 주문 전날 오후 3시에 재료·인력 준비 목록을 메일로" 한 줄을 부탁문에 덧붙여요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>단체 주문 폼 만들기 화면에서 질문 칸 채우기.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>메일로 온 단체 문의를 읽어 폼 형식으로 정리.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>접수 → 캘린더 자동 등록·전날 준비 알림 스크립트.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'11 일정 비서'가 주간 단체 주문 일정을 브리핑.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>08 자동화·연결</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>단체 주문 자동화 부탁문</span></div><div class="aib-row"><b>세션</b><span>코드를 받은 대화는 그 채팅에 남겨 두세요. 고칠 때 "지난번 코드에서"로 이어서 물을 수 있어요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Calendar</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 폼 + 시트 + 캘린더 + 앱스 스크립트로 0원</li><li>네이버 예약 같은 무료 예약 서비스와 함께 써도 돼요</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약·주문 플랫폼: 선결제, 자동 확정 알림톡, 노쇼 방지</li><li>단체 도시락 중개 서비스로 새 기업 고객 찾기 (수수료)</li><li>알림톡으로 손님에게 자동 확정 메시지 (건당 요금)</li></ul></div></div>
+</section>

@@ -1,0 +1,189 @@
+<section id="c-l44" class="lesson" data-part="build" data-title="대기실 안내 화면 (태블릿·TV)" data-level="grow" data-stage="prep takeover operate" data-biz-not="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · 계절마다 10분</span>
+    <h2>기다리는 5분 동안, {{customer:가}} {{place:을}} 알아 가게</h2>
+    <p class="goal">대기실 벽의 태블릿이나 안 쓰는 TV에 <b>{{place}} 소개, 오늘 {{hours}}, <span data-biz="vet">진료 순서, 예방접종 달력, 계절 건강 팁</span><span data-biz-not="vet">이용 순서, 대표 {{item}}, 계절 소식</span>, 블로그·카톡 채널 QR</b>을 큰 글씨로 돌려 보여 줘요. 종이 안내문은 바꾸기 번거롭지만, 화면은 시트나 슬라이드 한 줄만 고치면 돼요. <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>이 있으면 위쪽 띠에 저절로 떠요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>대기실 화면에 인수 안내 한 장: '{{owner:이}} 바뀌어도 <span data-biz="vet">진료 기록</span><span data-biz-not="vet">적립·예약 기록</span>·전화번호는 그대로'.</span></p>
+
+  <div class="vis">
+    <div class="tabmock" style="max-width:640px">
+      <div class="tm-h"><b>○○{{biz}}</b><span>오늘(토) <span data-biz="vet">진료</span><span data-biz-not="vet">영업</span> 9:00–15:00 · 19:20</span></div>
+      <div class="tm-b" style="flex-direction:row;align-items:center;gap:14px">
+        <div style="flex:1;min-width:0" data-biz="vet"><b class="tm-t" style="font-size:20px">진드기 철, 산책 뒤 3곳만 봐 주세요</b><p style="font-size:14px;margin-top:6px">귀 안쪽 · 발가락 사이 · 겨드랑이<br>떼지 말고 데스크에 말씀해 주세요.</p></div><div style="flex:1;min-width:0" data-biz-not="vet"><b class="tm-t" style="font-size:20px">이번 달 새 소식, 카톡으로 먼저 받아요</b><p style="font-size:14px;margin-top:6px">QR로 채널 추가 · 쉬는 날 안내 · 계절 소식<br>궁금한 건 카운터에 말씀해 주세요.</p></div>
+        <div style="width:84px;height:84px;border:6px solid var(--ink);border-radius:8px;background:repeating-linear-gradient(45deg,var(--ink) 0 6px,var(--paper) 6px 12px);flex:none" aria-label="QR 코드 자리"></div>
+      </div>
+      <div class="tm-dots"><i class="on"></i><i></i><i></i><i></i></div>
+    </div>
+    <p class="cap">글자 크기는 화면 높이에 맞춰 커져서, 대기실 어디서든 읽혀요. 12초마다 다음 안내로, QR은 주소만 적으면 저절로 그려져요.</p>
+  </div>
+
+  <h3>무엇을 보여 줄까</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>종류</th><th>예</th><th>바꾸는 때</th></tr></thead>
+    <tbody>
+      <tr><td><b>늘</b></td><td>{{place}}·{{owner}} 소개, <span data-biz="vet">진료 순서(접수 → 체중 → 진료실), 응급 시 연락</span><span data-biz-not="vet">이용 순서(주문·상담 → 기다림 → 받기), 급할 때 연락</span>, "글씨가 작으면 직원이 도와드려요"</td><td>바뀔 때만</td></tr>
+      <tr data-biz="vet"><td><b>계절</b></td><td>진드기·심장사상충(봄~가을), 더위·열사병(여름), 명절 음식 주의, 겨울 관절·저체온</td><td>시작일·끝일을 적어 두면 저절로</td></tr>
+      <tr data-biz-not="vet"><td><b>계절</b></td><td>{{ex_season}}, 명절·기념일 안내, 계절 {{item}}</td><td>시작일·끝일을 적어 두면 저절로</td></tr>
+      <tr><td><b>이번 주</b></td><td>새 블로그 글 QR(<a href="#c-l21" class="ref" data-ref="c-l21">강의</a>), 카톡 채널 추가 QR(<a href="#c-l35" class="ref" data-ref="c-l35">강의</a>), 다음 <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span> 안내</td><td>일요일 루틴 때(<a href="#c-l40" class="ref" data-ref="c-l40">강의</a>)</td></tr>
+      <tr><td><b>오늘</b></td><td>{{hours}}, <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>(캘린더 '{{place}} 일정'에 '<span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>'이 있으면)</td><td>자동</td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap" data-biz="vet">피할 것: 할인·이벤트를 크게 내건 광고 문구(<a href="#v-l8" class="ref" data-ref="v-l8">강의</a>), 동의 없는 {{customer}}·반려동물 사진, {{customer}} 이름이 보이는 대기 순서. 진료비 게시 의무(<a href="#v-l71" class="ref" data-ref="v-l71">강의</a>)는 이 화면과 별도로 법이 정한 방법대로 지켜요.</p>
+  <p class="cap" data-biz-not="vet">피할 것: 과장된 광고 문구, 동의 없는 {{customer}} 사진, {{customer}} 이름이 보이는 대기 순서. 가격 표시처럼 법이 정한 게시 방법은 이 화면과 별도로 지켜요(우리 업종 규정은 법령 MCP로 확인).</p>
+
+  <h3>만드는 방법 세 가지</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>방법</th><th>좋은 점</th><th>이럴 때</th></tr></thead>
+    <tbody>
+      <tr><td><b>① 구글 슬라이드 웹 게시</b></td><td>코드 없음. 슬라이드를 고치면 게시된 화면에도 반영</td><td>오늘 바로 시작</td></tr>
+      <tr><td><b>② Canva 프레젠테이션</b></td><td>디자인이 예쁨, Canva 커넥터로 AI가 슬라이드를 채움(<a href="#c-l39" class="ref" data-ref="c-l39">강의</a>)</td><td>{{place}} 브랜드를 살리고 싶을 때</td></tr>
+      <tr><td><b>③ 시트로 고치는 안내 화면 앱</b></td><td>시트 한 줄로 추가, 기간 지나면 저절로 숨김, 오늘 {{hours}}·<span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span> 자동, QR 자동, 10분마다 반영</td><td>오래 쓸 때, 직원이 고칠 때</td></tr>
+    </tbody>
+  </table></div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a44a" data-key="v_a44a"><div class="body"><label for="v_a44a">화면 장비 정하기</label><small>작은 대기실은 <b>태블릿 가로 거치대</b>(접수 태블릿과 따로, <a href="#c-l93" class="ref" data-ref="c-l93">강의</a>). 넓으면 <b>안 쓰는 TV</b> + 크롬캐스트(크롬 '전송'), 스마트 TV 브라우저, 또는 HDMI로 연결한 안 쓰는 노트북(<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>). 자동 잠금·절전은 끄고, <span data-biz="vet">진료</span><span data-biz-not="vet">영업</span> 시작·끝에 전원 타이머. 통신사의 매장 TV 안내 서비스(IPTV에 홍보 화면)도 있어요.</small></div></li>
+    <li><input type="checkbox" id="v_a44b" data-key="v_a44b"><div class="body"><label for="v_a44b">안내 내용은 AI와 같이</label><small>아래 '안내 화면 부탁문'을 '05 상담·응대' 채팅에. 안내 10~12장이 시트 줄(또는 슬라이드 문구)로 나와요. 제목 20자, 본문 3줄 안쪽, 멀리서도 읽히게. 광고 점검을 한 번 거쳐요.</small></div></li>
+    <li><input type="checkbox" id="v_a44c" data-key="v_a44c"><div class="body"><label for="v_a44c">① 구글 슬라이드로 바로 시작</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>구글 슬라이드 새 프레젠테이션 '대기실 안내' → 16:9, 글자 40pt 이상으로 안내 한 장씩</li>
+        <li><span class="path">파일 → 공유 → 웹에 게시</span> → 슬라이드 자동 넘기기(예: 10초), '슬라이드쇼 마지막에 다시 시작', '로드 후 바로 시작' 체크 → 게시 → 링크 복사</li>
+        <li>태블릿·TV 브라우저에서 그 링크 열기 → 전체 화면. 슬라이드를 고치면 게시 화면에도 바뀌어요(게시 설정의 '변경사항 자동 게시' 확인)</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a44d" data-key="v_a44d"><div class="body"><label for="v_a44d">③ 시트 안내 화면 앱 만들기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>새 스프레드시트 '안내화면' → 탭 이름 '안내화면' → 아래 제목 줄 → 부탁문으로 받은 줄 붙여 넣기. 사진을 넣으려면 드라이브에 올린 이미지의 파일 ID(주소 /d/ 뒤)를 '이미지' 칸에(1MB 안쪽 권장)</li>
+        <li><span class="path">확장 프로그램 → Apps Script</span> → Code.gs 자리에 'Sign.gs' → + HTML 이름 <b>sign</b> → 'sign.html' → 저장</li>
+        <li>스크립트 속성: SIGN_KEY(영문·숫자 12자 이상), CLINIC_NAME(<span data-biz="vet">병원</span><span data-biz-not="vet">가게</span> 이름), HOURS(예: 9:00–19:00, 점심 13–14시). 요일마다 다르면 HOURS_토 = 9:00–15:00처럼</li>
+        <li>배포 → 새 배포 → 웹 앱(실행: 나, 액세스: 모든 사용자) → URL 끝에 <code>?k=SIGN_KEY값</code> → 태블릿·TV에서 열기 → 홈 화면에 추가</li>
+        <li><span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>이 있는 날은 캘린더 '{{place}} 일정'(<a href="#c-l85" class="ref" data-ref="c-l85">강의</a>)에 <span data-biz="vet">"휴진 · 학회"</span><span data-biz-not="vet">"휴무 · 개인 사정"</span>처럼 넣으면 위쪽 띠가 바뀌어요<span class="fix">고친 내용은 10분 안에 화면에 반영돼요. 바로 보려면 화면을 한 번 새로고침.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a44e" data-key="v_a44e"><div class="body"><label for="v_a44e">계절마다 10분 손보기</label><small>3·6·9·12월 첫 주에 '계절 안내 부탁문'으로 새 계절 줄을 받아 시작일·끝일과 함께 붙여요. 지난 계절 줄은 끝일이 지나면 저절로 안 보여요. 텔레그램 승인함(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>)으로 「올리기 / 수정」을 받아도 돼요.</small></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>안내화면 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>순서 | 켜기(Y/N) | 시작일 | 끝일 | 제목 | 본문 | 이미지(드라이브 파일 ID) | QR 링크 | 초(보여 줄 시간)</pre></div>
+  <div class="prompt"><div class="bar"><span>안내 화면 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 {{place}} 대기실 화면에 돌릴 안내 10~12장을 만들어 줘. {{place}} 정보는 {{place}} 소개서 기준.
+- 늘: {{place}}·{{owner}} 소개, <span data-biz="vet">진료 순서, 응급 시 연락</span><span data-biz-not="vet">이용 순서, 급할 때 연락</span>, "글씨가 작으면 직원이 도와드려요"
+- 계절: 지금 계절 <span data-biz="vet">건강 팁</span><span data-biz-not="vet">소식·{{item}}</span> 3장(시작일·끝일 포함)
+- 이번 주: 블로그 새 글 QR(주소 ○○), 카톡 채널 추가 QR(주소 ○○)
+형식: 안내화면 탭 줄(탭으로 구분) — 순서 | Y | 시작일 | 끝일 | 제목(20자 안) | 본문(3줄 안, 줄 사이는 ' · '로 이어서) | 이미지(비움) | QR 링크 | 12
+할인·이벤트 강조, 최상급 표현<span data-biz="vet">, 진단처럼 읽히는 말</span><span data-biz-not="vet"></span>은 빼 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>계절 안내 부탁문</span><button class="copy" type="button">복사</button></div><pre>다음 석 달(○월~○월) 대기실 계절 안내 4장을 안내화면 탭 줄로 만들어 줘.
+우리 동네 기후와 많이 찾는 {{item}}(○○)를 생각해서, {{customer:가}} 집에서 할 수 있는 것 위주로.
+시작일·끝일을 계절에 맞게 넣고, 광고 규칙에 걸리는 표현은 빼 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>Sign.gs</span><button class="copy" type="button">복사</button></div><pre>// 대기실 안내 화면 (안내화면 시트의 Apps Script)
+// 안내화면 탭: 순서 | 켜기(Y/N) | 시작일 | 끝일 | 제목 | 본문 | 이미지(드라이브 파일 ID) | QR 링크 | 초(보여 줄 시간)
+var P = PropertiesService.getScriptProperties();
+
+function doGet(e) {
+  if (!e || !e.parameter || e.parameter.k !== P.getProperty('SIGN_KEY')) {
+    return HtmlService.createHtmlOutput('&lt;p style="font:20px sans-serif;padding:40px"&gt;안내 화면 주소를 확인해 주세요.&lt;/p&gt;');
+  }
+  var t = HtmlService.createTemplateFromFile('sign');
+  t.key = e.parameter.k;
+  t.clinic = P.getProperty('CLINIC_NAME') || '우리 {{biz}}';
+  return t.evaluate().setTitle(t.clinic + ' 안내').addMetaTag('viewport', 'width=device-width, initial-scale=1');
+}
+
+function slides(key) {
+  if (key !== P.getProperty('SIGN_KEY')) throw new Error('기기 확인 실패');
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var rows = SpreadsheetApp.getActive().getSheetByName('안내화면').getDataRange().getValues().slice(1);
+  var list = rows.filter(function (r) {
+    if (r[1] !== 'Y' || !r[4]) return false;
+    if (r[2] instanceof Date &amp;&amp; r[2] &gt; today) return false;        // 아직 시작 전
+    if (r[3] instanceof Date &amp;&amp; r[3] &lt; today) return false;        // 기간 지남 → 저절로 숨김
+    return true;
+  }).sort(function (a, b) { return Number(a[0]) - Number(b[0]); }).map(function (r) {
+    var img = '';
+    if (r[6]) { // 드라이브 이미지를 화면에 바로 넣어요(공유 설정 없이)
+      var blob = DriveApp.getFileById(String(r[6]).trim()).getBlob();
+      img = 'data:' + blob.getContentType() + ';base64,' + Utilities.base64Encode(blob.getBytes());
+    }
+    return { title: r[4], body: String(r[5] || ''), img: img, qr: String(r[7] || ''), sec: Number(r[8]) || 12 };
+  });
+  return { slides: list, today: todayLine() };
+}
+
+function todayLine() { // 위쪽 띠: 오늘 {{hours}}·<span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span> ({{place}} 일정 캘린더에 '<span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>'이 있으면 그걸로)
+  var s = new Date(); s.setHours(0, 0, 0, 0); var e = new Date(s); e.setDate(e.getDate() + 1);
+  var cal = CalendarApp.getCalendarsByName('{{place}} 일정')[0];
+  var off = cal ? cal.getEvents(s, e).filter(function (ev) { return ev.getTitle().indexOf('<span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>') &gt;= 0; })[0] : null;
+  if (off) return '오늘 ' + off.getTitle();
+  var day = ['일', '월', '화', '수', '목', '금', '토'][new Date().getDay()];
+  return '오늘(' + day + ') <span data-biz="vet">진료</span><span data-biz-not="vet">영업</span> ' + (P.getProperty('HOURS_' + day) || P.getProperty('HOURS') || '');
+}
+</pre></div>
+  <div class="prompt"><div class="bar"><span>sign.html (HTML 파일 이름: sign)</span><button class="copy" type="button">복사</button></div><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;&lt;head&gt;&lt;base target="_top"&gt;&lt;meta charset="utf-8"&gt;
+&lt;style&gt;
+  :root { --ink:#16302C; --muted:#5B6B68; --leaf:#1D6B61; --soft:#E3F0EE; --bg:#F6F8F7; }
+  * { box-sizing:border-box; }
+  html, body { height:100%; margin:0; }
+  body { background:var(--bg); color:var(--ink); font-family:-apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; overflow:hidden; cursor:none; }
+  .bar { height:11vh; background:var(--leaf); color:#fff; display:flex; align-items:center; justify-content:space-between; padding:0 4vw; font-size:3.6vh; }
+  .bar b { font-size:4.4vh; } #clock { font-variant-numeric:tabular-nums; }
+  .stage { height:83vh; display:flex; align-items:center; gap:4vw; padding:4vh 5vw; opacity:1; transition:opacity .6s ease; }
+  .stage.fade { opacity:0; }
+  .txt { flex:1; min-width:0; }
+  .txt h1 { font-size:7.5vh; line-height:1.25; margin:0 0 3vh; }
+  .txt p { font-size:4.4vh; line-height:1.6; margin:0; white-space:pre-wrap; color:#2B4541; }
+  .side { flex:0 0 38vw; display:flex; flex-direction:column; align-items:center; gap:2vh; }
+  .side img.photo { width:100%; max-height:58vh; object-fit:cover; border-radius:3vh; }
+  .side .qr { background:#fff; padding:1.5vh; border-radius:2vh; max-width:100%; font-size:2.6vh; word-break:break-all; }
+  .side .qr img { width:24vh; height:24vh; display:block; }
+  .side small { font-size:2.8vh; color:var(--muted); }
+  .dots { height:6vh; display:flex; justify-content:center; align-items:center; gap:1vh; }
+  .dots i { width:1.4vh; height:1.4vh; border-radius:50%; background:#C9D6D3; } .dots i.on { background:var(--leaf); }
+  @media (orientation:portrait) { .stage { flex-direction:column; justify-content:center; } .side { flex:none; width:100%; } .txt h1 { font-size:5.5vh; } .txt p { font-size:3.2vh; } }
+&lt;/style&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="bar"&gt;&lt;b&gt;&lt;?= clinic ?&gt;&lt;/b&gt;&lt;span id="today"&gt;&lt;/span&gt;&lt;span id="clock"&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div class="stage" id="stage"&gt;&lt;div class="txt"&gt;&lt;h1&gt;안내를 불러오는 중이에요&lt;/h1&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="dots" id="dots"&gt;&lt;/div&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+var KEY = &lt;?!= JSON.stringify(key) ?&gt;;
+var LIST = [], i = 0, timer;
+function $(id) { return document.getElementById(id); }
+function esc(s) { return String(s || '').replace(/[&amp;&lt;&gt;"]/g, function (c) { return { '&amp;': '&amp;amp;', '&lt;': '&amp;lt;', '&gt;': '&amp;gt;', '"': '&amp;quot;' }[c]; }); }
+
+function load() {
+  google.script.run.withSuccessHandler(function (r) {
+    LIST = r.slides; $('today').textContent = r.today;
+    if (!LIST.length) { $('stage').innerHTML = '&lt;div class="txt"&gt;&lt;h1&gt;오늘도 찾아 주셔서 고마워요&lt;/h1&gt;&lt;/div&gt;'; return; }
+    if (i &gt;= LIST.length) i = 0;
+    show();
+  }).withFailureHandler(function () { setTimeout(load, 60000); }).slides(KEY);
+}
+function show() {
+  clearTimeout(timer);
+  var s = LIST[i], st = $('stage');
+  st.classList.add('fade');
+  setTimeout(function () {
+    var side = '';
+    if (s.img || s.qr) {
+      side = '&lt;div class="side"&gt;' + (s.img ? '&lt;img class="photo" src="' + s.img + '" alt=""&gt;' : '') +
+        (s.qr ? '&lt;div class="qr" id="qr"&gt;&lt;/div&gt;&lt;small&gt;휴대폰 카메라로 비춰 보세요&lt;/small&gt;' : '') + '&lt;/div&gt;';
+    }
+    st.innerHTML = '&lt;div class="txt"&gt;&lt;h1&gt;' + esc(s.title) + '&lt;/h1&gt;&lt;p&gt;' + esc(s.body) + '&lt;/p&gt;&lt;/div&gt;' + side;
+    if (s.qr) { if (window.QRCode) new QRCode($('qr'), { text: s.qr, width: 400, height: 400 }); else $('qr').textContent = s.qr; } // QR이 안 그려지면 주소 글자로
+    $('dots').innerHTML = LIST.map(function (_, k) { return '&lt;i' + (k === i ? ' class="on"' : '') + '&gt;&lt;/i&gt;'; }).join('');
+    st.classList.remove('fade');
+    timer = setTimeout(function () { i = (i + 1) % LIST.length; show(); }, s.sec * 1000);
+  }, 600);
+}
+function tick() { var d = new Date(); $('clock').textContent = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2); }
+tick(); setInterval(tick, 20000);
+load(); setInterval(load, 10 * 60 * 1000); // 10분마다 시트를 다시 읽어요(고친 내용이 저절로 반영)
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre></div>
+  <p class="tip warnbox"><b>대기실 화면은 모두가 보는 게시판이에요.</b> {{customer}} 이름·대기 번호와 이름을 함께, <span data-biz="vet">진료</span><span data-biz-not="vet">일하는</span> 중 사진, 직원 개인 정보는 띄우지 않아요. <span data-biz="vet">반려동물</span><span data-biz-not="vet">{{customer}}</span> 사진은 사진 활용 동의(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>)가 있는 것만. 화면 주소(키 포함)는 대기실 화면 기기에만 넣어요.</p>
+  <p class="src">참고: 구글 슬라이드 '웹에 게시'(자동 넘기기·반복) · 안내 화면 앱은 Apps Script 웹 앱 + qrcodejs(cdnjs). 메뉴 이름은 바뀔 수 있어요.</p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">기간</span><div class="ad"><b>시작일·끝일로 저절로</b><span>계절 안내는 날짜만 적어 두면 기간이 지나면 화면에서 사라져요.</span></div></li><li><span class="chip k-trig">자동</span><div class="ad"><b>10분마다 반영·<span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span> 띠</b><span>시트를 고치면 10분 안에, 캘린더에 <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>을 넣으면 위쪽 띠가 바뀌어요.</span></div></li><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>분기 첫 주 계절 안내</b><span>3·6·9·12월 첫 주 "계절 안내 바꾸기" 반복 일정.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>새 안내 올리기</b><span>계절·이번 주 안내 줄을 확인하고 켜기.</span><span class="pv">버튼: 올리기 / 수정</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "Canva·슬라이드 채우기" 부탁: 확정한 안내 문구를 Canva·구글 슬라이드 편집 화면에 채우고 게시는 {{owner}}. 저장·제출 버튼 앞에서 멈추게 해요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>canva.com, slides.google.com</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>터미널·봇</b><span>앱스 스크립트 안내 화면 앱: 시트 한 줄 = 안내 한 장, 10분마다 반영.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '05 상담·응대' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 안내화면 시트 → 드라이브 연결, 계절 안내는 분기마다 이 채팅에서</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>안내화면 시트 → 드라이브 연결, 계절 안내는 분기마다 이 채팅에서</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Canva</span><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{customer}} 안내 문구</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">슬라이드 디자인은 Canva, 쉬는 날은 캘린더에서 저절로. 문구는 광고 점검 스킬로.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 슬라이드 웹 게시, 시트 안내 화면 앱, 안 쓰는 태블릿·TV</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>태블릿 거치대·크롬캐스트, Canva 유료 템플릿, 통신사 매장 TV 안내 서비스</li></ul></div></div>
+</section>

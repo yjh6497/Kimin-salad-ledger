@@ -1,0 +1,48 @@
+<section id="c-l46" class="lesson" data-part="takeover" data-title="인수 전 실사: AI로 {{place}} 읽기" data-level="core" data-stage="takeover">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 3시간 · 계약 전</span>
+    <h2>계약서에 도장 찍기 전에, 숫자로 이 {{place:을}} 읽어요</h2>
+    <p class="goal">{{place:을}} 인수할 때는 간판보다 <b>{{customer:가}} 계속 올 {{place}}인지</b>가 중요해요. 이전 {{owner}}께 받은 자료를 AI와 함께 읽고, 공개된 리뷰·지도 정보와 동네 데이터를 더해 <b>실사 보고서 한 장과 질문 목록</b>을 만들어요. 가격·권리금 판단은 세무사·변호사와 하고, AI는 빠진 것과 이상한 것을 찾는 데 써요.</p>
+  </div>
+  <h3>이전 {{owner}}께 요청할 자료</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>분야</th><th>자료</th><th>AI가 보는 것</th></tr></thead>
+    <tbody>
+      <tr><td><b>매출</b></td><td>최근 24개월 월별 매출, <span data-biz="vet">진료 항목별 매출</span><span data-biz-not="vet">{{item}}별 매출</span>, 결제 단말기 정산 내역</td><td>추세·계절성, 특정 항목 쏠림, <span data-biz="vet">원장 진료 의존도</span><span data-biz-not="vet">이전 {{owner}} 개인 의존도</span></td></tr>
+      <tr><td><b>{{customer}}</b></td><td><span data-biz="vet">차트 통계(총 등록, 최근 1년 내원, 신규·재방문 수)</span><span data-biz-not="vet">{{customer}} 통계(총 {{customer}} 수, 최근 1년 방문, 신규·재방문 수)</span> — <b>이름 없는 집계표만</b></td><td>재방문율, 신규 유입 추세, 단골 비중</td></tr>
+      <tr><td><b>평판</b></td><td>플레이스·카카오맵 리뷰 수와 평점(공개 화면)</td><td>최근 6개월 평점 변화, 불만 주제(요약만)</td></tr>
+      <tr><td><b>사람</b></td><td>직원 수, 근속, 근로계약서, 급여 총액, 미사용 연차·퇴직금</td><td>승계 비용, 핵심 인력 이탈 위험</td></tr>
+      <tr><td><b>공간·계약</b></td><td>임대차계약(잔여 기간, 보증금, 월세, 승계 조건), 리스·렌탈·유지보수 계약</td><td>남은 의무, 명의 변경 필요 목록</td></tr>
+      <tr><td><b>장비·재고</b></td><td>장비 목록(구입 연도, 상태, 점검 이력), 재고 목록(유효기한)</td><td>교체 시기, 인수 대상에서 뺄 것</td></tr>
+      <tr><td><b>인허가·분쟁</b></td><td><span data-biz="vet">개설신고 확인증, 방사선 장비 신고</span><span data-biz-not="vet">영업신고증·인허가 서류(업종에 있으면)</span>, 최근 3년 분쟁·민원 이력</td><td>변경신고 항목, 남은 분쟁 책임</td></tr>
+    </tbody>
+  </table></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a46a" data-key="v_a46a"><div class="body"><label for="v_a46a">'인수 실사' 프로젝트 따로</label><small>AI 비서실과 별개로 '인수 실사' 프로젝트(또는 채팅)를 만들어 자료를 모아요(<a href="#c-l5" class="ref" data-ref="c-l5">강의</a>). 인수를 접으면 통째로 지울 수 있게. {{customer}} 이름·연락처가 든 원본은 받지도 올리지도 않아요.</small></div></li>
+    <li><input type="checkbox" id="v_a46b" data-key="v_a46b"><div class="body"><label for="v_a46b">자료 요청서 보내기</label><small>위 표를 '자료 요청 부탁문'으로 정중한 요청서로 만들어 이전 {{owner}}께. 비밀유지 약속(NDA)을 먼저 맺자고 하면 법률·세무 도우미(<a href="#c-l70" class="ref" data-ref="c-l70">강의</a>)에게 초안을.</small></div></li>
+    <li><input type="checkbox" id="v_a46c" data-key="v_a46c"><div class="body"><label for="v_a46c">숫자 읽기</label><small>받은 엑셀·PDF를 올리고 '실사 분석 부탁문'. 매출 추세, 재방문율, 계절성, <span data-biz="vet">원장 진료 의존도</span><span data-biz-not="vet">이전 {{owner}} 개인 의존도</span>, 직원 비용 비율이 표와 그래프로 나와요. 숫자가 서로 안 맞는 곳(매출 vs 정산 내역)을 꼭 짚게 해요.</small></div></li>
+    <li><input type="checkbox" id="v_a46d" data-key="v_a46d"><div class="body"><label for="v_a46d">밖에서 보는 {{place}}</label><small>브라우저 AI(<a href="#c-l29" class="ref" data-ref="c-l29">강의</a>)로 플레이스·카카오맵 공개 리뷰를 읽어 <b>주제와 평점 변화만</b> 요약하고, 공공데이터로 동네 <span data-biz="vet">반려가구</span><span data-biz-not="vet">인구·가구</span>·경쟁 {{place:을}} 봐요(<a href="#c-l61" class="ref" data-ref="c-l61">강의</a>). 직접 {{customer}}처럼 한 번 가 보는 것도 좋아요.</small></div></li>
+    <li><input type="checkbox" id="v_a46e" data-key="v_a46e"><div class="body"><label for="v_a46e">실사 보고서와 질문 목록</label><small>마지막으로 '실사 보고서 부탁문' → 한 장 보고서(강점, 위험, 확인 안 된 것, 인수 후 90일에 할 일)와 이전 {{owner}}·세무사·변호사에게 물을 질문이 나와요. 이 보고서가 계약 검토(<a href="#v-l47" class="ref" data-ref="v-l47">강의</a>)의 재료예요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>자료 요청 부탁문</span><button class="copy" type="button">복사</button></div><pre>○○{{biz}} 인수를 검토 중이야. 이전 {{owner}}께 보낼 자료 요청서를 정중하게 써 줘.
+- 매출(24개월 월별, 항목별), {{customer}} 통계(이름 없는 집계), 직원·계약, 임대차·리스, 장비·재고, 인허가, 분쟁 이력
+- 자료마다 왜 필요한지 한 줄, 받을 형식(엑셀/사진), 회신 희망일
+- {{customer}} 개인정보(이름·연락처·<span data-biz="vet">차트 원본</span><span data-biz-not="vet">거래 기록 원본</span>)는 지금 단계에서 받지 않는다고 분명히
+- 비밀유지를 약속하는 문장 포함</pre></div>
+  <div class="prompt"><div class="bar"><span>실사 분석 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 ○○{{biz}} 자료로 인수 실사 분석을 해 줘. 숫자는 계산 코드로 확인해.
+1) 월별 매출 추세(24개월), 계절성, 최근 6개월 vs 1년 전
+<span data-biz="vet">2) 진료 항목별 비중, 원장 진료가 빠지면 줄어들 수 있는 매출(수술·특수 진료 등)</span><span data-biz-not="vet">2) {{item}}별 비중, 이전 {{owner:가}} 빠지면 줄어들 수 있는 매출(개인 단골·특별 주문 등)</span>
+3) {{customer}}: 신규·재방문 추세, 재방문율
+4) 직원 비용 비율, 승계 시 부담(미사용 연차·퇴직금 추정, [노무사 확인] 표시)
+5) 자료끼리 안 맞는 곳(매출 vs 단말기 정산 등)
+6) 확인되지 않은 것 목록
+판단·가격 제시는 하지 말고, 사실과 질문만.</pre></div>
+  <div class="prompt"><div class="bar"><span>실사 보고서 부탁문</span><button class="copy" type="button">복사</button></div><pre>지금까지 분석과 공개 리뷰 요약, 동네 데이터를 합쳐 인수 실사 보고서 한 장으로.
+강점 3 | 위험 3 | 확인 안 된 것 | 이전 {{owner}}께 물을 것 | 세무사에게 물을 것 | 변호사·노무사에게 물을 것 | 인수 후 90일에 바로 할 일
+Word 문서로 만들어 줘.</pre></div>
+  <p class="tip warnbox"><b>AI는 가격을 정하지 않아요.</b> 권리금·장비 가액·영업권 평가는 세무사·감정 전문가와, 계약 조건은 변호사와 정해요. 실사 단계에서 받은 자료는 인수를 하지 않으면 돌려주거나 지우고, 그 사실을 이전 {{owner}}께 알려요.</p>
+      <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 실사 자료 폴더(엑셀·PDF) → 분석 노트북·보고서 Word.</span></div><div class="run-row"><b>비서 연동</b><span>'인수 실사' 프로젝트(따로) 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 실사 자료·분석·보고서는 이 프로젝트에만, 인수를 접으면 통째로 삭제</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><b>'인수 실사' 프로젝트(따로)</b></span></div><div class="aib-row"><b>넣어 둘 것</b><span>실사 자료·분석·보고서는 이 프로젝트에만, 인수를 접으면 통째로 삭제</span></div><div class="aib-row"><b>세션</b><span>일마다 새 채팅을 열어요(예: "실사 1 매출 분석"). 끝나면 요약을 문서로 남기고 채팅은 보관.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">웹 검색</span><span class="rc c">Claude in Chrome</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span><span class="rc s">Word 문서</span></div></div><p class="rec-note">실사 자료 숫자는 엑셀 스킬로, 보고서는 Word로. 공개 리뷰는 브라우저 AI로 요약만.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>자료 요청서, 엑셀 숫자 읽기(무료 사용량 안에서)</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>세무사·변호사 실사 검토는 꼭. AI 유료면 큰 파일·여러 자료를 한 번에</li></ul></div></div>
+</section>

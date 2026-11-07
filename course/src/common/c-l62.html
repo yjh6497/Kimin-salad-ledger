@@ -1,0 +1,30 @@
+<section id="c-l62" class="lesson" data-part="data" data-title="{{owner}} 대시보드와 월간 브리핑" data-level="grow" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · PC</span>
+    <h2>휴대폰 한 화면으로 {{place}} 상태 보기</h2>
+    <p class="goal">허브 시트를 <dfn data-t="looker">Looker Studio</dfn>에 연결하면 매출·신규·유입경로·재방문 대상이 그래프로 한 화면에 나와요. 매달 1일엔 AI가 이 숫자로 {{owner}}께 한 장 브리핑을 써요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a62a" data-key="v_a62a"><div class="body"><label for="v_a62a">Looker Studio에 허브 연결</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">lookerstudio.google.com</span> → {{place}} 구글 계정 → <span class="path">빈 보고서</span></li>
+        <li>데이터 추가 → <span class="path">Google Sheets</span> → '{{place}} 데이터 허브' → '일매출' 탭 → 추가</li>
+        <li>그래프 추가: 숫자 카드(이번 달 매출), 시계열(일매출), 막대(유입경로). 다른 탭은 <span class="path">리소스 → 데이터 소스 추가</span>로</li>
+        <li>휴대폰에선 보고서 주소를 홈 화면에 추가<span class="fix">공유는 {{owner}}만. 매출 화면을 직원에게 열어 줄 땐 매출 칸을 뺀 보고서를 따로 만들어요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a62b" data-key="v_a62b"><div class="body"><label for="v_a62b">월간 경영 브리핑 걸기</label><small>'06 성과 분석' 채팅에 아래 부탁문. 유료면 앞에 "매달 1일 오전 8시에"를 붙여 <dfn data-t="scheduled">예약 작업</dfn>으로.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>월간 경영 브리핑 부탁문</span><button class="copy" type="button">복사</button></div><pre>'{{place}} 데이터 허브'를 보고 지난달 경영 브리핑을 A4 한 장으로 써 줘.
+1) 한 줄 요약
+2) 숫자: 매출·건수·객단가, 신규/재방문, 지난달·전년 같은 달 대비 (허브에 있는 것만)
+3) 유입경로 순위와 그 채널에서 지난달 올린 글 수(월성과 탭)
+4) 재방문: 연락한 수, 예약으로 이어진 수, 지난 날짜인데 연락 못 한 수
+5) 리뷰: 수, 평균 별점, 반복된 불만 1개와 {{place:이}} 고칠 것
+6) 다음 달 할 일 3가지 (마케팅 1, 고객관리 1, 운영 1)
+숫자는 시트에서 계산하고, 없으면 '데이터 없음'. 원인을 단정하지 말고 '가능성'으로.</pre></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-conn">대시보드</span><div class="ad"><b>열 때마다 최신</b><span>Looker Studio는 시트가 바뀌면 그래프도 바뀌어요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 1일 브리핑</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>예약 작업으로 저절로.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>매달 1일 휴대폰 알림 → 한 줄 보내기.</span></span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>월간 결정</b><span>월간 브리핑의 결정 2~3개를 하나씩.</span><span class="pv">버튼: 한다 / 안 한다</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "브리핑 재료 모으기" 부탁: 관리 화면 숫자를 허브 시트로, 브리핑은 시트를 읽어서. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>각 채널 통계 화면</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>월간 브리핑 예약 작업 + 텔레그램 요약.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '06 성과 분석' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 월간 브리핑 부탁문 → 이 채팅(유료면 예약 작업)</span></div></div>
+      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>월간 브리핑 부탁문 → 이 채팅(유료면 예약 작업)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span><span class="rc s">발표자료</span></div></div><p class="rec-note">월간 브리핑을 발표자료로도.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Looker Studio 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 브리핑 자동화</li></ul></div></div>
+</section>

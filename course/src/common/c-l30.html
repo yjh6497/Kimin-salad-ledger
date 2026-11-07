@@ -1,0 +1,62 @@
+<section id="c-l30" class="lesson" data-part="kakao" data-title="{{place}} 전화: 연결음·AI 전화 응대" data-level="core" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span> 때 5분</span>
+    <h2><span data-biz="vet">진료 중이라 못 받은 전화도, 진료 시간·주차·응급 안내는 받게</span><span data-biz-not="vet">일하느라 못 받은 전화도, {{hours}}·주차·예약 안내는 받게</span></h2>
+    <p class="goal">{{customer:는}} 지도에서 {{place:을}} 찾고 바로 전화해요. <span data-biz="vet">진료·수술 중이라</span><span data-biz-not="vet">{{customer}} 응대나 일 때문에</span> 못 받으면 다른 {{place:으로}} 가요. {{place}} 번호에 <b>안내 연결음</b>이나 <b>AI 전화 응대</b>를 붙이면 {{hours}}·위치·주차·휴무·예약 방법은 전화가 대신 안내하고, 못 받은 전화는 메모로 남아요.<span data-biz="vet"> 동물병원은 여기에 <b>응급 안내</b> 한 줄이 꼭 들어가야 해요.</span></p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>대표번호는 꼭 유지(명의 변경). 안내 멘트에 한 달 동안 <span data-biz="vet">'원장이 바뀌어도 진료 기록은 그대로'</span><span data-biz-not="vet">'{{owner:이}} 바뀌어도 예약·주문은 그대로'</span>.</span></p>
+
+  <div class="vis">
+    <div class="chat">
+      <div class="bubble ai a" style="--d:.2s"><span class="who">{{place}} 번호 · 점심시간(13~14시) 안내 예시</span><span data-biz="vet">○○동물병원입니다. 지금은 점심시간이라 2시부터 진료해요. 호흡이 힘들거나 경련·많은 출혈처럼 급한 상황이면 끊지 말고 기다려 주세요, 바로 연결해 드릴게요. 예약은 네이버 예약이나 카카오톡 채널로 남겨 주시면 2시 이후 연락드려요.</span><span data-biz-not="vet">{{shopname}}입니다. 지금은 점심시간이라 2시부터 다시 받아요. 급한 일이면 끊지 말고 기다려 주세요, 바로 연결해 드릴게요. 예약·문의는 네이버 예약이나 카카오톡 채널로 남겨 주시면 2시 이후 연락드려요.</span></div>
+      <div class="bubble me a" style="--d:1s"><span class="who">{{owner}} 휴대폰 · AI 메모 알림</span>13:12 부재중 1 · "다음 주 <span data-biz="vet">접종 </span>예약 문의, 토요일 오전 가능한지" → 답 문자 보내기</div>
+    </div>
+    <p class="cap a" style="--d:1.6s"><span data-biz="vet">응급 문구를 어떻게 처리할지(대기 후 연결, 원장 휴대폰 전환, 야간 병원 안내)는</span><span data-biz-not="vet">급한 전화를 어떻게 처리할지(대기 후 연결, {{owner}} 휴대폰 전환)는</span> {{place}}마다 정해서 넣어요.</p>
+  </div>
+
+  <h3>고를 수 있는 서비스</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>종류</th><th>하는 일</th><th>예 (가입 전 최신 확인)</th></tr></thead>
+    <tbody>
+      <tr><td><b>안내 연결음·인사말</b></td><td>전화가 연결되는 동안 녹음·AI 음성으로 {{hours}}·휴무 안내. 상황별로 몇 개 만들어 두고 바꿔 끼우기</td><td>통신사 매장 연결음 부가서비스. KT 'AI 통화비서 라이트'는 인사말 최대 3개를 앱에서 실시간 교체(월 5,500원, KT 비즈 안내 기준)</td></tr>
+      <tr><td><b>AI 전화 응대</b></td><td>시간대별 인사말(<span data-biz="vet">진료 중·점심·휴진·진료 외</span><span data-biz-not="vet">응대 중·점심·휴무·{{hours}} 외</span>), 영업시간·위치·주차 자동 답, 예약 접수, 못 받은 전화를 AI가 받아 메모(글자로) → 앱에서 답 문자</td><td>KT 'AI 통화비서 스탠다드'(월 22,000원, 문자 월 300건, KT 일반전화 등 가입 조건 있음), LG유플러스 'AI 전화'(우리가게패키지 앱에서 매장 정보 관리, 반복 문의 24시간 응대·응대 리포트). 다른 통신사도 비슷한 상품이 있어요</td></tr>
+      <tr><td><b>네이버 스마트콜</b></td><td>플레이스에 0507 번호를 띄우고 {{place}} 번호로 연결. 네이버 어디서 전화가 왔는지 통계, 연결음·ARS 설정</td><td>스마트플레이스에서 무료로 켜요. 0507 번호가 보이는 게 싫으면 끄면 돼요</td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap">요금·조건은 통신사 안내(2025~2026년) 기준이고 자주 바뀌어요. 약정 할인, 소상공인 요금제 묶음 혜택이 있는지 같이 물어보세요.</p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a30a" data-key="v_a30a"><div class="body"><label for="v_a30a">일주일 동안 전화 질문 적기</label><small>접수대에 표 한 장: 시각 | 질문 종류({{hours}}·위치·주차·가격·예약·<span data-biz="vet">응급</span><span data-biz-not="vet">주문·견적</span>·그 밖) | 받음/못 받음. 일주일 뒤 사진을 '05 상담·응대' 채팅에 올려 "자동으로 답할 수 있는 것과 사람이 받아야 하는 것"을 나눠요.</small></div></li>
+    <li><input type="checkbox" id="v_a30b" data-key="v_a30b"><div class="body"><label for="v_a30b">우리 번호에 맞는 서비스 고르기</label><small>{{place}} 번호가 일반전화인지, 인터넷전화인지, 휴대폰인지에 따라 가입할 수 있는 상품이 달라요. 지금 쓰는 통신사 고객센터에 "{{biz}} 매장 번호에 AI 전화 응대·안내 연결음" 상품과 조건(회선 종류, 착신전환과 함께 쓸 수 있는지, 약정)을 물어요. 아래 '서비스 비교 부탁문'으로 질문 목록을 받아 가면 빨라요.</small></div></li>
+    <li><input type="checkbox" id="v_a30c" data-key="v_a30c"><div class="body"><label for="v_a30c">상황별 안내 멘트 네 가지</label><small><span data-biz="vet">진료 중(대기 안내), 점심시간, 진료 시간 외·야간, 휴진(명절·학회). 모든 멘트에 <b>응급 안내</b>, <b>예약 방법</b>(네이버 예약·카톡 채널), 20초 안쪽. 진료비·진단은 전화 안내로 답하지 않게 해요.</span><span data-biz-not="vet">응대 중(대기 안내), 점심시간, {{hours}} 외·야간, 휴무(명절·정기 휴무). 모든 멘트에 <b>급할 때 연락 방법</b>, <b>예약 방법</b>(네이버 예약·카톡 채널), 20초 안쪽. 가격 흥정이나 상담이 필요한 질문은 전화 안내로 답하지 않게 해요.</span> '안내 멘트 부탁문'으로 만들고 광고 점검(<a href="#v-l8" class="ref" data-ref="v-l8">강의</a>)을 한 번 거쳐요.</small></div></li>
+    <li><input type="checkbox" id="v_a30d" data-key="v_a30d"><div class="body"><label for="v_a30d">앱에서 설정</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>통신사 앱 설치 → 가입 때 정한 번호로 로그인</li>
+        <li>매장 정보: {{hours}}, 점심시간, 정기 휴무, 공휴일, 주소, 주차를 <b>{{place}} 소개서(<a href="#c-l3" class="ref" data-ref="c-l3">강의</a>)와 똑같이</b></li>
+        <li>인사말: 상황별 멘트 넣기(AI 음성이면 글자로, 녹음이면 {{owner}} 목소리)</li>
+        <li data-biz="vet">응급: "끊지 말고 기다리기 → 원장 휴대폰으로 연결" 같은 동작은 서비스마다 달라요. 안 되면 멘트에 야간 동물병원 번호를 넣어요</li>
+        <li data-biz-not="vet">급한 전화: "끊지 말고 기다리기 → {{owner}} 휴대폰으로 연결" 같은 동작은 서비스마다 달라요. 안 되면 멘트에 카톡 채널로 남겨 달라고 넣어요</li>
+        <li>장부 지도정보 탭(<a href="#c-l15" class="ref" data-ref="c-l15">강의</a>)에 '전화 안내' 칸을 더해, {{hours:이}} 바뀌면 지도와 같이 고쳐요<span class="fix">착신전환(*88 등)을 쓰고 있으면 AI 전화가 동작하지 않는 상품도 있어요. 설정 후 다른 휴대폰으로 시험 전화 4번(<span data-biz="vet">진료 중·점심·밤·응급 버튼</span><span data-biz-not="vet">응대 중·점심·밤·연결 버튼</span>) 걸어 봐요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a30e" data-key="v_a30e"><div class="body"><label for="v_a30e">못 받은 전화 메모는 하루 두 번</label><small>AI 메모·부재중 목록을 <span data-biz="vet">오전 진료 끝, 오후 진료 끝</span><span data-biz-not="vet">점심 전, 마감 전</span>에 확인하고 답 문자나 전화. 답 문자는 안내 템플릿(<a href="#c-l65" class="ref" data-ref="c-l65">강의</a>)으로.<span data-biz="vet"> 메모에 진단 질문이 있으면 문자로 판단하지 말고 내원 안내.</span><span data-biz-not="vet"> 상담이 길어질 질문은 문자로 길게 답하지 말고 전화나 {{visit:로}} 안내.</span></small></div></li>
+    <li><input type="checkbox" id="v_a30f" data-key="v_a30f"><div class="body"><label for="v_a30f">숫자로 보기</label><small>한 달에 한 번 스마트콜 통계(네이버에서 온 전화 수), AI 전화 리포트(자주 묻는 질문, 못 받은 시간대)를 장부 월성과(<a href="#c-l42" class="ref" data-ref="c-l42">강의</a>)에 한 줄. 점심 직후·마감 직전에 부재중이 몰리면 그 시간 접수 인력을 다시 봐요(<a href="#c-l84" class="ref" data-ref="c-l84">강의</a>).</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>안내 멘트 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 {{place}} 전화 안내 멘트 네 가지를 만들어 줘: <span data-biz="vet">① 진료 중 대기 ② 점심시간 ③ 진료 시간 외·야간 ④ 휴진(날짜 자리 비움)</span><span data-biz-not="vet">① 응대 중 대기 ② 점심시간 ③ {{hours}} 외·야간 ④ 휴무(날짜 자리 비움)</span>
+{{place}} 정보는 {{place}} 소개서 기준(이름, {{hours}}, 점심, 휴무, 주차, 예약 방법).
+- 각 20초 안쪽(소리 내어 읽기 기준), 존댓말, 쉬운 말
+<span data-biz="vet">- 모든 멘트에 응급 안내 한 문장: 호흡 곤란·경련·많은 출혈·이물 섭취 등 → ○○(우리 병원 처리 방법 / 야간 동물병원 이름·번호 자리)</span><span data-biz-not="vet">- 모든 멘트에 급할 때 연락 방법 한 문장: ○○(대기 후 연결 / 카카오톡 채널 / 문자 자리)</span>
+- 예약은 네이버 예약·카카오톡 채널로 안내
+- <span data-biz="vet">진료비·진단·약에 대한 답은</span><span data-biz-not="vet">정확한 견적·상담이 필요한 답은</span> 넣지 않기, '최고·최신' 같은 표현 금지
+- AI 음성용(글자)과 {{owner}} 녹음용(읽기 쉬운 끊어 읽기 표시) 두 버전</pre></div>
+  <div class="prompt"><div class="bar"><span>서비스 비교 부탁문 (웹 검색)</span><button class="copy" type="button">복사</button></div><pre>웹 검색으로 지금 가입할 수 있는 매장 전화 안내·AI 전화 응대 서비스를 찾아 표로 정리해 줘.
+우리 {{place}} 번호: ○○(일반전화/인터넷전화/휴대폰), 통신사 ○○, 착신전환 사용 ○○
+표: 서비스 | 통신사 | 월 요금·약정 | 가입 조건(회선 종류) | 시간대별 인사말 | 자동 답(시간·위치·주차) | 예약 접수 | 못 받은 전화 메모·문자 | 응급 시 사람 연결 가능 여부 | 공식 안내 주소
+마지막에 고객센터에 물어볼 질문 5개. 확인 못 한 칸은 '확인 필요'로.</pre></div>
+  <p class="tip warnbox"><span data-biz="vet"><b>전화 안내는 진료를 대신하지 않아요.</b> AI 전화가 증상을 듣고 괜찮다고 답하게 두지 않아요. 응급 문구는 모든 상황 멘트에, 휴진 때는 근처 야간 병원 안내까지.</span><span data-biz-not="vet"><b>전화 안내는 {{owner}} 응대를 대신하지 않아요.</b> AI 전화가 가격·약속을 마음대로 정해 답하게 두지 않아요. 급할 때 연락 방법은 모든 상황 멘트에 넣어요.</span> 통화 녹음·AI 요약을 쓰면 {{customer}} 목소리와 내용이 저장되니, 보관 기간과 누가 듣는지를 {{place}} 개인정보 규칙에 적어 두고 필요하면 안내 멘트에 녹음 사실을 알려요.</p>
+  <p class="src">출처: <a href="https://www.ktbizone.com/aicall.asp" target="_blank" rel="noopener">KT 매장전화 AI 서비스(AI 통화비서)</a> · <a href="https://www.lg.co.kr/media/release/29212" target="_blank" rel="noopener">LG유플러스 소상공인 'AI전화팩' (2025.8)</a> · <a href="https://www.sedaily.com/article/14047359" target="_blank" rel="noopener">KT 소상공인 AI 통화비서 혜택 (서울경제, 2025.4)</a> · <a href="https://www.openads.co.kr/content/contentDetail?contsId=2220" target="_blank" rel="noopener">네이버 스마트콜 소개</a></p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>휴무 2주 전 멘트 교체</b><span><span data-biz="vet">명절·학회 휴진 일정에 "전화 휴진 멘트 바꾸기"를</span><span data-biz-not="vet">명절·정기 휴무 일정에 "전화 휴무 멘트 바꾸기"를</span> 같이 넣어요<a href="#c-l89" class="ref" data-ref="c-l89">강의</a>.</span></div></li><li><span class="chip k-rule">AI 응대</span><div class="ad"><b>시간대별 자동 전환</b><span>AI 전화의 시간대별 인사말을 켜 두면 점심·{{hours}} 외 멘트가 저절로 바뀌어요.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>새 안내 멘트 승인</b><span>바뀐 {{hours}}·휴무 멘트를 확인한 뒤 앱에 넣어요.</span><span class="pv">버튼: 승인 / 수정</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "통신사 관리 화면 인사말 칸" 부탁: 웹 관리 화면이 있으면 승인한 멘트와 <span data-biz="vet">진료 시간</span><span data-biz-not="vet">{{hours}}</span>을 칸에 채우고 저장 전 멈춤. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>통신사 관리 화면, smartplace.naver.com</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>터미널·봇</b><span>봇: <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span> 2주 전 "전화 멘트 바꾸기" 텔레그램, 통계는 월말 장부로.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '05 상담·응대' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 전화 질문 기록표 사진·안내 멘트 → 이 채팅, 최종 멘트 → 안내 템플릿 문서</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>05 상담·응대</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>전화 질문 기록표 사진·안내 멘트 → 이 채팅, 최종 멘트 → 안내 템플릿 문서</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{customer}} 안내 문구</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">통신사 상품 비교는 웹 검색으로 최신을, 멘트는 광고 점검을 거쳐요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>네이버 스마트콜, 휴대폰 기본 부재중 문자, 안내 멘트 만들기</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>통신사 AI 전화 응대(월 수천~2만 원대), 약정·요금제 묶음 혜택 확인</li></ul></div></div>
+</section>

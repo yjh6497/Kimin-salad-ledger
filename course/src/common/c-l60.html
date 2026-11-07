@@ -1,0 +1,44 @@
+<section id="c-l60" class="lesson" data-part="data" data-title="{{place}} 데이터 허브 시트" data-level="grow" data-stage="prep takeover operate">
+    <div class="partcard a" style="--d:0s"><span class="pn">13</span><span class="pt"><b>데이터 시스템</b>3강 · 익숙해진 뒤</span><p class="po">숫자를 한 시트에 모으고, 공공데이터로 동네를 읽고, {{owner}} 대시보드와 월간 브리핑을 만들어요.</p><div class="plist"><span>{{place}} 데이터 허브 시트</span><span>공공데이터로 동네 읽기</span><span>{{owner}} 대시보드와 월간 브리핑</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 30분 · PC</span>
+    <h2>숫자는 한 파일에, 해석은 AI에게</h2>
+    <p class="goal">마케팅 장부·매출·재방문·리뷰를 '{{place}} 데이터 허브' 구글 시트 한 파일로 묶어요. 매주 10분 숫자를 옮기면, AI 비서가 이 파일 하나만 읽고 경영 브리핑을 써요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>인수 전 12개월 숫자를 '인수 전' 탭으로. 모든 비교의 기준선이에요.</span></p>
+
+  <div class="vis">
+    <div class="table-wrap"><table>
+      <thead><tr><th>탭</th><th>넣는 것</th><th>언제</th><th>어디서</th></tr></thead>
+      <tbody>
+        <tr><td><b>일매출</b></td><td>날짜 | 카드 | 현금·이체 | 건수 | 신규 | <span data-biz="vet">재진</span><span data-biz-not="vet">재방문</span></td><td>매일 마감 또는 주 1회</td><td>단말기 앱·<span data-biz="vet">차트 일계표</span><span data-biz-not="vet">포스·장부 일계표</span></td></tr>
+        <tr><td><b>유입경로</b></td><td>월 | 네이버 지도 | 블로그 | 인스타 | 지인 | 지나가다</td><td>매달</td><td><span data-biz="vet">접수지 집계</span><span data-biz-not="vet">주문·예약 때 물어본 것 집계</span></td></tr>
+        <tr><td><b>재방문</b></td><td>앞 강의의 탭</td><td>매주</td><td><span data-biz="vet">차트</span><span data-biz-not="vet">{{customer}} 장부</span></td></tr>
+        <tr><td><b>리뷰</b></td><td>마케팅 장부의 리뷰 탭</td><td>매일</td><td>플레이스</td></tr>
+        <tr><td><b>월성과</b></td><td>마케팅 장부의 월성과 탭</td><td>매달 1일</td><td>세 채널 통계</td></tr>
+        <tr><td><b>요약</b></td><td>수식으로 이번 달·지난달·전년 같은 달 비교</td><td>자동</td><td>위 탭들</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a60a" data-key="v_a60a"><div class="body"><label for="v_a60a">허브 시트 만들고 탭 나누기</label><small>드라이브에 <b>{{place}} 데이터 허브</b> 시트 → 탭: 일매출, 유입경로, 재방문, 리뷰, 월성과, 요약.</small></div></li>
+    <li><input type="checkbox" id="v_a60b" data-key="v_a60b"><div class="body"><label for="v_a60b">마케팅 장부를 끌어오기</label><small>리뷰·월성과는 이미 마케팅 장부에 있어요. 두 번 적지 않게 <dfn data-t="importrange">IMPORTRANGE</dfn>로 보여 주기만 해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>마케팅 장부를 열고 주소창 주소 전체 복사</li>
+        <li>허브 시트 '리뷰' 탭 A1에 <span class="path">=IMPORTRANGE("복사한 주소", "리뷰!A:H")</span></li>
+        <li>#REF! 칸에 마우스를 올려 <span class="path">액세스 허용</span>. 월성과도 같은 방법</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a60c" data-key="v_a60c"><div class="body"><label for="v_a60c">일매출은 엑셀로 한 번에 (가능하면)</label><small>단말기 앱이나 <span data-biz="vet">차트</span><span data-biz-not="vet">포스</span>에서 기간 매출을 엑셀로 내려받을 수 있으면, 매주 그 파일을 '07 자동화 도우미'에게 주고 "일매출 탭 형식으로 바꿔 줘" → 붙여 넣기. 안 되면 일계표 숫자를 손으로 옮겨요(하루 1분).</small></div></li>
+    <li><input type="checkbox" id="v_a60d" data-key="v_a60d"><div class="body"><label for="v_a60d">요약 탭 수식 받기</label><small>아래 부탁문으로 수식을 받아 붙여 넣어요.</small></div></li>
+    <li><input type="checkbox" id="v_a60e" data-key="v_a60e"><div class="body"><label for="v_a60e">AI 프로젝트 파일에 허브 추가</label><small>AI 비서실 프로젝트 파일(<a href="#c-l5" class="ref" data-ref="c-l5">강의</a>)에 '{{place}} 데이터 허브'를 넣으면 브리핑이 매출·재방문까지 같이 봐요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>요약 탭 수식 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '{{place}} 데이터 허브'의 요약 탭 수식을 만들어 줘. 탭 구조:
+일매출(A 날짜 | B 카드 | C 현금·이체 | D 건수 | E 신규 | F <span data-biz="vet">재진</span><span data-biz-not="vet">재방문</span>), 유입경로(A 월 | B~F 경로별 수), 재방문(G 다음 예정일, H 연락 동의, I 연락한 날), 리뷰(A 날짜 | C 별점).
+요약 탭에 보여 줄 것: 이번 달 매출·건수·객단가, 지난달 대비 %, 신규 비율, 이번 달 유입 1위 경로, 2주 안 재방문 대상 수, 이번 달 리뷰 수와 평균 별점.
+칸 위치와 수식을 하나씩, 붙여 넣는 순서대로 알려 줘. 오늘 날짜 기준으로 자동으로 바뀌게.</pre></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>요약은 저절로</b><span>숫자를 넣으면 요약 탭이 다시 계산돼요.</span></div></li><li><span class="chip k-conn">커넥터</span><div class="ad"><b>AI가 최신 허브를 읽음</b><span>Google Drive 커넥터로 연결해 두면 다시 올릴 필요가 없어요.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>매주 엑셀 백업</b><span>일요일 밤 장부·허브를 엑셀로 받아 외장 디스크에(단축어·예약 작업).</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "매출 파일 내려받기" 부탁: 단말기 관리 웹에서 지난달 매출 엑셀 '내려받기'까지(로그인은 {{owner}}). 저장·제출 버튼 앞에서 멈추게 해요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>단말기 관리 웹</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 단말기 엑셀 여러 개 → 허브 시트 형식 하나로 합치기.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '07 자동화 도우미' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: {{place}} 데이터 허브 → 프로젝트 파일</span></div></div>
+      <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>{{place}} 데이터 허브 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">허브 시트는 드라이브 커넥터로 늘 최신.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·IMPORTRANGE 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>단말기·<span data-biz="vet">차트</span><span data-biz-not="vet">포스</span> 회사가 API를 열어 주면 일매출 자동 입력(개발 비용)</li></ul></div></div>
+</section>

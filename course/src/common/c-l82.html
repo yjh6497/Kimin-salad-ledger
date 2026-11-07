@@ -1,0 +1,41 @@
+<section id="c-l82" class="lesson" data-part="staff" data-title="직원 웹앱 만들기" data-level="adv" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절 · PC</span>
+    <h2>직원 휴대폰에 {{place}} 전용 앱 하나</h2>
+    <p class="goal">구글 시트와 <dfn data-t="appsscript">앱스 스크립트</dfn>로 무료 <dfn data-t="webapp">웹앱</dfn>을 만들어요. 직원은 <dfn data-t="pin">PIN</dfn>으로 들어와 출퇴근을 누르고, 오늘의 오픈·마감<span data-biz="vet">·소독</span> 체크리스트를 체크하고, 인수인계 메모를 남기고, 휴가를 신청해요.</p>
+  </div>
+  <div class="vis">
+    <div class="roles">
+      <div class="role a" style="--d:.2s"><span class="role-tag">실장 · PIN 4자리</span><div class="role-row">출근·퇴근 버튼</div><div class="role-row">오늘 근무자, 휴가 신청 승인 요청 목록</div><div class="role-row">인수인계 메모 전체</div></div>
+      <div class="role a" style="--d:.6s" data-biz="vet"><span class="role-tag">동물보건사 · PIN 4자리</span><div class="role-row">출근·퇴근 버튼, 내 이번 주 근무표</div><div class="role-row">오픈·마감·소독 체크리스트</div><div class="role-row">입원 동물 인수인계 메모, 휴가 신청</div></div>
+      <div class="role a" style="--d:.6s" data-biz-not="vet"><span class="role-tag">{{staff}} · PIN 4자리</span><div class="role-row">출근·퇴근 버튼, 내 이번 주 근무표</div><div class="role-row">오픈·마감 체크리스트</div><div class="role-row">인수인계 메모, 휴가 신청</div></div>
+    </div>
+    <p class="cap a" style="--d:1s">같은 주소, PIN에 따라 다른 화면 · 예시. 웹앱은 {{owner}} 권한으로 시트를 읽고 쓰므로 직원에게 '직원 데이터' 파일을 공유하지 않아요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a82a" data-key="v_a82a"><div class="body"><label for="v_a82a">'직원 데이터'에 탭 더하기</label><small>체크리스트(항목 | 시간대: 오픈/마감<span data-biz="vet">/소독</span> | 담당 역할), 체크기록(날짜 | 직원번호 | 항목 | 시각), 인수인계(날짜 | 직원번호 | 대상(<span data-biz="vet">입원 동물 번호</span><span data-biz-not="vet">주문·예약 번호</span>) | 메모), 휴가신청(날짜 | 직원번호 | 종류 | 상태).</small></div></li>
+    <li><input type="checkbox" id="v_a82b" data-key="v_a82b"><div class="body"><label for="v_a82b">AI에게 웹앱 코드 받기</label><small>'07 자동화 도우미' 채팅에 아래 부탁문을 보내면 Code.gs와 index.html 두 파일을 줘요.</small></div></li>
+    <li><input type="checkbox" id="v_a82c" data-key="v_a82c"><div class="body"><label for="v_a82c">붙여 넣고 <dfn data-t="deploy">배포</dfn></label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'직원 데이터' → <span class="path">확장 프로그램 → Apps Script</span> → Code.gs에 코드 붙여 넣기</li>
+        <li>왼쪽 <span class="path">파일 + → HTML</span> → 이름 <b>index</b> → index.html 코드 붙여 넣기 → 저장</li>
+        <li><span class="path">배포 → 새 배포 → 유형 선택(톱니) → 웹 앱</span> → 실행 계정 <b>나</b>, 액세스 <b>모든 사용자</b> → 배포 → 권한 허용 → 주소 복사</li>
+        <li>고칠 때는 <span class="path">배포 → 배포 관리 → 연필 → 버전: 새 버전 → 배포</span><span class="fix">'새 배포'를 또 누르면 주소가 바뀌어요. 꼭 '배포 관리'에서 새 버전으로.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a82d" data-key="v_a82d"><div class="body"><label for="v_a82d">직원 휴대폰 홈 화면에</label><small>주소를 직원 단톡방에 올리고 <dfn data-t="homescreen">홈 화면에 추가</dfn>. 첫 주는 실장님이 매일 출퇴근 탭을 보며 빠진 기록을 확인해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>직원 웹앱 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '직원 데이터'로 {{biz}} 직원용 앱스 스크립트 웹앱을 만들어 줘. Code.gs와 index.html 두 파일로.
+- 시작: 직원 탭에서 상태 '재직'인 사람 이름 고르기 + PIN 4자리. 5번 틀리면 10분 잠금, PIN은 화면에 안 보이게
+- 모든 직원: 출근·퇴근 버튼(출퇴근 탭에 날짜·직원번호·시각, 같은 날 두 번 누르면 확인 창), 내 이번 주 근무표, 오늘의 체크리스트(내 역할 항목만, 체크하면 체크기록 탭에), 인수인계 메모 쓰기·오늘 메모 보기, 휴가 신청
+- 실장 역할: 위에 더해 오늘 근무자, 출근 안 누른 사람, 대기 중 휴가 신청, 오늘 안 끝난 체크리스트
+- 매출·급여·{{customer}} 연락처는 화면과 코드 어디에도 넣지 않기. <span data-biz="vet">입원 동물은</span><span data-biz-not="vet">주문·예약은</span> 번호로만
+- 휴대폰 기준, 글씨 16px 이상, 큰 버튼, 어두운 화면에서도 읽히게
+붙여 넣는 곳, 배포, 고칠 때 새 버전으로 하는 법까지 순서대로.</pre></div>
+  <div class="prompt"><div class="bar"><span>체크리스트 항목 부탁문</span><button class="copy" type="button">복사</button></div><pre><span data-biz="vet">{{biz}} 오픈·마감·소독 체크리스트를 역할별로 만들어 줘(실장·코디/동물보건사/미용). 항목은 한 줄 15자 안쪽으로, 시간대(오픈/마감/소독)와 담당 역할을 붙여 '체크리스트' 탭에 바로 붙일 표로. 마취기·산소, 냉장 약품 온도, 입원장, 진료대 소독, 의료폐기물, 방사선 장비 전원 같은 {{biz}} 항목 포함. 기준값(온도 등)은 [원장 확인]으로 비워 두기.</span><span data-biz-not="vet">{{biz}} 오픈·마감 체크리스트를 역할별로 만들어 줘(실장/{{staff}}). 항목은 한 줄 15자 안쪽으로, 시간대(오픈/마감)와 담당 역할을 붙여 '체크리스트' 탭에 바로 붙일 표로. {{stockitem}} 보관·정리, 청소, 장비 전원, 문단속 같은 우리 {{place}} 항목 포함. 기준값(온도 등)은 [{{owner}} 확인]으로 비워 두기.</span></pre></div>
+  <p class="tip warnbox"><b>PIN 웹앱은 작은 {{place}}용이에요.</b> 강한 보안이 아니니 급여·매출·{{customer}} 개인정보는 넣지 마세요. 출퇴근 기록은 실장님이 매주 한 번 근무표와 맞춰 봐요.</p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">메일</span><div class="ad"><b>휴가 신청 알림</b><span>웹앱이 휴가 신청을 저장할 때 {{owner}}께 메일 한 통(MailApp). 부탁문에 한 줄 더하면 돼요.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>웹앱 신청이 승인함으로</b><span>휴가·물품 요청 버튼이 승인함 줄을 만들어요(ask 함수).</span><span class="pv">버튼: 승인 / 반려 / 보류</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>직원 웹앱(앱스 스크립트) + ask()로 휴가 신청이 승인함으로.</span></div><div class="run-row"><b>비서 연동</b><span>'07 자동화 도우미' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 웹앱 코드·오류는 이 채팅에</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>웹앱 코드·오류는 이 채팅에</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Figma</span></div></div><p class="rec-note">웹앱 코드는 '07 자동화 도우미'에게, 화면 시안은 Figma로.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트 웹앱 무료, 앱 설치 없음</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: PIN 대신 {{place}} 계정 로그인</li><li>근태 앱: 위치 기반 출퇴근, 전자결재</li></ul></div></div>
+</section>

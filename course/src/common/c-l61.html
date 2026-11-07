@@ -1,0 +1,36 @@
+<section id="c-l61" class="lesson" data-part="data" data-title="공공데이터로 동네 읽기" data-level="grow" data-stage="prep takeover operate" data-biz-not="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · PC · {{open}} 전에 특히</span>
+    <h2>우리 동네 <span data-biz="vet">반려동물</span><span data-biz-not="vet">손님</span>과 경쟁 {{place}}</h2>
+    <p class="goal">공공데이터로 동네에 <span data-biz="vet">반려동물이</span><span data-biz-not="vet">손님이 될 사람이</span> 얼마나 있는지, 주변 {{biz:이}} 어디에 언제 생기고 닫았는지 볼 수 있어요. {{open}} 입지 확인, {{hours}} 결정, 블로그 동네 키워드에 써요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>실사 때 동네 분석으로 쓰면 인수 판단에도 도움이 돼요<a href="#c-l46" class="ref" data-ref="c-l46">강의</a>.</span></p>
+
+  <div class="table-wrap"><table>
+    <thead><tr><th>자료</th><th>어디서</th><th>알 수 있는 것</th></tr></thead>
+    <tbody>
+      <tr><td><b>{{biz}} 인허가 정보</b></td><td><dfn data-t="datago">공공데이터포털</dfn>에서 '{{biz}}' 검색 (지방행정 인허가 데이터)</td><td>주변 {{place}} 위치, 인허가·폐업 날짜, 영업 상태</td></tr>
+      <tr data-biz="vet"><td><b>동물등록 현황</b></td><td>공공데이터포털에서 '동물등록' 검색, 시·군·구 통계</td><td>지역별 등록 반려견 수 추이(고양이는 등록 의무가 아니라 적게 잡혀요)</td></tr><tr data-biz-not="vet"><td><b>인구 통계</b></td><td>통계청 KOSIS 또는 행정안전부 주민등록 인구통계에서 시·군·구 검색</td><td>동네 나이대별·가구별 인구 추이</td></tr>
+      <tr><td><b>상권 정보</b></td><td>소상공인365</td><td>유동인구, 주거 인구, 주변 업종</td></tr>
+      <tr><td><b>검색 추이</b></td><td>네이버 데이터랩</td><td>'○○동 {{biz}}' 같은 검색어의 계절 변화</td></tr>
+    </tbody>
+  </table></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a61a" data-key="v_a61a"><div class="body"><label for="v_a61a">파일 내려받기</label><small>공공데이터포털에서 위 이름으로 검색 → '파일데이터'면 바로 내려받기, 'API'만 있으면 활용신청이 필요해요. 처음엔 파일데이터로 충분해요.</small><span class="fix">데이터 이름과 위치는 바뀔 수 있어요. 검색 결과 화면을 캡처해 AI에게 "{{biz}} 인허가 파일은 어느 거야?"라고 물어보세요.</span></div></li>
+    <li><input type="checkbox" id="v_a61b" data-key="v_a61b"><div class="body"><label for="v_a61b">우리 시·군·구만 남기기</label><small>파일이 크면 AI에게 "주소에 ○○구가 들어간 행만 남겨 줘"라고 부탁하거나, 엑셀 필터로 거른 뒤 올려요.</small></div></li>
+    <li><input type="checkbox" id="v_a61c" data-key="v_a61c"><div class="body"><label for="v_a61c">동네 한 장 리포트 받기</label><small>아래 부탁문. 결과는 {{place}} 소개서의 '주 {{customer}}' 칸과 {{hours}} 결정에 반영해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>동네 리포트 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 공공데이터({{biz}} 인허가, <span data-biz="vet">동물등록 현황</span><span data-biz-not="vet">인구 통계</span>)와 상권 캡처로 우리 {{place}} 주변 리포트를 만들어 줘. {{place}} 주소: ○○(동 단위).
+1) 반경 1km·2km 안 영업 중인 {{biz}} 수와 목록(이름, 대략 거리, 인허가 연도) — 주소로 거리를 어림하고, 어림이라고 표시
+2) 최근 3년 안 개업·폐업 {{place}}
+3) 우리 구의 <span data-biz="vet">등록 반려견 수 추이</span><span data-biz-not="vet">나이대별·가구별 인구 추이</span>
+4) 이 숫자로 본 우리 {{place}}의 기회 3가지, 조심할 점 2가지 (<span data-biz="vet">진료 시간, 고양이 진료, 노령 동물 등</span><span data-biz-not="vet">{{hours}}, 주요 {{item}}, 주 손님층 등</span>)
+5) 블로그·플레이스에 쓸 동네 키워드 후보
+파일에 없는 숫자는 지어내지 말고, 다른 {{place:을}} 깎아내리는 표현은 쓰지 마.</pre></div>
+  <p class="src">출처: <a href="https://www.data.go.kr" target="_blank" rel="noopener">공공데이터포털</a> · <a href="https://datalab.naver.com" target="_blank" rel="noopener">네이버 데이터랩</a></p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>분기마다 새 자료</b><span>공공데이터는 갱신이 느려요. 분기마다 한 번 새로 받기 알림.</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "공공데이터 내려받기" 부탁: 공공데이터포털·통계 사이트에서 동네 표를 찾아 내려받기까지. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>data.go.kr</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 공공데이터 CSV → 동네 리포트 그래프.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '06 성과 분석' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 동네 리포트 → 소개서 '주 {{customer}}' 칸</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>동네 리포트 → 소개서 '주 {{customer}}' 칸</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">공공데이터 파일은 드라이브 '데이터' 폴더에.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>공공데이터·소상공인365·데이터랩 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>큰 파일을 그대로 올려 지도와 표까지 한 번에</li></ul></div></div>
+</section>

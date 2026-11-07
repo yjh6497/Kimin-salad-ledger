@@ -1,0 +1,71 @@
+<section id="s-l32" class="lesson" data-part="practice" data-title="마감·결산 자동화하기" data-level="core" data-stage="prep takeover operate" data-biz="salad">
+    <div class="partcard a" style="--d:0s"><span class="pn">3</span><span class="pt"><b>경영 루틴 자동화</b>3강 · 첫 달</span><p class="po">매일 마감 5분, 밤 10시 요약, 월요일 브리핑, 매달 결산. 숫자를 보는 습관을 자동으로 만들어요.</p><div class="plist"><span>마감·결산 자동화하기</span><span>주간 경영 브리핑 자동화하기</span><span>배달앱·매장 AI 컨설팅 받기</span></div><svg viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C40 30 50 12 90 14 S150 34 190 22 S250 6 300 12"/><path d="M90 14 c-6 -10 4 -14 10 -8 M190 22 c4 -11 14 -8 12 0"/></svg></div>
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 2시간 · 매일 5분</span>
+    <h2>마감은 5분 입력, 요약과 결산은 자동으로</h2>
+    <p class="goal">마감 때 숫자와 영수증만 넣으면, 밤에는 '오늘 요약'이 오고 매달 1일에는 지난달 결산이 와요. 입력을 깜빡하면 장부가 먼저 알려 줘요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>오늘 요약과 입력 누락 알림은 구글 스크립트라 무료예요. 월 결산 글은 <span data-ai="claude">매달 1일 휴대폰 알림이 오면 한 줄로 부탁해요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 매달 받아요.</span><span data-ai-none>무료 방식으로 받아요.</span></span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>월 결산을 예약 작업으로 맡겨요. 매달 1일 아침에 손익표와 다음 달 할 일이 도착해요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="msg">
+      <div class="from a" style="--d:.1s"><span>오늘 요약 · 매일 22:10 · 예시</span><span>매장 장부</span></div>
+      <div class="line a" style="--d:.5s"><b>매출</b><span>42만 원 (배달 61% · 매장 39%), 지난주 같은 요일보다 +4만 원</span></div>
+      <div class="line a" style="--d:1s"><b>지출</b><span>11만 원 · 식재료 9만 원 (○○상회)</span></div>
+      <div class="line a" style="--d:1.5s"><b>이번 달</b><span>손익분기 달성 78% · 식재료 원가율 32%</span></div>
+      <div class="line alert a" style="--d:2s"><b>확인</b><span>현금 매출 칸이 비었어요. 마감 폼에서 넣어 주세요.</span></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s32a" data-key="s_s32a"><div class="body"><label for="s_s32a">마감 입력 동선 정하기</label><small><a href="#s-l4" class="ref" data-ref="s-l4">강의</a>에서 만든 휴대폰 입력 폼을 홈 화면 첫 줄에 두고, 마감 순서를 정해요. 포스 마감 → 배달앱 오늘 매출 → 폼 입력 → 영수증 사진.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>휴대폰 홈 화면의 매출 입력 폼 아이콘을 맨 아래 줄(손이 바로 닿는 곳)로 옮기기</li>
+        <li>포스 마감 화면에서 카드·현금·계좌이체 합계를 보고 폼에 입력</li>
+        <li>배달앱 사장님 앱의 오늘 매출을 앱별로 입력. 주문내역 수집 봇(<a href="#s-l30" class="ref" data-ref="s-l30">강의</a>)을 쓰면 이 칸은 비워 둬도 돼요</li>
+        <li>제출 후 '매출입력' 탭에 한 줄 생겼는지 처음 며칠만 확인<span class="fix">마감 직원이 대신 넣는다면 직원 웹앱(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)의 마감 메뉴에 매출 칸을 붙이세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s32b" data-key="s_s32b"><div class="body"><label for="s_s32b">영수증은 사진 한 장으로 지출 한 줄</label><small>'01 장부·정산' 채팅에 영수증 사진을 올리고 아래 '영수증 → 지출 한 줄' 부탁문을 보내면, 장부 지출 탭에 그대로 붙일 줄을 받아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>영수증을 찍어 '01 장부·정산' 채팅에 올리고 부탁문 보내기 (여러 장을 한 번에 올려도 돼요)</li>
+        <li>받은 줄을 길게 눌러 복사 → 장부 '지출' 탭의 빈 줄 A칸에 붙여 넣기</li>
+        <li>사진 원본은 드라이브 '우리가게 장부/영수증/2026-10' 폴더에: 사진 앱 <span class="path">공유 → Drive</span> → 폴더 고르기</li>
+        <li>세무 자료 묶음(<a href="#c-l73" class="ref" data-ref="c-l73">강의</a>)이 이 폴더를 매달 모아 가요<span class="fix">대분류는 장부와 같은 7개(식재료·포장재·인건비·공간비·판매수수료·마케팅·운영비)만 쓰게 해야 요약이 맞아요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s32c" data-key="s_s32c"><div class="body"><label for="s_s32c">밤 10시 '오늘 요약'과 입력 누락 알림</label><small>아래 부탁문으로 스크립트를 받아 장부에 붙이면, 매일 밤 오늘 숫자를 메일로 보내 주고 빈 칸이 있으면 알려 줘요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 '오늘 요약 스크립트 부탁문' 보내기</li>
+        <li>장부 <span class="path">확장 프로그램 → Apps Script</span> → 받은 코드 붙여 넣기 → 저장 → <span class="path">실행</span> → 권한 허용</li>
+        <li>메일이 오는지 확인 → 왼쪽 시계 모양 <span class="path"><dfn data-t="trigger">트리거</dfn> → 트리거 추가 → 시간 기반 → 일 단위 → 오후 10~11시</span></li>
+        <li>휴대폰 Gmail 앱 알림을 켜 두면 요약이 푸시로 와요<span class="fix">트리거 화면의 <span class="path">실패 알림 설정 → 즉시 알림</span>을 고르면 스크립트가 멈췄을 때도 메일이 와요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s32d" data-key="s_s32d"><div class="body"><label for="s_s32d">매달 1일 월 결산 받기</label><small>지난달 손익표, 전월 대비 변화, 이상한 지출, 다음 달 할 일 2개를 받아요. '01 장부·정산' 채팅에서 아래 '월 결산 지시문'으로 만들어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span data-plan-not="free">유료: 지시문 맨 앞에 <b>"매달 1일 오전 8시에 아래 결산을 해줘."</b>를 붙여 예약 작업으로 만들기</span></li>
+        <li><span data-plan-not="paid"><span data-ai="claude">Claude 무료: 지시문을 한 번 보내 두고, 휴대폰 캘린더에 '매달 1일 결산' 반복 일정 → 알림이 오면 "이번 달 결산 해줘"</span><span data-ai-not="claude">ChatGPT 무료: "매달 1일 아침에 아래 결산을 해줘" + 지시문으로 예약 작업 만들기</span></span></li>
+        <li>결산에서 나온 '다음 달 할 일'은 '제안기록' 시트에 적어 두기 (<a href="#c-l41" class="ref" data-ref="c-l41">강의</a>)<span class="fix">결산 숫자는 장부의 '요약' 탭 수식이 기준이에요. AI 숫자와 요약 탭이 다르면 요약 탭을 믿고, 다른 이유를 물어보세요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>영수증 → 지출 한 줄 부탁문 · 장부 과장</span><button class="copy" type="button">복사</button></div><pre>첨부한 영수증을 '매장 장부' 지출 탭에 붙일 줄로 바꿔줘.
+열 순서: 날짜, 거래처, 품목, 수량, 단가, 금액, 대분류, 소분류, 결제수단, 영수증사진(빈칸)
+대분류는 식재료·포장재·인건비·공간비·판매수수료·마케팅·운영비 중 하나만.
+품목이 여러 개면 품목마다 한 줄. 칸 사이는 탭으로 구분해서 바로 붙여 넣을 수 있게.
+흐려서 확실하지 않은 칸은 값 뒤에 (확인)을 붙여줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>오늘 요약 스크립트 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>'매장 장부' 구글 시트에 붙일 앱스 스크립트를 만들어줘. 나는 코딩을 몰라서 붙여 넣는 곳과 트리거 설정까지 순서대로 알려줘.
+- 매일 밤 10시 실행. 오늘 날짜의 매출(매출 탭 + 매출입력 탭)과 지출(지출 탭)을 합계
+- 메일 제목: [오늘 요약] 매출 ○만 원 · 지출 ○만 원
+- 본문: 채널별 매출(카드·현금·계좌이체·배민·쿠팡이츠·요기요), 지난주 같은 요일 대비, 이번 달 누적 매출과 '요약' 탭의 손익분기 달성률·식재료 원가율
+- 오늘 매출 줄이 없거나 카드·현금 칸이 비어 있으면 본문 맨 위에 '입력 확인' 줄. 주문원장 시트가 있으면 배달 매출은 거기서 합계
+- 장부 숫자를 고치거나 지우는 코드는 넣지 마</pre></div>
+  <div class="prompt"><div class="bar"><span>월 결산 지시문 · 장부 과장</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'로 지난달 결산을 해줘. 휴대폰 두 화면 이내로.
+1) 손익표: 매출(채널별), 식재료비, 인건비, 고정비(공간비 포함), 판매수수료, 기타, 순이익
+2) 비율: 식재료 원가율, 인건비율, 배달 매출 비중, 전월·작년 같은 달 대비 변화
+3) 이상한 지출 3개: 평소보다 크게 늘었거나 처음 보는 거래처
+4) 잘된 점 1개, 걱정되는 점 1개 (장부 숫자로 근거)
+5) 다음 달 할 일 2개: 바로 할 수 있는 행동으로
+장부에 없는 숫자는 추측하지 말고 무엇이 비었는지 알려줘.</pre></div>
+<div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>마감 숫자 → 장부</b><span>폼을 제출하면 '매출입력' 탭에 시각과 함께 자동으로 쌓여요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>밤 10시 오늘 요약 + 입력 누락 알림</b><span>시간 트리거가 매일 숫자를 모아 메일로 보내고, 빈 칸이 있으면 맨 위에 알려 줘요. 무료.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 1일 월 결산</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 1일 오전 8시 예약 작업이 장부를 읽고 결산을 보내요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i><span data-ai="claude">Claude 무료는 예약 작업이 없어요. 매달 1일 아침 휴대폰 반복 알림이 울리면 그 채팅에 한 줄 보내요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 매달 1일 아침 받아요. 시간은 대략적으로 정해지고 동시에 3개까지예요.</span><span data-ai-none>Claude 무료는 매달 1일 아침 휴대폰 알림 + 한 줄, ChatGPT 무료는 예약 작업(하루 1번 이하, 3개까지)으로 받아요.</span></span></span></div></li><li><span class="chip k-conn">커넥터</span><div class="ad"><b>영수증 사진 → 지출 줄</b><span>사진 한 장으로 붙여 넣을 줄을 받아요. 영수증이 많은 날은 모아서 한 번에 올려요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>카드매출 통합조회에서 어제 승인 내역을 읽어 장부와 대조 표.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>배달앱 정산 화면의 정산 예정액을 읽어 장부 칸에.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>밤 10시 요약·누락 알림 스크립트를 만들고 텔레그램으로.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'01 장부·정산'이 매달 1일 결산 해설, 결과는 업무일지에.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>01 장부·정산</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>영수증 부탁문, 월 결산 지시문 (유료면 예약 작업)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>폼 입력, 오늘 요약 메일, 누락 알림 모두 구글 무료 기능</li><li>영수증 정리는 AI 무료 사용량 안에서 하루 몇 장씩</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>월 결산이 정해진 시각에 자동 도착</li><li>영수증 수십 장도 한 번에 정리</li><li>회계 프로그램으로 카드 내역 자동 수집</li></ul></div></div>
+</section>

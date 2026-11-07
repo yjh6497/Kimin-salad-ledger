@@ -1,0 +1,57 @@
+<section id="s-l11" class="lesson" data-part="auto" data-title="API로 데이터 자동 수집하기" data-level="grow" data-stage="prep takeover operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 2~4주</span>
+    <h2>채소 시세가 매일 장부에 들어오게</h2>
+    <p class="goal">가장 쉬운 길은 '<dfn data-t="apikey">API 키</dfn> 받기 → AI가 짜 준 <dfn data-t="appsscript">앱스 스크립트</dfn> 붙여 넣기 → <dfn data-t="trigger">트리거</dfn>로 매일 실행'입니다.</p>
+  </div>
+  <div class="vis">
+    <div class="lanes">
+      <div class="box pop" style="--d:.2s"><strong>공공데이터포털</strong><span>API 키 발급</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.6s"></span><span style="--d:1.3s"></span></div>
+      <div class="box pop" style="--d:.5s"><strong>앱스 스크립트</strong><span>AI가 짠 코드, 매일 6시</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.9s"></span><span style="--d:1.6s"></span></div>
+      <div class="box hi pop" style="--d:.8s"><strong>'시세' 탭</strong><span>날짜별로 자동 기록</span></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s11a" data-key="s_s11a"><div class="body"><label for="s_s11a"><dfn data-t="datago">공공데이터포털</dfn> 가입하고 활용신청</label><small>PC에서만 신청할 수 있어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>data.go.kr 오른쪽 위 <span class="path">회원가입 → 개인회원</span> → 휴대폰 본인 인증</li>
+        <li>로그인 후 <a href="https://www.data.go.kr/data/15109062/openapi.do" target="_blank" rel="noopener">농수축산물 유통단계별 가격</a> 페이지 열기</li>
+        <li><span class="path">활용신청</span> → 활용 목적에 "매장 식자재 시세 참고" 입력 → 약관 동의 → 신청</li>
+        <li>같은 방법으로 <a href="https://www.data.go.kr/data/15012005/openapi.do" target="_blank" rel="noopener">상가(상권)정보</a>도 신청 (상권 분석용)</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s11b" data-key="s_s11b"><div class="body"><label for="s_s11b">인증키 복사해 두기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">마이페이지 → 데이터활용 → Open API → 활용신청 현황</span></li>
+        <li>신청한 API를 눌러 일반 인증키(Decoding) 복사</li>
+        <li>휴대폰 메모에 '공공데이터 키'로 저장. 다른 사람에게 보내지 마세요<span class="fix">승인 직후에는 키가 바로 안 될 수 있어요. 몇 시간 뒤 다시 시도하세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s11c" data-key="s_s11c"><div class="body"><label for="s_s11c">AI에게 스크립트 받기</label><small>'08 자동화·연결' 채팅에 아래 부탁문 보내기</small></div></li>
+    <li><input type="checkbox" id="s_s11d" data-key="s_s11d"><div class="body"><label for="s_s11d">시트에 스크립트 붙여 넣고 실행</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' 파일 맨 아래 <span class="path">+</span>로 시트를 하나 추가하고 이름을 <b>시세</b>로 (새 파일 아님)</li>
+        <li>시트 위쪽 메뉴 <span class="path">확장 프로그램 → Apps Script</span></li>
+        <li>새 창에 있던 글자를 모두 지우고 AI가 준 코드를 붙여 넣기 → 키 자리에 내 인증키 붙여 넣기</li>
+        <li>위쪽 디스크 모양 <span class="path">저장</span> → <span class="path">실행</span></li>
+        <li>권한 창이 뜨면 <span class="path">권한 검토 → 내 계정 선택 → 고급 → (프로젝트 이름)(으)로 이동 → 허용</span><span class="fix">'Google에서 확인하지 않은 앱' 경고는 내가 만든 스크립트라서 뜨는 정상 안내예요.</span></li>
+        <li>'시세' 탭에 숫자가 들어왔는지 확인. 빨간 오류가 나면 오류 문장을 그대로 자동화 채팅에 붙여 넣기</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s11e" data-key="s_s11e"><div class="body"><label for="s_s11e">트리거로 매일 자동 실행</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>Apps Script 왼쪽의 시계 모양 <span class="path">트리거</span></li>
+        <li>오른쪽 아래 <span class="path">+ 트리거 추가</span></li>
+        <li>실행할 함수: AI가 알려 준 이름 / 이벤트 소스: <span class="path">시간 기반</span> / 유형: <span class="path">일 단위 타이머</span> / 시간: <span class="path">오전 6시~7시</span> → 저장</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s11f" data-key="s_s11f"><div class="body"><label for="s_s11f"><dfn data-t="mcp">MCP</dfn> 커넥터 (선택)</label><small>쓰려는 서비스가 <dfn data-t="remotemcp">원격 MCP 서버</dfn> 주소를 줄 때만 연결해요. 한국 서비스로는 카카오의 <dfn data-t="playmcp">PlayMCP</dfn>(카톡 나와의 채팅방, 톡캘린더, 카카오맵 등)가 대표적이에요. <span data-ai-not="gpt">Claude는 <span class="path">설정 → 커넥터 → 사용자 지정 커넥터 추가</span>에서 등록해요. </span><span data-ai-not="claude">ChatGPT는 유료 플랜의 개발자 모드에서 등록해요.</span><span data-plan="free"><span data-ai="claude"> 무료 플랜은 사용자 지정 커넥터를 1개까지 쓸 수 있으니 가장 필요한 것 하나만 고르세요.</span><span data-ai="gpt"> 무료 플랜은 개발자 모드가 없으니 이 단계는 건너뛰고 앱스 스크립트로 연결하세요.</span></span></small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>채소 시세 자동 수집 부탁문</span><button class="copy" type="button">복사</button></div><pre>공공데이터포털 '농수축산물 유통단계별 가격' API를 구글 시트 Apps Script로 매일 호출해서 '시세' 탭에 로메인, 양상추, 토마토, 오이 소매가격을 날짜별로 쌓는 코드를 만들어줘. 인증키 넣을 자리를 표시하고, 실행할 함수 이름과 트리거 설정 방법도 초보 기준으로 단계별로 알려줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>포스사 연동 문의 문장</span><button class="copy" type="button">복사</button></div><pre>안녕하세요, ○○매장입니다. 매출·메뉴별 판매 데이터를 엑셀 정기 다운로드나 API로 받을 수 있는지 문의드립니다. 가능하다면 신청 방법과 비용, 제공 항목(결제수단, 채널, 메뉴, 시간대)을 알려 주세요.</pre></div>
+  <p class="src">출처: <a href="https://www.data.go.kr/ugs/selectPublicDataUseGuideView.do" target="_blank" rel="noopener">공공데이터포털 이용가이드</a> · <a href="https://support.claude.com/en/articles/11175166-about-custom-connectors-remote-mcp" target="_blank" rel="noopener">Claude 사용자 지정 커넥터</a> · <a href="https://www.infoq.com/news/2025/10/chat-gpt-mcp" target="_blank" rel="noopener">ChatGPT 개발자 모드 MCP</a></p>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>매일 아침 시세</b><span>시간 트리거로 매일 같은 시각에 시세를 받아 장부에 쌓아요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>멈추면 바로 알림</b><span>트리거 설정의 <span class="path">실패 알림 설정 → 즉시 알림</span>을 고르면 인증키 만료나 오류를 메일로 받아요.</span></div></li><li><span class="chip k-conn">커넥터</span><div class="ad"><b>MCP 커넥터</b><span>AI가 외부 서비스 도구를 직접 쓰게 해요. 카카오 PlayMCP처럼 믿을 수 있는 회사 것만 연결해요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>공공데이터포털 활용신청 칸 채우기(신청 버튼 앞).</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>시세 사이트 화면을 읽어 API 결과와 맞는지 확인.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>API 호출 스크립트를 만들고 매일 아침 트리거.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'03 식자재'가 시세 변화를 원가 경보에 반영.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>08 자동화·연결</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>채소 시세 자동 수집 부탁문</span></div><div class="aib-row"><b>세션</b><span>코드를 받은 대화는 그 채팅에 남겨 두세요. 고칠 때 "지난번 코드에서"로 이어서 물을 수 있어요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><p class="rec-note">인증키는 스크립트 속성에.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>공공데이터 API와 앱스 스크립트는 무료</li><li>AI가 코드를 짜 주니 개발비 0원</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Make·Zapier 같은 자동화 서비스: 화면에서 끌어다 연결, 오류 알림</li><li>개발 외주, MCP 서버 운영</li></ul></div></div>
+</section>

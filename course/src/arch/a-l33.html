@@ -1,0 +1,38 @@
+<section id="a-l33" class="lesson" data-part="practice" data-title="면적·주차 검토표" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간</span>
+    <h2>계산은 시트가, 검산은 AI가</h2>
+    <p class="goal">AI에게 면적을 바로 계산시키면 틀릴 수 있어요. 계산은 <b>구글 시트 수식</b>이 하고, AI는 표를 만들어 주고 빠진 항목과 근거를 짚는 역할을 맡아요.</p>
+  </div>
+  <div class="vis">
+    <div class="dash">
+      <div class="kpi pop" style="--d:.2s"><span>대지면적 · 예시</span><b>330.0㎡</b></div>
+      <div class="kpi pop" style="--d:.35s"><span>건폐율</span><b>58.2%</b></div>
+      <div class="kpi hi pop" style="--d:.5s"><span>용적률 (산정용 연면적)</span><b>196.4%</b></div>
+      <div class="kpi warn pop" style="--d:.65s"><span>부설주차</span><b>필요 4대 · 계획 3대</b></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a_a33a" data-key="a_a33a"><div class="body"><label for="a_a33a">'면적검토 양식' 시트 만들기</label><small>프로젝트마다 복사해 쓸 양식이에요. '양식' 폴더에 만들어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>드라이브 '양식' 폴더 → 새 스프레드시트 → 이름 <b>면적검토 양식</b></li>
+        <li>탭 3개: 층별면적, 한도, 주차</li>
+        <li>아래 제목 줄들을 각 탭 A1에 붙여 넣기</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a_a33b" data-key="a_a33b"><div class="body"><label for="a_a33b">AI에게 수식 받기</label><small>'02 대지·법규 검토' 채팅에 아래 '수식 부탁문'을 보내고, 받은 수식을 알려 준 칸에 붙여 넣어요.</small></div></li>
+    <li><input type="checkbox" id="a_a33c" data-key="a_a33c"><div class="body"><label for="a_a33c">끝난 프로젝트로 시험하기</label><small>이미 허가받은 프로젝트의 면적표를 넣어 보고, 허가 도서의 숫자와 맞는지 확인해요. 맞아야 새 프로젝트에 써요.</small></div></li>
+    <li><input type="checkbox" id="a_a33d" data-key="a_a33d"><div class="body"><label for="a_a33d">새 프로젝트: 복사 → 입력 → AI 검산</label><small>양식을 <span class="path">파일 → 사본 만들기</span>로 프로젝트 폴더에 복사 → 층별 면적 입력 → 표를 AI에게 주고 '검산 부탁문'</small></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>층별면적 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>층 | 용도 | 바닥면적(㎡) | 용적률 제외(㎡) | 제외 사유 | 산정용 면적(㎡) | 비고</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>한도 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>항목 | 값 | 근거(법령·조례) | 확인일</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>주차 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>용도 | 면적(㎡) | 기준(㎡당 1대) | 산정 대수 | 근거 | 비고</pre></div>
+  <div class="prompt"><div class="bar"><span>수식 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '면적검토 양식'에 층별면적, 한도, 주차 탭이 있어(제목 줄 아래 붙임). 다음 수식을 셀 위치까지 알려줘.
+- 층별면적: 산정용 면적 = 바닥면적 − 용적률 제외. 맨 아래에 연면적 합계와 용적률 산정용 연면적 합계
+- 한도 탭: 대지면적, 건축면적, 건폐율 = 건축면적/대지면적, 용적률 = 산정용 연면적/대지면적, 그리고 한도와 비교해 '적합/초과' 표시
+- 주차: 용도별 산정 대수 = 면적/기준, 소수점 처리 규칙은 칸을 비워 두고 내가 근거를 확인해 고르게
+제목 줄: (세 탭 제목 줄 붙여 넣기)</pre></div>
+  <div class="prompt"><div class="bar"><span>검산 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 면적검토 표를 검산해 줘. 1) 합계가 맞는지 2) 용적률 산정에서 빠질 수 있는 면적(지하층, 부속 주차장 등) 중 내가 놓친 것이 있는지 '확인 질문'으로 3) 주차 기준 근거가 비어 있는 줄. 계산을 새로 하지 말고 표의 숫자로만 확인해. 면적 산정 기준은 건축법 시행령 제119조를 근거로 말해 줘.</pre></div>
+  <p class="tip"><b>AI는 검산자, 시트는 계산기.</b> AI가 낸 숫자를 그대로 도서에 쓰지 마세요. 시트 수식 값과 AI 검산이 서로 맞을 때만 씁니다.</p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>입력하면 바로 적합/초과</b><span>층별 면적만 고치면 건폐율·용적률·주차가 다시 계산되고 초과 칸이 빨개져요.</span></div></li><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>근거 칸 채우기</b><span>한도 탭 근거·확인일 칸은 법규 비서(<a href="#a-l8" class="ref" data-ref="a-l8">강의</a>)가 찾은 조문으로 채워요.</span></div></li></ul></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트 양식 + AI 수식·검산</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>BIM(레빗·아키캐드) 면적표를 내보내 바로 검산</li><li>AI 유료: 층이 많은 큰 표도 한 번에</li></ul></div></div>
+</section>

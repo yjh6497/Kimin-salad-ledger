@@ -1,0 +1,38 @@
+<section id="a-l8" class="lesson" data-part="practice" data-title="법규 근거 찾기 비서" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간</span>
+    <h2>"몇 조 몇 항인지"까지 찾아오는 비서</h2>
+    <p class="goal">AI가 기억으로 말한 법규는 틀릴 수 있어요. 이 강의에서는 AI가 <b>최신 법령 원문을 직접 찾아 읽고</b> 답하게 만들어요. 쉬운 방법(원문 붙여 주기)부터 연결 방법(<dfn data-t="mcp">MCP</dfn>)까지.</p>
+  </div>
+  <div class="vis">
+    <div class="lanes">
+      <div class="box pop" style="--d:.2s"><strong>질문</strong><span>"근생 2종 용도변경 시 주차 기준?"</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.5s"></span></div>
+      <div class="box hi pop" style="--d:.5s"><strong>법령 원문</strong><span>국가법령정보센터 · 조례</span></div>
+      <div class="pipe" aria-hidden="true"><span style="--d:.9s"></span></div>
+      <div class="box ai pop" style="--d:.9s"><strong>근거 붙은 답</strong><span>조문 인용 · 확인할 부서</span></div>
+    </div>
+    <p class="cap a" style="--d:1.3s">기억이 아니라 원문을 읽고 답하게 하는 것이 핵심이에요.</p>
+  </div>
+  <h3>방법 1 · 원문을 붙여 주기 (누구나, 무료)</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="a_a8a" data-key="a_a8a"><div class="body"><label for="a_a8a">국가법령정보센터에서 조문 찾기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">law.go.kr</span>(<dfn data-t="lawgo">국가법령정보센터</dfn>) → 검색창에 법령명(예: 주차장법 시행령) → 현행 법령 열기</li>
+        <li>필요한 조문이나 별표를 열고 <span class="path">조문 복사</span> 또는 드래그해 복사. 별표는 <span class="path">별표·서식</span> 탭에서 PDF로 받기</li>
+        <li>조례는 같은 사이트 <span class="path">자치법규</span> 탭에서 '○○시 주차장 조례'처럼 검색<span class="fix">시행일이 미래인 개정 법령이 같이 보일 수 있어요. 지금 적용되는 '현행'인지 위쪽 시행일을 확인하세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="a_a8b" data-key="a_a8b"><div class="body"><label for="a_a8b">'02 대지·법규 검토' 채팅에 원문과 함께 질문</label><small>아래 '원문 기반 질문' 부탁문을 쓰면, AI가 붙여 준 글 밖의 내용을 지어내지 않게 막아요.</small></div></li>
+  </ol>
+  <h3>방법 2 · 법령 MCP 연결하기</h3>
+  <p class="tip"><b>붙여 넣기 없이 AI가 직접 법령을 찾아 읽게 하려면</b> 법령 <dfn data-t="mcp">MCP</dfn>를 연결하세요. 연결 방법과 건축 실무에서 쓰는 질문 여섯 가지는 다음 강의(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>)에 따로 정리했어요.</p>
+  <div class="prompt"><div class="bar"><span>원문 기반 질문 부탁문</span><button class="copy" type="button">복사</button></div><pre>아래에 붙인 법령 원문만 근거로 답해 줘. 원문에 없는 내용은 '원문에 없음'이라고 해.
+질문: ○○
+답할 때: 1) 결론 한 줄 2) 근거 조문을 원문 그대로 짧게 인용 3) 다른 법령·조례에서 따로 정할 수 있어 확인할 것 4) 담당 부서(건축과·도시계획과·교통과 등)
+
+[원문 붙여 넣기]</pre></div>
+  <p class="tip warnbox"><b>법규 질의는 결국 허가권자 판단이에요.</b> 해석이 갈리는 문제는 AI 답을 바탕으로 질의서 초안을 쓰고, 허가 부서나 국토교통부 질의회신 사례로 확인하세요.</p>
+  <p class="src">출처: <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a> · <a href="https://open.law.go.kr" target="_blank" rel="noopener">국가법령정보 공동활용</a> · <a href="https://github.com/chrisryugj/korean-law-mcp" target="_blank" rel="noopener">korean-law-mcp</a></p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-conn">MCP</span><div class="ad"><b>현행 법령 직접 조회</b><span>연결해 두면 붙여 넣기 없이 AI가 최신 조문·별표·조례를 찾아 읽어요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>개정 소식 받기</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 1일 예약 작업으로 개정 소식을 받아요. 만드는 법은 <a href="#a-l36" class="ref" data-ref="a-l36">강의</a>.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>매달 1일 휴대폰 알림이 울리면 같은 부탁을 채팅에 보내요. 국가법령정보센터의 최신 개정 법령 목록도 함께 훑어보세요.</span></span></div></li></ul></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>국가법령정보센터 원문 복사 + AI 질문</li><li>법제처 Open API 키 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI 유료 플랜: MCP 연결, 긴 결정도서 통째로</li><li>건축 법규 전문 서비스: 해석례·질의회신 묶음 검색</li></ul></div></div>
+</section>

@@ -1,0 +1,64 @@
+<section id="f-order" class="lesson" data-part="practice" data-title="주문·예약 접수 장부" data-level="core" data-stage="prep takeover operate" data-biz="flower">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절</span>
+    <h2>전화·카톡·네이버 예약, 주문은 한 장부로</h2>
+    <p class="goal">꽃 주문은 적을 게 많아요. 받는 분, 날짜·시간, 리본 문구, 카드 문구, 배송지, 예산. 전화로 받고 메모지에 적으면 대목에 꼭 하나씩 빠져요. 어디로 들어온 주문이든 <b>'꽃집 운영 장부'의 주문 탭 한 곳</b>에 같은 칸으로 모으고, 주문 확인 문자로 손님과 한 번 더 맞춰요.</p>
+  </div>
+  <p class="tknote" data-stage-only="operate"><b class="tag">이미 운영 중이라면</b><span>지금 쓰는 주문 노트나 달력을 바로 버리지 말고, 이번 달 주문부터 주문 탭에 같이 적어 보세요. 2주면 익숙해져요.</span></p>
+
+  <div class="vis">
+    <div class="msg">
+      <div class="from a" style="--d:.1s"><span>주문 확인 문자 · 예시</span><span>○○플라워</span></div>
+      <div class="line a" style="--d:.5s"><b>주문</b><span>꽃바구니 8만 원대 · 5/8(금) 오전 10~12시 배송</span></div>
+      <div class="line a" style="--d:1s"><b>받는 분</b><span>김○○ 님 · ○○동 ○○아파트 (도착 전 전화)</span></div>
+      <div class="line a" style="--d:1.5s"><b>카드</b><span>"엄마 아빠, 늘 고맙습니다" · 보내는 분: 큰딸</span></div>
+      <div class="line alert a" style="--d:2s"><b>확인</b><span>틀린 곳이 있으면 이 문자에 답장 주세요</span></div>
+    </div>
+  </div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="f_order_a" data-key="f_order_a"><div class="body"><label for="f_order_a">주문 탭 칸 정하기</label><small>'꽃집 운영 장부'에 <b>주문</b> 탭을 만들고 아래 제목 줄을 붙여요. 전화 주문은 통화하면서 이 칸 순서대로 물으면 빠뜨리지 않아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'꽃집 운영 장부' → <span class="path">+</span> → 이름 <b>주문</b> → A1에 '주문 제목 줄' 붙여 넣기</li>
+        <li>'상태' 칸은 <span class="path">삽입 → 드롭다운</span>으로 접수 / 확정 / 제작 / 배송·픽업 완료 / 취소</li>
+        <li>휴대폰에 구글 시트 앱을 깔아 두면 매장 밖에서도 적을 수 있어요</li>
+      </ol>
+      <div class="prompt" data-tsv><div class="bar"><span>주문 제목 줄</span><button class="copy" type="button">복사</button></div><pre>접수일 | 접수 경로 | 주문하신 분 | 연락처 | 상품 | 예산 | 받는 날짜 | 시간대 | 픽업/배송 | 받는 분 | 받는 분 연락처 | 배송지 | 리본 문구 | 카드 문구 | 요청 사항 | 결제 | 상태 | 확인 문자</pre></div></details></div></li>
+    <li><input type="checkbox" id="f_order_b" data-key="f_order_b"><div class="body"><label for="f_order_b">구글 폼으로 주문서 받기</label><small>손님이 직접 적게 하면 받아 적는 실수가 줄어요. 폼 응답을 주문 탭으로 바로 연결해요. 같은 폼을 카톡 채널 메뉴, 인스타 프로필 링크, 플레이스에 걸어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>아래 '주문 폼 부탁문'으로 질문 목록을 받아 forms.google.com에서 새 폼에 옮기기 (커넥터가 있으면 AI가 만들어 줘요)</li>
+        <li>폼 <span class="path">응답 → 시트에 연결 → 기존 스프레드시트 선택</span> → '꽃집 운영 장부' (새 탭 '폼 응답'이 생겨요)</li>
+        <li>'폼 응답' 탭을 주문 탭으로 옮기는 방법은 아래 자동화 상자를 봐요<span class="fix">폼에 개인정보를 받으니 맨 위에 "주문 처리와 배송에만 쓰고, ○개월 뒤 지워요" 한 줄을 넣어요. 개인정보 규칙은 프로젝트 지침과 같게.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="f_order_c" data-key="f_order_c"><div class="body"><label for="f_order_c">카톡·네이버로 온 주문도 같은 칸으로</label><small>카톡이나 네이버 톡톡으로 온 대화는 캡처해서 AI에게 주면 주문 탭 한 줄로 바꿔 줘요. 네이버 예약(<a href="#c-l13" class="ref" data-ref="c-l13">강의</a>)으로 들어온 주문도 같은 탭에 옮겨 적어요. 장부 쓰는 법 전체는 <a href="#c-l4" class="ref" data-ref="c-l4">강의</a>.</small></div></li>
+    <li><input type="checkbox" id="f_order_d" data-key="f_order_d"><div class="body"><label for="f_order_d">카카오톡 채널 자동응답 넣기</label><small>"당일 배송 되나요?", "얼마부터 돼요?", "리본 문구 넣어 주세요" 같은 질문에는 자동응답으로 가격표 이미지(<a href="#f-price" class="ref" data-ref="f-price">강의</a>)와 주문 폼 주소를 보내요. 설정은 <a href="#c-l36" class="ref" data-ref="c-l36">강의</a>. 확정은 사장님이 직접 답해요.</small></div></li>
+    <li><input type="checkbox" id="f_order_e" data-key="f_order_e"><div class="body"><label for="f_order_e">주문 확인 문자 보내기</label><small>접수되면 위 예시처럼 주문 내용을 그대로 보내요. 특히 <b>리본·카드 문구와 받는 분 이름</b>은 손님이 직접 다시 보게 해야 해요. 아래 부탁문으로 초안을 받아 사장님 휴대폰으로 보내고, 주문 탭 '확인 문자' 칸에 표시해요.</small></div></li>
+    <li><input type="checkbox" id="f_order_f" data-key="f_order_f"><div class="body"><label for="f_order_f">화환 배송은 한 번 더 확인</label><small>화환은 행사 시간에 늦으면 소용이 없고, 문구가 틀리면 고칠 수도 없어요. 아래 '화환 체크'를 주문마다 봐요.</small></div></li>
+  </ol>
+
+  <h3>화환 체크 (주문마다)</h3>
+  <ul class="checks">
+    <li><input type="checkbox" id="f_order_c1" data-key="f_order_c1"><label for="f_order_c1">행사 이름·장소(식장 이름, 호실·빈소 번호), 행사 시작 시간, 언제까지 도착해야 하는지</label></li>
+    <li><input type="checkbox" id="f_order_c2" data-key="f_order_c2"><label for="f_order_c2">리본 두 줄: 축하·근조 문구, 보내는 분 이름·회사·직함. 글자 하나씩 손님과 확인</label></li>
+    <li><input type="checkbox" id="f_order_c3" data-key="f_order_c3"><label for="f_order_c3">장소가 화환을 받는지, 놓는 곳·반입 시간 제한이 있는지 (식장에 전화로 확인)</label></li>
+    <li><input type="checkbox" id="f_order_c4" data-key="f_order_c4"><label for="f_order_c4">연계 배송(다른 지역 꽃집)이라면 그쪽에 보낸 내용과 도착 사진 받기</label></li>
+    <li><input type="checkbox" id="f_order_c5" data-key="f_order_c5"><label for="f_order_c5">도착 사진을 손님에게 보내고 상태 '완료'</label></li>
+  </ul>
+
+  <div class="prompt"><div class="bar"><span>주문 폼 부탁문 · 상담·응대</span><button class="copy" type="button">복사</button></div><pre>꽃 주문용 구글 폼 질문 목록을 만들어 줘. 컴퓨터에 서툰 손님도 휴대폰으로 3분 안에 쓸 수 있게.
+칸: 주문하신 분, 연락처, 상품 종류(꽃다발/꽃바구니/화분/화환/기타), 예산(우리 가격대 ○/○/○), 받는 날짜, 시간대, 픽업/배송, 받는 분 이름·연락처, 배송지, 리본 문구, 카드 문구, 요청 사항, 개인정보 동의
+- 질문마다 필수/선택, 객관식/단답형 표시
+- 화환을 고르면 행사 장소·시작 시간을 묻는 칸이 나오게(섹션 이동)
+- 맨 위 안내문 3줄: 당일 주문 마감 ○시, 확정은 사장님이 연락, 개인정보 사용 범위</pre></div>
+  <div class="prompt"><div class="bar"><span>대화 → 주문 한 줄 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 카톡(또는 톡톡·문자) 대화 캡처를 '꽃집 운영 장부' 주문 탭 한 줄로 바꿔 줘.
+열: 접수일 | 접수 경로 | 주문하신 분 | 연락처 | 상품 | 예산 | 받는 날짜 | 시간대 | 픽업/배송 | 받는 분 | 받는 분 연락처 | 배송지 | 리본 문구 | 카드 문구 | 요청 사항 | 결제 | 상태 | 확인 문자
+대화에 없는 칸은 비우고, 손님에게 다시 물어볼 것을 따로 적어 줘. 문구는 손님이 쓴 그대로.</pre></div>
+  <div class="prompt"><div class="bar"><span>주문 확인 문자 부탁문</span><button class="copy" type="button">복사</button></div><pre>주문 탭 ○행 주문으로 확인 문자를 써 줘. 휴대폰 문자로 보낼 거라 짧게.
+상품·예산, 받는 날짜와 시간대, 픽업이면 픽업 시간, 배송이면 받는 분과 주소, 리본·카드 문구(따옴표로 그대로), 결제 안내, "틀린 곳이 있으면 답장 주세요".
+광고 문구는 넣지 마.</pre></div>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>주문서는 폼으로</b><span>폼 설정 <span class="path">응답 → 응답자에게 사본 보내기</span>를 켜면 손님에게 접수 내용이 메일로 가요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>폼 응답 → 주문 탭 + 캘린더</b><span>양식 제출 시 주문 탭에 한 줄을 넣고, '꽃집 일정' 캘린더에 "[배송] 받는 날짜·시간대·상품"을 만들어요. 부탁문은 샐러드 단체 주문과 같은 방식이에요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>전날 오후 제작 목록</b><span>매일 오후 4시, 내일 주문을 시간대 순으로 메일. 리본 문구까지 넣어 출력해 작업대에 붙여요.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>새 주문 확정</b><span>폼 주문이 들어오면 휴대폰으로 알림.</span><span class="pv">버튼: 확정 / 전화 필요 / 불가</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 꽃집 AI 비서실'</b> → <b>05 상담·응대</b> 채팅 (스크립트는 <b>07 자동화 도우미</b>)</span></div><div class="aib-row"><b>넣어 둘 것</b><span>'꽃집 운영 장부' → 프로젝트 파일. 손님 대화 캡처는 이 채팅에만, 처리 뒤 지워요</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 대목에는 대목마다 새 채팅을 열면 주문이 섞이지 않아요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">꽃집 브랜드·말투</span></div></div><p class="rec-note">받는 분 주소·연락처는 꼭 필요한 채팅에만 넣어요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 폼 + 시트 + 캘린더 + 앱스 스크립트로 0원</li><li>네이버 예약·카카오톡 채널 기본 기능 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>알림톡으로 주문 확인 자동 발송 (건당 요금)</li><li>선결제되는 예약·주문 서비스로 노쇼 줄이기</li><li>꽃배달 연계 플랫폼으로 먼 지역 화환 주문 받기 (수수료)</li></ul></div></div>
+</section>

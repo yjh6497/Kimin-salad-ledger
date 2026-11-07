@@ -1,0 +1,396 @@
+<section id="f-menu" class="lesson" data-part="practice" data-title="상품 구성과 원가" data-level="core" data-stage="prep takeover operate" data-biz="flower">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절 · 매달 20분</span>
+    <h2>3만·5만·10만 원, 가격대마다 무엇이 들어가는지 정해요</h2>
+    <p class="goal">손님은 "5만 원짜리 꽃다발 되나요?"처럼 예산부터 말해요. 꽃다발·꽃바구니·화분·화환·정기 구독을 가격대별 <b>라인업</b>으로 정해 두면 상담이 빨라지고, 같은 값이면 늘 비슷한 크기가 나와요. 상품마다 꽃값·자재·인건비를 구글 시트에 적어 남는 돈까지 계산해요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">꽃집 인수라면</b><span>지난 1년 판매 기록과 지금 가격표부터 넘겨받아요. 잘 팔리던 가격대는 그대로 두고 원가만 다시 계산해요.</span></p>
+  <p class="tknote" data-stage-only="operate"><b class="tag">이미 운영 중이라면</b><span>지금 파는 상품을 그대로 표에 옮기는 것부터 해요. 새 라인업은 원가를 본 뒤에 정해요.</span></p>
+
+  <div class="vis">
+    <div class="table-wrap"><table>
+      <thead><tr><th>상품</th><th>가격대 (예시)</th><th>정해 둘 것</th><th>메모</th></tr></thead>
+      <tbody>
+        <tr><td><b>꽃다발</b></td><td>3만 / 5만 / 7만 / 10만</td><td>가격대별 크기(지름·높이), 주꽃 송이 수, 포장지</td><td>졸업·생일·고백 등 대부분 여기서</td></tr>
+        <tr><td><b>꽃바구니·박스</b></td><td>5만 / 8만 / 12만</td><td>바구니 크기, 오아시스(플로럴폼) 양, 배송 가능 여부</td><td>어버이날·개업 축하·병문안 선물</td></tr>
+        <tr><td><b>화분·관엽</b></td><td>3만 / 7만 / 15만</td><td>화분 크기, 리본 포함 여부, 배송비</td><td>개업·이전 축하. 시들 걱정이 적어요</td></tr>
+        <tr><td><b>화환</b></td><td>축하 3단 / 근조 3단 등</td><td>거래처(제작처) 단가, 배송 지역, 리본 문구</td><td>직접 만들지, 연계로 보낼지 먼저 정해요</td></tr>
+        <tr><td><b>정기 구독</b></td><td>월 2회 / 월 4회</td><td>한 번 크기, 배송·픽업, 해지 규칙</td><td>매주 같은 날 사입하면 로스가 줄어요</td></tr>
+      </tbody>
+    </table></div>
+    <p class="office-hint">가격은 모두 예시예요. 우리 동네 꽃집 몇 곳의 가격표를 보고 사장님이 정해요.</p>
+  </div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="f_menu_a" data-key="f_menu_a"><div class="body"><label for="f_menu_a">라인업 초안 받기</label><small>동네, 주요 손님(직장인·학부모·연인 등), 하고 싶은 상품을 AI에게 말하면 가격대별 표를 만들어 줘요. 아래 '라인업 부탁문'을 써요. 가격대는 너무 많지 않게, 상품마다 3~4단계면 충분해요.</small></div></li>
+    <li><input type="checkbox" id="f_menu_b" data-key="f_menu_b"><div class="body"><label for="f_menu_b">'꽃집 운영 장부' 시트에 '상품' 탭 만들기</label><small>이 시트 하나에 상품·원가·시세·주문·로스를 모두 모아요. 다른 꽃집 강의도 이 시트를 같이 써요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>드라이브 '꽃집 마케팅' 폴더 → <span class="path">+ 새로 만들기 → Google 스프레드시트</span> → 이름 <b>꽃집 운영 장부</b></li>
+        <li>아래 탭 이름을 더블클릭해 <b>상품</b>으로 바꾸고, A1에 '상품 제목 줄' 붙여 넣기</li>
+        <li>같은 방법으로 <b>구성</b> 탭을 하나 더 만들고 '구성 제목 줄' 붙여 넣기<span class="fix">붙여 넣었는데 한 칸에 다 들어가면, 붙인 칸을 선택하고 <span class="path">데이터 → 텍스트를 열로 분할</span> → 구분자 '맞춤: |'.</span></li>
+      </ol>
+      <div class="prompt" data-tsv><div class="bar"><span>상품 제목 줄</span><button class="copy" type="button">복사</button></div><pre>상품코드 | 종류 | 이름 | 판매가 | 꽃값 | 자재비 | 인건비 | 원가 합계 | 원가율 | 남는 돈 | 메모</pre></div>
+      <div class="prompt" data-tsv><div class="bar"><span>구성 제목 줄</span><button class="copy" type="button">복사</button></div><pre>상품코드 | 재료 | 수량 | 단위 | 단가 | 금액 | 단가 출처</pre></div></details></div></li>
+    <li><input type="checkbox" id="f_menu_c" data-key="f_menu_c"><div class="body"><label for="f_menu_c">상품마다 '구성'을 한 줄씩 적기</label><small>샐러드 가게의 레시피처럼, 꽃다발에도 구성표가 있어요. "5만 원 꽃다발 = 주꽃 장미 7송이 + 보조꽃 2종 + 그린 + 포장지 2장 + 리본". 한 번 만들어 보면서 실제로 쓴 양을 적어요. 포장지·리본·오아시스·카드·쇼핑백도 재료처럼 적어요.</small></div></li>
+    <li><input type="checkbox" id="f_menu_d" data-key="f_menu_d"><div class="body"><label for="f_menu_d">인건비도 원가에 넣기</label><small>꽃집은 손이 가는 시간이 커요. "꽃다발 하나 만드는 데 몇 분"을 재서, 사장님이 정한 시간당 금액으로 바꿔요. 사장님 혼자 해도 넣어야 남는 돈이 정확해요.</small></div></li>
+    <li><input type="checkbox" id="f_menu_e" data-key="f_menu_e"><div class="body"><label for="f_menu_e">원가 수식 받아서 붙이기</label><small>아래 '원가 수식 부탁문'을 보내면 구성 탭 금액을 합쳐 상품 탭에 넣는 수식을 알려 줘요. 단가는 나중에 시세 탭(<a href="#f-buy" class="ref" data-ref="f-buy">강의</a>)에서 자동으로 가져오게 바꿔요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'12 재고·구매' 채팅에 부탁문 보내기</li>
+        <li>받은 수식을 상품 탭 E열(꽃값)부터 붙여 넣고 아래로 끌어 채우기</li>
+        <li>원가율 칸이 기준을 넘으면 빨갛게 보이는지 확인<span class="fix">숫자가 0으로 나오면 구성 탭의 상품코드 철자가 상품 탭과 같은지 봐요. 띄어쓰기 하나만 달라도 못 찾아요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="f_menu_f" data-key="f_menu_f"><div class="body"><label for="f_menu_f">기준 원가율 정하고, 넘는 상품 고치기</label><small>상품 탭 맨 위에 기준 원가율 한 칸을 두어요. 이 숫자는 사장님이 정하는 목표예요. 넘는 상품은 가격을 올리거나, 주꽃 송이 수를 줄이거나, 계절 꽃으로 바꾸는 방법을 AI에게 물어요.</small></div></li>
+  </ol>
+
+  <p class="tip"><b>꽃값은 철마다 바뀌어요.</b> 가격표에 꽃 이름을 못 박기보다 "그날 가장 좋은 꽃으로 구성해요", "계절에 따라 꽃 종류가 달라질 수 있어요"를 같이 적어 두면, 대목에 장미값이 올라도 같은 가격으로 맞출 수 있어요.</p>
+
+  <div class="prompt"><div class="bar"><span>라인업 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 꽃집 상품 라인업 초안을 만들어 줘.
+- 위치·손님: ○○동, 주변에 ○○(학교·회사·병원·아파트)
+- 하고 싶은 상품: 꽃다발, 꽃바구니, 화분, 화환(직접/연계), 정기 구독
+- 사장님 손: 하루 꽃다발 ○개 정도 만들 수 있어요
+1) 표: 종류 | 가격대 | 크기·구성(주꽃 송이 수, 보조꽃, 포장) | 어떤 손님이 사나 | 만드는 시간
+2) 종류마다 3~4단계까지만
+3) 정기 구독은 월 요금, 한 번 크기, 해지 규칙 초안
+가격은 내가 동네 가격표를 보고 정할 테니, 숫자는 '예시'라고 표시해 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>원가 수식 부탁문 · 재고·구매</span><button class="copy" type="button">복사</button></div><pre>'꽃집 운영 장부'에 상품 원가 수식을 만들어 줘. 나는 시트 초보라 붙일 칸까지 알려 줘.
+- '구성' 탭 열: 상품코드, 재료, 수량, 단위, 단가, 금액, 단가 출처
+- '상품' 탭 열: 상품코드, 종류, 이름, 판매가, 꽃값, 자재비, 인건비, 원가 합계, 원가율, 남는 돈, 메모
+- 꽃값 = 구성 탭에서 그 상품의 생화 재료 금액 합, 자재비 = 생화가 아닌 재료 합 (재료 이름 앞에 '[자재]'를 붙여 구분할게)
+- 인건비 = 만드는 분 × 시간당 금액 (시간당 금액은 상품 탭 B1에 내가 입력)
+- 원가율 = 원가 합계 ÷ 판매가, 기준 원가율은 D1. 넘으면 빨간색 (조건부 서식 방법도)
+- 단가는 지금은 내가 적고, 나중에 '시세' 탭에서 가져오게 바꿀 수 있게 만들어 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>원가 넘는 상품 고치기 부탁문</span><button class="copy" type="button">복사</button></div><pre>'꽃집 운영 장부' 상품 탭에서 기준 원가율을 넘은 상품마다 고칠 방법을 3가지씩 계산해 줘.
+가격을 올리면 얼마, 주꽃을 몇 송이 줄이면 얼마, 다른 꽃(계절 꽃)으로 바꾸면 얼마.
+손님이 받는 크기가 눈에 띄게 줄어드는 방법은 '주의'로 표시해 줘.</pre></div>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>단가 바뀌면 원가 자동 계산</b><span>구성 탭 단가만 고치면 상품 탭 원가·원가율·남는 돈이 바로 다시 계산돼요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>월요일 원가율 경보</b><span>시세 탭(<a href="#f-buy" class="ref" data-ref="f-buy">강의</a>)과 이어지면, 기준을 넘은 상품만 매주 메일로.</span></div></li><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>매달 첫 주 가격 점검</b><span>"상품 탭 보고 원가 넘는 것 알려 줘" 한 줄을 보내는 알림.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 꽃집 AI 비서실'</b> → <b>12 재고·구매</b> 채팅 (개업 전이면 '개업 준비실' → <b>09 개업 컨설턴트</b>)</span></div><div class="aib-row"><b>넣어 둘 것</b><span>'꽃집 운영 장부' → 프로젝트 파일(드라이브 연결). 정한 라인업은 업무일지에 한 줄</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">웹 검색</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">동네 꽃집 가격표는 사진으로 찍어 이 채팅에만.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트 수식·조건부 서식은 무료</li><li>라인업 초안·원가 점검은 무료 AI로 충분</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>판매 기록이 많아도 한 번에 분석</li><li>매달 가격 점검을 예약 작업으로</li></ul></div></div>
+</section>
+<section id="f-price" class="lesson" data-part="practice" data-title="가격표·메뉴판 디자인" data-level="core" data-stage="prep takeover operate" data-biz="flower">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 2시간 · PC</span>
+    <h2>가격표 한 장을 매장·플레이스·인스타에 똑같이</h2>
+    <p class="goal">손님이 꽃집에 묻는 첫마디는 거의 "얼마예요?"예요. 가격대별 사진과 옵션(리본·카드·배송)이 한눈에 보이는 가격표를 만들어, 매장 벽·네이버 플레이스·인스타에 같은 내용으로 걸어요. 글은 AI가 다듬고, 디자인은 Canva나 AI 이미지로 해요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">꽃집 인수라면</b><span>예전 가격표가 온라인 여기저기 남아 있어요. 인수일에 플레이스·인스타·블로그 옛 가격을 한 번에 찾아 바꿔요.</span></p>
+
+  <div class="vis">
+    <div class="table-wrap"><table>
+      <thead><tr><th>어디에</th><th>크기·모양</th><th>꼭 넣을 것</th><th>팁</th></tr></thead>
+      <tbody>
+        <tr><td><b>매장 가격표</b></td><td>A4·A3 세로, 액자나 계산대 옆</td><td>상품별 가격대, 옵션 가격, 예약 안내</td><td>멀리서도 보이게 글자 크게. 사진은 작게</td></tr>
+        <tr><td><b>네이버 플레이스 메뉴</b></td><td>상품마다 사진 1장 + 이름 + 가격</td><td>가격대별 대표 사진</td><td>메뉴 이름에 "졸업 꽃다발 5만 원대"처럼 손님이 찾는 말</td></tr>
+        <tr><td><b>인스타 가격 이미지</b></td><td>세로 4:5 카드 여러 장</td><td>첫 장은 사진, 다음 장부터 가격대별</td><td>프로필 고정 게시물로 걸어 두기</td></tr>
+        <tr><td><b>카톡 채널·블로그</b></td><td>이미지 + 글</td><td>같은 가격표 이미지</td><td>글에도 가격을 적어야 검색에 잡혀요</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="f_price_a" data-key="f_price_a"><div class="body"><label for="f_price_a">가격표 문구를 AI에게 먼저</label><small>디자인보다 글이 먼저예요. '꽃집 운영 장부' 상품 탭(<a href="#f-menu" class="ref" data-ref="f-menu">강의</a>)을 보고 아래 '가격표 문구 부탁문'으로 칸별 글을 받아요.</small></div></li>
+    <li><input type="checkbox" id="f_price_b" data-key="f_price_b"><div class="body"><label for="f_price_b">옵션은 따로 한 칸에</label><small>리본, 메시지 카드, 쇼핑백, 배송비, 당일 주문 마감 시간. 옵션이 상품 사이에 섞이면 손님이 헷갈려요. "기본 포함 / 추가 금액"으로 나눠 적어요.</small></div></li>
+    <li><input type="checkbox" id="f_price_c" data-key="f_price_c"><div class="body"><label for="f_price_c">가격대별 대표 사진 고르기</label><small>같은 각도, 같은 배경에서 찍은 사진이 가격표에 가장 잘 맞아요. 흰 벽 앞, 사람 손에 들고 찍으면 크기가 보여요. 찍는 법은 <a href="#c-l26" class="ref" data-ref="c-l26">강의</a>에서.</small></div></li>
+    <li><input type="checkbox" id="f_price_d" data-key="f_price_d"><div class="body"><label for="f_price_d">Canva로 매장 가격표 만들기</label><small>디자인 도구 고르는 법은 <a href="#c-s26" class="ref" data-ref="c-s26">강의</a>. 처음이면 Canva 무료 템플릿이 가장 쉬워요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>canva.com → 로그인 → 위 검색창에 <b>메뉴판</b> 또는 <b>price list</b> → 마음에 드는 세로 템플릿</li>
+        <li>글자는 받은 문구를 칸마다 붙여 넣기. 사진 칸은 왼쪽 <span class="path">업로드</span>로 우리 꽃 사진 넣기</li>
+        <li>글꼴은 두 가지만, 색은 꽃집 대표색 하나 + 검정</li>
+        <li><span class="path">공유 → 다운로드 → PDF 인쇄</span>로 매장용, <span class="path">PNG</span>로 온라인용<span class="fix">같은 디자인에서 인스타용 4:5를 만들려면 <span class="path">크기 조정</span>(유료 기능일 수 있어요). 무료면 새 디자인(인스타그램 게시물 4:5)을 열고 요소를 복사해 붙여요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="f_price_e" data-key="f_price_e"><div class="body"><label for="f_price_e">AI 이미지는 배경·장식에만</label><small>AI에게 "꽃집 가격표 배경, 연한 베이지, 가장자리에 수채화 잎"처럼 배경을 그리게 하는 건 좋아요. 다만 <b>상품 사진은 실제 우리 꽃</b>으로 넣어요. AI가 그린 꽃다발을 가격표에 쓰면 받은 꽃과 달라 불만이 생겨요. 한글 글자는 AI 이미지에서 잘 깨지니 글은 Canva에서 얹어요. Canva를 AI에 바로 연결하는 방법은 <a href="#c-l39" class="ref" data-ref="c-l39">강의</a>.</small></div></li>
+    <li><input type="checkbox" id="f_price_f" data-key="f_price_f"><div class="body"><label for="f_price_f">플레이스·인스타에 걸기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>smartplace.naver.com → 내 업체 → <span class="path">업체정보</span>의 메뉴(상품) 칸에 상품마다 이름·가격·사진 넣기 (플레이스 정보 전체는 <a href="#c-l11" class="ref" data-ref="c-l11">강의</a>)</li>
+        <li>인스타: 가격 카드 여러 장을 한 게시물로 올리고, 게시물 <span class="path">… → 프로필에 고정</span></li>
+        <li>카톡 채널 소개·블로그 글에도 같은 이미지<span class="fix">메뉴 칸 이름이 다르게 보이면 화면 캡처 → AI에게 "이 화면에서 가격은 어디에 넣어?"</span></li>
+      </ol></details></div></li>
+  </ol>
+
+  <h3>가격을 바꾸는 날 (같은 날 모두)</h3>
+  <ul class="checks">
+    <li><input type="checkbox" id="f_price_c1" data-key="f_price_c1"><label for="f_price_c1">'꽃집 운영 장부' 상품 탭 판매가</label></li>
+    <li><input type="checkbox" id="f_price_c2" data-key="f_price_c2"><label for="f_price_c2">매장 가격표 다시 인쇄</label></li>
+    <li><input type="checkbox" id="f_price_c3" data-key="f_price_c3"><label for="f_price_c3">네이버 플레이스 메뉴, 네이버 예약 상품 가격</label></li>
+    <li><input type="checkbox" id="f_price_c4" data-key="f_price_c4"><label for="f_price_c4">인스타 고정 게시물, 카톡 채널, 블로그 가격 글</label></li>
+    <li><input type="checkbox" id="f_price_c5" data-key="f_price_c5"><label for="f_price_c5">주문 폼(<a href="#f-order" class="ref" data-ref="f-order">강의</a>)의 가격대 선택지, 업무일지 한 줄</label></li>
+  </ul>
+
+  <div class="prompt"><div class="bar"><span>가격표 문구 부탁문</span><button class="copy" type="button">복사</button></div><pre>'꽃집 운영 장부' 상품 탭을 보고 꽃집 가격표 문구를 만들어 줘.
+1) 매장 가격표 (A4 세로 한 장): 제목, 종류별 가격대와 한 줄 설명, 옵션 칸, 맨 아래 예약·문의 안내
+2) 옵션 칸: 기본 포함(○○) / 추가 금액(리본 ○원, 메시지 카드 ○원, 배송 지역별 ○원) / 당일 주문 마감 ○시
+3) 플레이스 메뉴용: 상품 이름(손님이 검색할 말 포함) | 가격 | 40자 설명
+4) 인스타 카드용: 장마다 제목 한 줄 + 가격 + 설명 두 줄, 6장 이내
+5) 공통 안내: "계절에 따라 꽃 종류가 달라질 수 있어요" 같은 문장
+과장 표현(최고, 최저가) 없이, 가격은 상품 탭 숫자 그대로.</pre></div>
+  <div class="prompt"><div class="bar"><span>배경 이미지 부탁문</span><button class="copy" type="button">복사</button></div><pre>꽃집 가격표 배경 이미지를 만들어 줘. 세로 A4 비율, 가운데는 비워서 글을 얹을 수 있게.
+색: 연한 ○○색, 가장자리에만 수채화 느낌 잎과 작은 꽃. 글자는 넣지 마.
+같은 느낌으로 인스타 4:5 버전도.</pre></div>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>상품 탭 하나가 원본</b><span>가격이 바뀌면 상품 탭만 고치고 "바뀐 가격으로 가격표 문구 다시"라고 해요.</span></div></li><li><span class="chip k-conn">커넥터</span><div class="ad"><b>Canva 연결</b><span>AI에 Canva를 연결하면 템플릿에 문구를 넣은 초안까지 만들어 줘요(<a href="#c-l39" class="ref" data-ref="c-l39">강의</a>). 확인·다운로드는 사장님이.</span></div></li><li><span class="chip k-br">브라우저 AI · 입력</span><div class="ad"><b>플레이스 메뉴 칸 채우기</b><span>상품 탭대로 이름·가격을 넣고 저장 버튼 앞에서 멈춤.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 꽃집 AI 비서실'</b> → <b>03 인스타 담당</b> 채팅 (플레이스 칸은 <b>01 플레이스 매니저</b>)</span></div><div class="aib-row"><b>넣어 둘 것</b><span>완성한 가격표 PNG·PDF → 드라이브 '꽃집 마케팅' 폴더</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 가격을 바꿀 때마다 같은 채팅에서 "새 가격으로 다시".</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Canva</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">꽃집 브랜드·말투</span><span class="rc s">PDF</span></div></div><p class="rec-note">상품 사진은 실제 꽃으로.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Canva 무료 템플릿, 플레이스·인스타 등록 모두 무료</li><li>인쇄는 동네 인쇄소나 집 프린터로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Canva 유료: 크기 조정, 브랜드 키트(색·글꼴 저장)</li><li>꽃 상품 사진 전문 촬영 한 번</li></ul></div></div>
+</section>
+<section id="f-season" class="lesson" data-part="practice" data-title="시즌 영업 달력" data-level="core" data-stage="prep takeover operate" data-biz="flower">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · 대목마다 4주 전</span>
+    <h2>꽃집의 한 해는 대목으로 돌아가요</h2>
+    <p class="goal">졸업·입학, 어버이날·스승의날, 연말. 꽃집은 대목 며칠에 한 달 매출이 몰려요. 연간 대목을 구글 캘린더에 넣고, <b>대목 4주 전부터 할 일</b>을 같은 순서로 반복하면 사입·예약·홍보를 놓치지 않아요. 끝나면 남은 꽃과 기록을 정리해 내년에 써요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">꽃집 인수라면</b><span>전 사장님께 지난해 대목별 매출·주문 수·많이 나간 상품을 꼭 물어요. 내년 사입량의 기준이 돼요.</span></p>
+
+  <div class="vis">
+    <div class="table-wrap"><table>
+      <thead><tr><th>때</th><th>대목</th><th>잘 나가는 것</th><th>메모</th></tr></thead>
+      <tbody>
+        <tr><td><b>2월</b></td><td>밸런타인데이(2월 14일), 졸업식</td><td>꽃다발, 작은 다발</td><td>졸업식 날짜는 학교마다 달라요. 동네 학교 날짜를 미리 확인</td></tr>
+        <tr><td><b>3월</b></td><td>입학식, 화이트데이(3월 14일)</td><td>작은 꽃다발, 화분</td><td>개업·이전 축하 화분도 늘어요</td></tr>
+        <tr><td><b>5월</b></td><td>어버이날(5월 8일), 로즈데이(5월 14일), 스승의날(5월 15일), 성년의 날(5월 셋째 월요일)</td><td>카네이션 바구니·다발, 장미</td><td>한 해 가장 큰 대목. 2~3주 사이에 몰려요</td></tr>
+        <tr><td><b>추석·설</b></td><td>명절 연휴</td><td>선물용 화분·꽃바구니</td><td>연휴 중 도매시장·택배가 쉬는 날을 꼭 확인</td></tr>
+        <tr><td><b>12월</b></td><td>크리스마스, 연말 송년회·시상식</td><td>리스, 트리 장식, 꽃다발</td><td>단체 주문(회사 송년회)이 많아요</td></tr>
+        <tr><td><b>상시</b></td><td>개업·승진·결혼·장례</td><td>축하·근조 화환, 화분</td><td>대목이 아니어도 꾸준히 들어와요</td></tr>
+      </tbody>
+    </table></div>
+    <p class="office-hint">날짜는 해마다 달라질 수 있으니(성년의 날, 명절) 그해 달력으로 확인해요.</p>
+  </div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="f_season_a" data-key="f_season_a"><div class="body"><label for="f_season_a">대목을 구글 캘린더에 한 번에</label><small>'꽃집 일정' 캘린더를 만들고 위 표의 대목을 넣어요. 대목 날짜마다 <b>4주 전·2주 전·1주 전</b> 할 일 일정도 같이 넣으면 알림이 와요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>아래 '연간 대목 일정 부탁문'을 '11 일정 비서' 채팅에 보내기 (내년 날짜로)</li>
+        <li>받은 표를 보고 틀린 날짜(졸업식·명절)를 고친 뒤 "이대로 캘린더에 넣어 줘"</li>
+        <li>구글 캘린더 커넥터가 없으면, 받은 CSV를 <span class="path">캘린더 설정 → 가져오기/내보내기 → 가져오기</span><span class="fix">일정이 엉뚱한 날에 들어가면 CSV의 날짜 형식(2027-05-08)과 시간대를 확인해요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="f_season_b" data-key="f_season_b"><div class="body"><label for="f_season_b">4주 전: 사입 예약과 상품 정하기</label><small>대목에는 꽃값이 오르고 좋은 물건이 빨리 빠져요. 거래하는 도매상에 필요한 꽃(카네이션·장미 등)과 양을 미리 말해 두고, 대목 전용 상품 2~3개를 정해 원가를 다시 계산해요(<a href="#f-menu" class="ref" data-ref="f-menu">강의</a>). 시세 흐름은 <a href="#f-buy" class="ref" data-ref="f-buy">강의</a>에서 봐요.</small></div></li>
+    <li><input type="checkbox" id="f_season_c" data-key="f_season_c"><div class="body"><label for="f_season_c">3주 전: 예약 접수 열기</label><small>대목 예약 폼(<a href="#f-order" class="ref" data-ref="f-order">강의</a>)이나 네이버 예약에 대목 상품을 올려요. 예약 마감일과 하루 최대 수량을 정해 두면 감당 못 할 주문을 막아요.</small></div></li>
+    <li><input type="checkbox" id="f_season_d" data-key="f_season_d"><div class="body"><label for="f_season_d">3주~1주 전: 글 올리기</label><small>블로그 글 하나(<a href="#c-l21" class="ref" data-ref="c-l21">강의</a>), 인스타 사진·릴스 2~3개(<a href="#c-l26" class="ref" data-ref="c-l26">강의</a>), 플레이스 소식(<a href="#c-l13" class="ref" data-ref="c-l13">강의</a>). 모두 "예약은 ○일까지"가 들어가야 해요. 미리 써서 예약 게시(<a href="#c-l27" class="ref" data-ref="c-l27">강의</a>)해 두면 바쁠 때 손이 안 가요.</small></div></li>
+    <li><input type="checkbox" id="f_season_e" data-key="f_season_e"><div class="body"><label for="f_season_e">1주 전: 손 맞추기</label><small>예약 장부를 날짜·시간별로 보고 만드는 순서를 정해요. 일손이 필요하면 단기 도우미, 배송은 시간대별로 묶어요. 카톡 채널 자동응답(<a href="#c-l36" class="ref" data-ref="c-l36">강의</a>)에 "대목 예약 마감·픽업 시간" 안내를 넣어요.</small></div></li>
+    <li><input type="checkbox" id="f_season_f" data-key="f_season_f"><div class="body"><label for="f_season_f">대목 뒤 3일: 정리</label><small>남은 꽃은 소품 다발·할인으로 빨리 돌리고(<a href="#f-loss" class="ref" data-ref="f-loss">강의</a>), 이번 대목 기록을 남겨요. 상품별 판매 수, 사입량과 남은 양, 많이 받은 질문, 다음에 바꿀 것. 예약 손님에게 감사 문자와 내년 알림 동의를 받아요(<a href="#c-l57" class="ref" data-ref="c-l57">강의</a>).</small></div></li>
+  </ol>
+
+  <div class="prompt"><div class="bar"><span>연간 대목 일정 부탁문 · 일정 비서</span><button class="copy" type="button">복사</button></div><pre>○○○○년 꽃집 대목 일정표를 만들어 줘.
+대목: 밸런타인데이, 졸업식 시즌(우리 동네 ○○학교 졸업식 ○월 ○일), 입학식, 화이트데이, 어버이날, 로즈데이, 스승의날, 성년의 날(5월 셋째 월요일), 추석·설 연휴, 크리스마스, 연말 송년 시즌.
+표: 대목 | 날짜 | 4주 전 할 일 날짜 | 2주 전 | 1주 전 | 대목 뒤 정리 날짜
+날짜가 확실하지 않은 것(명절, 졸업식)은 '확인 필요'로 표시해 줘. 지어내지 마.
+CSV(제목, 시작 날짜, 설명)로도 만들어 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>대목 준비 부탁문 · 개업 컨설턴트</span><button class="copy" type="button">복사</button></div><pre>4주 뒤 ○○(대목)을 준비해. '꽃집 운영 장부'의 지난 기록(있으면)과 상품 탭을 참고해.
+1) 대목 전용 상품 2~3개: 이름, 구성, 가격(원가율 기준 안에서)
+2) 예상 주문 수(지난해 기록이 없으면 내가 줄 숫자로)와 꽃·자재 사입 목록
+3) 예약 마감일, 하루 최대 수량, 픽업·배송 시간대 제안
+4) 블로그 제목 3개, 인스타 글 3개, 플레이스 소식 1개 초안 (모두 '예약은 ○일까지')
+5) 대목 당일 시간표 (사입 → 물올림 → 제작 → 픽업·배송)</pre></div>
+  <div class="prompt"><div class="bar"><span>대목 정리 부탁문</span><button class="copy" type="button">복사</button></div><pre>이번 ○○ 대목을 정리해 줘. 주문 장부와 로스 탭 기록을 봐.
+1) 상품별 판매 수와 매출, 예약과 당일 주문 비율
+2) 사입량 대비 남은 꽃, 폐기한 꽃
+3) 손님이 많이 물은 질문 5개
+4) 내년에 바꿀 것 3가지 (사입량, 상품, 마감일)
+업무일지에 넣을 5줄 요약도.</pre></div>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>대목 4주·2주·1주 전 알림</b><span>한 번 넣으면 매년 반복. 알림 설명에 '대목 준비 부탁문'을 붙여 두면 바로 복사해요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>대목 4주 전 준비표</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>대목 4주 전 아침에 준비 부탁문을 자동 실행해 결과를 받아요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>캘린더 알림이 오면 같은 채팅에 부탁문을 보내요.</span></span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>대목 글 올리기 확인</b><span>예약 게시 전 글 초안을 받아 버튼으로.</span><span class="pv">버튼: 올리기 / 고치기</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 꽃집 AI 비서실'</b> → 연간 일정은 <b>11 일정 비서</b>, 대목 준비는 대목마다 새 채팅(예: "2027 어버이날 준비")</span></div><div class="aib-row"><b>넣어 둘 것</b><span>대목 정리 5줄 → 업무일지(내년 같은 대목 준비 때 AI가 읽어요)</span></div><div class="aib-row"><b>세션</b><span>대목 하나가 끝나면 요약을 업무일지에 남기고 채팅은 보관.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Calendar</span><span class="rc c">Google Drive</span><span class="rc c">웹 검색</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">꽃집 브랜드·말투</span></div></div><p class="rec-note">명절·졸업식 날짜는 웹 검색으로 그해 것을 확인.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 캘린더 반복 알림, 구글 폼 예약, 플레이스 소식 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>대목 준비를 예약 작업으로 자동 실행</li><li>대목 직전 지역 광고(플레이스 광고 등)로 예약 늘리기</li></ul></div></div>
+</section>
+<section id="f-buy" class="lesson" data-part="practice" data-title="꽃 시세와 사입" data-level="grow" data-stage="prep takeover operate" data-biz="flower">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · 매주 15분</span>
+    <h2>경매 시세를 보고 사러 가요</h2>
+    <p class="goal">꽃값은 날마다, 철마다 달라요. 한국농수산식품유통공사(aT)의 <b>화훼유통정보</b>에서 공판장 경매 시세를 보고, 도매시장에서 살 목록을 AI로 정리해요. 실제로 산 값은 '꽃집 운영 장부'의 시세 탭에 모아 상품 원가(<a href="#f-menu" class="ref" data-ref="f-menu">강의</a>)를 갱신해요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">꽃집 인수라면</b><span>전 사장님이 거래하던 도매상 연락처와 외상·결제 방식을 넘겨받아요. 같은 도매상과 이어 가면 대목 물량을 받기 쉬워요.</span></p>
+
+  <div class="vis">
+    <div class="table-wrap"><table>
+      <thead><tr><th>어디서</th><th>무엇을 보나</th><th>메모</th></tr></thead>
+      <tbody>
+        <tr><td><b>aT 화훼유통정보</b><br><span class="path">flower.at.or.kr</span></td><td>공판장 경매 시세(품목·품종·등급별 가격, 거래량)</td><td>경매 가격은 농가 → 도매 단계 값이에요. 도매상에서 사는 값은 이보다 높아요</td></tr>
+        <tr><td><b>공공데이터포털</b><br><span class="path">data.go.kr</span></td><td>'한국농수산식품유통공사_화훼 경매 시세' 파일(CSV)과 오픈 API</td><td>전국 5대 화훼공판장 시세. 정산일자·품목·품종·등급·최고·최저·평균단가·수량. 파일은 해마다 갱신, API는 활용 신청 후 사용</td></tr>
+        <tr><td><b>양재 꽃시장</b><br>(aT화훼공판장, 서울 서초구 강남대로 27)</td><td>경매장, 생화 도매, 분화, 부자재 매장</td><td>생화 매장은 자정 무렵부터 오후 1시쯤까지 열어요(서울시 소개 기준). 가기 전 시간·휴무일 확인</td></tr>
+        <tr><td><b>고속터미널 꽃도매상가</b><br>(서울고속버스터미널 3층)</td><td>생화·조화 도매 상가</td><td>생화는 밤 11시 30분쯤부터 다음 날 낮까지, 일요일 휴무로 안내돼요. 변동이 있으니 확인</td></tr>
+        <tr><td><b>지역 도매상·공판장</b></td><td>가까운 거래처</td><td>지방이면 지역 공판장이나 도매상에서 배송받는 경우가 많아요</td></tr>
+      </tbody>
+    </table></div>
+    <p class="office-hint">영업시간은 상가·매장마다 다르고 바뀔 수 있어요. 처음 갈 때는 전화나 공식 안내로 확인해요.</p>
+  </div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="f_buy_a" data-key="f_buy_a"><div class="body"><label for="f_buy_a">화훼유통정보에서 시세 보는 법 익히기</label><small>자주 쓰는 꽃 10가지(장미, 카네이션, 국화, 거베라, 리시안셔스, 안개꽃 등)를 정해 두고 그 품목만 봐요. 같은 장미도 품종·등급마다 값이 크게 달라요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>인터넷 창에 <span class="path">flower.at.or.kr</span> → 경매 시세(가격) 메뉴 찾기</li>
+        <li>공판장, 날짜, 구분(절화·분화), 품목을 고르고 조회</li>
+        <li>결과 화면을 캡처해 '12 재고·구매' 채팅에 "이 표에서 장미 품종별 평균 단가만 정리해 줘"<span class="fix">메뉴 이름이 달라 못 찾겠으면 첫 화면을 캡처해 AI에게 "경매 시세는 어디를 눌러?"라고 물어요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="f_buy_b" data-key="f_buy_b"><div class="body"><label for="f_buy_b">지난해 시세 흐름 보기 (한 번만)</label><small>공공데이터포털에서 '화훼 경매 시세'를 검색해 CSV 파일을 받아 AI에게 주면, 품목별로 어느 달에 비싸고 싼지 정리해 줘요. 대목 사입(<a href="#f-season" class="ref" data-ref="f-season">강의</a>)과 상품 구성을 정할 때 써요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">data.go.kr</span> → 검색창에 <b>화훼 경매 시세</b> → '한국농수산식품유통공사_화훼 경매 시세' → 파일 내려받기 (로그인 필요할 수 있어요)</li>
+        <li>파일이 크면 AI에 그대로 올리고 아래 '시세 흐름 부탁문'</li>
+        <li>결과 표를 '꽃집 운영 장부'에 '시세흐름' 탭으로 붙여 두기<span class="fix">파일이 너무 커서 안 올라가면 "자주 쓰는 10개 품목만 남기는 방법"을 먼저 물어요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="f_buy_c" data-key="f_buy_c"><div class="body"><label for="f_buy_c">사입 목록을 AI로</label><small>주문 장부(<a href="#f-order" class="ref" data-ref="f-order">강의</a>)의 이번 주 예약과 상품 구성표를 보면 꽃별로 몇 단이 필요한지 계산할 수 있어요. 도매시장에서는 보통 '단' 단위로 사니, 한 단에 몇 송이인지 거래처 기준을 적어 두세요.</small></div></li>
+    <li><input type="checkbox" id="f_buy_d" data-key="f_buy_d"><div class="body"><label for="f_buy_d">산 값을 '시세' 탭에 적기</label><small>영수증을 사진으로 찍어 AI에게 주면 줄마다 정리해 줘요. 아래 '시세 제목 줄'로 탭을 만들어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'꽃집 운영 장부' → <span class="path">+</span> → 이름 <b>시세</b> → A1에 제목 줄 붙여 넣기</li>
+        <li>사입 다녀온 날 영수증 사진 → '영수증 정리 부탁문' → 받은 줄을 시세 탭 아래에 붙여 넣기</li>
+        <li>구성 탭(<a href="#f-menu" class="ref" data-ref="f-menu">강의</a>)의 단가를 시세 탭 '송이당 단가' 최근 값으로 가져오는 수식은 '12 재고·구매'에게<span class="fix">손글씨 영수증은 AI가 잘못 읽을 수 있어요. 받은 표의 합계가 영수증 합계와 같은지 꼭 봐요.</span></li>
+      </ol>
+      <div class="prompt" data-tsv><div class="bar"><span>시세 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 거래처 | 품목 | 품종·색 | 등급 | 단 수 | 단당 송이 | 단당 가격 | 송이당 단가 | 금액 | 메모</pre></div></details></div></li>
+    <li><input type="checkbox" id="f_buy_e" data-key="f_buy_e"><div class="body"><label for="f_buy_e">매주 한 번 시세 점검</label><small>시세 탭이 쌓이면 "지난 4주보다 많이 오른 꽃"을 물어요. 많이 오른 꽃은 다른 꽃으로 바꾸는 구성을 미리 정해 두면 가격표를 안 바꿔도 돼요.</small></div></li>
+  </ol>
+
+  <div class="prompt"><div class="bar"><span>시세 흐름 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 '화훼 경매 시세' CSV로 우리 꽃집이 자주 쓰는 꽃의 1년 흐름을 정리해 줘.
+품목: 장미, 카네이션, 국화, 거베라, 리시안셔스, 안개꽃, ○○, ○○
+1) 품목별 월평균 평균단가 표 (품종은 묶어서, 등급은 가장 많이 거래된 등급 기준)
+2) 품목마다 가장 비싼 달·싼 달, 대목(2월, 5월, 12월) 전후 변화
+3) 사입·상품 구성에 쓸 시사점 3줄
+이건 공판장 경매 가격이라 도매상에서 사는 값과 다르다는 점을 표 아래에 적어 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>사입 목록 부탁문 · 재고·구매</span><button class="copy" type="button">복사</button></div><pre>'꽃집 운영 장부'의 이번 주 주문(○월 ○일~○일)과 구성 탭으로 사입 목록을 만들어 줘.
+- 꽃별 필요한 송이 수 → 단 수(단당 송이는 시세 탭 최근 값, 없으면 '확인 필요')
+- 매장 진열용 여유분 ○%와 지금 남은 재고(로스 탭)를 반영
+- 표: 품목 | 품종·색 | 필요 송이 | 살 단 수 | 예상 금액(시세 탭 최근 단가) | 대체 가능한 꽃
+- 마지막에 자재(포장지·리본·오아시스) 부족분
+도매시장에서 휴대폰으로 볼 수 있게 짧게.</pre></div>
+  <div class="prompt"><div class="bar"><span>영수증 정리 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 꽃 도매 영수증 사진을 시세 탭 형식으로 정리해 줘.
+열: 날짜 | 거래처 | 품목 | 품종·색 | 등급 | 단 수 | 단당 송이 | 단당 가격 | 송이당 단가 | 금액 | 메모
+읽기 어려운 글자는 '?'로 두고 지어내지 마. 마지막에 영수증 합계와 네가 더한 합계를 같이 보여 줘.
+시트에 바로 붙일 수 있게 | 로 나눠서.</pre></div>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>시세 → 원가 자동 갱신</b><span>구성 탭 단가가 시세 탭 최근 송이당 단가를 가져오면, 사입할 때마다 상품 원가가 바뀌어요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>월요일 원가율 경보</b><span>지난주 산 값으로 원가율이 기준을 넘은 상품만 메일로.</span></div></li><li><span class="chip k-br">브라우저 AI · 수집</span><div class="ad"><b>경매 시세 모으기</b><span>화훼유통정보에서 자주 쓰는 품목 시세를 조회해 표로. 사이트가 막으면 캡처로 해요.</span></div></li><li><span class="chip k-pc">PC</span><div class="ad"><b>오픈 API (넓히기)</b><span>공공데이터포털 '화훼 경매 시세' API를 활용 신청하면 앱스 스크립트로 시세를 시트에 받아 올 수 있어요. 처음엔 손으로 충분해요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 꽃집 AI 비서실'</b> → <b>12 재고·구매</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>'꽃집 운영 장부'(시세·구성 탭) → 프로젝트 파일. 영수증 사진은 이 채팅에만</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 1년치 CSV 분석은 따로 새 채팅에서 하고 결과 표만 장부에.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">웹 검색</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">재고·발주 설계 전체는 <a href="#c-l76" class="ref" data-ref="c-l76">강의</a>.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>화훼유통정보·공공데이터 시세는 무료</li><li>영수증 정리·사입 목록은 무료 AI로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>1년치 큰 CSV도 한 번에 분석</li><li>매주 시세 점검을 예약 작업으로</li></ul></div></div>
+</section>
+<section id="f-order" class="lesson" data-part="practice" data-title="주문·예약 접수 장부" data-level="core" data-stage="prep takeover operate" data-biz="flower">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 반나절</span>
+    <h2>전화·카톡·네이버 예약, 주문은 한 장부로</h2>
+    <p class="goal">꽃 주문은 적을 게 많아요. 받는 분, 날짜·시간, 리본 문구, 카드 문구, 배송지, 예산. 전화로 받고 메모지에 적으면 대목에 꼭 하나씩 빠져요. 어디로 들어온 주문이든 <b>'꽃집 운영 장부'의 주문 탭 한 곳</b>에 같은 칸으로 모으고, 주문 확인 문자로 손님과 한 번 더 맞춰요.</p>
+  </div>
+  <p class="tknote" data-stage-only="operate"><b class="tag">이미 운영 중이라면</b><span>지금 쓰는 주문 노트나 달력을 바로 버리지 말고, 이번 달 주문부터 주문 탭에 같이 적어 보세요. 2주면 익숙해져요.</span></p>
+
+  <div class="vis">
+    <div class="msg">
+      <div class="from a" style="--d:.1s"><span>주문 확인 문자 · 예시</span><span>○○플라워</span></div>
+      <div class="line a" style="--d:.5s"><b>주문</b><span>꽃바구니 8만 원대 · 5/8(금) 오전 10~12시 배송</span></div>
+      <div class="line a" style="--d:1s"><b>받는 분</b><span>김○○ 님 · ○○동 ○○아파트 (도착 전 전화)</span></div>
+      <div class="line a" style="--d:1.5s"><b>카드</b><span>"엄마 아빠, 늘 고맙습니다" · 보내는 분: 큰딸</span></div>
+      <div class="line alert a" style="--d:2s"><b>확인</b><span>틀린 곳이 있으면 이 문자에 답장 주세요</span></div>
+    </div>
+  </div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="f_order_a" data-key="f_order_a"><div class="body"><label for="f_order_a">주문 탭 칸 정하기</label><small>'꽃집 운영 장부'에 <b>주문</b> 탭을 만들고 아래 제목 줄을 붙여요. 전화 주문은 통화하면서 이 칸 순서대로 물으면 빠뜨리지 않아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'꽃집 운영 장부' → <span class="path">+</span> → 이름 <b>주문</b> → A1에 '주문 제목 줄' 붙여 넣기</li>
+        <li>'상태' 칸은 <span class="path">삽입 → 드롭다운</span>으로 접수 / 확정 / 제작 / 배송·픽업 완료 / 취소</li>
+        <li>휴대폰에 구글 시트 앱을 깔아 두면 매장 밖에서도 적을 수 있어요</li>
+      </ol>
+      <div class="prompt" data-tsv><div class="bar"><span>주문 제목 줄</span><button class="copy" type="button">복사</button></div><pre>접수일 | 접수 경로 | 주문하신 분 | 연락처 | 상품 | 예산 | 받는 날짜 | 시간대 | 픽업/배송 | 받는 분 | 받는 분 연락처 | 배송지 | 리본 문구 | 카드 문구 | 요청 사항 | 결제 | 상태 | 확인 문자</pre></div></details></div></li>
+    <li><input type="checkbox" id="f_order_b" data-key="f_order_b"><div class="body"><label for="f_order_b">구글 폼으로 주문서 받기</label><small>손님이 직접 적게 하면 받아 적는 실수가 줄어요. 폼 응답을 주문 탭으로 바로 연결해요. 같은 폼을 카톡 채널 메뉴, 인스타 프로필 링크, 플레이스에 걸어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>아래 '주문 폼 부탁문'으로 질문 목록을 받아 forms.google.com에서 새 폼에 옮기기 (커넥터가 있으면 AI가 만들어 줘요)</li>
+        <li>폼 <span class="path">응답 → 시트에 연결 → 기존 스프레드시트 선택</span> → '꽃집 운영 장부' (새 탭 '폼 응답'이 생겨요)</li>
+        <li>'폼 응답' 탭을 주문 탭으로 옮기는 방법은 아래 자동화 상자를 봐요<span class="fix">폼에 개인정보를 받으니 맨 위에 "주문 처리와 배송에만 쓰고, ○개월 뒤 지워요" 한 줄을 넣어요. 개인정보 규칙은 프로젝트 지침과 같게.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="f_order_c" data-key="f_order_c"><div class="body"><label for="f_order_c">카톡·네이버로 온 주문도 같은 칸으로</label><small>카톡이나 네이버 톡톡으로 온 대화는 캡처해서 AI에게 주면 주문 탭 한 줄로 바꿔 줘요. 네이버 예약(<a href="#c-l13" class="ref" data-ref="c-l13">강의</a>)으로 들어온 주문도 같은 탭에 옮겨 적어요. 장부 쓰는 법 전체는 <a href="#c-l4" class="ref" data-ref="c-l4">강의</a>.</small></div></li>
+    <li><input type="checkbox" id="f_order_d" data-key="f_order_d"><div class="body"><label for="f_order_d">카카오톡 채널 자동응답 넣기</label><small>"당일 배송 되나요?", "얼마부터 돼요?", "리본 문구 넣어 주세요" 같은 질문에는 자동응답으로 가격표 이미지(<a href="#f-price" class="ref" data-ref="f-price">강의</a>)와 주문 폼 주소를 보내요. 설정은 <a href="#c-l36" class="ref" data-ref="c-l36">강의</a>. 확정은 사장님이 직접 답해요.</small></div></li>
+    <li><input type="checkbox" id="f_order_e" data-key="f_order_e"><div class="body"><label for="f_order_e">주문 확인 문자 보내기</label><small>접수되면 위 예시처럼 주문 내용을 그대로 보내요. 특히 <b>리본·카드 문구와 받는 분 이름</b>은 손님이 직접 다시 보게 해야 해요. 아래 부탁문으로 초안을 받아 사장님 휴대폰으로 보내고, 주문 탭 '확인 문자' 칸에 표시해요.</small></div></li>
+    <li><input type="checkbox" id="f_order_f" data-key="f_order_f"><div class="body"><label for="f_order_f">화환 배송은 한 번 더 확인</label><small>화환은 행사 시간에 늦으면 소용이 없고, 문구가 틀리면 고칠 수도 없어요. 아래 '화환 체크'를 주문마다 봐요.</small></div></li>
+  </ol>
+
+  <h3>화환 체크 (주문마다)</h3>
+  <ul class="checks">
+    <li><input type="checkbox" id="f_order_c1" data-key="f_order_c1"><label for="f_order_c1">행사 이름·장소(식장 이름, 호실·빈소 번호), 행사 시작 시간, 언제까지 도착해야 하는지</label></li>
+    <li><input type="checkbox" id="f_order_c2" data-key="f_order_c2"><label for="f_order_c2">리본 두 줄: 축하·근조 문구, 보내는 분 이름·회사·직함. 글자 하나씩 손님과 확인</label></li>
+    <li><input type="checkbox" id="f_order_c3" data-key="f_order_c3"><label for="f_order_c3">장소가 화환을 받는지, 놓는 곳·반입 시간 제한이 있는지 (식장에 전화로 확인)</label></li>
+    <li><input type="checkbox" id="f_order_c4" data-key="f_order_c4"><label for="f_order_c4">연계 배송(다른 지역 꽃집)이라면 그쪽에 보낸 내용과 도착 사진 받기</label></li>
+    <li><input type="checkbox" id="f_order_c5" data-key="f_order_c5"><label for="f_order_c5">도착 사진을 손님에게 보내고 상태 '완료'</label></li>
+  </ul>
+
+  <div class="prompt"><div class="bar"><span>주문 폼 부탁문 · 상담·응대</span><button class="copy" type="button">복사</button></div><pre>꽃 주문용 구글 폼 질문 목록을 만들어 줘. 컴퓨터에 서툰 손님도 휴대폰으로 3분 안에 쓸 수 있게.
+칸: 주문하신 분, 연락처, 상품 종류(꽃다발/꽃바구니/화분/화환/기타), 예산(우리 가격대 ○/○/○), 받는 날짜, 시간대, 픽업/배송, 받는 분 이름·연락처, 배송지, 리본 문구, 카드 문구, 요청 사항, 개인정보 동의
+- 질문마다 필수/선택, 객관식/단답형 표시
+- 화환을 고르면 행사 장소·시작 시간을 묻는 칸이 나오게(섹션 이동)
+- 맨 위 안내문 3줄: 당일 주문 마감 ○시, 확정은 사장님이 연락, 개인정보 사용 범위</pre></div>
+  <div class="prompt"><div class="bar"><span>대화 → 주문 한 줄 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 카톡(또는 톡톡·문자) 대화 캡처를 '꽃집 운영 장부' 주문 탭 한 줄로 바꿔 줘.
+열: 접수일 | 접수 경로 | 주문하신 분 | 연락처 | 상품 | 예산 | 받는 날짜 | 시간대 | 픽업/배송 | 받는 분 | 받는 분 연락처 | 배송지 | 리본 문구 | 카드 문구 | 요청 사항 | 결제 | 상태 | 확인 문자
+대화에 없는 칸은 비우고, 손님에게 다시 물어볼 것을 따로 적어 줘. 문구는 손님이 쓴 그대로.</pre></div>
+  <div class="prompt"><div class="bar"><span>주문 확인 문자 부탁문</span><button class="copy" type="button">복사</button></div><pre>주문 탭 ○행 주문으로 확인 문자를 써 줘. 휴대폰 문자로 보낼 거라 짧게.
+상품·예산, 받는 날짜와 시간대, 픽업이면 픽업 시간, 배송이면 받는 분과 주소, 리본·카드 문구(따옴표로 그대로), 결제 안내, "틀린 곳이 있으면 답장 주세요".
+광고 문구는 넣지 마.</pre></div>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>주문서는 폼으로</b><span>폼 설정 <span class="path">응답 → 응답자에게 사본 보내기</span>를 켜면 손님에게 접수 내용이 메일로 가요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>폼 응답 → 주문 탭 + 캘린더</b><span>양식 제출 시 주문 탭에 한 줄을 넣고, '꽃집 일정' 캘린더에 "[배송] 받는 날짜·시간대·상품"을 만들어요. 부탁문은 샐러드 단체 주문과 같은 방식이에요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>전날 오후 제작 목록</b><span>매일 오후 4시, 내일 주문을 시간대 순으로 메일. 리본 문구까지 넣어 출력해 작업대에 붙여요.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>새 주문 확정</b><span>폼 주문이 들어오면 휴대폰으로 알림.</span><span class="pv">버튼: 확정 / 전화 필요 / 불가</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 꽃집 AI 비서실'</b> → <b>05 상담·응대</b> 채팅 (스크립트는 <b>07 자동화 도우미</b>)</span></div><div class="aib-row"><b>넣어 둘 것</b><span>'꽃집 운영 장부' → 프로젝트 파일. 손님 대화 캡처는 이 채팅에만, 처리 뒤 지워요</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 대목에는 대목마다 새 채팅을 열면 주문이 섞이지 않아요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">꽃집 브랜드·말투</span></div></div><p class="rec-note">받는 분 주소·연락처는 꼭 필요한 채팅에만 넣어요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 폼 + 시트 + 캘린더 + 앱스 스크립트로 0원</li><li>네이버 예약·카카오톡 채널 기본 기능 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>알림톡으로 주문 확인 자동 발송 (건당 요금)</li><li>선결제되는 예약·주문 서비스로 노쇼 줄이기</li><li>꽃배달 연계 플랫폼으로 먼 지역 화환 주문 받기 (수수료)</li></ul></div></div>
+</section>
+<section id="f-loss" class="lesson" data-part="practice" data-title="로스·재고 관리" data-level="grow" data-stage="prep takeover operate" data-biz="flower">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · 매일 5분 · 주 1회 10분</span>
+    <h2>시드는 꽃이 얼마인지 알면 덜 버려요</h2>
+    <p class="goal">생화는 들어온 날부터 시간이 가요. 언제 들어와서, 언제 물올림하고, 얼마나 팔고, 얼마나 버렸는지 시트에 적으면 <b>주간 로스율</b>이 보여요. 남을 것 같은 꽃은 소품 다발·할인·클래스로 먼저 돌리고, 매주 AI에게 사입량을 점검받아요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">꽃집 인수라면</b><span>인수일 재고를 한 번 세어 '입고' 줄로 적어요. 냉장고 안 오래된 꽃은 그날 정리하고 시작해요.</span></p>
+
+  <div class="vis">
+    <div class="msg">
+      <div class="from a" style="--d:.1s"><span>주간 로스 점검 · 월요일 · 예시</span><span>꽃집 운영 장부</span></div>
+      <div class="line alert a" style="--d:.5s"><b>많이 버림</b><span>거베라 로스율 32%. 화·금 두 번 사입했는데 목요일 이후 팔림이 적어요</span></div>
+      <div class="line a" style="--d:1s"><b>제안</b><span>금요일 사입을 절반으로 · 수요일 남은 거베라는 소품 다발로</span></div>
+      <div class="line a" style="--d:1.5s"><b>괜찮음</b><span>장미 8%, 안개꽃 5%</span></div>
+    </div>
+    <p class="office-hint">숫자는 예시예요. 기준 로스율은 사장님 꽃집 기록으로 정해요.</p>
+  </div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="f_loss_a" data-key="f_loss_a"><div class="body"><label for="f_loss_a">'로스' 탭 만들기</label><small>꽃 한 묶음(같은 날 들어온 같은 꽃)을 한 줄로 적어요. 송이 하나하나가 아니라 묶음 단위면 매일 5분이면 돼요. 재고 시스템 설계 전체는 <a href="#c-l76" class="ref" data-ref="c-l76">강의</a>.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'꽃집 운영 장부' → <span class="path">+</span> → 이름 <b>로스</b> → A1에 '로스 제목 줄' 붙여 넣기</li>
+        <li>사입한 날 시세 탭(<a href="#f-buy" class="ref" data-ref="f-buy">강의</a>)에 적은 꽃을 로스 탭에도 한 줄씩 (입고 송이 수)</li>
+        <li>'남은 송이'와 '로스율' 칸 수식은 아래 '로스 수식 부탁문'으로 받기</li>
+      </ol>
+      <div class="prompt" data-tsv><div class="bar"><span>로스 제목 줄</span><button class="copy" type="button">복사</button></div><pre>입고일 | 품목 | 품종·색 | 입고 송이 | 송이당 단가 | 물올림 날 | 판매 송이 | 활용 송이(소품·할인·클래스) | 폐기 송이 | 남은 송이 | 폐기 금액 | 로스율 | 상태 | 메모</pre></div></details></div></li>
+    <li><input type="checkbox" id="f_loss_b" data-key="f_loss_b"><div class="body"><label for="f_loss_b">매일 문 닫기 전 5분</label><small>꽃 냉장고를 한 번 보고 묶음마다 판매·활용·폐기를 숫자로 고쳐요. 정확하지 않아도 돼요. "대략 10송이"면 충분해요. 휴대폰 시트 앱으로 냉장고 앞에서 바로 적어요.</small></div></li>
+    <li><input type="checkbox" id="f_loss_c" data-key="f_loss_c"><div class="body"><label for="f_loss_c">들어온 지 오래된 꽃은 색으로</label><small>입고일로부터 며칠 지난 줄을 노란색·빨간색으로 보이게 해 두면, 아침에 시트만 봐도 먼저 써야 할 꽃이 보여요. 며칠을 기준으로 할지는 꽃마다 사장님이 정해요(장미와 국화는 버티는 날이 달라요).</small></div></li>
+    <li><input type="checkbox" id="f_loss_d" data-key="f_loss_d"><div class="body"><label for="f_loss_d">남을 꽃은 먼저 돌리기</label><small>버리기 전에 쓸 길을 정해 두어요.</small>
+      <details class="how"><summary><span class="closed-label">남는 꽃 활용 예</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><b>소품 다발</b>: 한두 송이로 만든 작은 다발을 계산대 옆에. "오늘의 한 송이" 같은 이름으로</li>
+        <li><b>마감 할인</b>: 영업 끝나기 전 인스타 스토리·카톡 채널로 "오늘 남은 꽃 묶음"</li>
+        <li><b>원데이 클래스</b>: 꽃꽂이·리스 클래스 재료로. 클래스 날짜를 사입 다음 날로 잡으면 좋아요</li>
+        <li><b>말리기</b>: 드라이플라워가 잘 되는 꽃은 매장 장식이나 소품으로<span class="fix">활용한 송이는 '활용' 칸에 따로 적어요. 폐기와 섞이면 진짜 로스가 안 보여요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="f_loss_e" data-key="f_loss_e"><div class="body"><label for="f_loss_e">매주 월요일 AI 점검</label><small>로스 탭과 주문 탭을 같이 보고, 품목별 로스율과 다음 주 사입량을 제안받아요. 무엇을 줄일지는 사장님이 정해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'12 재고·구매' 채팅에 '주간 로스 점검 부탁문'</li>
+        <li><span data-plan-not="free">유료: 앞에 "매주 월요일 오전 8시에"를 붙여 예약 작업으로</span><span data-plan-not="paid">무료: 캘린더 '매주 월요일 로스 점검' 알림 → 같은 부탁문</span></li>
+        <li>결론 한 줄(예: "거베라 금요일 사입 절반")을 업무일지에 남기기</li>
+      </ol></details></div></li>
+  </ol>
+
+  <p class="tip"><b>대목 뒤가 로스가 가장 커요.</b> 어버이날 뒤 카네이션처럼 대목 상품은 하루 만에 안 팔리는 꽃이 돼요. 대목 사입량은 예약 수 + 여유분으로 정하고(<a href="#f-season" class="ref" data-ref="f-season">강의</a>), 대목 다음 날 활용 계획을 미리 세워 두세요.</p>
+
+  <div class="prompt"><div class="bar"><span>로스 수식 부탁문 · 재고·구매</span><button class="copy" type="button">복사</button></div><pre>'꽃집 운영 장부' 로스 탭에 수식을 만들어 줘. 나는 시트 초보라 붙일 칸까지 알려 줘.
+열: 입고일, 품목, 품종·색, 입고 송이, 송이당 단가, 물올림 날, 판매 송이, 활용 송이, 폐기 송이, 남은 송이, 폐기 금액, 로스율, 상태, 메모
+- 남은 송이 = 입고 - 판매 - 활용 - 폐기
+- 폐기 금액 = 폐기 송이 × 송이당 단가
+- 로스율 = 폐기 송이 ÷ 입고 송이
+- 상태: 남은 송이가 0이면 '끝', 아니면 '진열 중'
+- 입고일로부터 품목별 기준일(내가 '기준일' 탭에 적을게)이 지나면 노란색, 기준일+2일이면 빨간색 (조건부 서식)
+- '주간' 탭: 주마다 품목별 입고·판매·활용·폐기 송이와 로스율, 폐기 금액 합계</pre></div>
+  <div class="prompt"><div class="bar"><span>주간 로스 점검 부탁문</span><button class="copy" type="button">복사</button></div><pre>'꽃집 운영 장부'의 로스·주문·시세 탭으로 지난주(○월 ○일~○일) 로스 점검을 해 줘.
+1) 품목별 로스율과 폐기 금액, 지난 4주 평균과 비교
+2) 로스율이 높은 품목마다 이유 추측(사입 요일, 양, 판매 요일)과 다음 주 사입량 제안
+3) 활용(소품·할인·클래스)이 잘 된 품목과 안 된 품목
+4) 다음 주 예약 주문을 보고 미리 사 둘 꽃, 줄일 꽃
+5) 결론 한 줄 (업무일지용)
+숫자가 장부에 없으면 지어내지 말고 '기록 없음'.</pre></div>
+  <div class="prompt"><div class="bar"><span>마감 할인 글 부탁문 · 인스타 담당</span><button class="copy" type="button">복사</button></div><pre>오늘 남은 꽃으로 마감 할인 안내를 써 줘. 남은 꽃: ○○ ○송이, ○○ ○송이.
+인스타 스토리 2줄, 카톡 채널 메시지 3줄. "오늘 ○시까지 매장에서", 가격 ○원.
+'떨이' 같은 말 대신 '오늘의 꽃 묶음'처럼 기분 좋은 말로.</pre></div>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>로스율·폐기 금액 자동 계산</b><span>판매·활용·폐기 숫자만 고치면 남은 송이와 로스율이 바로 나와요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>아침 '먼저 쓸 꽃' 메일</b><span>매일 오전 9시, 빨간색·노란색 줄만 골라 메일. 무료.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>주간 로스 점검</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매주 월요일 예약 작업이 로스율과 사입량 제안을 보내요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>월요일 캘린더 알림이 오면 부탁문 한 번.</span></span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>마감 할인 올리기</b><span>오후 6시, 남은 꽃 목록과 할인 글 초안.</span><span class="pv">버튼: 올리기 / 오늘은 안 함</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 꽃집 AI 비서실'</b> → <b>12 재고·구매</b> 채팅 (할인 글은 <b>03 인스타 담당</b>)</span></div><div class="aib-row"><b>넣어 둘 것</b><span>'꽃집 운영 장부'(로스·주간 탭) → 프로젝트 파일. 주간 결론 → 업무일지</span></div><div class="aib-row"><b>세션</b><span>주간 점검은 주마다 새 채팅(예: "로스 점검 2027-05 2주"). 결론만 업무일지에 남기고 채팅은 보관.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">냉장고 사진을 찍어 보내면 남은 양 대략 세기를 도와줘요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>로스 탭 수식·조건부 서식·아침 메일 스크립트 모두 무료</li><li>주간 점검은 알림 + 부탁문 한 번</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>주간 점검을 예약 작업으로 자동</li><li>몇 달 치 기록으로 요일별 사입 패턴 분석</li></ul></div></div>
+</section>

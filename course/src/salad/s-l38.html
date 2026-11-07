@@ -1,0 +1,138 @@
+<section id="s-l38" class="lesson" data-part="auto" data-title="주문 데이터 분석·컨설팅 자동화하기" data-level="adv" data-stage="operate" data-biz="salad">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 하루 · 매달 30분</span>
+    <h2>무엇이, 언제, 어떤 날 팔리는지 숫자로 보고 정해요</h2>
+    <p class="goal">주문내역 수집 봇(<a href="#s-l30" class="ref" data-ref="s-l30">강의</a>)이 쌓은 주문에 <b>메뉴</b>와 <b>그날의 조건</b>(요일·공휴일·연휴·날씨·지역 행사·계절)을 붙여요. 장부가 메뉴 순위와 요일·시간대 지도를 저절로 그리고, 매달 AI가 "다음 달에 무엇을 얼마나 준비할지" 컨설팅해 줘요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>메뉴 기록, 달력 자동 채우기, 분석 수식은 모두 무료예요. 월간 컨설팅은 <span data-ai="claude">매달 1일 알림이 오면 한 줄로 부탁해요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 매달 받아요.</span><span data-ai-none>무료 방식으로 받아요.</span></span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>월간 주문 컨설팅을 예약 작업으로 받아요. 몇 달 치 주문도 한 번에 분석할 만큼 사용량이 넉넉해요.</span></p>
+  </div>
+  <div class="vis">
+    <div class="heat" aria-label="요일·시간대별 주문 수 예시"><span></span><span class="hh">11시</span><span class="hh">12시</span><span class="hh">13시</span><span class="hh">17시</span><span class="hh">18시</span><span class="hh">19시</span><span class="hd">월</span><i class="h2 pop" style="--d:0.10s"></i><i class="h5 pop" style="--d:0.13s"></i><i class="h3 pop" style="--d:0.16s"></i><i class="h1 pop" style="--d:0.19s"></i><i class="h3 pop" style="--d:0.22s"></i><i class="h2 pop" style="--d:0.25s"></i><span class="hd">화</span><i class="h2 pop" style="--d:0.10s"></i><i class="h5 pop" style="--d:0.13s"></i><i class="h3 pop" style="--d:0.16s"></i><i class="h1 pop" style="--d:0.19s"></i><i class="h3 pop" style="--d:0.22s"></i><i class="h2 pop" style="--d:0.25s"></i><span class="hd">수</span><i class="h2 pop" style="--d:0.10s"></i><i class="h4 pop" style="--d:0.13s"></i><i class="h3 pop" style="--d:0.16s"></i><i class="h1 pop" style="--d:0.19s"></i><i class="h3 pop" style="--d:0.22s"></i><i class="h2 pop" style="--d:0.25s"></i><span class="hd">목</span><i class="h2 pop" style="--d:0.10s"></i><i class="h5 pop" style="--d:0.13s"></i><i class="h3 pop" style="--d:0.16s"></i><i class="h1 pop" style="--d:0.19s"></i><i class="h4 pop" style="--d:0.22s"></i><i class="h3 pop" style="--d:0.25s"></i><span class="hd">금</span><i class="h3 pop" style="--d:0.10s"></i><i class="h5 pop" style="--d:0.13s"></i><i class="h4 pop" style="--d:0.16s"></i><i class="h2 pop" style="--d:0.19s"></i><i class="h5 pop" style="--d:0.22s"></i><i class="h4 pop" style="--d:0.25s"></i><span class="hd">토</span><i class="h3 pop" style="--d:0.10s"></i><i class="h4 pop" style="--d:0.13s"></i><i class="h4 pop" style="--d:0.16s"></i><i class="h3 pop" style="--d:0.19s"></i><i class="h5 pop" style="--d:0.22s"></i><i class="h5 pop" style="--d:0.25s"></i><span class="hd">일</span><i class="h2 pop" style="--d:0.10s"></i><i class="h3 pop" style="--d:0.13s"></i><i class="h3 pop" style="--d:0.16s"></i><i class="h3 pop" style="--d:0.19s"></i><i class="h5 pop" style="--d:0.22s"></i><i class="h4 pop" style="--d:0.25s"></i></div>
+    <p class="cap a" style="--d:1.2s">예시 · 요일·시간대별 주문 수. 진할수록 많아요. 장부의 조건부 서식으로 이 지도가 매일 다시 그려져요.</p>
+  </div>
+  <div class="msg wide-lab">
+    <div class="from"><span>월간 주문 컨설팅 · 매달 1일 · 예시</span><span>09 배달앱·매장 개선</span></div>
+    <div class="line"><b>시간대</b><span>금·토 18~19시 주문이 평일의 1.7배. 이 시간 알바 1명 추가, 배달앱 광고를 18시 전후로 집중</span></div>
+    <div class="line"><b>날씨</b><span>비 오는 날 배달 주문 +32%, 매장 주문 −25%. 비 예보 전날 로메인 발주를 배달 기준으로</span></div>
+    <div class="line"><b>메뉴</b><span>닭가슴살 볼 + 콤부차가 함께 팔린 주문 41건. 세트로 묶어 대표 메뉴 옆에</span></div>
+    <div class="line alert"><b>다음 달</b><span>12/24~25 연휴, 12/13 ○○동 겨울 축제. 지난해 연휴 직전 단체 주문이 2배 → 단체 주문 안내를 2주 전에</span></div>
+  </div>
+  <h3>1단계 · 주문에 메뉴 붙이기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s38a" data-key="s_s38a"><div class="body"><label for="s_s38a">'주문메뉴' 시트 추가</label><small>주문원장은 주문 한 건이 한 줄이에요. 메뉴 분석을 하려면 주문 안의 메뉴가 한 줄씩 있어야 해요. 매장(포스) 주문도 같은 시트에 모아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' → <span class="path">+</span> → 이름 <b>주문메뉴</b> → A1에 '주문메뉴 제목 줄'</li>
+        <li>플랫폼 칸에는 배민·요기요·쿠팡이츠·매장 중 하나. 고유키는 주문원장과 같은 값(배민-12345)이라 두 시트를 이어 볼 수 있어요</li>
+      </ol><div class="prompt" data-tsv><div class="bar"><span>주문메뉴 제목 줄</span><button class="copy" type="button">복사</button></div><pre>주문일시 | 고유키 | 플랫폼 | 메뉴 | 옵션 | 수량 | 메뉴 금액</pre></div></details></div></li>
+    <li><input type="checkbox" id="s_s38b" data-key="s_s38b"><div class="body"><label for="s_s38b">수집 봇이 메뉴까지 읽게 고치기</label><small>주문내역 수집 봇에 '주문 상세 화면의 메뉴·옵션·수량을 주문메뉴 시트에'를 더해요. 봇 수정은 시스템 변경이니 개선요청에 올리고 승인 후에 해요(<a href="#c-s29" class="ref" data-ref="c-s29">강의</a>).</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 bot.py를 첨부하고 아래 '메뉴 수집 추가 부탁문' 보내기 (손님 정보는 여전히 읽지 않게)</li>
+        <li><b>python bot.py --dry-run</b>으로 메뉴 5줄이 화면과 같은지 확인</li>
+        <li><b>python bot.py --backfill 30</b>을 한 번 더 돌려 지난 30일 메뉴도 채우기<span class="fix">주문 상세를 하나씩 열면 시간이 걸려요. 처음 30일 수집은 밤에 돌려 두세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s38c" data-key="s_s38c"><div class="body"><label for="s_s38c">매장 주문도 합치기</label><small>포스의 상품별 엑셀(<a href="#s-l3" class="ref" data-ref="s-l3">강의</a>)을 '배달앱 받은 파일' 폴더에 넣으면, 반영 스크립트(<a href="#s-l25" class="ref" data-ref="s-l25">강의</a>)가 주문메뉴에 플랫폼 '매장'으로 넣게 해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 포스 상품 엑셀 하나와 반영 스크립트를 첨부하고 "이 파일이 들어오면 주문메뉴 시트에 플랫폼 '매장'으로 넣어줘"</li>
+        <li>매주 포스 상품 엑셀을 폴더에 넣는 루틴에 포함<span class="fix">포스 엑셀에 주문 번호가 없으면 고유키는 '매장-날짜-순번'처럼 AI가 만들어 줘요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>메뉴 수집 추가 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>첨부한 bot.py(배달앱 주문내역 수집 봇)에 메뉴 수집을 더해줘. 바뀐 파일 전체와 바뀐 점 5줄을 줘.
+- 주문마다 상세 화면에서 메뉴 이름, 옵션, 수량, 메뉴 금액을 읽어 '주문메뉴' 시트에 한 메뉴 한 줄로 (열: 주문일시, 고유키, 플랫폼, 메뉴, 옵션, 수량, 메뉴 금액)
+- 같은 고유키의 메뉴 줄이 이미 있으면 지우고 다시 쓰기 (주문 변경·취소 반영). 취소 주문은 주문원장 상태만 보고 분석에서 빼게 두기
+- 손님 이름·전화·주소·요청사항은 여전히 읽지도 저장하지도 마
+- 상세 화면을 여는 사이 2~3초씩 쉬기. --dry-run 은 메뉴 5줄만 화면에 출력</pre></div>
+
+  <h3>2단계 · 그날의 조건 '달력' 자동으로 채우기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s38d" data-key="s_s38d"><div class="body"><label for="s_s38d">'달력' 시트 만들기</label><small>날짜마다 요일, 주말 여부, 공휴일·연휴, 계절, 날씨, 지역 행사를 한 줄씩. 이 시트가 있어야 "비 오는 날", "연휴 전날" 같은 분석이 돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' → <span class="path">+</span> → 이름 <b>달력</b> → A1에 '달력 제목 줄'</li>
+        <li>지역 행사는 자동으로 다 잡히지 않아요. 구청 소식, 근처 학교·회사 행사, 동네 축제를 알게 되면 '메모'에 직접 한 줄</li>
+      </ol><div class="prompt" data-tsv><div class="bar"><span>달력 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 요일 | 주말 | 공휴일·연휴 | 연휴 전날 | 계절 | 최고기온 | 강수량 | 날씨 구분 | 지역 행사 | 메모</pre></div></details></div></li>
+    <li><input type="checkbox" id="s_s38e" data-key="s_s38e"><div class="body"><label for="s_s38e">공휴일·날씨·행사 API 신청</label><small>시세 수집(<a href="#s-l11" class="ref" data-ref="s-l11">강의</a>)에서 가입한 공공데이터포털에서 세 가지를 더 활용신청해요. 인증키는 같은 것을 써요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>data.go.kr 검색 <b>한국천문연구원 특일 정보</b> → 활용신청 (공휴일·대체공휴일)</li>
+        <li>검색 <b>기상청 지상(종관, ASOS) 일자료</b> → 활용신청 (어제 최고기온·강수량). 가게와 가까운 관측소 번호는 AI에게 "○○동에서 가까운 ASOS 관측소 번호"</li>
+        <li>검색 <b>한국관광공사 국문 관광정보 서비스</b> → 활용신청 (지역 축제·행사 일정)</li>
+        <li>마이페이지에서 세 개 모두 '승인'인지 확인 (자동 승인은 보통 바로, 늦으면 1~2일)<span class="fix">날씨 '예보'가 아니라 지난 날의 '실제 날씨'를 기록하는 거예요. 분석은 실제 날씨로, 다음 주 준비는 월요일 브리핑의 예보로 해요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s38f" data-key="s_s38f"><div class="body"><label for="s_s38f">달력 자동 채우기 스크립트</label><small>매일 아침 어제 날씨를 적고, 매달 1일에 다음 두 달의 공휴일·연휴 전날·주변 행사를 미리 채워요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 '달력 자동 채우기 부탁문' 보내기</li>
+        <li>장부 Apps Script에 붙이고 실행 → 권한 허용 → 달력 시트에 올해 줄이 생겼는지 확인</li>
+        <li><span class="path">트리거</span>: 날씨 함수 매일 오전 6~7시, 공휴일·행사 함수 매달 1일, 실패 알림 즉시<span class="fix">인증키는 스크립트 속성(Script Properties)에 넣어 달라고 하세요. 코드에 그대로 적지 않아요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>달력 자동 채우기 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'의 '달력' 시트를 채우는 앱스 스크립트를 만들어줘. 나는 코딩 초보라 붙이는 곳과 트리거까지 순서대로.
+- 열: 날짜, 요일, 주말(예/아니오), 공휴일·연휴(이름), 연휴 전날(예/아니오), 계절(봄 3~5월 등), 최고기온, 강수량, 날씨 구분(맑음·흐림·비·눈·폭염·한파), 지역 행사, 메모
+- 처음 실행: 올해 1월 1일부터 오늘+60일까지 줄 만들기, 요일·주말·계절 채우기
+- 공휴일: 공공데이터포털 '한국천문연구원 특일 정보'(getRestDeInfo)로 매달 1일 다음 두 달 채우기. 공휴일이 이어지는 연휴와 그 전날 표시
+- 날씨: '기상청 지상(종관, ASOS) 일자료'로 매일 아침 어제 최고기온·강수량, 관측소 번호 ○○. 지난 날짜 빈칸도 채우기
+- 행사: '한국관광공사 국문 관광정보 서비스' 행사정보조회로 우리 지역(○○시 ○○구) 행사를 매달 1일 다음 두 달 채우기
+- 인증키는 스크립트 속성 DATA_KEY에서 읽기. '메모' 칸은 절대 덮어쓰지 마. API가 실패하면 그 칸은 비우고 '점검로그'에 한 줄</pre></div>
+
+  <h3>3단계 · 장부가 저절로 그리는 분석판</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s38g" data-key="s_s38g"><div class="body"><label for="s_s38g">'주문분석' 시트 수식 받기</label><small>'01 장부·정산' 채팅에 '주문분석 수식 부탁문'을 보내 표 6개 수식을 받아요. 한 번 붙이면 주문이 쌓일 때마다 저절로 바뀌어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'매장 장부' → <span class="path">+</span> → 이름 <b>주문분석</b></li>
+        <li>AI가 알려 준 칸마다 수식 붙여 넣기 (표마다 위에 제목 한 줄)</li>
+        <li>요일×시간대 표를 드래그 → <span class="path">서식 → 조건부 서식 → 색상 스케일</span> → 흰색에서 초록으로. 위의 지도가 생겨요</li>
+        <li>맨 위 B1에 기간(예: 최근 90일)을 바꿀 수 있는 칸을 두면 시즌별로 바꿔 볼 수 있어요<span class="fix">#REF!나 #N/A가 나오면 그 칸의 수식과 오류를 그대로 AI에게 보내 "고쳐줘".</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s38h" data-key="s_s38h"><div class="body"><label for="s_s38h">휴대폰으로 보는 화면 (선택)</label><small>대시보드(<a href="#c-l62" class="ref" data-ref="c-l62">강의</a>)에 메뉴 순위 상위 5개와 이번 주 피크 시간대 카드를 더하면 아침에 한 화면으로 봐요. Looker Studio를 쓰면 요일·시간대 지도를 그래프로 볼 수 있어요.</small></div></li>
+  </ol>
+  <div class="table-wrap"><table>
+    <thead><tr><th>표</th><th>알 수 있는 것</th><th>바로 쓰는 곳</th></tr></thead>
+    <tbody>
+      <tr><td><b>메뉴 순위</b></td><td>수량·매출 순위, 플랫폼별 순위 차이</td><td>배달앱 대표 메뉴, 메뉴 원가 점검(<a href="#s-l35" class="ref" data-ref="s-l35">강의</a>)</td></tr>
+      <tr><td><b>요일 × 시간대</b></td><td>피크와 한가한 시간</td><td>근무표, 배달앱 광고 시간, 재료 손질 시각</td></tr>
+      <tr><td><b>주말·평일, 공휴일·연휴</b></td><td>연휴 전날과 연휴 당일 차이</td><td>휴무일 정하기, 연휴 전 단체 주문 안내</td></tr>
+      <tr><td><b>날씨</b></td><td>비·폭염·한파일 때 배달·매장 비율과 메뉴</td><td>비 예보 전날 발주량, 따뜻한 메뉴 시작 시점</td></tr>
+      <tr><td><b>계절·월</b></td><td>메뉴별 계절 흐름, 작년 같은 달</td><td>계절 메뉴 출시·종료 시기</td></tr>
+      <tr><td><b>함께 팔린 메뉴</b></td><td>한 주문에 자주 같이 담긴 조합</td><td>세트 구성, 추가 메뉴 추천</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prompt"><div class="bar"><span>주문분석 수식 부탁문 · 장부 과장</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'에 '주문분석' 시트를 수식으로 만들어줘. 나는 엑셀 초보라 붙일 칸까지 알려줘.
+시트: 주문원장(주문일시, 주문번호, 플랫폼, 주문금액, 할인금액, 고객 결제액, 배달비, 수수료, 정산액, 주문상태, 최종 확인일, 고유키), 주문메뉴(주문일시, 고유키, 플랫폼, 메뉴, 옵션, 수량, 메뉴 금액), 달력(날짜, 요일, 주말, 공휴일·연휴, 연휴 전날, 계절, 최고기온, 강수량, 날씨 구분, 지역 행사, 메모)
+B1에 분석 기간(일수)을 넣으면 그 기간만 계산. 취소 주문은 빼기.
+1) 메뉴 순위: 메뉴별 수량·매출, 플랫폼별 열
+2) 요일 × 시간대(11~21시) 주문 수 표
+3) 평일 / 주말 / 공휴일·연휴 / 연휴 전날 하루 평균 주문 수·매출
+4) 날씨 구분별 하루 평균 주문 수, 배달·매장 비율
+5) 월별·계절별 메뉴 상위 5개
+6) 함께 팔린 메뉴 쌍 상위 10개 (같은 고유키 안의 메뉴 조합)
+QUERY, FILTER, COUNTIFS 위주로, 조건부 서식 방법도.</pre></div>
+
+  <h3>4단계 · 매달 주문 컨설팅 받고, 다음 달 준비하기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s38i" data-key="s_s38i"><div class="body"><label for="s_s38i">월간 주문 컨설팅</label><small>'09 배달앱·매장 개선' 채팅에서 아래 '월간 주문 컨설팅 지시문'으로 매달 1일 받아요. 나온 제안은 '제안기록'에 적고 실행해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span data-plan-not="free">유료: 지시문 맨 앞에 "매달 1일 오전 9시에"를 붙여 예약 작업으로</span><span data-plan-not="paid"><span data-ai="claude">Claude 무료: 지시문을 한 번 보내 두고, 매달 1일 알림이 오면 "이번 달 주문 컨설팅 해줘"</span><span data-ai-not="claude">ChatGPT 무료: "매달 1일 아침에" + 지시문으로 예약 작업</span></span></li>
+        <li><span data-ai-not="gpt">Claude는 Google Drive 커넥터로 장부를 직접 읽어요</span><span data-ai="gpt">ChatGPT에 장부를 엑셀로 올려 쓰면 컨설팅 전날 최신 장부로 바꿔 올리기</span></li>
+        <li>제안 중 이번 달 할 것 1~2개를 '제안기록'에, 연휴·행사 준비는 캘린더에<span class="fix">주문 수가 적은 달은 결론이 흔들려요. 석 달 이상 쌓인 뒤 판단하고, AI가 "자료가 적다"고 하면 그대로 믿으세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s38j" data-key="s_s38j"><div class="body"><label for="s_s38j">다른 자동화에 연결하기</label><small>분석 결과를 다른 강의의 자동화가 쓰게 하면, 사장님이 따로 옮기지 않아도 돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>재고·발주(<a href="#c-l76" class="ref" data-ref="c-l76">강의</a>): 발주 메일 부탁문에 "달력의 다음 날 날씨 구분·연휴를 보고 최소 재고를 조정"을 덧붙이기</li>
+        <li>근무표(<a href="#c-l6" class="ref" data-ref="c-l6">강의</a> 인사 담당): "주문분석의 요일×시간대 피크에 맞춰 다음 주 근무표 초안"</li>
+        <li>인스타그램(<a href="#c-l27" class="ref" data-ref="c-l27">강의</a>): 월간 계획 부탁문에 "주문분석 메뉴 순위 상위 3개와 다음 달 연휴·행사를 반영"</li>
+        <li>월요일 브리핑(<a href="#c-l41" class="ref" data-ref="c-l41">강의</a>): "지난주 메뉴 순위 변화와 이번 주 연휴·행사·비 예보" 한 줄</li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>월간 주문 컨설팅 지시문 · 매장 컨설턴트</span><button class="copy" type="button">복사</button></div><pre>'매장 장부'의 주문원장·주문메뉴·달력·주문분석 시트로 지난달 주문 컨설팅을 해줘. 휴대폰 두 화면 이내로, 숫자 근거를 붙여서.
+1) 메뉴: 많이 팔린 메뉴, 떨어진 메뉴, 플랫폼마다 다른 1위. 원가 경보가 걸린 메뉴(메뉴원가 탭)는 따로 표시
+2) 시간: 요일·시간대 피크와 한가한 시간. 근무 인원, 배달앱 광고 시간, 재료 손질 시각 제안
+3) 날·날씨: 주말·공휴일·연휴 전날·비 오는 날·더운 날 차이와 그날 잘 팔린 메뉴
+4) 계절: 작년 같은 달과 비교(자료가 있으면), 계절 메뉴를 시작·끝낼 때인지
+5) 다음 달 준비: 달력의 연휴·지역 행사를 보고 날짜별로 준비할 것(재료량, 인원, 단체 주문 안내, 인스타 게시)
+6) 이번 달 할 일 2개: 바로 할 수 있는 행동, 예상 효과
+자료가 부족한 결론은 '자료 부족'이라고 쓰고 추측하지 마.</pre></div>
+  <p class="tip warnbox"><b>손님 정보 없이도 충분해요.</b> 이 분석은 시간·메뉴·금액·날의 조건만 써요. 손님 이름·주소·전화로 "누가 자주 시키나"를 만들지 마세요. 단골 관리는 동의를 받은 단골 명단(<a href="#c-l58" class="ref" data-ref="c-l58">강의</a>)으로만 해요.</p>
+  <p class="src">출처: <a href="https://data.go.kr/dataset/15012690/openapi.do" target="_blank" rel="noopener">한국천문연구원 특일 정보 API</a> · <a href="https://www.data.go.kr/tcs/dss/selectDataSetList.do?keyword=ASOS%20%EC%9D%BC%EC%9E%90%EB%A3%8C" target="_blank" rel="noopener">기상청 ASOS 일자료 API 검색</a> · <a href="https://www.data.go.kr/tcs/dss/selectDataSetList.do?keyword=%EA%B5%AD%EB%AC%B8%20%EA%B4%80%EA%B4%91%EC%A0%95%EB%B3%B4" target="_blank" rel="noopener">한국관광공사 국문 관광정보 API 검색</a> · <a href="https://support.google.com/docs/answer/78413?hl=ko" target="_blank" rel="noopener">구글 시트 조건부 서식</a></p>
+<div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-bot">맥 봇</span><div class="ad"><b>매일 06:00 주문 + 메뉴 수집</b><span>수집 봇이 주문원장과 주문메뉴를 함께 채워요. 매장 주문은 포스 엑셀이 폴더에 들어오면 반영 스크립트가 합쳐요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>달력 자동 채우기</b><span>매일 아침 어제 날씨, 매달 1일 다음 두 달 공휴일·연휴·지역 행사. 메모 칸만 사람이.</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>분석판은 저절로</b><span>주문이 쌓이면 메뉴 순위·요일×시간대 지도·날씨별 표가 바로 다시 계산돼요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 1일 주문 컨설팅</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 1일 오전 9시 예약 작업이 지난달 분석과 다음 달 준비 목록을 보내요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i><span data-ai="claude">Claude 무료는 예약 작업이 없어요. 매달 1일 아침 휴대폰 반복 알림이 울리면 그 채팅에 한 줄 보내요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 매달 1일 아침 받아요. 시간은 대략적으로 정해지고 동시에 3개까지예요.</span><span data-ai-none>Claude 무료는 매달 1일 아침 휴대폰 알림 + 한 줄, ChatGPT 무료는 예약 작업(하루 1번 이하, 3개까지)으로 받아요.</span></span></span></div></li><li><span class="chip k-tip">요령</span><div class="ad"><b>다른 자동화가 분석을 쓰게</b><span>발주·근무표·인스타 계획·월요일 브리핑 지시문에 분석 시트를 읽으라는 한 줄을 덧붙여요.</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>지역 행사·날씨 사이트를 읽어 달력 탭에 행사 표시.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>배달앱 메뉴 화면을 읽어 메뉴 이름 기준표 정리.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>주문원장 → 분석판 계산, 매달 1일 리포트 파일.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'09'가 리포트 해설·다음 달 메뉴 제안 → 승인함.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>09 배달앱·매장 개선</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>월간 주문 컨설팅 지시문 (수식·스크립트는 01·08 채팅)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">주문 분석 보고</span><span class="rc s">엑셀</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>주문·메뉴 수집 봇, 공공데이터 API 3종, 구글 시트 수식·조건부 서식 모두 무료</li><li>월간 컨설팅은 알림 + 한 줄</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>월간 컨설팅 예약 작업과 넉넉한 분석 사용량</li><li>포스·배달 통합 분석 서비스로 수집 없이 메뉴·시간대 통계</li><li>Looker Studio 대신 유료 BI 도구</li></ul></div></div>
+</section>

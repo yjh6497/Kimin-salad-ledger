@@ -1,0 +1,140 @@
+<section id="c-l92" class="lesson" data-part="calendar" data-title="일정 비서: {{owner:과}} 직원의 하루" data-level="adv" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 30분 · 매일 3분</span>
+    <h2>일정은 비서 한 명에게, 직원은 자기 일정만 휴대폰으로</h2>
+    <p class="goal">캘린더 7개(<a href="#c-l85" class="ref" data-ref="c-l85">강의</a>)와 근무표(<a href="#c-l81" class="ref" data-ref="c-l81">강의</a>)가 생겼으면, 이제 그 날짜를 챙기는 <b>일정 비서</b>를 둬요. AI 비서실의 '11 일정 비서' 채팅이 {{owner}} 일정과 <b>직원 일정(근무·휴가·교육·계약)</b>을 함께 보고, 직원은 승인된 근무와 휴가를 <b>자기 휴대폰 캘린더 알림</b>으로 받아요. {{owner:은}} "연차 신청 들어왔어" 한마디로 <span data-biz="vet">수술 블록과</span><span data-biz-not="vet">예약이 몰리는 시간과</span> 인원이 괜찮은지 확인해요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>캘린더 커넥터와 스크립트는 무료로 돼요. 아침 브리핑은 출근길에 '오늘 브리핑' 한 줄을 보내는 방식으로.</span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>아침 브리핑을 예약 작업으로 걸어 두면 하루 일을 시작하기 전에 와 있어요. 지침은 '일정 비서' 스킬로 묶어요(<a href="#c-l38" class="ref" data-ref="c-l38">강의</a>).</span></p>
+  </div>
+  <div class="vis">
+    <div class="chat">
+      <div class="bubble me a" style="--d:.2s"><span class="who">{{owner}} · 아침 8시 40분</span>오늘 브리핑</div>
+      <div class="bubble ai a" style="--d:.9s"><span class="who">11 일정 비서 · 캘린더와 직원 데이터를 읽은 예시</span><ul><li data-biz="vet">근무 4명(직원 02·03·05 주간, 04 야간당직). 14시 중성화 수술 블록, 마취 보조 03</li><li data-biz-not="vet">근무 4명(직원 02·03·05 주간, 04 오후). 14~16시 예약이 몰리는 시간, 응대 담당 03</li><li data-biz="vet">휴가 신청 1건 대기: 직원 05, 다음 주 수요일 연차 → 그날 수술 없음, 승인해도 3명</li><li data-biz-not="vet">휴가 신청 1건 대기: 직원 05, 다음 주 수요일 연차 → 그날 큰 예약 없음, 승인해도 3명</li><li data-biz="vet">{{owner}} 연수교육 올해 6시간 들음 → 남은 4시간, 12월 온라인 과정 확인</li><li data-biz-not="vet">{{owner}} 외부 교육 신청 마감이 다음 주 금요일 → 캘린더에 넣을까요?</li><li>모레 직원 06 수습 종료일 → 면담 30분 잡을까요?</li></ul></div>
+      <div class="bubble ai a" style="--d:1.7s"><span class="who">직원 05 휴대폰 · 캘린더 알림</span>🌴 다음 주 수요일 연차가 근무·휴가 캘린더에 추가됐어요 · 내일 <span data-biz="vet">🩺</span><span data-biz-not="vet">🗓️</span> 주간 09:00–18:00</div>
+    </div>
+    <p class="cap a" style="--d:2.2s">{{owner:은}} 채팅으로 묻고 결정해요. 직원 휴대폰에는 스크립트가 넣은 캘린더 일정이 알림으로 떠요. 직원은 AI 비서실에 들어오지 않아요.</p>
+  </div>
+
+  <h3>일정 비서가 맡는 날짜</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>누구</th><th>날짜</th><th>어디에 있나</th></tr></thead>
+    <tbody>
+      <tr><td><b>{{owner}}</b></td><td><span data-biz="vet">수술 블록, 외부 일정, 연수교육</span><span data-biz-not="vet">큰 예약·바쁜 시간, 외부 일정, 교육</span>, 세무·신고, 돈 나가는 날</td><td>캘린더 7개</td></tr>
+      <tr><td><b>직원 모두</b></td><td><span data-biz="vet">근무·야간당직</span><span data-biz-not="vet">근무</span>, 승인된 휴가, 교육, 회의</td><td>직원 데이터 → '근무·휴가' 캘린더</td></tr>
+      <tr><td><b>직원 한 명</b></td><td>입사일, 수습 종료일, 계약 만료·갱신, 연차 생기는 날, 면담</td><td>직원 데이터 '사람 일정' 탭 → '{{place}} 일정' 캘린더</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>해마다 오는 사람 일정 (법령 MCP로 확인)</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>일정</th><th>기준</th><th>캘린더에 넣는 법</th></tr></thead>
+    <tbody>
+      <tr data-biz="vet"><td><b>수의사 연수교육</b></td><td>동물진료업에 종사하는 수의사는 매년 10시간 이상, 그중 5시간 이상은 수의사회장이 지정하는 과목(수의사법 제34조, 시행규칙 제26조제2항)</td><td>'장비·법정 의무'에 해마다 10월 1일 "연수교육 시간 확인", 수료증은 드라이브에</td></tr><tr data-biz-not="vet"><td><b>우리 업종 의무 교육·자격 갱신</b></td><td>업종에 따라 해마다 들어야 하는 교육이나 갱신할 자격이 있을 수 있어요. 법령 MCP에 "우리 업종 의무 교육"을 물어 확인해요</td><td>'장비·법정 의무'에 해마다 확인할 날을 넣고, 수료증은 드라이브에</td></tr>
+      <tr><td><b>직장 내 성희롱 예방 교육</b></td><td>사업주와 근로자 모두 연 1회 이상. 상시 10명 미만이면 교육 자료를 게시·배포하는 방법도 돼요(남녀고용평등법 제13조, 시행령 제3조)</td><td>'{{place}} 일정'에 해마다 한 번, 직원 모두 초대</td></tr>
+      <tr><td><b>장애인 인식개선 교육</b></td><td>연 1회 1시간 이상, 자료는 3년 보관. 장애인 고용 의무가 없는 사업주는 고용노동부 자료를 배포·게시하는 방법도 돼요(장애인고용법 제5조의2, 시행령 제5조의2)</td><td>성희롱 예방 교육과 같은 날 묶으면 편해요</td></tr>
+      <tr><td><b>연차휴가</b></td><td>상시 5명 이상이면 적용. 1년 미만은 한 달 개근마다 1일, 1년간 80% 이상 출근하면 15일(근로기준법 제60조)</td><td>'사람 일정'에 입사 기념일마다 "연차 새로 계산", 남은 연차는 요약 탭(<a href="#c-l81" class="ref" data-ref="c-l81">강의</a>)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="cap">2026년 11월 7일 법령 MCP로 조회한 내용이에요.<span data-biz="vet"> 수의사법은 11월 13일 일부 개정이 시행되지만 제34조 연수교육 조문은 그대로예요.</span> 매년 1월 한 번 '08 법률·세무 도우미'에게 다시 확인하게 하세요.</p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a92a" data-key="v_a92a"><div class="body"><label for="v_a92a">'11 일정 비서' 채팅 만들기</label><small>AI 비서실 프로젝트에서 새 채팅을 열고 이름을 '11 일정 비서'로 바꿔요(<a href="#c-l6" class="ref" data-ref="c-l6">강의</a>). 첫 메시지로 아래 '일정 비서 지침'을 보내요. 캘린더 커넥터를 켜고, 드라이브에서 '직원 데이터' 시트를 연결해요.</small></div></li>
+    <li><input type="checkbox" id="v_a92b" data-key="v_a92b"><div class="body"><label for="v_a92b">직원 데이터에 '사람 일정' 탭과 칸 더하기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'직원 데이터' 시트 아래 + → 새 탭 이름 '사람 일정' → 아래 제목 줄을 A1에 붙여 넣어요</li>
+        <li>'직원' 탭 K열 제목을 '캘린더 메일'로 적어요. 직원이 <b>동의한 경우에만</b> 그 직원의 구글 메일을 적어요. 비워 두면 그 직원에게는 초대가 가지 않아요</li>
+        <li>'근무표' 탭 H열 제목은 '캘린더ID', '휴가신청' 탭 E열 제목도 '캘린더ID'로 적어요. 스크립트가 넣은 일정의 번호가 여기에 적혀요</li>
+        <li>입사일·수습 종료일·계약 만료일과 위 표의 교육을 '사람 일정'에 한 줄씩 적어요. AI에게 "직원 탭 입사일로 수습 3개월 종료일과 입사 기념일을 사람 일정 형식으로 만들어 줘"라고 해도 돼요<span class="fix">{{owner}} 일정은 직원번호 칸에 00을 적어요. 직원 모두에게 해당하면 비워 둬요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a92c" data-key="v_a92c"><div class="body"><label for="v_a92c">근무·휴가·사람 일정을 캘린더로 보내는 스크립트</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'직원 데이터' 시트 → <span class="path">확장 프로그램 → Apps Script</span> → 아래 'syncPeople' 스크립트를 붙여 넣고 저장</li>
+        <li>▶ 실행 → 권한 허용(캘린더·시트). 캘린더에 <span data-biz="vet">🩺</span><span data-biz-not="vet">🗓️</span> 근무, 🌴 휴가, 👥 사람 일정이 생겼는지 확인</li>
+        <li>시계 아이콘 → <dfn data-t="trigger">트리거</dfn> 추가 → syncPeople, 시간 기반, 매일 오후 9~10시. 그날 승인한 휴가와 새 근무가 밤에 직원 캘린더로 가요<span class="fix">이미 보낸 근무를 바꿨다면, 캘린더에서 옛 일정을 지우고 그 줄의 캘린더ID 칸을 비운 뒤 다시 실행하세요. ID가 있는 줄은 건너뛰어요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a92d" data-key="v_a92d"><div class="body"><label for="v_a92d">직원 휴대폰에는 자기 일정만</label><small>스크립트는 근무·휴가 일정마다 그 직원 한 명만 손님으로 초대해요. 직원은 초대 메일에서 '예'를 누르면 자기 Google 캘린더 앱에 근무가 뜨고, 근무 12시간 전에 알림을 받아요. 다른 직원의 휴가 사유나 면담 일정은 보이지 않아요. 직원 웹앱(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)에 '내 일정' 화면을 더하고 싶으면 아래 부탁문을 '07 자동화 도우미'에게 보내요.</small></div></li>
+    <li><input type="checkbox" id="v_a92e" data-key="v_a92e"><div class="body"><label for="v_a92e">휴가 신청은 일정 비서와 같이 판단</label><small>직원이 웹앱으로 휴가를 신청하면 {{owner}} 대시보드에 대기로 떠요. 승인하기 전에 '휴가 신청 검토' 부탁문을 보내면 그날 <span data-biz="vet">수술 블록</span><span data-biz-not="vet">예약이 몰리는 시간</span>, 근무 인원, 다른 휴가와 겹치는지 보고 근무 조정안을 줘요. 결정은 {{owner:이}} 하고, 휴가신청 탭 상태를 '승인'으로 바꾸면 밤에 캘린더로 가요.</small></div></li>
+    <li><input type="checkbox" id="v_a92f" data-key="v_a92f"><div class="body"><label for="v_a92f">매일 아침 3분 브리핑</label><small>출근 전에 '오늘 브리핑' 한 줄. 월요일에는 '이번 주 브리핑'(<a href="#c-l89" class="ref" data-ref="c-l89">강의</a>)으로 바꿔요. 말로 넣는 일정("목요일 저녁 7시 직원 교육, 모두 초대")도 이 채팅에서 해요.</small></div></li>
+  </ol>
+
+  <div class="prompt" data-tsv><div class="bar"><span>사람 일정 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 직원번호({{owner}} 00, 모두는 비움) | 종류(수습종료/계약만료/연차계산/교육/면담/기타) | 내용 | 며칠 전 알림 | 캘린더ID</pre></div>
+  <div class="prompt"><div class="bar"><span>일정 비서 지침 (채팅 첫 메시지)</span><button class="copy" type="button">복사</button></div><pre>너는 우리 {{place}} '일정 비서'야. {{owner:과}} 직원의 일정을 함께 챙겨.
+읽는 것: 캘린더 7개, '직원 데이터' 시트의 직원·근무표·휴가신청·사람 일정 탭.
+규칙
+- 직원은 이름 대신 직원번호로만 말하기. {{customer}} 이름·연락처는 답에 쓰지 않기
+- 최소 근무 인원: <span data-biz="vet">주간 ○명, 수술이 있는 날 ○명(마취 보조 1명 포함), 야간당직 1명</span><span data-biz-not="vet">평일 ○명, 바쁜 날(주말·행사) ○명</span>
+- 일정을 넣거나 바꾸기 전에 캘린더 이름, 제목, 날짜·시간, 초대할 사람을 보여 주고 '좋아'를 받은 뒤에만
+- 휴가 승인·거절은 내가 해. 너는 영향과 조정안만
+- 법정 교육·연차 기준은 법령 도구로 확인하고 조문을 같이 적기
+'오늘 브리핑'이라고 하면: 오늘 근무자와 비는 자리, <span data-biz="vet">수술</span><span data-biz-not="vet">큰 예약</span>·외부 일정, 대기 중 휴가 신청, 7일 안의 사람 일정(수습 종료·계약·교육), 3일 안에 나가는 돈 순서로 다섯 줄 안쪽.</pre></div>
+  <div class="prompt"><div class="bar"><span>휴가 신청 검토 부탁문</span><button class="copy" type="button">복사</button></div><pre>직원 ○○ ○월 ○일 ○○(연차/반차/병가) 신청이 들어왔어.
+1) 그날 근무 인원과 최소 인원 비교
+2) <span data-biz="vet">수술 블록·</span>예약이 몰린 시간과 겹치는지
+3) 같은 날·같은 주 다른 휴가
+4) 승인하면 바꿀 근무 조정안 1~2개(누구의 몇 시를 어디로)
+5) 이 직원의 남은 연차(요약 탭 기준)
+마지막 줄에 '승인해도 됨 / 조정 필요 / 어려움' 중 하나로 의견만.</pre></div>
+  <div class="prompt"><div class="bar"><span>근무·휴가·사람 일정 → 캘린더 스크립트</span><button class="copy" type="button">복사</button></div><pre>function syncPeople() {
+  var ss = SpreadsheetApp.getActive();
+  var mail = {};
+  ss.getSheetByName('직원').getDataRange().getValues().slice(1).forEach(function (r) {
+    if (r[0] && r[10] && r[8] !== '퇴사') mail[r[0]] = String(r[10]).trim();
+  });
+  var work = CalendarApp.getCalendarsByName('근무·휴가')[0];
+  var clinic = CalendarApp.getCalendarsByName('{{place}} 일정')[0];
+  if (!work || !clinic) throw new Error('캘린더 이름(근무·휴가, {{place}} 일정)을 확인하세요');
+  function opt(no, desc) {
+    var o = { description: desc || '' };
+    if (no && mail[no]) { o.guests = mail[no]; o.sendInvites = true; }
+    return o;
+  }
+  function at(day, t) {
+    var d = new Date(day);
+    if (t instanceof Date) d.setHours(t.getHours(), t.getMinutes(), 0, 0);
+    else { var p = String(t).split(':'); d.setHours(Number(p[0]), Number(p[1] || 0), 0, 0); }
+    return d;
+  }
+  // 1) 근무표: 날짜 | 직원번호 | 근무 종류 | 시작 | 끝 | 휴게 | 메모 | 캘린더ID
+  var sh = ss.getSheetByName('근무표'), rows = sh.getDataRange().getValues(), i, r, ev;
+  for (i = 1; i < rows.length; i++) {
+    r = rows[i];
+    if (!r[0] || !r[1] || r[2] === '휴무' || !r[3] || !r[4] || r[7]) continue;
+    var s = at(r[0], r[3]), e = at(r[0], r[4]);
+    if (e <= s) e.setDate(e.getDate() + 1); // 야간당직은 다음 날 끝
+    ev = work.createEvent('<span data-biz="vet">🩺</span><span data-biz-not="vet">🗓️</span> ' + r[1] + ' ' + r[2], s, e, opt(r[1], r[6]));
+    ev.addPopupReminder(720); // 12시간 전
+    sh.getRange(i + 1, 8).setValue(ev.getId());
+  }
+  // 2) 휴가신청: 날짜 | 직원번호 | 종류 | 상태 | 캘린더ID
+  sh = ss.getSheetByName('휴가신청'); rows = sh.getDataRange().getValues();
+  for (i = 1; i < rows.length; i++) {
+    r = rows[i];
+    if (!r[0] || r[3] !== '승인' || r[4]) continue;
+    ev = work.createAllDayEvent('🌴 ' + r[1] + ' ' + r[2], new Date(r[0]), opt(r[1]));
+    sh.getRange(i + 1, 5).setValue(ev.getId());
+  }
+  // 3) 사람 일정: 날짜 | 직원번호 | 종류 | 내용 | 며칠 전 알림 | 캘린더ID
+  sh = ss.getSheetByName('사람 일정'); rows = sh.getDataRange().getValues();
+  for (i = 1; i < rows.length; i++) {
+    r = rows[i];
+    if (!r[0] || !r[2] || r[5]) continue;
+    var invite = (r[2] === '교육' || r[2] === '면담') ? r[1] : null; // 계약·수습은 {{owner}}만
+    ev = clinic.createAllDayEvent('👥 ' + r[2] + ' · ' + (r[1] || '모두') + ' ' + (r[3] || ''), new Date(r[0]), opt(invite));
+    ev.addPopupReminder(Math.max(1, Number(r[4]) || 7) * 1440 - 540); // N일 전 오전 9시
+    sh.getRange(i + 1, 6).setValue(ev.getId());
+  }
+}</pre></div>
+  <div class="prompt"><div class="bar"><span>직원 웹앱 '내 일정' 화면 부탁문 (07 자동화 도우미)</span><button class="copy" type="button">복사</button></div><pre>직원 웹앱(PIN 로그인)에 '내 일정' 화면을 더해 줘.
+- 로그인한 직원번호의 앞으로 14일 근무(근무표 탭), 승인·대기 중 휴가(휴가신청 탭), 그 직원 또는 '모두'인 교육(사람 일정 탭, 종류가 교육인 줄만)
+- 남은 연차는 요약 탭에서 읽기
+- 다른 직원의 일정, 계약·수습·면담 줄은 절대 보여 주지 않기
+- 휴대폰 세로 화면에 맞게, 날짜별 카드로
+기존 코드에 어디를 더하는지 줄 위치와 함께 알려 줘.</pre></div>
+  <p class="tip warnbox"><b>직원 일정도 개인정보예요.</b> 근무·휴가 일정 제목에는 직원번호와 종류만 적어요(병가 사유, 진단명 쓰지 않기). 캘린더 메일은 직원이 동의한 경우에만 적고, 퇴사하면 '직원' 탭 상태를 '퇴사'로 바꾸고 캘린더 공유도 끊어요(<a href="#c-l80" class="ref" data-ref="c-l80">강의</a>). 법정 교육을 했으면 날짜·참석자·자료를 드라이브에 남겨요. 장애인 인식개선 교육은 3년 보관이에요.</p>
+  <p class="src">출처: 법령 MCP(mcp.gomdori.app/law)로 2026. 11. 7. 조회 — <span data-biz="vet">수의사법 제34조·시행규칙 제26조, </span>남녀고용평등과 일·가정 양립 지원에 관한 법률 제13조·시행령 제3조, 장애인고용촉진 및 직업재활법 제5조의2·시행령 제5조의2, 근로기준법 제60조 · <a href="https://developers.google.com/apps-script/reference/calendar/calendar" target="_blank" rel="noopener">Apps Script CalendarApp (Google)</a></p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">텔레그램</span><div class="ad"><b>휴가 신청 들어오면 바로</b><span>휴가신청 탭에 새 줄이 생기면 {{owner}} 텔레그램으로<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>매일 밤 syncPeople</b><span>승인한 휴가와 새 근무가 밤 9시에 직원 캘린더로.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>평일 8시 30분 브리핑</b><span>로컬 파일까지 읽는 아침 브리핑은 자동화 컴퓨터의 데스크톱 앱에서<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>. 커넥터만 쓰면 클라우드로.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>휴가 신청 승인</b><span>직원 웹앱 신청이 근무 영향과 함께 와요. 승인하면 휴가신청 상태가 바뀌고 밤에 캘린더로. 근무 조정안도 버튼으로.</span><span class="pv">버튼: 승인 / 반려 / 보류 · 1안 / 2안</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>syncPeople(밤 9시) + 휴가 신청 텔레그램 승인.</span></div><div class="run-row"><b>비서 연동</b><span>'11 일정 비서' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 일정 비서 지침 → 이 채팅 첫 메시지(유료면 스킬), 직원 데이터는 직원번호로만</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>11 일정 비서</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>일정 비서 지침 → 이 채팅 첫 메시지(유료면 스킬), 직원 데이터는 직원번호로만</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Calendar</span><span class="rc c">Google Drive</span><span class="rc c">Gmail</span><span class="rc c">법령 MCP</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">근무표 점검</span><span class="rc s">일정 비서</span></div></div><p class="rec-note">일정 비서 지침을 '일정 비서' 스킬로 묶고, 휴가·교육 기준은 법령 MCP로 확인해요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 캘린더 초대·알림, Apps Script 트리거, 캘린더 커넥터</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>아침 브리핑 예약 작업, '일정 비서' 스킬, 긴 근무표 한 번에 검토</li></ul></div></div>
+</section>

@@ -1,0 +1,50 @@
+<section id="c-l80" class="lesson" data-part="staff" data-title="직원 관리 지도와 권한" data-level="core" data-stage="prep takeover operate">
+    <div class="partcard a" style="--d:0s"><span class="pn">14</span><span class="pt"><b>직원 관리 시스템</b>7강 · 첫 직원 채용 전부터</span><p class="po">사람마다 계정과 권한, 근무표·출퇴근·휴가를 한 파일에, PIN 직원 웹앱으로 출퇴근과 체크리스트, 매뉴얼과 신입 교육, {{owner}} 인력 대시보드까지.</p><div class="plist"><span>직원 관리 지도와 권한</span><span>근무표와 출퇴근 기록</span><span>직원 웹앱 만들기</span><span>태블릿으로 쓰고 링크로 공유하기</span><span>마감 체크리스트 (태블릿)</span><span>{{place}} 매뉴얼과 신입 교육</span><span>{{owner}} 인력 대시보드와 면담</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+  <div class="lesson-head">
+    <span class="kicker">설계 · 약 40분 · 첫 직원 채용 전</span>
+    <h2>누가 어떤 계정으로, 무엇을 보나</h2>
+    <p class="goal">직원이 생기면 <span data-biz="vet">차트</span><span data-biz-not="vet">POS·예약 프로그램</span>, 스마트플레이스, 카톡 채널, 인스타, 드라이브에 사람이 늘어나요. 아이디를 같이 쓰면 누가 무엇을 했는지 남지 않고, 퇴사할 때 비밀번호를 다 바꿔야 해요. 처음부터 <b>사람마다 계정, 역할마다 권한</b>으로 시작해요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>기존 직원 계정·권한부터 정리해요. 이전 {{owner}} 계정은 인수일에 끊어요.</span></p>
+
+  <div class="table-wrap" data-biz="vet"><table>
+    <thead><tr><th>자료·계정</th><th>원장</th><th>실장·코디</th><th>동물보건사·테크니션</th><th>미용·파트타임</th></tr></thead>
+    <tbody>
+      <tr><td><b>차트(EMR)</b></td><td>전체</td><td>접수·수납·예약</td><td>진료 보조 기록</td><td>미용 기록만</td></tr>
+      <tr><td><b>스마트플레이스·카카오맵</b></td><td>소유</td><td>매니저(리뷰 답글)</td><td>없음</td><td>없음</td></tr>
+      <tr><td><b>카톡 채널</b></td><td>소유</td><td>관리자(채팅)</td><td>없음</td><td>없음</td></tr>
+      <tr><td><b>인스타그램</b></td><td>소유</td><td>Meta 비즈니스 권한(게시)</td><td>사진만 전달</td><td>사진만 전달</td></tr>
+      <tr><td><b>{{place}} 데이터 허브·매출</b></td><td>편집</td><td>없음</td><td>없음</td><td>없음</td></tr>
+      <tr><td><b>직원 데이터(근무·휴가)</b></td><td>편집</td><td>근무표 보기</td><td>직원 웹앱으로 본인 것만</td><td>직원 웹앱으로 본인 것만</td></tr>
+      <tr><td><b>매뉴얼·교육 문서</b></td><td>편집</td><td>편집</td><td>보기</td><td>보기</td></tr>
+    </tbody>
+  </table></div>
+  <div class="table-wrap" data-biz-not="vet"><table>
+    <thead><tr><th>자료·계정</th><th>{{owner}}</th><th>실장·매니저</th><th>정직원</th><th>파트타임</th></tr></thead>
+    <tbody>
+      <tr><td><b>POS·예약 프로그램</b></td><td>전체</td><td>수납·예약</td><td>맡은 업무 기록</td><td>맡은 업무만</td></tr>
+      <tr><td><b>스마트플레이스·카카오맵</b></td><td>소유</td><td>매니저(리뷰 답글)</td><td>없음</td><td>없음</td></tr>
+      <tr><td><b>카톡 채널</b></td><td>소유</td><td>관리자(채팅)</td><td>없음</td><td>없음</td></tr>
+      <tr><td><b>인스타그램</b></td><td>소유</td><td>Meta 비즈니스 권한(게시)</td><td>사진만 전달</td><td>사진만 전달</td></tr>
+      <tr><td><b>{{place}} 데이터 허브·매출</b></td><td>편집</td><td>없음</td><td>없음</td><td>없음</td></tr>
+      <tr><td><b>직원 데이터(근무·휴가)</b></td><td>편집</td><td>근무표 보기</td><td>직원 웹앱으로 본인 것만</td><td>직원 웹앱으로 본인 것만</td></tr>
+      <tr><td><b>매뉴얼·교육 문서</b></td><td>편집</td><td>편집</td><td>보기</td><td>보기</td></tr>
+    </tbody>
+  </table></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a80a" data-key="v_a80a"><div class="body"><label for="v_a80a">우리 {{place}} 권한표 받기</label><small>아래 부탁문에 직원 구성을 넣으면 위 표를 우리 {{place}}에 맞게 고쳐 줘요. 드라이브 '{{place}} 마케팅' 옆에 <b>{{place}} 운영</b> 폴더를 만들고 권한표 문서로 저장.</small></div></li>
+    <li><input type="checkbox" id="v_a80b" data-key="v_a80b"><div class="body"><label for="v_a80b">사람마다 계정 초대</label><small>스마트플레이스·카카오 매장관리·카톡 채널은 관리자(매니저) 초대, 인스타는 Meta 비즈니스 스위트의 사람 추가, 드라이브는 문서별 공유. {{owner}} 아이디·비밀번호는 누구에게도 주지 않아요.</small></div></li>
+    <li><input type="checkbox" id="v_a80c" data-key="v_a80c"><div class="body"><label for="v_a80c">입사·퇴사 체크리스트</label><small>입사 날 할 일(계정 초대, 근로계약서, 매뉴얼 공유)과 퇴사 날 할 일(모든 초대 해제, 공유 해제, 직원 웹앱 상태 '퇴사', 단톡방 정리)을 표로 만들어 매번 체크해요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>권한표·입퇴사 체크리스트 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 {{biz}} 직원 구성: ○○ (예: <span data-biz="vet">원장 1, 실장 1, 동물보건사 2, 파트타임 미용 1</span><span data-biz-not="vet">{{owner}} 1, 실장 1, 정직원 2, 파트타임 1</span>)
+쓰는 계정: <span data-biz="vet">차트 ○○</span><span data-biz-not="vet">POS·예약 프로그램 ○○</span>, 네이버 스마트플레이스, 카카오맵 매장관리, 카카오톡 채널, 인스타그램(Meta 비즈니스 스위트), 구글 드라이브
+1) 역할별 권한표: 자료·계정 | {{owner}} | 각 역할 (소유/편집/보기/없음)
+2) 입사 날 체크리스트, 퇴사 날 체크리스트 (계정별로 누를 메뉴 이름까지 알 수 있으면)
+3) {{owner}}만 가져야 할 것과 그 이유
+매출·급여·{{customer}} 개인정보는 직원이 볼 필요가 없으면 '없음'으로.</pre></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>퇴사일 계정 회수</b><span>사람 일정 탭에 퇴사일을 적으면 그날 '계정·공유 끊기' 알림<a href="#c-l92" class="ref" data-ref="c-l92">강의</a>.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>계정 회수 완료</b><span>퇴사일 알림에 버튼. 권한표에 날짜가 남아요.</span><span class="pv">버튼: 회수 완료</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>봇: 퇴사일 "계정 회수" 텔레그램 체크.</span></div><div class="run-row"><b>비서 연동</b><span>'10 인사 담당' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 권한표 → {{owner}}만 보는 '{{place}} 운영' 폴더</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>권한표 → {{owner}}만 보는 '{{place}} 운영' 폴더</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">Word 문서</span></div></div><p class="rec-note">권한표·입퇴사 체크리스트는 Word로.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>각 서비스의 관리자 초대·드라이브 공유 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: {{place}} 도메인 계정, 퇴사해도 파일이 {{place}}에 남는 공유 드라이브</li></ul></div></div>
+</section>

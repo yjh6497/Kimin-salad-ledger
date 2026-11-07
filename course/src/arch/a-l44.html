@@ -1,0 +1,33 @@
+<section id="a-l44" class="lesson" data-part="auto" data-title="현장 날씨 알림" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간</span>
+    <h2>내일 타설, 비 오면 전날 알려 주게</h2>
+    <p class="goal">기상청 단기예보 API로 진행 중인 현장의 내일·모레 강수와 기온을 매일 저녁 확인하고, 콘크리트 타설·방수·외부 도장 같은 날씨 민감 공정이 잡힌 날에만 감리 담당에게 메일을 보내요.</p>
+  </div>
+  <div class="vis">
+    <div class="msg">
+      <div class="from a" style="--d:.1s"><span>현장 날씨 알림 · 18:00 · 예시</span><span>기상청 단기예보</span></div>
+      <div class="line a" style="--d:.5s"><b>현장</b><span>2026-07 ○○동 근생 · 내일 3층 슬래브 타설 예정</span></div>
+      <div class="line alert a" style="--d:1s"><b>예보</b><span>내일 오후 강수확률 70% · 최저기온 3℃</span></div>
+      <div class="line a" style="--d:1.5s"><b>할 일</b><span>시공사와 타설 일정·보양 계획 확인</span></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="a_a44a" data-key="a_a44a"><div class="body"><label for="a_a44a">'기상청_단기예보 조회서비스' 활용신청</label><small>data.go.kr에서 검색 → 활용신청(자동승인). 같은 인증키예요.</small></div></li>
+    <li><input type="checkbox" id="a_a44b" data-key="a_a44b"><div class="body"><label for="a_a44b">현장마다 예보 <dfn data-t="grid">격자</dfn> 좌표 적기</label><small>단기예보는 주소가 아니라 격자 좌표(nx, ny)로 조회해요. 활용가이드에 든 격자 좌표 엑셀에서 현장 읍면동을 찾아 '현장' 탭에 적어요. AI에게 "이 엑셀에서 ○○동 nx, ny 찾아줘"라고 해도 돼요.</small></div></li>
+    <li><input type="checkbox" id="a_a44c" data-key="a_a44c"><div class="body"><label for="a_a44c">'공정예정' 탭에 날씨 민감 공정 적기</label><small>감리 담당이 시공사 공정표에서 타설·방수·도장·외부 작업 날짜만 옮겨 적어요.</small></div></li>
+    <li><input type="checkbox" id="a_a44d" data-key="a_a44d"><div class="body"><label for="a_a44d">스크립트 + 매일 18시 트리거</label><small>아래 부탁문으로 받고 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>처럼 시간 트리거를 걸어요.</small></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>현장 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 현장명 | 읍면동 | nx | ny | 감리담당 이메일 | 상태</pre></div>
+  <div class="prompt" data-tsv><div class="bar"><span>공정예정 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 날짜 | 공정 | 날씨 조건(예: 비 없음, 5℃ 이상) | 메모</pre></div>
+  <div class="prompt"><div class="bar"><span>현장 날씨 알림 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'의 '현장' 탭(상태가 '진행')과 '공정예정' 탭으로, 매일 저녁 기상청 단기예보 조회서비스(공공데이터포털, 단기예보조회)를 불러 내일·모레 공정이 있는 현장만 확인하는 앱스 스크립트를 써 줘.
+- 현장의 nx, ny로 조회, 그날의 강수확률 최댓값, 강수형태, 최저·최고기온을 뽑기
+- 공정의 날씨 조건에 걸리면(비 예보, 최저기온 기준 미만 등) 감리담당 이메일로 현장명·공정·예보·할 일 한 줄 메일
+- 걸리는 게 없으면 메일 보내지 않기, 결과는 '날씨로그' 탭에 기록
+- base_date·base_time은 실행 시각 기준 가장 최근 발표로 계산
+- 인증키는 스크립트 속성 DATA_GO_KEY
+제목 줄: (현장, 공정예정 탭 제목 줄 붙여 넣기)</pre></div>
+  <p class="tip warnbox"><b>예보는 예보예요.</b> 타설·보양 판단은 시공사와 감리자가 현장 상황과 시방서 기준으로 해요. 알림은 미리 이야기를 꺼내게 해 주는 도구예요.</p>
+  <p class="src">출처: <a href="https://www.data.go.kr/data/15084084/openapi.do" target="_blank" rel="noopener">공공데이터포털 · 기상청_단기예보 조회서비스</a></p>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>기상청 API 무료·자동승인, 앱스 스크립트 트리거</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>현장관리 앱의 날씨·공정 연동</li></ul></div></div>
+</section>

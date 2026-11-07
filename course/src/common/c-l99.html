@@ -1,0 +1,207 @@
+<section id="c-l99" class="lesson" data-part="build" data-title="손그림 배치도 검토·컨설팅" data-level="grow" data-stage="prep takeover">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 2시간 · 종이·연필·줄자</span>
+    <h2>종이에 그린 배치도를 AI가 읽고, 다듬고, 짚어 줘요</h2>
+    <p class="goal">{{owner:이}} 모눈종이에 공간과 장비를 대략 그리면, AI가 사진을 읽어 <b>치수표로 옮기고 → 깔끔한 배치도로 다시 그리고 → 동선·간격·<span data-biz="vet">감염 관리</span><span data-biz-not="vet">위생·정리</span>를 검토</b>해요. 아래 <b>배치 연습판</b>에서 장비를 끌어 옮기며 여러 안을 만들어 보고, 그 배치를 그대로 복사해 AI에게 검토받을 수도 있어요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>지금 {{place}} 평면을 손으로 그려 같은 방법으로 검토해요. 바꿀 곳만 표시.</span></p>
+
+
+  <h3>1 · 종이에 그리기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a99a" data-key="v_a99a"><div class="body"><label for="v_a99a">모눈종이 한 칸 = 50cm로 정하기</label><small>A4 모눈종이(또는 줄 노트)에 맨 위에 <b>"1칸 = 50cm"</b>라고 크게 써요. 임대 공간 도면이 있으면 그 위에 트레이싱지를 대고 그려도 돼요.</small></div></li>
+    <li><input type="checkbox" id="v_a99b" data-key="v_a99b"><div class="body"><label for="v_a99b">벽·문·창·기둥부터, 길이를 숫자로</label><small>벽마다 길이를 m로 적어요(예: 8.2m). 문은 열리는 방향을 호(⌒)로, 창은 두 줄, 기둥은 까만 네모. <b>북쪽 화살표</b>와 <b>입구</b>를 꼭 표시해요.</small></div></li>
+    <li><input type="checkbox" id="v_a99c" data-key="v_a99c"><div class="body"><label for="v_a99c">설비 위치 표시</label><small>수도(○수), 배수(○배), 큰 전기 콘센트(⚡), 환기구(≋), 화장실. <span data-biz="vet">수술실·입원실·싱크대</span><span data-biz-not="vet">싱크대·물 쓰는 작업 자리</span>는 배수 가까이 있어야 공사비가 덜 들어요.</small></div></li>
+    <li><input type="checkbox" id="v_a99d" data-key="v_a99d"><div class="body"><label for="v_a99d">구역과 장비를 네모로</label><small>구역(<span data-biz="vet">접수·대기·진료·처치·격리·수술·입원·조제·직원</span><span data-biz-not="vet">입구·카운터·{{customer}} 공간·작업·보관·직원</span>)을 연필로 나누고, 장비는 실제 크기 비율로 네모를 그려 이름과 크기(가로×세로 cm)를 적어요. 크기를 모르면 장비 업체 카탈로그 숫자로.</small></div></li>
+    <li><input type="checkbox" id="v_a99e" data-key="v_a99e"><div class="body"><label for="v_a99e">사진 찍기</label><small>종이를 바닥에 놓고 <b>바로 위에서</b>, 그림자 없이 밝게, 종이 네 모서리가 다 나오게. 글씨가 작으면 부분 사진을 2~3장 더.</small></div></li>
+  </ol>
+
+  <h3>2 · AI에게 읽히고, 다시 그리게 하고, 검토받기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a99f" data-key="v_a99f"><div class="body"><label for="v_a99f">① 치수표로 옮기기 (읽기 확인이 먼저)</label><small>사진과 아래 '손그림 읽기' 부탁문. AI가 읽은 벽 길이·장비 크기를 표로 주면 <b>{{owner:이}} 종이와 한 줄씩 맞춰 봐요</b>. 손글씨 숫자는 잘못 읽기 쉬워서, 이 단계를 건너뛰면 뒤의 검토가 다 틀려요.</small></div></li>
+    <li><input type="checkbox" id="v_a99g" data-key="v_a99g"><div class="body"><label for="v_a99g">② 깔끔한 배치도로 다시 그리기</label><small>확인한 표로 <span data-ai-not="gpt">Claude가 축척이 맞는 배치도(SVG)를 그려요. 구역 색, 장비 네모, 통로 폭 치수, 동선 화살표까지.</span><span data-ai-none> </span><span data-ai-not="claude">ChatGPT는 표를 바탕으로 배치도 이미지나 표 형태 평면을 만들어요. 축척이 중요하면 아래 연습판에 옮겨 보세요.</span></small></div></li>
+    <li><input type="checkbox" id="v_a99h" data-key="v_a99h"><div class="body"><label for="v_a99h">③ 검토와 2안 받기</label><small>'배치 검토' 부탁문으로 문제점과 고친 2안을 받아요. 안마다 장점·단점·공사비가 늘어나는 곳(배수 이동 등)을 같이.</small></div></li>
+    <li><input type="checkbox" id="v_a99i" data-key="v_a99i"><div class="body"><label for="v_a99i">④ 종이로 돌아가 다시 그리기</label><small>마음에 드는 안을 종이에 다시 그려 보고, 같은 과정을 한 번 더. 두세 번이면 업체에 보여 줄 '{{owner}} 안'이 생겨요. 인테리어 요구사항서(<a href="#c-l96" class="ref" data-ref="c-l96">강의</a>)에 붙여요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>손그림 읽기 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 사진은 내가 모눈종이에 그린 {{biz}} 배치도야. 1칸 = 50cm.
+먼저 읽은 내용만 표로 정리해 줘. 아직 검토하지 마.
+1) 벽: 이름(북쪽 벽 등) | 길이(m) | 문·창 위치
+2) 설비: 수도·배수·콘센트·환기구 위치(어느 벽에서 몇 m)
+3) 구역: 이름 | 대략 가로×세로(m) | 면적(㎡)
+4) 장비: 이름 | 가로×세로(cm) | 어느 구역 | 어느 벽에서 얼마나 떨어져 있는지
+5) 읽기 어려웠던 글씨·숫자 목록 (추측하지 말고 '읽기 어려움'으로)
+전체 면적 합계와 종이에 적힌 벽 길이로 계산한 면적이 다르면 알려 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>배치도 다시 그리기 부탁문</span><button class="copy" type="button">복사</button></div><pre>내가 확인한 아래 치수표로 배치도를 다시 그려 줘. (치수표 붙여 넣기)
+- 축척을 지켜서, 1m 눈금 표시, 북쪽 화살표, 입구 표시
+- 구역은 연한 색으로 구분하고 이름·면적 표시
+- 장비는 네모와 이름, 장비 사이·벽 사이 통로 폭을 cm로 표시
+- 동선 화살표 <span data-biz="vet">4가지 색: {{customer}}, 동물(진료·입원), 직원, 오염물(폐기물·사체)</span><span data-biz-not="vet">3가지 색: {{customer}}, 직원, 물건(들어오는 것·쓰레기)</span>
+- 수도·배수·콘센트는 기호로
+SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 표로.</pre></div>
+  <div class="prompt"><div class="bar"><span>배치 검토 부탁문</span><button class="copy" type="button">복사</button></div><pre><span data-biz="vet">이 {{biz}} 배치를 검토해 줘. 하루 예상 내원 ○명, 수술 주 ○건, 입원 ○칸, 직원 ○명, 고양이 비율 ○%.
+검토 항목마다 '문제 없음 / 고칠 것 / 확인 필요'로:
+1) 통로 폭: {{customer:가}} 이동장·카트를 들고 지나갈 수 있는지, 진료대 둘레에서 두 사람이 움직일 수 있는지
+2) 동선 교차: {{customer}} 대기 동선과 수술·입원·오염물 동선이 겹치는 곳
+3) 감염 관리: 전염 의심 환자가 대기실을 지나지 않고 격리 공간에 갈 수 있는지
+4) 고양이·개 분리, 대기실에서 진료실 소리가 들리는지
+5) 설비: 싱크대·수술실·입원실과 배수 거리, 큰 장비 콘센트, 산소·환기
+6) 문: 열리는 방향이 통로·장비와 부딪히는지
+7) 법정 시설(진료실·처치실·구획된 조제실·수도시설, 다른 시설과 분리)을 갖췄는지 — 법령 도구가 있으면 수의사법 시행규칙 별표 1 조회
+8) 방사선 장비 자리: 차폐·신고는 업체·전문가 확인 필요로 표시
+</span><span data-biz-not="vet">이 {{biz}} 배치를 검토해 줘. 하루 예상 {{customer}} ○명, 바쁜 시간대 ○, 직원 ○명.
+검토 항목마다 '문제 없음 / 고칠 것 / 확인 필요'로:
+1) 통로 폭: {{customer:가}} 짐을 들고 지나갈 수 있는지, 작업대 둘레에서 두 사람이 움직일 수 있는지
+2) 동선 교차: {{customer}} 동선과 직원·물건(들어오는 것·쓰레기) 동선이 겹치는 곳
+3) 위생·정리: 물 쓰는 곳과 보관하는 곳이 섞이지 않는지
+4) {{customer:가}} 기다리거나 상담하는 자리가 편한지, 작업 소리·냄새가 넘어가는지
+5) 설비: 싱크대·물 쓰는 자리와 배수 거리, 큰 장비 콘센트, 환기
+6) 문: 열리는 방향이 통로·장비와 부딪히는지
+7) 우리 업종의 시설·소방 기준에 걸릴 곳 — 법령 도구가 있으면 조회, 없으면 '확인 필요'
+</span>그다음 고친 2안(각각 바뀐 점, 장점, 단점, 공사비가 늘 수 있는 곳). 치수를 지어내지 말고 표에 있는 값만 써.</pre></div>
+
+  <h3>3 · 배치 연습판</h3>
+  <p>방 크기를 넣고 장비를 추가한 뒤 손가락이나 마우스로 끌어 옮겨 보세요. 장비를 한 번 누르면 선택되고, '돌리기'로 90도 회전해요. 다 되면 '배치 복사'를 눌러 위의 '배치 검토' 부탁문과 함께 AI에게 붙여 넣어요.</p>
+  <div class="vis">
+    <div class="lp" id="v_lp">
+      <div class="lp-ctl">
+        <label>방 가로 <input type="number" id="v_lpW" min="2" max="40" step="0.1" value="9"> m</label>
+        <label>세로 <input type="number" id="v_lpH" min="2" max="40" step="0.1" value="12"> m</label>
+        <select id="v_lpPreset" aria-label="장비 고르기">
+          <option data-biz="vet" value="접수대|180|60">접수대 180×60</option>
+          <option data-biz="vet" value="대기 의자 3인|150|50">대기 의자 3인 150×50</option>
+          <option data-biz="vet" value="이동장 선반|120|40">이동장 선반 120×40</option>
+          <option data-biz="vet" value="진료대|120|60">진료대 120×60</option>
+          <option data-biz="vet" value="수술대|150|70">수술대 150×70</option>
+          <option data-biz="vet" value="마취기|60|60">마취기 60×60</option>
+          <option data-biz="vet" value="입원장 묶음|180|70">입원장 묶음 180×70</option>
+          <option data-biz="vet" value="엑스레이 테이블|200|90">엑스레이 테이블 200×90</option>
+          <option data-biz="vet" value="싱크대|120|60">싱크대 120×60</option>
+          <option data-biz="vet" value="조제대|150|60">조제대 150×60</option>
+          <option data-biz="vet" value="약품 냉장고|70|70">약품 냉장고 70×70</option>
+          <option data-biz="salad" value="주방 작업대|180|70">주방 작업대 180×70</option>
+          <option data-biz="salad" value="냉장 쇼케이스|150|80">냉장 쇼케이스 150×80</option>
+          <option data-biz="salad" value="포스·카운터|120|60">포스·카운터 120×60</option>
+          <option data-biz="salad" value="2인 테이블|70|70">2인 테이블 70×70</option>
+          <option data-biz="salad" value="4인 테이블|120|70">4인 테이블 120×70</option>
+          <option data-biz="salad" value="싱크대|120|60">싱크대 120×60</option>
+          <option data-biz="salad" value="냉장고|90|80">냉장고 90×80</option>
+          <option data-biz="flower" value="작업대|180|80">작업대 180×80</option>
+          <option data-biz="flower" value="꽃 냉장고|150|70">꽃 냉장고 150×70</option>
+          <option data-biz="flower" value="진열대|120|40">진열대 120×40</option>
+          <option data-biz="flower" value="포장대|120|60">포장대 120×60</option>
+          <option data-biz="flower" value="양동이 선반|150|50">양동이 선반 150×50</option>
+          <option data-biz="flower" value="싱크대|100|60">싱크대 100×60</option>
+          <option data-biz="arch" value="책상|160|80">책상 160×80</option>
+          <option data-biz="arch" value="회의 테이블|240|100">회의 테이블 240×100</option>
+          <option data-biz="arch" value="플로터|140|70">플로터 140×70</option>
+          <option data-biz="arch" value="자료 선반|120|40">자료 선반 120×40</option>
+          <option data-biz="arch" value="복합기|70|70">복합기 70×70</option>
+          <option data-biz="arch" value="모형 작업대|180|90">모형 작업대 180×90</option>
+          <option data-biz-not="vet salad flower arch" value="카운터|180|60">카운터 180×60</option>
+          <option data-biz-not="vet salad flower arch" value="진열대|120|40">진열대 120×40</option>
+          <option data-biz-not="vet salad flower arch" value="대기 의자 3인|150|50">대기 의자 3인 150×50</option>
+          <option data-biz-not="vet salad flower arch" value="작업대|150|70">작업대 150×70</option>
+          <option data-biz-not="vet salad flower arch" value="수납장|100|50">수납장 100×50</option>
+          <option value="벽(칸막이)|300|10">벽(칸막이) 300×10</option>
+        </select>
+        <label>가로 <input type="number" id="v_lpEw" min="10" max="1000" step="5" value="180"> cm</label>
+        <label>세로 <input type="number" id="v_lpEh" min="5" max="1000" step="5" value="60"> cm</label>
+        <button type="button" id="v_lpAdd">장비 추가</button>
+      </div>
+      <div class="lp-stage" id="v_lpStage" aria-label="배치 판"><svg id="v_lpSvg" role="img" aria-label="배치도"></svg></div>
+      <div class="lp-ctl">
+        <span id="v_lpSel" class="lp-sel">선택한 장비 없음</span>
+        <button type="button" id="v_lpRot">돌리기</button>
+        <button type="button" id="v_lpDel">지우기</button>
+        <button type="button" id="v_lpCopy" class="lp-main">배치 복사</button>
+        <span id="v_lpMsg" class="lp-msg" aria-live="polite"></span>
+      </div>
+    </div>
+    <p class="cap">장비 크기는 예시예요. 실제 장비 카탈로그 치수로 바꿔 넣으세요. 판의 한 칸은 50cm, 장비는 10cm 단위로 맞춰져요. 이 연습판은 이 기기에서만 움직이고 어디에도 저장·전송되지 않아요.</p>
+  </div>
+  <script>
+  (function () {
+    var svg = document.getElementById('v_lpSvg'); if (!svg) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    var W = 900, H = 1200, items = [], sel = -1, drag = null;
+    var inW = document.getElementById('v_lpW'), inH = document.getElementById('v_lpH');
+    var pre = document.getElementById('v_lpPreset'), BZ = (window.COURSE && window.COURSE.biz) || 'custom', ew = document.getElementById('v_lpEw'), eh = document.getElementById('v_lpEh');
+    var selLbl = document.getElementById('v_lpSel'), msg = document.getElementById('v_lpMsg');
+    function el(n, a) { var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); return e; }
+    function snap(v) { return Math.round(v / 10) * 10; }
+    function clamp(it) { var w = it.r ? it.h : it.w, h = it.r ? it.w : it.h; it.x = Math.max(0, Math.min(W - w, it.x)); it.y = Math.max(0, Math.min(H - h, it.y)); }
+    function draw() {
+      svg.setAttribute('viewBox', '-30 -30 ' + (W + 60) + ' ' + (H + 60));
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.appendChild(el('rect', { x: 0, y: 0, width: W, height: H, class: 'lp-room' }));
+      for (var x = 50; x < W; x += 50) svg.appendChild(el('line', { x1: x, y1: 0, x2: x, y2: H, class: x % 100 ? 'lp-g' : 'lp-g2' }));
+      for (var y = 50; y < H; y += 50) svg.appendChild(el('line', { x1: 0, y1: y, x2: W, y2: y, class: y % 100 ? 'lp-g' : 'lp-g2' }));
+      var t = el('text', { x: W / 2, y: -10, class: 'lp-dim', 'text-anchor': 'middle' }); t.textContent = (W / 100) + ' m'; svg.appendChild(t);
+      var t2 = el('text', { x: -12, y: H / 2, class: 'lp-dim', 'text-anchor': 'middle', transform: 'rotate(-90 -12 ' + (H / 2) + ')' }); t2.textContent = (H / 100) + ' m'; svg.appendChild(t2);
+      items.forEach(function (it, i) {
+        var w = it.r ? it.h : it.w, h = it.r ? it.w : it.h;
+        var g = el('g', { class: 'lp-it' + (i === sel ? ' on' : ''), 'data-i': i, transform: 'translate(' + it.x + ' ' + it.y + ')' });
+        g.appendChild(el('rect', { width: w, height: h, rx: 4 }));
+        var tx = el('text', { x: w / 2, y: h / 2, 'text-anchor': 'middle', 'dominant-baseline': 'middle' });
+        tx.textContent = it.n; g.appendChild(tx);
+        svg.appendChild(g);
+      });
+      selLbl.textContent = sel < 0 ? '선택한 장비 없음' : '선택: ' + items[sel].n + ' ' + (items[sel].r ? items[sel].h + '×' + items[sel].w : items[sel].w + '×' + items[sel].h) + 'cm';
+    }
+    function pt(e) { var r = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal; return { x: (e.clientX - r.left) / r.width * vb.width + vb.x, y: (e.clientY - r.top) / r.height * vb.height + vb.y }; }
+    svg.addEventListener('pointerdown', function (e) {
+      var g = e.target.closest ? e.target.closest('.lp-it') : null;
+      if (!g) { sel = -1; draw(); return; }
+      sel = +g.getAttribute('data-i'); var p = pt(e);
+      drag = { dx: p.x - items[sel].x, dy: p.y - items[sel].y };
+      try { svg.setPointerCapture(e.pointerId); } catch (err) {}
+      e.preventDefault(); draw();
+    });
+    svg.addEventListener('pointermove', function (e) {
+      if (!drag || sel < 0) return; var p = pt(e), it = items[sel];
+      it.x = snap(p.x - drag.dx); it.y = snap(p.y - drag.dy); clamp(it); draw();
+    });
+    function end() { drag = null; }
+    svg.addEventListener('pointerup', end); svg.addEventListener('pointercancel', end);
+    pre.addEventListener('change', function () { var v = pre.value.split('|'); ew.value = v[1]; eh.value = v[2]; });
+    document.getElementById('v_lpAdd').addEventListener('click', function () {
+      var w = Math.max(10, snap(+ew.value || 60)), h = Math.max(10, snap(+eh.value || 60));
+      var it = { n: pre.value.split('|')[0], w: w, h: h, x: 20, y: 20, r: false };
+      clamp(it); items.push(it); sel = items.length - 1; draw();
+    });
+    document.getElementById('v_lpRot').addEventListener('click', function () { if (sel < 0) return; items[sel].r = !items[sel].r; clamp(items[sel]); draw(); });
+    document.getElementById('v_lpDel').addEventListener('click', function () { if (sel < 0) return; items.splice(sel, 1); sel = -1; draw(); });
+    function resize() { W = Math.round(Math.max(2, Math.min(40, +inW.value || 9)) * 100); H = Math.round(Math.max(2, Math.min(40, +inH.value || 12)) * 100); items.forEach(clamp); draw(); }
+    inW.addEventListener('change', resize); inH.addEventListener('change', resize);
+    document.getElementById('v_lpCopy').addEventListener('click', function () {
+      var lines = ['{{biz}} 배치 (연습판에서 복사)', '방: 가로 ' + (W / 100) + 'm × 세로 ' + (H / 100) + 'm. 단위 cm, 왼쪽 위가 (0,0), 오른쪽이 x, 아래가 y.'];
+      items.forEach(function (it, i) {
+        var w = it.r ? it.h : it.w, h = it.r ? it.w : it.h;
+        lines.push((i + 1) + '. ' + it.n + ': 위치 x=' + it.x + ', y=' + it.y + ' / 크기 ' + w + '×' + h + (it.r ? ' (90도 돌림)' : '') + ' / 오른쪽 벽까지 ' + (W - it.x - w) + ', 아래 벽까지 ' + (H - it.y - h));
+      });
+      if (!items.length) lines.push('(장비 없음)');
+      var text = lines.join('\n');
+      function ok() { msg.textContent = '복사됐어요. 배치 검토 부탁문과 함께 붙여 넣으세요.'; }
+      function fail() { msg.textContent = '복사가 막혔어요. 아래 글을 길게 눌러 복사하세요.'; var pre2 = document.getElementById('v_lpOut'); pre2.hidden = false; pre2.textContent = text; }
+      try { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(ok, fail); else fail(); } catch (err) { fail(); }
+    });
+    var START = {
+      vet: [['접수대', 180, 60, 40, 40], ['대기 의자 3인', 150, 50, 40, 200], ['진료대', 120, 60, 520, 420]],
+      salad: [['주방 작업대', 180, 70, 40, 40], ['냉장 쇼케이스', 150, 80, 300, 40], ['포스·카운터', 120, 60, 520, 40], ['4인 테이블', 120, 70, 300, 600]],
+      flower: [['작업대', 180, 80, 40, 40], ['꽃 냉장고', 150, 70, 600, 40], ['진열대', 120, 40, 40, 600], ['포장대', 120, 60, 400, 400]],
+      arch: [['책상', 160, 80, 40, 40], ['회의 테이블', 240, 100, 300, 600], ['플로터', 140, 70, 600, 40], ['자료 선반', 120, 40, 40, 1000]]
+    };
+    var START_ETC = [['카운터', 180, 60, 40, 40], ['진열대', 120, 40, 40, 300], ['대기 의자 3인', 150, 50, 600, 40], ['작업대', 150, 70, 400, 600]];
+    if (pre.value) { var pv = pre.value.split('|'); ew.value = pv[1]; eh.value = pv[2]; }
+    (START[BZ] || START_ETC).forEach(function (s) { items.push({ n: s[0], w: s[1], h: s[2], x: s[3], y: s[4], r: false }); });
+    draw();
+  })();
+  </script>
+  <pre class="lp-out" id="v_lpOut" hidden></pre>
+  <p class="tip warnbox"><b>AI 검토는 1차 점검이에요.</b> 손그림 치수와 AI 계산에는 오차가 있어요. 실제 시공 도면, 소방·전기·급배수, <span data-biz="vet">방사선 차폐, </span><span data-biz-not="vet"></span>건물 용도는 인테리어 업체와 전문가가 실측해서 확인해요.</p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">단축어</span><div class="ad"><b>배치도 사진 한 번에</b><span>아이폰 단축어로 '배치도' 앨범 사진을 파일 앱의 Google Drive 인테리어 폴더로 한 번에 저장.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>배치 수정안 고르기</b><span>검토가 끝난 수정안을 고르면 요구사항서 메모에 남아요.</span><span class="pv">버튼: 1안 / 2안 / 더 볼게</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "기구 실제 크기 확인" 부탁: 배치도에 넣을 장비의 제조사 규격 페이지를 읽어 치수만. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>장비 제조사 누리집</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 손그림 사진 → 치수 표 → 배치 SVG 시안 파일.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '09 {{open}} 컨설턴트' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 손그림 사진은 이 채팅에만, 확정 배치 → 요구사항서에</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'{{open}} 준비실'</b> → <b>09 {{open}} 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>손그림 사진은 이 채팅에만, 확정 배치 → 요구사항서에</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">법령 MCP</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">인터뷰 컨설턴트</span></div></div><p class="rec-note">사진을 드라이브 '인테리어' 폴더에 모아 두면 여러 안을 비교하기 쉬워요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>모눈종이·줄자, 연습판, AI 읽기·검토</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>사진 여러 장을 한 번에 읽기, 긴 검토 대화</li><li>업체의 3D 시뮬레이션·실측</li></ul></div></div>
+</section>

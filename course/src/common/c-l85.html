@@ -1,0 +1,45 @@
+<section id="c-l85" class="lesson" data-part="calendar" data-title="{{place}} 캘린더 설계" data-level="core" data-stage="prep takeover operate">
+    <div class="partcard a" style="--d:0s"><span class="pn">11</span><span class="pt"><b>{{place}} 캘린더</b>6강 · {{open}} 4주 전부터</span><p class="po">예약 블록, 근무, SNS 발행일, 임대료·공과금·수수료, 신고 기한, 장비 점검을 구글 캘린더 7개로 한 화면에. 스크립트가 반복 일정을 만들고, 일정 비서가 {{owner:과}} 직원의 하루를 챙겨요.</p><div class="plist"><span>{{place}} 캘린더 설계</span><span>예약 관리와 캘린더</span><span>SNS 일정을 캘린더로</span><span>돈 나가는 날과 법정 기한</span><span>AI와 캘린더 같이 쓰기</span><span>일정 비서: {{owner:과}} 직원의 하루</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+  <div class="lesson-head">
+    <span class="kicker">설계·실습 · 약 1시간 · PC</span>
+    <h2>{{place}}의 모든 날짜를 한 화면에, 색깔별로</h2>
+    <p class="goal">예약, 근무, SNS 발행일, 돈 나가는 날, 신고 기한, 장비 점검이 <span data-biz="vet">차트</span><span data-biz-not="vet">예약 앱</span>·시트·문자·메모에 흩어져 있으면 하나씩 놓쳐요. <dfn data-t="gcal">구글 캘린더</dfn>에 <b>주제별 캘린더 7개</b>를 만들어 한 화면에 겹쳐 보고, 직원에게는 필요한 캘린더만 공유해요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>인수 D-day 일정을 '세무·신고'·'{{place}} 일정' 캘린더에 먼저 넣어요.</span></p>
+
+  <div class="vis">
+    <div class="calgrid" aria-label="캘린더 7개 예시">
+      <div class="cal a" style="--d:.1s;--c:#1D6B61"><b><span data-biz="vet">진료 예약·수술</span><span data-biz-not="vet">예약·상담</span></b><span><span data-biz="vet">긴 진료, 수술, 상담 블록</span><span data-biz-not="vet">긴 예약, 단체 주문, 상담 블록</span></span><em>{{owner}}·실장</em></div>
+      <div class="cal a" style="--d:.2s;--c:#3E7CB1"><b>근무·휴가</b><span>근무표, 당직, 휴가</span><em>전 직원 보기</em></div>
+      <div class="cal a" style="--d:.3s;--c:#B97A12"><b>SNS·콘텐츠</b><span>블로그·인스타·소식·카톡 발행</span><em>{{owner}}·실장</em></div>
+      <div class="cal a" style="--d:.4s;--c:#B4432C"><b>돈 나가는 날</b><span>임대료, 공과금, 리스, 단말기 관리비</span><em>{{owner}}만</em></div>
+      <div class="cal a" style="--d:.5s;--c:#6B4FA0"><b>세무·신고</b><span>원천세, 4대보험, 부가세, 종소세</span><em>{{owner}}만</em></div>
+      <div class="cal a" style="--d:.6s;--c:#4F7A28"><b>장비·법정 의무</b><span><span data-biz="vet">방사선 검사, 소독·폐기물, 계약 갱신</span><span data-biz-not="vet">장비 점검, 위생·폐기물, 계약 갱신</span></span><em>{{owner}}·실장</em></div>
+      <div class="cal a" style="--d:.7s;--c:#8A5A44"><b>{{place}} 일정</b><span><span data-biz="vet">휴진, 학회, 교육, 행사</span><span data-biz-not="vet">휴무, 교육, 행사</span></span><em>전 직원 보기</em></div>
+    </div>
+    <p class="cap a" style="--d:.9s">색과 공유 범위는 예시예요. {{customer}} 이름·연락처는 캘린더에 쓰지 않고 <span data-biz="vet">차트 번호나 '초코(말티즈)'처럼 동의 받은 정도만.</span><span data-biz-not="vet">예약 번호나 '김○○ 님'처럼 동의 받은 정도만.</span></p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a85a" data-key="v_a85a"><div class="body"><label for="v_a85a">{{place}} 구글 계정에 캘린더 7개 만들기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 <span class="path">calendar.google.com</span> → {{place}} 구글 계정으로 로그인</li>
+        <li>왼쪽 '다른 캘린더' 옆 <span class="path">+ → 새 캘린더 만들기</span> → 이름(위 7개) → 만들기. 7번 반복</li>
+        <li>왼쪽 목록에서 캘린더 이름 옆 ⋮ → 색 고르기</li>
+        <li>각 캘린더 <span class="path">설정 → 시간대</span>가 <b>서울</b>인지 확인<span class="fix">캘린더 이름은 아래 스크립트들이 그대로 찾아 써요. 띄어쓰기까지 똑같이 적어 두세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a85b" data-key="v_a85b"><div class="body"><label for="v_a85b">직원에게 필요한 것만 공유</label><small>캘린더 설정 → <span class="path">특정 사용자 또는 그룹과 공유</span> → 직원 구글 계정 → 권한(일정 보기 / 일정 변경). '돈 나가는 날'과 '세무·신고'는 공유하지 않아요. 권한표(<a href="#c-l80" class="ref" data-ref="c-l80">강의</a>)에 한 줄 추가.</small></div></li>
+    <li><input type="checkbox" id="v_a85c" data-key="v_a85c"><div class="body"><label for="v_a85c">휴대폰·맥에서 보기</label><small>아이폰은 <span class="path">설정 → 캘린더 → 계정 → Google 추가</span> 또는 Google 캘린더 앱. 맥은 캘린더 앱에 구글 계정 추가. 휴대폰에서는 자주 보는 캘린더만 켜 두세요.</small></div></li>
+    <li><input type="checkbox" id="v_a85d" data-key="v_a85d"><div class="body"><label for="v_a85d">AI에 캘린더 연결</label><small><span data-ai-not="gpt">Claude <span class="path">설정 → 커넥터 → Google Calendar 연결</span>.</span><span data-ai-none> / </span><span data-ai-not="claude">ChatGPT <span class="path">설정 → 앱(커넥터) → Google Calendar</span>.</span> 연결하면 "이번 주 일정 정리해 줘", "다음 달 휴진 넣어 줘"를 AI가 직접 해요(<a href="#c-l89" class="ref" data-ref="c-l89">강의</a>).</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>우리 {{place}} 캘린더 설계 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 {{biz}} 구글 캘린더 구성을 설계해 줘. 직원: ○○, 쓰는 것: <span data-biz="vet">차트 예약</span><span data-biz-not="vet">예약 앱</span>, 네이버 예약, 블로그·인스타·카톡 채널, 직원 근무표.
+1) 캘린더 목록: 이름 | 넣을 일정 | 색 | 공유 대상과 권한(보기/변경)
+2) 각 캘린더에 처음 넣을 반복 일정 예시 5개씩 (매달·매주·매년)
+3) 알림 규칙: 어떤 일정은 며칠 전, 몇 시에
+4) 캘린더에 쓰지 말아야 할 정보
+{{owner}} 일정과 개인 일정은 섞지 않게.</pre></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>캘린더는 스크립트가 채워요</b><span>반복 일정은 스크립트<a href="#c-l87" class="ref" data-ref="c-l87">강의</a><a href="#c-l88" class="ref" data-ref="c-l88">강의</a><a href="#c-l92" class="ref" data-ref="c-l92">강의</a>가 넣고, 사람은 예외만 넣어요.</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>앱스 스크립트(syncBills·syncPeople)가 캘린더를 채워요.</span></div><div class="run-row"><b>비서 연동</b><span>'11 일정 비서' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 캘린더 구성표 → 업무일지, 캘린더 규칙 → 프로젝트 지침</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>11 일정 비서</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>캘린더 구성표 → 업무일지, 캘린더 규칙 → 프로젝트 지침</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Calendar</span></div></div><p class="rec-note">캘린더 커넥터가 이 단계의 핵심이에요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 캘린더·공유·휴대폰 동기화 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Google Workspace: {{place}} 도메인 계정, 회의실·장비 같은 '리소스' 예약</li></ul></div></div>
+</section>

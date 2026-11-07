@@ -1,0 +1,40 @@
+<section id="c-l55" class="lesson" data-part="crm" data-title="우리 {{place}} 데이터 지도" data-level="grow" data-stage="prep takeover operate">
+    <div class="partcard a" style="--d:0s"><span class="pn">12</span><span class="pt"><b>고객관리·재방문 안내</b>9강 · {{open}} 후 첫 달부터</span><p class="po"><span data-biz="vet">차트</span><span data-biz-not="vet">고객 기록</span>·단말기·지도에 쌓이는 기록으로 <span data-biz="vet">진료 예정일·검진 예정일</span><span data-biz-not="vet">다음 방문·기념일</span>을 먼저 챙겨요. 안내 타이밍과 템플릿을 정하고, 맥·아이폰 문자, 카카오톡 채널, 알림톡으로 동의한 분께 보내고, 예약으로 이어졌는지 봐요.</p><div class="plist"><span>우리 {{place}} 데이터 지도</span><span>동의 받고 연락하기</span><span>재방문 알림 시스템</span><span>안내 타이밍 설계</span><span>안내 문구와 템플릿</span><span>맥북·아이폰으로 문자 안내</span><span>카톡 채널·알림톡으로 안내</span><span>안내 결과와 재방문율</span><span>단골·이탈 분석</span></div><svg viewBox="0 0 300 40" aria-hidden="true"><path d="M0 28h120l6-6 5 6 6-22 7 30 5-12 5 4h146"/></svg></div>
+  <div class="lesson-head">
+    <span class="kicker">읽기·실습 · 약 40분</span>
+    <h2>데이터는 이미 여덟 군데에 쌓이고 있어요</h2>
+    <p class="goal">고객관리는 새 프로그램을 사는 일이 아니라, 흩어진 기록을 <b>한 번에 볼 수 있게 모으는 일</b>이에요. 먼저 어디에 무엇이 있는지, AI에 넣어도 되는지를 지도로 그려요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>인수 직후 가장 먼저: <span data-biz="vet">차트</span><span data-biz-not="vet">고객 기록</span>·단말기·예약·문자 기록이 어디에 있고 누가 가졌는지.</span></p>
+
+  <div class="vis">
+    <div class="table-wrap"><table>
+      <thead><tr><th>어디</th><th>무엇이 있나</th><th>꺼내는 법</th><th>AI에 넣을 때</th></tr></thead>
+      <tbody>
+        <tr><td><b><span data-biz="vet">차트(EMR)</span><span data-biz-not="vet">고객 기록(포스·예약 앱·장부)</span></b></td><td><span data-biz="vet">{{customer}}·아이 정보, 내원, 접종·검진 날짜, 진료비</span><span data-biz-not="vet">{{customer}} 정보, 방문·주문 날짜, 산 것, 금액</span></td><td><span data-biz="vet">차트의 엑셀 내보내기</span><span data-biz-not="vet">프로그램의 엑셀 내보내기</span>(되는지 업체 확인)</td><td>이름·전화 지우고 <dfn data-t="pseudo">고객번호</dfn>로만</td></tr>
+        <tr><td><b>결제 단말기·정산</b></td><td>일별 카드 매출, 결제 수단, 취소</td><td>단말기 앱·관리 화면, 카드사 매출 조회</td><td>합계 숫자만</td></tr>
+        <tr><td><b>스마트플레이스</b></td><td>조회·길찾기·전화·예약 수, 리뷰</td><td>통계 화면 캡처, 예약 목록</td><td>캡처 그대로(개인정보 가리기)</td></tr>
+        <tr><td><b>카카오맵 매장관리</b></td><td>전용번호 통화 수, 후기</td><td>인사이트 화면 캡처</td><td>숫자만</td></tr>
+        <tr><td><b>네이버 예약</b></td><td>예약 시간·{{item}} 항목·노쇼</td><td>예약 관리 화면</td><td>예약자 이름 빼고</td></tr>
+        <tr><td><b>블로그·인스타</b></td><td>유입 검색어, 도달, 저장·공유</td><td>통계 캡처</td><td>그대로</td></tr>
+        <tr><td><b>접수지</b></td><td>어떻게 알고 왔나, 마케팅 수신 동의</td><td>매달 집계</td><td>숫자만</td></tr>
+        <tr><td><b>톡톡·DM·전화</b></td><td>자주 묻는 질문</td><td>실장님 메모</td><td>질문 내용만</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a55a" data-key="v_a55a"><div class="body"><label for="v_a55a">우리 {{place}} 판 지도 만들기</label><small>아래 부탁문에 <span data-biz="vet">차트 이름</span><span data-biz-not="vet">고객 기록 프로그램 이름</span>, 단말기, 쓰는 채널을 넣으면 우리 {{place}} 기준 표를 줘요. 드라이브 '{{place}} 마케팅' 폴더에 <b>데이터 지도</b> 문서로 저장.</small></div></li>
+    <li><input type="checkbox" id="v_a55b" data-key="v_a55b"><div class="body"><label for="v_a55b">'고객번호' 규칙 정하기</label><small>AI와 구글 시트에는 <span data-biz="vet">차트</span><span data-biz-not="vet">고객 기록</span>의 고객번호(또는 그 번호와 다른 {{place}} 내부 번호)만 쓰고, 그 번호가 누구인지는 <span data-biz="vet">차트</span><span data-biz-not="vet">고객 기록</span>에서만 찾아요. 이렇게 하면 시트가 새어도 {{customer}} 연락처는 남지 않아요.</small></div></li>
+    <li><input type="checkbox" id="v_a55c" data-key="v_a55c"><div class="body"><label for="v_a55c">누가 무엇을 보는지 정하기</label><small>{{owner}}: 전부, 실장님: 재방문 대상·리뷰, 직원: 콘텐츠 달력. 구글 시트 공유도 이 표대로.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>데이터 지도 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 {{biz}}의 데이터 지도를 만들어 줘. <span data-biz="vet">차트</span><span data-biz-not="vet">고객 기록 프로그램</span>: ○○, 결제 단말기: ○○, 채널: 스마트플레이스·네이버 예약·블로그·인스타.
+표: 데이터 | 어디 | 무엇을 알 수 있나 | 꺼내는 법(내가 확인할 것 포함) | 얼마나 자주 | AI·시트에 넣을 때 지울 칸 | 볼 수 있는 사람
+- {{customer}} 이름·전화·주소는 '<span data-biz="vet">차트</span><span data-biz-not="vet">고객 기록</span>에만'으로 표시
+- 내가 모르는 부분(엑셀 내보내기 가능 여부 등)은 '<span data-biz="vet">차트 회사</span><span data-biz-not="vet">프로그램 회사</span>에 확인'으로
+- 마지막에, 이 데이터로 할 수 있는 고객관리 5가지를 쉬운 것부터</pre></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>데이터 지도 점검일</b><span>데이터 지도 표에 '마지막 확인' 칸, 6개월이 지나면 노랗게.</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "데이터 위치 찾기" 부탁: 단말기·예약·<span data-biz="vet">차트 관리 화면</span><span data-biz-not="vet">고객 관리 화면</span>에서 '내보내기' 메뉴 위치만 찾아 데이터 지도에. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>단말기·예약 관리 화면<span data-biz="vet">(차트 제외)</span><span data-biz-not="vet">(고객 명단 화면 제외)</span></code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 내보낸 파일 목록 → 데이터 지도 표.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '06 성과 분석' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 데이터 지도 → 프로젝트 파일</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>데이터 지도 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>한 번 하는 일이라 이 채팅에서 끝내고, 결과만 문서·업무일지에 남겨요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">데이터 지도는 구글 문서로, 드라이브 커넥터로 참고.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>지도 만들기는 문서 하나면 끝</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li><span data-biz="vet">차트</span><span data-biz-not="vet">고객 기록</span> 프로그램의 CRM·문자 부가서비스가 있으면 비교해 보기</li></ul></div></div>
+</section>

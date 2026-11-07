@@ -1,0 +1,39 @@
+<section id="s-l3" class="lesson" data-part="base" data-title="매출 데이터 모으기" data-level="core" data-stage="prep takeover operate" data-biz="salad">
+    <div class="partcard a" style="--d:0s"><span class="pn">1</span><span class="pt"><b>장부 시스템 만들기</b>2강 · 첫 주</span><p class="po">포스·배달앱·카드 숫자를 한 장부로 모으고, 휴대폰으로 마감을 입력해요. 뒤의 모든 자동화가 이 장부를 읽어요.</p><div class="plist"><span>매출 데이터 모으기</span><span>장부 시스템 만들기</span></div><svg viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C40 30 50 12 90 14 S150 34 190 22 S250 6 300 12"/><path d="M90 14 c-6 -10 4 -14 10 -8 M190 22 c4 -11 14 -8 12 0"/></svg></div>
+  <div class="lesson-head">
+    <span class="kicker">약 15분</span>
+    <h2>숫자는 엑셀로 받아서 폴더에 넣어요</h2>
+    <p class="goal">소규모 매장은 포스·배달앱 데이터를 <dfn data-t="api">API</dfn>로 직접 받기 어려워요. 엑셀로 내려받아 장부 폴더에 넣으면 AI가 읽습니다.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s_s3a" data-key="s_s3a"><div class="body"><label for="s_s3a">토스 포스 매출 엑셀 받기</label><small>결제 시트(일자·시각, 채널, 금액, 결제수단, 취소)와 상품 주문 시트(상품명, 옵션, 수량, 할인, 실판매금액)가 들어 있어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>포스 화면 왼쪽 위 <span class="path">≡ 메뉴 → 매출 리포트 → 매출현황</span></li>
+        <li><span class="path">엑셀 내보내기</span> 누르기 → 기간 고르기(지난주 월~일)</li>
+        <li><span class="path">파일 만들기</span> → 파일 비밀번호 정하기 → <span class="path">받기</span></li>
+        <li>받은 파일을 드라이브 '우리가게 장부' 폴더에 올리기<span class="fix">AI에게 올리기 전에 비밀번호로 한 번 열어 다시 저장하면 잠금이 풀려요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s3b" data-key="s_s3b"><div class="body"><label for="s_s3b">토스 포스에 배달 매출 연결하기 (선택)</label><small>배달 3사 주문이 포스 매출에 합쳐져서 엑셀 하나로 볼 수 있어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">설정 → 배달 매출 설정</span><span class="fix">메뉴가 안 보이면 포스를 껐다 켜세요.</span></li>
+        <li>쓰는 배달앱 옆 <span class="path">연결하기</span> → 배달앱 계정으로 로그인</li>
+        <li>연결한 날 이후 주문부터 합쳐진다는 점 기억하기</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s3c" data-key="s_s3c"><div class="body"><label for="s_s3c">배민 <dfn data-t="vat">부가세 신고자료</dfn> 받기</label><small>매출구분(카드·현금·기타), 매출, 부가세, 합계</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 배민 사장님광장(ceo.baemin.com) 로그인</li>
+        <li><span class="path">우리가게관리 → 정산·주문 → 부가세 신고자료</span></li>
+        <li>기간 선택(한 번에 최대 3개월) → 조회 → 다운로드<span class="fix">만나서결제(카드·현금)는 여기 안 나와요. 별도 메뉴에서 확인하세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s_s3d" data-key="s_s3d"><div class="body"><label for="s_s3d">쿠팡이츠·요기요 정산 내역 받기</label><small>각 사장님 사이트의 정산 메뉴에서 다운로드 버튼을 찾으세요.</small></div></li>
+    <li><input type="checkbox" id="s_s3e" data-key="s_s3e"><div class="body"><label for="s_s3e">매달 카드매출·홈택스 자료 받기</label><small><dfn data-t="cardsales">카드매출 통합조회</dfn>와 <dfn data-t="hometax">홈택스</dfn>는 조회 기간 제한이 있어 매달 받아 두는 게 좋아요.</small></div></li>
+  </ol>
+  <p class="tip"><b>매주 손으로 받기 번거롭다면.</b> 받은 파일을 폴더에 넣기만 하면 장부에 자동으로 들어가게 만드는 방법이 <a href="#s-l25" class="ref" data-ref="s-l25">강의</a>에 있어요.</p>
+  <p class="src">출처: <a href="https://tossplace.com/story/salesreport" target="_blank" rel="noopener">토스 포스 매출 리포트</a> · <a href="https://tossplace.com/story/delivery-sales-free" target="_blank" rel="noopener">토스 포스 배달 매출 연결</a> · <a href="https://help.bznav.com/hc/ko/articles/900007650043" target="_blank" rel="noopener">배민 부가세 신고자료 조회</a> · <a href="https://news.jkn.co.kr/post/726614" target="_blank" rel="noopener">여신금융협회 카드매출조회</a></p>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>매달 자료 받는 날</b><span>캘린더에 '매달 3일 카드매출·홈택스·정산 자료 받기' 반복 일정. 메뉴 위치를 일정 메모에 적어 두면 다음 달에 헤매지 않아요.</span></div></li><li><span class="chip k-mail">메일 필터</span><div class="ad"><b>메일로 오는 자료는 그대로 장부까지</b><span>포스나 정산 자료를 메일로 받을 수 있으면 켜 두세요. 메일 첨부는 <a href="#s-l25" class="ref" data-ref="s-l25">강의</a>에서 장부까지 자동으로 이어져요.</span></div></li><li><span class="chip k-bot">맥 봇</span><div class="ad"><b>내려받기 없는 주문내역</b><span>사이트 화면에서만 보이는 주문내역은 맥 봇이 매일 읽어 와요(<a href="#s-l30" class="ref" data-ref="s-l30">강의</a>).</span></div></li></ul></div>
+  <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>배달앱·포스 정산 화면에서 기간을 고르고 엑셀 내려받기 → 장부 폴더.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>내려받기가 없는 화면은 로그인된 크롬에서 읽어 일별 표로.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>주문내역 수집 봇(<a href="#s-l30" class="ref" data-ref="s-l30">강의</a>)이 매일 06:00 대신 해요.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'01 장부·정산'이 받은 파일을 장부 형식으로, 빠진 날은 텔레그램으로.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>01 장부·정산</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>받은 엑셀 파일 → 이 채팅이나 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>포스·배달앱 엑셀을 직접 내려받기</li><li>여신금융협회 카드매출 통합조회, 홈택스 자료는 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>매출 통합 관리 앱: 카드·배달앱 매출과 입금이 자동으로 모이고 누락 알림</li><li>포스사의 매출 연동 부가 서비스</li></ul></div></div>
+</section>

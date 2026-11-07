@@ -1,0 +1,49 @@
+<section id="c-l14" class="lesson" data-part="map" data-title="카카오맵 매장관리" data-level="core" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 50분 · PC · {{open}} 3주 전</span>
+    <h2>카카오맵에서도 우리 {{place:이}} 보이게</h2>
+    <p class="goal">카카오톡을 쓰는 {{customer:는}} 카카오맵으로 길을 찾기도 해요. <dfn data-t="kmap">카카오맵 매장관리</dfn>에서 {{place:을}} 등록하면 영업시간·사진·{{item}} 안내를 직접 고치고, 후기에 답글을 달고, 카카오톡 채널(<a href="#c-l35" class="ref" data-ref="c-l35">강의</a>)과 예약을 연결할 수 있어요.</p>
+  </div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>기존 장소의 관리 권한을 넘겨받아요. 새로 등록하면 장소가 둘이 돼요.</span></p>
+
+  <div class="vis">
+    <div class="table-wrap"><table>
+      <thead><tr><th>할 수 있는 것</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td><b>영업시간</b></td><td>요일별, 점심시간(브레이크타임), 공휴일, 기간 한정 임시 영업시간, 날짜 지정 휴무, 조기 마감 표시</td></tr>
+        <tr><td><b>가격정보</b></td><td>{{item}} 항목 이름·가격·사진·소개, '변동가격' 표시, 추천 2개 강조</td></tr>
+        <tr><td><b>사진</b></td><td>최대 100장, 전경·실내 같은 태그로 분류, 첫 장이 대표</td></tr>
+        <tr><td><b>부가정보</b></td><td>홈페이지·SNS 링크, 주차 같은 제공 서비스, 대표 태그 5개, 한줄소개 50자</td></tr>
+        <tr><td><b>전용번호</b></td><td>카카오맵 전용 가상번호 무료 발급, 통화 통계를 인사이트에서 확인</td></tr>
+        <tr><td><b>후기</b></td><td>답글 달기·고치기, '사장님픽' 후기 3개 우선 노출, 후기 노출 끄기</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap a" style="--d:.4s">카카오 비즈니스 가이드 기준. 메뉴 이름은 바뀔 수 있어요.</p>
+  </div>
+  <ol class="steps">
+    <li><input type="checkbox" id="v_a14a" data-key="v_a14a"><div class="body"><label for="v_a14a">이미 있는지 먼저 찾기</label><small>카카오맵 앱에서 {{place}} 주소를 검색해 보세요. 누가 제보해 둔 장소가 있으면 새로 만들지 말고 <b>관리자 권한 등록</b>을 요청해요.</small></div></li>
+    <li><input type="checkbox" id="v_a14b" data-key="v_a14b"><div class="body"><label for="v_a14b">매장 등록 신청</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 <span class="path">business.kakao.com</span> → 카카오톡 채널을 만든 {{place}} 계정으로 로그인</li>
+        <li>매장관리 메뉴 → 유형 고르기: 채널이 이미 있으면 <b>카카오맵 매장만</b>, 없으면 <b>채널과 매장 함께</b></li>
+        <li>사업자등록번호 조회 → 있는 매장이면 '관리자 권한 등록하기', 없으면 '내 매장을 새로 등록할래요' → 업체명(간판과 같게)·주소·전화·업종 입력</li>
+        <li>필요하면 증빙서류(사업자등록증<span data-biz="vet">, 개설신고 확인증</span><span data-biz-not="vet">, 업종에 따라 영업신고증 같은 인허가 서류</span>) 첨부 → 신청. 심사 결과는 카카오톡 메시지로 와요<span class="fix">보류되면 <span class="path">매장 → 매장 관리 이력</span>에서 사유를 보고, 고친 뒤 서류를 모두 다시 첨부해 재심사를 요청해요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="v_a14c" data-key="v_a14c"><div class="body"><label for="v_a14c">정보 채우기</label><small>승인되면 <span class="path">매장 → 매장 정보</span>에서. 소개서와 플레이스에 넣은 내용(<a href="#c-l11" class="ref" data-ref="c-l11">강의</a>)을 그대로 옮기되, 한줄소개 50자·대표 태그 5개에 맞춰 줄여요. <span data-biz="vet">진료 가격은 진료비 게시표와 같은 금액만,</span><span data-biz-not="vet">가격은 {{place}} 가격표와 같은 금액만,</span> 상황에 따라 다르면 '변동가격'.</small></div></li>
+    <li><input type="checkbox" id="v_a14d" data-key="v_a14d"><div class="body"><label for="v_a14d">전용번호 켜기</label><small>카카오맵에만 보이는 전용번호로 걸려 온 전화 수를 볼 수 있어요. "카카오맵을 보고 전화한 {{customer:가}} 몇 명인지"가 숫자로 남아요. 장부 월성과 탭에 칸을 하나 더해요.</small></div></li>
+    <li><input type="checkbox" id="v_a14e" data-key="v_a14e"><div class="body"><label for="v_a14e">후기 답글과 사장님픽</label><small>후기 답글은 플레이스 리뷰와 같은 원칙과 부탁문(<a href="#c-l12" class="ref" data-ref="c-l12">강의</a>)으로. '사장님픽'은 구체적인 경험이 담긴 후기 3개로 고르되, 대가를 주고 받은 후기는 고르지 마세요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>카카오맵 정보 부탁문</span><button class="copy" type="button">복사</button></div><pre>{{place}} 소개서와 플레이스에 넣은 내용을 카카오맵 매장관리 형식으로 바꿔 줘.
+1) 한줄소개 50자 안쪽 2안
+2) 대표 태그 5개 ({{customer:가}} 검색할 말)
+3) 가격정보: {{item}} 항목 | 가격(<span data-biz="vet">진료비 게시표</span><span data-biz-not="vet">가격표</span>에 있을 때만, 아니면 '변동가격') | 한 줄 소개. 추천 2개 표시
+4) 사진 태그 계획: 전경·실내·<span data-biz="vet">진료실</span><span data-biz-not="vet">대표 {{item}}</span> 등 태그별로 어떤 사진을 몇 장
+5) 제공 서비스(주차, 엘리베이터 등)와 연결할 링크 순서(블로그·인스타·카톡 채널)
+비교·최상급 표현 없이, 끝에 점검 한 줄.</pre></div>
+  <p class="src">출처: <a href="https://kakaobusiness.gitbook.io/main/channel/run/mystore" target="_blank" rel="noopener">카카오 비즈니스 가이드 · 매장관리</a> · <a href="https://www.kakaocorp.com/page/detail/11167" target="_blank" rel="noopener">카카오맵 장소상세 개편 (카카오, 2024.8)</a> · <a href="https://cs.kakao.com/helps_html/1073192977?locale=ko" target="_blank" rel="noopener">카카오 고객센터 · 장소 등록</a></p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>분기 정보 점검</b><span>석 달마다 카카오맵 영업시간·사진 확인 알림. 지도정보 점검<a href="#c-l15" class="ref" data-ref="c-l15">강의</a>과 같은 날로.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>카카오맵 후기 답글·정보 변경</b><span>후기 답글 초안 선택, 정보 변경 승인.</span><span class="pv">버튼: A / B · 승인 / 보류</span></div></li></ul></div>
+    <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "매장관리 칸 채우기" 부탁: 카카오맵 매장관리의 영업시간·한줄소개·가격을 채우고 저장 전 멈춤. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>카카오맵 매장관리</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '01 플레이스 매니저' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 카카오맵 정보 → 장부 지도정보 탭</span></div></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>카카오맵 정보 → 장부 지도정보 탭</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{place}} 브랜드·말투</span></div></div><p class="rec-note">카카오맵도 공식 커넥터가 없어 캡처로.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>매장 등록·정보 수정·후기 답글, 전용번호 발급 무료</li></ul></div><div class="fp-col fp-paid"><b>돈이 드는 곳</b><ul><li>카카오 광고(선택). 지도 정보부터 꽉 채운 뒤에 생각해도 늦지 않아요</li></ul></div></div>
+</section>
