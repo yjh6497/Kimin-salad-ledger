@@ -591,6 +591,14 @@ td b { font-weight: 600; }
 .rc.s { background: var(--sunk); }
 .rec-note { font-size: 13.5px; color: var(--muted); }
 
+/* guardian journey */
+.journey { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.jn { position: relative; background: var(--paper); border: 1px solid var(--line); border-top: 4px solid var(--pulse); border-radius: 12px; padding: 10px 11px; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.jn:nth-child(4), .jn:nth-child(5) { border-top-color: var(--tag); }
+.jn em { font-style: normal; font-family: var(--f-num); font-size: 11px; color: var(--leaf); }
+.jn b { font-size: 14px; line-height: 1.35; } .jn span { font-size: 12px; color: var(--muted); line-height: 1.35; }
+@container vis (max-width: 640px) { .journey { grid-template-columns: minmax(0, 1fr); } }
+
 </style>
 
 <div class="shell">
@@ -712,6 +720,67 @@ td b { font-weight: 600; }
   <p class="tip"><b>목표는 '주 2시간'이에요.</b> 개원하면 진료로 바빠요. 이 코스는 일요일 1시간에 한 주 치를 몰아 쓰고 예약 걸기, 평일엔 리뷰 답글 5분으로 굴러가게 짰어요. 강의마다 맨 아래 <b>'이 강의 자동화'</b>와 <b>'무료로 하기 / 유료라면 좋은 점'</b> 상자가 있어요.</p>
   <p class="tip warnbox"><b>먼저 약속 하나.</b> 동물병원 광고는 <b>수의사법</b>의 적용을 받아요. 거짓·과대 광고와 다른 병원 보호자를 끌어오는 유인 행위는 면허효력 정지 사유예요(<a href="#l8" class="ref" data-ref="l8">강의</a>). 이 코스의 모든 글은 <b>올리기 전 광고 문구 점검</b>까지가 한 세트입니다.</p>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><p class="rec-note">시작은 커넥터 없이도 돼요. 스킬·커넥터 지도는 3단계에 있어요.</p></div>
+</section>
+<section class="lesson" id="l33" data-part="시작" data-title="왜 이 네 채널을 운영할까" hidden>
+  <div class="lesson-head">
+    <span class="kicker">읽기 · 약 15분</span>
+    <h2>보호자는 지도에서 찾고, 블로그에서 믿고, 인스타로 기억해요</h2>
+    <p class="goal">동물병원은 '동네 병원'이에요. 보호자는 아이가 아플 때 가까운 병원을 <b>휴대폰 지도로 찾고</b>, 어떤 병원인지 <b>글과 리뷰로 확인</b>하고, 다녀온 뒤에는 <b>SNS와 카톡으로 기억</b>해요. 네이버 플레이스·카카오맵·네이버 블로그·인스타그램은 이 흐름의 각 자리를 맡아요. 하나라도 비어 있으면 그 자리에서 보호자가 다른 병원으로 가요.</p>
+  </div>
+  <div class="vis">
+    <div class="journey">
+      <div class="jn a" style="--d:.1s"><em>1 · 알게 되기</em><b>"동네에 새 병원 생겼네"</b><span>인스타 · 지도에서 우연히</span></div>
+      <div class="jn a" style="--d:.3s"><em>2 · 찾아보기</em><b>"근처 고양이 병원, 야간 돼?"</b><span>네이버 플레이스 · 카카오맵</span></div>
+      <div class="jn a" style="--d:.5s"><em>3 · 믿어 보기</em><b>"여기 원장님 어떤 분이지?"</b><span>네이버 블로그 · 리뷰</span></div>
+      <div class="jn a" style="--d:.7s"><em>4 · 다시 오기</em><b>"다음 접종 언제였지?"</b><span>카톡 채널 · 안내 문자</span></div>
+      <div class="jn a" style="--d:.9s"><em>5 · 소개하기</em><b>"우리 다니는 병원 괜찮아"</b><span>리뷰 · 인스타 공유</span></div>
+    </div>
+    <p class="cap a" style="--d:1.1s">인지 → 검색 → 방문 → 재방문 → 추천. 1인 동물병원 원장이 개원 세미나에서 소개한 보호자 충성도 5단계와 같은 흐름이에요.</p>
+  </div>
+
+  <h3>채널마다 맡은 자리</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>채널</th><th>보호자가 쓰는 순간</th><th>운영하면 생기는 것</th><th>안 하면 생기는 일</th></tr></thead>
+    <tbody>
+      <tr><td><b>네이버 플레이스</b></td><td>"○○동 동물병원" 검색, 지도에서 가까운 곳 찾기, 리뷰 보기, 예약</td><td>진료 시간·주차·진료 과목이 정확히 보이고, 리뷰 답글로 신뢰. 2026년 6월부터는 연동된 병원의 진료 통계(많이 본 진료, 붐비는 시간)와 동물 종류·진료 과목 필터도 생겼어요</td><td>다른 사람이 제보한 틀린 정보가 그대로, 답 없는 리뷰, 검색 필터에서 빠짐</td></tr>
+      <tr><td><b>카카오맵</b></td><td>카톡을 주로 쓰는 보호자의 길찾기, 카카오맵 후기</td><td>영업시간·사진·가격 정보를 직접 관리, 전용번호로 '카카오맵 보고 건 전화' 수를 셈, 카톡 채널과 연결</td><td>네이버와 다른 진료 시간이 떠서 헛걸음, 후기 방치</td></tr>
+      <tr><td><b>네이버 블로그</b></td><td>"강아지 슬개골 탈구", "고양이 구토 노란색"처럼 증상·질문을 검색할 때</td><td>원장님의 설명 방식과 진료 철학이 보여요. 질문에 답한 글이 쌓일수록 '이 병원에 물어보고 싶다'로 이어져요</td><td>보호자는 다른 병원·커뮤니티 글로 판단, 병원이 어떤 곳인지 알 길이 없음</td></tr>
+      <tr><td><b>인스타그램</b></td><td>평소 둘러볼 때, 동네 계정에서 본 게시물</td><td>병원 분위기·직원·진료 일상을 미리 보여 줘 처음 오는 불안을 줄이고, 다녀간 보호자가 잊지 않게</td><td>'새로 생긴 병원'이 동네에 알려지는 속도가 느림</td></tr>
+    </tbody>
+  </table></div>
+  <p class="tip">카카오톡 채널(<a href="#l35" class="ref" data-ref="l35">강의</a>)은 네 채널을 거쳐 온 보호자를 <b>다시 오게</b> 하는 줄이에요. 지도·블로그·인스타가 '처음'을, 카톡 채널과 안내 문자가 '다음'을 맡아요.</p>
+
+  <h3>숫자로 보는 이유</h3>
+  <div class="dash">
+    <div class="kpi pop" style="--d:.2s"><span>반려가구 (2024년 말)</span><b>591만 · 전체의 26.7%</b></div>
+    <div class="kpi pop" style="--d:.35s"><span>반려묘 (전년 대비)</span><b>217만 마리 · 9.2%↑</b></div>
+    <div class="kpi hi pop" style="--d:.5s"><span>진료 이유 1위</span><b>피부 질환 40.8%</b></div>
+    <div class="kpi warn pop" style="--d:.65s"><span>지난 1년 질병 치료비 0원</span><b>보호자 62.8%</b></div>
+  </div>
+  <ul class="checks">
+    <li><input type="checkbox" id="a33a" data-key="a33a"><label for="a33a"><b>고양이 보호자가 늘어요.</b> 반려견은 처음으로 줄고 반려묘는 늘었어요. 고양이 진료·대기 공간을 블로그·인스타로 보여 주는 게 차별점이 돼요.</label></li>
+    <li><input type="checkbox" id="a33b" data-key="a33b"><label for="a33b"><b>보호자가 궁금한 건 피부·소화기·검진이에요.</b> 병원에 온 이유 상위가 피부(40.8%), 소화기(25.8%), 건강검진(23.4%)이었어요. 블로그 첫 글 주제가 여기서 나와요.</label></li>
+    <li><input type="checkbox" id="a33c" data-key="a33c"><label for="a33c"><b>많은 보호자는 아플 때만 와요.</b> 3명 중 2명은 지난 1년 질병·사고 치료비가 없었어요. 평소에 예방·검진 정보를 꾸준히 보여 주는 채널이 있어야 '아플 때 떠오르는 병원'이 돼요.</label></li>
+  </ul>
+
+  <h3>시간이 없을 때의 순서</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="a33d" data-key="a33d"><div class="body"><label for="a33d">① 네이버 플레이스·카카오맵 등록과 정보 (필수, 한 번 1~2시간)</label><small>콘텐츠가 아니라 '간판'이에요. 개원 전에 꼭. 이후엔 휴진·시간 바뀔 때만 고쳐요.</small></div></li>
+    <li><input type="checkbox" id="a33e" data-key="a33e"><div class="body"><label for="a33e">② 리뷰 답글 (매일 5분)</label><small>다음 보호자가 읽는 글이에요(<a href="#l12" class="ref" data-ref="l12">강의</a>).</small></div></li>
+    <li><input type="checkbox" id="a33f" data-key="a33f"><div class="body"><label for="a33f">③ 네이버 블로그 (주 1편)</label><small>콘텐츠 중 하나만 고르라면 블로그부터. 같은 세미나에서도 여력이 적으면 블로그를 우선하라고 했어요.</small></div></li>
+    <li><input type="checkbox" id="a33g" data-key="a33g"><div class="body"><label for="a33g">④ 인스타그램 (주 1~3회, 여유가 생기면)</label><small>블로그 사진 한 장과 요약 캡션으로 시작해요(<a href="#l40" class="ref" data-ref="l40">강의</a>).</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>우리 동네 채널 우선순위 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 병원 상황으로 네이버 플레이스, 카카오맵, 네이버 블로그, 인스타그램, 카카오톡 채널의 우선순위를 정해 줘.
+병원: 지역 ○○, 주 보호자 ○○(예: 신축 아파트 30대 부부, 고양이 많음), 원장 혼자 주 ○시간 가능, 개원 ○주 전.
+1) 채널별로 우리 보호자가 쓰는 순간과 우리 병원이 얻을 것
+2) 주 ○시간 안에서 채널별 시간 배분표
+3) 개원 첫 달에 꼭 할 것 / 미뤄도 되는 것
+4) 석 달 뒤 '잘 되고 있다'를 판단할 숫자 3개(신규 보호자 경로, 플레이스 전화·길찾기, 블로그 유입 검색어 등)
+과장 없이, 우리 병원에 맞지 않는 채널은 맞지 않다고 말해 줘.</pre></div>
+  <p class="tip warnbox"><b>채널은 진료를 대신하지 않아요.</b> 지도와 글은 '처음 오게' 만들고, '다시 오게' 하는 건 진료와 설명이에요. 그래서 이 코스의 모든 글은 사실만, 수의사법 광고 규칙 안에서(<a href="#l8" class="ref" data-ref="l8">강의</a>).</p>
+  <p class="src">출처: <a href="https://www.dailyvet.co.kr/?p=245570" target="_blank" rel="noopener">1인 동물병원의 AI 마케팅 (데일리벳, 2025.5)</a> · <a href="https://navercorp.com/media/pressReleasesDetail?seq=10034394" target="_blank" rel="noopener">동물병원 플레이스 진료 통계·필터 (네이버, 2026.6)</a> · <a href="https://kakaobusiness.gitbook.io/main/channel/run/mystore" target="_blank" rel="noopener">카카오맵 매장관리</a> · <a href="https://www.dailygaewon.com/news/articleView.html?idxno=16986" target="_blank" rel="noopener">KB경영연구소 2025 한국 반려동물 보고서 (데일리개원)</a> · <a href="https://www.dailyvet.co.kr/news/practice/companion-animal/273782" target="_blank" rel="noopener">2025 반려동물 양육현황조사 (데일리벳, 2026.2)</a></p>
+    <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#l38" class="ref" data-ref="l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">웹 검색</span></div></div><p class="rec-note">채널별 우선순위는 웹 검색으로 우리 동네 경쟁 병원 현황을 함께 보며 정해요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>네 채널 모두 개설·운영 무료</li></ul></div><div class="fp-col fp-paid"><b>돈을 쓴다면</b><ul><li>광고는 네 채널 정보가 꽉 찬 뒤에, 소액으로 시험</li></ul></div></div>
 </section>
 <section class="lesson" id="l2" data-part="시작" data-title="원장님이 해야 할 일" hidden>
   <div class="lesson-head">
