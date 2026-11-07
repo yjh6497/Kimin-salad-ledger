@@ -2112,11 +2112,13 @@ html:not([data-track="takeover"]) [data-track-only="takeover"], html[data-track=
         <li>Finder → 응용 프로그램 → 유틸리티 → <b>터미널</b> 열기</li>
         <li data-ai-not="gpt">Claude Code 설치: 아래 '설치 명령' 첫 줄을 붙여 넣고 Enter → <code>claude</code> 입력 → 가게 계정으로 로그인</li>
         <li data-ai-not="claude">Codex 설치: 아래 '설치 명령' 둘째 줄을 붙여 넣고 Enter → <code>codex</code> 입력 → ChatGPT 계정으로 로그인</li>
+        <li>윈도우라면: 시작 → <b>PowerShell</b> 열기 → <span data-ai-not="gpt">Claude Code는 '설치 명령' 셋째 줄</span><span data-ai-none> · </span><span data-ai-not="claude">Codex는 Node.js 설치 후 둘째 줄</span>. 맥 봇 자리는 윈도우 <b>작업 스케줄러</b>가 대신해요(launchd 대신)</li>
         <li>폴더 만들기: <code>mkdir ~/가게자동화 &amp;&amp; cd ~/가게자동화</code> → 아래 '가게 규칙 파일'을 <span data-ai-not="gpt">CLAUDE.md</span><span data-ai-none> 또는 </span><span data-ai-not="claude">AGENTS.md</span> 이름으로 저장해 달라고 터미널 AI에게 부탁</li>
         <li>허락 질문에는 무엇을 하려는지 읽고 '예'. "모두 자동 허용"은 켜지 않아요<span class="fix">login·token·credentials 파일은 이 폴더 안 'secret' 폴더에만 두고, 채팅이나 다른 사람에게 보내지 않아요.</span></li>
       </ol></details>
       <div class="prompt"><div class="bar"><span>설치 명령</span><button class="copy" type="button">복사</button></div><pre>curl -fsSL https://claude.ai/install.sh | bash
-npm install -g @openai/codex</pre></div></div></li>
+npm install -g @openai/codex
+irm https://claude.ai/install.ps1 | iex</pre></div></div></li>
     <li><input type="checkbox" id="s50d" data-key="s50d"><div class="body"><label for="s50d">작업 지시서로 이어 주기</label><small>직원 채팅에서 할 일을 정하면 '작업 지시서 부탁문'으로 바꿔 손에게 붙여요. 지시서 하나에 멈출 곳과 결과 남길 곳이 꼭 들어가요.</small></div></li>
     <li><input type="checkbox" id="s50e" data-key="s50e"><div class="body"><label for="s50e">첫 연결 시험</label><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> 또는 </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span>로 네이버 플레이스 화면을 읽어 '지도정보' 탭과 다른 곳 찾기 → 결과를 '09' 채팅에 붙여 업무일지 5줄. 여기까지 되면 연결 끝.</small></div></li>
   </ol>
@@ -3363,7 +3365,7 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
       <div class="pipe" aria-hidden="true"><span style="--d:.9s"></span><span style="--d:1.6s"></span></div>
       <div class="box hi pop" style="--d:.8s"><strong>아이폰 단축어 · 밤 10시</strong><span>거래처마다 문자 보내기</span></div>
     </div>
-    <p class="cap a" style="--d:1.2s">맥을 쓰면 같은 단축어를 맥에서 돌려도 돼요. 맥은 아이폰을 통해 문자를 보내요.</p>
+    <p class="cap a" style="--d:1.2s">맥을 쓰면 같은 단축어를 맥에서 돌려도 돼요. 윈도우·안드로이드라면 아래 '윈도우·안드로이드라면 이렇게'를 보세요.</p>
   </div>
   <ol class="steps">
     <li><input type="checkbox" id="s20e" data-key="s20e"><div class="body"><label for="s20e">'재고' 시트의 거래처 연락처와 발주 방법 정리</label><small>전화번호는 010-1234-5678처럼 한 칸에 하나. 같은 거래처는 이름을 똑같이 적어야 한 문자로 묶여요. '발주 방법' 칸에는 <b>문자</b> 또는 <b>카톡</b>을 적어요.</small></div></li>
@@ -3412,6 +3414,57 @@ Code.gs와 index.html 두 파일 전체 코드를 주고, 붙여 넣는 곳과 �
 이 주소를 읽어서 orders의 항목마다 phone 번호로 text 문자를 보내고, 다 보내면 주소 끝에 &amp;sent=1을 붙여 한 번 더 부르는 단축어를 만드는 순서를 알려줘.
 단축어 동작 이름은 한국어 아이폰 화면에 보이는 이름 그대로, 한 단계씩 알려줘. 내가 '됐어'라고 하면 다음 단계를 알려줘.</pre></div>
 
+  <h3>윈도우·안드로이드라면 이렇게</h3>
+  <p>'발주 주소'(위 2번)는 그대로 쓰고, 문자를 내보내는 끝부분만 바꿔요. 컴퓨터가 윈도우여도 장부·스크립트·텔레그램은 똑같이 돌아요.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>방법</th><th>이런 분께</th><th>사장님이 하는 일</th><th>비용</th></tr></thead>
+    <tbody>
+      <tr><td data-label="방법"><b>① 버튼 페이지 + 텔레그램</b></td><td data-label="이런 분께">어떤 휴대폰이든, 가장 쉽게</td><td data-label="사장님이 하는 일">밤 10시 텔레그램 링크 → 거래처별 '문자 열기' 버튼 → 내용 확인 후 보내기</td><td data-label="비용">무료</td></tr>
+      <tr><td data-label="방법"><b>② 안드로이드 자동화 앱</b></td><td data-label="이런 분께">갤럭시 등 안드로이드 휴대폰</td><td data-label="사장님이 하는 일">처음 한 번 설정, 이후 매일 밤 자동 발송</td><td data-label="비용">무료(앱 기본 기능)</td></tr>
+      <tr><td data-label="방법"><b>③ 문자 발송 서비스</b></td><td data-label="이런 분께">휴대폰이 꺼져 있어도 꼭 나가야 할 때</td><td data-label="사장님이 하는 일">서비스 가입·발신번호 등록 한 번, 이후 스크립트가 직접 발송</td><td data-label="비용">문자 1건당 몇십 원</td></tr>
+    </tbody>
+  </table></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="s20w1" data-key="s20w1"><div class="body"><label for="s20w1">① 버튼 페이지 + 텔레그램 (추천)</label><small>발주 주소에 <b>&amp;view=page</b>를 붙이면 거래처마다 '문자 열기' 버튼이 있는 화면이 나와요. 버튼을 누르면 휴대폰 문자 앱이 받는 사람과 내용이 채워진 채로 열리고, 사장님은 보내기만 눌러요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'08 자동화·연결' 채팅에 아래 '버튼 페이지 부탁문' → 받은 코드로 발주주소 스크립트를 바꾸고 <span class="path">배포 → 배포 관리 → 수정 → 새 버전</span></li>
+        <li>휴대폰에서 '발주 주소&amp;view=page'를 열어 버튼을 눌러 보기 → 문자 앱이 열리면 성공</li>
+        <li>텔레그램 봇(<a href="#l44" class="ref" data-ref="l44">강의</a>)이 밤 10시에 "오늘 발주 3곳" + 이 주소를 보내게 트리거 추가. 윈도우 PC의 텔레그램 데스크톱에서도 보여요</li>
+        <li>다 보냈으면 페이지 아래 <b>보냄 표시</b> 버튼 → 장부 '발주기록'에 남아요<span class="fix">카톡으로 발주하는 거래처는 같은 화면에 '복사' 버튼을 두고, 카톡에 붙여 넣어요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s20w2" data-key="s20w2"><div class="body"><label for="s20w2">② 안드로이드 자동화 앱 (MacroDroid 등)</label><small>아이폰 단축어와 같은 일을 안드로이드 앱이 해요. 매일 밤 10시 → 발주 주소 읽기 → 거래처마다 문자 → sent=1.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>플레이 스토어에서 MacroDroid 설치 → 새 매크로</li>
+        <li>트리거: <b>날짜/시간 → 요일/시간</b> 매일 22:00</li>
+        <li>동작: <b>HTTP 요청</b>(GET, 발주 주소) → 응답을 변수에 저장 → <b>배열/사전 반복</b>으로 orders를 돌며 <b>SMS 보내기</b>(받는 사람 phone, 내용 text) → 끝나면 HTTP 요청(발주 주소&amp;sent=1)</li>
+        <li>문자 보내기 권한을 허용. 휴대폰·앱 버전에 따라 문자 권한용 보조 앱을 추가로 깔라고 안내할 수 있어요</li>
+        <li>처음 2주는 SMS 대신 <b>알림 띄우기</b>로 내용만 받아 보고, 맞으면 SMS로 바꿔요<span class="fix">메뉴 이름이 다르면 설정 화면을 캡처해 '08' 채팅에 "MacroDroid에서 이 순서를 만들려면?"이라고 물어보세요. 아래 '안드로이드 도우미 부탁문'도 있어요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="s20w3" data-key="s20w3"><div class="body"><label for="s20w3">③ 문자 발송 서비스로 완전 자동</label><small>국내 문자 발송 서비스(API)에 가입하면 구글 스크립트가 직접 문자를 보내요. 휴대폰·컴퓨터가 꺼져 있어도 돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>'문자 발송 API'로 검색해 서비스 고르기 → 가입 → 충전(건당 요금은 서비스마다 달라요)</li>
+        <li><b>발신번호 사전 등록</b>: 가게 번호를 보내는 번호로 쓰려면 통신서비스 이용증명원 등으로 등록해야 해요. 등록 안 된 번호로는 보낼 수 없어요</li>
+        <li>API 키는 Apps Script <span class="path">프로젝트 설정 → 스크립트 속성</span>에만. 코드·채팅에 쓰지 않아요</li>
+        <li>아래 '문자 서비스 부탁문'으로 발주주소 스크립트에 sendOrders()를 더하고, 처음엔 텔레그램 승인 버튼(<a href="#l44" class="ref" data-ref="l44">강의</a>)을 눌러야 보내게 해요<span class="fix">돈이 드는 발송이에요. 하루 최대 건수를 코드에 정해 두면 실수로 수백 통이 나가는 일을 막아요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>버튼 페이지 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>내 '발주 주소' Apps Script 웹앱(doGet, key 확인, orders JSON, sent=1 기록)에 기능을 더해줘. 나는 코딩 초보야.
+- view=page가 붙으면 휴대폰용 HTML 화면을 돌려줘: 거래처마다 이름, 문자 내용, '문자 열기' 버튼
+- 버튼은 sms: 링크로 받는 사람과 내용을 채워 문자 앱을 열게. 아이폰과 안드로이드 모두 열리는 형식으로
+- method가 '카톡'인 거래처는 '내용 복사' 버튼
+- 맨 아래 '보냄 표시' 버튼을 누르면 sent=1과 같은 기록
+- 글씨는 크게, 버튼은 손가락으로 누르기 쉽게
+- 텔레그램 tg()로 밤 10시에 "오늘 발주 N곳"과 이 주소를 보내는 함수와 트리거도
+수정할 부분과 새 버전 배포 방법을 단계별로 알려줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>안드로이드 도우미 부탁문</span><button class="copy" type="button">복사</button></div><pre>안드로이드 MacroDroid로 '발주 문자 보내기' 매크로를 만들고 있어. 내 웹앱 주소는 {"orders":[{"phone":..., "text":...}]} 모양의 JSON을 돌려줘.
+매일 22:00에 이 주소를 읽어 orders 항목마다 phone 번호로 text 문자를 보내고, 다 보내면 주소 끝에 &amp;sent=1을 붙여 한 번 더 부르는 매크로를 만드는 순서를 알려줘.
+메뉴 이름은 한국어 화면 기준으로, 한 단계씩. 내가 '됐어'라고 하면 다음 단계를 알려줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>문자 서비스 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>내 '발주 주소' Apps Script에 문자 발송 서비스 API로 발주 문자를 직접 보내는 sendOrders()를 더해줘. 서비스는 ○○(가입한 곳)이고 API 문서 주소는 ○○야.
+- API 키·발신번호는 스크립트 속성에서 읽기. 코드에 쓰지 마
+- 처음엔 ask('발주', 요약, '보내요,오늘은 안 보내요')로 텔레그램 승인함에 올리고, '보내요'가 눌리면 그때 발송
+- 하루 최대 10건, 같은 거래처 하루 1건까지만
+- 발송 결과(성공·실패)를 '발주기록' 시트에, 실패하면 tg()로 알림
+붙이는 곳과 트리거까지 단계별로 알려줘.</pre></div>
   <h3>카카오톡으로 발주 보내기 (선택)</h3>
   <p>카카오톡은 문자처럼 내 번호로 아무에게나 자동 발송하는 기능을 열어 주지 않아요. 그래서 상황에 맞는 세 가지 방법 중 하나를 골라요. 아이폰이면 <b>①</b>, 안드로이드이거나 코딩 없이 하고 싶으면 <b>②</b>가 좋아요.</p>
   <div class="table-wrap"><table>
