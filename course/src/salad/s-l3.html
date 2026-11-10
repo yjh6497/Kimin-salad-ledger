@@ -1,11 +1,11 @@
-<section id="s-l3" class="lesson" data-part="base" data-title="매출 데이터 모으기" data-level="core" data-stage="prep takeover operate" data-biz="salad">
+<section id="s-l3" class="lesson" data-part="base" data-title="흩어진 매출 한 폴더에 모으기" data-level="core" data-stage="prep takeover operate" data-biz="salad">
     <div class="partcard a" style="--d:0s"><span class="pn">1</span><span class="pt"><b>장부 시스템 만들기</b>2강 · 첫 주</span><p class="po">포스·배달앱·카드 숫자를 한 장부로 모으고, 휴대폰으로 마감을 입력해요. 뒤의 모든 자동화가 이 장부를 읽어요.</p><div class="plist"><span>매출 데이터 모으기</span><span>장부 시스템 만들기</span></div><svg viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C40 30 50 12 90 14 S150 34 190 22 S250 6 300 12"/><path d="M90 14 c-6 -10 4 -14 10 -8 M190 22 c4 -11 14 -8 12 0"/></svg></div>
   <div class="lesson-head">
     <span class="kicker">약 15분</span>
     <h2>숫자는 엑셀로 받아서 폴더에 넣어요</h2>
     <p class="goal">작은 매장은 포스·배달앱 데이터를 <dfn data-t="api">API</dfn>(프로그램끼리 자료를 주고받는 창구)로 직접 받기 어려워요. 그래서 엑셀로 내려받아 장부 폴더에 넣어요. 그러면 AI가 읽어요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여기저기 흩어진 매출 영수증을 '장부 서랍' 하나에 모으는 거예요. 포스·배달앱에서 엑셀 파일을 받아 드라이브 폴더에 넣기만 하면 돼요.</span></div><div class="easy-row"><b>끝나면</b><span>드라이브 '우리가게 장부' 폴더에 모인 지난주 포스·배달앱 매출 파일</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 포스·배달앱 사장님 계정, 구글 드라이브, 약 15분 · 파일 찾기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>숫자가 포스·배달앱마다 흩어져 있으면 AI도 도와줄 수 없어요. 한 폴더에 모아야 매출 정리·분석·자동화가 전부 시작돼요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>여기저기 흩어진 매출 영수증을 '장부 서랍' 하나에 모으는 거예요. 포스·배달앱에서 엑셀 파일을 받아 드라이브 폴더에 넣기만 하면 돼요.</span></div><div class="easy-row"><b>끝나면</b><span>드라이브 '우리가게 장부' 폴더에 모인 지난주 포스·배달앱 매출 파일</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 포스·배달앱 사장님 계정, 구글 드라이브, 약 15분 · 파일 찾기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <ol class="steps">
     <li><input type="checkbox" id="s_s3a" data-key="s_s3a"><div class="body"><label for="s_s3a">토스 포스 매출 엑셀 받기</label><small>장부의 기본이 되는 매출 숫자예요. 파일 안에는 결제 시트(일자·시각, 채널, 금액, 결제수단, 취소)와 상품 주문 시트(상품명, 옵션, 수량, 할인, 실판매금액)가 들어 있어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
