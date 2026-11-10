@@ -9,7 +9,7 @@ from html.parser import HTMLParser
 VOID = {'input', 'br', 'img', 'hr', 'meta', 'link', 'source', 'wbr', 'col', 'area', 'embed', 'track', 'param'}
 VETWORDS = [] if False else ['진료', '수의', '반려', '강아지', '고양이', '접종', '중성화', '슬개골', '환자', '처방', '약품', '수술', '입원',
             '동물', '펫', '내원', '심장사상충', '진드기', '차트', '보호자', '원장님', '동물병원', '개원', '아이가', '아이를', '아이의', '아이는', '아이와']
-TOKENS = {'owner', 'customer', 'place', 'biz', 'open', 'shopname', 'work', 'hours', 'staff', 'item', 'visit', 'supplier', 'stockitem',
+TOKENS = {'owner', 'customer', 'place', 'biz', 'open', 'shopname', 'work', 'hours', 'staff', 'item', 'visit', 'supplier', 'stockitem', 'lobby',
           'ex_post', 'ex_reel', 'ex_review', 'ex_revisit', 'ex_faq', 'ex_season', 'ex_keyword', 'ex_service3'}
 JOSA = {'이', '가', '은', '는', '을', '를', '과', '와', '으로', '로', '이다', '이에요'}
 

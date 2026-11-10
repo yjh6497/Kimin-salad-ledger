@@ -143,7 +143,32 @@
   function setSkin(biz, type) {
     var s = skinOf(biz, type), de = document.documentElement;
     if (s && SKIN_NAME[s]) de.dataset.skin = s; else delete de.dataset.skin;
+    applyArt(s);
     return s;
+  }
+  // 업종 그림·캐릭터: art.js 의 ART[skin]
+  function artOf(s) { return (window.ART && window.ART[s]) || null; }
+  function artPick(A, key) { var h = 0; key = String(key); for (var i = 0; i < key.length; i++) h = (h * 31 + key.charCodeAt(i)) >>> 0; return A.items[h % A.items.length]; }
+  function artTile(A) {
+    var spots = [[18, 14, 0], [140, 40, 1], [70, 120, 2], [190, 160, 3], [10, 190, 4], [120, 210, 5]], body = '';
+    spots.forEach(function (sp) { var it = A.items[sp[2] % A.items.length].replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, ''); body += '<svg x="' + sp[0] + '" y="' + sp[1] + '" width="44" height="44" viewBox="0 0 64 64">' + it + '</svg>'; });
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="260" height="270"><g opacity=".1">' + body + '</g></svg>';
+  }
+  function applyArt(s) {
+    var A = artOf(s), de = document.documentElement;
+    if (A) { de.dataset.art = s; de.style.setProperty('--pattern', 'url("data:image/svg+xml,' + encodeURIComponent(artTile(A)) + '")'); de.style.setProperty('--pattern-size', '260px 270px'); }
+    else { delete de.dataset.art; de.style.removeProperty('--pattern'); de.style.removeProperty('--pattern-size'); }
+    return A;
+  }
+  function pickLine(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function mascotHTML(A, line) { return '<div class="ms-fig" aria-hidden="true">' + A.mascot + '</div><p class="ms-bubble"><b>' + A.name + '</b>' + line + '</p>'; }
+  var cheerTimer = 0;
+  function showCheer(A) {
+    var el = document.getElementById('cheer');
+    if (!el) { el = document.createElement('div'); el.id = 'cheer'; el.className = 'cheer'; el.setAttribute('role', 'status'); document.body.appendChild(el); }
+    el.innerHTML = '<div class="ms-fig" aria-hidden="true">' + A.face + '</div><p>' + pickLine(A.cheer) + '</p>';
+    el.classList.remove('on'); void el.offsetWidth; el.classList.add('on');
+    clearTimeout(cheerTimer); cheerTimer = setTimeout(function () { el.classList.remove('on'); }, 2600);
   }
 
   function runSetup(initial) {
@@ -315,6 +340,12 @@
       renderChips(); renderStages(); paintBizQ(); paintSurvey();
       var sk = setSkin(sel.biz, sel.type), lab = document.getElementById('sSkin');
       if (lab) lab.textContent = sk && SKIN_NAME[sk] ? '이 업종 디자인으로 바뀌었어요 · ' + SKIN_NAME[sk] : '';
+      var sm = document.getElementById('sMascot'), SA = artOf(sk);
+      if (sm && sm.dataset.for !== (SA ? sk : '')) {
+        sm.dataset.for = SA ? sk : '';
+        sm.hidden = !SA;
+        sm.innerHTML = SA ? mascotHTML(SA, '반가워요! 저랑 같이 ' + IND[sel.biz].name + ' AI 코스를 만들어 봐요.') : '';
+      }
       cbox.hidden = sel.biz !== 'custom';
       document.getElementById('customName').textContent = sel.name;
       ctypes.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.type === sel.type ? 'true' : 'false'); });
@@ -397,6 +428,8 @@
   var IN = industryOf(P);
   var BIZ = P.biz;
   setSkin(BIZ, P.type);
+  var ARTA = artOf(skinOf(BIZ, P.type));
+  (function () { var h = document.getElementById('mascotHero'); if (h && ARTA) { h.hidden = false; h.innerHTML = mascotHTML(ARTA, pickLine(ARTA.hi).replace(/원장님|사장님|소장님/, IN.terms.owner)); } })();
   var terms = IN.terms;
   var R = makeReplacer(terms);
   window.COURSE = { biz: BIZ, stage: P.stage, name: IN.name, terms: terms };
@@ -721,6 +754,7 @@
         lastPart = sec.dataset.part;
         var p = document.createElement('li'); p.className = 'part';
         var t = document.createElement('span'); t.textContent = partTitle[lastPart] || lastPart;
+        if (ARTA) { var pic = document.createElement('i'); pic.className = 'part-pic'; pic.setAttribute('aria-hidden', 'true'); pic.innerHTML = artPick(ARTA, lastPart); t.insertBefore(pic, t.firstChild); }
         var bar = document.createElement('span'); bar.className = 'pbar'; bar.setAttribute('aria-hidden', 'true'); bar.appendChild(document.createElement('i'));
         var pp = document.createElement('span'); pp.className = 'pp';
         p.appendChild(t); p.appendChild(bar); p.appendChild(pp);
@@ -749,11 +783,17 @@
       foot.className = 'lesson-foot';
       foot.innerHTML = '<button type="button" class="prev">이전 강의</button><span class="spacer"></span><button type="button" class="done-btn" aria-pressed="false">이 강의 완료</button><button type="button" class="next">다음 강의</button>';
       sec.appendChild(foot);
+      if (ARTA && head) {
+        var la = document.createElement('div'); la.className = 'lh-art'; la.setAttribute('aria-hidden', 'true'); la.innerHTML = artPick(ARTA, sec.id); head.appendChild(la);
+        var why = sec.querySelector('.easy-row.why > b');
+        if (why) { var wf = document.createElement('i'); wf.className = 'why-face'; wf.setAttribute('aria-hidden', 'true'); wf.innerHTML = ARTA.face; why.insertBefore(wf, why.firstChild); }
+      }
       foot.querySelector('.prev').addEventListener('click', function () { move(sec, -1); });
       foot.querySelector('.next').addEventListener('click', function () { move(sec, 1); });
       foot.querySelector('.done-btn').addEventListener('click', function () {
         var k = 'done:' + sec.id;
         state[k] = !state[k]; save(); paint();
+        if (state[k] && ARTA) showCheer(ARTA);
         if (state[k]) move(sec, 1);
       });
     });

@@ -260,6 +260,43 @@ html[data-skin] .s-skin { display: inline-flex; align-items: center; gap: 6px; a
 :root[data-skin="c-office"] .lesson-head { border-top: 1px solid var(--ink); padding-top: 12px; }
 :root[data-skin="c-edu"] .steps > li::before { color: var(--leaf); font-weight: 700; }
 
+/* ── 그림·캐릭터 (art.js, html[data-art]) ── */
+.mascot { display: flex; align-items: flex-end; gap: 6px; }
+.mascot .ms-fig { flex: none; width: 112px; line-height: 0; }
+.mascot .ms-fig svg { width: 100%; height: auto; display: block; }
+.mascot .ms-bubble { position: relative; margin: 0 0 34px; padding: 9px 13px; background: var(--paper); border: 1.5px solid var(--line); border-radius: 16px 16px 16px 4px; font-size: 14px; line-height: 1.45; max-width: 220px; box-shadow: 0 4px 14px var(--shadow); }
+.mascot .ms-bubble b { display: block; font-size: 11.5px; color: var(--leaf); font-weight: 700; margin-bottom: 1px; }
+.mascot-hero { margin-left: auto; margin-right: 8px; align-self: flex-end; }
+.mascot-hero .ms-fig { animation: ms-bob 3.2s ease-in-out infinite; }
+@keyframes ms-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.s-mascot { margin-top: 8px; }
+.s-mascot .ms-fig { width: 120px; animation: ms-pop .45s cubic-bezier(.3, 1.5, .5, 1); }
+@keyframes ms-pop { from { transform: scale(.6) translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+html[data-art] .s-head::after { display: none; }
+@media (max-width: 900px) { .mascot-hero { order: -1; margin: 0 0 -6px; width: 100%; } .mascot-hero .ms-fig { width: 84px; } .mascot-hero .ms-bubble { margin-bottom: 22px; font-size: 13.5px; } }
+@media (max-width: 640px) { .mascot-hero { display: none !important; } }
+
+html[data-art] .lesson-head::after { display: none; }
+html[data-skin] .lesson-head > .lh-art, .lh-art { position: absolute; right: 0; top: -6px; width: 92px; height: 92px; z-index: 0 !important; pointer-events: none; transform: rotate(6deg); filter: drop-shadow(0 4px 6px var(--shadow)); }
+.lh-art svg { width: 100%; height: 100%; display: block; }
+html[data-art] .lesson-head h2, html[data-art] .lesson-head .goal { padding-right: 96px; }
+@media (max-width: 640px) { .lh-art { width: 60px; height: 60px; top: 0; } html[data-art] .lesson-head h2 { padding-right: 58px; } html[data-art] .lesson-head .goal { padding-right: 0; } }
+
+.why-face { display: inline-block; width: 22px; height: 22px; vertical-align: -6px; margin-right: 5px; line-height: 0; }
+.why-face svg { width: 100%; height: 100%; }
+.easy-row.why > b { white-space: nowrap; }
+
+.part-pic { display: inline-block; width: 18px; height: 18px; vertical-align: -4px; margin-right: 6px; line-height: 0; }
+.part-pic svg { width: 100%; height: 100%; }
+
+.cheer { position: fixed; z-index: 120; right: 20px; bottom: 24px; display: flex; align-items: center; gap: 10px; padding: 10px 18px 10px 10px; background: var(--paper); border: 2px solid var(--leaf); border-radius: 999px; box-shadow: 0 10px 30px var(--shadow); font-weight: 600; font-size: 15.5px; transform: translateY(140%); opacity: 0; transition: transform .35s cubic-bezier(.3, 1.4, .5, 1), opacity .25s; pointer-events: none; }
+.cheer.on { transform: none; opacity: 1; }
+.cheer .ms-fig { width: 46px; height: 46px; line-height: 0; }
+.cheer .ms-fig svg { width: 100%; height: 100%; }
+.cheer p { margin: 0; }
+@media (max-width: 900px) { .cheer { left: 12px; right: 12px; bottom: calc(86px + env(safe-area-inset-bottom, 0px)); justify-content: center; } }
+@media (prefers-reduced-motion: reduce) { .mascot-hero .ms-fig, .s-mascot .ms-fig { animation: none; } .cheer { transition: opacity .2s; } }
+
 @media (prefers-reduced-motion: reduce) { html[data-skin] body { transition: none; } }
 '''
 

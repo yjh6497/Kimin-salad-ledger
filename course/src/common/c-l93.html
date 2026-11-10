@@ -4,13 +4,13 @@
     <h2>만든 화면을 태블릿에 올리고, 필요한 사람에게 링크로 나누기</h2>
     <p class="goal">직원 웹앱, 재고 사용, 냉장 온도 체크, {{customer}} 설문은 <b>접수대<span data-biz="vet">·진료실</span><span data-biz-not="vet"></span> 태블릿 한 대</b>에 올려 두면 직원 모두가 같은 화면을 써요. 만드는 방법은 둘이에요. 하나는 구글 계정으로 주소를 만드는 <b>웹사이트 방식</b>이에요. 다른 하나는 Claude가 만든 페이지를 링크로 나누는 <b>아티팩트 방식</b>이에요. 많은 분이 "만들었는데 어떻게 보내요?"에서 막혀요. 여기서 공유 버튼 위치부터 받는 사람 화면 확인까지 따라 해요.</p>
   </div>
-  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>만든 화면이 {{owner}} PC 안에만 있으면 직원도 {{customer}}도 쓸 수 없어요. 태블릿에 걸고 링크를 건네면 접수·기록을 종이 없이 바로 시작해요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>만든 화면을 '가게 공용 게시판'인 태블릿에 걸어 두고, 필요한 사람에게는 주소(링크)를 건네는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>홈 화면에 앱처럼 깔린 직원 화면, 대기실 태블릿 접수·동의 앱, 그리고 '공유 주소' 목록 한 장</span></div><div class="easy-row"><b>필요한 것</b><span>태블릿(아이패드·갤럭시 탭), PC, {{place}} 공용 구글 계정, 1시간 30분 · 코드 붙이기와 배포가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>만든 화면이 {{owner}} PC 안에만 있으면 직원도 {{customer}}도 쓸 수 없어요. 태블릿에 걸고 링크를 건네면 접수·기록을 종이 없이 바로 시작해요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>만든 화면을 '가게 공용 게시판'인 태블릿에 걸어 두고, 필요한 사람에게는 주소(링크)를 건네는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>홈 화면에 앱처럼 깔린 직원 화면, {{lobby}} 태블릿 접수·동의 앱, 그리고 '공유 주소' 목록 한 장</span></div><div class="easy-row"><b>필요한 것</b><span>태블릿(아이패드·갤럭시 탭), PC, {{place}} 공용 구글 계정, 1시간 30분 · 코드 붙이기와 배포가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <h3>태블릿이 맡을 자리</h3>
   <div class="table-wrap"><table>
     <thead><tr><th>자리</th><th>올릴 것</th><th>방식</th></tr></thead>
     <tbody>
       <tr><td><b>접수대<span data-biz="vet">·진료실</span><span data-biz-not="vet"></span></b> (직원 공용)</td><td>직원 웹앱(출퇴근·체크리스트·인수인계), 재고 사용 버튼, 냉장 온도 기록, 오늘 근무</td><td>웹사이트(앱스 스크립트 웹앱 <a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)</td></tr>
-      <tr><td><b>대기실</b> ({{customer}}용)</td><td>첫 방문 접수지·설문, 사진 활용 동의, {{place}} 안내</td><td>웹사이트(구글 폼 <a href="#c-l98" class="ref" data-ref="c-l98">강의</a>, 구글 사이트)</td></tr>
+      <tr><td><b>{{lobby}}</b> ({{customer}}용)</td><td>첫 방문 접수지·설문, 사진 활용 동의, {{place}} 안내</td><td>웹사이트(구글 폼 <a href="#c-l98" class="ref" data-ref="c-l98">강의</a>, 구글 사이트)</td></tr>
       <tr><td><b>{{owner}}</b></td><td>대시보드, 이 코스, 승인함(텔레그램), 시안·기획 페이지</td><td>웹사이트 + 아티팩트</td></tr>
     </tbody>
   </table></div>
@@ -29,19 +29,19 @@
   <p class="cap">정리하면: <b>직원·{{customer:가}} 쓰는 화면은 웹사이트 방식</b>, <b>보여 주고 의견을 받는 페이지는 아티팩트 방식</b>.</p>
 
   <ol class="steps">
-    <li><input type="checkbox" id="v_a93a" data-key="v_a93a"><div class="body"><label for="v_a93a">태블릿 준비하기</label><small>여러 사람이 쓰는 기계라 먼저 안전하게 해 둬요. {{place}} 공용 구글 계정으로 로그인해요({{owner}} 개인 계정 아님). 화면 잠금 PIN(비밀번호 숫자)을 걸어요. 자동 업데이트는 밤에 되게 하고, 충전 거치대에 세워 둬요. 분실 대비로 '나의 찾기'(아이패드) 또는 '내 디바이스 찾기'(갤럭시 탭)를 켜요. 대기실용과 직원용은 가능하면 따로 둬요.</small></div></li>
+    <li><input type="checkbox" id="v_a93a" data-key="v_a93a"><div class="body"><label for="v_a93a">태블릿 준비하기</label><small>여러 사람이 쓰는 기계라 먼저 안전하게 해 둬요. {{place}} 공용 구글 계정으로 로그인해요({{owner}} 개인 계정 아님). 화면 잠금 PIN(비밀번호 숫자)을 걸어요. 자동 업데이트는 밤에 되게 하고, 충전 거치대에 세워 둬요. 분실 대비로 '나의 찾기'(아이패드) 또는 '내 디바이스 찾기'(갤럭시 탭)를 켜요. {{lobby}}용과 직원용은 가능하면 따로 둬요.</small></div></li>
     <li><input type="checkbox" id="v_a93b" data-key="v_a93b"><div class="body"><label for="v_a93b">웹사이트 방식: <dfn data-t="webapp">웹앱</dfn> 주소 만들고 나누기</label><small>직원이 매일 쓰고 기록이 남아야 하는 화면은 이 방식이에요. <dfn data-t="deploy">배포</dfn>(만든 화면을 인터넷 주소로 내놓기)를 하면 주소가 생겨요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>앱스 스크립트 편집기 오른쪽 위 <span class="path">배포 → 새 배포</span> → 유형 '웹 앱'</li>
         <li>다음 사용자로 실행: <b>나</b> · 액세스 권한: 직원 앱은 <b>모든 사용자</b>(로그인 없이, 대신 PIN으로 사람 구분 <a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)</li>
         <li><span class="path">배포</span> → 나온 웹 앱 URL 복사 → 카톡 '나에게'나 텔레그램으로 보내 태블릿에서 열기</li>
-        <li>고칠 때는 <span class="path">배포 → 배포 관리 → 연필 → 버전: 새 버전</span>. 새 배포를 또 만들면 주소가 바뀌어요<span class="fix">'모든 사용자'는 주소를 아는 누구나 열 수 있다는 뜻이에요. 주소를 대기실 게시물이나 SNS에 올리지 말고, PIN 없이는 아무것도 안 보이게 만들어요.</span></li>
+        <li>고칠 때는 <span class="path">배포 → 배포 관리 → 연필 → 버전: 새 버전</span>. 새 배포를 또 만들면 주소가 바뀌어요<span class="fix">'모든 사용자'는 주소를 아는 누구나 열 수 있다는 뜻이에요. 주소를 {{lobby}} 게시물이나 SNS에 올리지 말고, PIN 없이는 아무것도 안 보이게 만들어요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="v_a93c" data-key="v_a93c"><div class="body"><label for="v_a93c">{{customer}}용은 구글 폼·사이트로 만들기</label><small>{{customer:가}} 쓰는 화면은 만들기 쉽고 로그인이 필요 없는 구글 폼·사이트가 편해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>구글 폼 오른쪽 위 <span class="path">게시</span>(또는 보내기) → 링크 아이콘 → URL 단축 → 복사. 응답자 권한이 '링크가 있는 모든 사용자'인지 확인</li>
         <li>{{place}} 안내 페이지는 구글 사이트(sites.google.com) → 만들기 → <span class="path">게시</span> → 웹 주소 정하기 → 누구나 볼 수 있게</li>
-        <li>대기실 태블릿 대신 <b>QR 코드</b>도 좋아요. Chrome에서 주소 열기 → 공유 → QR 코드 → 접수대에 출력. {{customer:는}} 자기 휴대폰으로 써서 태블릿을 닦을 일도, 앞사람 입력이 남을 일도 없어요</li>
+        <li>{{lobby}} 태블릿 대신 <b>QR 코드</b>도 좋아요. Chrome에서 주소 열기 → 공유 → QR 코드 → 접수대에 출력. {{customer:는}} 자기 휴대폰으로 써서 태블릿을 닦을 일도, 앞사람 입력이 남을 일도 없어요</li>
       </ol></details></div></li>
     <li><input type="checkbox" id="v_a93d" data-key="v_a93d"><div class="body"><label for="v_a93d">아티팩트 방식: 공유 버튼으로 링크 나누기</label><small>매뉴얼·시안처럼 보여 주고 의견을 받을 페이지는 이 방식이에요. 아티팩트는 Claude가 만들어 주는 웹 페이지예요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
@@ -53,11 +53,11 @@
         <li>그만 나누려면 같은 곳에서 접근 권한을 '나만'으로<span class="fix">무료 요금제는 새 아티팩트를 링크로 공유할 수 없어요. 메뉴 이름은 바뀔 수 있으니 안 보이면 Claude 고객센터의 '아티팩트 공유' 안내를 보세요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="v_a93e" data-key="v_a93e"><div class="body"><label for="v_a93e">태블릿 <dfn data-t="homescreen">홈 화면에 앱처럼</dfn> 올리기</label><small>주소를 매번 치지 않고 아이콘 하나로 열려고 해요. <b>아이패드</b>:Safari로 주소 열기 → 주소창 옆 공유 버튼 → <span class="path">홈 화면에 추가</span>. <b>갤럭시 탭</b>: Chrome으로 열기 → 오른쪽 위 ⋮ → <span class="path">홈 화면에 추가</span>. 아이콘 이름은 '직원 앱', '재고', '온도'처럼 짧게.</small></div></li>
-    <li><input type="checkbox" id="v_a93f" data-key="v_a93f"><div class="body"><label for="v_a93f">대기실 태블릿은 한 화면만 보이게 하기</label><small>{{customer:가}} 다른 앱이나 사진을 열지 못하게 하려는 거예요. <b>아이패드</b>: <span class="path">설정 → 손쉬운 사용 → 사용법 유도</span>를 켜요. 설문 화면에서 상단 버튼을 세 번 눌러 시작하면 다른 앱으로 못 나가요. <b>갤럭시 탭</b>: 설정 검색에서 '앱 고정'을 켜고, 최근 앱 화면에서 고정해요. 자동 잠금은 길게, 밝기는 낮게 해요. 설문을 낸 뒤 첫 화면으로 돌아오는지, 앞사람 입력이 남지 않는지 확인해요.</small></div></li>
+    <li><input type="checkbox" id="v_a93f" data-key="v_a93f"><div class="body"><label for="v_a93f">{{lobby}} 태블릿은 한 화면만 보이게 하기</label><small>{{customer:가}} 다른 앱이나 사진을 열지 못하게 하려는 거예요. <b>아이패드</b>: <span class="path">설정 → 손쉬운 사용 → 사용법 유도</span>를 켜요. 설문 화면에서 상단 버튼을 세 번 눌러 시작하면 다른 앱으로 못 나가요. <b>갤럭시 탭</b>: 설정 검색에서 '앱 고정'을 켜고, 최근 앱 화면에서 고정해요. 자동 잠금은 길게, 밝기는 낮게 해요. 설문을 낸 뒤 첫 화면으로 돌아오는지, 앞사람 입력이 남지 않는지 확인해요.</small></div></li>
     <li><input type="checkbox" id="v_a93g" data-key="v_a93g"><div class="body"><label for="v_a93g">공유 주소 목록 한 장 만들기</label><small>어디에 무엇을 나눴는지 잊지 않으려는 거예요. 장부에 '공유 주소' 탭을 두고 이름 | 주소 | 방식 | 누가 여나 | 공개 범위 | 만든 날 | 끈 날을 적어요. 퇴사자가 생기면 이 표를 보고 PIN을 지우고 공유를 끊어요(<a href="#c-l80" class="ref" data-ref="c-l80">강의</a>).</small></div></li>
   </ol>
 
-  <h3>실전: 대기실 태블릿 접수·동의 앱 만들기</h3>
+  <h3>실전: {{lobby}} 태블릿 접수·동의 앱 만들기</h3>
   <p class="goal">{{customer:가}} 태블릿에서 <b>글씨 크기 고르기 → {{customer}} 정보 → <span data-biz="vet">반려동물(사진 한 장)</span><span data-biz-not="vet">방문 정보(참고 사진)</span> → 동의 3가지 → 손가락 서명</b>을 해요. 그러면 {{owner}} 구글 시트 '접수동의' 탭에 한 줄이 쌓이고, 서명은 드라이브 폴더에 저장돼요. 동의 문구는 시트에서 고치면 다음 {{customer}}부터 바뀌어요. 코드는 아래 두 개를 복사해 붙이기만 하면 돼요.</p>
   <div class="vis">
     <div class="tabmock">
@@ -69,7 +69,7 @@
         <div class="tm-term"><i></i><span>사진·<span data-biz="vet">진료</span><span data-biz-not="vet">이용</span> 이야기 활용 동의</span><em class="o">선택</em></div>
         <div class="tm-nav"><span>이전</span><span class="go">다음</span></div></div>
     </div>
-    <p class="cap">실제 앱 화면(대기실 태블릿 가로). 첫 화면 「보통 글씨로 시작 / 큰 글씨로 시작」 → 1 {{customer}} → 2 <span data-biz="vet">반려동물(사진)</span><span data-biz-not="vet">방문 정보(사진)</span> → 3 동의 → 4 서명 → 접수번호. 12초 뒤, 또는 3분 동안 손대지 않으면 첫 화면으로 돌아가고 입력·사진이 지워져요. 도중에도 오른쪽 위 「가 큰 글씨」로 바꿀 수 있어요.</p>
+    <p class="cap">실제 앱 화면({{lobby}} 태블릿 가로). 첫 화면 「보통 글씨로 시작 / 큰 글씨로 시작」 → 1 {{customer}} → 2 <span data-biz="vet">반려동물(사진)</span><span data-biz-not="vet">방문 정보(사진)</span> → 3 동의 → 4 서명 → 접수번호. 12초 뒤, 또는 3분 동안 손대지 않으면 첫 화면으로 돌아가고 입력·사진이 지워져요. 도중에도 오른쪽 위 「가 큰 글씨」로 바꿀 수 있어요.</p>
   </div>
   <ol class="steps">
     <li><input type="checkbox" id="v_a93h" data-key="v_a93h"><div class="body"><label for="v_a93h">시트와 서명 폴더 만들기</label><small>접수 내용과 서명이 저장될 자리를 먼저 만들어요. {{place}} 구글 계정 → 새 스프레드시트 '접수·동의' → 탭 두 개 '접수동의', '동의문구'를 만들어요. 아래 제목 줄을 각 탭 A1에 붙여요. 동의문구 탭 2~4행에 privacy·ad·photo 세 줄을 넣어요. 전문은 동의서 부탁문(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>)으로 만든 문구를 붙여요. 드라이브에 '서명' 폴더와 '<span data-biz="vet">반려동물 사진</span><span data-biz-not="vet">참고 사진</span>' 폴더도 하나씩. 두 곳 모두 {{owner}}·실장님만 볼 수 있게.</small></div></li>
@@ -81,8 +81,8 @@
         <li>함수 readTerms 선택 → ▶ 실행 → 권한 허용(시트·드라이브)<span class="fix">막히면: '확인되지 않은 앱' 창이 뜨면 <span class="path">고급 → (안전하지 않음)으로 이동 → 허용</span>을 눌러요. 오류가 나면 빨간 글씨를 캡처해 '07 자동화 도우미'에게 보내요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="v_a93j" data-key="v_a93j"><div class="body"><label for="v_a93j">배포하고 태블릿 주소 만들기</label><small>태블릿에서 열 주소를 만드는 단계예요. <span class="path">배포 → 새 배포 → 웹 앱</span> · 실행: 나 · 액세스: 모든 사용자 → 배포 → 웹 앱 URL 복사 순서로 해요. 태블릿 주소는 그 URL 끝에 <code>?k=KIOSK_KEY값</code>을 붙인 것이에요. <b>큰 글씨 전용 주소</b>는 끝에 <code>&amp;big=1</code>을 더 붙여요. 이 주소로 열면 글씨 고르기 없이 늘 큰 글씨로 시작해요. 이 주소는 태블릿에만 넣고 어디에도 게시하지 않아요. 키가 없거나 틀리면 "주소를 확인해 주세요"만 보여요.<span class="fix">막히면: "주소를 확인해 주세요"가 뜨면 ?k= 뒤 값이 스크립트 속성 KIOSK_KEY와 한 글자도 다르지 않은지 봐요.</span></small></div></li>
-    <li><input type="checkbox" id="v_a93k" data-key="v_a93k"><div class="body"><label for="v_a93k">태블릿에 앱처럼 고정하기</label><small>태블릿 Safari(아이패드)·Chrome(갤럭시 탭)으로 태블릿 주소를 열어요 → 홈 화면에 추가(이름 '접수'). 대기실 태블릿은 위 단계의 '사용법 유도'·'앱 고정'으로 이 화면만 보이게 해요. 위쪽에 구글이 띄우는 "이 애플리케이션은 Google 사용자가 만들었습니다" 안내는 앱스 스크립트 웹앱이면 늘 보여요.</small></div></li>
-    <li><input type="checkbox" id="v_a93n" data-key="v_a93n"><div class="body"><label for="v_a93n">큰 글씨 버전과 보통 글씨 버전 나누기</label><small>대기실 {{customer}} 중에는 어르신, 돋보기를 안 가져온 분, <span data-biz="vet">아픈 아이를 안고</span><span data-biz-not="vet">짐을 들고</span> 한 손으로 누르는 분이 많아요. 태블릿에서 받는 화면(웹앱이든 아티팩트든)은 두 버전으로 나눠요. <b>① 태블릿 한 대</b>: 첫 화면에서 「보통 글씨로 시작 / 큰 글씨로 시작」을 고르게(이 앱 기본). <b>② 태블릿 두 대</b>: 한 대는 보통 주소, 한 대는 큰 글씨 전용 주소(<code>&amp;big=1</code>)로 홈 화면에 '접수', '접수(큰 글씨)' 아이콘. 큰 글씨는 글자 24px 이상, 버튼·체크 칸·서명 칸도 커져요. 함께 챙길 것: 동의 전문 위 <b>쉬운 말 세 줄 요약</b>, 접수대 "글씨 크게 / 직원이 도와드려요" 안내, 종이 양식도 <b>보통(A4 1장)·큰 글씨(14pt 이상, A4 2장)</b> 두 파일(Canva <a href="#c-l39" class="ref" data-ref="c-l39">강의</a>). 직원이 대신 입력해도 서명은 {{customer:가}}.</small></div></li>
+    <li><input type="checkbox" id="v_a93k" data-key="v_a93k"><div class="body"><label for="v_a93k">태블릿에 앱처럼 고정하기</label><small>태블릿 Safari(아이패드)·Chrome(갤럭시 탭)으로 태블릿 주소를 열어요 → 홈 화면에 추가(이름 '접수'). {{lobby}} 태블릿은 위 단계의 '사용법 유도'·'앱 고정'으로 이 화면만 보이게 해요. 위쪽에 구글이 띄우는 "이 애플리케이션은 Google 사용자가 만들었습니다" 안내는 앱스 스크립트 웹앱이면 늘 보여요.</small></div></li>
+    <li><input type="checkbox" id="v_a93n" data-key="v_a93n"><div class="body"><label for="v_a93n">큰 글씨 버전과 보통 글씨 버전 나누기</label><small>{{lobby}} {{customer}} 중에는 어르신, 돋보기를 안 가져온 분, <span data-biz="vet">아픈 아이를 안고</span><span data-biz-not="vet">짐을 들고</span> 한 손으로 누르는 분이 많아요. 태블릿에서 받는 화면(웹앱이든 아티팩트든)은 두 버전으로 나눠요. <b>① 태블릿 한 대</b>: 첫 화면에서 「보통 글씨로 시작 / 큰 글씨로 시작」을 고르게(이 앱 기본). <b>② 태블릿 두 대</b>: 한 대는 보통 주소, 한 대는 큰 글씨 전용 주소(<code>&amp;big=1</code>)로 홈 화면에 '접수', '접수(큰 글씨)' 아이콘. 큰 글씨는 글자 24px 이상, 버튼·체크 칸·서명 칸도 커져요. 함께 챙길 것: 동의 전문 위 <b>쉬운 말 세 줄 요약</b>, 접수대 "글씨 크게 / 직원이 도와드려요" 안내, 종이 양식도 <b>보통(A4 1장)·큰 글씨(14pt 이상, A4 2장)</b> 두 파일(Canva <a href="#c-l39" class="ref" data-ref="c-l39">강의</a>). 직원이 대신 입력해도 서명은 {{customer:가}}.</small></div></li>
     <li data-biz="vet"><input type="checkbox" id="v_a93o" data-key="v_a93o"><div class="body"><label for="v_a93o">반려동물 사진 한 장</label><small>반려동물 단계에 「📷 사진 찍기」가 있어요. 태블릿 카메라로 찍으면 가로 1280px로 줄여 '반려동물 사진' 폴더에 접수번호 이름으로 저장되고, 시트에 링크가 남아요. 같은 이름(콩이·초코)이 많아도 <b>차트에서 아이를 바로 알아보고</b>, 입원·호텔·미용 때 바뀔 일이 줄고, 재방문 안내·블로그에 쓸 사진도 고르기 쉬워요. 단, 사진은 진료 기록용이고 블로그·SNS에는 ③ 사진 활용 동의가 있을 때만(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>). {{customer}} 얼굴은 안 나오게 찍어 달라고 안내해요. 접수 때 못 찍었으면 진료실에서 직원이 찍어 차트에 붙여요.</small></div></li>
     <li data-biz-not="vet"><input type="checkbox" id="v_a93o_n" data-key="v_a93o_n"><div class="body"><label for="v_a93o_n">참고 사진 한 장</label><small>방문 정보 단계에 「📷 사진 찍기」가 있어요. {{customer:가}} 원하는 모양·예시 사진을 찍으면 가로 1280px로 줄여 '참고 사진' 폴더에 접수번호 이름으로 저장되고, 시트에 링크가 남아요. 상담할 때 바로 보고 이야기할 수 있어요. 단, 사진은 상담 참고용이고 블로그·SNS에는 ③ 사진 활용 동의가 있을 때만(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>). 필요 없으면 이 칸은 비워 둬도 돼요.</small></div></li>
     <li><input type="checkbox" id="v_a93l" data-key="v_a93l"><div class="body"><label for="v_a93l">시험 접수 3번 해 보기</label><small>진짜 {{customer:가}} 쓰기 전에 고장을 찾으려는 거예요. 직원이 {{customer}}인 척 ① 필수만 동의 ② 모두 동의 ③ 필수 빼고 '다음' 눌러 보기를 해요. 시트 줄, 서명 파일, 오류 문구, 첫 화면 복귀, 앞사람 입력이 지워지는지 확인해요. 시험 줄은 지우고 서명 파일도 지워요.</small></div></li>

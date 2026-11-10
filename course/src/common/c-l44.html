@@ -1,11 +1,11 @@
-<section id="c-l44" class="lesson" data-part="build" data-title="대기실 TV를 안내판으로" data-level="grow" data-stage="prep takeover operate" data-biz-not="arch">
+<section id="c-l44" class="lesson" data-part="build" data-title="{{lobby}} TV를 안내판으로" data-level="grow" data-stage="prep takeover operate" data-biz-not="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · 계절마다 10분</span>
     <h2>기다리는 5분 동안, {{customer:가}} {{place:을}} 알아 가게</h2>
-    <p class="goal">대기실 벽의 태블릿이나 안 쓰는 TV에 <b>{{place}} 소개, 오늘 {{hours}}, <span data-biz="vet">진료 순서, 예방접종 달력, 계절 건강 팁</span><span data-biz-not="vet">이용 순서, 대표 {{item}}, 계절 소식</span>, 블로그·카톡 채널 QR</b>을 큰 글씨로 돌려 보여 줘요. 종이 안내문은 바꾸기 번거로워요. 화면은 시트나 슬라이드 한 줄만 고치면 돼요. <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>이 있으면 위쪽 띠에 저절로 떠요.</p>
+    <p class="goal">{{lobby}} 벽의 태블릿이나 안 쓰는 TV에 <b>{{place}} 소개, 오늘 {{hours}}, <span data-biz="vet">진료 순서, 예방접종 달력, 계절 건강 팁</span><span data-biz-not="vet">이용 순서, 대표 {{item}}, 계절 소식</span>, 블로그·카톡 채널 QR</b>을 큰 글씨로 돌려 보여 줘요. 종이 안내문은 바꾸기 번거로워요. 화면은 시트나 슬라이드 한 줄만 고치면 돼요. <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>이 있으면 위쪽 띠에 저절로 떠요.</p>
   </div>
-  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>종이 안내문은 바꿀 때마다 새로 뽑아 붙여야 하고, 기다리는 {{customer:은}} 휴대폰만 봐요. 안 쓰는 화면에 안내를 띄우면 글만 고쳐도 바로 바뀌고, 기다리는 동안 {{place:을}} 알릴 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>안 쓰는 태블릿이나 TV를 '전자 게시판'으로 바꾸는 거예요. 종이를 새로 붙이지 않아도 글만 고치면 화면이 바뀌어요.</span></div><div class="easy-row"><b>끝나면</b><span>대기실에서 12초마다 넘어가는 안내 화면과, 계절마다 10분이면 바꾸는 안내 목록</span></div><div class="easy-row"><b>필요한 것</b><span>안 쓰는 태블릿이나 TV, PC, 구글 계정, 1시간 · 슬라이드 방법은 코드가 필요 없어요. 시트 앱 방법(③)은 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
-  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>대기실 화면에 인수 안내를 한 장 넣어요. 예: '{{owner:이}} 바뀌어도 <span data-biz="vet">진료 기록</span><span data-biz-not="vet">적립·예약 기록</span>·전화번호는 그대로'.</span></p>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>종이 안내문은 바꿀 때마다 새로 뽑아 붙여야 하고, 기다리는 {{customer:은}} 휴대폰만 봐요. 안 쓰는 화면에 안내를 띄우면 글만 고쳐도 바로 바뀌고, 기다리는 동안 {{place:을}} 알릴 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>안 쓰는 태블릿이나 TV를 '전자 게시판'으로 바꾸는 거예요. 종이를 새로 붙이지 않아도 글만 고치면 화면이 바뀌어요.</span></div><div class="easy-row"><b>끝나면</b><span>{{lobby}}에서 12초마다 넘어가는 안내 화면과, 계절마다 10분이면 바꾸는 안내 목록</span></div><div class="easy-row"><b>필요한 것</b><span>안 쓰는 태블릿이나 TV, PC, 구글 계정, 1시간 · 슬라이드 방법은 코드가 필요 없어요. 시트 앱 방법(③)은 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>{{lobby}} 화면에 인수 안내를 한 장 넣어요. 예: '{{owner:이}} 바뀌어도 <span data-biz="vet">진료 기록</span><span data-biz-not="vet">적립·예약 기록</span>·전화번호는 그대로'.</span></p>
 
   <div class="vis">
     <div class="tabmock" style="max-width:640px">
@@ -16,7 +16,7 @@
       </div>
       <div class="tm-dots"><i class="on"></i><i></i><i></i><i></i></div>
     </div>
-    <p class="cap">글자 크기는 화면 높이에 맞춰 커져요. 그래서 대기실 어디서든 읽혀요. 12초마다 다음 안내로 넘어가요. QR은 주소만 적으면 저절로 그려져요.</p>
+    <p class="cap">글자 크기는 화면 높이에 맞춰 커져요. 그래서 {{lobby}} 어디서든 읽혀요. 12초마다 다음 안내로 넘어가요. QR은 주소만 적으면 저절로 그려져요.</p>
   </div>
 
   <h3>무엇을 보여 줄까</h3>
@@ -44,11 +44,11 @@
   </table></div>
 
   <ol class="steps">
-    <li><input type="checkbox" id="v_a44a" data-key="v_a44a"><div class="body"><label for="v_a44a">화면 장비 정하기</label><small>대기실 크기에 맞는 화면을 골라요. 작은 대기실은 <b>태블릿 가로 거치대</b>가 좋아요(접수 태블릿과 따로, <a href="#c-l93" class="ref" data-ref="c-l93">강의</a>). 넓으면 <b>안 쓰는 TV</b>를 써요. 크롬캐스트(크롬 '전송'), 스마트 TV 브라우저, 또는 HDMI로 연결한 안 쓰는 노트북(<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>) 중에서 골라요. 자동 잠금·절전은 꺼요. <span data-biz="vet">진료</span><span data-biz-not="vet">영업</span> 시작·끝에 맞춰 전원 타이머를 걸어요. 통신사의 매장 TV 안내 서비스(IPTV에 홍보 화면)도 있어요.</small></div></li>
+    <li><input type="checkbox" id="v_a44a" data-key="v_a44a"><div class="body"><label for="v_a44a">화면 장비 정하기</label><small>{{lobby}} 크기에 맞는 화면을 골라요. 작은 {{lobby:은}} <b>태블릿 가로 거치대</b>가 좋아요(접수 태블릿과 따로, <a href="#c-l93" class="ref" data-ref="c-l93">강의</a>). 넓으면 <b>안 쓰는 TV</b>를 써요. 크롬캐스트(크롬 '전송'), 스마트 TV 브라우저, 또는 HDMI로 연결한 안 쓰는 노트북(<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>) 중에서 골라요. 자동 잠금·절전은 꺼요. <span data-biz="vet">진료</span><span data-biz-not="vet">영업</span> 시작·끝에 맞춰 전원 타이머를 걸어요. 통신사의 매장 TV 안내 서비스(IPTV에 홍보 화면)도 있어요.</small></div></li>
     <li><input type="checkbox" id="v_a44b" data-key="v_a44b"><div class="body"><label for="v_a44b">안내 내용을 AI와 같이 만들기</label><small>멀리서도 읽히는 짧은 글이 필요해요. 아래 '안내 화면 부탁문'을 '05 상담·응대' 채팅에 보내요. 안내 10~12장이 시트 줄(또는 슬라이드 문구)로 나와요. 제목은 20자, 본문은 3줄 안쪽이에요. 올리기 전에 광고 점검을 한 번 거쳐요.</small></div></li>
     <li><input type="checkbox" id="v_a44c" data-key="v_a44c"><div class="body"><label for="v_a44c">① 구글 슬라이드로 바로 시작하기</label><small>코드 없이 오늘 바로 할 수 있는 방법이에요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>구글 슬라이드에서 새 프레젠테이션 '대기실 안내'를 만들어요. 16:9 크기로, 글자는 40pt 이상으로 안내를 한 장씩 넣어요.</li>
+        <li>구글 슬라이드에서 새 프레젠테이션 '{{lobby}} 안내'를 만들어요. 16:9 크기로, 글자는 40pt 이상으로 안내를 한 장씩 넣어요.</li>
         <li><span class="path">파일 → 공유 → 웹에 게시</span>를 눌러요. 슬라이드 자동 넘기기(예: 10초), '슬라이드쇼 마지막에 다시 시작', '로드 후 바로 시작'에 체크해요. <span class="path">게시</span>를 누르고 링크를 복사해요.</li>
         <li>태블릿·TV 브라우저에서 그 링크를 열고 전체 화면으로 해요. 슬라이드를 고치면 게시 화면도 바뀌어요(게시 설정의 '변경사항 자동 게시' 확인).<span class="fix">막히면: 고쳐도 화면이 그대로면 '변경사항 자동 게시'가 켜져 있는지 보고, 화면을 새로고침해요.</span></li>
       </ol></details></div></li>
@@ -64,17 +64,17 @@
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>안내화면 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>순서 | 켜기(Y/N) | 시작일 | 끝일 | 제목 | 본문 | 이미지(드라이브 파일 ID) | QR 링크 | 초(보여 줄 시간)</pre></div>
   <p class="cap">아래 두 부탁문은 '05 상담·응대' 채팅에 그대로 복사해 붙여 넣으세요. ○○ 자리만 우리 {{place}} 주소·달·{{item}}로 바꿔요.</p>
-  <div class="prompt"><div class="bar"><span>안내 화면 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 {{place}} 대기실 화면에 돌릴 안내 10~12장을 만들어 줘. {{place}} 정보는 {{place}} 소개서 기준.
+  <div class="prompt"><div class="bar"><span>안내 화면 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 {{place}} {{lobby}} 화면에 돌릴 안내 10~12장을 만들어 줘. {{place}} 정보는 {{place}} 소개서 기준.
 - 늘: {{place}}·{{owner}} 소개, <span data-biz="vet">진료 순서, 응급 시 연락</span><span data-biz-not="vet">이용 순서, 급할 때 연락</span>, "글씨가 작으면 직원이 도와드려요"
 - 계절: 지금 계절 <span data-biz="vet">건강 팁</span><span data-biz-not="vet">소식·{{item}}</span> 3장(시작일·끝일 포함)
 - 이번 주: 블로그 새 글 QR(주소 ○○), 카톡 채널 추가 QR(주소 ○○)
 형식: 안내화면 탭 줄(탭으로 구분) — 순서 | Y | 시작일 | 끝일 | 제목(20자 안) | 본문(3줄 안, 줄 사이는 ' · '로 이어서) | 이미지(비움) | QR 링크 | 12
 할인·이벤트 강조, 최상급 표현<span data-biz="vet">, 진단처럼 읽히는 말</span><span data-biz-not="vet"></span>은 빼 줘.</pre></div>
-  <div class="prompt"><div class="bar"><span>계절 안내 부탁문</span><button class="copy" type="button">복사</button></div><pre>다음 석 달(○월~○월) 대기실 계절 안내 4장을 안내화면 탭 줄로 만들어 줘.
+  <div class="prompt"><div class="bar"><span>계절 안내 부탁문</span><button class="copy" type="button">복사</button></div><pre>다음 석 달(○월~○월) {{lobby}} 계절 안내 4장을 안내화면 탭 줄로 만들어 줘.
 우리 동네 기후와 많이 찾는 {{item}}(○○)를 생각해서, {{customer:가}} 집에서 할 수 있는 것 위주로.
 시작일·끝일을 계절에 맞게 넣고, 광고 규칙에 걸리는 표현은 빼 줘.</pre></div>
   <p class="cap">아래 두 코드는 고치지 말고 통째로 복사해서 Apps Script 창에 붙여 넣으세요. Sign.gs와 sign.html은 각각 다른 파일이에요.</p>
-  <div class="prompt"><div class="bar"><span>Sign.gs</span><button class="copy" type="button">복사</button></div><pre>// 대기실 안내 화면 (안내화면 시트의 Apps Script)
+  <div class="prompt"><div class="bar"><span>Sign.gs</span><button class="copy" type="button">복사</button></div><pre>// {{lobby}} 안내 화면 (안내화면 시트의 Apps Script)
 // 안내화면 탭: 순서 | 켜기(Y/N) | 시작일 | 끝일 | 제목 | 본문 | 이미지(드라이브 파일 ID) | QR 링크 | 초(보여 줄 시간)
 var P = PropertiesService.getScriptProperties();
 
@@ -182,7 +182,7 @@ load(); setInterval(load, 10 * 60 * 1000); // 10분마다 시트를 다시 읽�
 &lt;/script&gt;
 &lt;/body&gt;&lt;/html&gt;
 </pre></div>
-  <p class="tip warnbox"><b>대기실 화면은 모두가 보는 게시판이에요.</b> {{customer}} 이름·대기 번호와 이름을 함께, <span data-biz="vet">진료</span><span data-biz-not="vet">일하는</span> 중 사진, 직원 개인 정보는 띄우지 않아요. <span data-biz="vet">반려동물</span><span data-biz-not="vet">{{customer}}</span> 사진은 사진 활용 동의(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>)가 있는 것만. 화면 주소(키 포함)는 대기실 화면 기기에만 넣어요.</p>
+  <p class="tip warnbox"><b>{{lobby}} 화면은 모두가 보는 게시판이에요.</b> {{customer}} 이름·대기 번호와 이름을 함께, <span data-biz="vet">진료</span><span data-biz-not="vet">일하는</span> 중 사진, 직원 개인 정보는 띄우지 않아요. <span data-biz="vet">반려동물</span><span data-biz-not="vet">{{customer}}</span> 사진은 사진 활용 동의(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>)가 있는 것만. 화면 주소(키 포함)는 {{lobby}} 화면 기기에만 넣어요.</p>
   <p class="src">참고: 구글 슬라이드 '웹에 게시'(자동 넘기기·반복) · 안내 화면 앱은 Apps Script 웹 앱 + qrcodejs(cdnjs). 메뉴 이름은 바뀔 수 있어요.</p>
         <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">기간</span><div class="ad"><b>시작일·끝일로 저절로</b><span>계절 안내는 날짜만 적어 두면 돼요. 기간이 지나면 화면에서 저절로 사라져요.</span></div></li><li><span class="chip k-trig">자동</span><div class="ad"><b>10분마다 반영·<span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span> 띠</b><span>시트를 고치면 10분 안에 화면이 바뀌어요. 캘린더에 <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>을 넣으면 위쪽 띠가 바뀌어요.</span></div></li><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>분기 첫 주 계절 안내</b><span>3·6·9·12월 첫 주 "계절 안내 바꾸기" 반복 일정.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>새 안내 올리기</b><span>계절·이번 주 안내 줄을 확인하고 켜기.</span><span class="pv">버튼: 올리기 / 수정</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "Canva·슬라이드 채우기" 부탁: 확정한 안내 문구를 Canva·구글 슬라이드 편집 화면에 채우고 게시는 {{owner}}. 저장·제출 버튼 앞에서 멈추게 해요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>canva.com, slides.google.com</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>터미널·봇</b><span>앱스 스크립트 안내 화면 앱: 시트 한 줄 = 안내 한 장, 10분마다 반영.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '05 상담·응대' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 안내화면 시트 → 드라이브 연결, 계절 안내는 분기마다 이 채팅에서</span></div></div>
