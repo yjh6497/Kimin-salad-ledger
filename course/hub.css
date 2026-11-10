@@ -106,3 +106,14 @@ html[data-font="big"] .toc button .t { font-size: 16px; }
 .sv-banner > span { flex: 1 1 260px; line-height: 1.5; }
 .sv-banner .s-btn { text-decoration: none; display: inline-flex; align-items: center; min-height: 40px; padding: 8px 18px; font-size: 15px; }
 @media (max-width: 640px) { .sv-opts { grid-template-columns: minmax(0, 1fr); } }
+.sv-opts.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sv-opts.multi { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sv-opts.multi button { position: relative; padding-left: 40px; }
+.sv-opts.multi button::before { content: ""; position: absolute; left: 13px; top: 50%; width: 16px; height: 16px; margin-top: -9px; border: 1.5px solid var(--muted); border-radius: 4px; background: var(--paper); }
+.sv-opts.multi button[aria-pressed="true"]::before { background: var(--leaf); border-color: var(--leaf); }
+.sv-opts.multi button[aria-pressed="true"]::after { content: ""; position: absolute; left: 18px; top: 50%; width: 5px; height: 9px; margin-top: -7px; border: solid var(--paper); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.sv-mrow { display: grid; grid-template-columns: 4.5em minmax(0, 1fr) auto; gap: 10px; align-items: center; font-size: 14.5px; }
+.sv-mrow .sv-meter { margin: 0; }
+.sv-mrow span { color: var(--muted); white-space: nowrap; }
+.sv-result ul { margin-top: 10px; }
+@media (max-width: 640px) { .sv-opts.four, .sv-opts.multi { grid-template-columns: minmax(0, 1fr); } }

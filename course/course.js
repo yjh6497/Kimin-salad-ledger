@@ -24,32 +24,43 @@
     { id: 'copy', tag: '컴퓨터', q: '복사·붙여넣기, 화면 캡처를 해 보셨어요?', o: ['자주 해요', '해 봤어요', '잘 몰라요'] },
     { id: 'sheet', tag: '컴퓨터', q: '엑셀이나 구글 시트로 표를 만들어 보셨어요?', o: ['수식도 써요', '입력만 해 봤어요', '거의 안 써 봤어요'] },
     { id: 'file', tag: '컴퓨터', q: '파일을 내려받아 폴더에서 찾는 일은 어때요?', o: ['쉬워요', '가끔 헤매요', '어려워요'] },
-    { id: 'ai', tag: 'AI', q: 'ChatGPT나 Claude 같은 AI를 써 보셨어요?', o: ['일에 자주 써요', '몇 번 써 봤어요', '처음이에요'] },
-    { id: 'upload', tag: 'AI', q: 'AI에게 사진이나 파일을 올려 물어본 적 있어요?', o: ['자주 해요', '한두 번', '없어요'] },
-    { id: 'code', tag: 'AI', q: '코드나 자동화(앱스 스크립트, 엑셀 매크로)를 해 보셨어요?', o: ['해 봤어요', '들어만 봤어요', '처음이에요'], s: '몰라도 괜찮아요. 이 코스에서 AI가 짜 줘요.' },
+    { id: 'ai', tag: 'AI', q: 'ChatGPT·Claude·제미나이 같은 AI를 얼마나 자주 쓰세요?', o: ['거의 매일', '일주일에 몇 번', '몇 번 써 봤어요', '처음이에요'], four: true },
+    { id: 'tasks', tag: 'AI', q: 'AI로 해 본 일을 모두 골라 주세요', s: '여러 개 고를 수 있어요. 해 본 게 없으면 맨 끝을 눌러요.', multi: true, none: 9,
+      o: ['글쓰기·답장·요약', '사진·캡처·파일 올려 묻기', '엑셀·표 정리, 숫자 계산', '그림·로고·이미지 만들기', '웹 검색·자료 조사', '프로젝트(GPTs)에 지침·파일 넣어 두기', '드라이브·지메일 같은 앱 연결(커넥터)', '정해진 시간에 저절로 하게(예약 작업)', 'AI가 준 코드 붙여 넣고 실행', '아직 없어요'] },
+    { id: 'prompt', tag: 'AI', q: 'AI에게 부탁할 때 보통 어떻게 쓰세요?', o: ['상황·조건·원하는 모양까지 자세히', '한두 줄로 짧게', '뭐라고 써야 할지 잘 모르겠어요'] },
+    { id: 'fix', tag: 'AI', q: 'AI 답이 마음에 안 들면 어떻게 하세요?', o: ['고칠 점을 말해 다시 시켜요', '처음부터 다시 물어봐요', '그냥 그대로 쓰거나 포기해요'] },
+    { id: 'verify', tag: 'AI', q: 'AI가 알려 준 숫자·법·가격은 어떻게 하세요?', o: ['원래 자료로 꼭 확인해요', '가끔 확인해요', '대체로 그대로 믿어요'] },
+    { id: 'plan', tag: 'AI', q: '지금 쓰는 AI 요금제는요?', o: ['유료 (Pro·Plus 등)', '무료', '아직 계정이 없어요'] },
     { id: 'pc', tag: '기기', q: '일할 때 쓰는 컴퓨터는 어떤 거예요?', o: ['맥 (맥북·아이맥)', '윈도우 PC·노트북', '둘 다 / 잘 모르겠어요'], dev: true },
     { id: 'phone', tag: '기기', q: '휴대폰은 어떤 거예요?', o: ['아이폰', '갤럭시 등 안드로이드', '둘 다 써요'], dev: true },
     { id: 'font', tag: '화면', q: '글씨가 조금 크게 보이면 더 편하세요?', o: ['네, 크게', '지금이 좋아요'], two: true }
   ];
+  var REQUIRED = ['copy', 'sheet', 'file', 'ai', 'tasks', 'prompt', 'fix', 'verify', 'plan'];
   var LV_NAME = { 1: '입문', 2: '기본', 3: '능숙' };
-  // 답(0=잘함 … 2=처음)으로 난이도와 숨길 준비 운동 강의를 정해요
+  var AI_NAME = { 1: 'AI 입문', 2: 'AI 활용', 3: 'AI 고급' };
+  var BASIC_TITLE = { 'c-b1': '계정과 크롬 준비', 'c-b2': '복사·캡처·파일 찾기', 'c-b3': 'AI 앱 첫 화면', 'c-b4': '구글 시트 첫걸음', 'c-b5': 'AI가 준 코드 붙여 넣기', 'c-b6': '막혔을 때 묻는 법', 'c-l31': 'AI와 첫 대화 연습' };
+  function answered(a, id) { return id === 'tasks' ? !!(a.tasks && a.tasks.length) : a[id] != null; }
+  // 컴퓨터 점수(0~6)와 AI 점수(0~14)로 난이도와 뺄 강의를 정해요
   function skillFrom(a) {
-    if (!a) return null;
-    var pts = 0, n = 0;
-    ['copy', 'sheet', 'file', 'ai', 'upload', 'code'].forEach(function (k) { if (a[k] != null) { pts += 2 - a[k]; n++; } });
-    if (n < 6) return null;
-    var comp = (2 - a.copy) + (2 - a.sheet) + (2 - a.file), ai = (2 - a.ai) + (2 - a.upload) + (2 - a.code);
-    var lv = (pts <= 4 || comp <= 1) ? 1 : (pts >= 10 && comp >= 5) ? 3 : 2;
+    if (!a || !REQUIRED.every(function (id) { return answered(a, id); })) return null;
+    var comp = (2 - a.copy) + (2 - a.sheet) + (2 - a.file);
+    var t = a.tasks.indexOf(9) >= 0 ? [] : a.tasks;
+    var has = function (n) { return t.indexOf(n) >= 0; };
+    var basic = [0, 1, 2, 3, 4].filter(has).length, adv = [5, 6, 7, 8].filter(has).length;
+    var ai = (3 - a.ai) + Math.min(3, basic) + adv + (2 - a.prompt) + (2 - a.fix);
+    var aiLv = ai <= 3 ? 1 : ai <= 8 ? 2 : 3;
+    var lv = (comp <= 1 || (aiLv === 1 && comp <= 3)) ? 1 : (comp >= 5 && aiLv === 3) ? 3 : 2;
     var hide = [];
-    if (lv === 3) hide = ['c-b1', 'c-b2', 'c-b3', 'c-b4', 'c-b5', 'c-b6'];
-    else {
-      if (a.copy === 0 && a.file === 0) hide.push('c-b2');
-      if (a.ai === 0 && a.upload <= 1) hide.push('c-b3');
-      if (a.sheet === 0) hide.push('c-b4');
-      if (a.code === 0) hide.push('c-b5');
-      if (lv === 2 && a.copy === 0 && a.sheet === 0) hide.push('c-b1');
-    }
-    return { lv: lv, comp: comp, ai: ai, hide: hide, big: a.font === 0 };
+    function out(id) { if (hide.indexOf(id) < 0) hide.push(id); }
+    if (lv === 3 || (lv === 2 && comp >= 5)) out('c-b1');
+    if (a.copy === 0 && a.file === 0) out('c-b2');
+    if (a.ai <= 1 && has(1) && a.plan !== 2) out('c-b3');
+    if (a.sheet === 0) out('c-b4');
+    if (has(8)) out('c-b5');
+    if ((lv === 3 || (aiLv === 3 && a.fix === 0)) && a.verify !== 2) out('c-b6');
+    if (aiLv === 3 && a.prompt === 0) out('c-l31');
+    return { lv: lv, aiLv: aiLv, comp: comp, ai: ai, hide: hide, big: a.font === 0, warn: a.verify === 2,
+             openAll: lv === 1 || aiLv === 1, plan: a.plan === 0 ? 'paid' : 'free', noAccount: a.plan === 2 };
   }
   function skillLv() { return prefs.skill && prefs.skill.lv ? prefs.skill.lv : 2; }
   function skillHide() { return prefs.skill && prefs.skill.hide ? prefs.skill.hide : []; }
@@ -139,10 +150,19 @@
       var tg = document.createElement('span'); tg.className = 'sv-tag'; tg.textContent = Sq.tag; p.appendChild(tg);
       p.appendChild(document.createTextNode(Sq.q));
       if (Sq.s) { var sm = document.createElement('small'); sm.textContent = Sq.s; p.appendChild(sm); }
-      var opts = document.createElement('div'); opts.className = 'sv-opts' + (Sq.two ? ' two' : ''); opts.setAttribute('role', 'radiogroup'); opts.setAttribute('aria-label', Sq.q);
+      var opts = document.createElement('div'); opts.className = 'sv-opts' + (Sq.two ? ' two' : '') + (Sq.four ? ' four' : '') + (Sq.multi ? ' multi' : ''); opts.setAttribute('role', Sq.multi ? 'group' : 'radiogroup'); opts.setAttribute('aria-label', Sq.q);
       Sq.o.forEach(function (t, k) {
         var b = document.createElement('button'); b.type = 'button'; b.textContent = t; b.dataset.q = Sq.id; b.dataset.k = k;
-        b.addEventListener('click', function () { sel.ans[Sq.id] = k; sel.skip = false; paint(); });
+        b.addEventListener('click', function () {
+          if (Sq.multi) {
+            var cur = (sel.ans[Sq.id] || []).slice(), at = cur.indexOf(k);
+            if (k === Sq.none) cur = at >= 0 ? [] : [k];
+            else { cur = cur.filter(function (x) { return x !== Sq.none; }); if (at >= 0) cur.splice(cur.indexOf(k), 1); else cur.push(k); }
+            sel.ans[Sq.id] = cur;
+          } else sel.ans[Sq.id] = k;
+          if (Sq.id === 'plan') sel.plan = k === 0 ? 'paid' : 'free';
+          sel.skip = false; paint();
+        });
         opts.appendChild(b);
       });
       wrap.appendChild(p); wrap.appendChild(opts); svBox.appendChild(wrap);
@@ -150,24 +170,44 @@
     document.getElementById('svSkip').addEventListener('click', function () { sel.skip = true; sel.ans = { pc: sel.ans.pc, phone: sel.ans.phone }; paint(); });
     function curSkill() { var s = sel.skip ? { lv: 2, hide: [], big: false, skipped: true } : skillFrom(sel.ans); if (s) s.dev = devOf(sel.ans); return s; }
     function paintSurvey() {
-      svBox.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', sel.ans[b.dataset.q] === +b.dataset.k ? 'true' : 'false'); });
+      svBox.querySelectorAll('button').forEach(function (b) { var v = sel.ans[b.dataset.q]; b.setAttribute('aria-pressed', (Array.isArray(v) ? v.indexOf(+b.dataset.k) >= 0 : v === +b.dataset.k) ? 'true' : 'false'); });
       var out = document.getElementById('svResult'); out.textContent = '';
       var sk = curSkill();
       if (!sk) {
-        var left = SURVEY.filter(function (Sq) { return Sq.id !== 'font' && sel.ans[Sq.id] == null; }).length;
-        if (left < 6) { var pp = document.createElement('p'); pp.style.margin = '0'; pp.textContent = '남은 질문 ' + left + '개'; out.appendChild(pp); }
+        var left = REQUIRED.filter(function (id) { return !answered(sel.ans, id); }).length;
+        if (left < REQUIRED.length) { var pp = document.createElement('p'); pp.style.margin = '0'; pp.textContent = '남은 질문 ' + left + '개'; out.appendChild(pp); }
         return;
       }
       var h = document.createElement('h3'); h.textContent = sk.skipped ? '보통(기본) 난이도로 시작해요' : '추천 난이도: ' + LV_NAME[sk.lv];
       out.appendChild(h);
-      var m = document.createElement('div'); m.className = 'sv-meter'; m.setAttribute('aria-hidden', 'true');
-      for (var i = 1; i <= 3; i++) { var bar = document.createElement('i'); if (i <= sk.lv) bar.className = 'on'; m.appendChild(bar); }
-      out.appendChild(m);
+      function meter(label, val, max, name) {
+        var row = document.createElement('div'); row.className = 'sv-mrow';
+        var b = document.createElement('b'); b.textContent = label; row.appendChild(b);
+        var m = document.createElement('div'); m.className = 'sv-meter'; m.setAttribute('aria-hidden', 'true');
+        for (var i = 1; i <= 3; i++) { var bar = document.createElement('i'); if (i <= val) bar.className = 'on'; m.appendChild(bar); }
+        row.appendChild(m);
+        var s = document.createElement('span'); s.textContent = name; row.appendChild(s);
+        out.appendChild(row);
+      }
+      if (sk.skipped) meter('전체', 2, 3, '기본');
+      else {
+        meter('컴퓨터', sk.comp <= 1 ? 1 : sk.comp <= 4 ? 2 : 3, 3, sk.comp <= 1 ? '처음' : sk.comp <= 4 ? '보통' : '익숙');
+        meter('AI', sk.aiLv, 3, AI_NAME[sk.aiLv] + ' (' + sk.ai + '/14점)');
+      }
       var ul = document.createElement('ul');
       var lines = [];
-      if (sk.lv === 1) lines = ['준비 운동 6강부터 차근차근 시작해요', '코드·봇을 쓰는 고급 강의는 처음엔 숨겨요 (익숙해지면 \'강의 고르기\'에서 꺼내요)', '\'자세히 따라 하기\'를 모두 펼친 채로 보여 드려요'];
-      else if (sk.lv === 2) lines = [sk.hide.length ? '이미 익숙한 준비 운동 ' + sk.hide.length + '강은 빼고 엮어요' : '준비 운동 강의를 포함해요', '핵심·넓히기·고급 강의를 모두 보여 드려요', '\'자세히 따라 하기\'는 필요할 때 펼쳐요'];
-      else lines = ['준비 운동은 건너뛰고 바로 실무 강의부터', '고급(코드·봇·API) 강의까지 모두 포함해요'];
+      if (sk.lv === 1) lines.push('준비 운동부터 차근차근, 코드·봇을 쓰는 고급 강의는 처음엔 숨겨요 (익숙해지면 \'강의 고르기\'에서 꺼내요)');
+      else if (sk.lv === 2) lines.push('핵심·넓히기·고급 강의를 모두 보여 드려요');
+      else lines.push((sk.skipped || ['c-b1','c-b2','c-b3','c-b4','c-b5','c-b6'].every(function (id) { return sk.hide.indexOf(id) >= 0; }) ? '준비 운동은 건너뛰고 바로 실무 강의부터' : '준비 운동은 꼭 필요한 것만 남기고 바로 실무 강의로') + ', 고급(코드·봇·API) 강의까지 포함해요');
+      if (!sk.skipped && sk.hide.length) lines.push('이미 익숙해서 뺀 강의: ' + sk.hide.map(function (id) { return BASIC_TITLE[id] || id; }).join(', '));
+      if (!sk.skipped) {
+        var keep = Object.keys(BASIC_TITLE).filter(function (id) { return id.indexOf('c-b') === 0 && sk.hide.indexOf(id) < 0; });
+        if (keep.length) lines.push('먼저 할 준비 운동: ' + keep.map(function (id) { return BASIC_TITLE[id]; }).join(', '));
+      }
+      if (sk.openAll) lines.push('\'자세히 따라 하기\'를 모두 펼친 채로 보여 드려요');
+      if (sk.noAccount) lines.push('AI 계정이 아직 없으니 \'AI 앱 첫 화면\' 강의에서 가입부터 해요. 처음엔 무료로 충분해요');
+      else if (!sk.skipped) lines.push((sk.plan === 'paid' ? '유료' : '무료') + ' 요금제에 맞는 방법을 먼저 보여 드려요');
+      if (sk.warn) lines.push('AI 답을 그대로 믿으면 위험할 때가 있어요. \'막혔을 때 묻는 법\'과 강의마다 나오는 \'확인\' 안내를 꼭 봐 주세요');
       if (sk.big) lines.push('글씨를 크게 보여 드려요');
       var dvt = devLabel(sk.dev);
       if (dvt) lines.push(dvt + '에 맞는 방법만 보여 드려요' + ((sk.dev.pc === 'mac' && sk.dev.phone === 'ios') ? ' (맥·아이폰 전용 강의 포함)' : ' (맥과 아이폰이 함께 있어야 하는 강의는 빼고, 대신 할 수 있는 방법으로)'));
@@ -271,7 +311,8 @@
         prefs.skill = { lv: sk.lv, hide: sk.hide };
         prefs.device = sk.dev;
         if (!sk.skipped) prefs.survey = sel.ans;
-        prefs.open = sk.lv === 1 ? 'all' : 'closed';
+        prefs.open = sk.openAll || sk.lv === 1 ? 'all' : 'closed';
+        if (!sk.skipped && sk.plan) prefs.plan = sel.plan || sk.plan;
         if (sk.big) prefs.font = 'big'; else if (!sk.skipped) prefs.font = 'normal';
       }
       savePrefs();
