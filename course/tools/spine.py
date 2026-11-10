@@ -127,6 +127,7 @@ L = {
   ('c-l11', 'vet', 'l11', 'core', ALL, '', ''),
   ('c-l12', 'vet', 'l12', 'core', ALL, '', ''),
   ('c-l13', 'vet', 'l13', 'grow', ALL, '', ''),
+  ('c-nb1', 'new', None,  'core', ALL, '', 'arch'),
   ('c-l14', 'vet', 'l14', 'core', ALL, '', ''),
   ('c-l15', 'vet', 'l15', 'core', ALL, '', ''),
   ('c-l18', 'vet', 'l18', 'grow', ALL, '', ''),
@@ -186,6 +187,7 @@ L = {
  'calendar': [
   ('c-l85', 'vet', 'l85', 'core', ALL, '', ''),
   ('c-l86', 'vet', 'l86', 'core', ALL, '', ''),
+  ('c-nb2', 'new', None,  'grow', 'TO', '', 'arch'),
   ('c-l87', 'vet', 'l87', 'adv',  ALL, '', ''),
   ('c-l88', 'vet', 'l88', 'grow', ALL, '', ''),
   ('c-l89', 'vet', 'l89', 'grow', ALL, '', ''),
@@ -195,6 +197,7 @@ L = {
   ('c-l55', 'vet', 'l55', 'grow', ALL, '', ''),
   ('c-l56', 'vet', 'l56', 'core', ALL, '', ''),
   ('c-l57', 'vet', 'l57', 'core', ALL, '', ''),
+  ('c-nb4', 'new', None,  'grow', 'O', '', 'arch'),
   ('c-l64', 'vet', 'l64', 'grow', ALL, '', ''),
   ('c-l65', 'vet', 'l65', 'grow', ALL, '', ''),
   ('c-l66', 'vet', 'l66', 'adv',  ALL, '', ''),
@@ -205,6 +208,7 @@ L = {
  ],
  'data': [
   ('c-l60', 'vet', 'l60', 'grow', ALL, '', ''),
+  ('c-nb3', 'new', None,  'core', 'TO', '', 'arch'),
   ('c-l61', 'vet', 'l61', 'grow', ALL, '', 'arch'),
   ('c-l62', 'vet', 'l62', 'grow', ALL, '', ''),
  ],

@@ -1,0 +1,71 @@
+<section id="c-nb3" class="lesson" data-part="data" data-title="예약 데이터 꺼내 AI로 분석하기" data-level="core" data-stage="takeover operate" data-biz-not="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 처음 1시간 · 달마다 20분</span>
+    <h2>예약 기록은 {{place}}의 일기장이에요</h2>
+    <p class="goal">네이버 예약에는 <b>언제, 무엇을, 며칠 전에 예약하고, 얼마나 취소했는지</b>가 다 쌓여 있어요. 달마다 엑셀로 꺼내 <b>이름·전화번호를 번호표로 바꾼 뒤</b> AI에게 보여 주면, 바쁜 시간과 빈 시간, 노쇼가 많은 때, 다시 오는 {{customer}} 비율이 표로 나와요.</p>
+  </div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>"요즘 좀 한가한 것 같은데" 같은 느낌만으로는 무엇을 바꿀지 정할 수 없어요. 예약 기록을 숫자로 보면 어느 요일·시간이 비는지, 어떤 {{item:이}} 취소가 많은지 바로 보여서, 직원 시간표·예약 규칙·소식 주제를 근거 있게 바꿀 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>한 달 동안 쓴 예약 장부를 펼쳐 놓고 형광펜으로 '붐빈 날', '빈 날', '안 온 사람'을 칠하는 일이에요. 형광펜질은 AI가 하고, {{owner:은}} 결과를 보고 다음 달 규칙만 정해요.</span></div><div class="easy-row"><b>끝나면</b><span>개인정보를 뺀 '예약 분석' 시트, AI가 만든 월간 예약 리포트(표 5개 + 할 일 3개), 장부에 쌓이는 월별 요약 한 줄이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 스마트플레이스 관리자 계정, 구글 시트, 1시간 · 예약이 최소 한 달은 쌓여 있어야 해요 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>이전 {{owner}} 때의 예약 기록에는 {{customer}} 개인정보가 들어 있어요. 넘겨받을 수 있는지는 인수 계약과 개인정보 이전 고지 범위를 따라요. 확실하지 않으면 <b>인수일 뒤에 쌓인 기록부터</b> 분석해요. 통계보고서의 합계 숫자(요일별 예약 수 등)는 개인정보가 없어서 참고하기 좋아요.</span></p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="c_nb3a" data-key="c_nb3a"><div class="body"><label for="c_nb3a">먼저 통계보고서를 한 번 보기</label><small>네이버 예약에는 이미 만들어진 통계가 있어요. <b>요약, 예약 트렌드, 순매출, 취소율, 예약지표, 유입경로, 리뷰분석, 고객분석</b>을 볼 수 있어요. 이 화면엔 이름·전화번호가 없어서 캡처해 AI에게 바로 보여 줘도 돼요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">스마트플레이스 → 예약 → 통계</span>(통계보고서)를 열고 기간을 지난달로 맞춰요<span class="fix">막히면: 메뉴 이름이 다르면 화면을 캡처해 AI에게 "예약 통계 보는 곳이 어디야?"라고 물어요.</span></li>
+        <li>'예약 트렌드'와 '취소율' 화면을 캡처해 아래 '통계 읽기 부탁문'과 함께 보내요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="c_nb3b" data-key="c_nb3b"><div class="body"><label for="c_nb3b">예약자관리에서 엑셀로 내려받기</label><small>통계보다 자세히 보려면 예약 한 건 한 건이 담긴 표가 필요해요. 지난 3개월을 <b>이용일 기준</b>으로, 상태는 전체(확정·취소·노쇼 모두)로 받아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">예약관리 → 예약자관리</span>에서 날짜 기준을 '이용일'로, 기간을 지난 3개월로 정해요</li>
+        <li>예약상태는 전체로 두고 조회 → <b>[저장]</b>을 누르면 엑셀 파일이 내려와요</li>
+        <li>파일 이름을 '예약_원본_2026-10'처럼 바꿔 PC의 장부 폴더에만 둬요. <b>이 원본은 AI에게 보내지 않아요.</b></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="c_nb3c" data-key="c_nb3c"><div class="body"><label for="c_nb3c">이름·전화번호를 '고객번호'로 바꾸기</label><small>같은 {{customer:가}} 몇 번 왔는지는 세고 싶지만, 누구인지는 AI가 몰라도 돼요. 그래서 <dfn data-t="pseudo">고객번호</dfn>를 붙이고 이름·전화번호 열은 지운 복사본을 만들어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>원본 엑셀을 구글 시트로 열어요(드라이브에 올리고 더블클릭). 열 이름은 파일마다 조금 달라요. 이름이 B열, 전화번호가 C열이라고 할게요</li>
+        <li>맨 오른쪽 빈 열 첫 줄에 <code>키</code>, 둘째 줄에 <code>=B2&amp;"|"&amp;C2</code>를 넣고 아래로 끝까지 채워요(오른쪽 아래 점을 두 번 클릭)</li>
+        <li>그 옆 열 첫 줄에 <code>고객번호</code>, 둘째 줄에 아래 식을 넣고 끝까지 채워요. 키가 '키' 열(예: Q열)에 있다고 할 때예요<span class="fix"><code>=IF(Q2="","","C"&amp;TEXT(MATCH(Q2,UNIQUE(Q$2:Q),0),"0000"))</code> · 같은 사람은 같은 번호(C0001, C0002…)가 붙어요.</span></li>
+        <li>시트 전체를 복사 → 새 탭 '예약 분석'에 <span class="path">마우스 오른쪽 → 선택하여 붙여넣기 → 값만</span>으로 붙여요</li>
+        <li>'예약 분석' 탭에서 이름·전화번호·이메일·키 열을 지워요. 요청사항처럼 이름이 섞일 수 있는 칸도 지우거나 훑어봐요</li>
+        <li><span class="path">파일 → 다운로드 → CSV</span>(현재 시트)로 '예약 분석' 탭만 내려받아요<span class="fix">CSV는 엑셀보다 AI가 읽기 가볍고 사용량도 적어요. 엑셀째 보내야 하면 MarkItDown으로 바꿔도 돼요(<a href="#c-b7" class="ref" data-ref="c-b7">강의</a>).</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="c_nb3d" data-key="c_nb3d"><div class="body"><label for="c_nb3d">AI에게 CSV를 주고 월간 리포트 받기</label><small>'06 성과 분석' 채팅에 CSV 파일을 올리고 아래 '예약 분석 부탁문'을 붙여 넣어요. 표 5개와 다음 달 할 일 3개가 나와요. 숫자가 이상하면 "이 숫자 어떻게 셌어?"라고 물어 계산 방법을 확인해요.</small></div></li>
+    <li><input type="checkbox" id="c_nb3e" data-key="c_nb3e"><div class="body"><label for="c_nb3e">할 일 3개 중 하나만 이번 달에 해 보기</label><small>리포트가 좋아도 한 번에 다 바꾸면 무엇이 효과였는지 몰라요. 하나만 골라요. <span data-biz="vet">예: 화요일 오후가 늘 비면 그 시간에 예방접종·건강검진 예약을 더 열고 소식으로 알리기. 할인 문구는 쓰지 않아요.</span><span data-biz="salad">예: 금요일 점심 단체 예약 취소가 많으면 단체만 선결제로 바꾸기.</span><span data-biz="flower">예: 기념일 예약이 3일 전에 몰리면 '일주일 전 예약' 안내를 소식·카톡에 미리 올리기.</span><span data-biz-not="vet salad flower">예: 노쇼가 많은 시간대만 하루 전 확인 연락하기.</span></small></div></li>
+    <li><input type="checkbox" id="c_nb3f" data-key="c_nb3f"><div class="body"><label for="c_nb3f">장부에 월별 요약 한 줄 쌓기</label><small>장부(<a href="#c-l60" class="ref" data-ref="c-l60">강의</a>)에 '예약' 탭을 만들고 달마다 한 줄씩 붙여요. 석 달만 쌓여도 계절 흐름이 보여요.</small></div></li>
+  </ol>
+
+  <div class="vis">
+    <div class="table-wrap"><table>
+      <thead><tr><th>이렇게 나와요</th><th>예시 숫자</th><th>읽는 법</th></tr></thead>
+      <tbody>
+        <tr><td>요일·시간대별 예약</td><td data-label="예시">토 11–13시 38건 · 화 15–17시 4건</td><td data-label="읽는 법">붐비는 때는 직원을 더, 빈 때는 예약을 더 열거나 소식으로 알려요</td></tr>
+        <tr><td>취소·노쇼율</td><td data-label="예시">전체 9% · <span data-biz="flower">화환 2%, 꽃다발 픽업 14%</span><span data-biz-not="flower">상품 A 3%, 상품 B 15%</span></td><td data-label="읽는 법">높은 상품만 하루 전 확인이나 선결제를 걸어요</td></tr>
+        <tr><td>며칠 전에 예약하나</td><td data-label="예시">절반이 2일 이내</td><td data-label="읽는 법">'임박 예약'이 많으면 당일 빈자리를 소식으로 알리기 좋아요</td></tr>
+        <tr><td>다시 온 {{customer}}</td><td data-label="예시">3개월 안 2회 이상 31%</td><td data-label="읽는 법">재방문 안내(<a href="#c-nb4" class="ref" data-ref="c-nb4">강의</a>)의 대상이 돼요</td></tr>
+      </tbody>
+    </table></div>
+    <p class="cap">숫자는 연습용 예시예요. 우리 {{place}} 숫자는 리포트에서 확인해요.</p>
+  </div>
+
+  <p class="cap">통계보고서 캡처 1~2장과 함께 '06 성과 분석' 채팅에 붙여 넣으세요.</p>
+  <div class="prompt"><div class="bar"><span>통계 읽기 부탁문</span><button class="copy" type="button">복사</button></div><pre>네이버 예약 통계보고서 캡처야. 지난달 우리 {{place}} 예약을 5줄로 읽어 줘.
+- 지난달보다 늘거나 준 것, 취소율, 가장 많이 들어온 경로
+- 이상해 보이는 숫자 하나와 그 이유 짐작(짐작이라고 표시)
+- 더 보려면 예약자관리 엑셀에서 무엇을 보면 되는지 한 줄</pre></div>
+  <p class="cap">'예약 분석' CSV 파일을 올리고 '06 성과 분석' 채팅에 붙여 넣으세요. 바꿀 곳은 없어요.</p>
+  <div class="prompt"><div class="bar"><span>예약 분석 부탁문</span><button class="copy" type="button">복사</button></div><pre>올린 CSV는 우리 {{place}} 네이버 예약 기록이야(이름·전화번호는 지우고 고객번호만 남김).
+먼저 열 이름과 행 수, 기간을 3줄로 확인해 주고, 아래 표를 만들어 줘. 계산은 코드로 정확하게.
+1) 요일 × 시간대(2시간 단위) 예약 수 표 + 가장 붐비는 칸 3개, 가장 빈 칸 3개
+2) 상품별: 예약 수 | 취소 수 | 노쇼 수 | 취소·노쇼율 | (금액이 있으면) 순매출
+3) 신청일과 이용일 사이 날짜(예약 리드타임): 당일 / 1~2일 / 3~7일 / 8일 이상 비율
+4) 고객번호 기준: 1회만 / 2회 / 3회 이상 비율, 신규와 재방문 비율
+5) <span data-biz="vet">예약할 때 받은 답(오는 이유 등)</span><span data-biz="salad">예약할 때 받은 답(개수·빼는 재료 등)</span><span data-biz="flower">예약할 때 받은 답(용도·예산·색 등)</span><span data-biz-not="vet salad flower">예약할 때 받은 답</span>이 있으면 많이 나온 순서 TOP5
+마지막에 다음 달 할 일 3개(각 한 줄, 무엇을 · 왜 · 어떻게 확인할지).
+<span data-biz="vet">할인·무료 이벤트 제안은 빼 줘.
+</span>그리고 장부 '예약' 탭에 붙일 한 줄: 월 | 예약 수 | 취소율 | 노쇼율 | 재방문 비율 | 가장 빈 시간 | 할 일 1순위</pre></div>
+  <div class="tip warnbox"><b>원본 엑셀은 AI에게 보내지 않아요.</b> 이름·전화번호가 들어 있는 원본은 PC 장부 폴더에만 두고, 분석이 끝나면 지워도 돼요. 필요하면 네이버에서 다시 내려받을 수 있어요. AI와 공유 드라이브에는 고객번호만 있는 '예약 분석'만 둬요.</div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">예약 작업</span><div class="ad"><b>매달 1일 리포트</b><span>'예약 분석' 시트를 드라이브 같은 자리에 덮어써 두면, 매달 1일 아침에 AI가 그 파일을 읽어 리포트를 보내게 <dfn data-t="scheduled">예약 작업</dfn>으로 걸 수 있어요. 내려받기와 번호표 붙이기는 사람이 해요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>월별 요약 한 줄 → 장부 '예약' 탭</span></div><div class="aib-row"><b>세션</b><span>달마다 새 채팅을 열고 지난달 요약 한 줄만 붙여 이어가요.</span></div></div>
+  <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>PDF는 그대로 올리면 무거워요. <code>markitdown 파일.pdf -o 파일.md</code>로 바꿔 <b>필요한 쪽만</b> 붙여 넣어요. 스캔한 PDF는 그대로 올려요.</li><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>캡처는 "어디를 눌러야 하나"처럼 <b>화면 모양이 필요할 때만</b>. 화면의 글자는 복사해서 붙여 넣는 게 훨씬 가벼워요. 사진은 여러 장 대신 꼭 필요한 한두 장만.</li></ul></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">월간 리포트</span><span class="rc s">엑셀·시트 분석</span></div></div><p class="rec-note">드라이브 커넥터를 쓰면 CSV를 올리지 않고 '예약 분석' 시트를 바로 읽게 할 수 있어요.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>통계보고서·엑셀 저장·구글 시트 모두 무료</li><li>무료 AI는 파일 크기·횟수 제한이 있어요. 석 달 대신 한 달씩 나눠 보내요</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>몇 달치 CSV를 한 번에, 계산은 코드로 정확하게</li><li>매달 1일 자동 리포트</li></ul></div></div>
+</section>

@@ -1,0 +1,60 @@
+<section id="c-nb1" class="lesson" data-part="map" data-title="네이버 예약 노쇼 없게 설정하기" data-level="core" data-stage="prep takeover operate" data-biz-not="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · 한 번 해 두면 끝</span>
+    <h2>전화 없이 예약 받고, 빈자리는 줄이고</h2>
+    <p class="goal"><dfn data-t="nbooking">네이버 예약</dfn>은 켜기만 하면 끝이 아니에요. <b>무엇을 예약받을지, 언제 확정할지, 미리 무엇을 물을지, 못 오면 어떻게 할지</b>를 정해 두면 전화가 줄고 노쇼도 줄어요. 문구와 질문은 AI가 만들고, {{owner:은}} 고르고 붙여 넣기만 해요.</p>
+  </div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>예약 상품이 하나뿐이거나 질문이 없으면 {{customer:가}} 결국 전화로 다시 물어요. 확정·취소 규칙이 없으면 노쇼 한 번에 그 시간이 통째로 비어요. 처음에 한 시간 들여 정해 두면 매일 전화 응대와 빈자리가 줄어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>{{place}} 앞에 거는 '예약 접수 창구'의 규칙을 정하는 거예요. 어떤 일을 받는지, 접수하면 바로 확정인지, 접수할 때 무엇을 적어 달라는지, 못 오면 어떻게 하는지요.</span></div><div class="easy-row"><b>끝나면</b><span>{{item}}별로 나뉜 예약 상품, 확정 방식, 예약할 때 묻는 질문 3~5개, 확정·방문 전·취소 안내 문구, 취소 기준이 설정돼 있어요. 가족 휴대폰으로 시험 예약까지 해 봐요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 스마트플레이스 관리자 계정, 가격표·{{hours}}, 1시간 · 네이버 예약을 아직 신청하지 않았다면 <a href="#c-l13" class="ref" data-ref="c-l13">강의</a>에서 먼저 켜요</span></div></div>
+  <p class="tknote" data-stage-only="prep"><b class="tag">{{open}} 준비 중이라면</b><span>예약 상품은 미리 만들어 검수까지 받아 두고, 예약 가능한 날짜는 <b>{{open}}일부터</b>만 열어요. {{open}} 전 예약은 '오픈 기념 첫 주'처럼 한 상품으로 모으면 관리가 쉬워요.</span></p>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>예약 상품과 쌓인 리뷰는 그대로 두고, <b>예약 알림을 받는 휴대폰 번호·이메일</b>부터 새 {{owner}} 것으로 바꿔요. 이전 {{owner:이}} 받던 알림이 계속 가면 예약을 놓쳐요. 이미 잡힌 예약은 인수일 전후로 한 번씩 확인 연락을 해요.</span></p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="c_nb1a" data-key="c_nb1a"><div class="body"><label for="c_nb1a">예약 상품을 {{customer:가}} 고르기 쉽게 나누기</label><small>상품이 '예약' 하나뿐이면 무엇 때문에 오는지 몰라 준비를 못 해요. <span data-biz="vet">'예방접종', '건강검진', '미용', '처음 오는 진료 상담'처럼 걸리는 시간이 다른 것끼리 나눠요. 응급·수술 상담은 예약 상품으로 만들지 말고 '전화 주세요'로 둬요.</span><span data-biz="salad">'매장 픽업(1~5개)', '단체·회의 도시락(10개 이상)', '정기 구독 상담'처럼 준비 시간이 다른 것끼리 나눠요. 단체는 하루 받을 수 있는 최대 건수를 꼭 정해요.</span><span data-biz="flower">'꽃다발 픽업', '꽃바구니·화분', '화환(배송)', '원데이 클래스'처럼 준비 시간이 다른 것끼리 나눠요. 졸업식·어버이날처럼 몰리는 날은 하루 최대 건수를 줄여 둬요.</span><span data-biz-not="vet salad flower">{{item}} 가운데 걸리는 시간이 다른 것끼리 나눠요. 상담이 꼭 필요한 일은 예약 상품 대신 '전화 주세요'로 둬요.</span></small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">스마트플레이스 → 예약 → 예약상품 → 예약상품추가</span>를 눌러요<span class="fix">막히면: 메뉴 이름이 다르면 화면을 캡처해 AI에게 "예약 상품 만드는 곳이 어디야?"라고 물어요. 네이버 예약 파트너센터에서 같은 메뉴를 써도 돼요.</span></li>
+        <li>상품명, 걸리는 시간(예약 단위), 한 시간에 받을 수 있는 수(재고)를 넣어요</li>
+        <li><span class="path">일정/가격</span> 탭에서 쉬는 날을 꺼요. 명절·휴가는 지금 미리 막아 두면 편해요</li>
+        <li>설명 칸은 아래 부탁문으로 AI가 쓴 글을 붙여 넣어요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="c_nb1b" data-key="c_nb1b"><div class="body"><label for="c_nb1b">바로 확정할지, 보고 확정할지 정하기</label><small>'바로 확정'은 {{customer:이}} 편하지만 겹치거나 준비 못 할 예약도 그냥 들어와요. 처음 한두 달은 <b>{{owner:이}} 보고 확정</b>으로 두고, 익숙해지면 준비가 간단한 상품만 바로 확정으로 바꿔요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">예약설정 → 운영설정 → 예약확정 방법</span>에서 고르고 저장해요</li>
+        <li>'보고 확정'이면 확정 대기가 오래 쌓이지 않게 하루 두 번 확인 시간을 정해요(<a href="#c-nb2" class="ref" data-ref="c-nb2">강의</a>)</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="c_nb1c" data-key="c_nb1c"><div class="body"><label for="c_nb1c">예약할 때 미리 물어볼 것 3~5개</label><small>전화로 다시 묻던 걸 예약할 때 받아요. <span data-biz="vet">예: 아이 이름·종·나이, 오늘 오는 이유, 이전 병원 기록이 있는지, 겁이 많거나 입질이 있는지.</span><span data-biz="salad">예: 개수·픽업 시간, 빼야 할 재료(알레르기), 드레싱 따로, 영수증·현금영수증 필요 여부.</span><span data-biz="flower">예: 용도(생일·기념일·개업·조문), 예산, 좋아하는 색, 리본·카드 문구, 받는 날짜.</span><span data-biz-not="vet salad flower">예: 원하는 {{item}}, 처음인지, 미리 알려 줄 사정.</span> <b>주민번호·주소처럼 꼭 필요하지 않은 개인정보는 묻지 않아요.</b></small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">예약설정 → 예약자 입력정보</span>에서 질문을 추가해요. 고르기형(선택지)으로 만들면 답이 깔끔해서 나중에 분석하기 좋아요</li>
+        <li>꼭 받아야 하는 것만 '필수'로. 필수가 많으면 예약하다 그만둬요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="c_nb1d" data-key="c_nb1d"><div class="body"><label for="c_nb1d">확정·방문 전·취소 안내 문구 넣기</label><small>확정 문자에 위치·주차·준비물이 있으면 "어디예요?" 전화가 줄어요. 취소 사유도 미리 몇 개 만들어 두면 고르기만 하면 돼요(최대 10개).</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">예약설정 → 운영설정</span>의 안내문구·취소사유 칸에 아래 부탁문으로 받은 글을 붙여 넣어요</li>
+        <li><span class="path">예약 알림 설정</span>에서 예약이 들어올 때 받을 방법(문자·이메일 등)을 켜요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="c_nb1e" data-key="c_nb1e"><div class="body"><label for="c_nb1e">노쇼 줄이기: 취소 기준과 결제</label><small>취소 기준을 예약 화면에 적어 두면 미리 연락하는 {{customer:가}} 늘어요(예: "하루 전까지 연락 주세요"). <span data-biz="vet">진료비는 진료 후 정해지니 보통 결제 없이 받아요. 미용·호텔처럼 시간을 길게 비워 두는 것만 예약금을 고민해요.</span><span data-biz="salad">단체 주문처럼 재료를 미리 사야 하는 예약은 <dfn data-t="npay">네이버페이</dfn> 선결제로 받아요.</span><span data-biz="flower">꽃바구니·화환처럼 꽃을 미리 사 두는 주문은 <dfn data-t="npay">네이버페이</dfn> 선결제로 받아요. 생화는 되팔 수 없으니까요.</span><span data-biz-not="vet salad flower">미리 준비가 필요한 {{item}}만 <dfn data-t="npay">네이버페이</dfn> 결제를 걸어요.</span></small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">예약설정 → 네이버페이</span>에서 신청해요. 예약 서비스 검수가 끝나야 신청할 수 있어요</li>
+        <li>결제 수수료와 정산일은 매출 규모에 따라 달라요. 신청 화면의 안내를 캡처해 AI에게 "한 건에 얼마 남는지 계산해 줘"라고 물어봐요</li>
+        <li>환불 기준(며칠 전까지 전액 등)을 상품마다 정해요. 기준은 {{place}}에 붙인 안내와 똑같이</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="c_nb1f" data-key="c_nb1f"><div class="body"><label for="c_nb1f">가족 휴대폰으로 시험 예약</label><small>{{customer}}처럼 지도에서 {{place}}를 찾아 예약해 봐요. 질문이 어색한지, 확정 문자가 오는지, 취소가 되는지 확인하고 시험 예약은 취소해요.</small></div></li>
+  </ol>
+
+  <p class="cap">이 글을 '01 플레이스 매니저' 채팅에 붙여 넣으세요. ○ 자리만 우리 {{place}} 값으로 바꿔요. 가격표·{{hours}} 사진을 같이 올리면 더 정확해요.</p>
+  <div class="prompt"><div class="bar"><span>네이버 예약 세팅 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 {{place}} 네이버 예약을 설정하려고 해. 소개서(프로젝트 파일)와 아래 정보로 표를 만들어 줘.
+- 예약받고 싶은 일: ○○, ○○, ○○
+- {{hours}}: ○○ / 쉬는 날: ○○
+- 한 시간에 받을 수 있는 수: ○○
+1) 예약 상품 표: 상품명(15자) | 걸리는 시간 | 시간당 최대 | 결제(없음/선결제) | 설명(150자)
+2) 예약할 때 물을 질문 3~5개: 질문 | 고르기형 선택지 | 필수 여부 | 왜 묻는지
+   (주민번호·주소처럼 꼭 필요 없는 개인정보는 넣지 마)
+3) 안내 문구: 확정 안내(위치·주차·준비물, 3줄) / 방문 하루 전 안내(2줄) / 취소 기준(2줄)
+4) 내가 취소할 때 고를 사유 5개(한 줄씩, 정중하게)
+<span data-biz="vet">진료 효과를 장담하거나 할인을 내세우는 말은 빼 줘.
+</span>끝에 '보고 확정'과 '바로 확정' 중 무엇을 추천하는지 이유 한 줄.</pre></div>
+  <div class="tip"><b>문구는 {{place}}에 붙인 안내와 똑같이.</b> 가격·취소 기준이 네이버 예약, 가게 안내문, 카톡 채널에서 서로 다르면 다툼이 생겨요. 바꿀 땐 세 곳을 한 번에 바꿔요.</div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>정한 예약 상품 표·안내 문구 → 프로젝트 파일 '예약 규칙'으로 저장(다음에 바꿀 때 기준)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
+  <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>캡처는 "어디를 눌러야 하나"처럼 <b>화면 모양이 필요할 때만</b>. 화면의 글자는 복사해서 붙여 넣는 게 훨씬 가벼워요. 사진은 여러 장 대신 꼭 필요한 한두 장만.</li><li>정기 브리핑·분석은 같은 채팅에 계속 쌓지 말고 <b>달마다 새 채팅</b>. 지난달 요약 10줄만 붙여 이어가요.</li><li>부탁문 끝에 <b>"표만" "5줄로"</b>처럼 답 길이를 정하면 답도 빠르고 사용량도 줄어요.</li></ul></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{customer}} 안내 문구</span></div></div><p class="rec-note">'예약 규칙' 파일은 드라이브 장부 폴더에도 한 부.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>네이버 예약 기본 기능은 무료</li><li>네이버페이 결제를 걸면 결제 수수료가 붙어요(신청 화면 안내 확인)</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>가격표 사진 한 장으로 상품·질문·문구를 한 번에</li></ul></div></div>
+</section>

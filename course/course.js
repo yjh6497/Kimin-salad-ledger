@@ -432,6 +432,12 @@
   (function () { var h = document.getElementById('mascotHero'); if (h && ARTA) { h.hidden = false; h.innerHTML = mascotHTML(ARTA, pickLine(ARTA.hi).replace(/원장님|사장님|소장님/, IN.terms.owner)); } })();
   var terms = IN.terms;
   var R = makeReplacer(terms);
+  // 공통 강의는 동물병원 AI 직원 이름으로 쓰여 있어요 → 업종별 직원 이름으로 한 번에 바꾸기
+  var SMAP = (function (m) {
+    var keys = Object.keys(m || {}); if (!keys.length) return function (s) { return s; };
+    var re = new RegExp(keys.map(function (k) { return k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|'), 'g');
+    return function (s) { return s.replace(re, function (k) { return R(m[k]); }); };
+  })(IN.staffMap);
   window.COURSE = { biz: BIZ, stage: P.stage, name: IN.name, terms: terms };
   var KEY = profKey(P);
   var state = lsGet(KEY, {}) || {};
@@ -503,7 +509,7 @@
     chosen.forEach(function (L) {
       var html = pool[L.id]; if (!html) return;
       var tpl = document.createElement('template');
-      tpl.innerHTML = R(html);
+      tpl.innerHTML = SMAP(R(html));
       var sec = tpl.content.querySelector('section');
       prune(tpl.content);
       sec.hidden = true;

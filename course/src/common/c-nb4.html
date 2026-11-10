@@ -1,0 +1,84 @@
+<section id="c-nb4" class="lesson" data-part="crm" data-title="네이버 예약 기록을 재방문 명단으로" data-level="grow" data-stage="operate" data-biz-not="arch">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 처음 40분 · 달마다 10분</span>
+    <h2>예약한 {{customer}}, 다음엔 먼저 알려 드려요</h2>
+    <p class="goal">네이버 예약에는 누가 무엇을 언제 이용했는지가 남아 있어요. 달마다 이 기록을 <b>고객 명단(개인정보 원본)</b>과 <b>재방문 탭(고객번호만)</b>으로 나눠 옮기면, 다음 예정일 계산과 안내는 <a href="#c-l57" class="ref" data-ref="c-l57">강의</a>에서 만든 시트가 알아서 해요.</p>
+  </div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>네이버로 예약한 {{customer:은}} <span data-biz="vet">차트나 </span>수첩에 따로 적지 않으면 재방문 명단에서 빠져요. 예약이 많아질수록 빠지는 사람도 늘어요. 달마다 10분만 옮기면 '다시 올 때쯤 안내'가 네이버 예약 {{customer}}까지 닿아요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>예약 장부에서 이번 달 다녀간 분들의 이름을 단골 카드함으로 옮겨 적는 일이에요. 이름·전화번호 카드는 서랍(내 PC·비공개 시트)에, 번호표와 날짜만 적힌 목록은 AI와 함께 보는 시트에 둬요.</span></div><div class="easy-row"><b>끝나면</b><span>비공개 '고객 명단' 시트에 네이버 예약 {{customer}}가 고객번호와 함께 쌓이고, 재방문 탭에 붙일 줄(고객번호·항목·마지막 날짜)이 버튼 한 번에 만들어져요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 시트, 네이버 예약 엑셀(<a href="#c-nb3" class="ref" data-ref="c-nb3">강의</a>), 재방문 탭(<a href="#c-l57" class="ref" data-ref="c-l57">강의</a>), 40분 · 코드 붙여 넣기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="c_nb4a" data-key="c_nb4a"><div class="body"><label for="c_nb4a">비공개 '고객 명단' 시트 하나 만들기</label><small>이름·전화번호가 들어가는 시트는 <b>{{owner}} 계정에만</b> 두고 공유하지 않아요. AI 비서와 연결한 드라이브 폴더 밖에 만들어요. 이미 고객 명단 원본이 있다면(<a href="#c-l55" class="ref" data-ref="c-l55">강의</a>) 그 파일에 탭만 더해요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>새 구글 시트 이름을 '고객 명단 (비공개)'로 해요</li>
+        <li>탭 두 개를 만들어요: <b>예약_이번달</b>, <b>고객명단</b>(비워 둬요)</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="c_nb4b" data-key="c_nb4b"><div class="body"><label for="c_nb4b">이번 달 예약 엑셀을 '예약_이번달'에 붙이기</label><small>네이버 예약자관리에서 지난달을 이용일 기준으로 저장한 원본 엑셀(<a href="#c-nb3" class="ref" data-ref="c-nb3">강의</a>)을 열어 전체 복사 → '예약_이번달' A1에 붙여 넣어요. 지난달 내용은 먼저 지워요.</small></div></li>
+    <li><input type="checkbox" id="c_nb4c" data-key="c_nb4c"><div class="body"><label for="c_nb4c">스크립트 붙여 넣고 한 번 실행하기</label><small>아래 스크립트가 처음 보는 {{customer}}에게 새 고객번호를 주고, 이미 있는 분은 같은 번호를 찾아 써요. 취소·노쇼는 빼고, 고객번호·항목별로 가장 최근 이용일만 '재방문 붙일 줄' 탭에 만들어요. <b>이 스크립트는 이 시트 안에서만 돌고, AI에게 아무것도 보내지 않아요.</b></small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><span class="path">확장 프로그램 → Apps Script</span>를 열고, 있던 글을 지우고 아래 스크립트를 붙여 넣어요</li>
+        <li>맨 위 <code>CYCLE</code>의 항목 이름과 날짜 수를 우리 {{place}} 예약 상품에 맞게 고쳐요(상품 이름 일부만 맞아도 돼요)</li>
+        <li>저장 → 위쪽 함수 목록에서 <code>makeRevisitRows</code> 선택 → 실행 → 권한 허용<span class="fix">막히면: "열을 못 찾았어요: 전화"처럼 나오면 엑셀 첫 줄의 열 이름을 확인해요. 전화번호 열 이름에 '전화'가 들어가게 고치면 돼요. 오류 문장을 복사해 AI에게 물어봐도 돼요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="c_nb4d" data-key="c_nb4d"><div class="body"><label for="c_nb4d">재방문 탭에 붙이고 겹친 줄 정리하기</label><small>'재방문 붙일 줄' 탭의 2번째 줄부터 복사해 '{{place}} 데이터 허브'의 재방문 탭 맨 아래에 붙여요. 같은 분·같은 항목이 두 줄이면 날짜가 최근인 줄만 남겨요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>재방문 탭 전체 선택 → <span class="path">데이터 → 범위 정렬 → 고급 → 마지막 날짜(E열) 내림차순</span></li>
+        <li><span class="path">데이터 → 데이터 정리 → 중복 항목 삭제</span>에서 고객번호(A)와 항목(D)만 체크 → 삭제. 최근 날짜 줄이 남아요</li>
+        <li>G열(다음 예정일) 수식이 빈 줄이 있으면 위 칸 수식을 아래로 끌어 내려요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="c_nb4e" data-key="c_nb4e"><div class="body"><label for="c_nb4e">연락 동의는 사람이 확인해서 Y로</label><small>네이버로 예약했다고 안내 연락까지 동의한 건 아니에요. 동의를 받은 분만 H열을 Y로 바꿔요. 받는 방법은 <a href="#c-l56" class="ref" data-ref="c-l56">강의</a>에 있어요. 예약할 때 묻는 질문(<a href="#c-nb1" class="ref" data-ref="c-nb1">강의</a>)에 '다음 방문 때 안내를 받을까요?'를 넣어 두면 편해요.</small></div></li>
+  </ol>
+
+  <p class="cap">'고객 명단 (비공개)' 시트의 Apps Script에 붙여 넣으세요. <code>CYCLE</code>만 우리 {{place}}에 맞게 고쳐요.</p>
+  <div class="prompt"><div class="bar"><span>재방문 줄 만들기 스크립트</span><button class="copy" type="button">복사</button></div><pre>// 항목(예약 상품 이름 일부) : 다음 방문까지 날짜 수. 예시일 뿐이에요, 우리 기준대로 고쳐요.
+var CYCLE = { <span data-biz="vet">'종합백신': 365, '심장사상충': 30, '건강검진': 365, '미용': 45</span><span data-biz="salad">'정기': 7, '단체': 28, '픽업': 14</span><span data-biz="flower">'꽃다발': 365, '꽃바구니': 365, '화분': 90, '클래스': 60</span><span data-biz-not="vet salad flower">'상품A': 30, '상품B': 90</span> };
+
+function makeRevisitRows() {
+  var ss = SpreadsheetApp.getActive();
+  var src = ss.getSheetByName('예약_이번달');
+  var book = ss.getSheetByName('고객명단') || ss.insertSheet('고객명단');
+  if (book.getLastRow() === 0) book.appendRow(['키', '고객번호', '이름', '전화번호', '처음 이용일']);
+  var data = src.getDataRange().getValues();
+  var head = data.shift().map(String);
+  function col(word) {
+    for (var i = 0; i &lt; head.length; i++) if (head[i].indexOf(word) &gt;= 0) return i;
+    throw new Error('열을 못 찾았어요: ' + word);
+  }
+  var cName = col('예약자'), cTel = col('전화'), cItem = col('상품'), cDate = col('이용일'), cState = col('상태');
+  function toDate(v) {
+    if (v instanceof Date) return v;
+    var m = String(v).match(/(\d{4})\D+(\d{1,2})\D+(\d{1,2})/);
+    return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null;
+  }
+  // 이미 있는 고객번호 읽기
+  var rows = book.getDataRange().getValues(), idOf = {}, last = 0;
+  rows.slice(1).forEach(function (r) { idOf[r[0]] = r[1]; last = Math.max(last, +String(r[1]).slice(1) || 0); });
+  var latest = {};
+  data.forEach(function (r) {
+    var state = String(r[cState]);
+    if (state.indexOf('취소') &gt;= 0 || state.indexOf('노쇼') &gt;= 0) return;
+    var d = toDate(r[cDate]); if (!d) return;
+    var key = String(r[cName]).trim() + '|' + String(r[cTel]).replace(/\D/g, '');
+    if (!idOf[key]) {
+      last++; idOf[key] = 'C' + ('0000' + last).slice(-4);
+      book.appendRow([key, idOf[key], r[cName], r[cTel], d]);
+    }
+    var item = String(r[cItem]), k2 = idOf[key] + '|' + item;
+    if (!latest[k2] || latest[k2].d &lt; d) latest[k2] = { id: idOf[key], item: item, d: d };
+  });
+  var out = ss.getSheetByName('재방문 붙일 줄') || ss.insertSheet('재방문 붙일 줄');
+  out.clear();
+  out.appendRow(['고객번호', <span data-biz="vet">'종', '나이(살)'</span><span data-biz-not="vet">'구분', '메모'</span>, '항목', '마지막 날짜', '주기(일)', '다음 예정일', '연락 동의(Y/N)', '연락한 날', '결과', '카톡 친구(Y/N)']);
+  Object.keys(latest).forEach(function (k) {
+    var x = latest[k], cyc = '';
+    Object.keys(CYCLE).forEach(function (w) { if (x.item.indexOf(w) &gt;= 0) cyc = CYCLE[w]; });
+    out.appendRow([x.id, <span data-biz="vet">'', ''</span><span data-biz-not="vet">'네이버 예약', ''</span>, x.item, x.d, cyc, '', '', '', '', '']);
+  });
+  SpreadsheetApp.getUi().alert('재방문 붙일 줄 ' + Object.keys(latest).length + '개를 만들었어요.');
+}</pre></div>
+  <div class="tip warnbox"><b>'고객 명단 (비공개)'는 AI 비서와 연결하지 않아요.</b> 드라이브 커넥터로 AI가 읽는 폴더 밖에 두고, 공유하지 않아요. AI와 함께 보는 건 고객번호만 있는 데이터 허브예요. 연락할 땐 고객번호로 이 명단에서 번호를 찾아요.</div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달마다</span><div class="ad"><b>1일 오전 10분</b><span>네이버 엑셀 저장 → '예약_이번달'에 붙이기 → 스크립트 실행 → 재방문 탭에 붙이기. 캘린더에 반복 일정으로 넣어 둬요. 다음 예정일 알림 메일은 <a href="#c-l57" class="ref" data-ref="c-l57">강의</a> 스크립트가 보내요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>재방문 탭(고객번호만)만. 고객 명단은 넣지 않아요</span></div><div class="aib-row"><b>세션</b><span>스크립트 오류가 나면 오류 문장만 복사해 물어봐요. 시트 내용은 붙이지 않아요.</span></div></div>
+  <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>코드를 고칠 때는 "전체 다시" 대신 <b>"바뀐 함수만"</b> 달라고 해요. 오류는 빨간 줄 몇 줄만 복사해 보내요.</li><li>정기 브리핑·분석은 같은 채팅에 계속 쌓지 말고 <b>달마다 새 채팅</b>. 지난달 요약 10줄만 붙여 이어가요.</li></ul></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Calendar</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">{{customer}} 안내 문구</span></div></div><p class="rec-note">드라이브 커넥터는 데이터 허브 폴더까지만.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·Apps Script 모두 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>재방문 탭을 AI가 읽고 이번 주 안내 문구까지 한 번에</li></ul></div></div>
+</section>
