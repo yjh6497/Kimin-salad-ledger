@@ -11,6 +11,7 @@ PARTS = [
   ('base',     '기초 자료와 장부'),
   ('aidesk',   'AI 비서실'),
   ('practice', '업종 실무 AI'),
+  ('software', '설계 프로그램과 AI'),
   ('legal',    '개업 법무·결제'),
   ('map',      '지도·리뷰: 네이버·카카오·티맵·차량 내비'),
   ('blog',     '네이버 블로그'),
@@ -102,6 +103,14 @@ L = {
   ('f-buy',    'new', None, 'grow', ALL, 'flower', ''),
   ('f-order',  'new', None, 'core', ALL, 'flower', ''),
   ('f-loss',   'new', None, 'grow', ALL, 'flower', ''),
+ ],
+ 'software': [
+  ('a-sw0', 'new', None, 'core', ALL, 'arch', ''),
+  ('a-cad', 'new', None, 'core', ALL, 'arch', ''),
+  ('a-3d',  'new', None, 'grow', ALL, 'arch', ''),
+  ('a-ps',  'new', None, 'grow', ALL, 'arch', ''),
+  ('a-xls', 'new', None, 'core', ALL, 'arch', ''),
+  ('a-hwp', 'new', None, 'grow', ALL, 'arch', ''),
  ],
  'legal': [
   ('v-l71', 'vet',  'l71', 'core', 'PT', 'vet', ''),

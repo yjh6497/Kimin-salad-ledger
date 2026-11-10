@@ -47,6 +47,9 @@
     arch: {
       name: '건축사사무소', icon: '📐', aliases: ['건축사', '건축사사무소', '설계', '건축', '설계사무소', '인테리어', '사무소'],
       blurb: '도면은 소장님이, 서류와 반복 일은 AI가',
+      survey: { id: 'sw', tag: '프로그램', q: '사무소에서 쓰는 프로그램을 모두 골라 주세요', s: '고른 프로그램을 AI와 함께 쓰는 강의만 보여 드려요. 안 고르면 모두 보여요.',
+        o: ['오토캐드 등 2D CAD', '스케치업', '레빗·아키캐드 (BIM)', '포토샵', '일러스트레이터', '엑셀', '한글 (HWP)'],
+        keys: ['cad', 'sketchup', 'bim', 'ps', 'ai', 'excel', 'hwp'] },
       stages: { prep: '사무소 개설', takeover: '사무소 인수', operate: '운영 중' },
       terms: {
         owner: '소장님', customer: '건축주', place: '사무소', biz: '건축사사무소', open: '개설', shopname: '○○건축사사무소',

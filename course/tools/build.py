@@ -33,6 +33,7 @@ for pkey, ptitle in PARTS:
             'level': a.get('data-level', 'grow'), 'stage': a.get('data-stage', 'prep takeover operate').split(),
             'biz': a.get('data-biz', '').split(), 'not': a.get('data-biz-not', '').split(), 'ai': a.get('data-ai', ''),
             'dev': (a.get('data-dev') or DEV.get(nid, '')).split(), 'devalt': a.get('data-dev-alt', '').split(),
+            'sw': a.get('data-sw', '').split(),
             'kw': re.sub(r'\s+', ' ', ' '.join(re.findall(r'<h[23][^>]*>(.*?)</h[23]>', html)))[:300]
         })
         out.setdefault(grp, []).append(html)

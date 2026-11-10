@@ -167,8 +167,36 @@
       });
       wrap.appendChild(p); wrap.appendChild(opts); svBox.appendChild(wrap);
     });
+    var bizBox = document.createElement('div'); bizBox.className = 'sv'; bizBox.id = 'surveyBiz';
+    svBox.parentNode.insertBefore(bizBox, svBox.nextSibling);
+    var bizFor = null;
+    function renderBizQ() {
+      var ind = sel.biz && sel.biz !== 'custom' ? IND[sel.biz] : null;
+      var Sq = ind && ind.survey;
+      if (bizFor === (Sq ? sel.biz : '')) return;
+      bizFor = Sq ? sel.biz : '';
+      bizBox.textContent = '';
+      if (!Sq) return;
+      if (!sel.sw) sel.sw = (prefs.sw || []).slice();
+      var wrap = document.createElement('div'); wrap.className = 'sv-q';
+      var p = document.createElement('p');
+      var tg = document.createElement('span'); tg.className = 'sv-tag'; tg.textContent = Sq.tag; p.appendChild(tg);
+      p.appendChild(document.createTextNode(Sq.q));
+      if (Sq.s) { var sm = document.createElement('small'); sm.textContent = Sq.s; p.appendChild(sm); }
+      var opts = document.createElement('div'); opts.className = 'sv-opts multi'; opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', Sq.q);
+      Sq.o.forEach(function (t, k) {
+        var b = document.createElement('button'); b.type = 'button'; b.textContent = t; b.dataset.sw = Sq.keys[k];
+        b.addEventListener('click', function () { var key = Sq.keys[k], at = sel.sw.indexOf(key); if (at >= 0) sel.sw.splice(at, 1); else sel.sw.push(key); paint(); });
+        opts.appendChild(b);
+      });
+      wrap.appendChild(p); wrap.appendChild(opts); bizBox.appendChild(wrap);
+    }
+    function paintBizQ() {
+      renderBizQ();
+      bizBox.querySelectorAll('button[data-sw]').forEach(function (b) { b.setAttribute('aria-pressed', sel.sw && sel.sw.indexOf(b.dataset.sw) >= 0 ? 'true' : 'false'); });
+    }
     document.getElementById('svSkip').addEventListener('click', function () { sel.skip = true; sel.ans = { pc: sel.ans.pc, phone: sel.ans.phone }; paint(); });
-    function curSkill() { var s = sel.skip ? { lv: 2, hide: [], big: false, skipped: true } : skillFrom(sel.ans); if (s) s.dev = devOf(sel.ans); return s; }
+    function curSkill() { var s = sel.skip ? { lv: 2, hide: [], big: false, skipped: true } : skillFrom(sel.ans); if (s) { s.dev = devOf(sel.ans); s.sw = sel.biz === 'arch' ? (sel.sw || []) : []; } return s; }
     function paintSurvey() {
       svBox.querySelectorAll('button').forEach(function (b) { var v = sel.ans[b.dataset.q]; b.setAttribute('aria-pressed', (Array.isArray(v) ? v.indexOf(+b.dataset.k) >= 0 : v === +b.dataset.k) ? 'true' : 'false'); });
       var out = document.getElementById('svResult'); out.textContent = '';
@@ -211,6 +239,7 @@
       if (sk.big) lines.push('글씨를 크게 보여 드려요');
       var dvt = devLabel(sk.dev);
       if (dvt) lines.push(dvt + '에 맞는 방법만 보여 드려요' + ((sk.dev.pc === 'mac' && sk.dev.phone === 'ios') ? ' (맥·아이폰 전용 강의 포함)' : ' (맥과 아이폰이 함께 있어야 하는 강의는 빼고, 대신 할 수 있는 방법으로)'));
+      if (sk.sw && sk.sw.length) { var swq = IND.arch.survey; lines.push('고른 프로그램(' + sk.sw.map(function (k) { return swq.o[swq.keys.indexOf(k)]; }).join(', ') + ')을 AI와 함께 쓰는 강의만 넣어요'); }
       lines.push('강의 화면 위쪽 \'난이도\'에서 언제든 바꿀 수 있어요');
       lines.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
       out.appendChild(ul);
@@ -274,7 +303,7 @@
       });
     }
     function paint() {
-      renderChips(); renderStages(); paintSurvey();
+      renderChips(); renderStages(); paintBizQ(); paintSurvey();
       cbox.hidden = sel.biz !== 'custom';
       document.getElementById('customName').textContent = sel.name;
       ctypes.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.type === sel.type ? 'true' : 'false'); });
@@ -315,6 +344,7 @@
         if (!sk.skipped && sk.plan) prefs.plan = sel.plan || sk.plan;
         if (sk.big) prefs.font = 'big'; else if (!sk.skipped) prefs.font = 'normal';
       }
+      if (sel.biz === 'arch' && sel.sw) prefs.sw = sel.sw.slice();
       savePrefs();
       var p = { biz: sel.biz, stage: sel.stage };
       if (p.biz === 'custom') { p.name = sel.name; p.type = sel.type; }
@@ -344,6 +374,8 @@
     var dv = sk && sk.dev ? sk.dev : userDev();
     if (L.dev && L.dev.length && !L.dev.every(function (d) { return hasDev(d, dv); })) return false;
     if (L.devalt && L.devalt.length && dv.pc && dv.phone && L.devalt.every(function (d) { return hasDev(d, dv); })) return false;
+    var sw = sk && sk.sw ? sk.sw : (prefs.sw || []);
+    if (L.sw && L.sw.length && sw.length && !L.sw.some(function (x) { return sw.indexOf(x) >= 0; })) return false;
     return true;
   }
 
@@ -414,6 +446,7 @@
   function prune(root) {
     root.querySelectorAll('[data-biz]').forEach(function (el) { if (el.tagName !== 'SECTION' && !inList(el.getAttribute('data-biz'), BIZ)) el.remove(); });
     root.querySelectorAll('[data-biz-not]').forEach(function (el) { if (el.tagName !== 'SECTION' && inList(el.getAttribute('data-biz-not'), BIZ)) el.remove(); });
+    root.querySelectorAll('[data-sw-only]').forEach(function (el) { var u = prefs.sw || []; if (!u.length) return; var ks = el.getAttribute('data-sw-only').split(/\s+/); if (!ks.some(function (k) { return u.indexOf(k) >= 0; })) el.remove(); });
     root.querySelectorAll('[data-dev-only]').forEach(function (el) { var ds = el.getAttribute('data-dev-only').split(/\s+/); if (!ds.some(function (d) { return hasDev(d); })) el.remove(); });
     root.querySelectorAll('[data-stage-only]').forEach(function (el) { if (!inList(el.getAttribute('data-stage-only'), P.stage)) el.remove(); });
   }
