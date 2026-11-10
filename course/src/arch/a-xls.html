@@ -1,0 +1,44 @@
+<section id="a-xls" class="lesson" data-part="software" data-title="엑셀 면적표·설계비 계산을 AI와" data-level="core" data-stage="prep takeover operate" data-biz="arch" data-sw="excel">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · PC</span>
+    <h2>수식은 AI가 짜고, 계산은 엑셀이 하고, 확인은 소장님이</h2>
+    <p class="goal">사무소의 면적표·설계비 산정표는 대부분 엑셀이에요. AI에게 숫자를 바로 계산시키지 말고, <b>엑셀 파일과 수식</b>을 만들게 해요. 반복 정리는 <b>VBA</b>(엑셀에 붙이는 작은 프로그램)로 줄여요.</p>
+  </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>엑셀 양식을 AI가 대신 만들어 주는 거예요. 계산 자체는 엑셀 수식이 하니 결과를 믿을 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>층별 면적표 + 설계비 산정표가 든 엑셀 파일 1개, 시트 정리 매크로 1개</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 엑셀(Microsoft 365 권장), 끝난 프로젝트 면적표 1건, 1시간 · 구글 시트로 하려면 <a href="#a-l33" class="ref" data-ref="a-l33">강의</a></span></div></div>
+  <ol class="steps">
+    <li><input type="checkbox" id="axls_a" data-key="axls_a"><div class="body"><label for="axls_a">AI에게 엑셀 파일째 받기</label><small><span data-ai-not="gpt">Claude는 <span class="path">설정 → 기능(Capabilities) → 코드 실행 및 파일 생성</span>을 켜면 무료 플랜에서도 .xlsx 파일을 만들어 내려받게 해 줘요.</span><span data-ai-not="claude"> ChatGPT도 채팅에서 스프레드시트 파일을 만들어 내려받게 해 줘요.</span> 아래 '양식 부탁문'을 보내고 받은 파일을 열어요.</small><span class="fix">막히면: 파일 대신 표만 나오면 "xlsx 파일로 만들어서 내려받기 링크를 줘"라고 한 번 더 말해요.</span></div></li>
+    <li><input type="checkbox" id="axls_b" data-key="axls_b"><div class="body"><label for="axls_b">수식이 살아 있는지 확인하기</label><small>합계 칸을 눌러 위쪽 수식 입력줄에 <b>=SUM(…)</b>처럼 수식이 보여야 해요. 숫자만 적혀 있으면 AI가 계산해 넣은 거예요. "모든 계산 칸을 엑셀 수식으로 바꿔 줘"라고 다시 부탁해요.</small></div></li>
+    <li><input type="checkbox" id="axls_c" data-key="axls_c"><div class="body"><label for="axls_c">끝난 프로젝트로 시험하기</label><small>이미 허가받은 프로젝트 숫자를 넣어 허가 도서의 연면적·용적률과 같은지 봐요. 설계비는 실제 계약서 금액과 비교해요. 맞아야 새 일에 써요.</small></div></li>
+    <li><input type="checkbox" id="axls_d" data-key="axls_d"><div class="body"><label for="axls_d">엑셀 안에서 AI 쓰기 (있으면)</label><small>엑셀 창 안에서 바로 물어볼 수도 있어요.</small>
+      <details class="how"><summary><span class="closed-label">어떤 게 있나요</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li data-ai-not="gpt"><b>Claude in Excel</b>: Microsoft AppSource에서 'Claude for Microsoft 365'를 받아 Claude 계정으로 로그인해요. <b>Pro 이상 유료 플랜</b>용이에요. 윈도우(Microsoft 365), 맥(16.46 이상), 웹 엑셀에서 돼요. 수식 설명, #REF! 오류 원인 찾기, 표 정리를 해요. <b>매크로·VBA는 못 다뤄요.</b></li>
+        <li><b>엑셀 Copilot</b>: Microsoft 365 Personal·Family 구독에 들어 있어요(Family는 구독 주인만). 파일을 OneDrive에 저장해 두면 안전해요.</li>
+        <li>엑셀 2016·2019 같은 영구 라이선스는 둘 다 안 될 수 있어요. 그때는 1번처럼 채팅에서 파일을 받아요</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="axls_e" data-key="axls_e"><div class="body"><label for="axls_e">VBA로 반복 정리하기</label><small>프로젝트마다 하는 '빈 줄 지우기·숫자 서식 맞추기·인쇄 영역 잡기'를 버튼 하나로 해요. 꼭 <b>파일 사본</b>에서 먼저 해요. 매크로로 바뀐 것은 <b>되돌리기(⌘+Z / Ctrl+Z)가 안 돼요.</b></small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li data-dev-only="mac">맥: <span class="path">Excel → 환경설정 → 리본 및 도구 모음 → 기본 탭 → 개발 도구</span> 체크 → 저장</li>
+        <li data-dev-only="win">윈도우: <span class="path">파일 → 옵션 → 리본 사용자 지정 → 개발 도구</span> 체크 → 확인</li>
+        <li><span class="path">개발 도구 → Visual Basic</span> → 왼쪽 파일 이름에서 오른쪽 클릭 → <span class="path">삽입 → 모듈</span> → AI가 준 코드 붙여 넣기</li>
+        <li>엑셀로 돌아와 <span class="path">개발 도구 → 매크로</span> → 이름 고르고 실행</li>
+        <li>저장할 때 형식을 <b>Excel 매크로 사용 통합 문서(.xlsm)</b>로 골라요. 그냥 .xlsx로 저장하면 코드가 사라져요</li>
+      </ol></details><span class="fix">막히면: 노란 줄이나 오류 창이 뜨면 그 글자를 그대로 복사해 "이 오류가 났어. 고친 코드 전체를 다시 줘"라고 보내요(<a href="#c-b5" class="ref" data-ref="c-b5">강의</a>).</span></div></li>
+  </ol>
+  <p class="cap">면적표는 '02 대지·법규 검토' 채팅, 설계비 표와 VBA는 '01 사무장·정산' 채팅에 붙여 넣어요. ○○ 자리만 바꿔요.</p>
+  <div class="prompt"><div class="bar"><span>양식 부탁문 (엑셀 파일 받기)</span><button class="copy" type="button">복사</button></div><pre>엑셀(.xlsx) 파일을 만들어 줘. 시트 3개:
+1) 층별면적: 층 | 용도 | 바닥면적(㎡) | 용적률 제외(㎡) | 제외 사유 | 산정용 면적(㎡). 맨 아래 연면적·산정용 연면적 합계
+2) 한도: 대지면적, 건축면적, 건폐율=건축면적/대지면적, 용적률=산정용 연면적/대지면적, 한도 칸과 비교해 '적합/초과'
+3) 설계비: 공사비 | 요율(%) | 설계비 = 공사비×요율 | 부가세 | 합계. 요율 칸은 비워 두고 '근거' 칸을 옆에 둬
+조건: 모든 계산은 엑셀 수식으로(숫자를 직접 넣지 말 것), 입력 칸은 노란색, 소수점 둘째 자리, 인쇄 시 A4 가로 한 장. 나는 엑셀 수식을 잘 몰라서 칸마다 무슨 수식인지 표로 설명해 줘.</pre></div>
+  <div class="prompt"><div class="bar"><span>VBA 부탁문</span><button class="copy" type="button">복사</button></div><pre>엑셀 VBA 매크로를 만들어 줘. 나는 코딩을 몰라.
+하는 일: 현재 시트에서 B열이 빈 줄을 모두 지우고, C~F열 숫자를 '#,##0.00' 서식으로, A1부터 마지막 줄까지 인쇄 영역으로 잡고 A4 가로 한 장에 맞추기.
+조건: 실행 전에 "정말 실행할까요?" 확인 창을 띄우고, 시트를 먼저 '백업_날짜' 이름으로 복사해 둔 뒤 작업해. 맥 엑셀과 윈도우 엑셀 둘 다 되게.
+① 붙여 넣을 곳 ② 실행 방법 ③ .xlsm 저장법을 번호 순서로 알려 줘. 고칠 때는 전체 코드를 다시 줘.</pre></div>
+  <div class="lawbox"><div class="lawbox-h"><b>법령 MCP로 근거 확인</b><a href="#a-l36" class="ref" data-ref="a-l36">강의</a></div><p>설계비 요율은 AI가 기억으로 채우면 틀려요. 공공 발주 건은 「건축사법」 제19조의3에 따라 국토교통부 고시 「공공발주사업에 대한 건축사의 업무범위와 대가기준」을 적용해요. 민간 건은 이 기준을 준용할 수 있어요. 면적 산정은 「건축법 시행령」 제119조가 근거예요. 요율·근거 칸은 원문을 확인한 뒤에 채워요.</p><div class="prompt"><div class="bar"><span>법령 MCP 부탁문</span><button class="copy" type="button">복사</button></div><pre>법령 MCP의 search_law → get_law_text로 「건축사법」 제19조의3 원문을 시행일과 함께 인용해 줘. 이어서 행정규칙(고시) 「공공발주사업에 대한 건축사의 업무범위와 대가기준」을 그대로 검색해 현행 발령일과, 공사비 구간별 설계 대가 요율표가 있는 별표를 찾아 줘. 「건축법 시행령」 제119조에서 연면적·용적률 산정 때 빼는 면적 항목도 원문으로. 엑셀 '근거' 칸에 넣을 수 있게 '법령명 · 조문/별표 · 시행일(발령일)' 형식으로 정리해. 못 찾으면 '확인 필요'.</pre></div></div>
+  <p class="tip"><b>AI 숫자는 그대로 쓰지 않아요.</b> 엑셀 수식 값 = 허가 도서 숫자 = AI 검산, 셋이 맞을 때만 계약서·도서에 써요.</p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>입력하면 바로 적합/초과</b><span>층별 면적만 바꾸면 건폐율·용적률·설계비가 다시 계산돼요.</span></div></li><li><span class="chip k-rule">매크로</span><div class="ad"><b>버튼 하나로 출력 정리</b><span>VBA 매크로를 '양식.xlsm'에 넣어 두고 프로젝트마다 복사해 써요.</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>02 대지·법규 검토</b>(면적) · <b>01 사무장·정산</b>(설계비)</span></div><div class="aib-row"><b>넣어 둘 것</b><span>검증 끝난 '양식.xlsx'를 프로젝트 파일에 올려 두면 다음부터 "양식대로"라고만 해도 돼요</span></div><div class="aib-row"><b>넣지 말 것</b><span>건축주 이름·주민번호가 든 계약 시트. 금액 표만 따로 떼어 올려요</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">법령 MCP</span><span class="rc c">Microsoft 365</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀(xlsx) 만들기</span></div></div><p class="rec-note">계약·수금 장부와 이어 쓰려면 <a href="#a-l21" class="ref" data-ref="a-l21">강의</a>.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>채팅에서 xlsx 파일·수식·VBA 받기</li><li>엑셀이 없으면 구글 시트로(<a href="#a-l33" class="ref" data-ref="a-l33">강의</a>)</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li data-ai-not="gpt">Claude Pro 이상: 엑셀 안에서 Claude in Excel</li><li>Microsoft 365 개인 구독: 엑셀 Copilot</li></ul></div></div>
+  <p class="cap">출처: Claude 도움말 'Create and edit files with Claude', Claude 문서 'Claude in Excel'(지원 플랜·기기·VBA 미지원), Microsoft 지원 'Excel for Mac에서 개발 도구 탭으로 매크로 만들기', Copilot in Excel 요금제 안내(dupple 가이드), 국가법령정보 「건축사법」·「공공발주사업에 대한 건축사의 업무범위와 대가기준」</p>
+</section>

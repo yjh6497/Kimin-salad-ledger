@@ -117,3 +117,12 @@ html[data-font="big"] .toc button .t { font-size: 16px; }
 .sv-mrow span { color: var(--muted); white-space: nowrap; }
 .sv-result ul { margin-top: 10px; }
 @media (max-width: 640px) { .sv-opts.four, .sv-opts.multi { grid-template-columns: minmax(0, 1fr); } }
+
+/* 법령 MCP 근거 확인 상자 */
+.lawbox { margin: 18px 0; padding: 14px 16px 6px; border: 2px solid var(--leaf); border-left-width: 6px; border-radius: 14px; background: var(--paper); max-width: 80ch; }
+.lawbox-h { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.lawbox-h b { font-size: 16px; color: var(--leaf); }
+.lawbox-h b::before { content: "§ "; }
+.lawbox p { margin: 0 0 8px; line-height: 1.65; font-size: 15px; }
+.lawbox ul { margin: 0 0 8px; padding-left: 1.2em; line-height: 1.7; font-size: 15px; }
+.lawbox .prompt { margin: 8px 0 10px; }

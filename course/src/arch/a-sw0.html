@@ -1,0 +1,61 @@
+<section id="a-sw0" class="lesson" data-part="software" data-title="설계 프로그램과 AI 지도" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+  <div class="lesson-head">
+    <span class="kicker">읽기 · 약 25분</span>
+    <h2>AI는 도면을 대신 그리지 않아요. 반복 작업을 줄여 줘요</h2>
+    <p class="goal">사무소에서 매일 쓰는 설계 프로그램마다 AI로 줄일 수 있는 일을 한 장에 정리해요. 핵심은 하나예요. 레이어 정리, 면적표, 이미지 보정, 표 계산, 문서 초안처럼 <b>매번 똑같이 손이 가는 일</b>을 <span data-ai-not="gpt">Claude</span><span data-ai-none> 또는 </span><span data-ai-not="claude">ChatGPT</span>가 짜 주는 스크립트·수식·초안으로 바꾸는 거예요.</p>
+  </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>설계 프로그램 여섯 개와 AI의 '역할 분담표'예요. 어떤 일은 프로그램 안의 AI가, 어떤 일은 채팅 AI가 짜 준 스크립트가 맡아요.</span></div><div class="easy-row"><b>끝나면</b><span>우리 사무소 반복 작업 목록과, 그중 먼저 줄일 세 가지</span></div><div class="easy-row"><b>필요한 것</b><span>PC, AI 앱(<a href="#c-b3" class="ref" data-ref="c-b3">강의</a>), 25분</span></div></div>
+
+  <div class="table-wrap"><table>
+    <thead><tr><th>프로그램</th><th>프로그램 안의 AI (2026년 11월 확인)</th><th>채팅 AI가 도와주는 일</th><th>강의</th></tr></thead>
+    <tbody>
+      <tr data-sw-only="cad"><td><b>오토캐드</b></td><td>Autodesk Assistant: 질문 답변, 조건으로 객체 고르기, 도면 기준 검사(2027 윈도우는 미리보기)</td><td>레이어 정리·면적 합계 AutoLISP(오토캐드용 작은 프로그램) 스크립트</td><td><span class="refs" data-refs="a-cad"></span></td></tr>
+      <tr data-sw-only="sketchup"><td><b>스케치업</b></td><td>SketchUp AI: AI Render(모델 → 이미지), AI Assistant, 글·사진으로 3D 객체 만들기</td><td>반복 모델링 Ruby 스크립트, 재료표 정리</td><td><span class="refs" data-refs="a-3d"></span></td></tr>
+      <tr data-sw-only="bim"><td><b>레빗·아키캐드</b></td><td>레빗 2027 Autodesk Assistant, 아키캐드 AI Assistant·AI Visualizer, 두 프로그램 모두 공식 <dfn data-t="mcp">MCP</dfn> 있음</td><td>모델 속 면적·계단·문 목록 묻기, 일람표 정리</td><td><span class="refs" data-refs="a-3d"></span></td></tr>
+      <tr data-sw-only="ps ai"><td><b>포토샵·일러스트</b></td><td>이미지 생성·보정 AI (강의에서 확인)</td><td>투시도 보정 순서, 패널 문구</td><td><span class="refs" data-refs="a-ps"></span></td></tr>
+      <tr data-sw-only="excel"><td><b>엑셀</b></td><td>표 AI 기능 (강의에서 확인)</td><td>면적표·설계비 수식, 검산</td><td><span class="refs" data-refs="a-xls"></span></td></tr>
+      <tr data-sw-only="hwp"><td><b>한글(HWP)</b></td><td>버전마다 다름 (강의에서 확인)</td><td>공문·설계설명서 초안</td><td><span class="refs" data-refs="a-hwp"></span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="tip"><b>두 가지 길이 있어요.</b> ① 프로그램 안의 AI: 메뉴에서 바로 쓰지만 기능이 정해져 있어요. ② 채팅 AI + 스크립트: AI가 짠 짧은 프로그램을 내가 붙여 넣어 돌려요. 우리 사무소에 딱 맞게 만들 수 있어요. 이 장의 강의는 대부분 ②번이에요.</p>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="asw0_a" data-key="asw0_a"><div class="body"><label for="asw0_a">우리 사무소 프로그램과 버전 적기</label><small>프로그램마다 AI 기능은 버전과 구독에 따라 달라요. 오토캐드 2027, 아키캐드 30처럼 숫자까지 적어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>각 프로그램을 열고 <span class="path">도움말 → 정보(About)</span>에서 버전 확인</li>
+        <li data-dev-only="mac">맥에서는 왼쪽 위 프로그램 이름 메뉴 → <span class="path">(프로그램) 정보</span>에 있어요. <b>레빗은 맥용이 없어요.</b> 맥에서는 윈도우 가상 머신(Parallels)으로만 돌아가요.</li>
+        <li>구독 종류(LT인지, 일반인지)도 같이 적기<span class="fix">막히면: 화면을 캡처해 AI에게 "이 프로그램 버전과 구독 종류가 뭐야?"라고 물어요(<a href="#c-b2" class="ref" data-ref="c-b2">강의</a>).</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="asw0_b" data-key="asw0_b"><div class="body"><label for="asw0_b">반복 작업 목록 만들기</label><small>지난 한 달 동안 "또 이거야?" 했던 일을 적어요. 아래 부탁문에 붙이면 AI가 어느 프로그램 강의로 줄일지 골라 줘요.</small></div></li>
+    <li><input type="checkbox" id="asw0_c" data-key="asw0_c"><div class="body"><label for="asw0_c">안전 규칙 세 줄 정하기</label><small>AI가 짠 스크립트는 한 번에 도면 수백 개 객체를 바꿔요. 그래서 이 장의 모든 강의는 같은 순서를 지켜요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li><b>복사본에서 먼저</b>: 원본 파일을 '_시험' 이름으로 복사해 거기서만 돌려요.</li>
+        <li><b>원본 <dfn data-t="backup">백업</dfn></b>: 실제 도면에 돌리기 전에 날짜를 붙여 백업해요.</li>
+        <li><b>되돌리기</b>: 결과가 이상하면 바로 <b>UNDO</b>(⌘+Z / Ctrl+Z). 저장하고 닫았다면 백업을 열어요.</li>
+        <li>건축주 이름·주소·계약서는 AI에 올리기 전에 가려요. 사무소 규칙은 <a href="#a-l22" class="ref" data-ref="a-l22">강의</a></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="asw0_d" data-key="asw0_d"><div class="body"><label for="asw0_d">'설계 프로그램 도우미' 채팅 만들기</label><small>AI 비서 프로젝트에 이 장 전용 채팅을 하나 열어요. 프로그램 버전표를 첫 메시지로 붙여 두면, 맞지 않는 스크립트를 덜 받아요.</small></div></li>
+  </ol>
+
+  <div class="prompt"><div class="bar"><span>반복 작업 정리 부탁문</span><button class="copy" type="button">복사</button></div><pre>나는 건축사사무소 소장이고 코딩은 몰라.
+우리 사무소 프로그램: (예: 오토캐드 2027 윈도우, 스케치업 2026 맥, 엑셀, 한글)
+지난달 반복 작업: (예: 도면마다 TEMP 레이어 끄기, 실별 면적 손으로 더하기, 투시도 하늘 바꾸기, 설계비 표 다시 계산)
+
+1. 작업마다 ① 프로그램 안의 AI로 되는지 ② 스크립트·수식으로 줄일 수 있는지 ③ 사람이 해야 하는지 표로 나눠 줘.
+2. 시간이 많이 줄고 위험이 적은 순서로 세 가지를 골라 줘.
+3. 내 버전·맥/윈도우에서 안 될 수 있는 것은 따로 표시해 줘. 모르면 '확인 필요'라고 써.</pre></div>
+  <p class="cap">괄호 안을 우리 사무소 내용으로 바꿔서 '설계 프로그램 도우미' 채팅에 붙여 넣으세요.</p>
+
+  <div class="lawbox"><div class="lawbox-h"><b>법령 MCP로 근거 확인</b><a href="#a-l36" class="ref" data-ref="a-l36">강의</a></div>
+    <p>스크립트로 면적을 자동으로 더해도, <b>무엇을 어디서 재는지</b>는 법이 정해요. 바닥면적은 벽·기둥 중심선으로 둘러싼 면적이고, 노대·필로티·다락은 따로 빼는 규칙이 있어요(건축법 시행령 제119조). 건폐율·용적률 숫자는 우리 시 조례로 정해요. 스크립트를 만들기 전에 근거부터 받아 두세요.</p>
+    <div class="prompt"><div class="bar"><span>면적 산정 근거 부탁문</span><button class="copy" type="button">복사</button></div><pre>법령 MCP의 search_law → get_law_text로 건축법 시행령 제119조(면적 등의 산정방법) 원문을 찾아 시행일과 함께 인용해 줘.
+그중 바닥면적·연면적에서 빼는 부분(노대, 필로티, 다락, 용적률 산정 때 빼는 면적)만 표로 정리해 줘.
+그리고 건축법 제55조(건폐율)·제56조(용적률)를 찾고, 실제 숫자는 조례로 정하니 ordinance_radar(또는 자치법규 검색)로 (○○시) 도시계획 조례의 (○○주거지역) 건폐율·용적률을 찾아 줘.
+시행 예정 개정이 있으면 날짜와 함께 알려 주고, 못 찾으면 '확인 필요'라고 써.</pre></div>
+  </div>
+
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 사무소 AI 비서 프로젝트 → 새 채팅 <b>'설계 프로그램 도우미'</b></span></div><div class="aib-row"><b>넣어 둘 것</b><span>프로그램·버전표, 안전 규칙 세 줄, 사무소 레이어 이름 규칙 → 프로젝트 파일</span></div><div class="aib-row"><b>세션</b><span>스크립트 하나에 채팅 하나. 잘 된 스크립트는 파일로 모아 둬요.</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">법령 MCP</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span><span class="rc s">PDF 읽기</span></div></div><p class="rec-note">레빗·아키캐드 MCP는 내 PC에서 도는 연결이라 데스크톱 앱에서만 써요(<a href="#a-3d" class="ref" data-ref="a-3d">강의</a>).</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>채팅 AI 무료 요금제로 짧은 스크립트·수식 받기</li><li>법령 MCP는 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li data-plan="paid">긴 스크립트와 도면 캡처를 한 채팅에서 여러 번 고치기</li><li>프로그램 자체 AI는 구독·크레딧에 따라 쓸 수 있는 양이 달라요</li></ul></div></div>
+  <p class="cap">출처: Autodesk 블로그 'AutoCAD 2027.1', Autodesk 개발자 블로그 'AutoCAD 2027과 AI 에이전트', Trimble 보도자료 'SketchUp AI', Graphisoft 도움말 'Archicad 30 AI Solutions', Autodesk 'Revit LT 제품 상세(맥 요구 사항)', 국가법령정보센터 건축법 시행령</p>
+</section>
