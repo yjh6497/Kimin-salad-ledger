@@ -1,0 +1,62 @@
+<section id="f-api" class="lesson" data-part="auto" data-title="꽃집 공공데이터 지도와 인증키" data-level="grow" data-stage="prep takeover operate" data-biz="flower">
+  <div class="lesson-head">
+    <span class="kicker">읽기·실습 · 약 1시간 · PC</span>
+    <h2>시세·대목·날씨·배송지, 꽃집에 붙는 공공데이터 여섯 줄</h2>
+    <p class="goal">꽃집 일의 큰 흐름은 <b>사입 → 대목 준비 → 제작 → 배송</b>이에요. 단계마다 나라가 무료로 여는 데이터가 있어요. 이 강의에서 어떤 데이터가 어디에 쓰이는지 한 장으로 보고, 필요한 <dfn data-t="apikey">인증키</dfn>를 한 번에 받아 '꽃집 운영 장부'에 보관해요. 이 단계의 나머지 강의는 모두 이 키를 써요.</p>
+  </div>
+  <p class="tknote" data-stage-only="prep"><b class="tag">개업 준비라면</b><span>시세·학교 데이터만 먼저 받아도 첫 대목 준비가 훨씬 쉬워요. 날씨·배송은 문 연 뒤에 붙여도 늦지 않아요.</span></p>
+  <p class="tknote" data-stage-only="operate"><b class="tag">이미 운영 중이라면</b><span>지난해 대목 매출과 올해 경매 시세를 같은 시트에 두면 "작년보다 얼마나 더 사야 하나"를 숫자로 정할 수 있어요.</span></p>
+
+  <div class="table-wrap"><table>
+    <thead><tr><th>데이터</th><th>어디서</th><th>꽃집 일에서</th><th>강의</th></tr></thead>
+    <tbody>
+      <tr><td><b>화훼 경매 시세</b></td><td>aT 화훼유통정보(flower.at.or.kr) 오픈 API · 공공데이터포털 '한국농수산식품유통공사_화훼 경매 시세'(연간 파일)</td><td>품목·품종·등급별 최고·평균·최저 단가와 거래량 → 사입 목록, 상품 원가 갱신, 급등 알림</td><td><span class="refs" data-refs="f-api-price"></span></td></tr>
+      <tr><td><b>학교 학사일정</b></td><td>나이스 교육정보 개방 포털(open.neis.go.kr)</td><td>우리 동네 초·중·고 졸업식·입학식 날짜 → 대목 달력, 예약 홍보 시작일</td><td><span class="refs" data-refs="f-api-school"></span></td></tr>
+      <tr><td><b>공휴일·기념일</b></td><td>공공데이터포털 '한국천문연구원_특일 정보'</td><td>설·추석 연휴, 대체공휴일 → 도매시장 휴무 전 사입, 배송 마감일</td><td><span class="refs" data-refs="f-api-school"></span></td></tr>
+      <tr><td><b>날씨 예보</b></td><td>공공데이터포털 '기상청_단기예보 조회서비스'</td><td>비·폭염·한파 → 배송 포장, 진열 위치, 물올림 양</td><td><span class="refs" data-refs="f-api-weather"></span></td></tr>
+      <tr><td><b>장례식장 현황</b></td><td>공공데이터포털 '보건복지부_장례식장 현황'(파일·API)</td><td>근조화환 주문 때 시설 주소·전화·주차 자동 채우기, 배송 거리 표</td><td><span class="refs" data-refs="f-api-weather"></span></td></tr>
+      <tr><td><b>상가(상권) 정보</b></td><td>공공데이터포털 '소상공인시장진흥공단_상가(상권)정보_API'</td><td>반경 안 꽃집 수와 위치 → 입지·인수 판단</td><td><span class="refs" data-refs="c-l61"></span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="tip"><b>모든 API는 같은 순서예요.</b> ① 사이트 가입 → ② 활용(이용) 신청 → ③ 인증키 복사 → ④ AI에게 <dfn data-t="appsscript">앱스 스크립트</dfn> 받기 → ⑤ 키는 코드가 아니라 <b>스크립트 속성</b>에 저장 → ⑥ <dfn data-t="trigger">트리거</dfn>로 매일 자동 실행. 마지막에 이 모든 결과를 아침 브리핑 한 통으로 묶어요(<a href="#f-api-brief" class="ref" data-ref="f-api-brief">강의</a>).</p>
+
+  <h3>키 받기: 세 군데면 끝나요</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="f_api_a" data-key="f_api_a"><div class="body"><label for="f_api_a">공공데이터포털 키 (특일 정보·단기예보·장례식장·상가 정보)</label><small>공공데이터포털은 키 하나로 여러 API를 써요. API마다 <b>활용신청</b>만 따로 눌러요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>PC에서 <span class="path">data.go.kr → 회원가입 → 개인회원</span>, 휴대폰 본인 인증</li>
+        <li>검색창에 위 표의 이름을 하나씩 넣고 'API'라고 적힌 결과에서 <span class="path">활용신청</span> → 활용 목적 "꽃집 내부 운영 참고" → 신청</li>
+        <li><span class="path">마이페이지 → 데이터활용 → Open API → 활용신청 현황</span>에서 <b>일반 인증키(Decoding)</b> 복사<span class="fix">승인 직후에는 키가 바로 안 될 수 있어요. 몇 시간 뒤 다시 해 보세요. 장례식장 현황은 파일(CSV)로 받아도 충분해요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="f_api_b" data-key="f_api_b"><div class="body"><label for="f_api_b">화훼유통정보 서비스키 (경매 시세)</label><small>화훼 경매 시세 API는 공공데이터포털이 아니라 aT 화훼유통정보에서 따로 키를 받아요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>flower.at.or.kr 접속 → 회원가입</li>
+        <li>메뉴에서 오픈 API(정보 공개) 안내 화면을 찾아 이용 신청 → 승인되면 서비스키 복사<span class="fix">메뉴 이름이 바뀌었으면 첫 화면을 캡처해 AI에게 "오픈 API 신청은 어디야?"라고 물어보세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="f_api_c" data-key="f_api_c"><div class="body"><label for="f_api_c">나이스 인증키 (학교 학사일정)</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>open.neis.go.kr 접속 → 회원가입 → 로그인</li>
+        <li>인증키 신청 화면에서 활용 목적 "꽃집 대목 일정 확인" → 발급된 키 복사<span class="fix">키 없이도 시험 호출은 되지만 가져오는 줄 수가 적어요. 키를 받아 쓰세요.</span></li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="f_api_d" data-key="f_api_d"><div class="body"><label for="f_api_d">키를 스크립트 속성에 넣기</label><small>키를 코드 안에 적으면 코드를 복사해 줄 때 같이 새어 나가요. '꽃집 운영 장부' → <span class="path">확장 프로그램 → Apps Script → 왼쪽 톱니바퀴(프로젝트 설정) → 스크립트 속성 → 속성 추가</span>에 아래 이름으로 하나씩 넣어요.</small></div></li>
+  </ol>
+  <div class="prompt"><div class="bar"><span>스크립트 속성 이름 (이대로 쓰면 뒤 강의 부탁문과 맞아요)</span><button class="copy" type="button">복사</button></div><pre>DATA_GO_KR_KEY   = 공공데이터포털 일반 인증키(Decoding)
+FLOWER_KEY       = 화훼유통정보 서비스키
+NEIS_KEY         = 나이스 인증키
+SHOP_LAT, SHOP_LON = 꽃집 위도·경도 (네이버 지도에서 가게를 길게 눌러 나오는 좌표)</pre></div>
+
+  <div class="prompt"><div class="bar"><span>키가 되는지 한 번에 확인하는 부탁문</span><button class="copy" type="button">복사</button></div><pre>'꽃집 운영 장부' 구글 시트에 붙일 Apps Script를 만들어 줘.
+스크립트 속성 DATA_GO_KR_KEY, FLOWER_KEY, NEIS_KEY를 읽어서 각각 아주 작은 요청을 한 번씩 보내고,
+'키점검' 탭에 [이름 | 성공/실패 | 받은 줄 수 | 오류 메시지 | 확인 시각]을 적는 함수 checkKeys를 만들어 줘.
+- 공공데이터포털: 한국천문연구원_특일 정보의 공휴일 조회, 올해 1월
+- 화훼유통정보: 경매 시세(kind=f001), 지난 평일 하루, 절화
+- 나이스: 학교기본정보, 학교 이름 '○○초등학교'
+키 값은 시트나 로그에 절대 쓰지 말고, 실패하면 초보가 할 일을 한 줄로 적어 줘.
+시트 메뉴 '꽃집 데이터 → 키 점검'으로 실행되게 해 줘.</pre></div>
+  <p class="cap">출처: 공공데이터포털 각 데이터 안내(한국농수산식품유통공사_화훼 경매 시세, 한국천문연구원_특일 정보, 기상청_단기예보 조회서비스, 보건복지부_장례식장 현황, 소상공인시장진흥공단_상가(상권)정보_API) · 나이스 교육정보 개방 포털. 데이터 이름과 화면은 바뀔 수 있어요.</p>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>키 점검 한 달에 한 번</b><span>매달 1일 아침 checkKeys를 트리거로 돌리고, 실패가 있으면 메일.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>키 만료·실패 알림</b><span>실패한 줄만 텔레그램으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>).</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>이 강의의 데이터 표, 스크립트 속성 이름 목록 (키 값은 넣지 않기)</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Sheets</span></div></div><p class="rec-note">키는 대화창에 붙여 넣지 말고 스크립트 속성에만.</p></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>세 곳의 키 모두 무료</li><li>스크립트는 AI가 짜고 시트에 붙여 넣기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>오류 문장을 그대로 붙여 넣으면 고친 코드를 바로</li></ul></div></div>
+</section>

@@ -1,0 +1,45 @@
+<section id="f-api-brief" class="lesson" data-part="auto" data-title="아침 7시 꽃집 브리핑" data-level="adv" data-stage="prep takeover operate" data-biz="flower">
+  <div class="lesson-head">
+    <span class="kicker">실습 · 약 1시간 · 앞의 세 강의를 마친 뒤</span>
+    <h2>시세·대목·날씨·오늘 배송을 한 통으로 받아요</h2>
+    <p class="goal">앞 강의에서 만든 탭(경매시세, 시세알림, 대목달력, 날씨, 주문)을 아침 7시에 한 번 읽어 <b>휴대폰 한 화면 분량</b>으로 보내요. 도매시장 가기 전에 이것만 보면 오늘 살 것과 할 일이 정해져요. 받는 곳은 메일이나 텔레그램(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>) 중 고르면 돼요.</p>
+  </div>
+
+  <div class="vis">
+    <div class="msg">
+      <div class="from a" style="--d:.1s"><span>꽃집 브리핑 · 4월 28일(수) 07:00 · 예시</span><span>숫자는 지어낸 예시예요</span></div>
+      <div class="line a" style="--d:.4s"><b>시세</b><span>카네이션 평균 +28% (지난 4주 대비) · 장미 보합 · 거베라 −12%</span></div>
+      <div class="line a" style="--d:.8s"><b>대목</b><span>어버이날 D-10 · 사입 마감 D-8 · 예약 37건 / 작년 같은 날 29건</span></div>
+      <div class="line a" style="--d:1.2s"><b>학교</b><span>다음 졸업·입학 행사 없음 (다음 확인: 월요일)</span></div>
+      <div class="line a" style="--d:1.6s"><b>날씨</b><span>오늘 오후 비 70% → 배송 2건 비닐 포장</span></div>
+      <div class="line a" style="--d:2s"><b>오늘 배송</b><span>4건 · 근조 1건 ○○장례식장 11시 전 도착</span></div>
+      <div class="line a" style="--d:2.4s"><b>할 일</b><span>카네이션 대체 꽃 정하기 · 어버이날 인스타 예약 글 확인</span></div>
+    </div>
+  </div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="f_apb_a" data-key="f_apb_a"><div class="body"><label for="f_apb_a">무엇을 받을지 고르기</label><small>처음엔 다섯 줄이면 충분해요: 시세 변동 큰 '내 꽃' 3개, 30일 안 대목 D-day, 오늘 날씨 걸린 규칙, 오늘 배송 수, 할 일 2개. 많을수록 안 읽게 돼요.</small></div></li>
+    <li><input type="checkbox" id="f_apb_b" data-key="f_apb_b"><div class="body"><label for="f_apb_b">브리핑 스크립트 붙이고 시험 보내기</label><small>아래 부탁문으로 받은 코드를 붙이고 <span class="path">꽃집 데이터 → 브리핑 시험 보내기</span>. 메일로 먼저 확인하고, 텔레그램 봇이 있으면 봇으로 바꿔요.</small></div></li>
+    <li><input type="checkbox" id="f_apb_c" data-key="f_apb_c"><div class="body"><label for="f_apb_c">순서 맞추기: 수집이 먼저, 브리핑이 나중</label><small>트리거 순서: 시세 6~7시 → 브리핑 7~8시. 시세가 아직 비어 있으면 브리핑에 "시세 아직 없음"이라고 쓰게 해 두면 헷갈리지 않아요.</small></div></li>
+    <li><input type="checkbox" id="f_apb_d" data-key="f_apb_d"><div class="body"><label for="f_apb_d">일주일 써 보고 줄 빼기·더하기</label><small>안 읽는 줄은 빼고, 매번 따로 찾아본 정보는 더해요. 바꾼 내용은 '설정' 탭에서 켜고 끄게 해 두면 코드를 다시 안 고쳐도 돼요.</small></div></li>
+  </ol>
+
+  <div class="prompt"><div class="bar"><span>아침 브리핑 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '꽃집 운영 장부'의 탭들을 읽어 아침 브리핑을 보내는 Apps Script를 만들어 줘. 나는 코딩을 몰라.
+읽을 탭: 경매시세, 시세알림, 내 꽃, 대목달력, 날씨, 주문, 설정
+내용(설정 탭에서 줄마다 켜기/끄기):
+1) 시세: '내 꽃' 중 최근 3거래일 평균이 지난 4주 평균보다 많이 변한 3개(+/−%)
+2) 대목: 30일 안 행사의 D-day, 사입 마감 D-day, 그 행사 예약 수와 작년 같은 날 예약 수(주문 탭)
+3) 날씨: 오늘 걸린 규칙과 할 일
+4) 오늘 배송: 건수, 근조는 시설명과 도착 마감
+5) 할 일: 위에서 나온 할 일 중 2개
+형식: 휴대폰 한 화면, 줄마다 굵은 머리말, 숫자 없는 칸은 '없음'
+보내기: 설정 탭 '받는 곳'이 메일이면 Gmail로 나에게, 텔레그램이면 스크립트 속성 TG_TOKEN, TG_CHAT_ID로
+함수 sendBrief() / 메뉴 꽃집 데이터 → 브리핑 시험 보내기 / 트리거는 매일 오전 7~8시
+손님 이름·전화번호는 브리핑에 넣지 마.</pre></div>
+  <p class="tip"><b>브리핑은 결정을 돕는 쪽지예요.</b> 사입·가격 결정은 사장님이 해요. 자동으로 주문을 넣거나 가격을 바꾸는 기능은 붙이지 않는 게 안전해요. 버튼으로 승인하는 방식은 <a href="#c-l79" class="ref" data-ref="c-l79">강의</a>를 따라요.</p>
+
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">시간 트리거</span><div class="ad"><b>매일 아침 7시</b><span>수집 트리거 다음 순서로.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>브리핑 속 버튼</b><span>시세 급등 줄 옆에 대체 꽃 고르기 버튼.</span><span class="pv">버튼: 사입 목록 받기 / 대체 꽃 / 나중에</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>필요 없어요</b><span>앱스 스크립트는 구글 서버에서 돌아서 컴퓨터를 켜 둘 필요가 없어요(<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>).</span></div></li></ul></div>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span>스크립트는 <b>07 자동화 도우미</b>, 브리핑을 붙여 넣고 "오늘 할 일 순서 정해 줘"는 <b>06 성과 분석</b> 채팅</span></div></div>
+  <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Sheets</span><span class="rc c">Gmail</span><span class="rc c">Google Calendar</span></div></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>앱스 스크립트 + Gmail로 충분</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI 예약 작업이 브리핑을 읽고 "이번 주 사입·홍보 계획"까지 써 주기</li></ul></div></div>
+</section>
