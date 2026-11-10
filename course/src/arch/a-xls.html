@@ -1,10 +1,10 @@
-<section id="a-xls" class="lesson" data-part="software" data-title="엑셀 면적표·설계비 계산을 AI와" data-level="core" data-stage="prep takeover operate" data-biz="arch" data-sw="excel">
+<section id="a-xls" class="lesson" data-part="software" data-title="AI로 엑셀 면적표·설계비 양식 만들기" data-level="core" data-stage="prep takeover operate" data-biz="arch" data-sw="excel">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>수식은 AI가 짜고, 계산은 엑셀이 하고, 확인은 소장님이</h2>
     <p class="goal">사무소의 면적표·설계비 산정표는 대부분 엑셀이에요. AI에게 숫자를 바로 계산시키지 말고, <b>엑셀 파일과 수식</b>을 만들게 해요. 반복 정리는 <b>VBA</b>(엑셀에 붙이는 작은 프로그램)로 줄여요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>엑셀 양식을 AI가 대신 만들어 주는 거예요. 계산 자체는 엑셀 수식이 하니 결과를 믿을 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>층별 면적표 + 설계비 산정표가 든 엑셀 파일 1개, 시트 정리 매크로 1개</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 엑셀(Microsoft 365 권장), 끝난 프로젝트 면적표 1건, 1시간 · 구글 시트로 하려면 <a href="#a-l33" class="ref" data-ref="a-l33">강의</a></span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>면적표·설계비 양식을 프로젝트마다 손으로 다시 짜면 시간이 들고, 칸 하나 틀린 게 그대로 넘어가요. 수식이 든 양식을 한 번 만들어 두면 숫자만 넣으면 되고, 끝난 프로젝트로 검산도 해요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>엑셀 양식을 AI가 대신 만들어 주는 거예요. 계산 자체는 엑셀 수식이 하니 결과를 믿을 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>층별 면적표 + 설계비 산정표가 든 엑셀 파일 1개, 시트 정리 매크로 1개</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 엑셀(Microsoft 365 권장), 끝난 프로젝트 면적표 1건, 1시간 · 구글 시트로 하려면 <a href="#a-l33" class="ref" data-ref="a-l33">강의</a></span></div></div>
   <ol class="steps">
     <li><input type="checkbox" id="axls_a" data-key="axls_a"><div class="body"><label for="axls_a">AI에게 엑셀 파일째 받기</label><small><span data-ai-not="gpt">Claude는 <span class="path">설정 → 기능(Capabilities) → 코드 실행 및 파일 생성</span>을 켜면 무료 플랜에서도 .xlsx 파일을 만들어 내려받게 해 줘요.</span><span data-ai-not="claude"> ChatGPT도 채팅에서 스프레드시트 파일을 만들어 내려받게 해 줘요.</span> 아래 '양식 부탁문'을 보내고 받은 파일을 열어요.</small><span class="fix">막히면: 파일 대신 표만 나오면 "xlsx 파일로 만들어서 내려받기 링크를 줘"라고 한 번 더 말해요.</span></div></li>
     <li><input type="checkbox" id="axls_b" data-key="axls_b"><div class="body"><label for="axls_b">수식이 살아 있는지 확인하기</label><small>합계 칸을 눌러 위쪽 수식 입력줄에 <b>=SUM(…)</b>처럼 수식이 보여야 해요. 숫자만 적혀 있으면 AI가 계산해 넣은 거예요. "모든 계산 칸을 엑셀 수식으로 바꿔 줘"라고 다시 부탁해요.</small></div></li>

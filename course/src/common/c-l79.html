@@ -1,11 +1,11 @@
-<section id="c-l79" class="lesson" data-part="auto" data-title="텔레그램 봇으로 {{owner}} 알림판" data-level="adv" data-stage="prep takeover operate">
+<section id="c-l79" class="lesson" data-part="auto" data-title="알림을 휴대폰 한 곳에 모으기 (텔레그램)" data-level="adv" data-stage="prep takeover operate">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분</span>
     <h2>메일 대신 휴대폰 한 곳으로, 짧게 묻고 짧게 받기</h2>
     <p class="goal">재고 부족, 대기 중인 휴가 신청, 빈 콘텐츠 주, 3일 안에 나가는 돈. 알림이 메일·캘린더·앱으로 흩어지면 놓쳐요. <dfn data-t="tgbot">텔레그램 봇</dfn>(정해진 말에 자동으로 답하는 텔레그램 계정)을 하나 만들어요. 그러면 <b>모든 스크립트의 알림이 {{owner}} 텔레그램 한 채팅방</b>으로 와요. "재고", "오늘"처럼 짧게 보내면 답도 와요. 봇 만들기와 메시지 보내기는 무료예요. <dfn data-t="appsscript">앱스 스크립트</dfn>(구글 시트에 붙는 작은 프로그램)로 돌아가서 컴퓨터를 켜 둘 필요도 없어요.</p>
     <p class="goal">여기에 <b>승인함</b>을 더할 수 있어요. 그러면 {{owner:이}} 결정할 일(휴가 승인, 발주, 리뷰 답글 고르기, 글 게시 승인, 일정 변경)이 <b>버튼이 달린 메시지</b>로 와요. 버튼을 누르면 시트의 상태가 바뀌어요. 고른 글은 복사할 수 있게 다시 와요. 고칠 점은 그 메시지에 답장으로 한 줄 쓰면 메모로 남아요. 강의마다 '이 강의 자동화' 상자의 <b>텔레그램 승인</b> 표시가 그 자리예요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>휴대폰 텔레그램에 '우리 {{place}} 전용 알림 비서'를 하나 두는 거예요. 흩어져 오던 알림이 한 채팅방으로 모이고, 버튼만 눌러 결정할 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>재고·휴가·돈 나가는 날 알림이 오는 텔레그램 봇, 그리고 버튼으로 승인하는 '승인함' 시트</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 휴대폰 텔레그램 앱, 구글 계정, 약 1시간 30분 · 고급 강의라 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>와 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>재고·휴가·돈 나갈 날 알림이 메일·문자·메모에 흩어지면 하나씩 놓쳐요. 휴대폰 채팅방 한 곳으로 모으고 버튼으로 바로 승인하면, 확인하려고 PC를 켜는 일이 줄어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>휴대폰 텔레그램에 '우리 {{place}} 전용 알림 비서'를 하나 두는 거예요. 흩어져 오던 알림이 한 채팅방으로 모이고, 버튼만 눌러 결정할 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>재고·휴가·돈 나가는 날 알림이 오는 텔레그램 봇, 그리고 버튼으로 승인하는 '승인함' 시트</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 휴대폰 텔레그램 앱, 구글 계정, 약 1시간 30분 · 고급 강의라 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>와 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble ai a" style="--d:.2s"><span class="who">우리{{place}} 알림 봇 · 08:00</span><span data-biz="vet">📦 주문할 것 3개 · ○○약품: 수액세트 2박스, 주사기 3cc 1박스 / △△: 종합백신 10개<br>⏳ 유효기한 60일 안: 항생제 연고 로트 A12 (12월 28일)</span><span data-biz-not="vet">📦 주문할 것 3개 · ○○상사: {{stockitem}} 2박스 / △△: 1박스<br>⏳ 다시 확인할 것: 소모품 재고 1건 (12월 28일)</span></div>

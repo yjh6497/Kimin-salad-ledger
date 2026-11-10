@@ -1,10 +1,10 @@
-<section id="a-l43" class="lesson" data-part="auto" data-title="실거래가로 사업성 검토" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l43" class="lesson" data-part="auto" data-title="주변 시세로 사업성 따져 보기" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>"이 규모로 지으면 맞을까요?"에 숫자로</h2>
     <p class="goal">국토교통부 실거래가 <dfn data-t="api">API</dfn>(정부 자료를 프로그램으로 받아 오는 창구)로 대지 주변 거래가를 모아요. 단독·다가구, 연립·다세대, 토지 거래가예요. 이 숫자는 건축주와 규모를 검토할 때 참고 시세로 써요. 사업성 판단은 건축주 몫이에요. 우리는 근거 자료를 정리해 드리는 역할이에요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>동네 부동산 시세표를 시트가 알아서 모아 오게 하는 거예요. 버튼 하나로 최근 2년 거래가 표에 들어와요.</span></div><div class="easy-row"><b>끝나면</b><span>대지 주변 실거래가가 모인 '실거래' 탭과, 건축주 상담 때 보여 줄 시세 참고표가 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 회원가입, 사무소 대장 시트(대지 탭), 반나절 · 스크립트를 처음 붙인다면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>건축주가 '지으면 맞을까요?' 물을 때 근거 없이 답하면 믿음을 얻기 어렵고, 시세를 일일이 찾으면 시간이 걸려요. 주변 실거래가를 버튼 하나로 모아 두면 상담 때 숫자로 설명할 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>동네 부동산 시세표를 시트가 알아서 모아 오게 하는 거예요. 버튼 하나로 최근 2년 거래가 표에 들어와요.</span></div><div class="easy-row"><b>끝나면</b><span>대지 주변 실거래가가 모인 '실거래' 탭과, 건축주 상담 때 보여 줄 시세 참고표가 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 회원가입, 사무소 대장 시트(대지 탭), 반나절 · 스크립트를 처음 붙인다면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <ol class="steps">
     <li><input type="checkbox" id="a_a43a" data-key="a_a43a"><div class="body"><label for="a_a43a">필요한 실거래 API만 활용신청하기</label><small>자료를 받으려면 먼저 '써도 된다'는 허락을 받아야 해요. data.go.kr에서 '국토교통부 실거래가'로 검색해요. 주택 유형·거래 유형별로 따로 있어요. 단독·다가구 매매, 연립·다세대 매매, 토지 매매 중 사무소가 주로 다루는 것만 신청해요. 모두 같은 <dfn data-t="apikey">인증키</dfn>(자료를 받을 때 쓰는 비밀번호)예요. <span class="fix">막히면: 신청 직후 키가 안 되면 몇 시간 뒤에 다시 해 봐요. 키가 실제로 쓰이기까지 시간이 걸릴 수 있어요.</span></small></div></li>
     <li><input type="checkbox" id="a_a43b" data-key="a_a43b"><div class="body"><label for="a_a43b">'실거래' 탭 만들고 스크립트 받기</label><small>거래가가 들어갈 자리와, 자료를 가져올 프로그램이 필요해요. 먼저 '실거래' 탭을 만들고 아래 제목 줄을 붙여요. 그다음 아래 부탁문으로 <dfn data-t="appsscript">앱스 스크립트</dfn>를 받아요. 실거래 API는 <dfn data-t="lawdcd">지역코드</dfn>(법정동코드 앞 5자리)와 계약년월(6자리)로 찾아요. 대지 탭의 시군구코드를 그대로 써요. <span class="fix">막히면: 결과가 비어 있거나 오류가 뜨면 화면을 캡처해 AI에게 "이 오류 고쳐 줘"라고 보여 줘요.</span></small></div></li>

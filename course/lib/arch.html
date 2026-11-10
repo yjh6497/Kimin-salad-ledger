@@ -1,10 +1,10 @@
-<section id="a-l3" class="lesson" data-part="base" data-title="프로젝트 대장 만들기" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l3" class="lesson" data-part="base" data-title="사무소 기록을 시트 한 권에" data-level="core" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>엑셀 대신 구글 시트 한 권에 사무소를</h2>
     <p class="goal">프로젝트·수금·업무시간·지출·인허가 일정을 '사무소 대장' 파일 하나에 모아요. AI 비서는 이 한 권을 읽고 일해요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여러 엑셀 파일에 흩어진 기록을 '칸막이 있는 바인더' 한 권에 모으는 거예요. 칸막이(탭)마다 프로젝트, 수금, 지출 같은 것을 따로 적어요.</span></div><div class="easy-row"><b>끝나면</b><span>탭 6개와 진행 중인 프로젝트가 채워진 '사무소 대장' 시트 한 권</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 지금 쓰는 엑셀 대장(있으면), 1시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>프로젝트·수금·지출이 엑셀 파일 여러 개에 흩어져 있으면 어느 게 최신본인지 헷갈리고 AI도 읽을 수 없어요. 시트 한 권에 모아 두면 수금 알림·업무시간 집계·브리핑이 모두 여기서 시작돼요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>여러 엑셀 파일에 흩어진 기록을 '칸막이 있는 바인더' 한 권에 모으는 거예요. 칸막이(탭)마다 프로젝트, 수금, 지출 같은 것을 따로 적어요.</span></div><div class="easy-row"><b>끝나면</b><span>탭 6개와 진행 중인 프로젝트가 채워진 '사무소 대장' 시트 한 권</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 지금 쓰는 엑셀 대장(있으면), 1시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <ol class="steps">
     <li><input type="checkbox" id="a_a3a" data-key="a_a3a"><div class="body"><label for="a_a3a">'사무소 대장' 시트 만들기</label><small>나중에 AI가 찾기 쉽게 '사무소 시스템' 폴더 안에 만들어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
@@ -42,13 +42,13 @@
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>PDF는 그대로 올리면 무거워요. <code>markitdown 파일.pdf -o 파일.md</code>로 바꿔 <b>필요한 쪽만</b> 붙여 넣어요. 스캔한 PDF는 그대로 올려요.</li><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>코드를 고칠 때는 "전체 다시" 대신 <b>"바뀐 함수만"</b> 달라고 해요. 오류는 빨간 줄 몇 줄만 복사해 보내요.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·드라이브는 개인 계정으로 무료</li><li>저장 공간 15GB면 대장과 문서는 충분 (도면 원본은 기존 서버에)</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>구글 워크스페이스: 사무소 도메인 이메일, 큰 저장 공간, 직원 계정 관리</li><li>설계사무소용 프로젝트 관리 프로그램: 타임시트·청구가 한 화면에</li></ul></div></div>
 </section>
-<section id="a-l4" class="lesson" data-part="base" data-title="휴대폰 입력 폼" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l4" class="lesson" data-part="base" data-title="직원 업무시간 휴대폰으로 받기" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>퇴근 전 30초, 프로젝트별 업무시간</h2>
     <p class="goal"><dfn data-t="form">구글 폼</dfn>(휴대폰으로 채우는 온라인 설문지)을 만들어요. 직원이 휴대폰으로 오늘 일한 시간과 현장 메모를 넣으면 대장에 바로 쌓여요. 이 기록이 쌓여야 "이 프로젝트, 남는 장사였나?"에 답할 수 있어요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>종이 출근부 대신 휴대폰 설문지를 쓰는 거예요. 직원이 퇴근 전에 30초만 채우면 사무소 장부에 저절로 적혀요.</span></div><div class="easy-row"><b>끝나면</b><span>직원 휴대폰 홈 화면에 '오늘 업무시간'·'현장 기록' 폼이 생기고, 대장에 입력 탭 두 개가 쌓이기 시작해요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 사무소 대장 시트, 휴대폰, 40분 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>업무시간을 월말에 몰아 적으면 기억이 흐려져 프로젝트별 인건비가 맞지 않아요. 퇴근 전 30초 휴대폰 폼으로 받으면 대장에 저절로 쌓여 따로 정리할 일이 없어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>종이 출근부 대신 휴대폰 설문지를 쓰는 거예요. 직원이 퇴근 전에 30초만 채우면 사무소 장부에 저절로 적혀요.</span></div><div class="easy-row"><b>끝나면</b><span>직원 휴대폰 홈 화면에 '오늘 업무시간'·'현장 기록' 폼이 생기고, 대장에 입력 탭 두 개가 쌓이기 시작해요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 사무소 대장 시트, 휴대폰, 40분 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="phone-form">
       <div class="pf-head a" style="--d:.1s"><b>오늘 업무시간</b><span>직원 B · 18:20 · 예시</span></div>
@@ -87,7 +87,7 @@
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>캡처는 "어디를 눌러야 하나"처럼 <b>화면 모양이 필요할 때만</b>. 화면의 글자는 복사해서 붙여 넣는 게 훨씬 가벼워요. 사진은 여러 장 대신 꼭 필요한 한두 장만.</li><li>웹페이지는 주소만 주고 "전체 읽어 줘" 대신, 필요한 부분 글자를 복사해 주거나 <code>markitdown 페이지.html -o 페이지.md</code>로 바꿔 줘요.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 폼은 무료, 응답 수 제한 없음</li><li>사진은 제출자 드라이브가 아닌 폼 주인 드라이브에 저장돼요</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>워크스페이스: 사무소 계정으로만 제출하게 잠그기</li><li>타임시트 앱: 타이머로 시간 재기, 휴가·연차까지</li></ul></div></div>
 </section>
-<section id="a-l36" class="lesson" data-part="aidesk" data-title="법령 MCP 연결과 활용" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l36" class="lesson" data-part="aidesk" data-title="AI가 법령 원문 찾게 (법령 MCP)" data-level="core" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2>AI가 법전을 직접 펼쳐 보게</h2>
@@ -95,7 +95,7 @@
     <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span><span data-ai-not="gpt">Claude 무료 플랜도 사용자 지정 커넥터를 1개까지 연결할 수 있어요. 이 법령 MCP를 그 1개로 쓰면 돼요.</span><span data-ai="gpt">ChatGPT는 원격 MCP 연결(개발자 모드)이 유료 플랜 기능이에요. 무료라면 앞 강의의 '원문 붙여 주기'로 하거나, Claude 무료 계정을 하나 만들어 법규 질문용으로 쓰세요.</span></span></p>
     <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>커넥터를 여러 개 연결할 수 있어요. 예약 작업으로 매달 개정 소식까지 자동으로 받아요.</span></p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>AI 책상 옆에 '최신 법전'을 꽂아 주는 거예요. 기억으로 답하지 않고 그때그때 원문을 펼쳐 보고 답해요.</span></div><div class="easy-row"><b>끝나면</b><span>질문하면 조문·별표 원문과 시행일이 붙어 나오는 법규 검토 채팅</span></div><div class="easy-row"><b>필요한 것</b><span>PC, AI 계정, 법제처 회원가입, 1시간 30분 · 복사·붙여넣기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>AI가 기억으로 답한 법규는 옛 내용이거나 틀릴 수 있어 결국 다시 찾아봐야 해요. 법령 원문을 직접 펼쳐 보게 하면 조문·시행일이 붙어 나와, 확인 시간과 검토 실수가 줄어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>AI 책상 옆에 '최신 법전'을 꽂아 주는 거예요. 기억으로 답하지 않고 그때그때 원문을 펼쳐 보고 답해요.</span></div><div class="easy-row"><b>끝나면</b><span>질문하면 조문·별표 원문과 시행일이 붙어 나오는 법규 검토 채팅</span></div><div class="easy-row"><b>필요한 것</b><span>PC, AI 계정, 법제처 회원가입, 1시간 30분 · 복사·붙여넣기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble me a" style="--d:.2s"><span class="who">소장님</span>2종 근생 360㎡ 신축이면 부설주차 몇 대야? 근거 붙여서.</div>
@@ -207,7 +207,7 @@
     <h2>건축주 첫 상담 전, 30분 대지 검토</h2>
     <p class="goal"><dfn data-t="eum">토지이음</dfn>의 토지이용계획과 <dfn data-t="bldreg">건축물대장</dfn>을 받아 AI에게 줘요. 그러면 <b>대지 검토 메모</b>가 나와요. 용도지역·<dfn data-t="bcr">건폐율·용적률</dfn> 범위·확인할 규제가 한 장에 정리돼요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>건축주를 만나기 전에 땅의 '건강검진표'를 미리 뽑아 보는 일이에요. 서류 두 장을 AI가 한 장 메모로 줄여 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>지역·지구, 건폐율·용적률 범위, 확인할 줄이 표시된 대지 검토 메모 한 장이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 대지 지번, AI 채팅, 1시간 · PDF 저장·캡처가 낯설면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a>부터 봐요.</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>상담 자리에서 지역·지구와 건폐율을 바로 답하지 못하면 다시 연락해야 하고 첫인상도 흐려져요. 상담 전 30분이면 확인할 줄까지 표시된 메모 한 장을 들고 갈 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>건축주를 만나기 전에 땅의 '건강검진표'를 미리 뽑아 보는 일이에요. 서류 두 장을 AI가 한 장 메모로 줄여 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>지역·지구, 건폐율·용적률 범위, 확인할 줄이 표시된 대지 검토 메모 한 장이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 대지 지번, AI 채팅, 1시간 · PDF 저장·캡처가 낯설면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a>부터 봐요.</span></div></div>
   <div class="vis">
     <div class="msg">
       <div class="from a" style="--d:.1s"><span>대지 검토 메모 · 예시</span><span>02 대지·법규 검토</span></div>
@@ -254,13 +254,13 @@
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>PDF는 그대로 올리면 무거워요. <code>markitdown 파일.pdf -o 파일.md</code>로 바꿔 <b>필요한 쪽만</b> 붙여 넣어요. 스캔한 PDF는 그대로 올려요.</li><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>캡처는 "어디를 눌러야 하나"처럼 <b>화면 모양이 필요할 때만</b>. 화면의 글자는 복사해서 붙여 넣는 게 훨씬 가벼워요. 사진은 여러 장 대신 꼭 필요한 한두 장만.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>토지이음 열람·건축물대장 열람 무료</li><li>PDF 두 개 올려 메모 받기는 무료 플랜도 가능</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>지구단위계획 결정도서처럼 긴 PDF도 통째로 읽히기</li><li>민간 부동산·건축 분석 서비스: 주변 실거래·건축 사례까지</li></ul></div></div>
 </section>
-<section id="a-l8" class="lesson" data-part="practice" data-title="법규 근거 찾기 비서" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l8" class="lesson" data-part="practice" data-title="조문 근거까지 찾는 법규 비서" data-level="core" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>"몇 조 몇 항인지"까지 찾아오는 비서</h2>
     <p class="goal">AI가 기억으로 말한 법규는 틀릴 수 있어요. 그래서 이 강의에서는 AI가 <b>최신 법령 원문을 직접 찾아 읽고</b> 답하게 만들어요. 쉬운 방법(원문 붙여 주기)부터 연결 방법(<dfn data-t="mcp">MCP</dfn>, AI에 다른 프로그램을 잇는 연결 방식)까지 다뤄요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>AI에게 '법전을 펴 놓고 답하라'고 시키는 거예요. 기억으로 말하지 않고, 붙여 준 원문에서 조문을 찾아 근거와 함께 답해요.</span></div><div class="easy-row"><b>끝나면</b><span>조문 인용과 확인할 부서까지 붙은 법규 답, 그리고 다시 쓸 수 있는 '원문 기반 질문' 부탁문</span></div><div class="easy-row"><b>필요한 것</b><span>PC, AI 비서실 프로젝트(<a href="#c-l5" class="ref" data-ref="c-l5">강의</a>), 약 1시간 · 복사·붙여넣기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>AI가 기억으로 답한 법규는 틀려도 그럴듯해서, 그대로 믿으면 설계 변경이나 재협의로 이어질 수 있어요. 붙여 준 원문에서 조문을 찾게 하면 근거를 직접 확인하고 쓸 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>AI에게 '법전을 펴 놓고 답하라'고 시키는 거예요. 기억으로 말하지 않고, 붙여 준 원문에서 조문을 찾아 근거와 함께 답해요.</span></div><div class="easy-row"><b>끝나면</b><span>조문 인용과 확인할 부서까지 붙은 법규 답, 그리고 다시 쓸 수 있는 '원문 기반 질문' 부탁문</span></div><div class="easy-row"><b>필요한 것</b><span>PC, AI 비서실 프로젝트(<a href="#c-l5" class="ref" data-ref="c-l5">강의</a>), 약 1시간 · 복사·붙여넣기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="lanes">
       <div class="box pop" style="--d:.2s"><strong>질문</strong><span>"근생 2종 용도변경 시 주차 기준?"</span></div>
@@ -295,13 +295,13 @@
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>PDF는 그대로 올리면 무거워요. <code>markitdown 파일.pdf -o 파일.md</code>로 바꿔 <b>필요한 쪽만</b> 붙여 넣어요. 스캔한 PDF는 그대로 올려요.</li><li>웹페이지는 주소만 주고 "전체 읽어 줘" 대신, 필요한 부분 글자를 복사해 주거나 <code>markitdown 페이지.html -o 페이지.md</code>로 바꿔 줘요.</li><li>부탁문 끝에 <b>"표만" "5줄로"</b>처럼 답 길이를 정하면 답도 빠르고 사용량도 줄어요.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>국가법령정보센터 원문 복사 + AI 질문</li><li>법제처 Open API 키 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI 유료 플랜: MCP 연결, 긴 결정도서 통째로</li><li>건축 법규 전문 서비스: 해석례·질의회신 묶음 검색</li></ul></div></div>
 </section>
-<section id="a-law1" class="lesson" data-part="practice" data-title="조례까지 확인: 건폐율·용적률·주차" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-law1" class="lesson" data-part="practice" data-title="우리 시 조례로 건폐율·용적률 확인" data-level="core" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · 법령 MCP 연결 후</span>
     <h2>법에는 '범위'만, 숫자는 조례에 있어요</h2>
     <p class="goal">건폐율·용적률은 「국토의 계획 및 이용에 관한 법률」이 용도지역별 <b>상한</b>을 정하고, 실제 숫자는 시·군 <dfn data-t="ordinance">조례</dfn>가 정해요. 주차도 「주차장법 시행령」 별표 1이 기준이지만 조례로 강화·완화할 수 있어요. 법령 MCP는 <b>자치법규(조례)</b>까지 찾아 주니, 법 → 시행령 → 조례를 한 번에 이어 보는 습관을 들여요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>나라 법은 '제한 속도 최대 ○○'를 정하고, 동네 표지판(조례)이 실제 속도를 정하는 것과 같아요. AI에게 표지판까지 읽게 해요.</span></div><div class="easy-row"><b>끝나면</b><span>대지 주소만 넣으면 '법 상한 → 우리 시 조례 값 → 근거 조문·시행일'이 한 표로 나오는 부탁문</span></div><div class="easy-row"><b>필요한 것</b><span>법령 MCP 연결(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>), 대지 검토 메모(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>), 40분</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>법에 나온 상한만 보고 계획하면 실제 조례 값과 달라 규모를 다시 줄여야 할 수 있어요. 조례 값과 근거 조문·시행일을 한 표로 받아 두면 상담 때 숫자를 바로 말할 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>나라 법은 '제한 속도 최대 ○○'를 정하고, 동네 표지판(조례)이 실제 속도를 정하는 것과 같아요. AI에게 표지판까지 읽게 해요.</span></div><div class="easy-row"><b>끝나면</b><span>대지 주소만 넣으면 '법 상한 → 우리 시 조례 값 → 근거 조문·시행일'이 한 표로 나오는 부탁문</span></div><div class="easy-row"><b>필요한 것</b><span>법령 MCP 연결(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>), 대지 검토 메모(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>), 40분</span></div></div>
 
   <div class="table-wrap"><table>
     <thead><tr><th>항목</th><th>법·시행령이 정하는 것</th><th>조례가 정하는 것</th></tr></thead>
@@ -342,13 +342,13 @@
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">법령 MCP</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Claude 무료도 사용자 지정 커넥터 1개(법령 MCP)로 충분</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>여러 대지를 한 번에, 표를 엑셀 파일로 바로 받기</li></ul></div></div>
 </section>
-<section id="a-law2" class="lesson" data-part="practice" data-title="해석례·판례로 애매한 조항 판단" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-law2" class="lesson" data-part="practice" data-title="애매한 법 조항, 해석례로 판단" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · 법령 MCP 연결 후</span>
     <h2>"이 조항, 이렇게 읽는 게 맞나?"는 해석례에 먼저 물어요</h2>
     <p class="goal">조문만 봐서는 갈리는 질문이 있어요. 법제처는 지자체·기관의 질의에 공식 <b>법령해석</b>을 내고, 법원 판례도 쌓여 있어요. 법령 MCP는 <b>법령해석례 검색·전문 조회</b>와 <b>판례 검색</b>까지 할 수 있어요. 건축주나 허가 담당자와 이야기할 때 "법제처 해석례 ○○호"를 근거로 들 수 있게 준비해요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>시험 문제의 '모범 답안 해설집'을 찾아보는 거예요. 같은 질문을 먼저 물어본 사람의 공식 답을 AI가 찾아 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>애매한 조항마다 관련 해석례·판례 번호와 결론 한 줄을 정리한 '해석 메모'</span></div><div class="easy-row"><b>필요한 것</b><span>법령 MCP 연결(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>), 법규 근거 찾기(<a href="#a-l8" class="ref" data-ref="a-l8">강의</a>), 40분</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>조문만 읽고 판단하면 해석이 갈리는 조항에서 허가·감리 단계에 다시 고치게 될 수 있어요. 같은 질문에 대한 공식 해석례·판례를 먼저 찾아 두면, 근거를 갖고 설계를 정할 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>시험 문제의 '모범 답안 해설집'을 찾아보는 거예요. 같은 질문을 먼저 물어본 사람의 공식 답을 AI가 찾아 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>애매한 조항마다 관련 해석례·판례 번호와 결론 한 줄을 정리한 '해석 메모'</span></div><div class="easy-row"><b>필요한 것</b><span>법령 MCP 연결(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>), 법규 근거 찾기(<a href="#a-l8" class="ref" data-ref="a-l8">강의</a>), 40분</span></div></div>
 
   <h3>실제로 찾아본 예: 대지가 두 도로에 접할 때</h3>
   <div class="vis">
@@ -388,13 +388,13 @@
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">법령 MCP</span><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">워드</span></div></div></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>법령 MCP 1개 연결로 해석례·판례 검색까지</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>여러 건 전문을 한 번에 읽고 비교표까지</li></ul></div></div>
 </section>
-<section id="a-law3" class="lesson" data-part="practice" data-title="개정 감시와 적용 시점" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-law3" class="lesson" data-part="practice" data-title="법 개정 알림 받고 기준일 남기기" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · 그 뒤 매달 자동</span>
     <h2>설계 중에 법이 바뀌면? 어느 날짜의 법을 적용하나?</h2>
     <p class="goal">건축 관련 법령은 자주 바뀌고, 공포일과 시행일이 달라요. 법령 MCP는 <b>시행 예정 개정</b>을 알려 주고, <b>특정 날짜에 시행 중이던 조문</b>과 <b>신·구 조문 대비표</b>도 찾아요. 진행 중인 프로젝트마다 '기준 날짜'를 정해 두고, 사무소가 자주 쓰는 법령은 매달 한 번 개정을 확인해요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>공사 도면에 '몇 년 판 기준으로 그렸는지' 날짜 도장을 찍는 것과 같아요. 법에도 날짜가 있어서, 언제 법을 기준으로 했는지 남겨야 해요.</span></div><div class="easy-row"><b>끝나면</b><span>사무소 '자주 쓰는 법령' 목록과 매달 오는 개정 알림, 프로젝트별 기준 날짜 기록</span></div><div class="easy-row"><b>필요한 것</b><span>법령 MCP 연결(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>), 프로젝트 대장(<a href="#a-l3" class="ref" data-ref="a-l3">강의</a>), 40분</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>설계 중에 법이 바뀐 걸 모르면 허가 단계에서 도면을 다시 고쳐야 할 수 있어요. 자주 쓰는 법령의 개정 알림을 받고 프로젝트마다 기준 날짜를 남기면, 어느 법을 적용했는지 바로 설명할 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>공사 도면에 '몇 년 판 기준으로 그렸는지' 날짜 도장을 찍는 것과 같아요. 법에도 날짜가 있어서, 언제 법을 기준으로 했는지 남겨야 해요.</span></div><div class="easy-row"><b>끝나면</b><span>사무소 '자주 쓰는 법령' 목록과 매달 오는 개정 알림, 프로젝트별 기준 날짜 기록</span></div><div class="easy-row"><b>필요한 것</b><span>법령 MCP 연결(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>), 프로젝트 대장(<a href="#a-l3" class="ref" data-ref="a-l3">강의</a>), 40분</span></div></div>
 
   <div class="vis">
     <div class="msg">
@@ -436,13 +436,13 @@
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>캘린더 알림 + 매달 직접 부탁문 보내기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>예약 작업으로 매달 자동 개정 브리핑</li></ul></div></div>
   <p class="cap">출처: 법령 MCP(korean-law-mcp)로 국가법령정보센터 데이터 조회(2026. 11. 10.). 시행일은 조회 시점 기준이에요.</p>
 </section>
-<section id="a-l33" class="lesson" data-part="practice" data-title="면적·주차 검토표" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l33" class="lesson" data-part="practice" data-title="건폐율·용적률·주차 자동 계산표" data-level="core" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>계산은 시트가, 검산은 AI가</h2>
     <p class="goal">AI에게 면적을 바로 계산시키면 틀릴 수 있어요. 그래서 계산은 <b>구글 시트 수식</b>이 해요. AI는 표를 만들어 주고, 빠진 항목과 근거를 짚는 역할을 맡아요.</p>
   </div>
-<div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>계산기와 검토자를 나누는 거예요. 시트가 숫자를 계산하고, AI는 옆에서 빠뜨린 것이 없는지 다시 봐 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>층별 면적만 넣으면 건폐율·용적률·주차가 저절로 계산되는 '면적검토 양식' 시트가 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 끝난 프로젝트 면적표 1건, 1시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
+<div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>면적이 바뀔 때마다 건폐율·용적률·주차 대수를 손으로 다시 계산하면, 한 곳만 놓쳐도 허가 단계에서 되돌아가요. 층별 면적만 넣으면 시트가 다시 계산하고 AI가 빠진 곳을 봐 줘요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>계산기와 검토자를 나누는 거예요. 시트가 숫자를 계산하고, AI는 옆에서 빠뜨린 것이 없는지 다시 봐 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>층별 면적만 넣으면 건폐율·용적률·주차가 저절로 계산되는 '면적검토 양식' 시트가 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 끝난 프로젝트 면적표 1건, 1시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="dash">
       <div class="kpi pop" style="--d:.2s"><span>대지면적 · 예시</span><b>330.0㎡</b></div>
@@ -483,13 +483,13 @@
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>부탁문 끝에 <b>"표만" "5줄로"</b>처럼 답 길이를 정하면 답도 빠르고 사용량도 줄어요.</li><li>주제가 바뀌면 <b>새 채팅</b>. 반복해서 쓰는 자료(소개서·규칙)는 프로젝트 파일에 한 번만 넣어 둬요.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트 양식 + AI 수식·검산</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>BIM(레빗·아키캐드) 면적표를 내보내 바로 검산</li><li>AI 유료: 층이 많은 큰 표도 한 번에</li></ul></div></div>
 </section>
-<section id="a-l9" class="lesson" data-part="practice" data-title="설계설명서·제안서 초안" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l9" class="lesson" data-part="practice" data-title="설계설명서 초안 AI로 쓰기" data-level="core" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>글은 AI가 초안, 생각은 소장님 것</h2>
     <p class="goal">설계설명서, 공모 설계개요, 건축주 제안서, 회의록처럼 '매번 비슷하게 쓰는 글'을 소장님의 메모와 도면에서 초안으로 만들어요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>글 잘 쓰는 비서에게 메모를 건네는 것과 같아요. 소장님이 말로 핵심을 알려 주면 AI가 설명서 초안을 써요.</span></div><div class="easy-row"><b>끝나면</b><span>설계설명서·공모 지침 요약표·회의록 초안을 바로 받는 '설명서·제안서' 채팅방이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC 또는 휴대폰, AI 앱, 지난 설명서 2~3개, 1시간 · AI 앱이 처음이면 <a href="#c-b3" class="ref" data-ref="c-b3">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>설명서·제안서를 빈 화면에서 쓰면 한 건에 반나절이 가요. 말로 핵심만 알려 주고 사무소 글투로 초안을 받으면, 소장님은 고치는 데만 시간을 써요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>글 잘 쓰는 비서에게 메모를 건네는 것과 같아요. 소장님이 말로 핵심을 알려 주면 AI가 설명서 초안을 써요.</span></div><div class="easy-row"><b>끝나면</b><span>설계설명서·공모 지침 요약표·회의록 초안을 바로 받는 '설명서·제안서' 채팅방이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC 또는 휴대폰, AI 앱, 지난 설명서 2~3개, 1시간 · AI 앱이 처음이면 <a href="#c-b3" class="ref" data-ref="c-b3">강의</a> 먼저</span></div></div>
   <ol class="steps">
     <li><input type="checkbox" id="a_a9a" data-key="a_a9a"><div class="body"><label for="a_a9a">'04 설명서·제안서' 직원 만들기</label><small>AI가 사무소 글투를 배우게 하려는 거예요. 지난 프로젝트의 잘 쓴 설명서 2~3개를 그 채팅에 올려요. 그리고 "이 말투와 구성을 기억해 줘"라고 먼저 보내요. 이 글들이 이 직원의 글쓰기 교본이 돼요.</small></div></li>
     <li><input type="checkbox" id="a_a9b" data-key="a_a9b"><div class="body"><label for="a_a9b">메모를 말로 남기기</label><small>타자보다 말이 빠르고 생각이 잘 담겨요. 휴대폰 AI 앱의 음성 입력(마이크 버튼)을 눌러요. "이 집의 핵심은 남쪽 마당과 이어진 거실이고, 건축주 부부가 은퇴 후 손님을 자주 부른다…"처럼 2~3분 말해요. 말한 그대로 보내면 돼요. 다듬는 건 AI 일이에요.</small></div></li>
@@ -514,13 +514,13 @@
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>PDF는 그대로 올리면 무거워요. <code>markitdown 파일.pdf -o 파일.md</code>로 바꿔 <b>필요한 쪽만</b> 붙여 넣어요. 스캔한 PDF는 그대로 올려요.</li><li>워드·구글 문서는 <span class="path">파일 → 다운로드 → 마크다운(.md)</span>이나 <code>markitdown 파일.docx -o 파일.md</code>로 바꿔 올리면 가벼워요.</li><li>발표 자료는 <code>markitdown 자료.pptx -o 자료.md</code>로 글자만 뽑아 올리면 그림까지 읽지 않아 가벼워요.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>메모·도면 몇 장으로 초안 받기</li><li>녹음 받아쓰기는 휴대폰 기본 녹음 앱의 전사 기능</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>긴 공모 지침서·과업지시서를 통째로</li><li>회의 녹음 전사 앱(클로바노트 등)의 넉넉한 시간</li></ul></div></div>
 </section>
-<section id="a-l10" class="lesson" data-part="practice" data-title="스케치를 이미지로" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l10" class="lesson" data-part="practice" data-title="스케치를 상담용 이미지로" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>손 스케치가 상담용 이미지가 되기까지</h2>
     <p class="goal">계획 초기 건축주 상담에 쓸 분위기 이미지(<dfn data-t="render">AI 렌더링</dfn>)를 스케치·매스 캡처에서 만들어요. 이미지는 <b>설계를 설명하는 도구</b>예요. 완성된 모습을 약속하는 게 아니에요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>연필 스케치에 AI가 색과 빛을 칠해 주는 거예요. 건축주가 "이런 느낌이구나" 하고 바로 알아봐요.</span></div><div class="easy-row"><b>끝나면</b><span>'계획 단계 이미지'라고 적힌 상담용 시안 3장(낮·저녁 버전)</span></div><div class="easy-row"><b>필요한 것</b><span>스케치 사진이나 매스 캡처, Gemini 앱 등 이미지 AI, 1시간 · 캡처·파일 올리기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>스케치만 보여 주면 건축주가 완성 모습을 떠올리기 어려워 상담이 길어지고 오해가 생겨요. AI로 색과 빛을 입힌 시안을 보여 주면 첫 상담에서 원하는 느낌을 빨리 맞춰요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>연필 스케치에 AI가 색과 빛을 칠해 주는 거예요. 건축주가 "이런 느낌이구나" 하고 바로 알아봐요.</span></div><div class="easy-row"><b>끝나면</b><span>'계획 단계 이미지'라고 적힌 상담용 시안 3장(낮·저녁 버전)</span></div><div class="easy-row"><b>필요한 것</b><span>스케치 사진이나 매스 캡처, Gemini 앱 등 이미지 AI, 1시간 · 캡처·파일 올리기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="lanes">
       <div class="box pop" style="--d:.2s"><strong>스케치·매스 캡처</strong><span>손그림 사진 · 스케치업 화면</span></div>
@@ -597,13 +597,13 @@
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>PDF는 그대로 올리면 무거워요. <code>markitdown 파일.pdf -o 파일.md</code>로 바꿔 <b>필요한 쪽만</b> 붙여 넣어요. 스캔한 PDF는 그대로 올려요.</li><li>워드·구글 문서는 <span class="path">파일 → 다운로드 → 마크다운(.md)</span>이나 <code>markitdown 파일.docx -o 파일.md</code>로 바꿔 올리면 가벼워요.</li><li>부탁문 끝에 <b>"표만" "5줄로"</b>처럼 답 길이를 정하면 답도 빠르고 사용량도 줄어요.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>몇 장씩 나눠 올려 검토</li><li>체크리스트는 구글 문서로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>도면 묶음 전체를 한 번에, 긴 대화로 왕복 수정</li><li>BIM 모델 검토 도구(간섭 체크)로 도면 이전 단계에서</li></ul></div></div>
 </section>
-<section id="a-l35" class="lesson" data-part="practice" data-title="감리·현장 기록" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l35" class="lesson" data-part="practice" data-title="현장 사진으로 감리일지 초안 쓰기" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>현장 사진 20장이 감리일지 초안으로</h2>
     <p class="goal">현장 기록 폼(<a href="#a-l4" class="ref" data-ref="a-l4">강의</a>)의 사진과 메모로 감리일지·현장 확인서 초안을 만들어요. 지적 사항이 해결될 때까지 따라가는 '지적관리' 탭도 둬요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>현장 사진과 메모를 AI 서기에게 건네면, 감리일지 초안을 받아 적어 주는 거예요. 판단과 서명은 소장님이 해요.</span></div><div class="easy-row"><b>끝나면</b><span>감리일지 초안 한 장과, 미조치 지적을 날짜별로 따라가는 '지적관리' 탭이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>현장 사진, 사무소 감리일지 양식, 1시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>현장에서 돌아와 사진을 넘기며 감리일지를 처음부터 쓰면 한참 걸리고, 지적 사항이 조치됐는지 놓치기 쉬워요. 사진·메모로 초안을 받고 지적을 날짜별로 따라가면 쓰는 시간은 줄고 빠뜨림이 없어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>현장 사진과 메모를 AI 서기에게 건네면, 감리일지 초안을 받아 적어 주는 거예요. 판단과 서명은 소장님이 해요.</span></div><div class="easy-row"><b>끝나면</b><span>감리일지 초안 한 장과, 미조치 지적을 날짜별로 따라가는 '지적관리' 탭이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>현장 사진, 사무소 감리일지 양식, 1시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="msg">
       <div class="from a" style="--d:.1s"><span>현장 방문 정리 · 예시</span><span>06 감리·현장</span></div>
@@ -636,13 +636,13 @@
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>PDF는 그대로 올리면 무거워요. <code>markitdown 파일.pdf -o 파일.md</code>로 바꿔 <b>필요한 쪽만</b> 붙여 넣어요. 스캔한 PDF는 그대로 올려요.</li><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>캡처는 "어디를 눌러야 하나"처럼 <b>화면 모양이 필요할 때만</b>. 화면의 글자는 복사해서 붙여 넣는 게 훨씬 가벼워요. 사진은 여러 장 대신 꼭 필요한 한두 장만.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 폼 사진 + 시트 지적관리 + AI 초안</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>사진 수십 장을 한 번에 분석</li><li>현장관리 앱: 도면 위에 사진·지적을 핀으로</li></ul></div></div>
 </section>
-<section id="a-l25" class="lesson" data-part="practice" data-title="공모·입찰 레이더" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l25" class="lesson" data-part="practice" data-title="우리 지역 설계 공고 매일 받기" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>우리 지역 설계 공고, 놓치지 않기</h2>
     <p class="goal">설계공모·설계용역·감리용역 공고를 매일 모아 '공고' 탭에 쌓아요. 그다음 AI가 우리 사무소에 맞는 것만 골라요. 참가 요건도 정리해 줘요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>매일 아침 신문에서 우리 지역 설계 공고만 오려 스크랩북에 붙여 주는 비서를 두는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>매일 아침 7시에 새 공고가 저절로 쌓이는 '공고' 탭과, 참가할 만한 공고 3개 요약이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 계정, '사무소 대장' 시트, 1시간 · 코드 붙이기·트리거가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>부터 봐요.</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>여러 사이트의 공고를 날마다 찾아보기 어려워, 참가할 만한 공모를 마감 뒤에 알게 되곤 해요. 새 공고가 매일 아침 시트에 쌓이면 놓치지 않고 미리 준비할 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>매일 아침 신문에서 우리 지역 설계 공고만 오려 스크랩북에 붙여 주는 비서를 두는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>매일 아침 7시에 새 공고가 저절로 쌓이는 '공고' 탭과, 참가할 만한 공고 3개 요약이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 계정, '사무소 대장' 시트, 1시간 · 코드 붙이기·트리거가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>부터 봐요.</span></div></div>
   <h3>먼저 사람이 보는 곳 두 군데</h3>
   <div class="table-wrap"><table>
     <thead><tr><th>어디</th><th>무엇이 있나</th><th>어떻게</th></tr></thead>
@@ -685,13 +685,13 @@
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>PDF는 그대로 올리면 무거워요. <code>markitdown 파일.pdf -o 파일.md</code>로 바꿔 <b>필요한 쪽만</b> 붙여 넣어요. 스캔한 PDF는 그대로 올려요.</li><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>캡처는 "어디를 눌러야 하나"처럼 <b>화면 모양이 필요할 때만</b>. 화면의 글자는 복사해서 붙여 넣는 게 훨씬 가벼워요. 사진은 여러 장 대신 꼭 필요한 한두 장만.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>공공데이터 API·앱스 스크립트 무료</li><li>협회 게시판·나라장터 맞춤 알림</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>입찰 정보 유료 서비스: 낙찰 이력·경쟁 분석</li><li>AI 예약 작업으로 '참가할 만한 공고' 요약까지 자동</li></ul></div></div>
 </section>
-<section id="a-l30" class="lesson" data-part="practice" data-title="건축주 상담과 문의" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l30" class="lesson" data-part="practice" data-title="상담 메모를 요구사항표로" data-level="core" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>첫 전화부터 계약까지, 말을 기록으로</h2>
     <p class="goal">건축주 상담 내용을 요구사항표로 정리해요. 자주 묻는 질문(설계비, 기간, 절차)에 답하는 글도 미리 만들어 둬요. 카카오톡 채널을 쓰면 기본 답변도 걸어 둘 수 있어요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>상담 때 오간 말을 '받아 적는 비서'를 두는 거예요. 메모만 주면 AI가 표로 정리하고, 자주 받는 질문에는 미리 써 둔 답이 나가요.</span></div><div class="easy-row"><b>끝나면</b><span>건축주별 요구사항표, 자주 묻는 질문 답변 10개, (선택) 밤에도 답하는 카카오톡 채널</span></div><div class="easy-row"><b>필요한 것</b><span>휴대폰 음성 메모나 상담 메모, PC, 1시간 · AI 앱이 처음이면 <a href="#c-b3" class="ref" data-ref="c-b3">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>상담 때 들은 말을 기억에 맡기면 요구사항이 빠져 설계를 다시 고치게 돼요. 메모를 표로 남기고 자주 받는 질문은 준비된 답으로 보내면, 같은 설명을 되풀이하는 시간도 줄어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>상담 때 오간 말을 '받아 적는 비서'를 두는 거예요. 메모만 주면 AI가 표로 정리하고, 자주 받는 질문에는 미리 써 둔 답이 나가요.</span></div><div class="easy-row"><b>끝나면</b><span>건축주별 요구사항표, 자주 묻는 질문 답변 10개, (선택) 밤에도 답하는 카카오톡 채널</span></div><div class="easy-row"><b>필요한 것</b><span>휴대폰 음성 메모나 상담 메모, PC, 1시간 · AI 앱이 처음이면 <a href="#c-b3" class="ref" data-ref="c-b3">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble guest a" style="--d:.2s"><span class="who">건축주 · 21:40</span>시골 땅에 작은 주택을 지으려는데 설계부터 허가까지 얼마나 걸려요?</div>
@@ -729,13 +729,13 @@
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>워드·구글 문서는 <span class="path">파일 → 다운로드 → 마크다운(.md)</span>이나 <code>markitdown 파일.docx -o 파일.md</code>로 바꿔 올리면 가벼워요.</li><li>웹페이지는 주소만 주고 "전체 읽어 줘" 대신, 필요한 부분 글자를 복사해 주거나 <code>markitdown 페이지.html -o 페이지.md</code>로 바꿔 줘요.</li><li>코드를 고칠 때는 "전체 다시" 대신 <b>"바뀐 함수만"</b> 달라고 해요. 오류는 빨간 줄 몇 줄만 복사해 보내요.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>카카오톡 채널 개설·1:1 채팅 무료</li><li>상담 메모 정리는 AI 무료 플랜</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>카카오 비즈니스 메시지(알림톡)로 상담 일정 안내</li><li>CRM 도구로 상담 → 계약 전환 관리</li></ul></div></div>
 </section>
-<section id="a-l21" class="lesson" data-part="practice" data-title="계약·수금 관리" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l21" class="lesson" data-part="practice" data-title="청구 시기 놓치지 않기 (계약·수금)" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>단계가 끝나면, 청구가 따라가게</h2>
     <p class="goal">용역 계약의 대금 지급 조건을 수금 <dfn data-t="tab">탭</dfn>에 단계별로 나눠 넣어요. 단계가 바뀌면 청구 알림과 청구 메일 초안이 나오게 해요. 계약서 검토와 설계변경 추가 비용 정리도 AI로 해요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>프로젝트 단계표에 '돈 받을 때 알림'을 붙이는 거예요. 계획설계가 끝나면 "이제 1차 청구하세요" 하고 메일이 와요.</span></div><div class="easy-row"><b>끝나면</b><span>단계별 지급 조건이 정리된 수금 탭, 단계 변경 청구 알림, 청구 메일 초안, 변경요청 기록 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 계약서 PDF, 프로젝트 장부 시트, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>단계가 끝났는데 청구를 깜빡하면 받을 돈이 몇 달씩 밀려요. 단계를 바꾸면 청구 알림과 메일 초안이 따라와서, 수금 날짜를 머리로 기억하지 않아도 돼요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>프로젝트 단계표에 '돈 받을 때 알림'을 붙이는 거예요. 계획설계가 끝나면 "이제 1차 청구하세요" 하고 메일이 와요.</span></div><div class="easy-row"><b>끝나면</b><span>단계별 지급 조건이 정리된 수금 탭, 단계 변경 청구 알림, 청구 메일 초안, 변경요청 기록 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 계약서 PDF, 프로젝트 장부 시트, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <ol class="steps">
     <li><input type="checkbox" id="a_a21a" data-key="a_a21a"><div class="body"><label for="a_a21a">계약서에서 지급 조건 뽑기</label><small>언제 얼마를 받을지 표로 꺼내 두려고 해요. 계약서 PDF를 '01 사무장·정산' 채팅에 올려요. 그리고 "대금 지급 조건을 수금 탭 제목 줄 형식으로 뽑아 줘. 조건이 애매한 조항은 원문과 함께 따로"라고 보내요.</small></div></li>
     <li><input type="checkbox" id="a_a21b" data-key="a_a21b"><div class="body"><label for="a_a21b">단계가 바뀌면 청구 알림 받기</label><small>청구를 깜빡하지 않으려고 해요. <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>의 방법으로 <dfn data-t="appsscript">앱스 스크립트</dfn>(시트에 붙이는 작은 프로그램)를 받아요. 부탁할 내용은 "프로젝트 탭 단계가 바뀌면 수금 탭에서 그 단계 청구조건 줄을 찾아 소장님에게 메일"이에요.<span class="fix">막히면: 권한 창에서 '확인하지 않은 앱'이 뜨면 <span class="path">고급 → 이동 → 허용</span>을 눌러요. 내가 만든 스크립트라 정상이에요.</span></small></div></li>
@@ -759,13 +759,13 @@
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>PDF는 그대로 올리면 무거워요. <code>markitdown 파일.pdf -o 파일.md</code>로 바꿔 <b>필요한 쪽만</b> 붙여 넣어요. 스캔한 PDF는 그대로 올려요.</li><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>코드를 고칠 때는 "전체 다시" 대신 <b>"바뀐 함수만"</b> 달라고 해요. 오류는 빨간 줄 몇 줄만 복사해 보내요.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>수금 탭 + 스크립트 알림 + AI 초안</li><li>세금계산서는 홈택스에서 무료 발행</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>회계 프로그램: 세금계산서·입금 자동 대조</li><li>전자계약 서비스: 계약서 서명과 보관</li></ul></div></div>
 </section>
-<section id="a-l22" class="lesson" data-part="practice" data-title="도면·자료 관리 규칙" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l22" class="lesson" data-part="practice" data-title="도면 파일 한 번에 찾게 이름 정하기" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>"최종_진짜최종_수정3.dwg"와 작별하기</h2>
     <p class="goal">프로젝트 폴더 구조와 파일 이름 규칙을 정해요. 그리고 새 프로젝트가 대장에 들어오면 폴더가 자동으로 생기게 해요. AI가 자료를 찾을 때도 규칙이 있어야 정확해요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>서류함마다 이름표를 똑같은 방식으로 붙이는 거예요. 누가 찾아도, AI가 찾아도 한 번에 찾을 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>1쪽짜리 폴더·파일 이름 규칙 문서와, 새 프로젝트를 넣으면 폴더가 저절로 생기는 대장이 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 사무소 대장 시트, 반나절 · 스크립트를 처음 붙인다면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>'최종_진짜최종' 같은 이름이면 최신본을 찾느라 시간을 쓰고, 옛 도면을 보내는 실수도 생겨요. 이름 규칙 하나와 자동 폴더를 만들어 두면 누가 찾아도, AI가 찾아도 한 번에 나와요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>서류함마다 이름표를 똑같은 방식으로 붙이는 거예요. 누가 찾아도, AI가 찾아도 한 번에 찾을 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>1쪽짜리 폴더·파일 이름 규칙 문서와, 새 프로젝트를 넣으면 폴더가 저절로 생기는 대장이 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 사무소 대장 시트, 반나절 · 스크립트를 처음 붙인다면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="stack">
       <div class="box pop" style="--d:.1s"><strong>2026-07_○○동근생</strong><span>프로젝트코드_짧은이름</span></div>
@@ -921,13 +921,13 @@
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>AutoLISP는 오토캐드에 들어 있어 추가 비용 없음</li><li>채팅 AI 무료 요금제로 짧은 스크립트 받기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li data-plan="paid">레이어 관리자 캡처 여러 장을 보여 주며 긴 스크립트를 여러 번 고치기</li><li>Autodesk Assistant는 오토캐드 구독에 포함</li></ul></div></div>
   <p class="cap">출처: Autodesk 도움말 'What's New or Changed with AutoLISP'(2024), Autodesk 도움말 'AutoLISP for Mac 소개', Autodesk 도움말 'Load/Unload Applications(Mac)', Autodesk 개발자 블로그 'AutoCAD 2027과 AI 에이전트', Autodesk 도움말 'What's New in AutoCAD LT for Mac 2027', Autodesk 포럼 'LISP in AutoCAD LT for macOS', 국가법령정보센터 건축법 시행령</p>
 </section>
-<section id="a-3d" class="lesson" data-part="software" data-title="스케치업·BIM(레빗·아키캐드)과 AI" data-level="grow" data-stage="prep takeover operate" data-biz="arch" data-sw="sketchup bim">
+<section id="a-3d" class="lesson" data-part="software" data-title="3D 모델에게 말로 묻기 (스케치업·BIM)" data-level="grow" data-stage="prep takeover operate" data-biz="arch" data-sw="sketchup bim">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 45분 · PC</span>
     <h2>3D 모델에게 "계단 몇 개야, 폭은 맞아?"라고 묻기</h2>
     <p class="goal">스케치업·레빗·아키캐드에 새로 들어온 AI 기능을 고르고, 모델 속 정보를 꺼내 검토하는 데 써요. 스케치업은 AI 이미지와 Ruby 스크립트, 레빗·아키캐드는 공식 <dfn data-t="mcp">MCP</dfn>(AI에 끼우는 연결 장치)로 <span data-ai-not="gpt">Claude</span><span data-ai-none> 또는 </span><span data-ai-not="claude">ChatGPT</span> 데스크톱 앱이 모델을 직접 읽게 할 수 있어요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>3D 모델에 '말로 묻는 창구'를 다는 거예요. 일람표를 일일이 만들지 않고 "2층 문 목록 줘"라고 물어요.</span></div><div class="easy-row"><b>끝나면</b><span>우리 프로그램에 맞는 AI 기능 한 가지를 켜 보고, 모델에서 뽑은 계단·문 목록을 법 기준과 맞춰 본 표</span></div><div class="easy-row"><b>필요한 것</b><span>스케치업 또는 레빗·아키캐드가 깔린 PC, 연습용 모델 복사본, AI 데스크톱 앱(<a href="#c-b3" class="ref" data-ref="c-b3">강의</a>), 45분</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>문·계단 목록을 일람표로 일일이 뽑아 법 기준과 맞추다 보면 시간이 오래 걸리고 빠뜨리기도 해요. 모델에게 말로 물어 목록을 바로 받으면 검토가 빨라지고 놓치는 곳이 줄어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>3D 모델에 '말로 묻는 창구'를 다는 거예요. 일람표를 일일이 만들지 않고 "2층 문 목록 줘"라고 물어요.</span></div><div class="easy-row"><b>끝나면</b><span>우리 프로그램에 맞는 AI 기능 한 가지를 켜 보고, 모델에서 뽑은 계단·문 목록을 법 기준과 맞춰 본 표</span></div><div class="easy-row"><b>필요한 것</b><span>스케치업 또는 레빗·아키캐드가 깔린 PC, 연습용 모델 복사본, AI 데스크톱 앱(<a href="#c-b3" class="ref" data-ref="c-b3">강의</a>), 45분</span></div></div>
 
   <div class="table-wrap"><table>
     <thead><tr><th>프로그램</th><th>안에 들어온 AI</th><th>채팅 AI와 연결</th><th>맥</th></tr></thead>
@@ -991,13 +991,13 @@ Ruby Console에 붙여 넣어 돌릴 스크립트를 만들어 줘.
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>스케치업 Ruby 콘솔, 레빗 공식 MCP 추가 기능은 프로그램 구독 안에서 추가 비용 없음</li><li>법령 MCP 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>스케치업 AI 크레딧 추가 구독으로 AI Render를 더 많이</li><li>아키캐드 MCP는 Collaborate·Max 구독에서</li><li data-plan="paid">긴 계단·문 표를 한 채팅에서 여러 번 대조</li></ul></div></div>
   <p class="cap">출처: Trimble 보도자료 'Trimble Launches SketchUp AI', SketchUp 개발자 사이트 'The Ruby Console', Autodesk 블로그 'Introducing the Revit Public MCP Server'(2026.6), Hagerman 블로그 'Revit 2027's AI Assistant', Autodesk 'Revit LT 제품 상세', Graphisoft 도움말 'Archicad 30 AI Solutions'·'Public MCP Connection', 국가법령정보센터 건축물의 피난ㆍ방화구조 등의 기준에 관한 규칙</p>
 </section>
-<section id="a-ps" class="lesson" data-part="software" data-title="포토샵·일러스트레이터와 AI 이미지" data-level="grow" data-stage="prep takeover operate" data-biz="arch" data-sw="ps ai">
+<section id="a-ps" class="lesson" data-part="software" data-title="현장 사진 AI로 정리하기 (포토샵)" data-level="grow" data-stage="prep takeover operate" data-biz="arch" data-sw="ps ai">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 50분 · PC</span>
     <h2>투시도 보정은 포토샵 AI가, 반복 작업 정리는 Claude·ChatGPT가</h2>
     <p class="goal">포토샵·일러스트레이터에는 이미 AI가 들어 있어요. 사진 속 전깃줄 지우기, 하늘 바꾸기, 화면 비율 늘리기를 몇 초에 해요. 그리고 Adobe가 Claude·ChatGPT 안에서 쓰는 연결 기능을 내놓았어요. 이 강의에서는 <b>제안서 이미지 한 장</b>을 두 방법으로 다듬어 봐요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>포토샵 안의 'AI 붓'과, 채팅창에서 말로 시키는 'Adobe 연결' 두 가지예요.</span></div><div class="easy-row"><b>끝나면</b><span>현장 사진에서 방해물을 지우고, 발표용 비율로 늘린 이미지 1장 + 출처·생성 표시 습관</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 현장 사진 또는 투시도 1장(건축주 얼굴·차 번호 없는 것), Adobe 계정, 50분 · 스케치를 이미지로 바꾸는 법은 <a href="#a-l10" class="ref" data-ref="a-l10">강의</a></span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>현장 사진의 전깃줄·가림막을 손으로 지우면 한 장에 30분 넘게 걸려요. AI 채우기로 몇 분 만에 정리하고 생성 표시까지 남기면 건축주 오해도 막아요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>포토샵 안의 'AI 붓'과, 채팅창에서 말로 시키는 'Adobe 연결' 두 가지예요.</span></div><div class="easy-row"><b>끝나면</b><span>현장 사진에서 방해물을 지우고, 발표용 비율로 늘린 이미지 1장 + 출처·생성 표시 습관</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 현장 사진 또는 투시도 1장(건축주 얼굴·차 번호 없는 것), Adobe 계정, 50분 · 스케치를 이미지로 바꾸는 법은 <a href="#a-l10" class="ref" data-ref="a-l10">강의</a></span></div></div>
   <ol class="steps">
     <li><input type="checkbox" id="aps_a" data-key="aps_a"><div class="body"><label for="aps_a">복사본 만들고 시작하기</label><small>원본 사진·PSD는 그대로 두고 <b>사본</b>으로 작업해요. 파일 이름 끝에 '_AI'를 붙여요. 사람 얼굴, 차 번호, 집 주소가 보이면 먼저 가려요(<a href="#a-l22" class="ref" data-ref="a-l22">강의</a>).</small></div></li>
     <li data-sw-only="ps"><input type="checkbox" id="aps_b" data-key="aps_b"><div class="body"><label for="aps_b">포토샵 생성형 채우기로 방해물 지우기</label><small>전깃줄, 공사 가림막, 지나가는 차를 지워요.</small>
@@ -1038,13 +1038,13 @@ Ruby Console에 붙여 넣어 돌릴 스크립트를 만들어 줘.
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Adobe 연결은 Claude·ChatGPT 게스트나 무료 Adobe 계정으로도 기본 편집</li><li>Photoshop 웹·모바일 무료 사용자도 생성 횟수가 조금 있어요</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>Photoshop·Illustrator 구독: 생성 크레딧이 많고 데스크톱에서 레이어째 작업</li><li>Photoshop AI 비서(말로 시키는 편집)는 웹·모바일 베타로 나왔어요. 데스크톱은 화면에서 확인</li></ul></div></div>
   <p class="cap">출처: Adobe 블로그 'Introducing Adobe for ChatGPT'(2026.8), Adobe 도움말 'Adobe for Claude', Adobe 블로그 Photoshop AI Assistant 공개 베타(2026.3), Adobe Illustrator 생성형 AI FAQ, 국가법령정보 「인공지능 발전과 신뢰 기반 조성 등에 관한 기본법」</p>
 </section>
-<section id="a-xls" class="lesson" data-part="software" data-title="엑셀 면적표·설계비 계산을 AI와" data-level="core" data-stage="prep takeover operate" data-biz="arch" data-sw="excel">
+<section id="a-xls" class="lesson" data-part="software" data-title="AI로 엑셀 면적표·설계비 양식 만들기" data-level="core" data-stage="prep takeover operate" data-biz="arch" data-sw="excel">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>수식은 AI가 짜고, 계산은 엑셀이 하고, 확인은 소장님이</h2>
     <p class="goal">사무소의 면적표·설계비 산정표는 대부분 엑셀이에요. AI에게 숫자를 바로 계산시키지 말고, <b>엑셀 파일과 수식</b>을 만들게 해요. 반복 정리는 <b>VBA</b>(엑셀에 붙이는 작은 프로그램)로 줄여요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>엑셀 양식을 AI가 대신 만들어 주는 거예요. 계산 자체는 엑셀 수식이 하니 결과를 믿을 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>층별 면적표 + 설계비 산정표가 든 엑셀 파일 1개, 시트 정리 매크로 1개</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 엑셀(Microsoft 365 권장), 끝난 프로젝트 면적표 1건, 1시간 · 구글 시트로 하려면 <a href="#a-l33" class="ref" data-ref="a-l33">강의</a></span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>면적표·설계비 양식을 프로젝트마다 손으로 다시 짜면 시간이 들고, 칸 하나 틀린 게 그대로 넘어가요. 수식이 든 양식을 한 번 만들어 두면 숫자만 넣으면 되고, 끝난 프로젝트로 검산도 해요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>엑셀 양식을 AI가 대신 만들어 주는 거예요. 계산 자체는 엑셀 수식이 하니 결과를 믿을 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>층별 면적표 + 설계비 산정표가 든 엑셀 파일 1개, 시트 정리 매크로 1개</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 엑셀(Microsoft 365 권장), 끝난 프로젝트 면적표 1건, 1시간 · 구글 시트로 하려면 <a href="#a-l33" class="ref" data-ref="a-l33">강의</a></span></div></div>
   <ol class="steps">
     <li><input type="checkbox" id="axls_a" data-key="axls_a"><div class="body"><label for="axls_a">AI에게 엑셀 파일째 받기</label><small><span data-ai-not="gpt">Claude는 <span class="path">설정 → 기능(Capabilities) → 코드 실행 및 파일 생성</span>을 켜면 무료 플랜에서도 .xlsx 파일을 만들어 내려받게 해 줘요.</span><span data-ai-not="claude"> ChatGPT도 채팅에서 스프레드시트 파일을 만들어 내려받게 해 줘요.</span> 아래 '양식 부탁문'을 보내고 받은 파일을 열어요.</small><span class="fix">막히면: 파일 대신 표만 나오면 "xlsx 파일로 만들어서 내려받기 링크를 줘"라고 한 번 더 말해요.</span></div></li>
     <li><input type="checkbox" id="axls_b" data-key="axls_b"><div class="body"><label for="axls_b">수식이 살아 있는지 확인하기</label><small>합계 칸을 눌러 위쪽 수식 입력줄에 <b>=SUM(…)</b>처럼 수식이 보여야 해요. 숫자만 적혀 있으면 AI가 계산해 넣은 거예요. "모든 계산 칸을 엑셀 수식으로 바꿔 줘"라고 다시 부탁해요.</small></div></li>
@@ -1083,13 +1083,13 @@ Ruby Console에 붙여 넣어 돌릴 스크립트를 만들어 줘.
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>채팅에서 xlsx 파일·수식·VBA 받기</li><li>엑셀이 없으면 구글 시트로(<a href="#a-l33" class="ref" data-ref="a-l33">강의</a>)</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li data-ai-not="gpt">Claude Pro 이상: 엑셀 안에서 Claude in Excel</li><li>Microsoft 365 개인 구독: 엑셀 Copilot</li></ul></div></div>
   <p class="cap">출처: Claude 도움말 'Create and edit files with Claude', Claude 문서 'Claude in Excel'(지원 플랜·기기·VBA 미지원), Microsoft 지원 'Excel for Mac에서 개발 도구 탭으로 매크로 만들기', Copilot in Excel 요금제 안내(dupple 가이드), 국가법령정보 「건축사법」·「공공발주사업에 대한 건축사의 업무범위와 대가기준」</p>
 </section>
-<section id="a-hwp" class="lesson" data-part="software" data-title="한글(HWP) 공문·설계설명서를 AI와" data-level="grow" data-stage="prep takeover operate" data-biz="arch" data-sw="hwp">
+<section id="a-hwp" class="lesson" data-part="software" data-title="한글 파일을 AI로 요약·작성" data-level="grow" data-stage="prep takeover operate" data-biz="arch" data-sw="hwp">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 50분 · PC</span>
     <h2>한글 파일은 '바꿔서 주고, 바꿔서 받는' 게 요령이에요</h2>
     <p class="goal">관공서 공문, 설계설명서, 협의 회신은 대부분 한글(HWP) 파일이에요. AI마다 한글 파일을 읽는 힘이 달라요. 이 강의에서는 <b>읽힐 형식으로 바꿔서 주고</b>, 초안을 <b>워드(docx)로 받아 한글에서 마무리</b>하는 순서를 익혀요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>AI와 한글 사이에 '통역 형식'(PDF·워드·HWPX)을 하나 두는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>받은 공문 요약 1건, 설계설명서 초안이 들어간 한글 파일 1개</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 한글(한컴오피스), 최근 받은 공문 1건(개인정보 가린 사본), 50분 · 설계설명서 쓰는 법은 <a href="#a-l9" class="ref" data-ref="a-l9">강의</a></span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>한글 파일은 AI에 그대로 안 올라가는 경우가 많아, 공문을 다시 타자로 옮기다 시간이 새요. 저장 형식 하나만 바꾸면 공문 요약과 설명서 초안을 바로 받아요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>AI와 한글 사이에 '통역 형식'(PDF·워드·HWPX)을 하나 두는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>받은 공문 요약 1건, 설계설명서 초안이 들어간 한글 파일 1개</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 한글(한컴오피스), 최근 받은 공문 1건(개인정보 가린 사본), 50분 · 설계설명서 쓰는 법은 <a href="#a-l9" class="ref" data-ref="a-l9">강의</a></span></div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>AI</th><th>한글 파일 읽기</th><th>쉬운 방법</th></tr></thead>
     <tbody>
@@ -1125,13 +1125,13 @@ Ruby Console에 붙여 넣어 돌릴 스크립트를 만들어 줘.
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>한글에서 PDF·docx로 저장 → 무료 AI 채팅으로 요약·초안</li><li>docx 초안을 한글로 열어 HWPX로 저장</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>한컴어시스턴트: 한글 안에서 바로 초안·교정</li><li>AI 유료: 긴 설명서·공문 여러 건을 한 번에</li></ul></div></div>
   <p class="cap">출처: 다음뉴스 '챗GPT·제미나이, HWP 읽는다'(OpenAI 2026.4.17 HWP·HWPX 지원 발표), 브런치 'AI는 내 한글 파일을 읽을 수 있나요'(2026.10 Claude 지원 형식 확인), 스쿠피 'Claude HWP 지원' 정리, 뉴스토마토(한컴어시스턴트 구독 출시·월 8,900원), 비즈워치(한컴어시스턴트 개인용 기능), CIO Korea(한컴독스 AI 정식 출시), GitHub hwpx-mcp</p>
 </section>
-<section id="a-l40" class="lesson" data-part="auto" data-title="건축사 공공데이터 지도" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l40" class="lesson" data-part="auto" data-title="대지 공공데이터 찾는 곳과 번호 뽑기" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">읽기 · 약 30분</span>
     <h2>주소 하나에 붙는 공공데이터 여섯 줄</h2>
     <p class="goal">건축사 업무에 바로 쓰이는 공공데이터 <dfn data-t="api">API</dfn>(기관 자료를 프로그램이 받아 오는 창구)를 한눈에 정리해요. 그리고 모든 API의 출발점인 <b>주소 → 코드 바꾸기</b>를 먼저 만들어요. 이 단계의 나머지 강의는 모두 이 코드를 써요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여러 관공서 자료실의 '안내 지도'예요. 그리고 자료실마다 달라고 하는 '주소 번호표'를 주소 하나로 자동으로 뽑는 장치를 만들어요.</span></div><div class="easy-row"><b>끝나면</b><span>주소만 적고 메뉴를 누르면 법정동코드·번지·PNU가 채워지는 '대지' 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 사무소 대장 시트, 30분 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>건축물대장·토지·인허가 자료는 사이트마다 따로 있고, 조회할 때마다 법정동코드·PNU 같은 번호를 달라고 해요. 주소만 적으면 번호가 채워지게 해 두면, 뒤의 자동 조회가 전부 이 한 줄에서 시작돼요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>여러 관공서 자료실의 '안내 지도'예요. 그리고 자료실마다 달라고 하는 '주소 번호표'를 주소 하나로 자동으로 뽑는 장치를 만들어요.</span></div><div class="easy-row"><b>끝나면</b><span>주소만 적고 메뉴를 누르면 법정동코드·번지·PNU가 채워지는 '대지' 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 사무소 대장 시트, 30분 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>데이터</th><th>어디서</th><th>건축 업무에서</th><th>강의</th></tr></thead>
     <tbody>
@@ -1181,13 +1181,13 @@ Ruby Console에 붙여 넣어 돌릴 스크립트를 만들어 줘.
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>웹페이지는 주소만 주고 "전체 읽어 줘" 대신, 필요한 부분 글자를 복사해 주거나 <code>markitdown 페이지.html -o 페이지.md</code>로 바꿔 줘요.</li><li>코드를 고칠 때는 "전체 다시" 대신 <b>"바뀐 함수만"</b> 달라고 해요. 오류는 빨간 줄 몇 줄만 복사해 보내요.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>주소 검색 API·공공데이터포털 API 모두 무료</li><li>앱스 스크립트 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>민간 부동산 데이터 서비스: 여러 공공데이터를 지도 한 화면에</li></ul></div></div>
 </section>
-<section id="a-hub" class="lesson" data-part="auto" data-title="건축HUB MCP: 대장·인허가를 말로 조회" data-level="core" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-hub" class="lesson" data-part="auto" data-title="건축물대장·인허가 말로 조회 (건축HUB)" data-level="core" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · 코드 없이</span>
     <h2>주소 하나 말하면 건축물대장·인허가·공시가격이 한 장으로</h2>
     <p class="goal">국토교통부 <b>건축HUB</b>의 건축물대장·건축인허가·주택인허가 자료를 AI가 바로 조회하게 해 주는 <dfn data-t="mcp">MCP</dfn> 커넥터예요. 공용 인증키가 들어 있어서 <b>주소(URL) 하나만 등록</b>하면 끝나요. 건축물대장 자동 조회 강의(<a href="#a-l20" class="ref" data-ref="a-l20">강의</a>)가 시트에 매일 쌓는 방식이라면, 이 강의는 채팅에서 "○○동 ○○번지 건물 한눈에"처럼 말로 묻는 방식이에요. 법령 MCP(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>)와 같이 켜 두면 <b>현황 → 법 기준 비교</b>까지 한 채팅에서 끝나요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>구청 민원 창구에 대장 열람을 신청하는 대신, AI 직원이 건축HUB 창고에서 서류를 바로 꺼내 와 요약해 주는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>상담 전 '한 필지 종합카드', 동네 노후 건물 목록, 주변 인허가 진행 현황을 채팅으로 받는 습관</span></div><div class="easy-row"><b>필요한 것</b><span>PC, Claude(무료도 커넥터 1개 가능) 또는 ChatGPT 유료, 40분 · 커넥터 연결이 처음이면 법령 MCP 강의(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>)와 같은 순서예요</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>상담 전에 대장·인허가를 사이트마다 찾아 열람하면 필지 하나에 30분씩 걸려요. AI가 건축HUB에서 바로 꺼내 요약해 주면 몇 분 만에 종합카드를 들고 상담에 들어가요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>구청 민원 창구에 대장 열람을 신청하는 대신, AI 직원이 건축HUB 창고에서 서류를 바로 꺼내 와 요약해 주는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>상담 전 '한 필지 종합카드', 동네 노후 건물 목록, 주변 인허가 진행 현황을 채팅으로 받는 습관</span></div><div class="easy-row"><b>필요한 것</b><span>PC, Claude(무료도 커넥터 1개 가능) 또는 ChatGPT 유료, 40분 · 커넥터 연결이 처음이면 법령 MCP 강의(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>)와 같은 순서예요</span></div></div>
 
   <h3>1 · 연결하기 (한 번만)</h3>
   <ol class="steps">
@@ -1268,13 +1268,13 @@ Ruby Console에 붙여 넣어 돌릴 스크립트를 만들어 줘.
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Claude 무료는 커스텀 커넥터 1개 — 건축HUB 또는 법령 중 하나</li><li>공용키라 키 신청 없이 바로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>건축HUB + 법령을 함께 켜서 현황과 기준을 한 번에 비교</li><li>예약 작업으로 매달 자동 확인</li></ul></div></div>
   <p class="cap">출처: chrisryugj/archhub-mcp GitHub (원격 주소·도구 12종·주의사항, MIT 라이선스). 데이터: 국토교통부 건축HUB.</p>
 </section>
-<section id="a-l20" class="lesson" data-part="auto" data-title="건축물대장 자동 조회" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l20" class="lesson" data-part="auto" data-title="건축물대장 버튼 하나로 받기" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>주소만 넣으면 건축물대장이 시트에</h2>
     <p class="goal">공공데이터포털의 <b>국토교통부 건축HUB 건축물대장정보 서비스</b>를 써요. 그러면 대장 표제부(주용도, 연면적, 건폐율, 용적률, 사용승인일 등)를 시트로 자동으로 받을 수 있어요. 리모델링·용도변경 상담 전 확인이 빨라져요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>정부 창고에 '대장 좀 보내 주세요' 주문서를 넣는 자동 심부름꾼을 시트에 두는 거예요. 주소 코드만 적고 버튼을 누르면 돼요.</span></div><div class="easy-row"><b>끝나면</b><span>'사무소 대장' 시트의 '대지조회 → 건축물대장 가져오기' 메뉴와, 결과가 쌓이는 '대장결과' 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 회원가입, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>, 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>건물마다 사이트에 들어가 대장을 떼고 옮겨 적으면 한 건에도 몇 분씩 걸리고 오타가 나요. 시트에서 버튼 한 번에 받아 오면 여러 건도 금방 정리돼요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>정부 창고에 '대장 좀 보내 주세요' 주문서를 넣는 자동 심부름꾼을 시트에 두는 거예요. 주소 코드만 적고 버튼을 누르면 돼요.</span></div><div class="easy-row"><b>끝나면</b><span>'사무소 대장' 시트의 '대지조회 → 건축물대장 가져오기' 메뉴와, 결과가 쌓이는 '대장결과' 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 회원가입, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>, 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="lanes">
       <div class="box pop" style="--d:.2s"><strong>'대지조회' 탭</strong><span>시군구코드 · 법정동코드 · 번 · 지</span></div>
@@ -1401,13 +1401,13 @@ Ruby Console에 붙여 넣어 돌릴 스크립트를 만들어 줘.
 3) 같은 계획을 지금 하면 달라지는 점 (조문·시행일 근거)
 조문은 법령 도구로 찾은 현행 원문과 시행일을 붙이고, 못 찾은 건 지어내지 말고 '확인 필요'로.</pre></div></div>
   </section>
-<section id="a-l43" class="lesson" data-part="auto" data-title="실거래가로 사업성 검토" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l43" class="lesson" data-part="auto" data-title="주변 시세로 사업성 따져 보기" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>"이 규모로 지으면 맞을까요?"에 숫자로</h2>
     <p class="goal">국토교통부 실거래가 <dfn data-t="api">API</dfn>(정부 자료를 프로그램으로 받아 오는 창구)로 대지 주변 거래가를 모아요. 단독·다가구, 연립·다세대, 토지 거래가예요. 이 숫자는 건축주와 규모를 검토할 때 참고 시세로 써요. 사업성 판단은 건축주 몫이에요. 우리는 근거 자료를 정리해 드리는 역할이에요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>동네 부동산 시세표를 시트가 알아서 모아 오게 하는 거예요. 버튼 하나로 최근 2년 거래가 표에 들어와요.</span></div><div class="easy-row"><b>끝나면</b><span>대지 주변 실거래가가 모인 '실거래' 탭과, 건축주 상담 때 보여 줄 시세 참고표가 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 회원가입, 사무소 대장 시트(대지 탭), 반나절 · 스크립트를 처음 붙인다면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>건축주가 '지으면 맞을까요?' 물을 때 근거 없이 답하면 믿음을 얻기 어렵고, 시세를 일일이 찾으면 시간이 걸려요. 주변 실거래가를 버튼 하나로 모아 두면 상담 때 숫자로 설명할 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>동네 부동산 시세표를 시트가 알아서 모아 오게 하는 거예요. 버튼 하나로 최근 2년 거래가 표에 들어와요.</span></div><div class="easy-row"><b>끝나면</b><span>대지 주변 실거래가가 모인 '실거래' 탭과, 건축주 상담 때 보여 줄 시세 참고표가 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 회원가입, 사무소 대장 시트(대지 탭), 반나절 · 스크립트를 처음 붙인다면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <ol class="steps">
     <li><input type="checkbox" id="a_a43a" data-key="a_a43a"><div class="body"><label for="a_a43a">필요한 실거래 API만 활용신청하기</label><small>자료를 받으려면 먼저 '써도 된다'는 허락을 받아야 해요. data.go.kr에서 '국토교통부 실거래가'로 검색해요. 주택 유형·거래 유형별로 따로 있어요. 단독·다가구 매매, 연립·다세대 매매, 토지 매매 중 사무소가 주로 다루는 것만 신청해요. 모두 같은 <dfn data-t="apikey">인증키</dfn>(자료를 받을 때 쓰는 비밀번호)예요. <span class="fix">막히면: 신청 직후 키가 안 되면 몇 시간 뒤에 다시 해 봐요. 키가 실제로 쓰이기까지 시간이 걸릴 수 있어요.</span></small></div></li>
     <li><input type="checkbox" id="a_a43b" data-key="a_a43b"><div class="body"><label for="a_a43b">'실거래' 탭 만들고 스크립트 받기</label><small>거래가가 들어갈 자리와, 자료를 가져올 프로그램이 필요해요. 먼저 '실거래' 탭을 만들고 아래 제목 줄을 붙여요. 그다음 아래 부탁문으로 <dfn data-t="appsscript">앱스 스크립트</dfn>를 받아요. 실거래 API는 <dfn data-t="lawdcd">지역코드</dfn>(법정동코드 앞 5자리)와 계약년월(6자리)로 찾아요. 대지 탭의 시군구코드를 그대로 써요. <span class="fix">막히면: 결과가 비어 있거나 오류가 뜨면 화면을 캡처해 AI에게 "이 오류 고쳐 줘"라고 보여 줘요.</span></small></div></li>
@@ -1429,13 +1429,13 @@ Ruby Console에 붙여 넣어 돌릴 스크립트를 만들어 줘.
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>캡처는 "어디를 눌러야 하나"처럼 <b>화면 모양이 필요할 때만</b>. 화면의 글자는 복사해서 붙여 넣는 게 훨씬 가벼워요. 사진은 여러 장 대신 꼭 필요한 한두 장만.</li><li>코드를 고칠 때는 "전체 다시" 대신 <b>"바뀐 함수만"</b> 달라고 해요. 오류는 빨간 줄 몇 줄만 복사해 보내요.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>실거래 API 무료·자동승인</li><li>실거래가 공개시스템 화면 조회</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>민간 부동산 분석 서비스: 시세 추정·사업성 계산기</li></ul></div></div>
 </section>
-<section id="a-l44" class="lesson" data-part="auto" data-title="현장 날씨 알림" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l44" class="lesson" data-part="auto" data-title="타설 전날 비·추위 알림 받기" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>내일 타설, 비 오면 전날 알려 주게</h2>
     <p class="goal">기상청 단기예보 <dfn data-t="api">API</dfn>(기상청 자료를 프로그램이 받아 오는 창구)로 진행 중인 현장의 내일·모레 비와 기온을 매일 저녁 확인해요. 콘크리트 타설·방수·외부 도장처럼 날씨를 타는 공정이 잡힌 날에만 감리 담당에게 메일을 보내요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>현장 공정표 옆에 '일기예보 당번'을 세워 두는 거예요. 매일 저녁 시트가 내일 날씨를 보고, 타설 같은 공정과 겹치면 알려 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>비나 추위가 공정과 겹치는 날에만 오는 저녁 6시 알림 메일</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 공공데이터포털 인증키, 1시간 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>타설 당일 아침에야 비 소식을 알면 레미콘·인력 일정을 급히 바꿔야 해요. 공정과 날씨가 겹치는 날에만 전날 저녁 알림을 받으면 미리 미루거나 대비할 수 있어요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>현장 공정표 옆에 '일기예보 당번'을 세워 두는 거예요. 매일 저녁 시트가 내일 날씨를 보고, 타설 같은 공정과 겹치면 알려 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>비나 추위가 공정과 겹치는 날에만 오는 저녁 6시 알림 메일</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 공공데이터포털 인증키, 1시간 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="msg">
       <div class="from a" style="--d:.1s"><span>현장 날씨 알림 · 18:00 · 예시</span><span>기상청 단기예보</span></div>
@@ -1465,13 +1465,13 @@ Ruby Console에 붙여 넣어 돌릴 스크립트를 만들어 줘.
   <div class="tokenbox" data-gen="token"><div class="tokenbox-h"><b>토큰 아끼기</b><a href="#c-b7" class="ref" data-ref="c-b7">강의</a></div><ul><li>시트·엑셀은 통째로 말고 <b>필요한 탭·열만 CSV</b>로 내려받아 올려요. 엑셀 파일은 <code>markitdown 파일.xlsx -o 파일.md</code>로 표 글자로 바꿀 수 있어요.</li><li>코드를 고칠 때는 "전체 다시" 대신 <b>"바뀐 함수만"</b> 달라고 해요. 오류는 빨간 줄 몇 줄만 복사해 보내요.</li><li>부탁문 끝에 <b>"표만" "5줄로"</b>처럼 답 길이를 정하면 답도 빠르고 사용량도 줄어요.</li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>기상청 API 무료·자동승인, 앱스 스크립트 트리거</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>현장관리 앱의 날씨·공정 연동</li></ul></div></div>
 </section>
-<section id="a-l45" class="lesson" data-part="auto" data-title="대지 한 장 리포트" data-level="adv" data-stage="prep takeover operate" data-biz="arch">
+<section id="a-l45" class="lesson" data-part="auto" data-title="주소 넣고 대지 리포트 자동으로" data-level="adv" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">종합 실습 · 반나절</span>
     <h2>주소 하나 넣고 버튼 한 번, 상담 준비 끝</h2>
     <p class="goal">이 단계에서 만든 조회를 한 버튼으로 묶어요. 주소를 적고 <span class="path">대지조회 → 한 장 리포트</span>를 눌러요. 그러면 코드 변환 → 건축물대장 → 토지정보 → 주변 인허가 → 실거래가 차례로 돌아요. 결과는 '리포트' 탭에 한 장으로 정리돼요. 그 한 장을 AI에게 주면 대지 검토 메모가 나와요.</p>
   </div>
-  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여러 창구를 도는 심부름을 한 번에 맡기는 거예요. 주소 한 줄만 적으면 시트가 대장·토지·인허가·실거래를 차례로 찾아와요.</span></div><div class="easy-row"><b>끝나면</b><span>버튼 한 번에 채워지는 '리포트' 탭 한 장과, 그걸로 받은 대지 검토 메모</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 앞 강의들에서 만든 조회 스크립트, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
+  <div class="easy"><div class="easy-row why"><b>왜 필요해요</b><span>대장·토지·인허가·실거래를 사이트마다 열어 보면 상담 한 건 준비에 한참 걸려요. 주소 한 줄과 버튼 한 번으로 리포트가 채워지면, 그 시간에 건축주에게 할 이야기를 준비해요.</span></div><div class="easy-row"><b>이게 뭐예요</b><span>여러 창구를 도는 심부름을 한 번에 맡기는 거예요. 주소 한 줄만 적으면 시트가 대장·토지·인허가·실거래를 차례로 찾아와요.</span></div><div class="easy-row"><b>끝나면</b><span>버튼 한 번에 채워지는 '리포트' 탭 한 장과, 그걸로 받은 대지 검토 메모</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 앞 강의들에서 만든 조회 스크립트, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="flowgrid">
       <div class="stack">
