@@ -175,6 +175,7 @@ L = {
   ('f-api-weather','new', None, 'grow', ALL, 'flower', ''),
   ('f-api-brief', 'new', None, 'adv',  ALL, 'flower', ''),
   ('a-l40', 'arch', 'l40', 'grow', ALL, 'arch', ''),
+  ('a-hub', 'new', None, 'core', ALL, 'arch', ''),
   ('a-l20', 'arch', 'l20', 'grow', ALL, 'arch', ''),
   ('a-l41', 'arch', 'l41', 'grow', ALL, 'arch', ''),
   ('a-l42', 'arch', 'l42', 'grow', ALL, 'arch', ''),
