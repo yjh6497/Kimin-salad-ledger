@@ -2,20 +2,22 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>용도지역과 필지 경계를 시트와 지도로</h2>
-    <p class="goal"><dfn data-t="vworld">브이월드</dfn>(공간정보 오픈플랫폼) API로 PNU를 넣어 필지의 용도지역·지목·면적·공시지가를 받고, 필지 경계를 지도 파일로 받아요. 배치 스터디 바탕으로도 써요.</p>
+    <p class="goal"><dfn data-t="vworld">브이월드</dfn>(공간정보 오픈플랫폼) <dfn data-t="api">API</dfn>에 <dfn data-t="pnu">PNU</dfn>(필지마다 붙은 고유번호)를 넣어요. 그러면 필지의 용도지역·지목·면적·공시지가가 와요. 필지 경계도 지도 파일로 받아요. 이 파일은 배치 스터디 바탕으로도 써요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>필지 번호만 넣으면 시트가 '토지 신상 카드'를 알아서 채우는 거예요. 용도지역·지목·면적·공시지가를 하나씩 찾아 옮겨 적지 않아도 돼요.</span></div><div class="easy-row"><b>끝나면</b><span>메뉴 한 번으로 채워지는 '토지정보' 탭, 그리고 원하면 필지 경계 지도 파일</span></div><div class="easy-row"><b>필요한 것</b><span>PC, '사무소 대장' 시트(대지 탭에 PNU), 브이월드 회원가입, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a41a" data-key="a_a41a"><div class="body"><label for="a_a41a">브이월드 인증키 받기 (무료)</label>
+    <li><input type="checkbox" id="a_a41a" data-key="a_a41a"><div class="body"><label for="a_a41a">브이월드 인증키 받기 (무료)</label><small><dfn data-t="apikey">인증키</dfn>는 브이월드 자료를 꺼내 쓸 수 있는 '출입증'이에요. 먼저 이것부터 받아요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>PC에서 <span class="path">vworld.kr</span> → 회원가입 → 로그인</li>
-        <li><span class="path">오픈API → 인증키 발급</span> → 서비스 분류에서 데이터 API(2D 데이터)를 고르고, 활용 URL에는 안내에 따라 입력</li>
-        <li>발급된 인증키를 복사<span class="fix">인증키에는 사용 기간이 있어요. 만료 안내 메일이 오면 같은 메뉴에서 연장하세요.</span></li>
+        <li>PC 크롬에서 <span class="path">vworld.kr</span>에 들어가 회원가입하고 로그인해요.</li>
+        <li><span class="path">오픈API → 인증키 발급</span>으로 가요. 서비스 분류에서 데이터 API(2D 데이터)를 골라요. 활용 URL 칸은 화면 안내에 따라 입력해요.<span class="fix">막히면: 활용 URL에 무엇을 쓸지 모르겠으면 그 화면을 캡처해 AI에게 "구글 앱스 스크립트에서 쓸 건데 여기 뭐라고 써?"라고 물어요.</span></li>
+        <li>발급된 인증키를 복사해 둬요. 채팅에는 붙이지 말고, 나중에 스크립트 속성에만 넣어요.<span class="fix">인증키에는 사용 기간이 있어요. 만료 안내 메일이 오면 같은 메뉴에서 연장하세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a41b" data-key="a_a41b"><div class="body"><label for="a_a41b">'대지' 탭 옆에 '토지정보' 탭 만들기</label></div></li>
-    <li><input type="checkbox" id="a_a41c" data-key="a_a41c"><div class="body"><label for="a_a41c">스크립트 받기 → 붙이기 → 메뉴 실행</label><small>아래 부탁문을 '09 자동화·연결' 채팅에 보내요. 브이월드는 기능별로 데이터 이름이 달라서, AI에게 브이월드 API 레퍼런스를 확인해 맞추라고 부탁문에 적어 두었어요.</small></div></li>
-    <li><input type="checkbox" id="a_a41d" data-key="a_a41d"><div class="body"><label for="a_a41d">필지 경계 파일로 받기 (선택)</label><small>연속지적도 데이터를 GeoJSON으로 받으면 구글 어스나 QGIS에서 열 수 있어요. CAD로 가져갈 때는 좌표계를 꼭 확인하세요. 측량 성과를 대신하지 못해요.</small></div></li>
-    <li><input type="checkbox" id="a_a41e" data-key="a_a41e"><div class="body"><label for="a_a41e">대지 검토 메모에 붙이기</label><small>토지정보 탭 한 줄을 대지 검토 메모 부탁문(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>)에 함께 주면 PDF 없이도 첫 메모가 나와요. 다만 행위제한·지구단위계획은 여전히 토지이음 열람으로 확인해요.</small></div></li>
+    <li><input type="checkbox" id="a_a41b" data-key="a_a41b"><div class="body"><label for="a_a41b">'대지' 탭 옆에 '토지정보' 탭 만들기</label><small>조회 결과가 들어올 자리예요. '사무소 대장' 아래쪽 <span class="path">+</span>로 새 탭을 만들고 이름을 '토지정보'로 바꿔요. A1 칸에 아래 '토지정보 탭 제목 줄'을 붙여 넣어요.<span class="fix">막히면: 제목 줄이 한 칸에 몰려 들어가면, 붙여 넣은 뒤 나오는 작은 아이콘에서 '열로 분할'을 눌러요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a41c" data-key="a_a41c"><div class="body"><label for="a_a41c">스크립트 받기 → 붙이기 → 메뉴 실행</label><small>조회를 대신 해 줄 작은 프로그램을 AI에게 받아요. 아래 부탁문을 '09 자동화·연결' 채팅에 보내요. 브이월드는 기능별로 데이터 이름이 달라요. 그래서 AI에게 브이월드 API 레퍼런스(사용 설명서)를 확인해 맞추라고 부탁문에 적어 두었어요. 받은 코드는 <span class="path">대장 → 확장 프로그램 → Apps Script</span>에 붙여 넣고 저장해요. 인증키는 <span class="path">톱니바퀴(프로젝트 설정) → 스크립트 속성 추가</span>에서 VWORLD_KEY로 넣어요. 시트를 새로 고치면 위쪽에 '대지조회' 메뉴가 생겨요.<span class="fix">막히면: '권한 검토' 창이 뜨면 내 계정 → 고급 → 이동 → 허용 순서로 눌러요(<a href="#c-b5" class="ref" data-ref="c-b5">강의</a>). 메모에 '조회 결과 없음'만 나오면 PNU 자릿수(19자리)와 인증키를 확인하고, 오류 문구를 캡처해 같은 채팅에 보여 줘요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a41d" data-key="a_a41d"><div class="body"><label for="a_a41d">필지 경계 파일로 받기 (선택)</label><small>연속지적도 데이터를 GeoJSON(지도용 파일 형식)으로 받으면 구글 어스나 QGIS에서 열 수 있어요. 시트 메뉴 <span class="path">대지조회 → 필지 경계 저장</span>을 누르면 드라이브에 저장돼요. CAD로 가져갈 때는 좌표계를 꼭 확인해요. 이 파일은 측량 성과를 대신하지 못해요.</small></div></li>
+    <li><input type="checkbox" id="a_a41e" data-key="a_a41e"><div class="body"><label for="a_a41e">대지 검토 메모에 붙이기</label><small>토지정보 탭 한 줄을 대지 검토 메모 부탁문(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>)에 함께 줘요. 그러면 PDF 없이도 첫 메모가 나와요. 다만 행위제한·지구단위계획은 여전히 토지이음 열람으로 확인해요.</small></div></li>
   </ol>
+  <p class="cap">제목 줄은 '토지정보' 탭 A1 칸에, 부탁문은 '09 자동화·연결' 채팅에 그대로 복사해 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>토지정보 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | PNU | 지목 | 토지면적(㎡) | 용도지역 | 용도지구·구역 | 개별공시지가(원/㎡) | 기준연도 | 조회일 | 메모</pre></div>
   <div class="prompt"><div class="bar"><span>토지정보 조회 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'의 '대지' 탭 PNU로 브이월드 오픈API를 조회해 '토지정보' 탭을 채우는 앱스 스크립트를 써 줘.
 - 지목·토지면적·개별공시지가(토지특성·공시지가 관련 데이터), 용도지역·지구(용도지역지구 관련 데이터)를 PNU로 조회
@@ -25,7 +27,7 @@
 - 인증키는 스크립트 속성 VWORLD_KEY에 저장, 메뉴 '대지조회 → 토지정보 가져오기', '대지조회 → 필지 경계 저장'
 제목 줄: 프로젝트코드 | PNU | 지목 | 토지면적(㎡) | 용도지역 | 용도지구·구역 | 개별공시지가(원/㎡) | 기준연도 | 조회일 | 메모
 나는 초보야. 붙여 넣는 곳과 실행 순서를 알려줘.</pre></div>
-  <p class="tip warnbox"><b>공간정보는 참고용이에요.</b> 데이터 갱신 시점에 따라 실제 결정·고시와 다를 수 있어요. 허가 도서에는 토지이용계획확인서와 측량 성과를 씁니다.</p>
+  <p class="tip warnbox"><b>공간정보는 참고용이에요.</b> 데이터를 새로 고친 시점에 따라 실제 결정·고시와 다를 수 있어요. 허가 도서에는 토지이용계획확인서와 측량 성과를 써요.</p>
   <p class="src">출처: <a href="https://www.vworld.kr" target="_blank" rel="noopener">브이월드(공간정보 오픈플랫폼)</a> · <a href="https://github.com/WooilJeong/PublicDataReader/blob/main/assets/docs/vworld/VworldData.md" target="_blank" rel="noopener">브이월드 데이터 API 활용 예시(PublicDataReader)</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>브이월드 인증키·데이터 API 무료</li><li>QGIS·구글 어스 무료로 경계 보기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>민간 토지 분석 서비스: 규제·시세를 지도에서 한 번에</li><li>측량 성과(지적측량)는 측량 업체에</li></ul></div></div>
 </section>

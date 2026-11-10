@@ -27,6 +27,8 @@
     { id: 'ai', tag: 'AI', q: 'ChatGPT나 Claude 같은 AI를 써 보셨어요?', o: ['일에 자주 써요', '몇 번 써 봤어요', '처음이에요'] },
     { id: 'upload', tag: 'AI', q: 'AI에게 사진이나 파일을 올려 물어본 적 있어요?', o: ['자주 해요', '한두 번', '없어요'] },
     { id: 'code', tag: 'AI', q: '코드나 자동화(앱스 스크립트, 엑셀 매크로)를 해 보셨어요?', o: ['해 봤어요', '들어만 봤어요', '처음이에요'], s: '몰라도 괜찮아요. 이 코스에서 AI가 짜 줘요.' },
+    { id: 'pc', tag: '기기', q: '일할 때 쓰는 컴퓨터는 어떤 거예요?', o: ['맥 (맥북·아이맥)', '윈도우 PC·노트북', '둘 다 / 잘 모르겠어요'], dev: true },
+    { id: 'phone', tag: '기기', q: '휴대폰은 어떤 거예요?', o: ['아이폰', '갤럭시 등 안드로이드', '둘 다 써요'], dev: true },
     { id: 'font', tag: '화면', q: '글씨가 조금 크게 보이면 더 편하세요?', o: ['네, 크게', '지금이 좋아요'], two: true }
   ];
   var LV_NAME = { 1: '입문', 2: '기본', 3: '능숙' };
@@ -51,6 +53,23 @@
   }
   function skillLv() { return prefs.skill && prefs.skill.lv ? prefs.skill.lv : 2; }
   function skillHide() { return prefs.skill && prefs.skill.hide ? prefs.skill.hide : []; }
+  // 기기: 답이 없거나 '둘 다'면 모든 기기용 내용을 보여요
+  function devOf(a) {
+    a = a || {};
+    return { pc: a.pc === 0 ? 'mac' : a.pc === 1 ? 'win' : '', phone: a.phone === 0 ? 'ios' : a.phone === 1 ? 'android' : '' };
+  }
+  function userDev() { return prefs.device || { pc: '', phone: '' }; }
+  function hasDev(d, dv) {
+    dv = dv || userDev();
+    if (d === 'mac' || d === 'win') return !dv.pc || dv.pc === d;
+    if (d === 'ios' || d === 'android') return !dv.phone || dv.phone === d;
+    return true;
+  }
+  function devLabel(dv) {
+    dv = dv || userDev();
+    var a = { mac: '맥', win: '윈도우' }[dv.pc], b = { ios: '아이폰', android: '안드로이드' }[dv.phone];
+    return [a, b].filter(Boolean).join('+');
+  }
 
   // ---------- 주소(코스 링크) ----------
   var Q = new URLSearchParams(location.search);
@@ -128,8 +147,8 @@
       });
       wrap.appendChild(p); wrap.appendChild(opts); svBox.appendChild(wrap);
     });
-    document.getElementById('svSkip').addEventListener('click', function () { sel.skip = true; sel.ans = {}; paint(); });
-    function curSkill() { return sel.skip ? { lv: 2, hide: [], big: false, skipped: true } : skillFrom(sel.ans); }
+    document.getElementById('svSkip').addEventListener('click', function () { sel.skip = true; sel.ans = { pc: sel.ans.pc, phone: sel.ans.phone }; paint(); });
+    function curSkill() { var s = sel.skip ? { lv: 2, hide: [], big: false, skipped: true } : skillFrom(sel.ans); if (s) s.dev = devOf(sel.ans); return s; }
     function paintSurvey() {
       svBox.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', sel.ans[b.dataset.q] === +b.dataset.k ? 'true' : 'false'); });
       var out = document.getElementById('svResult'); out.textContent = '';
@@ -150,6 +169,8 @@
       else if (sk.lv === 2) lines = [sk.hide.length ? '이미 익숙한 준비 운동 ' + sk.hide.length + '강은 빼고 엮어요' : '준비 운동 강의를 포함해요', '핵심·넓히기·고급 강의를 모두 보여 드려요', '\'자세히 따라 하기\'는 필요할 때 펼쳐요'];
       else lines = ['준비 운동은 건너뛰고 바로 실무 강의부터', '고급(코드·봇·API) 강의까지 모두 포함해요'];
       if (sk.big) lines.push('글씨를 크게 보여 드려요');
+      var dvt = devLabel(sk.dev);
+      if (dvt) lines.push(dvt + '에 맞는 방법만 보여 드려요' + ((sk.dev.pc === 'mac' && sk.dev.phone === 'ios') ? ' (맥·아이폰 전용 강의 포함)' : ' (맥과 아이폰이 함께 있어야 하는 강의는 빼고, 대신 할 수 있는 방법으로)'));
       lines.push('강의 화면 위쪽 \'난이도\'에서 언제든 바꿀 수 있어요');
       lines.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
       out.appendChild(ul);
@@ -227,7 +248,7 @@
         var ind = industryOf(sel);
         var n = countLessons(sel, curSkill() || { lv: 2, hide: [] });
         var skx = curSkill();
-        sum.textContent = ind.name + ' · ' + ind.stages[sel.stage] + (skx ? ' · ' + LV_NAME[skx.lv] : ' · 난이도 설문 전') + (n ? ' — 강의 ' + n + '개로 엮어요' : '');
+        sum.textContent = ind.name + ' · ' + ind.stages[sel.stage] + (skx ? ' · ' + LV_NAME[skx.lv] + (devLabel(skx.dev) ? ' · ' + devLabel(skx.dev) : '') : ' · 난이도 설문 전') + (n ? ' — 강의 ' + n + '개로 엮어요' : '');
       }
     }
     var MAN = null;
@@ -248,6 +269,7 @@
       var sk = curSkill();
       if (sk) {
         prefs.skill = { lv: sk.lv, hide: sk.hide };
+        prefs.device = sk.dev;
         if (!sk.skipped) prefs.survey = sel.ans;
         prefs.open = sk.lv === 1 ? 'all' : 'closed';
         if (sk.big) prefs.font = 'big'; else if (!sk.skipped) prefs.font = 'normal';
@@ -278,6 +300,9 @@
     var lv = sk ? sk.lv : skillLv(), hide = sk ? sk.hide : skillHide();
     if (lv === 1 && L.level === 'adv') return false;
     if (hide.indexOf(L.id) >= 0) return false;
+    var dv = sk && sk.dev ? sk.dev : userDev();
+    if (L.dev && L.dev.length && !L.dev.every(function (d) { return hasDev(d, dv); })) return false;
+    if (L.devalt && L.devalt.length && dv.pc && dv.phone && L.devalt.every(function (d) { return hasDev(d, dv); })) return false;
     return true;
   }
 
@@ -315,7 +340,7 @@
   document.getElementById('courseTitle').textContent = title;
   document.getElementById('eyebrow').textContent = '업체 없이 ' + terms.owner + josa(terms.owner, '이') + ' 직접 하는 ' + IN.stages[P.stage] + ' 실습 코스';
   document.getElementById('bizTag').textContent = IN.icon + ' ' + IN.name;
-  document.getElementById('stageTag').textContent = IN.stages[P.stage];
+  document.getElementById('stageTag').textContent = IN.stages[P.stage] + (prefs.skill ? ' · ' + LV_NAME[skillLv()] : '') + (devLabel() ? ' · ' + devLabel() : '');
   document.getElementById('changeBiz').addEventListener('click', function () {
     location.href = profUrl(P, { pick: '1' });
   });
@@ -348,6 +373,7 @@
   function prune(root) {
     root.querySelectorAll('[data-biz]').forEach(function (el) { if (el.tagName !== 'SECTION' && !inList(el.getAttribute('data-biz'), BIZ)) el.remove(); });
     root.querySelectorAll('[data-biz-not]').forEach(function (el) { if (el.tagName !== 'SECTION' && inList(el.getAttribute('data-biz-not'), BIZ)) el.remove(); });
+    root.querySelectorAll('[data-dev-only]').forEach(function (el) { var ds = el.getAttribute('data-dev-only').split(/\s+/); if (!ds.some(function (d) { return hasDev(d); })) el.remove(); });
     root.querySelectorAll('[data-stage-only]').forEach(function (el) { if (!inList(el.getAttribute('data-stage-only'), P.stage)) el.remove(); });
   }
 

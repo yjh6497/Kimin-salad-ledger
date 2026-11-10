@@ -246,8 +246,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>"몇 조 몇 항인지"까지 찾아오는 비서</h2>
-    <p class="goal">AI가 기억으로 말한 법규는 틀릴 수 있어요. 이 강의에서는 AI가 <b>최신 법령 원문을 직접 찾아 읽고</b> 답하게 만들어요. 쉬운 방법(원문 붙여 주기)부터 연결 방법(<dfn data-t="mcp">MCP</dfn>)까지.</p>
+    <p class="goal">AI가 기억으로 말한 법규는 틀릴 수 있어요. 그래서 이 강의에서는 AI가 <b>최신 법령 원문을 직접 찾아 읽고</b> 답하게 만들어요. 쉬운 방법(원문 붙여 주기)부터 연결 방법(<dfn data-t="mcp">MCP</dfn>, AI에 다른 프로그램을 잇는 연결 방식)까지 다뤄요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>AI에게 '법전을 펴 놓고 답하라'고 시키는 거예요. 기억으로 말하지 않고, 붙여 준 원문에서 조문을 찾아 근거와 함께 답해요.</span></div><div class="easy-row"><b>끝나면</b><span>조문 인용과 확인할 부서까지 붙은 법규 답, 그리고 다시 쓸 수 있는 '원문 기반 질문' 부탁문</span></div><div class="easy-row"><b>필요한 것</b><span>PC, AI 비서실 프로젝트(<a href="#c-l5" class="ref" data-ref="c-l5">강의</a>), 약 1시간 · 복사·붙여넣기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="lanes">
       <div class="box pop" style="--d:.2s"><strong>질문</strong><span>"근생 2종 용도변경 시 주차 기준?"</span></div>
@@ -260,22 +261,23 @@
   </div>
   <h3>방법 1 · 원문을 붙여 주기 (누구나, 무료)</h3>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a8a" data-key="a_a8a"><div class="body"><label for="a_a8a">국가법령정보센터에서 조문 찾기</label>
+    <li><input type="checkbox" id="a_a8a" data-key="a_a8a"><div class="body"><label for="a_a8a">국가법령정보센터에서 조문 찾기</label><small>AI에게 줄 원문을 먼저 구해요. 최신 법령은 이 사이트에 있어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li><span class="path">law.go.kr</span>(<dfn data-t="lawgo">국가법령정보센터</dfn>) → 검색창에 법령명(예: 주차장법 시행령) → 현행 법령 열기</li>
-        <li>필요한 조문이나 별표를 열고 <span class="path">조문 복사</span> 또는 드래그해 복사. 별표는 <span class="path">별표·서식</span> 탭에서 PDF로 받기</li>
-        <li>조례는 같은 사이트 <span class="path">자치법규</span> 탭에서 '○○시 주차장 조례'처럼 검색<span class="fix">시행일이 미래인 개정 법령이 같이 보일 수 있어요. 지금 적용되는 '현행'인지 위쪽 시행일을 확인하세요.</span></li>
+        <li><span class="path">law.go.kr</span>(<dfn data-t="lawgo">국가법령정보센터</dfn>)에 들어가요. 검색창에 법령명(예: 주차장법 시행령)을 쳐서 현행 법령을 열어요.</li>
+        <li>필요한 조문이나 별표를 열어요. <span class="path">조문 복사</span>를 누르거나, 마우스로 끌어 골라 복사해요. 별표는 <span class="path">별표·서식</span> 탭에서 PDF로 받아요.<span class="fix">막히면: 드래그 복사가 안 되면 글자를 고른 뒤 맥은 command+C, 윈도우는 Ctrl+C를 눌러요(<a href="#c-b2" class="ref" data-ref="c-b2">강의</a>).</span></li>
+        <li>조례는 같은 사이트 <span class="path">자치법규</span> 탭에서 '○○시 주차장 조례'처럼 검색해요.<span class="fix">시행일이 미래인 개정 법령이 같이 보일 수 있어요. 지금 적용되는 '현행'인지 위쪽 시행일을 확인하세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a8b" data-key="a_a8b"><div class="body"><label for="a_a8b">'02 대지·법규 검토' 채팅에 원문과 함께 질문</label><small>아래 '원문 기반 질문' 부탁문을 쓰면, AI가 붙여 준 글 밖의 내용을 지어내지 않게 막아요.</small></div></li>
+    <li><input type="checkbox" id="a_a8b" data-key="a_a8b"><div class="body"><label for="a_a8b">'02 대지·법규 검토' 채팅에 원문과 함께 질문하기</label><small>그냥 물으면 AI가 기억으로 지어낼 수 있어요. 아래 '원문 기반 질문' 부탁문을 쓰면, 붙여 준 글 밖의 내용을 지어내지 않게 막아요. 부탁문을 붙이고, 맨 아래 [원문 붙여 넣기] 자리에 복사한 조문을 붙여 보내요.</small></div></li>
   </ol>
   <h3>방법 2 · 법령 MCP 연결하기</h3>
-  <p class="tip"><b>붙여 넣기 없이 AI가 직접 법령을 찾아 읽게 하려면</b> 법령 <dfn data-t="mcp">MCP</dfn>를 연결하세요. 연결 방법과 건축 실무에서 쓰는 질문 여섯 가지는 다음 강의(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>)에 따로 정리했어요.</p>
+  <p class="tip"><b>붙여 넣기 없이 AI가 직접 법령을 찾아 읽게 하려면</b> 법령 MCP를 연결해요. 연결 방법과 건축 실무에서 쓰는 질문 여섯 가지는 다음 강의(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>)에 따로 정리했어요.</p>
+  <p class="cap">이 글을 그대로 복사해서 '02 대지·법규 검토' 채팅에 붙여 넣으세요. ○○ 자리에 질문을 쓰고, [원문 붙여 넣기] 자리에 복사한 조문을 붙여요.</p>
   <div class="prompt"><div class="bar"><span>원문 기반 질문 부탁문</span><button class="copy" type="button">복사</button></div><pre>아래에 붙인 법령 원문만 근거로 답해 줘. 원문에 없는 내용은 '원문에 없음'이라고 해.
 질문: ○○
 답할 때: 1) 결론 한 줄 2) 근거 조문을 원문 그대로 짧게 인용 3) 다른 법령·조례에서 따로 정할 수 있어 확인할 것 4) 담당 부서(건축과·도시계획과·교통과 등)
 
 [원문 붙여 넣기]</pre></div>
-  <p class="tip warnbox"><b>법규 질의는 결국 허가권자 판단이에요.</b> 해석이 갈리는 문제는 AI 답을 바탕으로 질의서 초안을 쓰고, 허가 부서나 국토교통부 질의회신 사례로 확인하세요.</p>
+  <p class="tip warnbox"><b>법규 질의는 결국 허가권자 판단이에요.</b> 해석이 갈리는 문제는 AI 답을 바탕으로 질의서 초안을 써요. 그리고 허가 부서나 국토교통부 질의회신 사례로 확인해요.</p>
   <p class="src">출처: <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터</a> · <a href="https://open.law.go.kr" target="_blank" rel="noopener">국가법령정보 공동활용</a> · <a href="https://github.com/chrisryugj/korean-law-mcp" target="_blank" rel="noopener">korean-law-mcp</a></p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-conn">MCP</span><div class="ad"><b>현행 법령 직접 조회</b><span>연결해 두면 붙여 넣기 없이 AI가 최신 조문·별표·조례를 찾아 읽어요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>개정 소식 받기</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 1일 예약 작업으로 개정 소식을 받아요. 만드는 법은 <a href="#a-l36" class="ref" data-ref="a-l36">강의</a>.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>매달 1일 휴대폰 알림이 울리면 같은 부탁을 채팅에 보내요. 국가법령정보센터의 최신 개정 법령 목록도 함께 훑어보세요.</span></span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>국가법령정보센터 원문 복사 + AI 질문</li><li>법제처 Open API 키 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI 유료 플랜: MCP 연결, 긴 결정도서 통째로</li><li>건축 법규 전문 서비스: 해석례·질의회신 묶음 검색</li></ul></div></div>
@@ -284,8 +286,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>계산은 시트가, 검산은 AI가</h2>
-    <p class="goal">AI에게 면적을 바로 계산시키면 틀릴 수 있어요. 계산은 <b>구글 시트 수식</b>이 하고, AI는 표를 만들어 주고 빠진 항목과 근거를 짚는 역할을 맡아요.</p>
+    <p class="goal">AI에게 면적을 바로 계산시키면 틀릴 수 있어요. 그래서 계산은 <b>구글 시트 수식</b>이 해요. AI는 표를 만들어 주고, 빠진 항목과 근거를 짚는 역할을 맡아요.</p>
   </div>
+<div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>계산기와 검토자를 나누는 거예요. 시트가 숫자를 계산하고, AI는 옆에서 빠뜨린 것이 없는지 다시 봐 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>층별 면적만 넣으면 건폐율·용적률·주차가 저절로 계산되는 '면적검토 양식' 시트가 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 끝난 프로젝트 면적표 1건, 1시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="dash">
       <div class="kpi pop" style="--d:.2s"><span>대지면적 · 예시</span><b>330.0㎡</b></div>
@@ -297,14 +300,15 @@
   <ol class="steps">
     <li><input type="checkbox" id="a_a33a" data-key="a_a33a"><div class="body"><label for="a_a33a">'면적검토 양식' 시트 만들기</label><small>프로젝트마다 복사해 쓸 양식이에요. '양식' 폴더에 만들어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>드라이브 '양식' 폴더 → 새 스프레드시트 → 이름 <b>면적검토 양식</b></li>
-        <li>탭 3개: 층별면적, 한도, 주차</li>
-        <li>아래 제목 줄들을 각 탭 A1에 붙여 넣기</li>
+        <li>드라이브 '양식' 폴더에서 <span class="path">+ 새로 만들기 → Google 스프레드시트</span>를 눌러요. 이름은 <b>면적검토 양식</b>으로 바꿔요</li>
+        <li>아래 <span class="path">+</span>를 눌러 <dfn data-t="tab">탭</dfn> 3개를 만들어요. 이름은 층별면적, 한도, 주차예요</li>
+        <li>아래 제목 줄들을 각 탭 A1 칸에 붙여 넣어요<span class="fix">막히면: 한 칸에 글자가 다 들어가면, 복사 버튼으로 다시 복사해 A1을 누르고 붙여 넣어요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a33b" data-key="a_a33b"><div class="body"><label for="a_a33b">AI에게 수식 받기</label><small>'02 대지·법규 검토' 채팅에 아래 '수식 부탁문'을 보내고, 받은 수식을 알려 준 칸에 붙여 넣어요.</small></div></li>
-    <li><input type="checkbox" id="a_a33c" data-key="a_a33c"><div class="body"><label for="a_a33c">끝난 프로젝트로 시험하기</label><small>이미 허가받은 프로젝트의 면적표를 넣어 보고, 허가 도서의 숫자와 맞는지 확인해요. 맞아야 새 프로젝트에 써요.</small></div></li>
-    <li><input type="checkbox" id="a_a33d" data-key="a_a33d"><div class="body"><label for="a_a33d">새 프로젝트: 복사 → 입력 → AI 검산</label><small>양식을 <span class="path">파일 → 사본 만들기</span>로 프로젝트 폴더에 복사 → 층별 면적 입력 → 표를 AI에게 주고 '검산 부탁문'</small></div></li>
+    <li><input type="checkbox" id="a_a33b" data-key="a_a33b"><div class="body"><label for="a_a33b">AI에게 수식 받기</label><small>수식을 직접 짜지 않아도 돼요. '02 대지·법규 검토' 채팅에 아래 '수식 부탁문'을 보내요. 받은 수식을 AI가 알려 준 칸에 붙여 넣어요.</small><span class="fix">막히면: 칸에 #ERROR!나 #REF!가 뜨면 그 칸의 수식과 오류 글자를 그대로 AI에게 보내 "고쳐줘"라고 해요.</span></div></li>
+    <li><input type="checkbox" id="a_a33c" data-key="a_a33c"><div class="body"><label for="a_a33c">끝난 프로젝트로 시험하기</label><small>수식이 맞는지 먼저 확인해야 새 일에 믿고 써요. 이미 허가받은 프로젝트의 면적표를 넣어 봐요. 허가 도서의 숫자와 맞는지 확인해요. 맞아야 새 프로젝트에 써요.</small></div></li>
+    <li><input type="checkbox" id="a_a33d" data-key="a_a33d"><div class="body"><label for="a_a33d">새 프로젝트에 복사해 쓰고 AI 검산받기</label><small>양식을 <span class="path">파일 → 사본 만들기</span>로 프로젝트 폴더에 복사해요. 층별 면적을 입력해요. 그 표를 AI에게 주고 '검산 부탁문'을 보내요.</small></div></li>
   </ol>
+  <p class="cap">제목 줄은 복사 버튼을 눌러 각 탭 A1에 붙여 넣으세요. 수식 부탁문과 검산 부탁문은 그대로 복사해서 '02 대지·법규 검토' 채팅에 붙여 넣어요. 수식 부탁문 마지막 줄에는 세 탭 제목 줄을 붙여요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>층별면적 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>층 | 용도 | 바닥면적(㎡) | 용적률 제외(㎡) | 제외 사유 | 산정용 면적(㎡) | 비고</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>한도 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>항목 | 값 | 근거(법령·조례) | 확인일</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>주차 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>용도 | 면적(㎡) | 기준(㎡당 1대) | 산정 대수 | 근거 | 비고</pre></div>
@@ -347,8 +351,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>손 스케치가 상담용 이미지가 되기까지</h2>
-    <p class="goal">계획 초기 건축주 상담에 쓸 분위기 이미지(<dfn data-t="render">AI 렌더링</dfn>)를 스케치·매스 캡처에서 만들어요. 이미지는 <b>설계를 설명하는 도구</b>이지, 약속이 아니에요.</p>
+    <p class="goal">계획 초기 건축주 상담에 쓸 분위기 이미지(<dfn data-t="render">AI 렌더링</dfn>)를 스케치·매스 캡처에서 만들어요. 이미지는 <b>설계를 설명하는 도구</b>예요. 완성된 모습을 약속하는 게 아니에요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>연필 스케치에 AI가 색과 빛을 칠해 주는 거예요. 건축주가 "이런 느낌이구나" 하고 바로 알아봐요.</span></div><div class="easy-row"><b>끝나면</b><span>'계획 단계 이미지'라고 적힌 상담용 시안 3장(낮·저녁 버전)</span></div><div class="easy-row"><b>필요한 것</b><span>스케치 사진이나 매스 캡처, Gemini 앱 등 이미지 AI, 1시간 · 캡처·파일 올리기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="lanes">
       <div class="box pop" style="--d:.2s"><strong>스케치·매스 캡처</strong><span>손그림 사진 · 스케치업 화면</span></div>
@@ -369,24 +374,25 @@
       <tr><td><b>LookX · mnml.ai</b></td><td>건축용으로 학습한 웹 서비스, 스케치→렌더</td><td>무료 체험 + 유료</td></tr>
     </tbody>
   </table></div>
-  <p class="tip" data-ai="claude"><b>Claude는 이미지를 직접 그리지 않아요.</b> Claude에게는 스케치를 보여 주고 "이미지 AI에 넣을 지시문을 써 줘"라고 부탁하고, 그 지시문을 Gemini 앱 등에 넣으세요. 결과 이미지를 다시 Claude에게 보여 주면 도면과 다른 곳을 짚어 줘요.</p>
+  <p class="tip" data-ai="claude"><b>Claude는 이미지를 직접 그리지 않아요.</b> Claude에게는 스케치를 보여 주고 "이미지 AI에 넣을 지시문을 써 줘"라고 부탁해요. 그 지시문을 Gemini 앱 등에 넣으세요. 결과 이미지를 다시 Claude에게 보여 주면 도면과 다른 곳을 짚어 줘요.</p>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a10a" data-key="a_a10a"><div class="body"><label for="a_a10a">바탕 그림 준비</label><small>손스케치는 위에서 반듯하게 찍기. 3D 매스는 원하는 시점으로 화면 캡처. 선이 분명할수록 형태가 덜 바뀌어요.</small></div></li>
-    <li><input type="checkbox" id="a_a10b" data-key="a_a10b"><div class="body"><label for="a_a10b">지시문 받기</label><small>'05 이미지·발표' 채팅에 바탕 그림과 재료·분위기 메모를 주고 아래 '지시문 부탁문'을 보내요.</small></div></li>
-    <li><input type="checkbox" id="a_a10c" data-key="a_a10c"><div class="body"><label for="a_a10c">이미지 AI에 넣고 3장 만들기</label>
+    <li><input type="checkbox" id="a_a10a" data-key="a_a10a"><div class="body"><label for="a_a10a">바탕 그림 준비하기</label><small>선이 분명할수록 AI가 형태를 덜 바꿔요. 손스케치는 위에서 반듯하게 찍어요. 3D 매스는 원하는 시점으로 화면을 캡처해요.</small></div></li>
+    <li><input type="checkbox" id="a_a10b" data-key="a_a10b"><div class="body"><label for="a_a10b">지시문 받기</label><small>이미지 AI에 무엇을 어떻게 말할지 정리하려는 거예요. '05 이미지·발표' 채팅에 바탕 그림과 재료·분위기 메모를 줘요. 그리고 아래 '지시문 부탁문'을 보내요.</small></div></li>
+    <li><input type="checkbox" id="a_a10c" data-key="a_a10c"><div class="body"><label for="a_a10c">이미지 AI에 넣고 3장 만들기</label><small>받은 지시문으로 실제 이미지를 만드는 단계예요. 고칠 때는 한 번에 한 가지씩만 말해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기 (Gemini 앱)</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li><span class="path">gemini.google.com</span> 또는 Gemini 앱 → 입력창 <span class="path">+</span> → 바탕 그림 올리기</li>
-        <li>받은 지시문 붙여 넣기 → 보내기</li>
-        <li>마음에 안 드는 부분만 "창을 세로로 긴 비례로, 나머지는 그대로"처럼 한 가지씩 고치기<span class="fix">한 번에 여러 개를 고치라고 하면 형태가 크게 바뀌어요. 하나씩 고치세요.</span></li>
+        <li><span class="path">gemini.google.com 또는 Gemini 앱 → 입력창 + → 바탕 그림 올리기</span></li>
+        <li>받은 지시문을 붙여 넣고 보내요</li>
+        <li>마음에 안 드는 부분만 고쳐요. "창을 세로로 긴 비례로, 나머지는 그대로"처럼 한 가지씩 말해요<span class="fix">한 번에 여러 개를 고치라고 하면 형태가 크게 바뀌어요. 하나씩 고치세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a10d" data-key="a_a10d"><div class="body"><label for="a_a10d">도면과 다른 곳 검사</label><small>완성 이미지를 AI에게 평면도와 함께 보여 주고 "이미지에서 도면과 다른 곳(창 개수, 층수, 지붕 모양)을 찾아줘". 다른 곳은 고치거나 설명에 적어요.</small></div></li>
+    <li><input type="checkbox" id="a_a10d" data-key="a_a10d"><div class="body"><label for="a_a10d">도면과 다른 곳 검사하기</label><small>건축주가 이미지를 약속으로 오해하지 않게 하려는 거예요. 완성 이미지를 AI에게 평면도와 함께 보여 줘요. 그리고 "이미지에서 도면과 다른 곳(창 개수, 층수, 지붕 모양)을 찾아줘"라고 해요. 다른 곳은 고치거나 설명에 적어요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '05 이미지·발표' 채팅에 바탕 그림과 함께 붙여 넣으세요. ○○ 자리만 이번 프로젝트의 재료·계절·시간으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>지시문 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 스케치(매스 캡처)를 바탕으로 이미지 AI에 넣을 지시문을 써 줘.
 - 형태·창 위치·층수는 바꾸지 말 것을 맨 앞에 강조
 - 재료: ○○(예: 백색 스타코, 짙은 목재 루버), 계절·시간: ○○, 주변: 실제 대지처럼 단층 주택가
 - 사람·차는 작게 2~3개, 과장된 하늘·조명은 피하기
 - 같은 지시문으로 낮/저녁 두 버전</pre></div>
-  <p class="tip warnbox"><b>지킬 것.</b> 이미지 아래 '계획 단계 참고 이미지, 실제와 다를 수 있음'을 적으세요. 설계공모는 지침서에서 AI 이미지 허용 여부를 먼저 확인하고(<a href="#a-l9" class="ref" data-ref="a-l9">강의</a>의 공모 지침 정리), 다른 건축가의 작품 사진을 바탕으로 쓰지 마세요.</p>
+  <p class="tip warnbox"><b>지킬 것.</b> 이미지 아래 '계획 단계 참고 이미지, 실제와 다를 수 있음'을 적으세요. 설계공모는 지침서에서 AI 이미지 허용 여부를 먼저 확인하세요(<a href="#a-l9" class="ref" data-ref="a-l9">강의</a>의 공모 지침 정리). 다른 건축가의 작품 사진을 바탕으로 쓰지 마세요.</p>
   <p class="src">출처: <a href="https://support.google.com/gemini/answer/14286560?hl=ko" target="_blank" rel="noopener">Gemini 앱 이미지 생성·수정 도움말</a> · <a href="https://www.gendo.ai/blog/top-10-ai-rendering-software-architects-2026" target="_blank" rel="noopener">건축 AI 렌더링 도구 비교(2026, 도구 제작사 글)</a></p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>사무소 이미지 톤 고정</b><span>마음에 든 지시문을 '이미지 지시문' 문서에 모아 두면 다음 프로젝트도 같은 톤으로 나와요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Gemini 앱·ChatGPT 무료 이미지(횟수 제한)</li><li>D5 Render 비상업용 무료판으로 연습</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>고해상도 다운로드, 더 많은 횟수</li><li>Veras처럼 BIM 안에서 바로, 형태 유지가 더 정확</li></ul></div></div>
@@ -397,22 +403,24 @@
     <h2>제출 전날 밤, 눈 하나 더</h2>
     <p class="goal">허가·제출 전에 도면 PDF를 AI에게 보여 주고 <b>기계적인 실수</b>를 찾게 해요. 도면목록과 실제 장 수, 도면 번호·축척·실명 표기, 창호표와 평면의 개수 불일치 같은 것이요. 설계 판단은 맡기지 않아요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>원고를 내기 전에 맞춤법 검사기를 한 번 돌리는 것과 같아요. 숫자·번호·개수가 맞는지만 AI가 훑어 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>사무소 도면 체크리스트 문서, 도면별 지적 목록 표(수정 / 해당 없음 표시)</span></div><div class="easy-row"><b>필요한 것</b><span>맥, 도면 PDF, 1시간 · 파일 찾기·저장이 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a14a" data-key="a_a14a"><div class="body"><label for="a_a14a">사무소 체크리스트 만들기</label><small>제출 전에 늘 보는 항목을 '양식' 폴더 문서로 적어 두세요. 처음엔 아래 '체크리스트 만들기 부탁문'으로 초안을 받아 소장님이 고쳐요.</small></div></li>
-    <li><input type="checkbox" id="a_a14b" data-key="a_a14b"><div class="body"><label for="a_a14b">PDF를 나눠 올리기</label><small>도면 PDF가 크면 목록·배치·평면 / 입면·단면 / 상세·창호처럼 묶음으로 나눠 올리세요. A1 도면은 글씨가 작아 잘 안 읽히니, 고해상도로 내보내고 필요하면 부분을 잘라 올려요.</small>
+    <li><input type="checkbox" id="a_a14a" data-key="a_a14a"><div class="body"><label for="a_a14a">사무소 체크리스트 만들기</label><small>AI가 우리 사무소 기준으로 보게 하려는 거예요. 제출 전에 늘 보는 항목을 '양식' 폴더 문서로 적어 두세요. 처음엔 아래 '체크리스트 만들기 부탁문'으로 초안을 받아요. 그다음 소장님이 고쳐요.</small></div></li>
+    <li><input type="checkbox" id="a_a14b" data-key="a_a14b"><div class="body"><label for="a_a14b">PDF를 나눠 올리기</label><small>큰 파일은 AI가 다 못 읽어서예요. 도면 PDF가 크면 목록·배치·평면 / 입면·단면 / 상세·창호처럼 묶음으로 나눠 올리세요. A1 도면은 글씨가 작아 잘 안 읽혀요. 고해상도로 내보내고, 필요하면 부분을 잘라 올려요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기 (맥)</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>미리보기 앱으로 PDF 열기 → 왼쪽 <span class="path">보기 → 축소판</span></li>
-        <li>필요한 쪽만 골라 바탕화면으로 끌어 놓으면 그 쪽만 새 PDF가 돼요</li>
+        <li>미리보기 앱으로 PDF를 열어요. <span class="path">보기 → 축소판</span>을 누르면 왼쪽에 쪽 목록이 나와요</li>
+        <li>필요한 쪽만 골라 바탕화면으로 끌어 놓아요. 그러면 그 쪽만 새 PDF가 돼요<span class="fix">막히면: 끌어 놓아도 파일이 안 생기면 쪽을 고른 뒤 <span class="path">파일 → PDF로 내보내기</span>로 저장해요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a14c" data-key="a_a14c"><div class="body"><label for="a_a14c">검토 부탁 → 목록 받기</label><small>프로젝트 채팅이나 '02 대지·법규 검토'에 아래 '도면 검토 부탁문'과 체크리스트를 함께 보내요.</small></div></li>
-    <li><input type="checkbox" id="a_a14d" data-key="a_a14d"><div class="body"><label for="a_a14d">지적 목록을 직접 확인하고 처리 표시</label><small>AI 지적은 틀린 것도 섞여 있어요. 하나씩 도면에서 확인해 '수정 / 해당 없음'을 표시하고, 자주 나오는 실수는 체크리스트에 추가해요.</small></div></li>
+    <li><input type="checkbox" id="a_a14c" data-key="a_a14c"><div class="body"><label for="a_a14c">검토 부탁하고 지적 목록 받기</label><small>놓친 실수를 표로 받는 단계예요. 프로젝트 채팅이나 '02 대지·법규 검토'에 아래 '도면 검토 부탁문'과 체크리스트를 함께 보내요.</small></div></li>
+    <li><input type="checkbox" id="a_a14d" data-key="a_a14d"><div class="body"><label for="a_a14d">지적 목록을 직접 확인하고 처리 표시하기</label><small>AI 지적은 틀린 것도 섞여 있어서예요. 하나씩 도면에서 확인해 '수정 / 해당 없음'을 표시해요. 자주 나오는 실수는 체크리스트에 추가해요.</small></div></li>
   </ol>
+  <p class="cap">아래 두 부탁문을 그대로 복사해서 채팅에 붙여 넣으세요. 체크리스트 부탁문은 ○○ 자리만 사무소가 주로 하는 용도로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>체크리스트 만들기 부탁문</span><button class="copy" type="button">복사</button></div><pre>건축허가 도서 제출 전 우리 사무소가 볼 도면 체크리스트 초안을 만들어 줘. 표기·일관성(도면번호, 축척, 방위, 실명, 치수 합계), 도서 간 불일치(평면-입면-단면, 평면-창호표, 면적표-평면), 법규 표기(면적표, 주차, 피난·방화 표기 위치) 세 묶음으로, 각 30자 이내 항목으로. 우리는 주로 ○○(용도)를 해.</pre></div>
   <div class="prompt"><div class="bar"><span>도면 검토 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 도면 PDF와 체크리스트로 기계적인 오류를 찾아 줘. 설계 의도나 법규 적합 판단은 하지 말고, 눈으로 확인할 수 있는 불일치만.
 표로: 번호 | 도면번호 | 위치(어디쯤) | 발견 내용 | 확신(높음/낮음)
 글씨가 작아 못 읽은 장은 따로 적어 줘. 그 장은 다시 잘라 올릴게.</pre></div>
   <p class="tip warnbox"><b>도면은 사무소의 자산이에요.</b> 건축주와의 계약이나 공모 규정에 비밀유지 조항이 있으면 AI에 올려도 되는지 먼저 확인하세요. 학습 사용을 끈 계정(<a href="#c-l2" class="ref" data-ref="c-l2">강의</a>)에서만 올려요.</p>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>체크리스트가 자라요</b><span>처리 표시한 지적 중 진짜 실수만 체크리스트에 한 줄씩 더하면, 사무소만의 검토 기준이 쌓여요.</span></div></li><li><span class="chip k-sc">심화</span><div class="ad"><b>리비전 비교</b><span>구판·신판 PDF를 겹쳐 바뀐 곳을 표시하는 도구는 AI에게 "두 PDF 차이를 빨간색으로 표시하는 방법"을 물어보세요. 공종 도면 겹쳐보기도 같은 방법이에요.</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>체크리스트가 자라요</b><span>처리 표시한 지적 중 진짜 실수만 체크리스트에 한 줄씩 더하면, 사무소만의 검토 기준이 쌓여요.</span></div></li><li><span class="chip k-sc">심화</span><div class="ad"><b>리비전 비교</b><span>구판·신판 PDF를 겹쳐 바뀐 곳을 표시할 수 있어요. 방법은 AI에게 "두 PDF 차이를 빨간색으로 표시하는 방법"을 물어보세요. 공종 도면 겹쳐보기도 같은 방법이에요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>몇 장씩 나눠 올려 검토</li><li>체크리스트는 구글 문서로</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>도면 묶음 전체를 한 번에, 긴 대화로 왕복 수정</li><li>BIM 모델 검토 도구(간섭 체크)로 도면 이전 단계에서</li></ul></div></div>
 </section>
 <section id="a-l35" class="lesson" data-part="practice" data-title="감리·현장 기록" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
@@ -493,8 +501,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>첫 전화부터 계약까지, 말을 기록으로</h2>
-    <p class="goal">건축주 상담 내용을 요구사항표로 정리하고, 자주 묻는 질문(설계비, 기간, 절차)에 답하는 글을 미리 만들어 둬요. 카카오톡 채널을 쓰면 기본 답변도 걸어 둘 수 있어요.</p>
+    <p class="goal">건축주 상담 내용을 요구사항표로 정리해요. 자주 묻는 질문(설계비, 기간, 절차)에 답하는 글도 미리 만들어 둬요. 카카오톡 채널을 쓰면 기본 답변도 걸어 둘 수 있어요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>상담 때 오간 말을 '받아 적는 비서'를 두는 거예요. 메모만 주면 AI가 표로 정리하고, 자주 받는 질문에는 미리 써 둔 답이 나가요.</span></div><div class="easy-row"><b>끝나면</b><span>건축주별 요구사항표, 자주 묻는 질문 답변 10개, (선택) 밤에도 답하는 카카오톡 채널</span></div><div class="easy-row"><b>필요한 것</b><span>휴대폰 음성 메모나 상담 메모, PC, 1시간 · AI 앱이 처음이면 <a href="#c-b3" class="ref" data-ref="c-b3">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble guest a" style="--d:.2s"><span class="who">건축주 · 21:40</span>시골 땅에 작은 주택을 지으려는데 설계부터 허가까지 얼마나 걸려요?</div>
@@ -503,22 +512,23 @@
     <p class="cap a" style="--d:1.6s">기간·비용은 사무소가 정한 문구로만 답하게 해요. 숫자는 예시가 아니라 소장님이 정해 넣으세요.</p>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a30a" data-key="a_a30a"><div class="body"><label for="a_a30a">상담 기록 → 요구사항표</label><small>상담 후 음성 메모나 받아 적은 글을 '07 건축주 상담' 채팅에 보내고 아래 부탁문을 써요. 결과를 프로젝트 폴더에 구글 문서로 남겨요.</small></div></li>
-    <li><input type="checkbox" id="a_a30b" data-key="a_a30b"><div class="body"><label for="a_a30b">자주 묻는 질문 10개 답변 만들기</label><small>설계비는 어떻게 정해지나, 기간, 허가 절차, 감리, 설계변경 비용, 시공사 소개 여부 등. 소장님이 답의 핵심(사무소 방침)을 한 줄씩 주면 AI가 문장으로 써 줘요.</small></div></li>
-    <li><input type="checkbox" id="a_a30c" data-key="a_a30c"><div class="body"><label for="a_a30c">카카오톡 채널에 걸기 (선택)</label><small><dfn data-t="kchannel">카카오톡 채널</dfn>을 만들고, 채널 관리자센터의 자동응답·채팅 설정에 위 답변을 넣어요.</small>
+    <li><input type="checkbox" id="a_a30a" data-key="a_a30a"><div class="body"><label for="a_a30a">상담 기록을 요구사항표로 바꾸기</label><small>말로 들은 것을 잊기 전에 표로 남기려고 해요. 상담 후 음성 메모나 받아 적은 글을 '07 건축주 상담' 채팅에 보내요. 이어서 아래 부탁문을 보내요. 결과는 프로젝트 폴더에 구글 문서로 남겨요.</small></div></li>
+    <li><input type="checkbox" id="a_a30b" data-key="a_a30b"><div class="body"><label for="a_a30b">자주 묻는 질문 10개 답변 만들기</label><small>같은 질문에 매번 새로 답하지 않으려고 해요. 질문 예: 설계비는 어떻게 정해지나, 기간, 허가 절차, 감리, 설계변경 비용, 시공사 소개 여부. 소장님이 답의 핵심(사무소 방침)을 한 줄씩 주면 AI가 문장으로 써 줘요.</small></div></li>
+    <li><input type="checkbox" id="a_a30c" data-key="a_a30c"><div class="body"><label for="a_a30c">카카오톡 채널에 답변 걸기 (선택)</label><small>밤늦게 온 문의에도 기본 답이 나가게 하려고 해요. <dfn data-t="kchannel">카카오톡 채널</dfn>(사무소용 카톡 계정)을 만들어요. 채널 관리자센터의 자동응답·채팅 설정에 위 답변을 넣어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>PC에서 <span class="path">center-pf.kakao.com</span> → 카카오 계정 로그인 → <span class="path">새 채널 만들기</span></li>
         <li>채널 이름·프로필(사무소 로고)·소개 입력 → 채널 공개</li>
         <li>채널 관리 화면의 <span class="path">채팅</span> 메뉴에서 1:1 채팅을 켜고, 자동응답(또는 챗봇) 설정에 자주 묻는 질문 답변을 넣기<span class="fix">메뉴 이름은 바뀔 수 있어요. 채널 관리자센터 도움말에서 '자동응답'을 검색하세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a30d" data-key="a_a30d"><div class="body"><label for="a_a30d">견적 요청 답장 초안</label><small>설계비 문의가 오면 대지·규모를 묻는 첫 답장 초안을 AI에게 받아 보내요. 금액은 상담 뒤 사무소 기준으로만.</small></div></li>
+    <li><input type="checkbox" id="a_a30d" data-key="a_a30d"><div class="body"><label for="a_a30d">견적 요청 답장 초안 받기</label><small>설계비 문의가 오면 대지·규모를 묻는 첫 답장 초안을 AI에게 받아 보내요. 금액은 상담 뒤 사무소 기준으로만 알려요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '07 건축주 상담' 채팅에 붙여 넣으세요. 바로 아래(또는 앞 메시지)에 상담 메모를 붙여요.</p>
   <div class="prompt"><div class="bar"><span>상담 → 요구사항표 부탁문</span><button class="copy" type="button">복사</button></div><pre>아래는 오늘 건축주 첫 상담 메모야. 요구사항표로 정리해 줘.
 표: 구분(가족·생활, 공간, 규모·예산, 일정, 취향, 대지 조건) | 건축주가 한 말 | 설계에 미치는 영향 | 다음 상담에서 물어볼 것
 - 건축주가 직접 말한 것과 내가 추측한 것을 구분해
 - 예산과 희망 규모가 맞지 않아 보이면 '확인 필요'로 표시해
 - 마지막에 건축주에게 보낼 상담 요약 문자 4줄</pre></div>
-  <p class="tip warnbox"><b>개인정보는 최소한으로.</b> 상담 기록에는 이름·연락처·대지 주소까지만. 가족의 건강 정보 같은 민감한 내용은 "1층 침실 필요"처럼 설계에 필요한 결과만 적어요.</p>
+  <p class="tip warnbox"><b>개인정보는 최소한으로.</b> 상담 기록에는 이름·연락처·대지 주소까지만 적어요. 가족의 건강 정보 같은 민감한 내용은 "1층 침실 필요"처럼 설계에 필요한 결과만 적어요.</p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>상담 신청 폼</b><span>홈페이지에 '대지 주소, 희망 용도, 예산 범위, 일정'을 받는 폼을 두면 상담 전에 대지 검토(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>)를 먼저 할 수 있어요.</span></div></li><li><span class="chip k-bot">챗봇</span><div class="ad"><b>밤 문의 기본 답변</b><span>카톡 채널 자동응답으로 기간·절차·상담 예약 안내까지만. 금액·허가 가능 여부는 상담으로 넘겨요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>카카오톡 채널 개설·1:1 채팅 무료</li><li>상담 메모 정리는 AI 무료 플랜</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>카카오 비즈니스 메시지(알림톡)로 상담 일정 안내</li><li>CRM 도구로 상담 → 계약 전환 관리</li></ul></div></div>
 </section>
@@ -526,19 +536,21 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>단계가 끝나면, 청구가 따라가게</h2>
-    <p class="goal">용역 계약의 대금 지급 조건을 수금 탭에 단계별로 나눠 넣고, 단계가 바뀌면 청구 알림과 청구 메일 초안이 나오게 해요. 계약서 검토와 설계변경 추가 비용 정리도 AI로.</p>
+    <p class="goal">용역 계약의 대금 지급 조건을 수금 <dfn data-t="tab">탭</dfn>에 단계별로 나눠 넣어요. 단계가 바뀌면 청구 알림과 청구 메일 초안이 나오게 해요. 계약서 검토와 설계변경 추가 비용 정리도 AI로 해요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>프로젝트 단계표에 '돈 받을 때 알림'을 붙이는 거예요. 계획설계가 끝나면 "이제 1차 청구하세요" 하고 메일이 와요.</span></div><div class="easy-row"><b>끝나면</b><span>단계별 지급 조건이 정리된 수금 탭, 단계 변경 청구 알림, 청구 메일 초안, 변경요청 기록 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 계약서 PDF, 프로젝트 장부 시트, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a21a" data-key="a_a21a"><div class="body"><label for="a_a21a">계약서에서 지급 조건 뽑기</label><small>계약서 PDF를 '01 사무장·정산'에 올리고 "대금 지급 조건을 수금 탭 제목 줄 형식으로 뽑아 줘. 조건이 애매한 조항은 원문과 함께 따로"</small></div></li>
-    <li><input type="checkbox" id="a_a21b" data-key="a_a21b"><div class="body"><label for="a_a21b">단계 바뀌면 청구 알림</label><small><a href="#c-l63" class="ref" data-ref="c-l63">강의</a>의 방법으로 "프로젝트 탭 단계가 바뀌면 수금 탭에서 그 단계 청구조건 줄을 찾아 소장님에게 메일" 스크립트를 받아요.</small></div></li>
-    <li><input type="checkbox" id="a_a21c" data-key="a_a21c"><div class="body"><label for="a_a21c">설계변경·추가 업무 기록</label><small>건축주 요청으로 범위가 늘면 그때그때 '변경요청' 탭에 날짜·요청·추가 시간을 적어요. 쌓인 기록으로 추가 용역비 협의 자료를 AI가 정리해 줘요.</small></div></li>
-    <li><input type="checkbox" id="a_a21d" data-key="a_a21d"><div class="body"><label for="a_a21d">새 계약은 표준계약서와 비교</label><small>국토교통부가 고시한 <dfn data-t="stdcontract">「건축물의 설계표준계약서」</dfn>를 국가법령정보센터 행정규칙에서 받아 두고, 새 계약서 초안과 비교해 빠진 조항(설계변경, 저작권, 지급 지연)을 AI에게 짚어 달라고 해요.</small></div></li>
+    <li><input type="checkbox" id="a_a21a" data-key="a_a21a"><div class="body"><label for="a_a21a">계약서에서 지급 조건 뽑기</label><small>언제 얼마를 받을지 표로 꺼내 두려고 해요. 계약서 PDF를 '01 사무장·정산' 채팅에 올려요. 그리고 "대금 지급 조건을 수금 탭 제목 줄 형식으로 뽑아 줘. 조건이 애매한 조항은 원문과 함께 따로"라고 보내요.</small></div></li>
+    <li><input type="checkbox" id="a_a21b" data-key="a_a21b"><div class="body"><label for="a_a21b">단계가 바뀌면 청구 알림 받기</label><small>청구를 깜빡하지 않으려고 해요. <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>의 방법으로 <dfn data-t="appsscript">앱스 스크립트</dfn>(시트에 붙이는 작은 프로그램)를 받아요. 부탁할 내용은 "프로젝트 탭 단계가 바뀌면 수금 탭에서 그 단계 청구조건 줄을 찾아 소장님에게 메일"이에요.<span class="fix">막히면: 권한 창에서 '확인하지 않은 앱'이 뜨면 <span class="path">고급 → 이동 → 허용</span>을 눌러요. 내가 만든 스크립트라 정상이에요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a21c" data-key="a_a21c"><div class="body"><label for="a_a21c">설계변경·추가 업무 기록하기</label><small>나중에 추가 용역비를 말할 근거를 남기려고 해요. 건축주 요청으로 범위가 늘면 그때그때 '변경요청' 탭에 날짜·요청·추가 시간을 적어요. 탭 제목 줄은 아래에서 복사해요. 쌓인 기록으로 추가 용역비 협의 자료를 AI가 정리해 줘요.</small></div></li>
+    <li><input type="checkbox" id="a_a21d" data-key="a_a21d"><div class="body"><label for="a_a21d">새 계약은 표준계약서와 비교하기</label><small>국토교통부가 고시한 <dfn data-t="stdcontract">「건축물의 설계표준계약서」</dfn>를 국가법령정보센터 행정규칙에서 받아 둬요. 새 계약서 초안과 함께 AI에게 주고, 빠진 조항(설계변경, 저작권, 지급 지연)을 짚어 달라고 해요.</small></div></li>
   </ol>
+  <p class="cap">제목 줄은 '변경요청' 탭 A1 칸에 붙여 넣으세요. 부탁문 두 개는 '01 사무장·정산' 채팅에 붙여 넣고, ○○ 자리만 프로젝트 코드와 단계 이름으로 바꿔요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>변경요청 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 요청일 | 요청자 | 요청 내용 | 계약 범위 안/밖 | 추가 시간 | 협의 결과 | 메모</pre></div>
   <div class="prompt"><div class="bar"><span>청구 메일 초안 부탁문</span><button class="copy" type="button">복사</button></div><pre>수금 탭에서 프로젝트 ○○의 '○○ 단계' 청구조건 줄을 보고 건축주에게 보낼 청구 메일 초안을 써 줘. 끝난 업무(대장의 업무 내용 요약 3줄), 청구 금액, 계좌는 [계좌] 자리표시로 비워 두고, 세금계산서 발행 일정 안내. 정중하고 짧게.</pre></div>
   <div class="prompt"><div class="bar"><span>계약서 비교 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 두 문서는 국토교통부 설계표준계약서와 이번 계약서 초안이야. 표로 비교해 줘: 조항 | 표준계약서 | 이번 초안 | 우리 사무소에 불리할 수 있는 점. 법률 판단은 하지 말고 차이만. 마지막에 건축주와 협의할 항목 3개.</pre></div>
-  <p class="tip"><b>공공 용역의 <dfn data-t="fee">대가</dfn></b>는 「공공발주사업에 대한 건축사의 업무범위와 대가기준」(국토교통부 고시)을 따르고, 민간 계약은 협의로 정해요. 고시 원문을 받아 두고 AI에게 "이 고시 기준으로 공공 ○○ 용역의 업무 범위 표를 정리해 줘"처럼 쓰세요. 금액 산정은 고시 원문 값으로 소장님이 확인합니다.</p>
-  <p class="tip warnbox"><b>계약서는 법률 문서예요.</b> AI 비교는 체크용이고, 분쟁 소지가 있으면 변호사나 협회 상담을 받으세요.</p>
+  <p class="tip"><b>공공 용역의 <dfn data-t="fee">대가</dfn></b>는 「공공발주사업에 대한 건축사의 업무범위와 대가기준」(국토교통부 고시)을 따라요. 민간 계약은 협의로 정해요. 고시 원문을 받아 두고 AI에게 "이 고시 기준으로 공공 ○○ 용역의 업무 범위 표를 정리해 줘"처럼 쓰세요. 금액 산정은 고시 원문 값으로 소장님이 확인합니다.</p>
+  <p class="tip warnbox"><b>계약서는 법률 문서예요.</b> AI 비교는 확인용이에요. 분쟁 소지가 있으면 변호사나 협회 상담을 받으세요.</p>
   <p class="src">출처: <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터 행정규칙</a> (「건축물의 설계표준계약서」, 「공공발주사업에 대한 건축사의 업무범위와 대가기준」 검색)</p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>입금 예정일 알림</b><span>입금예정일 3일 전, 지난 날 미입금이면 소장님에게 메일.</span></div></li><li><span class="chip k-mail">메일</span><div class="ad"><b>청구 초안까지</b><span>알림 메일에 AI가 쓴 청구 메일 초안을 붙이면 확인 후 바로 보낼 수 있어요. 보내기는 소장님이.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>수금 탭 + 스크립트 알림 + AI 초안</li><li>세금계산서는 홈택스에서 무료 발행</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>회계 프로그램: 세금계산서·입금 자동 대조</li><li>전자계약 서비스: 계약서 서명과 보관</li></ul></div></div>
@@ -624,8 +636,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>주소만 넣으면 건축물대장이 시트에</h2>
-    <p class="goal">공공데이터포털의 <b>국토교통부 건축HUB 건축물대장정보 서비스</b>를 쓰면 대장 표제부(주용도, 연면적, 건폐율, 용적률, 사용승인일 등)를 시트로 자동으로 받을 수 있어요. 리모델링·용도변경 상담 전 확인이 빨라져요.</p>
+    <p class="goal">공공데이터포털의 <b>국토교통부 건축HUB 건축물대장정보 서비스</b>를 써요. 그러면 대장 표제부(주용도, 연면적, 건폐율, 용적률, 사용승인일 등)를 시트로 자동으로 받을 수 있어요. 리모델링·용도변경 상담 전 확인이 빨라져요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>정부 창고에 '대장 좀 보내 주세요' 주문서를 넣는 자동 심부름꾼을 시트에 두는 거예요. 주소 코드만 적고 버튼을 누르면 돼요.</span></div><div class="easy-row"><b>끝나면</b><span>'사무소 대장' 시트의 '대지조회 → 건축물대장 가져오기' 메뉴와, 결과가 쌓이는 '대장결과' 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 회원가입, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>, 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="lanes">
       <div class="box pop" style="--d:.2s"><strong>'대지조회' 탭</strong><span>시군구코드 · 법정동코드 · 번 · 지</span></div>
@@ -636,21 +649,22 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a20a" data-key="a_a20a"><div class="body"><label for="a_a20a">활용신청 (자동승인, 무료)</label>
+    <li><input type="checkbox" id="a_a20a" data-key="a_a20a"><div class="body"><label for="a_a20a">활용신청 하기 (자동승인, 무료)</label><small>정부 자료를 받아 쓸 허락을 받는 단계예요. 신청하면 <dfn data-t="apikey">인증키</dfn>(우리 사무소 출입증 같은 글자)가 나와요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>data.go.kr 로그인 → 검색 <b>건축HUB 건축물대장정보</b> → '국토교통부_건축HUB_건축물대장정보 서비스' 오픈API</li>
-        <li><span class="path">활용신청</span> → 목적 입력 → 신청. 자동승인이에요</li>
-        <li><span class="path">마이페이지 → 데이터활용 → Open API</span>에서 일반 인증키 복사<span class="fix">개발계정은 하루 호출 수가 정해져 있어요. 사무소 조회에는 충분해요.</span></li>
+        <li><span class="path">data.go.kr 로그인 → 검색창에 '건축HUB 건축물대장정보' → '국토교통부_건축HUB_건축물대장정보 서비스' 오픈API</span>를 열어요</li>
+        <li><span class="path">활용신청 → 목적 입력 → 신청</span>을 눌러요. 자동승인이에요</li>
+        <li><span class="path">마이페이지 → 데이터활용 → Open API</span>에서 일반 인증키를 복사해요<span class="fix">개발계정은 하루 요청 수가 정해져 있어요. 사무소 조회에는 충분해요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a20b" data-key="a_a20b"><div class="body"><label for="a_a20b">법정동코드 찾는 법 익히기</label><small>API는 주소 대신 <dfn data-t="bjdong">법정동코드</dfn>를 받아요. 앞 5자리가 시군구코드, 뒤 5자리가 법정동코드예요.</small>
+    <li><input type="checkbox" id="a_a20b" data-key="a_a20b"><div class="body"><label for="a_a20b">법정동코드 찾는 법 익히기</label><small>주소를 숫자로 바꿔 넣어야 해서예요. <dfn data-t="api">API</dfn>(프로그램끼리 자료를 주고받는 창구)는 주소 대신 <dfn data-t="bjdong">법정동코드</dfn>를 받아요. 10자리 중 앞 5자리가 시군구코드, 뒤 5자리가 법정동코드예요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>검색창에 <b>행정표준코드관리시스템 법정동코드</b> → 공식 사이트(code.go.kr)에서 동 이름 검색</li>
-        <li>10자리 코드에서 앞 5자리 → 시군구코드 칸, 뒤 5자리 → 법정동코드 칸</li>
+        <li>검색창에 <b>행정표준코드관리시스템 법정동코드</b>를 넣어요. 공식 사이트(code.go.kr)에서 동 이름을 검색해요</li>
+        <li>10자리 코드에서 앞 5자리는 시군구코드 칸에, 뒤 5자리는 법정동코드 칸에 적어요</li>
         <li>지번 123-4면 번=0123, 지=0004 (네 자리로 앞에 0을 채워요)<span class="fix">자주 쓰는 동은 '법정동' 탭에 모아 두면 다음부터 고르기만 하면 돼요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a20c" data-key="a_a20c"><div class="body"><label for="a_a20c">스크립트 받기 → 붙이기</label><small>'09 자동화·연결' 채팅에 아래 부탁문을 보내요. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>와 같아요. 대장 시트에 '대지조회' 메뉴가 생기게 해 달라고 했으니, 버튼처럼 눌러 쓰면 돼요.</small></div></li>
-    <li><input type="checkbox" id="a_a20d" data-key="a_a20d"><div class="body"><label for="a_a20d">정부24 열람본과 한 번 맞춰 보기</label><small>처음 몇 건은 정부24 열람본과 숫자가 같은지 확인해요. 같으면 그다음부터는 상담 준비에 바로 써요. 제출용은 여전히 발급본을 씁니다.</small></div></li>
+    <li><input type="checkbox" id="a_a20c" data-key="a_a20c"><div class="body"><label for="a_a20c">AI에게 스크립트 받아 붙이기</label><small>조회를 대신 해 줄 작은 프로그램을 시트에 다는 거예요. '09 자동화·연결' 채팅에 아래 부탁문을 보내면 <dfn data-t="appsscript">앱스 스크립트</dfn> 코드가 나와요. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>와 같아요. 부탁문에 '대지조회' 메뉴를 만들어 달라고 적었어요. 그래서 시트 위 메뉴를 버튼처럼 눌러 쓰면 돼요.<span class="fix">막히면: 처음 실행 때 '권한 검토' 창이 뜨면 사무소 계정 → 고급 → 이동 → 허용을 눌러요. 결과가 비어 있으면 인증키가 아직 활성화 전일 수 있어요. 한두 시간 뒤 다시 해 봐요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a20d" data-key="a_a20d"><div class="body"><label for="a_a20d">정부24 열람본과 한 번 맞춰 보기</label><small>자동 결과를 믿어도 되는지 확인하려는 거예요. 처음 몇 건은 정부24 열람본과 숫자가 같은지 봐요. 같으면 그다음부터는 상담 준비에 바로 써요. 제출용은 여전히 발급본을 써요.</small></div></li>
   </ol>
+  <p class="cap">제목 줄은 '대지조회' 탭 A1 칸에 붙여 넣으세요. 스크립트 부탁문은 그대로 복사해서 '09 자동화·연결' 채팅에 붙여 넣으면 돼요. 고칠 곳은 없어요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>대지조회 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 주소(메모) | 시군구코드 | 법정동코드 | 대지구분 | 번 | 지 | 조회</pre></div>
   <div class="prompt"><div class="bar"><span>건축물대장 조회 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'의 '대지조회' 탭(제목 줄: 프로젝트코드, 주소(메모), 시군구코드, 법정동코드, 대지구분, 번, 지, 조회)의 각 줄로 공공데이터포털 '국토교통부_건축HUB_건축물대장정보 서비스'의 표제부(getBrTitleInfo)를 조회해서 '대장결과' 탭에 넣는 앱스 스크립트를 써 줘.
 - 엔드포인트: https://apis.data.go.kr/1613000/BldRgstHubService/getBrTitleInfo , _type=json
@@ -668,20 +682,22 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>용도지역과 필지 경계를 시트와 지도로</h2>
-    <p class="goal"><dfn data-t="vworld">브이월드</dfn>(공간정보 오픈플랫폼) API로 PNU를 넣어 필지의 용도지역·지목·면적·공시지가를 받고, 필지 경계를 지도 파일로 받아요. 배치 스터디 바탕으로도 써요.</p>
+    <p class="goal"><dfn data-t="vworld">브이월드</dfn>(공간정보 오픈플랫폼) <dfn data-t="api">API</dfn>에 <dfn data-t="pnu">PNU</dfn>(필지마다 붙은 고유번호)를 넣어요. 그러면 필지의 용도지역·지목·면적·공시지가가 와요. 필지 경계도 지도 파일로 받아요. 이 파일은 배치 스터디 바탕으로도 써요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>필지 번호만 넣으면 시트가 '토지 신상 카드'를 알아서 채우는 거예요. 용도지역·지목·면적·공시지가를 하나씩 찾아 옮겨 적지 않아도 돼요.</span></div><div class="easy-row"><b>끝나면</b><span>메뉴 한 번으로 채워지는 '토지정보' 탭, 그리고 원하면 필지 경계 지도 파일</span></div><div class="easy-row"><b>필요한 것</b><span>PC, '사무소 대장' 시트(대지 탭에 PNU), 브이월드 회원가입, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a41a" data-key="a_a41a"><div class="body"><label for="a_a41a">브이월드 인증키 받기 (무료)</label>
+    <li><input type="checkbox" id="a_a41a" data-key="a_a41a"><div class="body"><label for="a_a41a">브이월드 인증키 받기 (무료)</label><small><dfn data-t="apikey">인증키</dfn>는 브이월드 자료를 꺼내 쓸 수 있는 '출입증'이에요. 먼저 이것부터 받아요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>PC에서 <span class="path">vworld.kr</span> → 회원가입 → 로그인</li>
-        <li><span class="path">오픈API → 인증키 발급</span> → 서비스 분류에서 데이터 API(2D 데이터)를 고르고, 활용 URL에는 안내에 따라 입력</li>
-        <li>발급된 인증키를 복사<span class="fix">인증키에는 사용 기간이 있어요. 만료 안내 메일이 오면 같은 메뉴에서 연장하세요.</span></li>
+        <li>PC 크롬에서 <span class="path">vworld.kr</span>에 들어가 회원가입하고 로그인해요.</li>
+        <li><span class="path">오픈API → 인증키 발급</span>으로 가요. 서비스 분류에서 데이터 API(2D 데이터)를 골라요. 활용 URL 칸은 화면 안내에 따라 입력해요.<span class="fix">막히면: 활용 URL에 무엇을 쓸지 모르겠으면 그 화면을 캡처해 AI에게 "구글 앱스 스크립트에서 쓸 건데 여기 뭐라고 써?"라고 물어요.</span></li>
+        <li>발급된 인증키를 복사해 둬요. 채팅에는 붙이지 말고, 나중에 스크립트 속성에만 넣어요.<span class="fix">인증키에는 사용 기간이 있어요. 만료 안내 메일이 오면 같은 메뉴에서 연장하세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a41b" data-key="a_a41b"><div class="body"><label for="a_a41b">'대지' 탭 옆에 '토지정보' 탭 만들기</label></div></li>
-    <li><input type="checkbox" id="a_a41c" data-key="a_a41c"><div class="body"><label for="a_a41c">스크립트 받기 → 붙이기 → 메뉴 실행</label><small>아래 부탁문을 '09 자동화·연결' 채팅에 보내요. 브이월드는 기능별로 데이터 이름이 달라서, AI에게 브이월드 API 레퍼런스를 확인해 맞추라고 부탁문에 적어 두었어요.</small></div></li>
-    <li><input type="checkbox" id="a_a41d" data-key="a_a41d"><div class="body"><label for="a_a41d">필지 경계 파일로 받기 (선택)</label><small>연속지적도 데이터를 GeoJSON으로 받으면 구글 어스나 QGIS에서 열 수 있어요. CAD로 가져갈 때는 좌표계를 꼭 확인하세요. 측량 성과를 대신하지 못해요.</small></div></li>
-    <li><input type="checkbox" id="a_a41e" data-key="a_a41e"><div class="body"><label for="a_a41e">대지 검토 메모에 붙이기</label><small>토지정보 탭 한 줄을 대지 검토 메모 부탁문(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>)에 함께 주면 PDF 없이도 첫 메모가 나와요. 다만 행위제한·지구단위계획은 여전히 토지이음 열람으로 확인해요.</small></div></li>
+    <li><input type="checkbox" id="a_a41b" data-key="a_a41b"><div class="body"><label for="a_a41b">'대지' 탭 옆에 '토지정보' 탭 만들기</label><small>조회 결과가 들어올 자리예요. '사무소 대장' 아래쪽 <span class="path">+</span>로 새 탭을 만들고 이름을 '토지정보'로 바꿔요. A1 칸에 아래 '토지정보 탭 제목 줄'을 붙여 넣어요.<span class="fix">막히면: 제목 줄이 한 칸에 몰려 들어가면, 붙여 넣은 뒤 나오는 작은 아이콘에서 '열로 분할'을 눌러요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a41c" data-key="a_a41c"><div class="body"><label for="a_a41c">스크립트 받기 → 붙이기 → 메뉴 실행</label><small>조회를 대신 해 줄 작은 프로그램을 AI에게 받아요. 아래 부탁문을 '09 자동화·연결' 채팅에 보내요. 브이월드는 기능별로 데이터 이름이 달라요. 그래서 AI에게 브이월드 API 레퍼런스(사용 설명서)를 확인해 맞추라고 부탁문에 적어 두었어요. 받은 코드는 <span class="path">대장 → 확장 프로그램 → Apps Script</span>에 붙여 넣고 저장해요. 인증키는 <span class="path">톱니바퀴(프로젝트 설정) → 스크립트 속성 추가</span>에서 VWORLD_KEY로 넣어요. 시트를 새로 고치면 위쪽에 '대지조회' 메뉴가 생겨요.<span class="fix">막히면: '권한 검토' 창이 뜨면 내 계정 → 고급 → 이동 → 허용 순서로 눌러요(<a href="#c-b5" class="ref" data-ref="c-b5">강의</a>). 메모에 '조회 결과 없음'만 나오면 PNU 자릿수(19자리)와 인증키를 확인하고, 오류 문구를 캡처해 같은 채팅에 보여 줘요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a41d" data-key="a_a41d"><div class="body"><label for="a_a41d">필지 경계 파일로 받기 (선택)</label><small>연속지적도 데이터를 GeoJSON(지도용 파일 형식)으로 받으면 구글 어스나 QGIS에서 열 수 있어요. 시트 메뉴 <span class="path">대지조회 → 필지 경계 저장</span>을 누르면 드라이브에 저장돼요. CAD로 가져갈 때는 좌표계를 꼭 확인해요. 이 파일은 측량 성과를 대신하지 못해요.</small></div></li>
+    <li><input type="checkbox" id="a_a41e" data-key="a_a41e"><div class="body"><label for="a_a41e">대지 검토 메모에 붙이기</label><small>토지정보 탭 한 줄을 대지 검토 메모 부탁문(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>)에 함께 줘요. 그러면 PDF 없이도 첫 메모가 나와요. 다만 행위제한·지구단위계획은 여전히 토지이음 열람으로 확인해요.</small></div></li>
   </ol>
+  <p class="cap">제목 줄은 '토지정보' 탭 A1 칸에, 부탁문은 '09 자동화·연결' 채팅에 그대로 복사해 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>토지정보 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | PNU | 지목 | 토지면적(㎡) | 용도지역 | 용도지구·구역 | 개별공시지가(원/㎡) | 기준연도 | 조회일 | 메모</pre></div>
   <div class="prompt"><div class="bar"><span>토지정보 조회 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'의 '대지' 탭 PNU로 브이월드 오픈API를 조회해 '토지정보' 탭을 채우는 앱스 스크립트를 써 줘.
 - 지목·토지면적·개별공시지가(토지특성·공시지가 관련 데이터), 용도지역·지구(용도지역지구 관련 데이터)를 PNU로 조회
@@ -691,7 +707,7 @@
 - 인증키는 스크립트 속성 VWORLD_KEY에 저장, 메뉴 '대지조회 → 토지정보 가져오기', '대지조회 → 필지 경계 저장'
 제목 줄: 프로젝트코드 | PNU | 지목 | 토지면적(㎡) | 용도지역 | 용도지구·구역 | 개별공시지가(원/㎡) | 기준연도 | 조회일 | 메모
 나는 초보야. 붙여 넣는 곳과 실행 순서를 알려줘.</pre></div>
-  <p class="tip warnbox"><b>공간정보는 참고용이에요.</b> 데이터 갱신 시점에 따라 실제 결정·고시와 다를 수 있어요. 허가 도서에는 토지이용계획확인서와 측량 성과를 씁니다.</p>
+  <p class="tip warnbox"><b>공간정보는 참고용이에요.</b> 데이터를 새로 고친 시점에 따라 실제 결정·고시와 다를 수 있어요. 허가 도서에는 토지이용계획확인서와 측량 성과를 써요.</p>
   <p class="src">출처: <a href="https://www.vworld.kr" target="_blank" rel="noopener">브이월드(공간정보 오픈플랫폼)</a> · <a href="https://github.com/WooilJeong/PublicDataReader/blob/main/assets/docs/vworld/VworldData.md" target="_blank" rel="noopener">브이월드 데이터 API 활용 예시(PublicDataReader)</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>브이월드 인증키·데이터 API 무료</li><li>QGIS·구글 어스 무료로 경계 보기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>민간 토지 분석 서비스: 규제·시세를 지도에서 한 번에</li><li>측량 성과(지적측량)는 측량 업체에</li></ul></div></div>
 </section>
@@ -835,6 +851,7 @@
     <h2>준공 사진 한 묶음이 일주일 치 콘텐츠로</h2>
     <p class="goal">준공 프로젝트 하나를 홈페이지 포트폴리오 글, 인스타그램 게시물 3개, 블로그 글 1개로 나눠 써요. 홈페이지는 무료로 만들 수 있어요.</p>
   </div>
+<div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>준공 사진 한 묶음을 여러 접시에 나눠 담는 거예요. 같은 프로젝트로 홈페이지·인스타·블로그 글을 한 번에 받아요.</span></div><div class="easy-row"><b>끝나면</b><span>포트폴리오 글 1개, 인스타 게시물 3개, 블로그 글 1개, 그리고 (원하면) 무료 홈페이지 주소가 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 준공 사진 10장, 건축주 게시 동의, 하루 · 파일 올리기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="week" aria-label="한 프로젝트 게시 계획 예시">
       <span class="day">월</span><span class="day">화</span><span class="day">수</span><span class="day">목</span><span class="day">금</span><span class="day">토</span><span class="day">일</span>
@@ -845,16 +862,17 @@
     <p class="cap a" style="--d:1.2s">예시 · 준공 프로젝트 하나로 주 3회</p>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a18a" data-key="a_a18a"><div class="body"><label for="a_a18a">프로젝트 한 장 요약 만들기</label><small>프로젝트명(공개 가능한 이름), 위치(동 단위), 용도, 규모, 준공 연도, 설계 개념 3줄, 사진 10장. 건축주에게 게시 동의를 먼저 받아요.</small></div></li>
+    <li><input type="checkbox" id="a_a18a" data-key="a_a18a"><div class="body"><label for="a_a18a">프로젝트 한 장 요약 만들기</label><small>AI가 글을 쓰려면 재료가 한곳에 모여 있어야 해요. 프로젝트명(공개 가능한 이름), 위치(동 단위), 용도, 규모, 준공 연도, 설계 개념 3줄, 사진 10장을 한 장에 적어요. 건축주에게 게시 동의를 먼저 받아요.</small></div></li>
     <li><input type="checkbox" id="a_a18b" data-key="a_a18b"><div class="body"><label for="a_a18b">AI에게 채널별로 나눠 쓰게 하기</label><small>'05 이미지·발표' 채팅에 한 장 요약을 주고 아래 부탁문을 보내요.</small></div></li>
-    <li><input type="checkbox" id="a_a18c" data-key="a_a18c"><div class="body"><label for="a_a18c">무료 홈페이지 만들기 (선택)</label><small>AI에게 "포트폴리오 홈페이지 HTML 한 파일로 만들어 줘"라고 해 받은 파일을 <dfn data-t="ghpages">GitHub Pages</dfn>로 올리면 무료예요. 손이 덜 가는 쪽은 네이버 블로그나 노션 공개 페이지예요.</small>
+    <li><input type="checkbox" id="a_a18c" data-key="a_a18c"><div class="body"><label for="a_a18c">무료 홈페이지 만들기 (선택)</label><small>AI에게 "포트폴리오 홈페이지 HTML 한 파일로 만들어 줘"라고 해요. 받은 파일을 <dfn data-t="ghpages">GitHub Pages</dfn>에 올리면 무료예요. 손이 덜 가는 쪽은 네이버 블로그나 노션 공개 페이지예요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기 (GitHub Pages)</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>github.com 가입 → <span class="path">+ → New repository</span> → 이름 예: <b>office-portfolio</b>, Public → Create</li>
-        <li><span class="path">Add file → Upload files</span>로 AI가 준 index.html과 사진 올리기 → Commit</li>
-        <li><span class="path">Settings → Pages → Deploy from a branch → main / root → Save</span>. 잠시 뒤 위에 주소가 떠요<span class="fix">사진은 긴 변 2000px 정도로 줄여 올리세요. 원본은 너무 커서 느려요.</span></li>
+        <li>github.com에 가입해요. <span class="path">+ → New repository</span>를 눌러 저장소(파일을 담는 폴더)를 만들어요. 이름은 예를 들어 <b>office-portfolio</b>, Public을 고르고 <span class="path">Create repository</span>를 눌러요</li>
+        <li><span class="path">Add file → Upload files</span>로 AI가 준 index.html과 사진을 올려요. 아래 <span class="path">Commit changes</span>를 눌러 저장해요</li>
+        <li><span class="path">Settings → Pages → Deploy from a branch → main / root → Save</span>를 눌러요. 잠시 뒤 위에 주소가 떠요<span class="fix">막히면: 주소가 안 뜨면 1~2분 뒤 새로고침해요. 파일 이름이 꼭 index.html인지도 봐요.</span><span class="fix">사진은 긴 변 2000px 정도로 줄여 올리세요. 원본은 너무 커서 느려요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a18d" data-key="a_a18d"><div class="body"><label for="a_a18d">한 번에 예약 게시</label><small>인스타그램은 <dfn data-t="mbs">메타 비즈니스 스위트</dfn>에서 날짜를 정해 예약해요.</small></div></li>
+    <li><input type="checkbox" id="a_a18d" data-key="a_a18d"><div class="body"><label for="a_a18d">한 번에 예약 게시하기</label><small>매번 올리는 날을 챙기지 않으려고 미리 예약해요. 인스타그램은 <dfn data-t="mbs">메타 비즈니스 스위트</dfn>에서 날짜를 정해 예약해요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '05 이미지·발표' 채팅에 붙여 넣으세요. 프로젝트 한 장 요약과 사진 설명을 같이 첨부해요.</p>
   <div class="prompt"><div class="bar"><span>채널별 글 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 프로젝트 요약과 사진 설명으로 다음을 써 줘.
 1) 홈페이지 포트폴리오 글 (개요표 + 설계 이야기 400자)
 2) 인스타그램 게시물 3개: 대표 사진 / 설계 이야기 / 전후 비교. 각각 캡션 200자 이내, 해시태그 8개(지역+용도+사무소명)

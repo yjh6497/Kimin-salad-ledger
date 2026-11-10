@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC · {{open}} 전에 특히</span>
     <h2>우리 동네 <span data-biz="vet">반려동물</span><span data-biz-not="vet">손님</span>과 경쟁 {{place}}</h2>
-    <p class="goal">공공데이터로 동네에 <span data-biz="vet">반려동물이</span><span data-biz-not="vet">손님이 될 사람이</span> 얼마나 있는지, 주변 {{biz:이}} 어디에 언제 생기고 닫았는지 볼 수 있어요. {{open}} 입지 확인, {{hours}} 결정, 블로그 동네 키워드에 써요.</p>
+    <p class="goal">공공데이터로 동네에 <span data-biz="vet">반려동물이</span><span data-biz-not="vet">손님이 될 사람이</span> 얼마나 있는지 알 수 있어요. 주변 {{biz:이}} 어디에 언제 생기고 닫았는지도 볼 수 있어요. 이 자료는 {{open}} 입지 확인, {{hours}} 결정, 블로그 동네 키워드에 써요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>나라가 무료로 공개한 '동네 통계 자료'를 받아 AI에게 읽혀 보는 거예요. 발품 팔기 전에 책상에서 동네 사정을 먼저 알 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>주변 {{place}} 목록, 동네 인구 흐름, 기회·조심할 점이 담긴 '동네 한 장 리포트'</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 약 1시간 · 파일 내려받기·찾기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>실사 때 동네 분석으로 쓰면 인수 판단에도 도움이 돼요<a href="#c-l46" class="ref" data-ref="c-l46">강의</a>.</span></p>
 
   <div class="table-wrap"><table>
@@ -16,10 +17,11 @@
     </tbody>
   </table></div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a61a" data-key="v_a61a"><div class="body"><label for="v_a61a">파일 내려받기</label><small>공공데이터포털에서 위 이름으로 검색 → '파일데이터'면 바로 내려받기, 'API'만 있으면 활용신청이 필요해요. 처음엔 파일데이터로 충분해요.</small><span class="fix">데이터 이름과 위치는 바뀔 수 있어요. 검색 결과 화면을 캡처해 AI에게 "{{biz}} 인허가 파일은 어느 거야?"라고 물어보세요.</span></div></li>
-    <li><input type="checkbox" id="v_a61b" data-key="v_a61b"><div class="body"><label for="v_a61b">우리 시·군·구만 남기기</label><small>파일이 크면 AI에게 "주소에 ○○구가 들어간 행만 남겨 줘"라고 부탁하거나, 엑셀 필터로 거른 뒤 올려요.</small></div></li>
-    <li><input type="checkbox" id="v_a61c" data-key="v_a61c"><div class="body"><label for="v_a61c">동네 한 장 리포트 받기</label><small>아래 부탁문. 결과는 {{place}} 소개서의 '주 {{customer}}' 칸과 {{hours}} 결정에 반영해요.</small></div></li>
+    <li><input type="checkbox" id="v_a61a" data-key="v_a61a"><div class="body"><label for="v_a61a">파일 내려받기</label><small>AI가 읽을 원재료부터 모아요. 공공데이터포털(data.go.kr)에서 위 표의 이름으로 검색해요. 결과가 '파일데이터'면 <span class="path">다운로드</span>로 바로 받아요. 'API'만 있으면 활용신청이 필요해요. 처음엔 파일데이터로 충분해요.</small><span class="fix">막히면: 데이터 이름과 위치는 바뀔 수 있어요. 검색 결과 화면을 캡처해 AI에게 "{{biz}} 인허가 파일은 어느 거야?"라고 물어보세요.</span></div></li>
+    <li><input type="checkbox" id="v_a61b" data-key="v_a61b"><div class="body"><label for="v_a61b">우리 시·군·구만 남기기</label><small>전국 자료라 파일이 커요. 우리 동네 줄만 남겨야 AI가 잘 읽어요. AI에게 "주소에 ○○구가 들어간 행만 남겨 줘"라고 부탁해요. 아니면 엑셀 필터(조건에 맞는 줄만 보이게 하는 기능)로 거른 뒤 올려요.<span class="fix">막히면: 파일이 너무 커서 안 올라가면, 엑셀에서 열어 필요 없는 열(칸)부터 지우고 다시 저장해 올려요.</span></small></div></li>
+    <li><input type="checkbox" id="v_a61c" data-key="v_a61c"><div class="body"><label for="v_a61c">동네 한 장 리포트 받기</label><small>파일과 상권 캡처를 AI에게 올리고 아래 부탁문을 보내요. 받은 결과는 {{place}} 소개서의 '주 {{customer}}' 칸과 {{hours}} 결정에 반영해요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '06 성과 분석' 채팅에 붙여 넣으세요. ○○ 자리만 우리 {{place}} 주소(동 단위)로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>동네 리포트 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 공공데이터({{biz}} 인허가, <span data-biz="vet">동물등록 현황</span><span data-biz-not="vet">인구 통계</span>)와 상권 캡처로 우리 {{place}} 주변 리포트를 만들어 줘. {{place}} 주소: ○○(동 단위).
 1) 반경 1km·2km 안 영업 중인 {{biz}} 수와 목록(이름, 대략 거리, 인허가 연도) — 주소로 거리를 어림하고, 어림이라고 표시
 2) 최근 3년 안 개업·폐업 {{place}}

@@ -2,10 +2,11 @@
   <div class="lesson-head">
     <span class="kicker">특강 · 실습 · 매주 5분 · 매달 30분</span>
     <h2>보고는 정기적으로, 적용은 승인한 것만</h2>
-    <p class="goal">매주 월요일 브리핑에 시스템 한 줄, 매달 첫째 월요일에 월간 시스템 보고서를 받아요. 승인한 것은 백업 → 적용 → 시험 → <dfn data-t="changelog">변경기록</dfn> 순서로 하나씩 반영합니다.</p>
+    <p class="goal">매주 월요일 브리핑에 시스템 한 줄을 받아요. 매달 첫째 월요일에는 월간 시스템 보고서를 받아요. 승인한 것만 백업 → 적용 → 시험 → <dfn data-t="changelog">변경기록</dfn>(무엇을 언제 바꿨는지 적는 공책) 순서로 하나씩 반영해요.</p>
     <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span><span data-ai="claude">Claude 무료 플랜은 예약 작업이 없어서 매달 첫째 월요일 휴대폰 알림이 오면 "이번 달 시스템 보고 해줘" 한 줄을 보내요.</span><span data-ai="gpt">ChatGPT 무료 플랜도 매달 한 번 예약 작업을 걸 수 있어요. 시간은 '아침'처럼 대략적으로 정해지고, 예약은 동시에 3개까지예요.</span><span data-ai-none>Claude 무료는 알림 + 한 줄 부탁, ChatGPT 무료는 대략적인 시간의 예약 작업으로 받아요.</span></span></p>
     <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>월간 보고를 예약 작업으로 맡겨요. 매달 정해진 시각에 보고서가 오고, {{owner:은}} 승인만 하면 돼요.</span></p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>자동차 정기 점검처럼, AI가 달마다 "여기가 고장, 여기는 고치면 좋아요" 보고서를 내요. 고칠지는 {{owner:이}} 정해요.</span></div><div class="easy-row"><b>끝나면</b><span>매주 브리핑 속 시스템 한 줄, 매달 오는 시스템 보고서, 승인한 것만 고치고 되돌리는 순서가 손에 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>장부 시트('점검로그'·'개선요청'·'변경기록'), '02 월요일 브리핑'·'10 시스템 관리' 채팅, 매달 30분 · 코드 붙이기·배포가 낯설면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>부터 봐요.</span></div></div>
   <div class="vis">
     <div class="msg wide-lab">
       <div class="from a" style="--d:.1s"><span>월간 시스템 보고 · 매달 첫째 월요일 · 예시</span><span>10 시스템 관리</span></div>
@@ -34,7 +35,7 @@
         <li data-plan-not="free" data-ai-not="claude">ChatGPT: 예약 작업 목록에서 월요일 브리핑을 열어 지시가 바뀌었는지 확인</li>
         <li data-plan="free">무료 플랜이면 다음 월요일 "브리핑 해줘"를 보낼 때부터 6번이 함께 나와요</li>
       </ol></details></div></li>
-    <li data-ai="claude" data-plan-not="free"><input type="checkbox" id="s_s29b" data-key="s_s29b"><div class="body"><label for="s_s29b">Claude에서 월간 보고 예약</label><small>'10 시스템 관리' 채팅에서 예약해요. 컴퓨터가 꺼져 있어도 실행돼요.</small>
+    <li data-ai="claude" data-plan-not="free"><input type="checkbox" id="s_s29b" data-key="s_s29b"><div class="body"><label for="s_s29b">Claude에서 월간 보고 예약</label><small>매달 잊지 않고 받으려고 예약을 걸어요. '10 시스템 관리' 채팅에서 예약해요. 컴퓨터가 꺼져 있어도 실행돼요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>아래 '월간 시스템 보고 지시문' 맨 앞에 <b>"매달 첫째 월요일 오전 8시에 아래 보고를 해줘."</b>를 붙여 보내기</li>
         <li>Claude가 이름·주기·지시를 정리해 보여 주면 확인 → 예약</li>
@@ -52,17 +53,17 @@
         <li>휴대폰 캘린더에 새 일정 <b>시스템 보고 받기</b> → 다음 달 첫째 월요일 오전 8시 → 반복 <span class="path">매월 → 첫째 월요일</span></li>
         <li>알림이 오면 '10 시스템 관리' 채팅에 <b>이번 달 시스템 보고 해줘</b></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s29e" data-key="s_s29e"><div class="body"><label for="s_s29e">보고서의 제안을 개선요청에 올리고 결재</label><small>보고서 끝의 표를 그대로 붙이면 한 줄씩 들어가요. 그다음 휴대폰에서 상태만 고르면 돼요.</small>
+    <li><input type="checkbox" id="s_s29e" data-key="s_s29e"><div class="body"><label for="s_s29e">보고서의 제안을 개선요청에 올리고 결재하기</label><small>제안을 한곳에 모아야 빠뜨리지 않아요. 보고서 끝의 표를 그대로 붙이면 한 줄씩 들어가요. 그다음 휴대폰에서 상태만 고르면 돼요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>보고서 맨 아래 '개선요청에 붙일 줄' 표를 드래그해 복사</li>
         <li>장부 '개선요청' 시트에서 비어 있는 첫 줄의 A열 칸을 누르고 붙여 넣기. 상태 칸은 모두 '제안'으로 들어가요</li>
         <li>아래 '승인 기준' 표를 보고 상태를 승인·보류·반려로 바꾸기. '{{owner}} 직접 확인' 표시가 있는 건 내용을 끝까지 읽고 정해요<span class="fix">칸이 한 줄에 몰려 들어가면 붙여 넣은 뒤 나오는 작은 아이콘에서 <span class="path">텍스트를 열로 분할</span>을 누르세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s29f" data-key="s_s29f"><div class="body"><label for="s_s29f">승인한 것 하나씩 적용</label><small>한 번에 하나, 백업 먼저. '10 시스템 관리' 채팅에 아래 '승인 항목 적용 부탁문'을 보내고 안내대로 해요.</small>
+    <li><input type="checkbox" id="s_s29f" data-key="s_s29f"><div class="body"><label for="s_s29f">승인한 것 하나씩 적용하기</label><small>여러 개를 한꺼번에 바꾸면 무엇이 문제인지 찾기 어려워요. 그래서 한 번에 하나씩, 백업부터 해요. '10 시스템 관리' 채팅에 아래 '승인 항목 적용 부탁문'을 보내고 안내대로 해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li><b>백업 ①</b> 장부를 바꾸는 일이면 <span class="path">파일 → 사본 만들기</span> → 이름 <b>장부 백업 (날짜)</b> → '백업' 폴더에</li>
         <li><b>백업 ②</b> 스크립트를 바꾸는 일이면 지금 코드를 전부 복사해 '코드 보관함' 문서 맨 위에 날짜·번호와 함께 붙여 넣기</li>
-        <li>AI가 준 순서대로 바꾸기. 코드는 파일 전체를 바꿔 붙이고 저장</li>
+        <li>AI가 준 순서대로 바꾸기. 코드는 원래 코드를 모두 지우고 받은 파일 전체를 붙인 뒤 저장<span class="fix">막히면: 저장할 때 빨간 오류가 뜨면 그 화면을 캡처해(<a href="#c-b2" class="ref" data-ref="c-b2">강의</a>) 같은 채팅에 올리고 "이 오류 고쳐 줘"라고 보내요.</span></li>
         <li>직원 웹앱이면 <span class="path">배포 → 배포 관리 → 연필 → 버전: 새 버전 → 배포</span>. 주소는 그대로예요</li>
         <li>AI가 알려 준 시험 3가지를 해 보고, 다 되면 '변경기록'에 AI가 준 한 줄 붙여 넣기 → 개선요청 상태를 <b>적용완료</b>로</li>
         <li>직원 화면이 바뀌었으면 AI가 써 준 공지문을 직원 단톡방에 올리기<span class="fix">시험이 하나라도 안 되면 바로 아래 '되돌리기'를 하고, 상태를 '보류'로 바꾼 뒤 메모 칸에 무엇이 안 됐는지 적어요.</span></li>
@@ -93,6 +94,7 @@
     <li><input type="checkbox" id="s_c29d" data-key="s_c29d"><label for="s_c29d">'보류' 상태인 개선요청 다시 보기</label></li>
     <li><input type="checkbox" id="s_c29e" data-key="s_c29e"><label for="s_c29e">AI 요금제가 지금 쓰는 기능에 맞는지 확인 (위쪽 '요금제' 선택도 맞추기)</label></li>
   </ul>
+  <p class="cap">아래 부탁문은 그대로 복사해서 제목 '·' 뒤에 적힌 채팅에 붙여 넣으세요. ○번 자리만 승인한 번호로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>시스템 한 줄 · 월요일 브리핑에 덧붙이기</span><button class="copy" type="button">복사</button></div><pre>6) 시스템: '<span data-biz="salad">매장 장부</span><span data-biz-not="salad">{{place}} 장부</span>'의 '점검로그'에서 지난주 주의·오류 개수와 내용 한 줄, '개선요청'에서 상태가 '제안'인 것과 '승인'인데 아직 적용 안 된 것의 개수</pre></div>
   <div class="prompt"><div class="bar"><span>월간 시스템 보고 지시문 · 시스템 관리</span><button class="copy" type="button">복사</button></div><pre>우리 {{place}} 시스템 월간 보고서를 만들어줘. 너는 '시스템 관리' 직원이야.
 1) 지난달 상태: '<span data-biz="salad">매장 장부</span><span data-biz-not="salad">{{place}} 장부</span>'의 '점검로그'에서 주의·오류 횟수와 반복된 문제
@@ -112,7 +114,7 @@
 4) 문제가 생기면 되돌리는 방법
 5) '변경기록'에 붙일 한 줄(날짜, 번호, 바꾼 것, 바꾼 곳, 백업, 되돌리는 법, 확인한 사람)
 6) 직원 화면이 바뀌면 직원 단톡방 공지문 3줄</pre></div>
-  <p class="tip warnbox"><b>AI가 시스템을 직접 바꾸게 두지 마세요.</b> 커넥터로 AI가 파일을 고칠 수 있게 되더라도 결재와 적용은 이 순서를 지키세요. 승인 없는 변경, 백업 없는 변경, 한 번에 여러 개 변경이 사고의 대부분이에요.</p>
+  <p class="tip warnbox"><b>AI가 시스템을 직접 바꾸게 두지 마세요.</b> <dfn data-t="connector">커넥터</dfn>로 AI가 파일을 고칠 수 있게 되더라도 결재와 적용은 이 순서를 지키세요. 승인 없는 변경, 백업 없는 변경, 한 번에 여러 개 변경이 사고의 대부분이에요.</p>
   <p class="src">출처: <a href="https://support.google.com/docs/answer/190843?hl=ko" target="_blank" rel="noopener">구글 문서·시트 버전 기록</a> · <a href="https://developers.google.com/apps-script/concepts/deployments?hl=ko" target="_blank" rel="noopener">앱스 스크립트 배포와 버전</a> · <a data-ai-not="gpt" href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork" target="_blank" rel="noopener">Claude 예약 작업</a> <a data-ai-not="claude" href="https://help.openai.com/ko-kr/articles/10291617-scheduled-tasks-in-chatgpt" target="_blank" rel="noopener">ChatGPT 예약 작업</a></p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>월간 시스템 보고</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 첫째 월요일 예약 작업이 보고서를 보내요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i><span data-ai="claude">Claude 무료는 예약 작업이 없어요. 매달 첫째 월요일 휴대폰 반복 알림이 울리면 그 채팅에 한 줄 보내요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업으로 매달 첫째 월요일 받아요. 시간은 대략적으로 정해지고 동시에 3개까지예요.</span><span data-ai-none>Claude 무료는 매달 첫째 월요일 휴대폰 알림 + 한 줄, ChatGPT 무료는 예약 작업(하루 1번 이하, 3개까지)으로 받아요.</span></span></span></div></li><li><span class="chip k-tip">요령</span><div class="ad"><b>주간은 브리핑에 한 줄</b><span>시스템 한 줄을 월요일 브리핑에 덧붙여 예약 작업을 아껴요.</span></div></li><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>분기 대점검</b><span>석 달에 한 번 백업 되살리기 연습과 권한 정리 일정.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>매일 자동 점검과 메일 알림은 구글 스크립트로 0원</li><li data-ai-not="gpt">Claude 무료: 매달 알림이 오면 한 줄로 보고 받기</li><li data-ai-not="claude">ChatGPT 무료: 매달 아침 예약 작업으로 보고 받기</li><li>버전 기록·사본·코드 보관함으로 되돌리기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>정해진 시각에 월간 보고가 자동으로 도착</li><li>스크립트 전체·장부 전체를 한 번에 검토할 만큼 넉넉한 사용량</li><li>웹 검색을 많이 써서 정책·<span data-biz="salad">배달앱</span><span data-biz-not="salad">플랫폼</span> 변경 소식까지 꼼꼼히 확인</li></ul></div></div>

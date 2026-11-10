@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>손 스케치가 상담용 이미지가 되기까지</h2>
-    <p class="goal">계획 초기 건축주 상담에 쓸 분위기 이미지(<dfn data-t="render">AI 렌더링</dfn>)를 스케치·매스 캡처에서 만들어요. 이미지는 <b>설계를 설명하는 도구</b>이지, 약속이 아니에요.</p>
+    <p class="goal">계획 초기 건축주 상담에 쓸 분위기 이미지(<dfn data-t="render">AI 렌더링</dfn>)를 스케치·매스 캡처에서 만들어요. 이미지는 <b>설계를 설명하는 도구</b>예요. 완성된 모습을 약속하는 게 아니에요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>연필 스케치에 AI가 색과 빛을 칠해 주는 거예요. 건축주가 "이런 느낌이구나" 하고 바로 알아봐요.</span></div><div class="easy-row"><b>끝나면</b><span>'계획 단계 이미지'라고 적힌 상담용 시안 3장(낮·저녁 버전)</span></div><div class="easy-row"><b>필요한 것</b><span>스케치 사진이나 매스 캡처, Gemini 앱 등 이미지 AI, 1시간 · 캡처·파일 올리기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="lanes">
       <div class="box pop" style="--d:.2s"><strong>스케치·매스 캡처</strong><span>손그림 사진 · 스케치업 화면</span></div>
@@ -24,24 +25,25 @@
       <tr><td><b>LookX · mnml.ai</b></td><td>건축용으로 학습한 웹 서비스, 스케치→렌더</td><td>무료 체험 + 유료</td></tr>
     </tbody>
   </table></div>
-  <p class="tip" data-ai="claude"><b>Claude는 이미지를 직접 그리지 않아요.</b> Claude에게는 스케치를 보여 주고 "이미지 AI에 넣을 지시문을 써 줘"라고 부탁하고, 그 지시문을 Gemini 앱 등에 넣으세요. 결과 이미지를 다시 Claude에게 보여 주면 도면과 다른 곳을 짚어 줘요.</p>
+  <p class="tip" data-ai="claude"><b>Claude는 이미지를 직접 그리지 않아요.</b> Claude에게는 스케치를 보여 주고 "이미지 AI에 넣을 지시문을 써 줘"라고 부탁해요. 그 지시문을 Gemini 앱 등에 넣으세요. 결과 이미지를 다시 Claude에게 보여 주면 도면과 다른 곳을 짚어 줘요.</p>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a10a" data-key="a_a10a"><div class="body"><label for="a_a10a">바탕 그림 준비</label><small>손스케치는 위에서 반듯하게 찍기. 3D 매스는 원하는 시점으로 화면 캡처. 선이 분명할수록 형태가 덜 바뀌어요.</small></div></li>
-    <li><input type="checkbox" id="a_a10b" data-key="a_a10b"><div class="body"><label for="a_a10b">지시문 받기</label><small>'05 이미지·발표' 채팅에 바탕 그림과 재료·분위기 메모를 주고 아래 '지시문 부탁문'을 보내요.</small></div></li>
-    <li><input type="checkbox" id="a_a10c" data-key="a_a10c"><div class="body"><label for="a_a10c">이미지 AI에 넣고 3장 만들기</label>
+    <li><input type="checkbox" id="a_a10a" data-key="a_a10a"><div class="body"><label for="a_a10a">바탕 그림 준비하기</label><small>선이 분명할수록 AI가 형태를 덜 바꿔요. 손스케치는 위에서 반듯하게 찍어요. 3D 매스는 원하는 시점으로 화면을 캡처해요.</small></div></li>
+    <li><input type="checkbox" id="a_a10b" data-key="a_a10b"><div class="body"><label for="a_a10b">지시문 받기</label><small>이미지 AI에 무엇을 어떻게 말할지 정리하려는 거예요. '05 이미지·발표' 채팅에 바탕 그림과 재료·분위기 메모를 줘요. 그리고 아래 '지시문 부탁문'을 보내요.</small></div></li>
+    <li><input type="checkbox" id="a_a10c" data-key="a_a10c"><div class="body"><label for="a_a10c">이미지 AI에 넣고 3장 만들기</label><small>받은 지시문으로 실제 이미지를 만드는 단계예요. 고칠 때는 한 번에 한 가지씩만 말해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기 (Gemini 앱)</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li><span class="path">gemini.google.com</span> 또는 Gemini 앱 → 입력창 <span class="path">+</span> → 바탕 그림 올리기</li>
-        <li>받은 지시문 붙여 넣기 → 보내기</li>
-        <li>마음에 안 드는 부분만 "창을 세로로 긴 비례로, 나머지는 그대로"처럼 한 가지씩 고치기<span class="fix">한 번에 여러 개를 고치라고 하면 형태가 크게 바뀌어요. 하나씩 고치세요.</span></li>
+        <li><span class="path">gemini.google.com 또는 Gemini 앱 → 입력창 + → 바탕 그림 올리기</span></li>
+        <li>받은 지시문을 붙여 넣고 보내요</li>
+        <li>마음에 안 드는 부분만 고쳐요. "창을 세로로 긴 비례로, 나머지는 그대로"처럼 한 가지씩 말해요<span class="fix">한 번에 여러 개를 고치라고 하면 형태가 크게 바뀌어요. 하나씩 고치세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a10d" data-key="a_a10d"><div class="body"><label for="a_a10d">도면과 다른 곳 검사</label><small>완성 이미지를 AI에게 평면도와 함께 보여 주고 "이미지에서 도면과 다른 곳(창 개수, 층수, 지붕 모양)을 찾아줘". 다른 곳은 고치거나 설명에 적어요.</small></div></li>
+    <li><input type="checkbox" id="a_a10d" data-key="a_a10d"><div class="body"><label for="a_a10d">도면과 다른 곳 검사하기</label><small>건축주가 이미지를 약속으로 오해하지 않게 하려는 거예요. 완성 이미지를 AI에게 평면도와 함께 보여 줘요. 그리고 "이미지에서 도면과 다른 곳(창 개수, 층수, 지붕 모양)을 찾아줘"라고 해요. 다른 곳은 고치거나 설명에 적어요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '05 이미지·발표' 채팅에 바탕 그림과 함께 붙여 넣으세요. ○○ 자리만 이번 프로젝트의 재료·계절·시간으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>지시문 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 스케치(매스 캡처)를 바탕으로 이미지 AI에 넣을 지시문을 써 줘.
 - 형태·창 위치·층수는 바꾸지 말 것을 맨 앞에 강조
 - 재료: ○○(예: 백색 스타코, 짙은 목재 루버), 계절·시간: ○○, 주변: 실제 대지처럼 단층 주택가
 - 사람·차는 작게 2~3개, 과장된 하늘·조명은 피하기
 - 같은 지시문으로 낮/저녁 두 버전</pre></div>
-  <p class="tip warnbox"><b>지킬 것.</b> 이미지 아래 '계획 단계 참고 이미지, 실제와 다를 수 있음'을 적으세요. 설계공모는 지침서에서 AI 이미지 허용 여부를 먼저 확인하고(<a href="#a-l9" class="ref" data-ref="a-l9">강의</a>의 공모 지침 정리), 다른 건축가의 작품 사진을 바탕으로 쓰지 마세요.</p>
+  <p class="tip warnbox"><b>지킬 것.</b> 이미지 아래 '계획 단계 참고 이미지, 실제와 다를 수 있음'을 적으세요. 설계공모는 지침서에서 AI 이미지 허용 여부를 먼저 확인하세요(<a href="#a-l9" class="ref" data-ref="a-l9">강의</a>의 공모 지침 정리). 다른 건축가의 작품 사진을 바탕으로 쓰지 마세요.</p>
   <p class="src">출처: <a href="https://support.google.com/gemini/answer/14286560?hl=ko" target="_blank" rel="noopener">Gemini 앱 이미지 생성·수정 도움말</a> · <a href="https://www.gendo.ai/blog/top-10-ai-rendering-software-architects-2026" target="_blank" rel="noopener">건축 AI 렌더링 도구 비교(2026, 도구 제작사 글)</a></p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>사무소 이미지 톤 고정</b><span>마음에 든 지시문을 '이미지 지시문' 문서에 모아 두면 다음 프로젝트도 같은 톤으로 나와요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>Gemini 앱·ChatGPT 무료 이미지(횟수 제한)</li><li>D5 Render 비상업용 무료판으로 연습</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>고해상도 다운로드, 더 많은 횟수</li><li>Veras처럼 BIM 안에서 바로, 형태 유지가 더 정확</li></ul></div></div>

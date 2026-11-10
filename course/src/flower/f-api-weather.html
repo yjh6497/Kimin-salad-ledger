@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC · 그 뒤 매일 자동</span>
     <h2>내일 비 오면 포장부터 바꾸고, 장례식장 주소는 장부가 채워요</h2>
-    <p class="goal">생화는 날씨에 약해요. 기상청 <b>단기예보</b>로 가게 위치의 내일 비·기온을 받아 배송 포장과 진열을 미리 정하고, 보건복지부 <b>장례식장 현황</b>으로 근조화환 주문의 시설 주소·전화·주차를 자동으로 채워요. 둘 다 '주문' 탭(<a href="#f-order" class="ref" data-ref="f-order">강의</a>)과 이어져요.</p>
+    <p class="goal">생화는 날씨에 약해요. 그래서 기상청 <b>단기예보</b>로 가게 위치의 내일 비·기온을 받아요. 이걸 보고 배송 포장과 진열을 미리 정해요. 또 보건복지부 <b>장례식장 현황</b>으로 근조화환 주문의 시설 주소·전화·주차를 자동으로 채워요. 둘 다 '주문' 탭(<a href="#f-order" class="ref" data-ref="f-order">강의</a>)과 이어져요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>장부에 '날씨 알리미'와 '장례식장 주소록'을 달아 두는 거예요. 내일 비가 오면 할 일이 주문 옆에 저절로 적히고, 장례식장 이름만 고르면 주소가 채워져요.</span></div><div class="easy-row"><b>끝나면</b><span>매일 오후 5시 내일 날씨에 맞춰 적히는 '날씨 메모', 그리고 고르기만 하면 주소·전화·주차가 채워지는 장례식장 목록</span></div><div class="easy-row"><b>필요한 것</b><span>PC, '꽃집 운영 장부', 공공데이터포털 인증키(<a href="#f-api" class="ref" data-ref="f-api">강의</a>에서 받은 것), 약 1시간 30분 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
 
   <h3>가. 날씨: 내 규칙을 먼저 정해요</h3>
   <div class="table-wrap"><table>
@@ -17,23 +18,24 @@
   </table></div>
   <p class="cap">기준 숫자는 예시예요. 한 달 동안 '날씨' 탭과 실제 배송 메모를 같이 보고 내 가게 기준으로 고쳐요.</p>
   <ol class="steps">
-    <li><input type="checkbox" id="f_apw_a" data-key="f_apw_a"><div class="body"><label for="f_apw_a">'날씨규칙' 탭에 위 표 옮겨 적기</label><small>스크립트가 이 탭의 숫자를 읽어서 판단해요. 기준을 바꿀 때 코드를 고칠 필요가 없어요.</small></div></li>
-    <li><input type="checkbox" id="f_apw_b" data-key="f_apw_b"><div class="body"><label for="f_apw_b">단기예보 스크립트 붙이기</label><small>단기예보는 위도·경도 대신 <dfn data-t="grid">격자 좌표(nx, ny)</dfn>를 받아요. 스크립트 속성 SHOP_LAT, SHOP_LON(앞 강의)을 격자로 바꾸는 계산까지 아래 부탁문 ①에 넣었어요.</small></div></li>
-    <li><input type="checkbox" id="f_apw_c" data-key="f_apw_c"><div class="body"><label for="f_apw_c">매일 오후 5시에 내일 판단</label><small>트리거 <span class="path">weatherCheck · 일 단위 · 오후 5~6시</span>. 내일 배송이 있는 날만 '주문' 탭의 그 주문 옆 '날씨 메모' 칸에 할 일을 적어 줘요.</small></div></li>
+    <li><input type="checkbox" id="f_apw_a" data-key="f_apw_a"><div class="body"><label for="f_apw_a">'날씨규칙' 탭에 위 표 옮겨 적기</label><small>기준을 시트에 따로 적어 두면 나중에 바꾸기 쉬워요. 스크립트가 이 탭의 숫자를 읽어서 판단해요. 그래서 기준을 바꿀 때 코드를 고칠 필요가 없어요. 장부 아래쪽 <span class="path">+</span>로 새 탭을 만들고 이름을 '날씨규칙'으로 바꿔요.</small></div></li>
+    <li><input type="checkbox" id="f_apw_b" data-key="f_apw_b"><div class="body"><label for="f_apw_b">단기예보 스크립트 붙이기</label><small>예보를 장부로 가져오는 작은 프로그램을 AI에게 받아 붙여요. 아래 부탁문 ①을 '07 자동화 도우미'에게 보내고, 받은 코드를 <span class="path">장부 → 확장 프로그램 → Apps Script</span>에 붙여 넣고 저장해요. 단기예보는 위도·경도 대신 <dfn data-t="grid">격자 좌표(nx, ny)</dfn>를 받아요. 스크립트 속성 SHOP_LAT, SHOP_LON(앞 강의)을 격자로 바꾸는 계산까지 부탁문 ①에 넣었어요.<span class="fix">막히면: '권한 검토' 창이 뜨면 내 계정 → 고급 → 이동 → 허용 순서로 눌러요(<a href="#c-b5" class="ref" data-ref="c-b5">강의</a>). 오류가 나면 '로그' 탭과 오류 문구를 캡처해 같은 채팅에 보여 줘요. 인증키를 받은 지 얼마 안 됐으면 키가 켜질 때까지 몇 시간 걸릴 수 있어요.</span></small></div></li>
+    <li><input type="checkbox" id="f_apw_c" data-key="f_apw_c"><div class="body"><label for="f_apw_c">매일 오후 5시에 내일 날씨 판단하게 하기</label><small>매일 손으로 실행하지 않도록 <dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)를 걸어요. Apps Script 왼쪽 시계 아이콘에서 <span class="path">트리거 추가 → weatherCheck · 시간 기반 · 일 단위 · 오후 5~6시 → 저장</span>을 눌러요. 그러면 내일 배송이 있는 날만 '주문' 탭의 그 주문 옆 '날씨 메모' 칸에 할 일을 적어 줘요.</small></div></li>
   </ol>
 
   <h3>나. 근조화환: 장례식장 목록을 장부에</h3>
   <ol class="steps">
-    <li><input type="checkbox" id="f_apw_d" data-key="f_apw_d"><div class="body"><label for="f_apw_d">장례식장 현황 받기</label><small>공공데이터포털에서 '보건복지부_장례식장 현황'을 검색해요. 파일(CSV)은 로그인 없이 바로 받을 수 있고, 해마다 갱신돼요. 시도·시군구·시설명·주소·전화·주차 가능 대수·빈소 수가 있어요.</small>
+    <li><input type="checkbox" id="f_apw_d" data-key="f_apw_d"><div class="body"><label for="f_apw_d">장례식장 현황 받기</label><small>근조화환 배송지를 매번 찾지 않으려고 목록을 장부에 넣어 둬요. 공공데이터포털에서 '보건복지부_장례식장 현황'을 검색해요. 파일(CSV)은 로그인 없이 바로 받을 수 있어요. 해마다 새로 고쳐져요. 시도·시군구·시설명·주소·전화·주차 가능 대수·빈소 수가 있어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>data.go.kr 검색창에 '장례식장 현황' → '파일데이터' 결과 → 다운로드</li>
-        <li>'꽃집 운영 장부'에 '장례식장' 탭을 만들고 <span class="path">파일 → 가져오기 → 업로드 → 현재 시트 바꾸기</span></li>
-        <li>배송 가는 시·군·구만 남기고 나머지 줄 지우기<span class="fix">파일이 크면 AI에게 "시군구가 ○○구, △△시인 줄만 남겨 줘"라고 부탁해 줄인 파일을 올려도 돼요. 해마다 4월쯤 새 파일로 바꿔요.</span></li>
+        <li>data.go.kr 검색창에 '장례식장 현황'을 쳐요. '파일데이터' 결과에서 <span class="path">다운로드</span>를 눌러요.</li>
+        <li>'꽃집 운영 장부'에 '장례식장' 탭을 만들어요. 그 탭에서 <span class="path">파일 → 가져오기 → 업로드 → 현재 시트 바꾸기</span>를 눌러 받은 파일을 넣어요.<span class="fix">막히면: 글자가 깨져 보이면 파일을 AI에게 올려 "글자가 안 깨지게 다시 저장해 줘"라고 부탁해요.</span></li>
+        <li>배송 가는 시·군·구만 남기고 나머지 줄은 지워요.<span class="fix">파일이 크면 AI에게 "시군구가 ○○구, △△시인 줄만 남겨 줘"라고 부탁해 줄인 파일을 올려도 돼요. 해마다 4월쯤 새 파일로 바꿔요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="f_apw_e" data-key="f_apw_e"><div class="body"><label for="f_apw_e">가게에서 걸리는 시간 붙이기</label><small>부탁문 ②로 각 장례식장까지 대략 거리를 계산하고, 자주 가는 곳은 실제 걸린 시간을 직접 적어요. 근조화환은 발인 전에 도착해야 하니 '마감 시각' 계산에 써요.</small></div></li>
-    <li><input type="checkbox" id="f_apw_f" data-key="f_apw_f"><div class="body"><label for="f_apw_f">주문 탭에서 시설 이름만 고르면 주소가 채워지게</label><small>'주문' 탭 배송지 칸에 장례식장 목록 <dfn data-t="dropdown">드롭다운</dfn>을 걸고, 고르면 주소·전화·주차가 옆 칸에 VLOOKUP으로 들어오게 해요. 상주 이름·빈소 호수는 손님에게 꼭 다시 확인해요.</small></div></li>
+    <li><input type="checkbox" id="f_apw_e" data-key="f_apw_e"><div class="body"><label for="f_apw_e">가게에서 걸리는 시간 붙이기</label><small>근조화환은 발인 전에 도착해야 해요. 그래서 '마감 시각' 계산에 거리가 필요해요. 부탁문 ②로 각 장례식장까지 대략 거리를 계산해요. 자주 가는 곳은 실제 걸린 시간을 직접 적어요.</small></div></li>
+    <li><input type="checkbox" id="f_apw_f" data-key="f_apw_f"><div class="body"><label for="f_apw_f">시설 이름만 고르면 주소가 채워지게 하기</label><small>'주문' 탭 배송지 칸에 장례식장 목록 <dfn data-t="dropdown">드롭다운</dfn>(눌러서 고르는 목록)을 걸어요. 고르면 주소·전화·주차가 옆 칸에 VLOOKUP(다른 탭에서 값을 찾아오는 수식)으로 들어오게 해요. 상주 이름·빈소 호수는 손님에게 꼭 다시 확인해요.</small></div></li>
   </ol>
 
+  <p class="cap">아래 부탁문은 그대로 복사해서 '07 자동화 도우미' 채팅에 붙여 넣으세요. 고칠 곳은 없어요. 인증키는 채팅에 붙이지 말고 스크립트 속성에만 넣어요.</p>
   <div class="prompt"><div class="bar"><span>① 날씨 판단 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '꽃집 운영 장부'에 붙일 Apps Script를 만들어 줘. 나는 코딩을 몰라.
 [호출] 공공데이터포털 '기상청_단기예보 조회서비스'
   https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0 의 단기예보조회, dataType=JSON

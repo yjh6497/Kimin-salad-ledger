@@ -2,27 +2,29 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 2시간 · 종이·연필·줄자</span>
     <h2>종이에 그린 배치도를 AI가 읽고, 다듬고, 짚어 줘요</h2>
-    <p class="goal">{{owner:이}} 모눈종이에 공간과 장비를 대략 그리면, AI가 사진을 읽어 <b>치수표로 옮기고 → 깔끔한 배치도로 다시 그리고 → 동선·간격·<span data-biz="vet">감염 관리</span><span data-biz-not="vet">위생·정리</span>를 검토</b>해요. 아래 <b>배치 연습판</b>에서 장비를 끌어 옮기며 여러 안을 만들어 보고, 그 배치를 그대로 복사해 AI에게 검토받을 수도 있어요.</p>
+    <p class="goal">{{owner:이}} 모눈종이에 공간과 장비를 대략 그려요. 그 사진을 AI가 읽어 <b>치수표로 옮기고 → 깔끔한 배치도로 다시 그리고 → 동선·간격·<span data-biz="vet">감염 관리</span><span data-biz-not="vet">위생·정리</span>를 검토</b>해요. 아래 <b>배치 연습판</b>에서 장비를 끌어 옮기며 여러 안을 만들어 볼 수도 있어요. 만든 배치는 그대로 복사해 AI에게 검토받아요.</p>
   </div>
-  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>지금 {{place}} 평면을 손으로 그려 같은 방법으로 검토해요. 바꿀 곳만 표시.</span></p>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>냅킨에 쓱쓱 그린 그림을 AI가 '정리된 도면'으로 바꿔 주는 거예요. 그리고 "여기는 통로가 좁아요" 같은 잔소리도 해 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>치수표, 깔끔하게 다시 그린 배치도, 고친 2안 — 인테리어 업체에 보여 줄 '{{owner}} 안'</span></div><div class="easy-row"><b>필요한 것</b><span>모눈종이, 연필, 줄자, 휴대폰 카메라, 2시간 · 사진을 AI에게 보내기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>지금 {{place}} 평면을 손으로 그려 같은 방법으로 검토해요. 바꿀 곳만 표시하면 돼요.</span></p>
 
 
   <h3>1 · 종이에 그리기</h3>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a99a" data-key="v_a99a"><div class="body"><label for="v_a99a">모눈종이 한 칸 = 50cm로 정하기</label><small>A4 모눈종이(또는 줄 노트)에 맨 위에 <b>"1칸 = 50cm"</b>라고 크게 써요. 임대 공간 도면이 있으면 그 위에 트레이싱지를 대고 그려도 돼요.</small></div></li>
-    <li><input type="checkbox" id="v_a99b" data-key="v_a99b"><div class="body"><label for="v_a99b">벽·문·창·기둥부터, 길이를 숫자로</label><small>벽마다 길이를 m로 적어요(예: 8.2m). 문은 열리는 방향을 호(⌒)로, 창은 두 줄, 기둥은 까만 네모. <b>북쪽 화살표</b>와 <b>입구</b>를 꼭 표시해요.</small></div></li>
-    <li><input type="checkbox" id="v_a99c" data-key="v_a99c"><div class="body"><label for="v_a99c">설비 위치 표시</label><small>수도(○수), 배수(○배), 큰 전기 콘센트(⚡), 환기구(≋), 화장실. <span data-biz="vet">수술실·입원실·싱크대</span><span data-biz-not="vet">싱크대·물 쓰는 작업 자리</span>는 배수 가까이 있어야 공사비가 덜 들어요.</small></div></li>
-    <li><input type="checkbox" id="v_a99d" data-key="v_a99d"><div class="body"><label for="v_a99d">구역과 장비를 네모로</label><small>구역(<span data-biz="vet">접수·대기·진료·처치·격리·수술·입원·조제·직원</span><span data-biz-not="vet">입구·카운터·{{customer}} 공간·작업·보관·직원</span>)을 연필로 나누고, 장비는 실제 크기 비율로 네모를 그려 이름과 크기(가로×세로 cm)를 적어요. 크기를 모르면 장비 업체 카탈로그 숫자로.</small></div></li>
-    <li><input type="checkbox" id="v_a99e" data-key="v_a99e"><div class="body"><label for="v_a99e">사진 찍기</label><small>종이를 바닥에 놓고 <b>바로 위에서</b>, 그림자 없이 밝게, 종이 네 모서리가 다 나오게. 글씨가 작으면 부분 사진을 2~3장 더.</small></div></li>
+    <li><input type="checkbox" id="v_a99a" data-key="v_a99a"><div class="body"><label for="v_a99a">모눈종이 한 칸 = 50cm로 정하기</label><small>칸 크기를 정해야 AI가 길이를 계산할 수 있어요. A4 모눈종이(또는 줄 노트) 맨 위에 <b>"1칸 = 50cm"</b>라고 크게 써요. 임대 공간 도면이 있으면 그 위에 트레이싱지(비치는 얇은 종이)를 대고 그려도 돼요.</small></div></li>
+    <li><input type="checkbox" id="v_a99b" data-key="v_a99b"><div class="body"><label for="v_a99b">벽·문·창·기둥부터 그리고 길이 적기</label><small>틀부터 그려야 안을 채울 수 있어요. 벽마다 길이를 m로 적어요(예: 8.2m). 문은 열리는 방향을 호(⌒)로 그려요. 창은 두 줄, 기둥은 까만 네모로 그려요. <b>북쪽 화살표</b>와 <b>입구</b>를 꼭 표시해요.</small></div></li>
+    <li><input type="checkbox" id="v_a99c" data-key="v_a99c"><div class="body"><label for="v_a99c">설비 위치 표시하기</label><small>물·전기 자리는 옮기면 공사비가 들어서 먼저 표시해요. 수도(○수), 배수(○배), 큰 전기 콘센트(⚡), 환기구(≋), 화장실을 그려요. <span data-biz="vet">수술실·입원실·싱크대</span><span data-biz-not="vet">싱크대·물 쓰는 작업 자리</span>는 배수 가까이 있어야 공사비가 덜 들어요.</small></div></li>
+    <li><input type="checkbox" id="v_a99d" data-key="v_a99d"><div class="body"><label for="v_a99d">구역과 장비를 네모로 그리기</label><small>구역(<span data-biz="vet">접수·대기·진료·처치·격리·수술·입원·조제·직원</span><span data-biz-not="vet">입구·카운터·{{customer}} 공간·작업·보관·직원</span>)을 연필로 나눠요. 장비는 실제 크기 비율로 네모를 그리고 이름과 크기(가로×세로 cm)를 적어요. 크기를 모르면 장비 업체 카탈로그 숫자를 써요.</small></div></li>
+    <li><input type="checkbox" id="v_a99e" data-key="v_a99e"><div class="body"><label for="v_a99e">사진 찍기</label><small>AI가 글씨를 잘 읽게 찍어야 해요. 종이를 바닥에 놓고 <b>바로 위에서</b> 찍어요. 그림자 없이 밝게, 종이 네 모서리가 다 나오게 해요. 글씨가 작으면 부분 사진을 2~3장 더 찍어요.</small></div></li>
   </ol>
 
   <h3>2 · AI에게 읽히고, 다시 그리게 하고, 검토받기</h3>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a99f" data-key="v_a99f"><div class="body"><label for="v_a99f">① 치수표로 옮기기 (읽기 확인이 먼저)</label><small>사진과 아래 '손그림 읽기' 부탁문. AI가 읽은 벽 길이·장비 크기를 표로 주면 <b>{{owner:이}} 종이와 한 줄씩 맞춰 봐요</b>. 손글씨 숫자는 잘못 읽기 쉬워서, 이 단계를 건너뛰면 뒤의 검토가 다 틀려요.</small></div></li>
-    <li><input type="checkbox" id="v_a99g" data-key="v_a99g"><div class="body"><label for="v_a99g">② 깔끔한 배치도로 다시 그리기</label><small>확인한 표로 <span data-ai-not="gpt">Claude가 축척이 맞는 배치도(SVG)를 그려요. 구역 색, 장비 네모, 통로 폭 치수, 동선 화살표까지.</span><span data-ai-none> </span><span data-ai-not="claude">ChatGPT는 표를 바탕으로 배치도 이미지나 표 형태 평면을 만들어요. 축척이 중요하면 아래 연습판에 옮겨 보세요.</span></small></div></li>
-    <li><input type="checkbox" id="v_a99h" data-key="v_a99h"><div class="body"><label for="v_a99h">③ 검토와 2안 받기</label><small>'배치 검토' 부탁문으로 문제점과 고친 2안을 받아요. 안마다 장점·단점·공사비가 늘어나는 곳(배수 이동 등)을 같이.</small></div></li>
-    <li><input type="checkbox" id="v_a99i" data-key="v_a99i"><div class="body"><label for="v_a99i">④ 종이로 돌아가 다시 그리기</label><small>마음에 드는 안을 종이에 다시 그려 보고, 같은 과정을 한 번 더. 두세 번이면 업체에 보여 줄 '{{owner}} 안'이 생겨요. 인테리어 요구사항서(<a href="#c-l96" class="ref" data-ref="c-l96">강의</a>)에 붙여요.</small></div></li>
+    <li><input type="checkbox" id="v_a99f" data-key="v_a99f"><div class="body"><label for="v_a99f">① 치수표로 옮기기 (읽기 확인이 먼저)</label><small>사진과 아래 '손그림 읽기' 부탁문을 함께 보내요. AI가 읽은 벽 길이·장비 크기를 표로 줘요. 그러면 <b>{{owner:이}} 종이와 한 줄씩 맞춰 봐요</b>. 손글씨 숫자는 잘못 읽기 쉬워요. 이 단계를 건너뛰면 뒤의 검토가 다 틀려요.</small><span class="fix">막히면: '읽기 어려움'이 많으면 그 부분만 가까이 다시 찍어 보내거나, 숫자를 글로 적어 알려 줘요.</span></div></li>
+    <li><input type="checkbox" id="v_a99g" data-key="v_a99g"><div class="body"><label for="v_a99g">② 깔끔한 배치도로 다시 그리기</label><small>확인한 표로 <span data-ai-not="gpt">Claude가 축척(실제 길이와 그림 길이의 비율)이 맞는 배치도(SVG 그림)를 그려요. 구역 색, 장비 네모, 통로 폭 치수, 동선 화살표까지.</span><span data-ai-none> </span><span data-ai-not="claude">ChatGPT는 표를 바탕으로 배치도 이미지나 표 형태 평면을 만들어요. 축척이 중요하면 아래 연습판에 옮겨 보세요.</span></small></div></li>
+    <li><input type="checkbox" id="v_a99h" data-key="v_a99h"><div class="body"><label for="v_a99h">③ 검토받고 2안 받기</label><small>공사 전에 문제를 찾아야 돈이 덜 들어요. '배치 검토' 부탁문으로 문제점과 고친 2안을 받아요. 안마다 장점·단점과 공사비가 늘어나는 곳(배수 이동 등)도 같이 받아요.</small></div></li>
+    <li><input type="checkbox" id="v_a99i" data-key="v_a99i"><div class="body"><label for="v_a99i">④ 종이로 돌아가 다시 그리기</label><small>마음에 드는 안을 종이에 다시 그려 보고, 같은 과정을 한 번 더 해요. 두세 번이면 업체에 보여 줄 '{{owner}} 안'이 생겨요. 인테리어 요구사항서(<a href="#c-l96" class="ref" data-ref="c-l96">강의</a>)에 붙여요.</small></div></li>
   </ol>
+  <p class="cap">아래 부탁문 세 개는 순서대로 '09 {{open}} 컨설턴트' 채팅에 그대로 복사해 붙여 넣으세요. 첫 번째는 사진과 함께, 두 번째는 확인한 치수표와 함께 보내요. ○ 자리만 우리 {{place}} 숫자로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>손그림 읽기 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 사진은 내가 모눈종이에 그린 {{biz}} 배치도야. 1칸 = 50cm.
 먼저 읽은 내용만 표로 정리해 줘. 아직 검토하지 마.
 1) 벽: 이름(북쪽 벽 등) | 길이(m) | 문·창 위치
@@ -60,7 +62,7 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
 </span>그다음 고친 2안(각각 바뀐 점, 장점, 단점, 공사비가 늘 수 있는 곳). 치수를 지어내지 말고 표에 있는 값만 써.</pre></div>
 
   <h3>3 · 배치 연습판</h3>
-  <p>방 크기를 넣고 장비를 추가한 뒤 손가락이나 마우스로 끌어 옮겨 보세요. 장비를 한 번 누르면 선택되고, '돌리기'로 90도 회전해요. 다 되면 '배치 복사'를 눌러 위의 '배치 검토' 부탁문과 함께 AI에게 붙여 넣어요.</p>
+  <p>먼저 방 가로·세로를 넣어요. 장비를 고르고 '장비 추가'를 누른 뒤, 손가락이나 마우스로 끌어 옮겨 보세요. 장비를 한 번 누르면 선택돼요. '돌리기'를 누르면 90도 돌아가요. 다 되면 '배치 복사'를 눌러요. 위의 '배치 검토' 부탁문과 함께 AI에게 붙여 넣어요.</p>
   <div class="vis">
     <div class="lp" id="v_lp">
       <div class="lp-ctl">
@@ -199,7 +201,7 @@ SVG 그림이나 이미지로 보여 주고, 축척을 지키기 어려우면 �
   </script>
   <pre class="lp-out" id="v_lpOut" hidden></pre>
   <p class="tip warnbox"><b>AI 검토는 1차 점검이에요.</b> 손그림 치수와 AI 계산에는 오차가 있어요. 실제 시공 도면, 소방·전기·급배수, <span data-biz="vet">방사선 차폐, </span><span data-biz-not="vet"></span>건물 용도는 인테리어 업체와 전문가가 실측해서 확인해요.</p>
-        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">단축어</span><div class="ad"><b>배치도 사진 한 번에</b><span>아이폰 단축어로 '배치도' 앨범 사진을 파일 앱의 Google Drive 인테리어 폴더로 한 번에 저장.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>배치 수정안 고르기</b><span>검토가 끝난 수정안을 고르면 요구사항서 메모에 남아요.</span><span class="pv">버튼: 1안 / 2안 / 더 볼게</span></div></li></ul></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">단축어</span><div class="ad"><b>배치도 사진 한 번에</b><span>아이폰 <dfn data-t="shortcut">단축어</dfn>로 '배치도' 앨범 사진을 파일 앱의 Google Drive 인테리어 폴더에 한 번에 저장해요.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>배치 수정안 고르기</b><span>검토가 끝난 수정안을 고르면 요구사항서 메모에 남아요.</span><span class="pv">버튼: 1안 / 2안 / 더 볼게</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "기구 실제 크기 확인" 부탁: 배치도에 넣을 장비의 제조사 규격 페이지를 읽어 치수만. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>장비 제조사 누리집</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 손그림 사진 → 치수 표 → 배치 SVG 시안 파일.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '09 {{open}} 컨설턴트' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 손그림 사진은 이 채팅에만, 확정 배치 → 요구사항서에</span></div></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'{{open}} 준비실'</b> → <b>09 {{open}} 컨설턴트</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>손그림 사진은 이 채팅에만, 확정 배치 → 요구사항서에</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">법령 MCP</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">인터뷰 컨설턴트</span></div></div><p class="rec-note">사진을 드라이브 '인테리어' 폴더에 모아 두면 여러 안을 비교하기 쉬워요.</p></div>

@@ -2,9 +2,10 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 30분 · 바뀔 때마다 10분</span>
     <h2>네이버와 카카오의 {{hours:이}} 다르면 안 돼요</h2>
-    <p class="goal">지도 앱마다 정보가 다르면 {{customer:는}} 헛걸음을 하고 리뷰에 그대로 남겨요. <b>원본은 {{place}} 소개서 하나</b>로 두고, 바뀔 때마다 체크표대로 모든 지도를 같은 날 고쳐요.</p>
+    <p class="goal">지도 앱마다 정보가 다르면 {{customer:는}} 헛걸음을 해요. 그리고 그 일을 리뷰에 그대로 남겨요. 그래서 <b>원본은 {{place}} 소개서 하나</b>로 둬요. 바뀔 때마다 체크표대로 모든 지도를 같은 날 고쳐요.</p>
   </div>
-  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>인수일에 모든 지도·내비 정보를 한 번에. 지도정보 탭 '바뀐 날' = 인수일.</span></p>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여러 지도 앱에 걸린 우리 {{place}} '간판 정보'를 한 장의 원본에 맞추는 거예요. 원본만 고치면, 고칠 곳과 문구를 AI가 한 번에 정리해 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>장부의 '지도정보' 탭 하나, 그리고 바뀔 때마다 쓰는 채널별 고칠 문구표</span></div><div class="easy-row"><b>필요한 것</b><span>PC 또는 휴대폰, {{place}} 소개서, 장부 시트, 약 30분 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a>, 캡처가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
+  <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>인수일에 모든 지도·내비 정보를 한 번에 고쳐요. 지도정보 탭의 '바뀐 날'에는 인수일을 적어요.</span></p>
 
   <div class="vis">
     <div class="table-wrap"><table>
@@ -18,13 +19,14 @@
         <tr><td><b>리뷰·후기</b></td><td>답글</td><td>답글·사장님픽</td><td>답글</td><td>-</td></tr>
       </tbody>
     </table></div>
-    <p class="cap a" style="--d:.4s">구글 지도는 Google 비즈니스 프로필(무료)로 등록해요. 외국인 {{customer}}나 구글 지도를 쓰는 분이 많은 동네라면 함께. 티맵·애플 지도·차량 내비 등록은 따로 정리했어요(<a href="#c-l18" class="ref" data-ref="c-l18">강의</a>).</p>
+    <p class="cap a" style="--d:.4s">구글 지도는 Google 비즈니스 프로필(무료)로 등록해요. 외국인 {{customer}}나 구글 지도를 쓰는 분이 많은 동네라면 함께 해요. 티맵·애플 지도·차량 내비 등록은 따로 정리했어요(<a href="#c-l18" class="ref" data-ref="c-l18">강의</a>).</p>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a15a" data-key="v_a15a"><div class="body"><label for="v_a15a">장부에 '지도정보' 탭</label><small>항목마다 원본 값과 채널별 반영 날짜를 적어요. 아래 제목 줄을 붙여 넣어요.</small></div></li>
-    <li><input type="checkbox" id="v_a15b" data-key="v_a15b"><div class="body"><label for="v_a15b">바뀌면 한 번에</label><small>{{hours}}·<span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>·전화번호가 바뀌면 소개서를 고치고, 아래 부탁문으로 채널별 고칠 문구를 한 번에 받아 같은 날 반영해요.</small></div></li>
-    <li><input type="checkbox" id="v_a15c" data-key="v_a15c"><div class="body"><label for="v_a15c">분기마다 {{customer}} 눈으로 점검</label><small>네이버 지도·카카오맵에서 {{place:을}} 검색해 화면을 캡처하고 "소개서와 다른 곳 찾아 줘"라고 AI에게 보여 줘요.</small></div></li>
+    <li><input type="checkbox" id="v_a15a" data-key="v_a15a"><div class="body"><label for="v_a15a">장부에 '지도정보' 탭 만들기</label><small>어느 지도를 언제 고쳤는지 한눈에 보려고 만들어요. 항목마다 원본 값과 채널별 반영 날짜를 적어요. 장부 아래쪽 <span class="path">+</span>로 새 탭을 만들고, A1 칸에 아래 제목 줄을 붙여 넣어요.<span class="fix">막히면: 제목 줄이 한 칸에 몰려 들어가면, 붙여 넣은 뒤 나오는 작은 아이콘에서 '열로 분할'을 눌러요.</span></small></div></li>
+    <li><input type="checkbox" id="v_a15b" data-key="v_a15b"><div class="body"><label for="v_a15b">바뀌면 한 번에 고치기</label><small>{{hours}}·<span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>·전화번호가 바뀌면 먼저 소개서를 고쳐요. 그다음 아래 '지도 정보 변경 부탁문'으로 채널별 고칠 문구를 한 번에 받아요. 받은 문구는 같은 날 모든 채널에 반영해요.</small></div></li>
+    <li><input type="checkbox" id="v_a15c" data-key="v_a15c"><div class="body"><label for="v_a15c">분기마다 {{customer}} 눈으로 점검하기</label><small>고친 줄 알았는데 안 바뀐 곳이 있을 수 있어요. 석 달에 한 번, 네이버 지도·카카오맵에서 {{place:을}} 검색해 화면을 캡처해요. 캡처를 AI에게 올리고 아래 '지도 화면 점검 부탁문'을 보내요.</small></div></li>
   </ol>
+  <p class="cap">아래 제목 줄은 장부의 '지도정보' 탭 A1 칸에, 부탁문은 '01 플레이스 매니저' 채팅에 그대로 복사해 붙여 넣으세요. ○○ 자리만 바뀐 내용으로 바꿔요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>지도정보 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>항목 | 원본 값(소개서) | 바뀐 날 | 네이버 플레이스 | 카카오맵 | 구글 지도 | 티맵 | 애플 지도 | 카톡 채널 | 블로그·인스타 프로필 | 메모</pre></div>
   <div class="prompt"><div class="bar"><span>지도 정보 변경 부탁문</span><button class="copy" type="button">복사</button></div><pre>{{place}} 정보가 바뀌었어: ○○ (예: 12월부터 수요일 <span data-biz="vet">야간 진료</span><span data-biz-not="vet">저녁 영업</span> 21시까지, 점심시간 13~14시)
 채널별로 고칠 곳과 넣을 문구를 표로 줘: 채널 | 메뉴 위치 | 넣을 문구.

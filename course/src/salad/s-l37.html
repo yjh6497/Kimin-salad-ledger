@@ -2,10 +2,11 @@
   <div class="lesson-head">
     <span class="kicker">심화 · 실습 · 반나절 · 무료</span>
     <h2>인스타그램 자동화 ③ 사진은 페이지로, 차례는 알림이</h2>
-    <p class="goal">자동 게시 봇(<a href="#c-l52" class="ref" data-ref="c-l52">강의</a>)을 오래 편하게 돌리는 구조예요. 직원과 사장님이 휴대폰 <b>사진 보내기 페이지</b>로 사진을 올리면 이름이 자동으로 붙고, 사진이 비거나 승인이 밀리면 <b>알림</b>이 오고, 승인도 <b>승인함 페이지</b>에서 버튼 하나로 해요. 휴무·품절 같은 긴급 공지도 여기서 바로 올려요.</p>
+    <p class="goal">자동 게시 봇(<a href="#c-l52" class="ref" data-ref="c-l52">강의</a>)을 오래 편하게 돌리는 구조예요. 직원과 사장님이 휴대폰 <b>사진 보내기 페이지</b>로 사진을 올리면 이름이 자동으로 붙어요. 사진이 비거나 승인이 밀리면 <b>알림</b>이 와요. 승인도 <b>승인함 페이지</b>에서 버튼 하나로 해요. 휴무·품절 같은 긴급 공지도 여기서 바로 올려요.</p>
     <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>사진 보내기·승인함 페이지와 알림은 구글 앱스 스크립트 웹앱이라 무료예요. 게시는 앞 강의의 맥 봇이 해요.</span></p>
     <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>같은 구조에 AI 예약 작업으로 주간 성과 해설과 다음 주 계획을 붙여요.</span></p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>가게 단톡방 대신 '사진 우체통'과 '결재함'을 휴대폰에 하나씩 두는 거예요. 직원은 우체통에 사진만 넣고, 사장님은 결재함에서 버튼만 눌러요. 빠진 게 있으면 알림이 먼저 알려 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>휴대폰 홈 화면의 '인스타 자동화실'(사진 보내기·승인함·긴급 공지), 사진 은행 폴더, 사진·승인·주간 요약 알림 메일 세 가지가 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 휴대폰, 앞 강의의 자동 게시 봇, 매장 장부, 반나절 · 웹앱 배포·트리거가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="msg">
       <div class="from a" style="--d:.1s"><span>인스타 자동화실 알림 · 예시</span><span>매장 장부</span></div>
@@ -29,32 +30,33 @@
 
   <h3>1단계 · 사진 보내기·승인함 페이지</h3>
   <ol class="steps">
-    <li><input type="checkbox" id="s_s37a" data-key="s_s37a"><div class="body"><label for="s_s37a">게시계획 시트에 두 칸 더하기</label><small>L열 <b>사진 올린 사람</b>, M열 <b>사진 기한</b>(게시 2일 전, 수식으로). 상태 드롭다운에 <b>사진 도착</b>, <b>수정요청</b>, <b>제안</b>을 더해요.</small>
+    <li><input type="checkbox" id="s_s37a" data-key="s_s37a"><div class="body"><label for="s_s37a">게시계획 시트에 두 칸 더하기</label><small>누가 사진을 올렸는지, 언제까지 필요한지 알아야 알림을 보낼 수 있어요. L열에 <b>사진 올린 사람</b>, M열에 <b>사진 기한</b>(게시 2일 전, 수식으로)을 더해요. 상태 <dfn data-t="dropdown">드롭다운</dfn>에는 <b>사진 도착</b>, <b>수정요청</b>, <b>제안</b>을 더해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>'게시계획' L1에 <b>사진 올린 사람</b>, M1에 <b>사진 기한</b></li>
-        <li>M2 칸에 <b>=IF(A2="","",A2-2)</b> 입력 → M2를 복사해 아래 줄에 붙여 넣기</li>
-        <li>H열 상태 드롭다운을 <span class="path">데이터 → 데이터 확인</span>에서 열어 옵션 추가: 초안, 사진 도착, 꾸밈완료, 수정요청, 승인, 게시됨, 지연, 실패, 제안</li>
+        <li>'게시계획' L1에 <b>사진 올린 사람</b>, M1에 <b>사진 기한</b>을 써요</li>
+        <li>M2 칸에 <b>=IF(A2="","",A2-2)</b>를 입력해요. M2를 복사해 아래 줄에 붙여 넣어요</li>
+        <li>H열 상태 드롭다운을 <span class="path">데이터 → 데이터 확인</span>에서 열어 옵션을 추가해요. 초안, 사진 도착, 꾸밈완료, 수정요청, 승인, 게시됨, 지연, 실패, 제안</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s37b" data-key="s_s37b"><div class="body"><label for="s_s37b">'사진 은행' 폴더 만들기</label><small>드라이브 'SNS/사진은행'에 언제 써도 되는 사진(매장 전경, 대표 메뉴 기본 컷, 재료 클로즈업)을 20장쯤 모아 둬요. 기한까지 사진이 없을 때 대신 쓸 수 있어요.</small>
+    <li><input type="checkbox" id="s_s37b" data-key="s_s37b"><div class="body"><label for="s_s37b">'사진 은행' 폴더 만들기</label><small>바쁜 날엔 사진을 못 찍을 수도 있어요. 그래서 비상용 사진을 모아 둬요. 드라이브 'SNS/사진은행'에 언제 써도 되는 사진(매장 전경, 대표 메뉴 기본 컷, 재료 클로즈업)을 20장쯤 넣어요. 기한까지 사진이 없을 때 대신 쓸 수 있어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>드라이브 '우리가게 장부/SNS' 안에 <b>사진은행</b> 폴더</li>
-        <li>사진 이름 앞에 종류를 붙이기: 전경_01, 웜볼_기본, 재료_로메인</li>
-        <li>석 달에 한 번 계절에 맞게 몇 장씩 바꾸기</li>
+        <li>드라이브 '우리가게 장부/SNS' 안에 <b>사진은행</b> 폴더를 만들어요</li>
+        <li>사진 이름 앞에 종류를 붙여요. 예: 전경_01, 웜볼_기본, 재료_로메인</li>
+        <li>석 달에 한 번 계절에 맞게 몇 장씩 바꿔요</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s37c" data-key="s_s37c"><div class="body"><label for="s_s37c">AI에게 '인스타 자동화실' 웹앱 받기</label><small>'08 자동화·연결' 채팅에 아래 '인스타 자동화실 웹앱 부탁문'을 보내면 Code.gs와 index.html 두 파일 코드를 줘요. 직원 웹앱(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)과 같은 방식이에요.</small>
+    <li><input type="checkbox" id="s_s37c" data-key="s_s37c"><div class="body"><label for="s_s37c">AI에게 '인스타 자동화실' 웹앱 받기</label><small><dfn data-t="webapp">웹앱</dfn>(주소로 여는 우리 가게 전용 작은 앱)을 AI에게 만들어 달라고 해요. '08 자동화·연결' 채팅에 아래 '인스타 자동화실 웹앱 부탁문'을 보내요. 그러면 Code.gs와 index.html 두 파일 코드를 줘요. 직원 웹앱(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)과 같은 방식이에요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>'매장 장부' → <span class="path">확장 프로그램 → Apps Script</span> → 왼쪽 <span class="path">파일 +</span>로 받은 파일 두 개 붙여 넣기 (이미 있는 스크립트와 이름이 겹치지 않게 AI가 정해 줘요)</li>
-        <li><span class="path">배포 → 새 배포 → 웹 앱</span> → 실행: <b>나</b>, 액세스: <b>모든 사용자</b> → 배포 → 권한 허용</li>
-        <li>받은 주소를 휴대폰으로 열어 사장님 PIN으로 들어가 보기 → 사진 보내기와 승인함 두 화면이 보이면 성공</li>
-        <li>Safari 공유 버튼 → <span class="path">홈 화면에 추가</span> → 이름 '인스타 자동화실'<span class="fix">주소를 아는 사람은 페이지를 열 수 있어요. 그래서 PIN이 꼭 필요하고, 이 웹앱은 장부의 '게시계획'과 '직원' 시트만 읽게 만들어요. 매출 숫자는 절대 보이지 않게 부탁문에 적혀 있어요.</span></li>
+        <li>'매장 장부'에서 <span class="path">확장 프로그램 → Apps Script</span>를 열어요. 왼쪽 <span class="path">파일 +</span>로 받은 파일 두 개를 만들어 붙여 넣어요 (이미 있는 스크립트와 이름이 겹치지 않게 AI가 정해 줘요)</li>
+        <li><span class="path">배포 → 새 배포 → 웹 앱</span>을 눌러요. 실행: <b>나</b>, 액세스: <b>모든 사용자</b>로 고르고 배포해요. 권한을 허용해요<span class="fix">막히면: '확인되지 않은 앱' 창이 뜨면 <span class="path">고급 → (안전하지 않음)으로 이동 → 허용</span>을 눌러요. 내가 붙인 코드라 괜찮아요.</span></li>
+        <li>받은 주소를 휴대폰으로 열어 사장님 PIN으로 들어가 봐요. 사진 보내기와 승인함 두 화면이 보이면 성공이에요</li>
+        <li><span class="path">Safari 공유 버튼 → 홈 화면에 추가</span>를 누르고 이름을 '인스타 자동화실'로 해요<span class="fix">주소를 아는 사람은 페이지를 열 수 있어요. 그래서 PIN이 꼭 필요하고, 이 웹앱은 장부의 '게시계획'과 '직원' 시트만 읽게 만들어요. 매출 숫자는 절대 보이지 않게 부탁문에 적혀 있어요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s37d" data-key="s_s37d"><div class="body"><label for="s_s37d">직원에게 '사진 보내기'만 열어 주기</label><small>알바생은 사진 보내기 화면만, 승인함은 사장님(원하면 매니저)만 보여요. 권한은 직원 시트의 역할을 그대로 써요(<a href="#c-l80" class="ref" data-ref="c-l80">강의</a>).</small>
+    <li><input type="checkbox" id="s_s37d" data-key="s_s37d"><div class="body"><label for="s_s37d">직원에게 '사진 보내기'만 열어 주기</label><small>직원이 볼 화면은 적을수록 헷갈리지 않아요. 알바생에게는 사진 보내기 화면만 보여요. 승인함은 사장님(원하면 매니저)만 봐요. 권한은 직원 시트의 역할을 그대로 써요(<a href="#c-l80" class="ref" data-ref="c-l80">강의</a>).</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>직원 단톡방에 주소와 사용법 3줄 보내기 (AI에게 "직원용 사진 보내기 안내 3줄" 부탁)</li>
-        <li>첫 주는 사장님이 직접 한 장 올려 보여 주기: 할 일 카드 → <span class="path">사진 찍기</span> → 올리기 → '받았어요'</li>
+        <li>직원 단톡방에 주소와 사용법 3줄을 보내요 (AI에게 "직원용 사진 보내기 안내 3줄"을 부탁해요)</li>
+        <li>첫 주는 사장님이 직접 한 장 올려 보여 줘요. <span class="path">할 일 카드 → 사진 찍기 → 올리기</span> → '받았어요'</li>
         <li>좋은 사진을 올린 직원은 게시물 캡션이나 단톡방에서 이름을 불러 고마움을 전해요. 계속 올리게 하는 가장 쉬운 방법이에요<span class="fix">직원 얼굴이 나온 사진은 본인 동의를 받은 것만 승인해요. 손님 얼굴이 나온 사진은 쓰지 않아요.</span></li>
       </ol></details></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '08 자동화·연결' 채팅에 붙여 넣으세요. ○○ 자리만 우리 가게 값(폴더 ID, 매니저 허용 여부, 대표색)으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>인스타 자동화실 웹앱 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>'매장 장부' 구글 시트에 붙일 휴대폰용 웹앱 '인스타 자동화실'을 앱스 스크립트로 만들어줘. Code.gs와 index.html로 나눠서, 붙이는 곳과 배포 방법까지 순서대로 알려줘.
 - 로그인: '직원' 시트(이름, 역할, PIN, 상태)의 PIN으로. 상태가 '퇴사'면 못 들어오게. 5번 틀리면 10분 잠금
 - 이 웹앱은 '게시계획'과 '직원' 시트만 읽고 쓰기. 다른 시트(매출·지출·급여)는 절대 열지 마

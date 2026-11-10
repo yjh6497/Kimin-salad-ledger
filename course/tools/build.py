@@ -7,6 +7,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 from spine import PARTS, L
+try:
+    from spine import DEV
+except ImportError:
+    DEV = {}
 
 GROUP = {'c': 'common', 'v': 'vet', 's': 'salad', 'a': 'arch', 'f': 'flower'}
 out = {}
@@ -28,6 +32,7 @@ for pkey, ptitle in PARTS:
             'id': nid, 'g': grp, 'part': a.get('data-part', pkey), 'title': a.get('data-title', ''),
             'level': a.get('data-level', 'grow'), 'stage': a.get('data-stage', 'prep takeover operate').split(),
             'biz': a.get('data-biz', '').split(), 'not': a.get('data-biz-not', '').split(), 'ai': a.get('data-ai', ''),
+            'dev': (a.get('data-dev') or DEV.get(nid, '')).split(), 'devalt': a.get('data-dev-alt', '').split(),
             'kw': re.sub(r'\s+', ' ', ' '.join(re.findall(r'<h[23][^>]*>(.*?)</h[23]>', html)))[:300]
         })
         out.setdefault(grp, []).append(html)

@@ -2,10 +2,11 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 30분 · 매주 5분</span>
     <h2>"이번 주 뭐 있어?"에 캘린더 7개가 한 번에 답해요</h2>
-    <p class="goal">캘린더가 연결된 AI에게 물으면 예약 블록, 근무, 발행일, 돈 나가는 날, 신고 기한을 한 번에 읽고 <b>겹치는 것, 빠진 것, 미리 할 일</b>을 정리해요. 쉬는 날 하나를 넣으면 공지 문구까지 같이 나와요.</p>
-    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>캘린더 커넥터는 무료 플랜에서도 연결할 수 있는 경우가 많아요. 예약 작업이 없으면 월요일 아침 휴대폰 알림 → 한 줄 보내기로.</span></p>
+    <p class="goal">캘린더가 연결된 AI에게 물어요. 그러면 예약 블록, 근무, 발행일, 돈 나가는 날, 신고 기한을 한 번에 읽어요. 그리고 <b>겹치는 것, 빠진 것, 미리 할 일</b>을 정리해요. 쉬는 날 하나를 넣으면 공지 문구까지 같이 나와요.</p>
+    <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>캘린더 <dfn data-t="connector">커넥터</dfn>(다른 앱과 이어 주는 연결선)는 무료 플랜에서도 연결할 수 있는 경우가 많아요. 예약 작업이 없으면 월요일 아침 휴대폰 알림이 울릴 때 한 줄 보내요.</span></p>
     <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>월요일 브리핑 예약 작업(<a href="#c-l41" class="ref" data-ref="c-l41">강의</a>)에 캘린더 읽기를 넣으면 저절로 와요.</span></p>
   </div>
+<div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여러 권의 달력을 한 번에 훑어 주는 비서예요. "이번 주 뭐 있어?" 한마디에 겹치는 일과 놓친 일을 짚어 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>월요일마다 받는 주간 일정 정리와, AI가 일정을 함부로 지우지 못하게 하는 '캘린더 규칙'이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC나 휴대폰, 구글 캘린더, AI 채팅, 30분 · 처음이면 <a href="#c-b3" class="ref" data-ref="c-b3">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble me a" style="--d:.2s"><span class="who">{{owner}}</span>다음 주 일정 정리해 줘. 겹치거나 놓칠 것 위주로.</div>
@@ -13,11 +14,12 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a89a" data-key="v_a89a"><div class="body"><label for="v_a89a">월요일 브리핑에 캘린더 넣기</label><small>월요일 브리핑 부탁문(<a href="#c-l41" class="ref" data-ref="c-l41">강의</a>) 맨 앞에 아래 '캘린더 주간 정리'를 붙여요.</small></div></li>
-    <li><input type="checkbox" id="v_a89b" data-key="v_a89b"><div class="body"><label for="v_a89b">쉬는 날 하나 → 할 일 전부</label><small>"12월 24일 오후 <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>"이라고만 하면 AI가 캘린더 '{{place}} 일정'에 넣고, 네이버·카카오맵 영업시간, 카톡 채널 소식, 네이버 예약 막기, 근무표 변경까지 할 일 목록과 문구를 줘요.</small></div></li>
-    <li><input type="checkbox" id="v_a89c" data-key="v_a89c"><div class="body"><label for="v_a89c">말로 일정 넣기</label><small>휴대폰 AI 앱에 음성으로 "다음 달 첫째 주 목요일 저녁 7시 직원 교육, {{place}} 일정 캘린더, 전날 알림"이라고 하면 캘린더에 들어가요. 넣은 뒤 캘린더 앱에서 한 번 확인해요.</small></div></li>
-    <li><input type="checkbox" id="v_a89d" data-key="v_a89d"><div class="body"><label for="v_a89d">AI가 바꾸면 안 되는 것</label><small>AI가 일정을 지우거나 여러 개를 한꺼번에 옮기려 하면, 실행 전에 목록을 보여 달라고 규칙으로 정해요. 아래 '캘린더 규칙'을 프로젝트 지침 끝에 붙여 두세요.</small></div></li>
+    <li><input type="checkbox" id="v_a89a" data-key="v_a89a"><div class="body"><label for="v_a89a">월요일 브리핑에 캘린더 넣기</label><small>매주 따로 묻지 않아도 되게, 원래 받던 월요일 브리핑에 끼워 넣어요. 월요일 브리핑 부탁문(<a href="#c-l41" class="ref" data-ref="c-l41">강의</a>) 맨 앞에 아래 '캘린더 주간 정리'를 붙여요.</small><span class="fix">막히면: AI가 "캘린더를 볼 수 없어요"라고 하면 채팅 입력창의 도구·커넥터 메뉴에서 Google Calendar가 켜져 있는지 봐요.</span></div></li>
+    <li><input type="checkbox" id="v_a89b" data-key="v_a89b"><div class="body"><label for="v_a89b">쉬는 날 하나로 할 일 전부 받기</label><small>"12월 24일 오후 <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span>"이라고만 말해요. 그러면 AI가 캘린더 '{{place}} 일정'에 넣어요. 네이버·카카오맵 영업시간, 카톡 채널 소식, 네이버 예약 막기, 근무표 변경까지 할 일 목록과 문구도 줘요.</small></div></li>
+    <li><input type="checkbox" id="v_a89c" data-key="v_a89c"><div class="body"><label for="v_a89c">말로 일정 넣기</label><small>손으로 입력하지 않아도 돼요. 휴대폰 AI 앱에 음성으로 "다음 달 첫째 주 목요일 저녁 7시 직원 교육, {{place}} 일정 캘린더, 전날 알림"이라고 해요. 그러면 캘린더에 들어가요. 넣은 뒤 캘린더 앱에서 한 번 확인해요.</small></div></li>
+    <li><input type="checkbox" id="v_a89d" data-key="v_a89d"><div class="body"><label for="v_a89d">AI가 함부로 바꾸지 못하게 규칙 정하기</label><small>AI가 실수로 일정을 지우면 되돌리기 어려워요. 그래서 지우거나 여러 개를 한꺼번에 옮기기 전에는 목록을 먼저 보여 달라고 규칙으로 정해요. 아래 '캘린더 규칙'을 프로젝트 지침 끝에 붙여 두세요.</small></div></li>
   </ol>
+  <p class="cap">아래 부탁문은 그대로 복사해서 캘린더가 연결된 채팅에 붙여 넣으세요. 쉬는 날 부탁문은 ○ 자리만 날짜·사유로 바꿔요. 캘린더 규칙은 프로젝트 지침 맨 끝에 붙여요.</p>
   <div class="prompt"><div class="bar"><span>캘린더 주간 정리 부탁문</span><button class="copy" type="button">복사</button></div><pre>캘린더 도구로 다음 7일 동안 '<span data-biz="vet">진료 예약·수술</span><span data-biz-not="vet">예약·상담</span>', '근무·휴가', 'SNS·콘텐츠', '돈 나가는 날', '세무·신고', '장비·법정 의무', '{{place}} 일정' 캘린더를 모두 읽고 정리해 줘.
 1) 날짜별 한 줄 요약
 2) 겹치는 것: <span data-biz="vet">수술 블록</span><span data-biz-not="vet">큰 예약</span>과 휴가·근무 공백, {{owner}} 외부 일정과 예약 가능 시간

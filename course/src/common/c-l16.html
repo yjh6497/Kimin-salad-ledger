@@ -28,14 +28,14 @@
       </ol></details></div></li>
     <li><input type="checkbox" id="v_a16b" data-key="v_a16b"><div class="body"><label for="v_a16b">답글 규칙을 한 번만 정해 두기</label><small>매번 설명하지 않으려는 거예요. '01 플레이스 매니저' 채팅에 아래 '답글 규칙'을 한 번 보내 둬요. 그 뒤로는 리뷰만 붙여도 같은 규칙으로 답해요. {{owner:이}} 마음에 든 답글 3개를 함께 보여 주면 말투까지 맞춰요.</small></div></li>
     <li><input type="checkbox" id="v_a16c" data-key="v_a16c"><div class="body"><label for="v_a16c">휴대폰 '리뷰 답글' <dfn data-t="shortcut">단축어</dfn> 만들기</label><small>부탁문을 매번 찾아 붙이지 않으려는 거예요. 리뷰를 복사한 뒤 단축어를 한 번 누르면 부탁문과 리뷰가 합쳐져요. 합친 글은 클립보드(복사해 둔 글이 잠깐 머무는 곳)에 담기고 AI 앱이 열려요. 붙여 넣기만 하면 돼요.</small>
-      <details class="how"><summary><span class="closed-label">아이폰 · 단축어 앱</span><span class="open-label">접기</span></summary><ol class="sub">
+      <details class="how" data-dev-only="ios"><summary><span class="closed-label">아이폰 · 단축어 앱</span><span class="open-label">접기</span></summary><ol class="sub">
         <li><b>단축어</b> 앱 → 오른쪽 위 <span class="path">+</span> → 이름 <b>리뷰 답글</b></li>
         <li>동작 추가: <span class="path">클립보드 가져오기</span></li>
         <li>동작 추가: <span class="path">텍스트</span> → 아래 '단축어용 짧은 부탁문'을 붙여 넣고, 맨 끝에 변수 <b>클립보드</b>를 넣기</li>
         <li>동작 추가: <span class="path">클립보드에 복사</span>(방금 만든 텍스트) → <span class="path">앱 열기</span> → <span data-ai-not="gpt">Claude</span><span data-ai-none> 또는 </span><span data-ai-not="claude">ChatGPT</span></li>
         <li>완료 → 길게 눌러 <span class="path">홈 화면에 추가</span>. 쓰는 법: 리뷰 길게 눌러 복사 → 단축어 누르기 → AI 앱의 '01 플레이스 매니저' 채팅에 붙여 넣기<span class="fix">처음 실행 때 클립보드 접근 허용을 물어보면 '항상 허용'을 누르세요.</span></li>
       </ol></details>
-      <details class="how"><summary><span class="closed-label">갤럭시 · 키보드 상용구</span><span class="open-label">접기</span></summary><ol class="sub">
+      <details class="how" data-dev-only="android"><summary><span class="closed-label">갤럭시 · 키보드 상용구</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>삼성 키보드 → <span class="path">설정 → 스마트 입력 → 텍스트 단축키</span>(또는 상용구) → 단축키 <b>ㄹㅂ</b>, 내용에 '단축어용 짧은 부탁문'</li>
         <li>쓰는 법: AI 채팅창에 ㄹㅂ 입력 → 부탁문 선택 → 한 줄 띄우고 복사한 리뷰 붙여 넣기</li>
       </ol></details></div></li>

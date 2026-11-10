@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절 · 매달 20분</span>
     <h2>3만·5만·10만 원, 가격대마다 무엇이 들어가는지 정해요</h2>
-    <p class="goal">손님은 "5만 원짜리 꽃다발 되나요?"처럼 예산부터 말해요. 꽃다발·꽃바구니·화분·화환·정기 구독을 가격대별 <b>라인업</b>으로 정해 두면 상담이 빨라지고, 같은 값이면 늘 비슷한 크기가 나와요. 상품마다 꽃값·자재·인건비를 구글 시트에 적어 남는 돈까지 계산해요.</p>
+    <p class="goal">손님은 "5만 원짜리 꽃다발 되나요?"처럼 예산부터 말해요. 꽃다발·꽃바구니·화분·화환·정기 구독을 가격대별 <b>라인업</b>(가격대마다 정해 둔 상품 목록)으로 정해 두세요. 그러면 상담이 빨라져요. 같은 값이면 늘 비슷한 크기가 나와요. 상품마다 꽃값·자재·인건비를 구글 시트에 적어 남는 돈까지 계산해요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>식당 메뉴판을 만드는 것과 같아요. "5만 원 꽃다발에는 장미 몇 송이" 하고 정해 두고, 하나 팔면 얼마 남는지 시트가 계산해 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>가격대별 상품 표와, 상품마다 원가·원가율·남는 돈이 자동으로 나오는 '꽃집 운영 장부' 시트가 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 동네 꽃집 가격표 몇 장, 반나절 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a>부터 봐요.</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">꽃집 인수라면</b><span>지난 1년 판매 기록과 지금 가격표부터 넘겨받아요. 잘 팔리던 가격대는 그대로 두고 원가만 다시 계산해요.</span></p>
   <p class="tknote" data-stage-only="operate"><b class="tag">이미 운영 중이라면</b><span>지금 파는 상품을 그대로 표에 옮기는 것부터 해요. 새 라인업은 원가를 본 뒤에 정해요.</span></p>
 
@@ -22,28 +23,29 @@
   </div>
 
   <ol class="steps">
-    <li><input type="checkbox" id="f_menu_a" data-key="f_menu_a"><div class="body"><label for="f_menu_a">라인업 초안 받기</label><small>동네, 주요 손님(직장인·학부모·연인 등), 하고 싶은 상품을 AI에게 말하면 가격대별 표를 만들어 줘요. 아래 '라인업 부탁문'을 써요. 가격대는 너무 많지 않게, 상품마다 3~4단계면 충분해요.</small></div></li>
+    <li><input type="checkbox" id="f_menu_a" data-key="f_menu_a"><div class="body"><label for="f_menu_a">라인업 초안 받기</label><small>빈 종이에서 시작하지 않으려고 AI에게 초안을 받아요. 동네, 주요 손님(직장인·학부모·연인 등), 하고 싶은 상품을 말하면 가격대별 표를 만들어 줘요. 아래 '라인업 부탁문'을 써요. 가격대는 너무 많지 않게, 상품마다 3~4단계면 충분해요.</small></div></li>
     <li><input type="checkbox" id="f_menu_b" data-key="f_menu_b"><div class="body"><label for="f_menu_b">'꽃집 운영 장부' 시트에 '상품' 탭 만들기</label><small>이 시트 하나에 상품·원가·시세·주문·로스를 모두 모아요. 다른 꽃집 강의도 이 시트를 같이 써요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>드라이브 '꽃집 마케팅' 폴더 → <span class="path">+ 새로 만들기 → Google 스프레드시트</span> → 이름 <b>꽃집 운영 장부</b></li>
-        <li>아래 탭 이름을 더블클릭해 <b>상품</b>으로 바꾸고, A1에 '상품 제목 줄' 붙여 넣기</li>
-        <li>같은 방법으로 <b>구성</b> 탭을 하나 더 만들고 '구성 제목 줄' 붙여 넣기<span class="fix">붙여 넣었는데 한 칸에 다 들어가면, 붙인 칸을 선택하고 <span class="path">데이터 → 텍스트를 열로 분할</span> → 구분자 '맞춤: |'.</span></li>
+        <li>드라이브 '꽃집 마케팅' 폴더를 열어요. <span class="path">+ 새로 만들기 → Google 스프레드시트</span>를 누르고, 왼쪽 위 제목을 <b>꽃집 운영 장부</b>로 바꿔요</li>
+        <li>화면 아래 탭 이름(시트1)을 더블클릭해 <b>상품</b>으로 바꿔요. A1 칸을 누르고 '상품 제목 줄'을 붙여 넣어요</li>
+        <li>아래쪽 <span class="path">+</span>로 탭을 하나 더 만들어 <b>구성</b>으로 바꿔요. A1 칸에 '구성 제목 줄'을 붙여 넣어요<span class="fix">붙여 넣었는데 한 칸에 다 들어가면, 붙인 칸을 선택하고 <span class="path">데이터 → 텍스트를 열로 분할</span> → 구분자 '맞춤: |'로 해요.</span></li>
       </ol>
       <div class="prompt" data-tsv><div class="bar"><span>상품 제목 줄</span><button class="copy" type="button">복사</button></div><pre>상품코드 | 종류 | 이름 | 판매가 | 꽃값 | 자재비 | 인건비 | 원가 합계 | 원가율 | 남는 돈 | 메모</pre></div>
       <div class="prompt" data-tsv><div class="bar"><span>구성 제목 줄</span><button class="copy" type="button">복사</button></div><pre>상품코드 | 재료 | 수량 | 단위 | 단가 | 금액 | 단가 출처</pre></div></details></div></li>
-    <li><input type="checkbox" id="f_menu_c" data-key="f_menu_c"><div class="body"><label for="f_menu_c">상품마다 '구성'을 한 줄씩 적기</label><small>샐러드 가게의 레시피처럼, 꽃다발에도 구성표가 있어요. "5만 원 꽃다발 = 주꽃 장미 7송이 + 보조꽃 2종 + 그린 + 포장지 2장 + 리본". 한 번 만들어 보면서 실제로 쓴 양을 적어요. 포장지·리본·오아시스·카드·쇼핑백도 재료처럼 적어요.</small></div></li>
-    <li><input type="checkbox" id="f_menu_d" data-key="f_menu_d"><div class="body"><label for="f_menu_d">인건비도 원가에 넣기</label><small>꽃집은 손이 가는 시간이 커요. "꽃다발 하나 만드는 데 몇 분"을 재서, 사장님이 정한 시간당 금액으로 바꿔요. 사장님 혼자 해도 넣어야 남는 돈이 정확해요.</small></div></li>
-    <li><input type="checkbox" id="f_menu_e" data-key="f_menu_e"><div class="body"><label for="f_menu_e">원가 수식 받아서 붙이기</label><small>아래 '원가 수식 부탁문'을 보내면 구성 탭 금액을 합쳐 상품 탭에 넣는 수식을 알려 줘요. 단가는 나중에 시세 탭(<a href="#f-buy" class="ref" data-ref="f-buy">강의</a>)에서 자동으로 가져오게 바꿔요.</small>
+    <li><input type="checkbox" id="f_menu_c" data-key="f_menu_c"><div class="body"><label for="f_menu_c">상품마다 '구성'을 한 줄씩 적기</label><small>음식의 레시피처럼, 꽃다발에도 구성표가 있어요. 예를 들면 "5만 원 꽃다발 = 주꽃 장미 7송이 + 보조꽃 2종 + 그린 + 포장지 2장 + 리본"이에요. 한 번 만들어 보면서 실제로 쓴 양을 구성 탭에 적어요. 포장지·리본·오아시스·카드·쇼핑백도 재료처럼 적어요.</small></div></li>
+    <li><input type="checkbox" id="f_menu_d" data-key="f_menu_d"><div class="body"><label for="f_menu_d">인건비도 원가에 넣기</label><small>꽃집은 손이 가는 시간이 커요. "꽃다발 하나 만드는 데 몇 분"을 재 봐요. 그 시간을 사장님이 정한 시간당 금액으로 바꿔요. 사장님 혼자 만들어도 넣어야 남는 돈이 정확해요.</small></div></li>
+    <li><input type="checkbox" id="f_menu_e" data-key="f_menu_e"><div class="body"><label for="f_menu_e">원가 수식 받아서 붙이기</label><small>계산을 손으로 하지 않으려고 수식(시트가 알아서 계산하게 하는 식)을 넣어요. 아래 '원가 수식 부탁문'을 보내면 구성 탭 금액을 합쳐 상품 탭에 넣는 수식을 알려 줘요. 단가는 나중에 시세 탭(<a href="#f-buy" class="ref" data-ref="f-buy">강의</a>)에서 자동으로 가져오게 바꿔요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>'12 재고·구매' 채팅에 부탁문 보내기</li>
-        <li>받은 수식을 상품 탭 E열(꽃값)부터 붙여 넣고 아래로 끌어 채우기</li>
-        <li>원가율 칸이 기준을 넘으면 빨갛게 보이는지 확인<span class="fix">숫자가 0으로 나오면 구성 탭의 상품코드 철자가 상품 탭과 같은지 봐요. 띄어쓰기 하나만 달라도 못 찾아요.</span></li>
+        <li>'12 재고·구매' 채팅에 부탁문을 보내요</li>
+        <li>받은 수식을 상품 탭 E열(꽃값)부터 붙여 넣어요. 칸 오른쪽 아래 작은 네모를 아래로 끌어 나머지 줄도 채워요</li>
+        <li>원가율 칸이 기준을 넘으면 빨갛게 보이는지 확인해요<span class="fix">숫자가 0으로 나오면 구성 탭의 상품코드 철자가 상품 탭과 같은지 봐요. 띄어쓰기 하나만 달라도 못 찾아요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="f_menu_f" data-key="f_menu_f"><div class="body"><label for="f_menu_f">기준 원가율 정하고, 넘는 상품 고치기</label><small>상품 탭 맨 위에 기준 원가율 한 칸을 두어요. 이 숫자는 사장님이 정하는 목표예요. 넘는 상품은 가격을 올리거나, 주꽃 송이 수를 줄이거나, 계절 꽃으로 바꾸는 방법을 AI에게 물어요.</small></div></li>
+    <li><input type="checkbox" id="f_menu_f" data-key="f_menu_f"><div class="body"><label for="f_menu_f">기준 원가율 정하고, 넘는 상품 고치기</label><small>원가율은 판매가 중 재료·손품에 드는 몫이에요. 상품 탭 맨 위에 기준 원가율 한 칸을 두어요. 이 숫자는 사장님이 정하는 목표예요. 넘는 상품은 가격을 올리거나, 주꽃 송이 수를 줄이거나, 계절 꽃으로 바꾸는 방법을 AI에게 물어요.</small></div></li>
   </ol>
 
-  <p class="tip"><b>꽃값은 철마다 바뀌어요.</b> 가격표에 꽃 이름을 못 박기보다 "그날 가장 좋은 꽃으로 구성해요", "계절에 따라 꽃 종류가 달라질 수 있어요"를 같이 적어 두면, 대목에 장미값이 올라도 같은 가격으로 맞출 수 있어요.</p>
+  <p class="tip"><b>꽃값은 철마다 바뀌어요.</b> 가격표에 꽃 이름을 못 박지 마세요. 대신 "그날 가장 좋은 꽃으로 구성해요", "계절에 따라 꽃 종류가 달라질 수 있어요"를 같이 적어 둬요. 그러면 대목에 장미값이 올라도 같은 가격으로 맞출 수 있어요.</p>
 
+  <p class="cap">아래 부탁문들은 그대로 복사해서 AI 채팅에 붙여 넣으세요. ○○ 자리만 우리 꽃집 값으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>라인업 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 꽃집 상품 라인업 초안을 만들어 줘.
 - 위치·손님: ○○동, 주변에 ○○(학교·회사·병원·아파트)
 - 하고 싶은 상품: 꽃다발, 꽃바구니, 화분, 화환(직접/연계), 정기 구독

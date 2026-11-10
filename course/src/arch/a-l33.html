@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>계산은 시트가, 검산은 AI가</h2>
-    <p class="goal">AI에게 면적을 바로 계산시키면 틀릴 수 있어요. 계산은 <b>구글 시트 수식</b>이 하고, AI는 표를 만들어 주고 빠진 항목과 근거를 짚는 역할을 맡아요.</p>
+    <p class="goal">AI에게 면적을 바로 계산시키면 틀릴 수 있어요. 그래서 계산은 <b>구글 시트 수식</b>이 해요. AI는 표를 만들어 주고, 빠진 항목과 근거를 짚는 역할을 맡아요.</p>
   </div>
+<div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>계산기와 검토자를 나누는 거예요. 시트가 숫자를 계산하고, AI는 옆에서 빠뜨린 것이 없는지 다시 봐 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>층별 면적만 넣으면 건폐율·용적률·주차가 저절로 계산되는 '면적검토 양식' 시트가 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 끝난 프로젝트 면적표 1건, 1시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="dash">
       <div class="kpi pop" style="--d:.2s"><span>대지면적 · 예시</span><b>330.0㎡</b></div>
@@ -15,14 +16,15 @@
   <ol class="steps">
     <li><input type="checkbox" id="a_a33a" data-key="a_a33a"><div class="body"><label for="a_a33a">'면적검토 양식' 시트 만들기</label><small>프로젝트마다 복사해 쓸 양식이에요. '양식' 폴더에 만들어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>드라이브 '양식' 폴더 → 새 스프레드시트 → 이름 <b>면적검토 양식</b></li>
-        <li>탭 3개: 층별면적, 한도, 주차</li>
-        <li>아래 제목 줄들을 각 탭 A1에 붙여 넣기</li>
+        <li>드라이브 '양식' 폴더에서 <span class="path">+ 새로 만들기 → Google 스프레드시트</span>를 눌러요. 이름은 <b>면적검토 양식</b>으로 바꿔요</li>
+        <li>아래 <span class="path">+</span>를 눌러 <dfn data-t="tab">탭</dfn> 3개를 만들어요. 이름은 층별면적, 한도, 주차예요</li>
+        <li>아래 제목 줄들을 각 탭 A1 칸에 붙여 넣어요<span class="fix">막히면: 한 칸에 글자가 다 들어가면, 복사 버튼으로 다시 복사해 A1을 누르고 붙여 넣어요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a33b" data-key="a_a33b"><div class="body"><label for="a_a33b">AI에게 수식 받기</label><small>'02 대지·법규 검토' 채팅에 아래 '수식 부탁문'을 보내고, 받은 수식을 알려 준 칸에 붙여 넣어요.</small></div></li>
-    <li><input type="checkbox" id="a_a33c" data-key="a_a33c"><div class="body"><label for="a_a33c">끝난 프로젝트로 시험하기</label><small>이미 허가받은 프로젝트의 면적표를 넣어 보고, 허가 도서의 숫자와 맞는지 확인해요. 맞아야 새 프로젝트에 써요.</small></div></li>
-    <li><input type="checkbox" id="a_a33d" data-key="a_a33d"><div class="body"><label for="a_a33d">새 프로젝트: 복사 → 입력 → AI 검산</label><small>양식을 <span class="path">파일 → 사본 만들기</span>로 프로젝트 폴더에 복사 → 층별 면적 입력 → 표를 AI에게 주고 '검산 부탁문'</small></div></li>
+    <li><input type="checkbox" id="a_a33b" data-key="a_a33b"><div class="body"><label for="a_a33b">AI에게 수식 받기</label><small>수식을 직접 짜지 않아도 돼요. '02 대지·법규 검토' 채팅에 아래 '수식 부탁문'을 보내요. 받은 수식을 AI가 알려 준 칸에 붙여 넣어요.</small><span class="fix">막히면: 칸에 #ERROR!나 #REF!가 뜨면 그 칸의 수식과 오류 글자를 그대로 AI에게 보내 "고쳐줘"라고 해요.</span></div></li>
+    <li><input type="checkbox" id="a_a33c" data-key="a_a33c"><div class="body"><label for="a_a33c">끝난 프로젝트로 시험하기</label><small>수식이 맞는지 먼저 확인해야 새 일에 믿고 써요. 이미 허가받은 프로젝트의 면적표를 넣어 봐요. 허가 도서의 숫자와 맞는지 확인해요. 맞아야 새 프로젝트에 써요.</small></div></li>
+    <li><input type="checkbox" id="a_a33d" data-key="a_a33d"><div class="body"><label for="a_a33d">새 프로젝트에 복사해 쓰고 AI 검산받기</label><small>양식을 <span class="path">파일 → 사본 만들기</span>로 프로젝트 폴더에 복사해요. 층별 면적을 입력해요. 그 표를 AI에게 주고 '검산 부탁문'을 보내요.</small></div></li>
   </ol>
+  <p class="cap">제목 줄은 복사 버튼을 눌러 각 탭 A1에 붙여 넣으세요. 수식 부탁문과 검산 부탁문은 그대로 복사해서 '02 대지·법규 검토' 채팅에 붙여 넣어요. 수식 부탁문 마지막 줄에는 세 탭 제목 줄을 붙여요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>층별면적 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>층 | 용도 | 바닥면적(㎡) | 용적률 제외(㎡) | 제외 사유 | 산정용 면적(㎡) | 비고</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>한도 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>항목 | 값 | 근거(법령·조례) | 확인일</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>주차 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>용도 | 면적(㎡) | 기준(㎡당 1대) | 산정 대수 | 근거 | 비고</pre></div>

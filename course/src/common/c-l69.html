@@ -31,14 +31,14 @@
 
   <ol class="steps">
     <li><input type="checkbox" id="v_a69a" data-key="v_a69a"><div class="body"><label for="v_a69a">할 일 목록부터: ①로 안 되는 것만 고르기</label><small>컴퓨터를 괜히 켜 두지 않으려고 먼저 나눠 봐요. 아래 '자동화 컴퓨터 설계 부탁문'을 AI에게 보내, 우리 {{place}}의 반복 일을 ①②③으로 나눠요. ②가 하나도 없으면 컴퓨터를 켜 둘 필요가 없어요.</small></div></li>
-    <li><input type="checkbox" id="v_a69b" data-key="v_a69b"><div class="body"><label for="v_a69b">맥: 잠들지 않게, 정전 뒤 다시 켜지게 설정하기</label><small>맥이 잠들면 예약한 일도 멈춰요. 그래서 잠자기를 막고, 켜지면 필요한 앱이 저절로 열리게 해요.</small>
+    <li data-dev-only="mac"><input type="checkbox" id="v_a69b" data-key="v_a69b"><div class="body"><label for="v_a69b">맥: 잠들지 않게, 정전 뒤 다시 켜지게 설정하기</label><small>맥이 잠들면 예약한 일도 멈춰요. 그래서 잠자기를 막고, 켜지면 필요한 앱이 저절로 열리게 해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>맥 미니: <span class="path">시스템 설정 → 에너지</span>로 가요. '디스플레이가 꺼져 있을 때 자동으로 잠자기 방지'를 켜요. '네트워크 접근 시 깨우기'도 켜요. '전원이 연결되면 시작'은 '항상'으로 해요(2024년 이후 맥 미니, macOS 26.5 이후).</li>
         <li>맥북: <span class="path">시스템 설정 → 배터리 → 옵션</span>으로 가요. '전원 어댑터에 연결되어 있을 때 디스플레이가 꺼지면 자동으로 잠자기 방지'를 켜요. 덮개는 열어 두고 화면 밝기는 가장 낮게 해요. '최적화된 배터리 충전'은 켜 둬요.</li>
         <li><span class="path">시스템 설정 → 일반 → 로그인 항목</span>에서 + 를 눌러 Claude, 메시지, Chrome을 더해요. 그러면 켜질 때 저절로 열려요.</li>
         <li><span class="path">시스템 설정 → 일반 → 공유 → 화면 공유</span>를 켜요. 그러면 {{owner}} 맥북에서 원격으로 들여다볼 수 있어요(같은 와이파이일 때).<span class="fix">막히면: 메뉴 이름은 macOS 버전에 따라 조금 달라요. 시스템 설정 검색창에 '잠자기', '로그인 항목'을 쳐 보세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a69c" data-key="v_a69c"><div class="body"><label for="v_a69c">윈도우: 절전 끄고 업데이트 시간 정하기</label><small>윈도우는 절전과 자동 업데이트 재시작 때문에 자주 멈춰요. 이 두 가지를 먼저 막아요.</small>
+    <li data-dev-only="win"><input type="checkbox" id="v_a69c" data-key="v_a69c"><div class="body"><label for="v_a69c">윈도우: 절전 끄고 업데이트 시간 정하기</label><small>윈도우는 절전과 자동 업데이트 재시작 때문에 자주 멈춰요. 이 두 가지를 먼저 막아요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li><span class="path">설정 → 시스템 → 전원(및 배터리)</span>에서 화면 끄기는 10분, 절전 모드는 '안 함'으로 해요.</li>
         <li>노트북: <span class="path">제어판 → 전원 옵션 → 덮개를 닫으면 수행할 작업</span>에서 '전원 연결 시'를 '아무 것도 안 함'으로 해요.</li>

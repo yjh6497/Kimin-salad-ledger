@@ -24,14 +24,15 @@
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>드라이브 '{{place}} 마케팅' 폴더 → <span class="path">+ 새로 만들기 → Google 문서</span> → 이름 <b>업무일지</b></li>
         <li>프로젝트 파일 칸 → <span data-ai-not="gpt"><span class="path">+ → Google Drive에서 추가</span></span><span data-ai="gpt"><span class="path">파일 추가 → Google Drive</span></span> → '업무일지'</li>
-        <li>확인: 아무 직원 채팅에서 "업무일지에서 이번 달 주제 알려줘"</li>
+        <li>확인: 아무 직원 채팅에서 "업무일지에서 이번 달 주제 알려줘"라고 물어봐요<span class="fix">막히면: 'Google Drive에서 추가'가 안 보이면 드라이브 연결이 아직이에요. <a href="#c-l38" class="ref" data-ref="c-l38">강의</a>에서 연결하거나, 문서를 PDF로 내려받아 직접 올려요.</span></li>
       </ol></details></div></li>
   </ol>
   <h3>프로젝트는 둘, 채팅은 일마다</h3>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a6d" data-key="v_a6d"><div class="body"><label for="v_a6d">두 번째 프로젝트 '{{open}} 준비실' 만들기</label><small>{{place}} 이름·인테리어 사진·평면도·업체 견적·단말기 비교처럼 <b>{{open}} 전에만 쓰는 무거운 자료</b>는 '{{open}} 준비실' 프로젝트에 따로 둬요. 같은 방법(<a href="#c-l5" class="ref" data-ref="c-l5">강의</a>)으로 만들고, 지침문은 비서실 것을 복사해 맨 위에 "이 프로젝트는 {{open}} 준비용"을 붙여요. 채팅은 '09 {{open}} 컨설턴트' 하나로 시작해요. {{open}}하면 보관만 해요.</small></div></li>
-    <li><input type="checkbox" id="v_a6e" data-key="v_a6e"><div class="body"><label for="v_a6e">세션(채팅)을 여는 세 가지 규칙</label><small><b>반복 일</b>(리뷰·블로그·카톡 응대)은 같은 직원 채팅을 계속, 길어지면 요약해서 같은 이름으로 새 채팅. <b>매주 일</b>(일요일 콘텐츠)은 주마다 새 채팅. <b>사건</b>(분쟁·계약 검토·견적 비교)은 일마다 새 채팅. 강의마다 아래쪽 <b>'AI 비서에 연결'</b> 상자에 어느 프로젝트·어느 채팅에서 할지 적어 두었어요.</small></div></li>
+    <li><input type="checkbox" id="v_a6d" data-key="v_a6d"><div class="body"><label for="v_a6d">두 번째 프로젝트 '{{open}} 준비실' 만들기</label><small>비서실을 가볍게 두려는 거예요. {{place}} 이름·인테리어 사진·평면도·업체 견적·단말기 비교처럼 <b>{{open}} 전에만 쓰는 무거운 자료</b>는 '{{open}} 준비실' 프로젝트에 따로 둬요. 만드는 방법은 같아요(<a href="#c-l5" class="ref" data-ref="c-l5">강의</a>). 지침문은 비서실 것을 복사하고, 맨 위에 "이 프로젝트는 {{open}} 준비용"을 붙여요. 채팅은 '09 {{open}} 컨설턴트' 하나로 시작해요. {{open}}하면 보관만 해요.</small></div></li>
+    <li><input type="checkbox" id="v_a6e" data-key="v_a6e"><div class="body"><label for="v_a6e">새 채팅 여는 규칙 세 가지 익히기</label><small>채팅이 너무 길어지면 AI가 앞 내용을 잊기 쉬워서예요. <b>반복 일</b>(리뷰·블로그·카톡 응대)은 같은 직원 채팅을 계속 써요. 길어지면 요약해서 같은 이름으로 새 채팅을 열어요. <b>매주 일</b>(일요일 콘텐츠)은 주마다 새 채팅을 열어요. <b>사건</b>(분쟁·계약 검토·견적 비교)은 일마다 새 채팅을 열어요. 강의마다 아래쪽 <b>'AI 비서에 연결'</b> 상자에 어느 프로젝트·어느 채팅에서 할지 적어 두었어요.</small></div></li>
   </ol>
+  <p class="cap">'직원 첫 메시지'는 새 직원 채팅마다 복사해서 붙여 넣으세요. ○○ 자리만 직책과 맡은 일로 바꿔요. 업무일지 정리 부탁문은 하루 일을 마칠 때 그대로 보내요.</p>
   <div class="prompt"><div class="bar"><span>직원 첫 메시지</span><button class="copy" type="button">복사</button></div><pre>너는 우리 {{biz}} AI 비서실의 ○○(직책)야. 맡은 일은 ○○(업무)이야.
 이 채팅에서는 그 업무만 다루고, 프로젝트 파일의 '{{place}} 소개서', '{{place}} 마케팅 장부', '업무일지'를 참고해.
 첫 업무로, 네가 매주 해 줄 수 있는 일 5가지를 짧게 알려 줘.</pre></div>

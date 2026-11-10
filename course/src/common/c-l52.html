@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 고급·선택 · 처음 2~3시간</span>
     <h2>공식 API로, 승인한 글만 정한 시간에 저절로 올라가요</h2>
-    <p class="goal">네이버와 달리 인스타그램은 <b>공식 게시 API</b>(Instagram API 콘텐츠 게시)가 있어요. 프로페셔널 계정(비즈니스·크리에이터)이면 내 계정에 사진·캐러셀·릴스를 프로그램으로 올릴 수 있어요. 시트에 글을 쌓고 → 텔레그램으로 승인하면 → 앱스 스크립트(클라우드)나 터미널 봇이 <b>게시일시가 되면 자동 게시</b>해요. 예약 게시(<a href="#c-l27" class="ref" data-ref="c-l27">강의</a>)를 익힌 다음 단계예요.</p>
+    <p class="goal">네이버와 달리 인스타그램은 <b>공식 게시 <dfn data-t="igapi">API</dfn></b>(Instagram API 콘텐츠 게시)가 있어요. API는 프로그램이 인스타에 글을 올릴 수 있게 열어 둔 공식 창구예요. 프로페셔널 계정(비즈니스·크리에이터)이면 내 계정에 사진·캐러셀(여러 장 넘기는 게시물)·릴스를 프로그램으로 올릴 수 있어요. 흐름은 이래요. 시트에 글을 쌓고 → 텔레그램으로 승인하면 → 앱스 스크립트(클라우드)나 터미널 봇이 <b>게시일시가 되면 자동 게시</b>해요. 예약 게시(<a href="#c-l27" class="ref" data-ref="c-l27">강의</a>)를 익힌 다음 단계예요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>우체국 '예약 발송'과 비슷해요. 글과 사진을 시트에 맡겨 두고 승인 도장만 찍으면, 정한 시간에 인스타에 저절로 올라가요.</span></div><div class="easy-row"><b>끝나면</b><span>장부의 '인스타' 탭, 15분마다 확인해 승인된 글을 올리는 스크립트, "게시됨" 텔레그램 알림이 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 인스타 프로페셔널 계정, Meta 개발자 가입, 장부 시트, 처음 2~3시간 · 고급·선택 강의예요. 코드 붙이기·트리거는 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="journey">
       <div class="jn a" style="--d:.1s"><em>1 · 시트</em><b>인스타 탭에 한 줄</b><span>게시일시·캡션·이미지 주소</span></div>
@@ -20,32 +21,34 @@
       <tr><td><b>계정</b></td><td>인스타그램 프로페셔널 계정(<a href="#c-l25" class="ref" data-ref="c-l25">강의</a>). 개인 계정은 API로 게시할 수 없어요. 'Instagram 로그인' 방식이면 페이스북 페이지 연결이 없어도 돼요</td></tr>
       <tr><td><b>권한</b></td><td>Meta 개발자 앱에서 instagram_business_basic, instagram_business_content_publish</td></tr>
       <tr><td><b>이미지</b></td><td><b>JPEG만</b>, 게시하는 순간 Meta가 가져갈 수 있는 <b>공개 주소(URL)</b>에 있어야 해요. 캐러셀은 최대 10장</td></tr>
-      <tr><td><b>릴스</b></td><td>media_type=REELS와 영상 공개 주소. 처리 시간이 있어 상태(status_code)가 FINISHED가 된 뒤 게시</td></tr>
+      <tr><td><b>릴스</b></td><td>media_type=REELS와 영상 공개 주소가 필요해요. 영상은 처리 시간이 있어요. 상태(status_code)가 FINISHED가 된 뒤 게시해요</td></tr>
       <tr><td><b>한도</b></td><td>API 게시는 24시간 기준 한도가 있어요(문서에 100건, 계정에 따라 더 적을 수 있음). {{place:은}} 하루 1~2건이라 넉넉하지만, content_publishing_limit로 확인할 수 있어요</td></tr>
       <tr><td><b>못 하는 것</b></td><td>쇼핑 태그, 브랜디드 콘텐츠 태그, 필터는 API로 안 돼요. 음악은 앱에서 직접 올릴 때가 편해요</td></tr>
     </tbody>
   </table></div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a52a" data-key="v_a52a"><div class="body"><label for="v_a52a">Meta 개발자 앱과 토큰</label>
+    <li><input type="checkbox" id="v_a52a" data-key="v_a52a"><div class="body"><label for="v_a52a">Meta 개발자 앱 만들고 토큰 받기</label><small>프로그램이 내 인스타에 글을 올리려면 '출입증'이 필요해요. 그 출입증이 <dfn data-t="token">토큰</dfn>이에요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>developers.facebook.com → {{place}} 메타 계정으로 로그인 → 내 앱 → 앱 만들기(비즈니스 용도)</li>
-        <li>제품 추가에서 <b>Instagram</b> → 'Instagram 로그인으로 API 설정' → {{place}} 인스타 계정 연결 → 위 두 권한 허용</li>
-        <li>화면의 <b>액세스 토큰 생성</b> → 토큰과 인스타 계정 ID(IG ID)를 복사. 이 토큰은 비밀번호예요, 채팅·시트에 붙이지 않고 스크립트 속성에만</li>
-        <li>내 계정에만 올리는 용도면 앱을 '개발 모드'로 두고, {{owner}} 계정이 앱 관리자·테스터로 등록돼 있으면 돼요. 메뉴 이름·심사 조건은 자주 바뀌니 화면 안내를 따라요<span class="fix">'07 자동화 도우미'에게 지금 보이는 화면 캡처를 보여 주며 "다음에 뭘 눌러?"라고 물으면 빨라요. 토큰이 보이는 부분은 가리고.</span></li>
+        <li><span class="path">developers.facebook.com → {{place}} 메타 계정으로 로그인 → 내 앱 → 앱 만들기(비즈니스 용도)</span>를 눌러요</li>
+        <li><span class="path">제품 추가 → Instagram → 'Instagram 로그인으로 API 설정'</span>을 눌러요. {{place}} 인스타 계정을 연결하고 위 두 권한을 허용해요</li>
+        <li>화면의 <b>액세스 토큰 생성</b>을 눌러요. 토큰과 인스타 계정 ID(IG ID)를 복사해요. 이 토큰은 비밀번호예요. 채팅·시트에 붙이지 않고 스크립트 속성에만 넣어요</li>
+        <li>내 계정에만 올리는 용도면 앱을 '개발 모드'로 둬요. {{owner}} 계정이 앱 관리자·테스터로 등록돼 있으면 돼요. 메뉴 이름·심사 조건은 자주 바뀌니 화면 안내를 따라요<span class="fix">'07 자동화 도우미'에게 지금 보이는 화면 캡처를 보여 주며 "다음에 뭘 눌러?"라고 물으면 빨라요. 토큰이 보이는 부분은 가리고.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a52b" data-key="v_a52b"><div class="body"><label for="v_a52b">공개 이미지 주소 정하기</label><small>API는 파일을 올리는 게 아니라 <b>주소를 알려 주면 Meta가 가져가는</b> 방식이에요. 드라이브 공유 링크는 바로 안 되는 경우가 많아, 이미지만 두는 공개 저장소(예: 공개 GitHub 저장소, 무료 이미지 호스팅)를 하나 정하고 시험 1건으로 확인해요. 공개 주소라 누구나 볼 수 있으니 <b>게시할 사진(동의 받은 것)만</b> 올려요(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>).</small></div></li>
-    <li><input type="checkbox" id="v_a52c" data-key="v_a52c"><div class="body"><label for="v_a52c">'인스타' 탭과 승인</label><small>장부(<a href="#c-l4" class="ref" data-ref="c-l4">강의</a>)에 '인스타' 탭 → 아래 제목 줄. '03 인스타 담당'이 만든 캡션(<a href="#c-l26" class="ref" data-ref="c-l26">강의</a>)을 광고 점검(<a href="#v-l8" class="ref" data-ref="v-l8">강의</a>) 뒤 한 줄씩. 상태는 '초안'으로 두고 텔레그램 승인함(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>)에서 「승인」을 누르면 '승인'으로 바뀌게(쓸 곳: 장부ID|인스타|B행).</small></div></li>
-    <li><input type="checkbox" id="v_a52d" data-key="v_a52d"><div class="body"><label for="v_a52d">① 클라우드 봇: 앱스 스크립트</label>
+    <li><input type="checkbox" id="v_a52b" data-key="v_a52b"><div class="body"><label for="v_a52b">공개 이미지 주소 정하기</label><small>API는 파일을 올리는 게 아니에요. <b>주소를 알려 주면 Meta가 가져가는</b> 방식이에요. 드라이브 공유 링크는 바로 안 되는 경우가 많아요. 그래서 이미지만 두는 공개 저장소(예: 공개 GitHub 저장소, 무료 이미지 호스팅)를 하나 정해요. 시험 1건으로 되는지 확인해요. 공개 주소라 누구나 볼 수 있으니 <b>게시할 사진(동의 받은 것)만</b> 올려요(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>).</small></div></li>
+    <li><input type="checkbox" id="v_a52c" data-key="v_a52c"><div class="body"><label for="v_a52c">'인스타' 탭 만들고 승인 연결하기</label><small>올릴 글이 한곳에 모여야 봇이 찾아 올려요. 장부(<a href="#c-l4" class="ref" data-ref="c-l4">강의</a>)에 '인스타' 탭을 만들고 아래 제목 줄을 붙여요. '03 인스타 담당'이 만든 캡션(<a href="#c-l26" class="ref" data-ref="c-l26">강의</a>)을 광고 점검(<a href="#v-l8" class="ref" data-ref="v-l8">강의</a>) 뒤 한 줄씩 넣어요. 상태는 '초안'으로 둬요. 텔레그램 승인함(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>)에서 「승인」을 누르면 '승인'으로 바뀌게 해요(쓸 곳: 장부ID|인스타|B행).</small></div></li>
+    <li><input type="checkbox" id="v_a52d" data-key="v_a52d"><div class="body"><label for="v_a52d">① 클라우드 봇 붙이기: 앱스 스크립트</label><small>구글 서버에서 돌아서 컴퓨터를 꺼 둬도 되는 방법이에요. 대부분 이쪽이 편해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>장부 → <span class="path">확장 프로그램 → Apps Script</span> → 새 파일 Insta → 아래 'Insta.gs' 붙여 넣기</li>
-        <li>스크립트 속성: IG_TOKEN, IG_ID, (선택) TG_TOKEN·TG_CHAT</li>
-        <li>시험: 게시일시를 지금으로 한 줄(상태 '승인') → postDue 실행 → 인스타에 올라가고 시트에 미디어 ID가 남으면 성공</li>
-        <li>트리거: postDue 15분마다, refreshToken 매월 1일(장기 토큰은 약 60일이라 미리 새로 받아요). 컴퓨터를 켜 둘 필요가 없어요<span class="fix">한 번 실행에 한 건만 올려요. 같은 시간에 여러 줄이 있으면 15분 간격으로 차례로 올라가요.</span></li>
+        <li>장부에서 <span class="path">확장 프로그램 → Apps Script → 파일 + → 스크립트</span>를 눌러 새 파일 이름을 Insta로 해요. 아래 'Insta.gs'를 붙여 넣고 저장해요</li>
+        <li><span class="path">왼쪽 톱니바퀴(프로젝트 설정) → 스크립트 속성</span>에 IG_TOKEN, IG_ID, (선택) TG_TOKEN·TG_CHAT를 넣어요</li>
+        <li>시험해 봐요. 게시일시를 지금으로 한 줄 넣고 상태를 '승인'으로 해요. postDue를 실행해요. 인스타에 올라가고 시트에 미디어 ID가 남으면 성공이에요<span class="fix">막히면: 상태가 '실패'로 바뀌면 메모 칸의 오류 글을 복사해 '07 자동화 도우미'에게 보여 줘요(토큰은 가리고).</span></li>
+        <li><dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)를 두 개 걸어요. postDue는 15분마다, refreshToken은 매월 1일이에요(장기 토큰은 약 60일이라 미리 새로 받아요). 컴퓨터를 켜 둘 필요가 없어요<span class="fix">한 번 실행에 한 건만 올려요. 같은 시간에 여러 줄이 있으면 15분 간격으로 차례로 올라가요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a52e" data-key="v_a52e"><div class="body"><label for="v_a52e">② 터미널 봇: Claude Code로</label><small>터미널이 편하면 {{owner}} 컴퓨터나 24시간 자동화 컴퓨터(<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>)에서 Claude Code에게 '터미널 봇 부탁문'을 주세요. 사진 폴더 → JPEG 변환·크기 조정 → 공개 저장소에 올리기 → API 게시까지 한 스크립트로 만들고, 승인된 줄만 올리게 해요. 토큰은 <code>.env</code> 파일에 두고 저장소에 올리지 않아요.</small></div></li>
-    <li><input type="checkbox" id="v_a52f" data-key="v_a52f"><div class="body"><label for="v_a52f">게시 뒤 확인</label><small>텔레그램 "게시됨"을 받으면 앱에서 한 번 열어 사진 순서·캡션 줄바꿈을 확인해요. 댓글·DM은 여전히 사람이(<a href="#c-l28" class="ref" data-ref="c-l28">강의</a>). 실패하면 시트 메모에 오류가 남아요. 대부분 이미지 주소(공개 안 됨·JPEG 아님)나 토큰 만료예요.</small></div></li>
+    <li><input type="checkbox" id="v_a52e" data-key="v_a52e"><div class="body"><label for="v_a52e">② 터미널 봇: Claude Code로</label><small>사진 변환·업로드까지 맡기고 싶을 때 쓰는 방법이에요. {{owner}} 컴퓨터나 24시간 자동화 컴퓨터(<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>)에서 Claude Code에게 '터미널 봇 부탁문'을 주세요. 사진 폴더 → JPEG 변환·크기 조정 → 공개 저장소에 올리기 → API 게시까지 한 스크립트로 만들어요. 승인된 줄만 올리게 해요. 토큰은 <code>.env</code> 파일에 두고 저장소에 올리지 않아요.</small></div></li>
+    <li><input type="checkbox" id="v_a52f" data-key="v_a52f"><div class="body"><label for="v_a52f">게시 뒤 확인하기</label><small>저절로 올라가도 한 번은 눈으로 봐야 해요. 텔레그램 "게시됨"을 받으면 앱에서 열어 사진 순서·캡션 줄바꿈을 확인해요. 댓글·DM은 여전히 사람이 답해요(<a href="#c-l28" class="ref" data-ref="c-l28">강의</a>). <span class="fix">막히면: 실패하면 시트 메모에 오류가 남아요. 대부분 이미지 주소(공개 안 됨·JPEG 아님)나 토큰 만료예요.</span></small></div></li>
   </ol>
+  <p class="cap">이 줄을 복사해서 '인스타' 탭 A1 칸에 붙여 넣으세요. 칸마다 제목이 나뉘어 들어가요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>인스타 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>게시일시 | 상태(초안/승인/게시됨/실패) | 종류(사진/캐러셀/릴스) | 캡션 | 이미지 URL(공개 JPEG, 쉼표로 최대 10) | 영상 URL(릴스) | 결과(미디어 ID) | 메모</pre></div>
+  <p class="cap">AI에게 보내는 글이 아니라 코드예요. 전부 복사해서 Apps Script의 Insta 파일에 그대로 붙여 넣고 저장해요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>Insta.gs (앱스 스크립트)</span><button class="copy" type="button">복사</button></div><pre>// 인스타그램 공식 API 자동 게시 (장부 파일의 Apps Script)
 // 인스타 탭: 게시일시 | 상태(초안/승인/게시됨/실패) | 종류(사진/캐러셀/릴스) | 캡션 | 이미지 URL(공개 JPEG, 캐러셀은 쉼표로 최대 10) | 영상 URL(릴스) | 결과(미디어 ID) | 메모
 // 스크립트 속성: IG_TOKEN(장기 액세스 토큰), IG_ID(인스타 계정 ID), TG_TOKEN·TG_CHAT(선택)
@@ -121,6 +124,7 @@ function notify(t) {
     method: 'post', payload: { chat_id: P.getProperty('TG_CHAT'), text: t }, muteHttpExceptions: true });
 }
 </pre></div>
+  <p class="cap">이 글을 그대로 복사해서 Claude Code(터미널)에 붙여 넣으세요. ○○ 자리만 쓸 공개 저장소 이름으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>터미널 봇 부탁문 (Claude Code)</span><button class="copy" type="button">복사</button></div><pre>이 폴더에 인스타그램 공식 API로 자동 게시하는 파이썬 스크립트를 만들어 줘.
 - 입력: 장부 '인스타' 탭을 CSV로 내려받은 파일(또는 구글 시트 API), 상태가 '승인'이고 게시일시가 지난 줄만
 - 사진은 '인스타사진/날짜' 폴더에서: JPEG로 변환, 긴 변 1440px, EXIF 위치 정보 지우기
@@ -129,9 +133,9 @@ function notify(t) {
 - 결과(미디어 ID·실패 이유)를 CSV와 텔레그램으로, 한 번에 한 건씩
 - 토큰은 .env에서 읽고 절대 출력·커밋하지 않기, .gitignore에 .env
 - 실행 예시와 하루 2번 자동 실행(macOS는 launchd, 윈도우는 작업 스케줄러) 설정 방법까지</pre></div>
-  <p class="tip warnbox"><b>공식 API와 '자동 게시 앱'은 달라요.</b> 이 강의는 Meta가 제공하는 공식 API만 써요. 비밀번호를 받아 대신 로그인해 올려 준다는 앱·매크로, 브라우저로 인스타 화면을 눌러 올리는 봇은 계정 제한 위험이 있어 쓰지 않아요(<a href="#c-l29" class="ref" data-ref="c-l29">강의</a>). 자동 게시라도 <b>승인은 사람</b>, 광고 규칙 점검과 {{customer}} 사진 동의는 그대로. 네이버 블로그는 공식 게시 API가 없어서 이 방법이 안 돼요(<a href="#c-l23" class="ref" data-ref="c-l23">강의</a>).</p>
+  <p class="tip warnbox"><b>공식 API와 '자동 게시 앱'은 달라요.</b> 이 강의는 Meta가 제공하는 공식 API만 써요. 비밀번호를 받아 대신 로그인해 올려 준다는 앱·매크로, 브라우저로 인스타 화면을 눌러 올리는 봇은 계정 제한 위험이 있어요. 그래서 쓰지 않아요(<a href="#c-l29" class="ref" data-ref="c-l29">강의</a>). 자동 게시라도 <b>승인은 사람</b>이 해요. 광고 규칙 점검과 {{customer}} 사진 동의도 그대로 지켜요. 네이버 블로그는 공식 게시 API가 없어서 이 방법이 안 돼요(<a href="#c-l23" class="ref" data-ref="c-l23">강의</a>).</p>
   <p class="src">출처: <a href="https://developers.facebook.com/docs/instagram-platform/content-publishing" target="_blank" rel="noopener">Instagram Platform · Content Publishing (Meta for Developers)</a> · <a href="https://bundle.social/blog/instagram-posting-api" target="_blank" rel="noopener">Instagram posting API 정리 (bundle.social, 2026.8)</a></p>
-        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>15분마다 postDue</b><span>승인되고 게시일시가 지난 글을 한 건씩 공식 API로 게시.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>매월 1일 refreshToken</b><span>장기 토큰을 미리 새로 받아 끊기지 않게.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>터미널 봇(선택)</b><span>사진 변환·업로드까지 하려면 자동화 컴퓨터에서 Claude Code 스크립트로.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>인스타 게시 승인</b><span>캡션·사진·게시일시를 보고 승인하면 상태가 '승인'으로, 시간이 되면 저절로 게시.</span><span class="pv">버튼: 승인 / 수정 / 보류</span></div></li></ul></div>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>15분마다 postDue</b><span>승인되고 게시일시가 지난 글을 한 건씩 공식 API로 게시해요.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>매월 1일 refreshToken</b><span>장기 토큰을 미리 새로 받아 끊기지 않게 해요.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>터미널 봇(선택)</b><span>사진 변환·업로드까지 하려면 자동화 컴퓨터에서 Claude Code 스크립트로 해요.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>인스타 게시 승인</b><span>캡션·사진·게시일시를 보고 승인하면 상태가 '승인'으로 바뀌어요. 시간이 되면 저절로 게시돼요.</span><span class="pv">버튼: 승인 / 수정 / 보류</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>앱스 스크립트 postDue 또는 터미널 파이썬 봇(사진 변환·업로드·게시).</span></div><div class="run-row"><b>비서 연동</b><span>'07 자동화 도우미' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 스크립트 오류만 이 채팅에(토큰 가리기), 캡션은 03 인스타 담당</span></div></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>스크립트 오류만 이 채팅에(토큰 가리기), 캡션은 03 인스타 담당</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">인스타 캡션</span><span class="rc s">광고 점검</span></div></div><p class="rec-note">캡션은 인스타 캡션 스킬, 게시 전 광고 점검. 토큰은 어떤 커넥터·채팅에도 넣지 않아요.</p></div>

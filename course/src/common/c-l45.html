@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · 매일 5분</span>
     <h2>문 잠그기 전 5분, 태블릿 한 바퀴로 내일 아침 사고를 막아요</h2>
-    <p class="goal"><span data-biz="vet">밤사이 냉장고 문이 살짝 열려 백신을 버리거나, 산소 밸브·마취기가 켜져 있거나, 입원 동물 메모가 없어 아침 근무자가 헤매는 일.</span><span data-biz-not="vet">밤사이 냉장고 문이 살짝 열려 {{stockitem:을}} 버리거나, 전열기·가스가 켜져 있거나, 뒷문이 열려 있어 아침 근무자가 놀라는 일.</span> 마감 담당이 <b>태블릿을 들고 구역별로 돌며 체크</b>하고, 냉장고 온도·현금 시재 같은 숫자는 직접 넣어요. 기준을 벗어나면 주황색으로 표시되고, '마감 완료'를 누르면 기록이 시트에 남고 <b>{{owner}} 텔레그램에 한 줄 요약</b>이 가요.</p>
+    <p class="goal"><span data-biz="vet">밤사이 냉장고 문이 살짝 열려 백신을 버리거나, 산소 밸브·마취기가 켜져 있거나, 입원 동물 메모가 없어 아침 근무자가 헤매는 일.</span><span data-biz-not="vet">밤사이 냉장고 문이 살짝 열려 {{stockitem:을}} 버리거나, 전열기·가스가 켜져 있거나, 뒷문이 열려 있어 아침 근무자가 놀라는 일.</span> 이런 일을 막으려고 마감 담당이 <b>태블릿을 들고 구역별로 돌며 체크</b>해요. 냉장고 온도·현금 시재 같은 숫자는 직접 넣어요. 기준을 벗어나면 주황색으로 표시돼요. '마감 완료'를 누르면 기록이 시트에 남아요. 그리고 <b>{{owner}} 텔레그램에 한 줄 요약</b>이 가요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>비행기 조종사가 이륙 전에 보는 점검표처럼, 문 잠그기 전에 태블릿으로 한 바퀴 체크하는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>태블릿 홈 화면의 '마감' 아이콘, 날마다 쌓이는 마감기록 시트, 그리고 {{owner}} 텔레그램으로 오는 한 줄 요약이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 안 쓰는 태블릿, 구글 계정, 1시간 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble ai a" style="--d:.2s"><span class="who">우리{{place}} 알림 봇 · 21:12</span><span data-biz="vet">🔒 마감 21:12 · 직원 03 · 20/21 완료<br>⚠️ 미완료: 멸균기 정리(고장, 내일 아침 수리 기사)<br>🌡 범위 밖: 백신·약품 냉장고 온도 9.5℃<br>📝 입원 2마리, 3번 케이지 밤 10시 수액 끝남</span><span data-biz-not="vet">🔒 마감 21:12 · 직원 03 · 16/17 완료<br>⚠️ 미완료: 쓰레기 내놓기(수거일 아님, 내일 아침)<br>🌡 범위 밖: 냉장고 온도 9.5℃<br>📝 냉장고 문 고무 패킹 헐거움, 내일 수리 전화</span></div>
@@ -18,21 +19,22 @@
     <li><input type="checkbox" id="v_a45d" data-key="v_a45d"><label for="v_a45d"><b>요일 항목</b> — 금요일만 <span data-biz="vet">차트</span><span data-biz-not="vet">장부</span> 백업 확인처럼, 시트에 요일을 적으면 그날만 나와요</label></li>
     <li><input type="checkbox" id="v_a45e" data-key="v_a45e"><label for="v_a45e"><b>항목은 시트에서</b> — 코드를 고치지 않고 '마감항목' 탭 줄만 고치면 다음 마감부터 바뀌어요</label></li>
   </ul>
-  <p class="cap">아티팩트로도 체크 화면은 만들 수 있지만, 마감 기록이 남고 {{owner}}께 요약이 가야 해서 이 강의는 구글 시트에 저장되는 <b>배포(웹앱) 방식</b>으로 해요(<a href="#c-l93" class="ref" data-ref="c-l93">강의</a>).</p>
+  <p class="cap">아티팩트(AI가 만들어 주는 화면)로도 체크 화면은 만들 수 있어요. 하지만 마감 기록이 남고 {{owner}}께 요약이 가야 해요. 그래서 이 강의는 구글 시트에 저장되는 <b><dfn data-t="deploy">배포</dfn>(<dfn data-t="webapp">웹앱</dfn>) 방식</b>으로 해요(<a href="#c-l93" class="ref" data-ref="c-l93">강의</a>).</p>
 
   <ol class="steps">
-    <li><input type="checkbox" id="v_a45f" data-key="v_a45f"><div class="body"><label for="v_a45f">시트 만들기</label><small>새 스프레드시트 '마감' → 탭 두 개 '마감항목', '마감기록' → 아래 제목 줄. 마감항목에는 아래 '기본 <span data-biz="vet">21</span><span data-biz-not="vet">17</span>항목'을 붙인 뒤 우리 {{place}}에 맞게 고쳐요. 냉장고 온도 기준은 <b>보관 중인 제품 설명서 값</b>으로 바꿔요.</small></div></li>
-    <li><input type="checkbox" id="v_a45g" data-key="v_a45g"><div class="body"><label for="v_a45g">코드 붙이고 배포</label>
+    <li><input type="checkbox" id="v_a45f" data-key="v_a45f"><div class="body"><label for="v_a45f">'마감' 시트 만들기</label><small>점검 항목과 기록을 담아 둘 곳이에요. 새 스프레드시트 '마감'을 만들어요. 탭 두 개 '마감항목', '마감기록'을 만들고 아래 제목 줄을 붙여요. 마감항목에는 아래 '기본 <span data-biz="vet">21</span><span data-biz-not="vet">17</span>항목'을 붙여요. 그다음 우리 {{place}}에 맞게 고쳐요. 냉장고 온도 기준은 <b>보관 중인 제품 설명서 값</b>으로 바꿔요.</small></div></li>
+    <li><input type="checkbox" id="v_a45g" data-key="v_a45g"><div class="body"><label for="v_a45g">코드 붙이고 배포하기</label><small>시트를 태블릿에서 누르는 화면으로 바꾸는 단계예요. 아래 두 코드(Close.gs, close.html)를 붙이고 주소를 받아요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li><span class="path">확장 프로그램 → Apps Script</span> → Code.gs 자리에 'Close.gs' → + HTML 이름 <b>close</b> → 'close.html' → 저장</li>
-        <li>스크립트 속성: CLOSE_KEY(영문·숫자 12자 이상), CLINIC_NAME, 텔레그램 요약을 받으려면 TG_TOKEN·TG_CHAT(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>)</li>
-        <li>배포 → 새 배포 → 웹 앱(실행: 나, 액세스: 모든 사용자) → URL 끝에 <code>?k=CLOSE_KEY값</code></li>
-        <li>접수대·직원 태블릿 홈 화면에 '마감' 아이콘(<a href="#c-l93" class="ref" data-ref="c-l93">강의</a>). 접수 태블릿과 같은 기기여도 돼요</li>
+        <li><span class="path">확장 프로그램 → Apps Script</span>로 들어가요. Code.gs 자리에 'Close.gs'를 붙여 넣어요. <span class="path">+ → HTML</span>로 이름이 <b>close</b>인 파일을 만들고 'close.html'을 붙여 넣어요. 저장해요.</li>
+        <li>스크립트 속성(<span class="path">톱니바퀴(프로젝트 설정) → 스크립트 속성</span>)을 넣어요. CLOSE_KEY(영문·숫자 12자 이상), CLINIC_NAME이에요. 텔레그램 요약을 받으려면 TG_TOKEN·TG_CHAT(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>)도 넣어요.</li>
+        <li><span class="path">배포 → 새 배포 → 웹 앱</span>을 골라요. 실행은 '나', 액세스는 '모든 사용자'로 해요. 받은 URL 끝에 <code>?k=CLOSE_KEY값</code>을 붙여요.<span class="fix">막히면: "마감 태블릿 주소를 확인해 주세요"가 뜨면 URL 끝의 k= 값이 CLOSE_KEY와 한 글자도 다르지 않은지 봐요.</span></li>
+        <li>접수대·직원 태블릿 홈 화면에 '마감' 아이콘을 만들어요(<a href="#c-l93" class="ref" data-ref="c-l93">강의</a>). 접수 태블릿과 같은 기기여도 돼요.</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a45h" data-key="v_a45h"><div class="body"><label for="v_a45h">마감 담당과 순서 정하기</label><small>근무표(<a href="#c-l81" class="ref" data-ref="c-l81">강의</a>)에 그날 마감 담당을 표시하고, <span data-biz="vet">마약류 금고는 2인 확인.</span><span data-biz-not="vet">금고·현금은 되도록 2인 확인.</span> 처음 일주일은 {{owner:이}} 같이 한 바퀴 돌며 순서를 동선에 맞게 바꿔요(시트 '순서' 칸).</small></div></li>
-    <li><input type="checkbox" id="v_a45i" data-key="v_a45i"><div class="body"><label for="v_a45i">아침에 이어받기</label><small>오픈 담당은 출근하면 텔레그램 요약이나 마감기록 탭의 어젯밤 메모·미완료부터 봐요. 오픈 체크리스트도 같은 방법으로: 시트를 복사해 '오픈' 항목(<span data-biz="vet">냉장고 온도, 입원 동물 상태, 예약 확인, 접수 태블릿 켜기</span><span data-biz-not="vet">냉장고 온도, {{stockitem}} 확인, 예약·주문 확인, 결제 단말기 켜기</span>)으로.</small></div></li>
-    <li><input type="checkbox" id="v_a45j" data-key="v_a45j"><div class="body"><label for="v_a45j">매주 한 번 돌아보기</label><small>'마감 돌아보기 부탁문'으로 자주 빠지는 항목, 온도가 기준을 벗어난 날, 마감 시각 추이를 봐요. 같은 항목이 계속 빠지면 순서나 담당을 바꾸고, 매뉴얼(<a href="#c-l83" class="ref" data-ref="c-l83">강의</a>)에 반영해요.</small></div></li>
+    <li><input type="checkbox" id="v_a45h" data-key="v_a45h"><div class="body"><label for="v_a45h">마감 담당과 순서 정하기</label><small>누가 마감하는지 정해 두면 빠지는 날이 없어요. 근무표(<a href="#c-l81" class="ref" data-ref="c-l81">강의</a>)에 그날 마감 담당을 표시해요. <span data-biz="vet">마약류 금고는 2인이 확인해요.</span><span data-biz-not="vet">금고·현금은 되도록 2인이 확인해요.</span> 처음 일주일은 {{owner:이}} 같이 한 바퀴 돌아요. 그러면서 순서를 동선에 맞게 바꿔요(시트 '순서' 칸).</small></div></li>
+    <li><input type="checkbox" id="v_a45i" data-key="v_a45i"><div class="body"><label for="v_a45i">아침에 이어받기</label><small>어젯밤 못 한 일을 아침 사람이 바로 알게 하려는 거예요. 오픈 담당은 출근하면 텔레그램 요약이나 마감기록 탭의 어젯밤 메모·미완료부터 봐요. 오픈 체크리스트도 같은 방법으로 만들 수 있어요. 시트를 복사해서 '오픈' 항목(<span data-biz="vet">냉장고 온도, 입원 동물 상태, 예약 확인, 접수 태블릿 켜기</span><span data-biz-not="vet">냉장고 온도, {{stockitem}} 확인, 예약·주문 확인, 결제 단말기 켜기</span>)으로 바꾸면 돼요.</small></div></li>
+    <li><input type="checkbox" id="v_a45j" data-key="v_a45j"><div class="body"><label for="v_a45j">매주 한 번 돌아보기</label><small>자주 빠지는 일은 사람보다 순서 탓일 때가 많아요. '마감 돌아보기 부탁문'으로 자주 빠지는 항목, 온도가 기준을 벗어난 날, 마감 시각 추이를 봐요. 같은 항목이 계속 빠지면 순서나 담당을 바꿔요. 바꾼 것은 매뉴얼(<a href="#c-l83" class="ref" data-ref="c-l83">강의</a>)에 반영해요.</small></div></li>
   </ol>
+  <p class="cap">제목 줄과 기본 항목은 그대로 복사해서 각 탭 A1 칸에 붙여 넣으세요. 기본 항목은 붙인 뒤 시트에서 고쳐요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>마감항목 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>순서 | 구역 | 항목 | 필수(Y/N) | 입력(체크/숫자) | 최소 | 최대 | 단위 | 요일(비우면 매일)</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>마감기록 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 시각 | 직원번호 | 구역 | 항목 | 결과 | 값 | 범위 밖 | 메모</pre></div>
   <div class="prompt" data-tsv data-biz="vet"><div class="bar"><span>기본 21항목 (우리 {{place}}에 맞게 고치기)</span><button class="copy" type="button">복사</button></div><pre>1 | 입원실 | 입원 동물 상태·수액·급식 확인, 야간 메모 작성 | Y | 체크 | | | | 
@@ -73,6 +75,7 @@
 15 | 시설·보안 | 출입문 잠금·경비 켜기 | Y | 체크 | | | |
 16 | 내일 준비 | 내일 예약·주문 확인, 준비물 꺼내 두기 | N | 체크 | | | |
 17 | 데이터 | 장부·사진 백업 확인 | N | 체크 | | | | 금</pre></div>
+  <p class="cap">아래 두 코드는 그대로 복사해서 Apps Script에 붙여 넣으세요. 코드 안은 고치지 않아요. 바꿀 값은 스크립트 속성에 넣어요.</p>
   <div class="prompt"><div class="bar"><span>Close.gs</span><button class="copy" type="button">복사</button></div><pre>// 마감 체크리스트 (마감 시트의 Apps Script)
 // 마감항목 탭: 순서 | 구역 | 항목 | 필수(Y/N) | 입력(체크/숫자) | 최소 | 최대 | 단위 | 요일(비우면 매일, 예: 월수금)
 // 마감기록 탭: 날짜 | 시각 | 직원번호 | 구역 | 항목 | 결과 | 값 | 범위 밖 | 메모
@@ -225,6 +228,7 @@ function submitAll() {
 &lt;/script&gt;
 &lt;/body&gt;&lt;/html&gt;
 </pre></div>
+  <p class="cap">아래 두 글은 그대로 복사해서 '10 인사 담당' 채팅에 붙여 넣으세요. ○○ 자리만 우리 {{place}} 값으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>마감 항목 맞추기 부탁문 (10 인사 담당)</span><button class="copy" type="button">복사</button></div><pre>첨부한 기본 <span data-biz="vet">21</span><span data-biz-not="vet">17</span>항목을 우리 {{place}}에 맞게 고쳐 줘.
 우리 {{place}}: <span data-biz="vet">입원실 ○(있음/없음), 장비 ○○(예: 방사선, 마취기, 산소, 멸균기)</span><span data-biz-not="vet">주요 장비 ○○(예: 냉장고, 전열기, 가스, 커피 머신)</span>, 냉장 보관 품목 ○○, 현금 결제 ○(많음/적음), 마감 인원 ○명
 - 동선 순서대로 순서 칸을 다시, 필수는 사고가 나면 되돌리기 어려운 것만
@@ -237,8 +241,8 @@ function submitAll() {
 3) 마감 시각 추이(요일별), 늦은 날의 공통점
 4) 바꿀 것 3가지(순서, 담당, 항목 추가·삭제)
 직원 평가처럼 쓰지 말고, 일의 흐름을 고치는 데만.</pre></div>
-  <p class="tip warnbox"><b>체크는 대신해 주지 않아요.</b> 버튼을 누르는 건 사람이 직접 확인했다는 기록이에요. <span data-biz="vet">마약류 금고·산소·전기 장비</span><span data-biz-not="vet">가스·전열기·출입문</span>처럼 사고가 나면 되돌릴 수 없는 항목은 필수로 두고, 텔레그램 요약에서 '미완료'가 보이면 그날 밤 {{owner:이}} 확인해요. 메모에 {{customer}} 이름은 쓰지 않고 <span data-biz="vet">케이지 번호·</span>직원번호로.</p>
-        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">자동</span><div class="ad"><b>마감 요약이 텔레그램으로</b><span>마감 완료를 누르면 완료 수·미완료·범위 밖 숫자·메모가 {{owner}}께 한 줄로.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>마감 안 하면 알림</b><span>앱스 스크립트 트리거로 밤 10시에 오늘 마감기록이 없으면 텔레그램 "마감 기록이 없어요" (07 자동화 도우미에게 한 줄 부탁).</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매주 돌아보기</b><span>월요일 예약 작업에 마감 돌아보기 부탁문.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>미완료·범위 밖 확인</b><span>마감 요약에 미완료나 범위 밖이 있으면 {{owner}} 확인 버튼.</span><span class="pv">버튼: 확인함 / 내일 아침 처리</span></div></li></ul></div>
+  <p class="tip warnbox"><b>체크는 대신해 주지 않아요.</b> 버튼을 누르는 건 사람이 직접 확인했다는 기록이에요. <span data-biz="vet">마약류 금고·산소·전기 장비</span><span data-biz-not="vet">가스·전열기·출입문</span>처럼 사고가 나면 되돌릴 수 없는 항목은 필수로 둬요. 텔레그램 요약에서 '미완료'가 보이면 그날 밤 {{owner:이}} 확인해요. 메모에 {{customer}} 이름은 쓰지 않아요. 대신 <span data-biz="vet">케이지 번호·</span>직원번호로.</p>
+        <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">자동</span><div class="ad"><b>마감 요약이 텔레그램으로</b><span>마감 완료를 누르면 완료 수·미완료·범위 밖 숫자·메모가 {{owner}}께 한 줄로.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>마감 안 하면 알림</b><span>앱스 스크립트 <dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)로 밤 10시에 오늘 마감기록이 없으면 텔레그램 "마감 기록이 없어요" (07 자동화 도우미에게 한 줄 부탁).</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매주 돌아보기</b><span>월요일 예약 작업에 마감 돌아보기 부탁문.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>미완료·범위 밖 확인</b><span>마감 요약에 미완료나 범위 밖이 있으면 {{owner}} 확인 버튼.</span><span class="pv">버튼: 확인함 / 내일 아침 처리</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>마감 체크 웹앱 → 텔레그램 요약, 밤 10시 미마감 알림.</span></div><div class="run-row"><b>비서 연동</b><span>'10 인사 담당' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 마감 항목표 → 이 채팅, 매주 돌아보기도 이 채팅(직원번호로만)</span></div></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>마감 항목표 → 이 채팅, 매주 돌아보기도 이 채팅(직원번호로만)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">매뉴얼 정리</span><span class="rc s">근무표 점검</span></div></div><p class="rec-note">마감기록은 드라이브 커넥터로 읽어 매주 돌아보기. 항목은 매뉴얼 스킬과 같이.</p></div>

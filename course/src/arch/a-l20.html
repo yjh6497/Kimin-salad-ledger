@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>주소만 넣으면 건축물대장이 시트에</h2>
-    <p class="goal">공공데이터포털의 <b>국토교통부 건축HUB 건축물대장정보 서비스</b>를 쓰면 대장 표제부(주용도, 연면적, 건폐율, 용적률, 사용승인일 등)를 시트로 자동으로 받을 수 있어요. 리모델링·용도변경 상담 전 확인이 빨라져요.</p>
+    <p class="goal">공공데이터포털의 <b>국토교통부 건축HUB 건축물대장정보 서비스</b>를 써요. 그러면 대장 표제부(주용도, 연면적, 건폐율, 용적률, 사용승인일 등)를 시트로 자동으로 받을 수 있어요. 리모델링·용도변경 상담 전 확인이 빨라져요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>정부 창고에 '대장 좀 보내 주세요' 주문서를 넣는 자동 심부름꾼을 시트에 두는 거예요. 주소 코드만 적고 버튼을 누르면 돼요.</span></div><div class="easy-row"><b>끝나면</b><span>'사무소 대장' 시트의 '대지조회 → 건축물대장 가져오기' 메뉴와, 결과가 쌓이는 '대장결과' 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 회원가입, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>, 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="lanes">
       <div class="box pop" style="--d:.2s"><strong>'대지조회' 탭</strong><span>시군구코드 · 법정동코드 · 번 · 지</span></div>
@@ -14,21 +15,22 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a20a" data-key="a_a20a"><div class="body"><label for="a_a20a">활용신청 (자동승인, 무료)</label>
+    <li><input type="checkbox" id="a_a20a" data-key="a_a20a"><div class="body"><label for="a_a20a">활용신청 하기 (자동승인, 무료)</label><small>정부 자료를 받아 쓸 허락을 받는 단계예요. 신청하면 <dfn data-t="apikey">인증키</dfn>(우리 사무소 출입증 같은 글자)가 나와요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>data.go.kr 로그인 → 검색 <b>건축HUB 건축물대장정보</b> → '국토교통부_건축HUB_건축물대장정보 서비스' 오픈API</li>
-        <li><span class="path">활용신청</span> → 목적 입력 → 신청. 자동승인이에요</li>
-        <li><span class="path">마이페이지 → 데이터활용 → Open API</span>에서 일반 인증키 복사<span class="fix">개발계정은 하루 호출 수가 정해져 있어요. 사무소 조회에는 충분해요.</span></li>
+        <li><span class="path">data.go.kr 로그인 → 검색창에 '건축HUB 건축물대장정보' → '국토교통부_건축HUB_건축물대장정보 서비스' 오픈API</span>를 열어요</li>
+        <li><span class="path">활용신청 → 목적 입력 → 신청</span>을 눌러요. 자동승인이에요</li>
+        <li><span class="path">마이페이지 → 데이터활용 → Open API</span>에서 일반 인증키를 복사해요<span class="fix">개발계정은 하루 요청 수가 정해져 있어요. 사무소 조회에는 충분해요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a20b" data-key="a_a20b"><div class="body"><label for="a_a20b">법정동코드 찾는 법 익히기</label><small>API는 주소 대신 <dfn data-t="bjdong">법정동코드</dfn>를 받아요. 앞 5자리가 시군구코드, 뒤 5자리가 법정동코드예요.</small>
+    <li><input type="checkbox" id="a_a20b" data-key="a_a20b"><div class="body"><label for="a_a20b">법정동코드 찾는 법 익히기</label><small>주소를 숫자로 바꿔 넣어야 해서예요. <dfn data-t="api">API</dfn>(프로그램끼리 자료를 주고받는 창구)는 주소 대신 <dfn data-t="bjdong">법정동코드</dfn>를 받아요. 10자리 중 앞 5자리가 시군구코드, 뒤 5자리가 법정동코드예요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>검색창에 <b>행정표준코드관리시스템 법정동코드</b> → 공식 사이트(code.go.kr)에서 동 이름 검색</li>
-        <li>10자리 코드에서 앞 5자리 → 시군구코드 칸, 뒤 5자리 → 법정동코드 칸</li>
+        <li>검색창에 <b>행정표준코드관리시스템 법정동코드</b>를 넣어요. 공식 사이트(code.go.kr)에서 동 이름을 검색해요</li>
+        <li>10자리 코드에서 앞 5자리는 시군구코드 칸에, 뒤 5자리는 법정동코드 칸에 적어요</li>
         <li>지번 123-4면 번=0123, 지=0004 (네 자리로 앞에 0을 채워요)<span class="fix">자주 쓰는 동은 '법정동' 탭에 모아 두면 다음부터 고르기만 하면 돼요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a20c" data-key="a_a20c"><div class="body"><label for="a_a20c">스크립트 받기 → 붙이기</label><small>'09 자동화·연결' 채팅에 아래 부탁문을 보내요. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>와 같아요. 대장 시트에 '대지조회' 메뉴가 생기게 해 달라고 했으니, 버튼처럼 눌러 쓰면 돼요.</small></div></li>
-    <li><input type="checkbox" id="a_a20d" data-key="a_a20d"><div class="body"><label for="a_a20d">정부24 열람본과 한 번 맞춰 보기</label><small>처음 몇 건은 정부24 열람본과 숫자가 같은지 확인해요. 같으면 그다음부터는 상담 준비에 바로 써요. 제출용은 여전히 발급본을 씁니다.</small></div></li>
+    <li><input type="checkbox" id="a_a20c" data-key="a_a20c"><div class="body"><label for="a_a20c">AI에게 스크립트 받아 붙이기</label><small>조회를 대신 해 줄 작은 프로그램을 시트에 다는 거예요. '09 자동화·연결' 채팅에 아래 부탁문을 보내면 <dfn data-t="appsscript">앱스 스크립트</dfn> 코드가 나와요. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>와 같아요. 부탁문에 '대지조회' 메뉴를 만들어 달라고 적었어요. 그래서 시트 위 메뉴를 버튼처럼 눌러 쓰면 돼요.<span class="fix">막히면: 처음 실행 때 '권한 검토' 창이 뜨면 사무소 계정 → 고급 → 이동 → 허용을 눌러요. 결과가 비어 있으면 인증키가 아직 활성화 전일 수 있어요. 한두 시간 뒤 다시 해 봐요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a20d" data-key="a_a20d"><div class="body"><label for="a_a20d">정부24 열람본과 한 번 맞춰 보기</label><small>자동 결과를 믿어도 되는지 확인하려는 거예요. 처음 몇 건은 정부24 열람본과 숫자가 같은지 봐요. 같으면 그다음부터는 상담 준비에 바로 써요. 제출용은 여전히 발급본을 써요.</small></div></li>
   </ol>
+  <p class="cap">제목 줄은 '대지조회' 탭 A1 칸에 붙여 넣으세요. 스크립트 부탁문은 그대로 복사해서 '09 자동화·연결' 채팅에 붙여 넣으면 돼요. 고칠 곳은 없어요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>대지조회 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 주소(메모) | 시군구코드 | 법정동코드 | 대지구분 | 번 | 지 | 조회</pre></div>
   <div class="prompt"><div class="bar"><span>건축물대장 조회 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'의 '대지조회' 탭(제목 줄: 프로젝트코드, 주소(메모), 시군구코드, 법정동코드, 대지구분, 번, 지, 조회)의 각 줄로 공공데이터포털 '국토교통부_건축HUB_건축물대장정보 서비스'의 표제부(getBrTitleInfo)를 조회해서 '대장결과' 탭에 넣는 앱스 스크립트를 써 줘.
 - 엔드포인트: https://apis.data.go.kr/1613000/BldRgstHubService/getBrTitleInfo , _type=json
