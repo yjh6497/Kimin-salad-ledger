@@ -2,10 +2,11 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절 · 매달 20분</span>
     <h2>재료값이 오르면 메뉴 원가가 먼저 알려 줘요</h2>
-    <p class="goal">메뉴마다 g 단위 레시피로 원가를 계산하고, 재료값이 올라 원가율이 기준을 넘은 메뉴를 매주 알려 줘요. 매달 한 번은 팔리는 양과 남는 돈을 같이 보고 가격·양·메뉴 구성을 정해요.</p>
+    <p class="goal">메뉴마다 g 단위 레시피로 원가를 계산해요. 재료값이 올라 <dfn data-t="costratio">원가율</dfn>이 기준을 넘은 메뉴는 매주 알려 줘요. 매달 한 번은 팔리는 양과 남는 돈을 같이 보고 가격·양·메뉴 구성을 정해요.</p>
     <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>레시피 원가 수식과 원가율 경보 스크립트는 무료예요. 월 가격 점검은 첫째 월요일 알림이 오면 한 줄로 부탁해요.</span></p>
     <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>월 가격 점검을 예약 작업으로 받고, 판매량이 많은 데이터도 한 번에 분석해요.</span></p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>메뉴마다 '가격표 경보기'를 다는 거예요. 연어 값이 오르면 연어 포케가 먼저 "나 남는 게 줄었어요" 하고 알려 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>메뉴별 원가가 저절로 계산되는 레시피·메뉴원가 탭, 매주 월요일 원가율 경보 메일, 매달 가격 점검표</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 주방 저울, '매장 장부'(<a href="#s-l4" class="ref" data-ref="s-l4">강의</a>), 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="msg">
       <div class="from a" style="--d:.1s"><span>원가율 경보 · 매주 월요일 · 예시</span><span>매장 장부</span></div>
@@ -15,7 +16,7 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="s_s35a" data-key="s_s35a"><div class="body"><label for="s_s35a">'레시피' 시트에 메뉴별 재료 g 적기</label><small>메뉴 하나에 재료가 여러 줄이에요. 한 번 정확히 저울에 달아 적어 두면 원가가 자동으로 계산돼요.</small>
+    <li><input type="checkbox" id="s_s35a" data-key="s_s35a"><div class="body"><label for="s_s35a">'레시피' 시트에 메뉴별 재료 g 적기</label><small>원가를 정확히 알려면 재료 양부터 알아야 해요. 메뉴 하나에 재료가 여러 줄이에요. 한 번 정확히 저울에 달아 적어 두면 원가가 자동으로 계산돼요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>'매장 장부' → <span class="path">+</span> → 이름 <b>레시피</b> → A1에 '레시피 제목 줄' 붙여 넣기</li>
         <li>대표 메뉴 5개부터: 메뉴, 재료, 사용량(g 또는 개)을 한 줄씩. 포장 용기·소스 컵·수저도 재료처럼 적기</li>

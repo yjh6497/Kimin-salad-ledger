@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분</span>
     <h2>만든 화면을 태블릿에 올리고, 필요한 사람에게 링크로 나누기</h2>
-    <p class="goal">직원 웹앱, 재고 사용, 냉장 온도 체크, {{customer}} 설문은 <b>접수대<span data-biz="vet">·진료실</span><span data-biz-not="vet"></span> 태블릿 한 대</b>에 올려 두면 직원 모두가 같은 화면을 써요. 만드는 방법은 둘이에요. 구글 계정으로 주소를 만드는 <b>웹사이트 방식</b>, Claude가 만든 페이지를 링크로 나누는 <b>아티팩트 방식</b>. 많은 분이 "만들었는데 어떻게 보내요?"에서 막혀요. 여기서 공유 버튼 위치부터 받는 사람 화면 확인까지 따라 해요.</p>
+    <p class="goal">직원 웹앱, 재고 사용, 냉장 온도 체크, {{customer}} 설문은 <b>접수대<span data-biz="vet">·진료실</span><span data-biz-not="vet"></span> 태블릿 한 대</b>에 올려 두면 직원 모두가 같은 화면을 써요. 만드는 방법은 둘이에요. 하나는 구글 계정으로 주소를 만드는 <b>웹사이트 방식</b>이에요. 다른 하나는 Claude가 만든 페이지를 링크로 나누는 <b>아티팩트 방식</b>이에요. 많은 분이 "만들었는데 어떻게 보내요?"에서 막혀요. 여기서 공유 버튼 위치부터 받는 사람 화면 확인까지 따라 해요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>만든 화면을 '가게 공용 게시판'인 태블릿에 걸어 두고, 필요한 사람에게는 주소(링크)를 건네는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>홈 화면에 앱처럼 깔린 직원 화면, 대기실 태블릿 접수·동의 앱, 그리고 '공유 주소' 목록 한 장</span></div><div class="easy-row"><b>필요한 것</b><span>태블릿(아이패드·갤럭시 탭), PC, {{place}} 공용 구글 계정, 1시간 30분 · 코드 붙이기와 배포가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <h3>태블릿이 맡을 자리</h3>
   <div class="table-wrap"><table>
     <thead><tr><th>자리</th><th>올릴 것</th><th>방식</th></tr></thead>
@@ -28,7 +29,7 @@
   <p class="cap">정리하면: <b>직원·{{customer:가}} 쓰는 화면은 웹사이트 방식</b>, <b>보여 주고 의견을 받는 페이지는 아티팩트 방식</b>.</p>
 
   <ol class="steps">
-    <li><input type="checkbox" id="v_a93a" data-key="v_a93a"><div class="body"><label for="v_a93a">태블릿 준비</label><small>{{place}} 공용 구글 계정으로 로그인({{owner}} 개인 계정 아님), 화면 잠금 PIN, 자동 업데이트는 밤에, 충전 거치대에 세워 두기. 분실 대비로 '나의 찾기'(아이패드) 또는 '내 디바이스 찾기'(갤럭시 탭)를 켜요. 대기실용과 직원용은 가능하면 따로 둬요.</small></div></li>
+    <li><input type="checkbox" id="v_a93a" data-key="v_a93a"><div class="body"><label for="v_a93a">태블릿 준비하기</label><small>여러 사람이 쓰는 기계라 먼저 안전하게 해 둬요. {{place}} 공용 구글 계정으로 로그인해요({{owner}} 개인 계정 아님). 화면 잠금 PIN(비밀번호 숫자)을 걸어요. 자동 업데이트는 밤에 되게 하고, 충전 거치대에 세워 둬요. 분실 대비로 '나의 찾기'(아이패드) 또는 '내 디바이스 찾기'(갤럭시 탭)를 켜요. 대기실용과 직원용은 가능하면 따로 둬요.</small></div></li>
     <li><input type="checkbox" id="v_a93b" data-key="v_a93b"><div class="body"><label for="v_a93b">웹사이트 방식: 웹앱 주소 만들고 나누기</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>앱스 스크립트 편집기 오른쪽 위 <span class="path">배포 → 새 배포</span> → 유형 '웹 앱'</li>

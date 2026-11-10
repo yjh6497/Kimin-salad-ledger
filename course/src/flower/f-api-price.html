@@ -22,13 +22,14 @@
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li><span class="path">확장 프로그램 → Apps Script</span> → 왼쪽 + → 스크립트 → 이름 '경매시세' → 받은 코드 붙여 넣기 → 저장</li>
         <li>함수 <b>fillAuction</b>을 고르고 실행 → 권한 허용<span class="fix">'Google에서 확인하지 않은 앱'은 내가 만든 스크립트라 뜨는 정상 안내예요. 고급 → 이동 → 허용.</span></li>
-        <li>'경매시세' 탭에 줄이 생겼는지 확인. 빨간 오류가 나면 오류 문장을 그대로 같은 채팅에 붙여 넣기</li>
+        <li>'경매시세' 탭에 줄이 생겼는지 확인<span class="fix">막히면: 빨간 오류가 나면 오류 문장을 그대로 복사해 같은 채팅에 붙여 넣어요. 어제가 경매 없는 날이면 줄이 안 생기는 게 정상이에요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="f_apr_c" data-key="f_apr_c"><div class="body"><label for="f_apr_c">지난 4주 치를 한 번에 채우기</label><small>메뉴 <span class="path">꽃집 데이터 → 지난 4주 채우기</span>를 한 번 눌러 비교할 바탕을 만들어요. 경매가 없는 날은 결과가 비어 있는 게 정상이에요.</small></div></li>
-    <li><input type="checkbox" id="f_apr_d" data-key="f_apr_d"><div class="body"><label for="f_apr_d">매일 자동 실행</label><small>Apps Script 왼쪽 시계 모양 <span class="path">트리거 → + 트리거 추가 → fillAuction · 시간 기반 · 일 단위 · 오전 6~7시</span>. 경매 결과가 늦게 확정되는 날도 있으니 오전 10시 한 번 더 걸어 두면 빠짐이 줄어요.</small></div></li>
-    <li><input type="checkbox" id="f_apr_e" data-key="f_apr_e"><div class="body"><label for="f_apr_e">원가 탭과 잇기</label><small>'구성' 탭(꽃다발별 들어가는 꽃 수량)의 꽃값 칸을 '경매시세' 최근 7일 평균 × <b>도매 가산율</b>(내가 정한 값, 예: 1.3)로 바꾸면 상품 원가가 저절로 따라와요. 가산율은 실제 영수증과 몇 주 비교해서 맞춰요.</small></div></li>
+    <li><input type="checkbox" id="f_apr_d" data-key="f_apr_d"><div class="body"><label for="f_apr_d">매일 자동 실행 걸기</label><small>매일 실행 버튼을 누르지 않으려고 <dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)를 걸어요. Apps Script 왼쪽 시계 모양 <span class="path">트리거 → + 트리거 추가 → fillAuction · 시간 기반 · 일 단위 · 오전 6~7시</span>. 경매 결과가 늦게 확정되는 날도 있어요. 오전 10시에 한 번 더 걸어 두면 빠짐이 줄어요.</small></div></li>
+    <li><input type="checkbox" id="f_apr_e" data-key="f_apr_e"><div class="body"><label for="f_apr_e">원가 탭과 잇기</label><small>시세가 바뀌면 원가도 같이 바뀌게 하려고 해요. '구성' 탭(꽃다발별 들어가는 꽃 수량)의 꽃값 칸을 바꿔요. '경매시세' 최근 7일 평균 × <b>도매 가산율</b>(내가 정한 값, 예: 1.3)이에요. 그러면 상품 원가가 저절로 따라와요. 가산율은 실제 영수증과 몇 주 비교해서 맞춰요.</small></div></li>
   </ol>
 
+  <p class="cap">이 글을 그대로 복사해서 '07 자동화 도우미' 채팅에 붙여 넣으세요. 바꿀 자리는 없어요. 아래 사입 목록 부탁문은 '05 시세·사입' 채팅에 붙여 넣어요.</p>
   <div class="prompt"><div class="bar"><span>경매 시세 수집 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '꽃집 운영 장부'에 붙일 Apps Script를 만들어 줘. 나는 코딩을 몰라.
 [호출] https://flower.at.or.kr/api/returnData.api
   파라미터: kind=f001, serviceKey=(스크립트 속성 FLOWER_KEY), baseDate=YYYY-MM-DD,
@@ -51,7 +52,7 @@
 2) 많이 오른 꽃은 비슷한 색·느낌의 대체 꽃 2가지 (최근 시세 함께)
 3) 예약이 몰린 날 전에 사야 할 것과 당일 사도 되는 것
 시세는 경매가라 도매상 값은 더 높다는 점을 전제로, 숫자가 없는 건 지어내지 말고 '없음'.</pre></div>
-  <p class="tip warnbox"><b>경매가는 농가 → 도매 단계 값이에요.</b> 도매상에서 사는 값과 다르니, 자동 원가는 '방향'을 보는 용도로 쓰고 실제 영수증 값으로 가산율을 맞춰요. 시세 숫자를 손님 안내나 광고에 그대로 쓰지 마세요.</p>
+  <p class="tip warnbox"><b>경매가는 농가 → 도매 단계 값이에요.</b> 도매상에서 사는 값과 달라요. 그래서 자동 원가는 '방향'을 보는 용도로 써요. 가산율은 실제 영수증 값으로 맞춰요. 시세 숫자를 손님 안내나 광고에 그대로 쓰지 마세요.</p>
 
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">시간 트리거</span><div class="ad"><b>매일 아침 시세</b><span>오전 6~7시, 10시 두 번.</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>원가 자동 갱신</b><span>구성 탭 꽃값 = 최근 7일 평균 × 가산율.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>급등 알림 → 대체 꽃 고르기</b><span>"장미 +30%" 알림에 버튼으로 대체 꽃 선택(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>).</span><span class="pv">버튼: 그대로 사기 / 대체 꽃 / 다음 주로</span></div></li></ul></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span>스크립트는 <b>07 자동화 도우미</b>, 사입 목록은 <b>05 시세·사입</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>'내 꽃' 목록, 도매 가산율, 거래 도매상 목록</span></div></div>

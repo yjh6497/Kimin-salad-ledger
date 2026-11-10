@@ -3,30 +3,31 @@
   <div class="lesson-head">
     <span class="kicker">약 15분</span>
     <h2>숫자는 엑셀로 받아서 폴더에 넣어요</h2>
-    <p class="goal">소규모 매장은 포스·배달앱 데이터를 <dfn data-t="api">API</dfn>로 직접 받기 어려워요. 엑셀로 내려받아 장부 폴더에 넣으면 AI가 읽습니다.</p>
+    <p class="goal">작은 매장은 포스·배달앱 데이터를 <dfn data-t="api">API</dfn>(프로그램끼리 자료를 주고받는 창구)로 직접 받기 어려워요. 그래서 엑셀로 내려받아 장부 폴더에 넣어요. 그러면 AI가 읽어요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여기저기 흩어진 매출 영수증을 '장부 서랍' 하나에 모으는 거예요. 포스·배달앱에서 엑셀 파일을 받아 드라이브 폴더에 넣기만 하면 돼요.</span></div><div class="easy-row"><b>끝나면</b><span>드라이브 '우리가게 장부' 폴더에 모인 지난주 포스·배달앱 매출 파일</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 포스·배달앱 사장님 계정, 구글 드라이브, 약 15분 · 파일 찾기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <ol class="steps">
-    <li><input type="checkbox" id="s_s3a" data-key="s_s3a"><div class="body"><label for="s_s3a">토스 포스 매출 엑셀 받기</label><small>결제 시트(일자·시각, 채널, 금액, 결제수단, 취소)와 상품 주문 시트(상품명, 옵션, 수량, 할인, 실판매금액)가 들어 있어요.</small>
+    <li><input type="checkbox" id="s_s3a" data-key="s_s3a"><div class="body"><label for="s_s3a">토스 포스 매출 엑셀 받기</label><small>장부의 기본이 되는 매출 숫자예요. 파일 안에는 결제 시트(일자·시각, 채널, 금액, 결제수단, 취소)와 상품 주문 시트(상품명, 옵션, 수량, 할인, 실판매금액)가 들어 있어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>포스 화면 왼쪽 위 <span class="path">≡ 메뉴 → 매출 리포트 → 매출현황</span></li>
-        <li><span class="path">엑셀 내보내기</span> 누르기 → 기간 고르기(지난주 월~일)</li>
-        <li><span class="path">파일 만들기</span> → 파일 비밀번호 정하기 → <span class="path">받기</span></li>
-        <li>받은 파일을 드라이브 '우리가게 장부' 폴더에 올리기<span class="fix">AI에게 올리기 전에 비밀번호로 한 번 열어 다시 저장하면 잠금이 풀려요.</span></li>
+        <li>포스 화면 왼쪽 위 <span class="path">≡ 메뉴 → 매출 리포트 → 매출현황</span>으로 가요.</li>
+        <li><span class="path">엑셀 내보내기</span>를 누르고 기간을 골라요(지난주 월~일).</li>
+        <li><span class="path">파일 만들기</span>를 누르고 파일 비밀번호를 정한 뒤 <span class="path">받기</span>를 눌러요.</li>
+        <li>받은 파일을 드라이브 '우리가게 장부' 폴더에 올려요.<span class="fix">막히면: 받은 파일은 PC의 '다운로드' 폴더에 있어요. AI에게 올리기 전에 비밀번호로 한 번 열어 다시 저장하면 잠금이 풀려요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s3b" data-key="s_s3b"><div class="body"><label for="s_s3b">토스 포스에 배달 매출 연결하기 (선택)</label><small>배달 3사 주문이 포스 매출에 합쳐져서 엑셀 하나로 볼 수 있어요.</small>
+    <li><input type="checkbox" id="s_s3b" data-key="s_s3b"><div class="body"><label for="s_s3b">토스 포스에 배달 매출 연결하기 (선택)</label><small>파일을 여러 개 받기 번거로우면 이렇게 해요. 배달 3사 주문이 포스 매출에 합쳐져서 엑셀 하나로 볼 수 있어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li><span class="path">설정 → 배달 매출 설정</span><span class="fix">메뉴가 안 보이면 포스를 껐다 켜세요.</span></li>
-        <li>쓰는 배달앱 옆 <span class="path">연결하기</span> → 배달앱 계정으로 로그인</li>
-        <li>연결한 날 이후 주문부터 합쳐진다는 점 기억하기</li>
+        <li>포스에서 <span class="path">설정 → 배달 매출 설정</span>으로 가요.<span class="fix">막히면: 메뉴가 안 보이면 포스를 껐다 켜세요.</span></li>
+        <li>쓰는 배달앱 옆 <span class="path">연결하기</span>를 누르고, 배달앱 계정으로 로그인해요.</li>
+        <li>연결한 날 이후 주문부터 합쳐져요. 그 전 주문은 따로 받아야 해요.</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s3c" data-key="s_s3c"><div class="body"><label for="s_s3c">배민 <dfn data-t="vat">부가세 신고자료</dfn> 받기</label><small>매출구분(카드·현금·기타), 매출, 부가세, 합계</small>
+    <li><input type="checkbox" id="s_s3c" data-key="s_s3c"><div class="body"><label for="s_s3c">배민 <dfn data-t="vat">부가세 신고자료</dfn> 받기</label><small>세금 신고 때도 쓰는 자료예요. 매출구분(카드·현금·기타), 매출, 부가세, 합계가 들어 있어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>PC에서 배민 사장님광장(ceo.baemin.com) 로그인</li>
-        <li><span class="path">우리가게관리 → 정산·주문 → 부가세 신고자료</span></li>
-        <li>기간 선택(한 번에 최대 3개월) → 조회 → 다운로드<span class="fix">만나서결제(카드·현금)는 여기 안 나와요. 별도 메뉴에서 확인하세요.</span></li>
+        <li>PC에서 배민 사장님광장(ceo.baemin.com)에 로그인해요.</li>
+        <li><span class="path">우리가게관리 → 정산·주문 → 부가세 신고자료</span>로 가요.</li>
+        <li>기간을 고르고(한 번에 최대 3개월) <span class="path">조회 → 다운로드</span>를 눌러요.<span class="fix">만나서결제(카드·현금)는 여기 안 나와요. 별도 메뉴에서 확인하세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s3d" data-key="s_s3d"><div class="body"><label for="s_s3d">쿠팡이츠·요기요 정산 내역 받기</label><small>각 사장님 사이트의 정산 메뉴에서 다운로드 버튼을 찾으세요.</small></div></li>
-    <li><input type="checkbox" id="s_s3e" data-key="s_s3e"><div class="body"><label for="s_s3e">매달 카드매출·홈택스 자료 받기</label><small><dfn data-t="cardsales">카드매출 통합조회</dfn>와 <dfn data-t="hometax">홈택스</dfn>는 조회 기간 제한이 있어 매달 받아 두는 게 좋아요.</small></div></li>
+    <li><input type="checkbox" id="s_s3d" data-key="s_s3d"><div class="body"><label for="s_s3d">쿠팡이츠·요기요 정산 내역 받기</label><small>배민처럼 각 사장님 사이트에 로그인해요. 정산 메뉴에서 다운로드 버튼을 찾아 눌러요.<span class="fix">막히면: 버튼이 안 보이면 정산 화면을 캡처해 AI에게 "엑셀로 받는 버튼은 어디야?"라고 물어요.</span></small></div></li>
+    <li><input type="checkbox" id="s_s3e" data-key="s_s3e"><div class="body"><label for="s_s3e">매달 카드매출·홈택스 자료 받기</label><small><dfn data-t="cardsales">카드매출 통합조회</dfn>와 <dfn data-t="hometax">홈택스</dfn>는 볼 수 있는 기간에 제한이 있어요. 그래서 매달 받아 두는 게 좋아요.</small></div></li>
   </ol>
   <p class="tip"><b>매주 손으로 받기 번거롭다면.</b> 받은 파일을 폴더에 넣기만 하면 장부에 자동으로 들어가게 만드는 방법이 <a href="#s-l25" class="ref" data-ref="s-l25">강의</a>에 있어요.</p>
   <p class="src">출처: <a href="https://tossplace.com/story/salesreport" target="_blank" rel="noopener">토스 포스 매출 리포트</a> · <a href="https://tossplace.com/story/delivery-sales-free" target="_blank" rel="noopener">토스 포스 배달 매출 연결</a> · <a href="https://help.bznav.com/hc/ko/articles/900007650043" target="_blank" rel="noopener">배민 부가세 신고자료 조회</a> · <a href="https://news.jkn.co.kr/post/726614" target="_blank" rel="noopener">여신금융협회 카드매출조회</a></p>
