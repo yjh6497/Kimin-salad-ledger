@@ -126,3 +126,11 @@ html[data-font="big"] .toc button .t { font-size: 16px; }
 .lawbox p { margin: 0 0 8px; line-height: 1.65; font-size: 15px; }
 .lawbox ul { margin: 0 0 8px; padding-left: 1.2em; line-height: 1.7; font-size: 15px; }
 .lawbox .prompt { margin: 8px 0 10px; }
+
+/* 토큰 아끼기 상자 */
+.tokenbox { margin: 16px 0; padding: 12px 16px 4px; border: 1.5px dashed var(--carrot); border-radius: 14px; background: var(--paper); max-width: 80ch; }
+.tokenbox-h { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.tokenbox-h b { font-size: 15px; color: var(--ink); }
+.tokenbox-h b::before { content: "◎ "; color: var(--carrot); }
+.tokenbox ul { margin: 0 0 8px; padding-left: 1.2em; line-height: 1.7; font-size: 14.5px; }
+.tokenbox code, .lawbox code { font-family: var(--f-num); font-size: 13px; background: var(--code); padding: 1px 6px; border-radius: 6px; }

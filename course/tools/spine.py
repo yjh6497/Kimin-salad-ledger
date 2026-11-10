@@ -46,6 +46,7 @@ L = {
   ('c-b4', 'new', None, 'core', ALL, '', ''),
   ('c-b5', 'new', None, 'core', ALL, '', ''),
   ('c-b6', 'new', None, 'core', ALL, '', ''),
+  ('c-b7', 'new', None, 'core', ALL, '', ''),
  ],
  'takeover': [
   ('c-l46', 'vet',  'l46', 'core', 'T', '', ''),

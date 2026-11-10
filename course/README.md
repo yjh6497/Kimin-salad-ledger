@@ -19,6 +19,7 @@
 | `src/vet/`, `src/salad/`, `src/arch/`, `src/flower/` | 업종 전용 강의 원본 |
 | `tools/spine.py` | 장 순서와 강의 배치 (수준·단계·업종 한정/제외) |
 | `tools/build.py` | `src/` → `lib/` 묶기 |
+| `tools/tokenbox.py` | 강의마다 '토큰 아끼기' 상자 다시 만들기 (강의를 고친 뒤 build 전에 실행) |
 | `tools/check.py` | 태그 짝·토큰·남은 동물병원 단어 점검 |
 | `lib/` | 화면이 읽는 묶음 파일 (build.py가 만듦, 직접 고치지 않기) |
 

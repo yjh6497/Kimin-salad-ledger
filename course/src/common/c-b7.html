@@ -1,0 +1,67 @@
+<section id="c-b7" class="lesson" data-part="basics" data-title="토큰 아끼기와 MarkItDown" data-level="core" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">준비 운동 · 약 40분 · PC</span>
+    <h2>같은 일을 시켜도 AI 사용량을 크게 줄일 수 있어요</h2>
+    <p class="goal">AI는 글자를 <b>토큰</b>이라는 조각으로 세어서 읽어요. 무료 플랜의 하루 사용량, 유료 플랜의 사용 한도가 모두 이 토큰으로 정해져요. 긴 PDF·사진·끝없이 길어진 채팅이 토큰을 가장 많이 먹어요. 이 강의에서 <b>토큰을 아끼는 습관 7가지</b>와, 파일을 AI가 읽기 쉬운 글자로 바꿔 주는 무료 도구 <b>MarkItDown</b>(마이크로소프트가 공개한 프로그램) 설치·사용법을 익혀요.</p>
+  </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>AI에게 서류를 줄 때 '두꺼운 책' 대신 '필요한 페이지만 타자로 친 종이'를 주는 거예요. AI가 덜 읽으니 빨라지고 한도도 덜 닳아요.</span></div><div class="easy-row"><b>끝나면</b><span>PDF·워드·엑셀·파워포인트를 한 줄 명령으로 글자 파일(.md)로 바꾸는 MarkItDown, 그리고 채팅을 짧게 쓰는 습관</span></div><div class="easy-row"><b>필요한 것</b><span>PC(맥 또는 윈도우), 인터넷, 40분 · 복사·붙여넣기(<a href="#c-b2" class="ref" data-ref="c-b2">강의</a>)</span></div></div>
+
+  <h3>토큰을 아끼는 습관 7가지</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>습관</th><th>왜 아껴지나</th><th>이렇게 해요</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. 한 채팅에 한 일</b></td><td>AI는 답할 때마다 그 채팅의 앞 내용을 처음부터 다시 읽어요. 채팅이 길수록 한 번에 쓰는 양이 커져요.</td><td>주제가 바뀌면 새 채팅. 길어졌으면 "지금까지 요약 10줄"을 받아 새 채팅에 붙여 이어가기</td></tr>
+      <tr><td><b>2. 반복 자료는 프로젝트에 한 번</b></td><td>소개서·규칙을 채팅마다 붙여 넣으면 매번 새로 읽어요.</td><td>프로젝트 지침·파일에 한 번 넣어 두기(<a href="#c-l5" class="ref" data-ref="c-l5">강의</a>)</td></tr>
+      <tr><td><b>3. 파일은 글자로 바꿔서</b></td><td>PDF·사진은 글자 말고도 그림 정보까지 읽느라 무거워요.</td><td>MarkItDown으로 .md 파일로 바꿔 올리기 (아래)</td></tr>
+      <tr><td><b>4. 필요한 부분만</b></td><td>100쪽 중 3쪽만 필요해도 100쪽을 다 읽어요.</td><td>필요한 쪽·필요한 표만 잘라서. 엑셀은 필요한 열만 CSV로</td></tr>
+      <tr><td><b>5. 캡처보다 글자</b></td><td>캡처 한 장은 같은 내용의 글자보다 무거운 편이에요.</td><td>화면 글자를 복사할 수 있으면 복사해서. 캡처는 '어디를 눌러야 하나'처럼 화면 모양이 필요할 때만</td></tr>
+      <tr><td><b>6. 답 길이를 정하기</b></td><td>AI가 길게 쓰면 그만큼 써요.</td><td>"5줄로", "표만", "바뀐 부분만"</td></tr>
+      <tr><td><b>7. 고칠 땐 고칠 곳만</b></td><td>"처음부터 다시"는 전체를 다시 써요.</td><td>"3번 문단만 더 짧게", "코드는 바뀐 함수만"</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>MarkItDown 설치하기 (한 번만)</h3>
+  <p class="cap">파이썬 3.10 이상에서 돌아요. 아래 방법은 <b>uv</b>(파이썬과 도구를 알아서 깔아 주는 설치 도우미)를 써서 파이썬을 따로 깔지 않아도 돼요.</p>
+  <ol class="steps">
+    <li data-dev-only="mac"><input type="checkbox" id="b7a" data-key="b7a"><div class="body"><label for="b7a">맥: 터미널 열고 uv 설치하기</label><small>터미널은 글자로 명령을 내리는 창이에요. <span class="path">⌘ + 스페이스 → '터미널' 입력 → 엔터</span>로 열어요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>아래 '맥 설치 명령' 첫 줄을 복사해 터미널에 붙여 넣고 엔터 → 설치가 끝날 때까지 기다리기</li>
+        <li>터미널 창을 닫았다가 다시 열기 (새로 깐 도구를 알아보게 하려는 거예요)</li>
+        <li>둘째 줄을 붙여 넣고 엔터 → MarkItDown 설치</li>
+        <li><code>markitdown --help</code>를 쳐서 사용법 글이 나오면 성공<span class="fix">막히면: "command not found"가 나오면 터미널을 완전히 끄고(⌘+Q) 다시 열어요. 그래도 안 되면 화면을 복사해 AI에게 "맥에서 uv로 markitdown 설치하다 이렇게 나왔어"라고 물어요(<a href="#c-b6" class="ref" data-ref="c-b6">강의</a>).</span></li>
+      </ol></details></div></li>
+    <li data-dev-only="win"><input type="checkbox" id="b7b" data-key="b7b"><div class="body"><label for="b7b">윈도우: PowerShell 열고 uv 설치하기</label><small>PowerShell은 윈도우의 명령 창이에요. <span class="path">시작 버튼 → 'PowerShell' 입력 → 열기</span>.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>아래 '윈도우 설치 명령' 첫 줄을 복사해 붙여 넣고 엔터</li>
+        <li>PowerShell을 닫았다가 다시 열기</li>
+        <li>둘째 줄을 붙여 넣고 엔터 → <code>markitdown --help</code>로 확인<span class="fix">막히면: 빨간 '실행 정책' 오류가 나면 첫 줄 명령을 그대로 다시 붙여 넣었는지 확인해요(앞부분 -ExecutionPolicy ByPass가 그 문제를 풀어 줘요). 회사 PC라 막혀 있으면 관리자에게 물어요.</span></li>
+      </ol></details></div></li>
+  </ol>
+  <div class="prompt" data-dev-only="mac"><div class="bar"><span>맥 설치 명령 (터미널에 한 줄씩)</span><button class="copy" type="button">복사</button></div><pre>curl -LsSf https://astral.sh/uv/install.sh | sh
+uv tool install 'markitdown[all]'</pre></div>
+  <div class="prompt" data-dev-only="win"><div class="bar"><span>윈도우 설치 명령 (PowerShell에 한 줄씩)</span><button class="copy" type="button">복사</button></div><pre>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+uv tool install "markitdown[all]"</pre></div>
+
+  <h3>MarkItDown 쓰기</h3>
+  <ol class="steps">
+    <li><input type="checkbox" id="b7c" data-key="b7c"><div class="body"><label for="b7c">바꿀 파일이 있는 폴더로 가기</label><small>명령 창에 <code>cd </code>(cd 뒤 한 칸 띄우기)를 치고, 파일이 있는 폴더를 창 안으로 끌어다 놓은 뒤 엔터. 폴더 위치가 자동으로 적혀요.</small></div></li>
+    <li><input type="checkbox" id="b7d" data-key="b7d"><div class="body"><label for="b7d">한 줄로 바꾸기</label><small><code>markitdown 견적서.pdf -o 견적서.md</code> → 같은 폴더에 견적서.md가 생겨요. 워드(.docx)·엑셀(.xlsx)·파워포인트(.pptx)·HTML·CSV도 같은 방법이에요.</small></div></li>
+    <li><input type="checkbox" id="b7e" data-key="b7e"><div class="body"><label for="b7e">.md 파일을 AI에 올리기</label><small>PDF 대신 .md를 올리거나, 열어서 필요한 부분만 복사해 붙여 넣어요. .md는 메모장(텍스트 편집기)으로 열 수 있는 글자 파일이에요.</small></div></li>
+    <li><input type="checkbox" id="b7f" data-key="b7f"><div class="body"><label for="b7f">폴더 안 파일을 한꺼번에 (선택)</label><small>아래 '한꺼번에 바꾸기'를 쓰면 폴더 안 PDF를 모두 .md로 바꿔요.<span class="fix">주의: 스캔한 PDF(종이를 찍은 그림)는 글자가 거의 안 나올 수 있어요. 그런 파일은 그대로 AI에 올려 읽게 해요. 한글(HWP)은 지원 목록에 없으니 한글에서 PDF나 워드(DOCX)로 저장한 뒤 바꿔요.</span></small></div></li>
+  </ol>
+  <div class="prompt" data-dev-only="mac"><div class="bar"><span>맥: 폴더 안 PDF 한꺼번에 바꾸기</span><button class="copy" type="button">복사</button></div><pre>for f in *.pdf; do markitdown "$f" -o "${f%.pdf}.md"; done</pre></div>
+  <div class="prompt" data-dev-only="win"><div class="bar"><span>윈도우: 폴더 안 PDF 한꺼번에 바꾸기</span><button class="copy" type="button">복사</button></div><pre>Get-ChildItem *.pdf | ForEach-Object { markitdown $_.FullName -o ($_.BaseName + ".md") }</pre></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>설치가 어렵다면</th><th>대신 이렇게</th></tr></thead>
+    <tbody>
+      <tr><td><b>워드·구글 문서</b></td><td>구글 문서로 열고 <span class="path">파일 → 다운로드 → 마크다운(.md)</span></td></tr>
+      <tr><td><b>엑셀·구글 시트</b></td><td>필요한 탭만 <span class="path">파일 → 다운로드 → CSV</span></td></tr>
+      <tr><td><b>PDF</b></td><td>PDF에서 필요한 쪽의 글자를 끌어 복사해 붙여 넣기</td></tr>
+      <tr><td><b>AI에게 맡기기</b></td><td>Claude 데스크톱 앱이나 터미널 AI(<a href="#c-l23" class="ref" data-ref="c-l23">강의</a>)에게 "이 폴더 PDF를 markitdown으로 .md로 바꿔 줘"라고 부탁</td></tr>
+    </tbody>
+  </table></div>
+  <p class="tip warnbox"><b>바꾼 뒤 한 번 훑어보기.</b> 표가 많은 PDF는 칸이 어긋날 수 있어요. 금액·면적 같은 숫자는 원본과 한 번 맞춰 봐요. 손님·건축주 개인정보가 든 파일은 바꾼 .md도 똑같이 조심해서 다뤄요.</p>
+  <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span>모든 채팅. 프로젝트 파일도 PDF 대신 .md로 넣어 두면 가벼워요</span></div></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>MarkItDown·uv 모두 무료(오픈 소스)</li><li>무료 플랜일수록 하루 한도를 아끼는 효과가 커요</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>한도에 덜 걸려 긴 작업을 한 번에</li></ul></div></div>
+  <p class="cap">출처: microsoft/markitdown GitHub(설치·사용법·지원 형식·파이썬 3.10 이상) · uv 설치 안내(astral.sh).</p>
+</section>

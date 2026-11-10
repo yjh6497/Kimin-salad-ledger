@@ -935,6 +935,7 @@
     });
     document.querySelectorAll('ol.steps').forEach(function (ol) { Array.prototype.forEach.call(ol.children, function (li, i) { li.style.setProperty('--i', Math.min(i, 10)); }); });
 
+    window.addEventListener('hashchange', function () { var hh = (location.hash || '').replace('#', ''); if (idx[hh] != null && lessons[idx[hh]].hidden) show(idx[hh], true); });
     applyAI();
     var h = (location.hash || '').replace('#', '');
     var start = idx[h] != null ? idx[h] : (state.last && idx[state.last] != null ? idx[state.last] : 0);
