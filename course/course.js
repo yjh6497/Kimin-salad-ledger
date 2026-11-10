@@ -479,7 +479,7 @@
   // ---------- 코스 지도 (인트로 강의 안) ----------
   function buildCourseMap(chosen) {
     var box = document.getElementById('courseMap'); if (!box) return;
-    var partTitle = {}; MAN.parts.forEach(function (p) { partTitle[p[0]] = p[1]; });
+    var partTitle = {}; MAN.parts.forEach(function (p) { partTitle[p[0]] = R(p[1]); });
     var by = {}, order = [];
     chosen.forEach(function (L) {
       if (L.ai && prefs.ai && L.ai !== prefs.ai) return;
@@ -507,7 +507,7 @@
     var dlg = document.getElementById('picker');
     var off = state.off.slice(), add = state.add.slice();
     var list = document.getElementById('pickList'), qi = document.getElementById('pickQ');
-    var partTitle = {}; MAN.parts.forEach(function (p) { partTitle[p[0]] = p[1]; });
+    var partTitle = {}; MAN.parts.forEach(function (p) { partTitle[p[0]] = R(p[1]); });
     function isOnNow(L) { return add.indexOf(L.id) >= 0 || (defaultOn(L, BIZ, P.stage) && off.indexOf(L.id) < 0); }
     function render() {
       var t = qi.value.trim().toLowerCase();
@@ -701,7 +701,7 @@
       });
     }
 
-    var partTitle = {}; MAN.parts.forEach(function (p) { partTitle[p[0]] = p[1]; });
+    var partTitle = {}; MAN.parts.forEach(function (p) { partTitle[p[0]] = R(p[1]); });
     var tocList = document.getElementById('tocList');
     var tocBtns = [], partLis = [], lastPart = '', curPart = null;
     lessons.forEach(function (sec, i) {
