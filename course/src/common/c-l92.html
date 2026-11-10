@@ -6,6 +6,7 @@
     <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>캘린더 커넥터와 스크립트는 무료로 돼요. 아침 브리핑은 출근길에 '오늘 브리핑' 한 줄을 보내는 방식으로.</span></p>
     <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>아침 브리핑을 예약 작업으로 걸어 두면 하루 일을 시작하기 전에 와 있어요. 지침은 '일정 비서' 스킬로 묶어요(<a href="#c-l38" class="ref" data-ref="c-l38">강의</a>).</span></p>
   </div>
+<div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>달력 담당 비서를 한 명 두는 거예요. "오늘 브리핑"이라고 하면 오늘 누가 일하는지, 챙길 날짜가 뭔지 알려 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>'11 일정 비서' 채팅과, 직원 휴대폰에 자기 근무·휴가가 저절로 뜨는 캘린더가 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 캘린더 7개와 '직원 데이터' 시트, 1시간 30분 · 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble me a" style="--d:.2s"><span class="who">{{owner}} · 아침 8시 40분</span>오늘 브리핑</div>
@@ -25,7 +26,7 @@
     </tbody>
   </table></div>
 
-  <h3>해마다 오는 사람 일정 (법령 MCP로 확인)</h3>
+  <h3>해마다 오는 사람 일정 (<dfn data-t="lawmcp">법령 MCP</dfn>로 확인)</h3>
   <div class="table-wrap"><table>
     <thead><tr><th>일정</th><th>기준</th><th>캘린더에 넣는 법</th></tr></thead>
     <tbody>
@@ -38,25 +39,26 @@
   <p class="cap">2026년 11월 7일 법령 MCP로 조회한 내용이에요.<span data-biz="vet"> 수의사법은 11월 13일 일부 개정이 시행되지만 제34조 연수교육 조문은 그대로예요.</span> 매년 1월 한 번 '08 법률·세무 도우미'에게 다시 확인하게 하세요.</p>
 
   <ol class="steps">
-    <li><input type="checkbox" id="v_a92a" data-key="v_a92a"><div class="body"><label for="v_a92a">'11 일정 비서' 채팅 만들기</label><small>AI 비서실 프로젝트에서 새 채팅을 열고 이름을 '11 일정 비서'로 바꿔요(<a href="#c-l6" class="ref" data-ref="c-l6">강의</a>). 첫 메시지로 아래 '일정 비서 지침'을 보내요. 캘린더 커넥터를 켜고, 드라이브에서 '직원 데이터' 시트를 연결해요.</small></div></li>
+    <li><input type="checkbox" id="v_a92a" data-key="v_a92a"><div class="body"><label for="v_a92a">'11 일정 비서' 채팅 만들기</label><small>일정만 맡는 채팅을 따로 두면 대화가 섞이지 않아요. AI 비서실 프로젝트에서 새 채팅을 열고 이름을 '11 일정 비서'로 바꿔요(<a href="#c-l6" class="ref" data-ref="c-l6">강의</a>). 첫 메시지로 아래 '일정 비서 지침'을 보내요. 그다음 캘린더 <dfn data-t="connector">커넥터</dfn>(다른 앱과 이어 주는 연결선)를 켜요. 드라이브에서 '직원 데이터' 시트도 연결해요.</small><span class="fix">막히면: 커넥터 메뉴가 안 보이면 채팅 입력창 옆 <span class="path">+ → 커넥터</span>(또는 <span class="path">설정 → 커넥터</span>)를 찾아요. 이름은 앱마다 조금 달라요.</span></div></li>
     <li><input type="checkbox" id="v_a92b" data-key="v_a92b"><div class="body"><label for="v_a92b">직원 데이터에 '사람 일정' 탭과 칸 더하기</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>'직원 데이터' 시트 아래 + → 새 탭 이름 '사람 일정' → 아래 제목 줄을 A1에 붙여 넣어요</li>
+        <li>'직원 데이터' 시트 아래 <span class="path">+</span>를 눌러 새 <dfn data-t="tab">탭</dfn>을 만들고 이름을 '사람 일정'으로 바꿔요. 아래 제목 줄을 A1에 붙여 넣어요</li>
         <li>'직원' 탭 K열 제목을 '캘린더 메일'로 적어요. 직원이 <b>동의한 경우에만</b> 그 직원의 구글 메일을 적어요. 비워 두면 그 직원에게는 초대가 가지 않아요</li>
-        <li>'근무표' 탭 H열 제목은 '캘린더ID', '휴가신청' 탭 E열 제목도 '캘린더ID'로 적어요. 스크립트가 넣은 일정의 번호가 여기에 적혀요</li>
-        <li>입사일·수습 종료일·계약 만료일과 위 표의 교육을 '사람 일정'에 한 줄씩 적어요. AI에게 "직원 탭 입사일로 수습 3개월 종료일과 입사 기념일을 사람 일정 형식으로 만들어 줘"라고 해도 돼요<span class="fix">{{owner}} 일정은 직원번호 칸에 00을 적어요. 직원 모두에게 해당하면 비워 둬요.</span></li>
+        <li>'근무표' 탭 H열 제목은 '캘린더ID'로 적어요. '휴가신청' 탭 E열 제목도 '캘린더ID'로 적어요. 스크립트가 넣은 일정의 번호가 여기에 적혀요</li>
+        <li>입사일·수습 종료일·계약 만료일과 위 표의 교육을 '사람 일정'에 한 줄씩 적어요. 손으로 적기 어려우면 AI에게 "직원 탭 입사일로 수습 3개월 종료일과 입사 기념일을 사람 일정 형식으로 만들어 줘"라고 해도 돼요<span class="fix">{{owner}} 일정은 직원번호 칸에 00을 적어요. 직원 모두에게 해당하면 비워 둬요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a92c" data-key="v_a92c"><div class="body"><label for="v_a92c">근무·휴가·사람 일정을 캘린더로 보내는 스크립트</label>
+    <li><input type="checkbox" id="v_a92c" data-key="v_a92c"><div class="body"><label for="v_a92c">근무·휴가·사람 일정을 캘린더로 보내는 스크립트 붙이기</label><small>시트에 적은 근무를 캘린더에 또 옮겨 적지 않으려고 스크립트에 맡겨요. 아래 코드를 그대로 붙이면 돼요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>'직원 데이터' 시트 → <span class="path">확장 프로그램 → Apps Script</span> → 아래 'syncPeople' 스크립트를 붙여 넣고 저장</li>
-        <li>▶ 실행 → 권한 허용(캘린더·시트). 캘린더에 <span data-biz="vet">🩺</span><span data-biz-not="vet">🗓️</span> 근무, 🌴 휴가, 👥 사람 일정이 생겼는지 확인</li>
-        <li>시계 아이콘 → <dfn data-t="trigger">트리거</dfn> 추가 → syncPeople, 시간 기반, 매일 오후 9~10시. 그날 승인한 휴가와 새 근무가 밤에 직원 캘린더로 가요<span class="fix">이미 보낸 근무를 바꿨다면, 캘린더에서 옛 일정을 지우고 그 줄의 캘린더ID 칸을 비운 뒤 다시 실행하세요. ID가 있는 줄은 건너뛰어요.</span></li>
+        <li>'직원 데이터' 시트에서 <span class="path">확장 프로그램 → Apps Script</span>를 열어요. <dfn data-t="appsscript">Apps Script</dfn>는 시트에 딸린 작은 프로그램 칸이에요. 아래 'syncPeople' 스크립트를 붙여 넣고 저장해요</li>
+        <li>▶ 실행을 누르고 권한을 허용해요(캘린더·시트). 캘린더에 <span data-biz="vet">🩺</span><span data-biz-not="vet">🗓️</span> 근무, 🌴 휴가, 👥 사람 일정이 생겼는지 확인해요<span class="fix">막히면: '확인되지 않은 앱' 창이 뜨면 <span class="path">고급 → (프로젝트 이름)으로 이동 → 허용</span>을 눌러요. '캘린더 이름을 확인하세요' 오류가 나면 캘린더 이름이 '근무·휴가', '{{place}} 일정'과 글자까지 같은지 봐요.</span></li>
+        <li><span class="path">시계 아이콘 → 트리거 추가</span>를 눌러 <dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)를 걸어요. 함수는 syncPeople, 시간 기반, 매일 오후 9~10시로 골라요. 그러면 그날 승인한 휴가와 새 근무가 밤에 직원 캘린더로 가요<span class="fix">이미 보낸 근무를 바꿨다면, 캘린더에서 옛 일정을 지우고 그 줄의 캘린더ID 칸을 비운 뒤 다시 실행하세요. ID가 있는 줄은 건너뛰어요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a92d" data-key="v_a92d"><div class="body"><label for="v_a92d">직원 휴대폰에는 자기 일정만</label><small>스크립트는 근무·휴가 일정마다 그 직원 한 명만 손님으로 초대해요. 직원은 초대 메일에서 '예'를 누르면 자기 Google 캘린더 앱에 근무가 뜨고, 근무 12시간 전에 알림을 받아요. 다른 직원의 휴가 사유나 면담 일정은 보이지 않아요. 직원 웹앱(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)에 '내 일정' 화면을 더하고 싶으면 아래 부탁문을 '07 자동화 도우미'에게 보내요.</small></div></li>
-    <li><input type="checkbox" id="v_a92e" data-key="v_a92e"><div class="body"><label for="v_a92e">휴가 신청은 일정 비서와 같이 판단</label><small>직원이 웹앱으로 휴가를 신청하면 {{owner}} 대시보드에 대기로 떠요. 승인하기 전에 '휴가 신청 검토' 부탁문을 보내면 그날 <span data-biz="vet">수술 블록</span><span data-biz-not="vet">예약이 몰리는 시간</span>, 근무 인원, 다른 휴가와 겹치는지 보고 근무 조정안을 줘요. 결정은 {{owner:이}} 하고, 휴가신청 탭 상태를 '승인'으로 바꾸면 밤에 캘린더로 가요.</small></div></li>
-    <li><input type="checkbox" id="v_a92f" data-key="v_a92f"><div class="body"><label for="v_a92f">매일 아침 3분 브리핑</label><small>출근 전에 '오늘 브리핑' 한 줄. 월요일에는 '이번 주 브리핑'(<a href="#c-l89" class="ref" data-ref="c-l89">강의</a>)으로 바꿔요. 말로 넣는 일정("목요일 저녁 7시 직원 교육, 모두 초대")도 이 채팅에서 해요.</small></div></li>
+    <li><input type="checkbox" id="v_a92d" data-key="v_a92d"><div class="body"><label for="v_a92d">직원 휴대폰에는 자기 일정만 보내기</label><small>직원끼리 서로의 휴가 사유를 보면 안 돼요. 그래서 스크립트는 근무·휴가 일정마다 그 직원 한 명만 손님으로 초대해요. 직원이 초대 메일에서 '예'를 누르면 자기 Google 캘린더 앱에 근무가 떠요. 근무 12시간 전에는 알림도 받아요. 다른 직원의 휴가 사유나 면담 일정은 보이지 않아요. 직원 <dfn data-t="webapp">웹앱</dfn>(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)에 '내 일정' 화면을 더하고 싶으면 아래 부탁문을 '07 자동화 도우미'에게 보내요.</small></div></li>
+    <li><input type="checkbox" id="v_a92e" data-key="v_a92e"><div class="body"><label for="v_a92e">휴가 신청을 일정 비서와 같이 판단하기</label><small>직원이 웹앱으로 휴가를 신청하면 {{owner}} 대시보드에 대기로 떠요. 승인하기 전에 '휴가 신청 검토' 부탁문을 보내요. 그러면 비서가 그날 <span data-biz="vet">수술 블록</span><span data-biz-not="vet">예약이 몰리는 시간</span>, 근무 인원, 다른 휴가와 겹치는지 보고 근무 조정안을 줘요. 결정은 {{owner:이}} 해요. 휴가신청 탭 상태를 '승인'으로 바꾸면 밤에 캘린더로 가요.</small></div></li>
+    <li><input type="checkbox" id="v_a92f" data-key="v_a92f"><div class="body"><label for="v_a92f">매일 아침 3분 브리핑 받기</label><small>출근 전에 '오늘 브리핑' 한 줄만 보내요. 월요일에는 '이번 주 브리핑'(<a href="#c-l89" class="ref" data-ref="c-l89">강의</a>)으로 바꿔요. 말로 넣는 일정("목요일 저녁 7시 직원 교육, 모두 초대")도 이 채팅에서 해요.</small></div></li>
   </ol>
 
+  <p class="cap">제목 줄은 복사 버튼을 눌러 '사람 일정' 탭 A1에 붙여 넣으세요. 지침과 부탁문은 그대로 복사해서 '11 일정 비서' 채팅에 붙여 넣고, ○ 자리만 우리 {{place}} 값으로 바꿔요. 스크립트는 Apps Script 창에 그대로 붙여요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>사람 일정 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 직원번호({{owner}} 00, 모두는 비움) | 종류(수습종료/계약만료/연차계산/교육/면담/기타) | 내용 | 며칠 전 알림 | 캘린더ID</pre></div>
   <div class="prompt"><div class="bar"><span>일정 비서 지침 (채팅 첫 메시지)</span><button class="copy" type="button">복사</button></div><pre>너는 우리 {{place}} '일정 비서'야. {{owner:과}} 직원의 일정을 함께 챙겨.
 읽는 것: 캘린더 7개, '직원 데이터' 시트의 직원·근무표·휴가신청·사람 일정 탭.

@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2>근무표, 출퇴근, 휴가를 한 파일에</h2>
-    <p class="goal"><span data-biz="vet">동물병원은 진료 시간이 길고 야간 입원·당직이 있어서 근무표가 복잡해요.</span><span data-biz-not="vet">{{place:은}} {{hours:이}} 길고 주말·바쁜 날 인원이 달라서 근무표가 복잡해지기 쉬워요.</span> '직원 데이터' 시트 하나에 근무표·출퇴근·휴가를 모으면, 급여 계산과 노무 확인에 쓰는 숫자가 저절로 쌓여요.</p>
+    <p class="goal"><span data-biz="vet">동물병원은 진료 시간이 길고 야간 입원·당직이 있어서 근무표가 복잡해요.</span><span data-biz-not="vet">{{place:은}} {{hours:이}} 길고 주말·바쁜 날 인원이 달라서 근무표가 복잡해지기 쉬워요.</span> '직원 데이터' 시트 하나에 근무표·출퇴근·휴가를 모아요. 그러면 급여 계산과 노무 확인에 쓰는 숫자가 저절로 쌓여요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>벽에 붙인 근무표, 출근 도장 장부, 휴가 달력을 시트 한 권으로 묶는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>탭 5개짜리 '직원 데이터' 시트와, AI가 짜 준 다음 달 근무표 초안이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 직원별 계약 근무시간, 1시간 30분 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>기존 근무표·근로 조건을 그대로 받아 시트로 옮긴 뒤, 바꾸는 건 노무사 확인 후<a href="#v-l47" class="ref" data-ref="v-l47">강의</a>.</span></p>
 
   <h3>우리 {{place:은}} 몇 명 기준일까</h3>
@@ -14,15 +15,17 @@
       <tr><td><b>5명 이상</b></td><td>근로기준법 대부분</td><td>-</td></tr>
     </tbody>
   </table></div>
-  <p class="cap">근거: 근로기준법 제11조, 같은 법 시행령 별표 1(상시 4명 이하 사업장 적용 규정) — 법령 MCP로 2026. 11. 7. 조회. 상시 근로자 수는 법 적용 사유가 생긴 날 전 1개월 동안의 연인원을 가동 일수로 나눠 세고, 파트타임·기간제도 포함해요(시행령 제7조의2). 경계에 있으면 노무사와 한 번 확인하세요.</p>
+  <p class="cap">근거: 근로기준법 제11조, 같은 법 시행령 별표 1(상시 4명 이하 사업장 적용 규정) — 법령 MCP로 2026. 11. 7. 조회. 상시 근로자 수는 법 적용 사유가 생긴 날 전 1개월 동안의 연인원(날마다 일한 사람 수를 모두 더한 수)을 가동 일수로 나눠 세요. 파트타임·기간제도 포함해요(시행령 제7조의2). 경계에 있으면 노무사와 한 번 확인하세요.</p>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a81a" data-key="v_a81a"><div class="body"><label for="v_a81a">'직원 데이터' 시트 만들기</label><small>'{{place}} 운영' 폴더에 새 시트 <b>직원 데이터</b> → 탭 5개: 직원, 근무표, 출퇴근, 휴가, 요약. 아래 제목 줄을 각 탭 A1에 붙여 넣어요. 이 파일은 {{owner}}만 편집해요.</small></div></li>
-    <li><input type="checkbox" id="v_a81b" data-key="v_a81b"><div class="body"><label for="v_a81b">근무표를 AI에게 짜 달라고 하기</label><small>{{hours}}, 직원별 계약 근무시간, <span data-biz="vet">야간 당직 규칙</span><span data-biz-not="vet">오픈·마감 담당 규칙</span>, 쉬는 요일 희망을 주면 한 달 근무표 초안을 받아요. 휴게 시간과 주휴일, 연속 근무가 법 기준을 넘는 곳은 표시해 달라고 해요.</small></div></li>
-    <li><input type="checkbox" id="v_a81c" data-key="v_a81c"><div class="body"><label for="v_a81c">출퇴근은 직원 웹앱 버튼으로</label><small>다음 강의(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)의 웹앱에서 '출근'·'퇴근'을 누르면 출퇴근 탭에 시각이 쌓여요. 그 전까지는 구글 폼 하나로 시작해도 돼요.</small></div></li>
-    <li><input type="checkbox" id="v_a81d" data-key="v_a81d"><div class="body"><label for="v_a81d">요약 탭: 월 근무시간과 휴가</label><small>직원별 이번 달 근무시간, 계약보다 늘어난 시간, 야간 시간, 남은 휴가를 수식으로. 아래 부탁문으로 수식을 받아요. 이 숫자를 세무사·노무사에게 그대로 넘겨요.</small></div></li>
+    <li><input type="checkbox" id="v_a81a" data-key="v_a81a"><div class="body"><label for="v_a81a">'직원 데이터' 시트 만들기</label><small>직원 기록을 한 파일에 모으려는 거예요. '{{place}} 운영' 폴더에 새 시트 <b>직원 데이터</b>를 만들어요. 탭은 5개(직원, 근무표, 출퇴근, 휴가, 요약)로 나눠요. 아래 제목 줄을 각 탭 A1에 붙여 넣어요. 이 파일은 {{owner}}만 편집해요.</small></div></li>
+    <li><input type="checkbox" id="v_a81b" data-key="v_a81b"><div class="body"><label for="v_a81b">근무표를 AI에게 짜 달라고 하기</label><small>{{hours}}, 직원별 계약 근무시간, <span data-biz="vet">야간 당직 규칙</span><span data-biz-not="vet">오픈·마감 담당 규칙</span>, 쉬는 요일 희망을 알려 줘요. 그러면 한 달 근무표 초안을 받아요. 휴게 시간과 주휴일, 연속 근무가 법 기준을 넘는 곳은 표시해 달라고 해요.</small></div></li>
+    <li><input type="checkbox" id="v_a81c" data-key="v_a81c"><div class="body"><label for="v_a81c">출퇴근은 직원 웹앱 버튼으로 받기</label><small>직원이 직접 누르게 하면 {{owner:이}} 받아 적을 일이 없어요. 다음 강의(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)의 웹앱에서 '출근'·'퇴근'을 누르면 출퇴근 탭에 시각이 쌓여요. 그 전까지는 구글 폼 하나로 시작해도 돼요.</small></div></li>
+    <li><input type="checkbox" id="v_a81d" data-key="v_a81d"><div class="body"><label for="v_a81d">요약 탭에 월 근무시간과 휴가 모으기</label><small>세무사·노무사에게 넘길 숫자를 저절로 계산하려는 거예요. 직원별 이번 달 근무시간, 계약보다 늘어난 시간, 야간 시간, 남은 휴가를 수식(시트가 알아서 계산하는 식)으로 만들어요. 아래 부탁문으로 수식을 받아요. 이 숫자를 세무사·노무사에게 그대로 넘겨요.</small><span class="fix">막히면: 수식 칸에 #ERROR!가 뜨면 그 칸을 캡처해서 같은 채팅에 "이 오류 고쳐 줘"라고 보내요.</span></div></li>
   </ol>
+  <p class="cap">제목 줄은 그대로 복사해서 각 탭 A1 칸에 붙여 넣으세요. 근무표·출퇴근·휴가 탭은 같은 줄을 써요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>직원 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>직원번호 | 이름 | 역할 | 입사일 | 근로형태(정규/파트) | 주 소정근로시간 | 휴게 규칙 | PIN | 상태(재직/퇴사) | 메모</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>근무표·출퇴근·휴가 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 직원번호 | 근무 종류(주간/야간당직/휴무) | 시작 | 끝 | 휴게(분) | 메모</pre></div>
+  <p class="cap">아래 두 글은 그대로 복사해서 '10 인사 담당' 채팅에 붙여 넣으세요. ○○ 자리만 우리 {{place}} 값으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>한 달 근무표 부탁문</span><button class="copy" type="button">복사</button></div><pre>다음 달(○월) {{biz}} 근무표 초안을 짜 줘.
 <span data-biz="vet">- 진료 시간: ○○ (예: 평일 9~21시, 토 9~17시, 일 휴진) / 야간 입원 당직: ○○</span><span data-biz-not="vet">- {{hours}}: ○○ (예: 평일 10~21시, 토 10~18시, 일 휴무) / 오픈·마감 담당: ○○</span>
 - 직원: 직원번호 | 역할 | 주 소정근로시간 | 희망 휴무 (아래 붙여 넣기)
@@ -34,7 +37,7 @@
   <div class="prompt"><div class="bar"><span>요약 탭 수식 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '직원 데이터'의 요약 탭 수식을 만들어 줘. 출퇴근 탭(A 날짜 | B 직원번호 | C 출근 | D 퇴근 | E 휴게분), 직원 탭(A 직원번호 | F 주 소정근로시간), 휴가 탭(A 날짜 | B 직원번호 | C 종류 | D 일수).
 직원번호별 이번 달: 실근무시간, 22시~6시 야간 시간, 주별 소정근로 초과 시간, 사용 휴가, 남은 휴가(입사일 기준 계산법은 노무사 확인 전 '임시'로 표시).
 칸 위치와 수식을 붙여 넣는 순서대로.</pre></div>
-  <p class="tip warnbox"><b>급여 계산은 세무사·노무사와 맞춰요.</b> 시트는 시간을 정확히 모으는 곳이고, 가산수당·연차수당·퇴직금 계산과 임금명세서 발급은 급여 프로그램이나 세무사 기준으로 해요.</p>
+  <p class="tip warnbox"><b>급여 계산은 세무사·노무사와 맞춰요.</b> 시트는 시간을 정확히 모으는 곳이에요. 가산수당·연차수당·퇴직금 계산과 임금명세서 발급은 급여 프로그램이나 세무사 기준으로 해요.</p>
         <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>주 근무시간 경고</b><span>주별 합계가 계약 시간을 넘으면 빨갛게.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>근무표 초안 승인</b><span>다음 달 근무표. 승인하면 syncPeople이 캘린더로.</span><span class="pv">버튼: 승인 / 수정</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>앱스 스크립트: 주 근무시간 초과 → 텔레그램.</span></div><div class="run-row"><b>비서 연동</b><span>'10 인사 담당' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 직원 이름 대신 직원번호로만, 근무표 초안 → 직원 데이터 시트</span></div></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>10 인사 담당</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>직원 이름 대신 직원번호로만, 근무표 초안 → 직원 데이터 시트</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>

@@ -1,0 +1,39 @@
+<section id="c-b4" class="lesson" data-part="basics" data-title="구글 시트 첫걸음" data-level="core" data-stage="prep takeover operate">
+  <div class="lesson-head">
+    <span class="kicker">준비 운동 · 약 40분 · PC</span>
+    <h2>장부는 엑셀 대신 구글 시트 한 권에</h2>
+    <p class="goal"><dfn data-t="sheet">구글 시트</dfn>는 인터넷에 있는 엑셀이에요. 저장 버튼이 없어도 저절로 저장되고, 휴대폰에서도 열리고, AI와 자동화가 바로 읽을 수 있어요. 이 강의에서 새 시트 만들기, <dfn data-t="tab">탭</dfn> 나누기, 강의 속 '제목 줄' 붙여 넣기, 공유하기를 연습해요.</p>
+  </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>장부 한 권이에요. 맨 아래 '탭'이 장부 안의 칸막이(매출, 주문, 재고…)예요.</span></div><div class="easy-row"><b>끝나면</b><span>'{{place}} 장부' 시트 한 권, 탭 두 개, 제목 줄이 들어간 표</span></div><div class="easy-row"><b>필요한 것</b><span>PC, {{place}} 구글 계정(<a href="#c-b1" class="ref" data-ref="c-b1">강의</a>), 40분</span></div></div>
+
+  <ol class="steps">
+    <li><input type="checkbox" id="b4a" data-key="b4a"><div class="body"><label for="b4a">새 시트 만들기</label>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>크롬 주소 칸에 <b>sheets.new</b> 입력 → 엔터 (바로 새 시트가 열려요)</li>
+        <li>왼쪽 위 '제목 없는 스프레드시트'를 눌러 이름을 <b>{{place}} 장부</b>로</li>
+        <li>드라이브의 '{{place}} AI' 폴더로 옮기기: 이름 옆 폴더 모양 → 폴더 고르기 → 이동</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="b4b" data-key="b4b"><div class="body"><label for="b4b">탭 두 개 만들고 이름 바꾸기</label><small>맨 아래 '시트1'이 첫 탭이에요. 왼쪽 아래 <b>+</b>를 누르면 탭이 하나 더 생겨요. 탭 이름을 두 번 누르면 바꿀 수 있어요. 연습으로 '연습'과 '메모' 탭을 만들어 봐요.</small></div></li>
+    <li><input type="checkbox" id="b4c" data-key="b4c"><div class="body"><label for="b4c">제목 줄 붙여 넣기</label><small>강의마다 "이 제목 줄을 A1 칸에 붙여 넣으세요"가 나와요. A1은 왼쪽 맨 위 칸이에요. 복사 버튼으로 복사한 뒤 A1을 한 번 누르고 붙여넣기 하면, 칸마다 알아서 나뉘어 들어가요.</small>
+      <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
+        <li>아래 '연습 제목 줄'의 <b>복사</b> 누르기</li>
+        <li>'연습' 탭의 A1 칸 누르기 → 붙여넣기(⌘+V / Ctrl+V)</li>
+        <li>A1, B1, C1… 칸마다 한 단어씩 들어갔으면 성공<span class="fix">막히면: 한 칸에 다 들어갔다면 그 칸을 누르고 <span class="path">데이터 → 텍스트를 열로 분할</span>을 눌러요.</span></li>
+        <li>제목 줄을 고정하기: <span class="path">보기 → 고정 → 1행</span> (아래로 내려도 제목이 보여요)</li>
+      </ol></details></div></li>
+    <li><input type="checkbox" id="b4d" data-key="b4d"><div class="body"><label for="b4d">한 줄 적어 보고, 휴대폰에서 열어 보기</label><small>2행에 아무 값이나 적어요. 휴대폰에 'Google Sheets' 앱을 깔고 같은 계정으로 열면 방금 적은 값이 보여요. 저장 버튼은 없어요.</small></div></li>
+    <li><input type="checkbox" id="b4e" data-key="b4e"><div class="body"><label for="b4e">필요한 사람에게만 공유하기</label><small>오른쪽 위 <span class="path">공유</span> → 이메일 입력 → '뷰어'(보기만)나 '편집자'(고치기 가능) 고르기. '링크가 있는 모든 사용자'는 손님 정보가 있으면 쓰지 않아요.</small></div></li>
+  </ol>
+  <div class="prompt" data-tsv><div class="bar"><span>연습 제목 줄 (A1에 붙여 넣기)</span><button class="copy" type="button">복사</button></div><pre>날짜 | 항목 | 금액 | 메모</pre></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>이 코스에서 나오는 말</th><th>뜻</th></tr></thead>
+    <tbody>
+      <tr><td><b>칸 (셀)</b></td><td>네모 한 칸. 'B3'은 B열 3행 칸</td></tr>
+      <tr><td><b>행 / 열</b></td><td>가로줄(1, 2, 3…) / 세로줄(A, B, C…)</td></tr>
+      <tr><td><b>제목 줄</b></td><td>1행. 각 칸에 무엇을 적을지 정한 이름</td></tr>
+      <tr><td><b>수식</b></td><td>= 로 시작하는 계산. 예: =C2*2</td></tr>
+      <tr><td><b><dfn data-t="dropdown">드롭다운</dfn></b></td><td>눌러서 고르는 칸 (<span class="path">삽입 → 드롭다운</span>)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·드라이브(15GB)는 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI가 시트를 직접 열어 읽고 고쳐 줘요(커넥터)</li></ul></div></div>
+</section>

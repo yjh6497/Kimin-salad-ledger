@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>이 동네에서 최근에 무엇이 허가됐나</h2>
-    <p class="goal">건축HUB 건축인허가정보로 대지 주변 동의 최근 허가 건(용도, 연면적, 층수, 허가일)을 모아요. "이 동네에 이 규모가 실제로 허가된 적 있나"를 건축주 상담 전에 숫자로 보여 줄 수 있어요.</p>
+    <p class="goal">건축HUB 건축인허가정보로 대지 주변 동의 최근 허가 건을 모아요. 용도, 연면적, 층수, 허가일을 한 표로 받아요. 그러면 "이 동네에 이 규모가 실제로 허가된 적 있나"를 건축주 상담 전에 숫자로 보여 줄 수 있어요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>동네 부동산 사장님께 "요즘 이 동네에 뭐가 지어졌어요?" 묻는 일을 시트가 대신 해 주는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>대지 주변 동의 최근 3년 허가 목록이 담긴 '주변허가' 탭과, AI가 쓴 '주변 사례' 요약 한 단락이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 인증키(<a href="#a-l20" class="ref" data-ref="a-l20">강의</a>), 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>부터 봐요.</span></div></div>
   <div class="vis">
     <div class="dash">
       <div class="kpi pop" style="--d:.2s"><span>○○동 최근 3년 허가 · 예시</span><b>27건</b></div>
@@ -13,19 +14,21 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a42a" data-key="a_a42a"><div class="body"><label for="a_a42a">활용신청 (자동승인, 무료)</label><small>data.go.kr에서 <b>국토교통부_건축HUB_건축인허가정보 서비스</b> 검색 → 활용신청. 건축물대장(<a href="#a-l20" class="ref" data-ref="a-l20">강의</a>)과 같은 인증키를 써요. 참고문서(활용가이드)를 내려받아 두세요.</small></div></li>
-    <li><input type="checkbox" id="a_a42b" data-key="a_a42b"><div class="body"><label for="a_a42b">'주변허가' 탭 만들고 스크립트 받기</label><small>활용가이드 파일을 '09 자동화·연결' 채팅에 함께 올리고 아래 부탁문을 보내면 오퍼레이션 이름과 변수를 정확히 맞춰 줘요.</small></div></li>
-    <li><input type="checkbox" id="a_a42c" data-key="a_a42c"><div class="body"><label for="a_a42c">AI에게 흐름 읽어 달라고 하기</label><small>'02 대지·법규 검토'에 주변허가 탭을 주고 '사례 요약' 부탁문. 대지 검토 메모에 '주변 사례' 한 단락이 붙어요.</small></div></li>
+    <li><input type="checkbox" id="a_a42a" data-key="a_a42a"><div class="body"><label for="a_a42a">활용신청하기 (자동승인, 무료)</label><small>나라 자료를 받아 쓰려면 먼저 신청해야 해요. <span class="path">data.go.kr → 검색창</span>에 <b>국토교통부_건축HUB_건축인허가정보 서비스</b>를 쳐요. 그다음 <span class="path">활용신청</span>을 눌러요. <dfn data-t="apikey">인증키</dfn>(자료를 받을 때 쓰는 내 열쇠)는 건축물대장(<a href="#a-l20" class="ref" data-ref="a-l20">강의</a>)과 같은 것을 써요. 참고문서(활용가이드)도 내려받아 두세요.<span class="fix">막히면: 신청 직후에는 키가 안 될 수 있어요. 한두 시간 뒤에 다시 해 봐요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a42b" data-key="a_a42b"><div class="body"><label for="a_a42b">'주변허가' 탭 만들고 스크립트 받기</label><small>자료를 시트로 끌어오는 작은 프로그램(<dfn data-t="appsscript">앱스 스크립트</dfn>)이 필요해요. 먼저 '사무소 대장' 시트에 '주변허가' 탭을 만들고 아래 제목 줄을 붙여 넣어요. 그다음 활용가이드 파일을 '09 자동화·연결' 채팅에 올리고 아래 부탁문을 함께 보내요. 가이드를 같이 주면 AI가 요청 이름과 넣는 값을 정확히 맞춰 줘요.<span class="fix">막히면: 실행할 때 '권한 허용' 창이 뜨면 내 계정을 고르고 허용을 눌러요. 오류가 나면 그 화면을 캡처해 같은 채팅에 올려요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a42c" data-key="a_a42c"><div class="body"><label for="a_a42c">AI에게 흐름 읽어 달라고 하기</label><small>숫자만으로는 흐름이 잘 안 보여서 AI에게 정리를 맡겨요. '02 대지·법규 검토' 채팅에 주변허가 탭을 주고 '사례 요약' 부탁문을 보내요. 대지 검토 메모에 '주변 사례' 한 단락이 붙어요.</small></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>주변허가 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>조회동 | 대지위치 | 건축구분 | 주용도 | 대지면적 | 건축면적 | 연면적 | 지상층수 | 지하층수 | 허가일 | 착공일 | 사용승인일 | 조회일</pre></div>
+  <p class="cap">아래 글을 그대로 복사해서 '09 자동화·연결' 채팅에 활용가이드 파일과 함께 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>주변 인허가 수집 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 '건축HUB 건축인허가정보 서비스' 활용가이드를 보고, 구글 시트 '사무소 대장'에서 쓸 앱스 스크립트를 써 줘.
 - '대지' 탭에서 고른 줄의 시군구코드·법정동코드로, 그 동의 기본개요(허가 기본 정보)를 최근 3년 허가일 기준으로 모두 가져와 '주변허가' 탭에 넣기 (페이지 넘김 처리)
 - 같은 동을 다시 조회하면 기존 줄을 지우고 새로
 - 인증키는 스크립트 속성 DATA_GO_KEY, 메뉴 '대지조회 → 주변 인허가 가져오기'
 제목 줄: 조회동 | 대지위치 | 건축구분 | 주용도 | 대지면적 | 건축면적 | 연면적 | 지상층수 | 지하층수 | 허가일 | 착공일 | 사용승인일 | 조회일
 붙여 넣는 곳과 실행 순서를 알려줘.</pre></div>
+  <p class="cap">이 글은 '02 대지·법규 검토' 채팅에 붙여 넣으세요. ○○ 자리만 동 이름과 우리 대지 면적으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>사례 요약 부탁문</span><button class="copy" type="button">복사</button></div><pre>'주변허가' 탭을 보고 ○○동 최근 3년 허가 흐름을 정리해 줘. 용도별 건수, 용도별 평균·최대 연면적과 층수, 신축·증축·용도변경 비율, 우리 대지와 비슷한 규모(대지면적 ○○㎡ 안팎) 사례 5건. 숫자는 탭에서 계산하고, 허가 가능성을 단정하지 말고 '참고 사례'로만 써 줘.</pre></div>
-  <p class="tip"><b>공개된 정보도 예의 있게.</b> 사례를 건축주에게 보여 줄 때는 지번 대신 '○○동 근린생활시설, 연면적 약 400㎡'처럼 요약해서 보여 주세요.</p>
+  <p class="tip"><b>공개된 정보도 예의 있게.</b> 사례를 건축주에게 보여 줄 때는 지번을 빼요. 대신 '○○동 근린생활시설, 연면적 약 400㎡'처럼 요약해서 보여 주세요.</p>
   <p class="src">출처: <a href="https://www.data.go.kr/data/15136267/openapi.do" target="_blank" rel="noopener">공공데이터포털 · 국토교통부_건축HUB_건축인허가정보 서비스</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>건축HUB API 무료·자동승인, 하루 1만 건</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>민간 건축 정보 서비스: 신축 허가 알림, 지도 검색</li></ul></div></div>
 </section>

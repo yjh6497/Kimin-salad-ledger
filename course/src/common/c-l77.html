@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · 매일 2분</span>
     <h2>떨어지기 전에 알림, 거래처별 주문서, 명세서 사진 한 장으로 입고</h2>
-    <p class="goal">재고 탭이 '주문'을 띄우면 아침 8시에 텔레그램 승인함(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>)으로 <b>거래처별 주문할 것</b>이 버튼과 함께 오고, 발주 탭에 '작성' 줄이 생겨요. 「주문함」을 누르면 상태가 '주문'으로 바뀌고 거래처에 보낼 문구가 와요. {{owner:이}} 그 문구로 주문하고, 물건이 오면 명세서 사진을 AI에게 보여 주고 입고 줄로 붙여 '입고 완료'. 주문 버튼은 끝까지 사람이 눌러요.</p>
+    <p class="goal">재고 탭이 '주문'을 띄우면 아침 8시에 텔레그램 승인함(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>)으로 <b>거래처별 주문할 것</b>이 버튼과 함께 와요. 동시에 발주 탭에 '작성' 줄이 생겨요. 「주문함」을 누르면 상태가 '주문'으로 바뀌고 거래처에 보낼 문구가 와요. {{owner:이}} 그 문구로 주문해요. 물건이 오면 명세서 사진을 AI에게 보여 주고, 나온 입고 줄을 붙여 '입고 완료'로 바꿔요. 주문 버튼은 끝까지 사람이 눌러요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>창고에 '알뜰한 관리인'을 두는 거예요. 물건이 떨어질 때쯤 관리인이 "이거 주문할까요?" 하고 휴대폰으로 물어봐요.</span></div><div class="easy-row"><b>끝나면</b><span>매일 아침 텔레그램으로 오는 거래처별 주문 알림, 명세서 사진 한 장으로 끝나는 입고 기록</span></div><div class="easy-row"><b>필요한 것</b><span>PC, '재고·발주' 시트, 텔레그램 알림 봇(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>), 1시간 30분 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="journey">
       <div class="jn a" style="--d:.1s"><em>1 · 사용</em><b>직원이 웹앱에서 '사용'</b><span>또는 하루 끝 실사</span></div>
@@ -14,19 +15,20 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a77a" data-key="v_a77a"><div class="body"><label for="v_a77a">사용 기록은 직원 웹앱 버튼으로</label><small>직원 웹앱(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)에 '재고 사용' 화면을 더해요. 품목을 고르고 수량만 누르면 '사용' 탭에 날짜·직원번호와 함께 한 줄. 아래 부탁문을 '07 자동화 도우미'에게. 바쁜 {{place:은}} 소모품은 매일 저녁 한 번 실사로, <span data-biz="vet">약·백신은</span><span data-biz-not="vet">비싸거나 유통기한이 짧은 품목은</span> 쓸 때마다로 나눠요.</small></div></li>
-    <li><input type="checkbox" id="v_a77b" data-key="v_a77b"><div class="body"><label for="v_a77b">아침 재고 점검 스크립트</label>
+    <li><input type="checkbox" id="v_a77a" data-key="v_a77a"><div class="body"><label for="v_a77a">사용 기록은 직원 웹앱 버튼으로 남기기</label><small>얼마나 썼는지 알아야 언제 주문할지 알 수 있어요. 직원 <dfn data-t="webapp">웹앱</dfn>(<a href="#c-l82" class="ref" data-ref="c-l82">강의</a>)에 '재고 사용' 화면을 더해요. 품목을 고르고 수량만 누르면 '사용' 탭에 날짜·직원번호와 함께 한 줄이 생겨요. 아래 '재고 사용' 부탁문을 '07 자동화 도우미' 채팅에 보내요. 바쁜 {{place:은}} 소모품은 매일 저녁 한 번 실사로, <span data-biz="vet">약·백신은</span><span data-biz-not="vet">비싸거나 유통기한이 짧은 품목은</span> 쓸 때마다로 나눠요.</small></div></li>
+    <li><input type="checkbox" id="v_a77b" data-key="v_a77b"><div class="body"><label for="v_a77b">아침 재고 점검 스크립트 붙이기</label><small>매일 아침 시트가 스스로 재고를 살피게 해요. <dfn data-t="appsscript">앱스 스크립트</dfn>(시트에 붙이는 작은 프로그램)를 쓰고, <dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)로 시간을 맞춰요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>'재고·발주' 파일 → <span class="path">확장 프로그램 → Apps Script</span> → 아래 checkStock 스크립트와 tg 함수·ask 함수(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>)를 붙여 넣고 저장</li>
-        <li>프로젝트 설정 → 스크립트 속성에 TG_TOKEN, TG_CHAT, APPROVE_ID(알림 봇과 같은 값)</li>
-        <li>▶ checkStock 실행 → 권한 허용 → 5분 안에 거래처마다 「주문함 / 오늘은 안 함」 버튼 메시지가, 유효기한 임박 목록은 바로 오는지 확인</li>
-        <li>트리거: checkStock, 시간 기반, 매일 오전 7~8시<span class="fix">같은 품목이 발주 탭에 '작성'이나 '주문'으로 이미 있으면 다시 만들지 않아요. 취소하려면 상태를 '취소'로.</span></li>
+        <li><span class="path">왼쪽 톱니바퀴(프로젝트 설정) → 스크립트 속성 → 스크립트 속성 추가</span>에 TG_TOKEN, TG_CHAT, APPROVE_ID 넣기(알림 봇과 같은 값)</li>
+        <li>▶ checkStock 실행 → 권한 허용 → 확인하기. 거래처마다 「주문함 / 오늘은 안 함」 버튼 메시지가 5분 안에 와요. 유효기한 임박 목록은 바로 와요<span class="fix">막히면: 권한 창에서 '확인하지 않은 앱'이 뜨면 <span class="path">고급 → 이동 → 허용</span>을 눌러요. 내가 만든 스크립트라 정상이에요.</span></li>
+        <li>트리거: <span class="path">왼쪽 시계 아이콘 → + 트리거 추가 → checkStock → 시간 기반 → 일 단위 타이머 → 오전 7~8시</span><span class="fix">같은 품목이 발주 탭에 '작성'이나 '주문'으로 이미 있으면 다시 만들지 않아요. 취소하려면 상태를 '취소'로.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a77c" data-key="v_a77c"><div class="body"><label for="v_a77c">주문은 사람이, 문구는 AI가</label><small>메일·카톡 거래처로 승인 뒤 저절로 보내는 방법은 다음 강의(<a href="#c-l94" class="ref" data-ref="c-l94">강의</a>)에 있어요. 스크립트 없이 할 때는 '12 재고·구매' 채팅에 "발주 탭의 '작성' 줄로 거래처별 주문 문구 만들어 줘"라고 하면 카톡·문자용 짧은 문구와 메일 초안이 나와요. 보낸 뒤 상태를 '주문', 도착 예정일을 적어요. Gmail 커넥터가 있으면 메일 초안까지 만들어 두게 할 수 있어요(보내기는 {{owner:이}}).</small></div></li>
-    <li><input type="checkbox" id="v_a77d" data-key="v_a77d"><div class="body"><label for="v_a77d">명세서 사진으로 입고</label><small>물건이 오면 거래처 명세서(거래명세표)를 찍어 '입고 정리 부탁문'과 함께 보내요. 입고 탭에 붙일 줄(로트·유효기한·단가 포함)과 발주 대비 덜 온 것·다른 것이 나와요. 붙여 넣고 발주 상태를 '입고 완료' 또는 '일부 입고'로.</small></div></li>
-    <li><input type="checkbox" id="v_a77e" data-key="v_a77e"><div class="body"><label for="v_a77e">텔레그램으로 '재고' 묻기</label><small>알림 봇(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>) 스크립트에 아래 '봇 재고 명령'을 더하고 스크립트 속성 STOCK_ID에 '재고·발주' 파일 주소의 /d/ 와 /edit 사이 글자를 넣어요. 봇에게 '재고'라고 보내면 주문할 것과 주문 중인 것이, '재고 V001'이라고 보내면 그 품목 수량이 와요.</small></div></li>
-    <li><input type="checkbox" id="v_a77f" data-key="v_a77f"><div class="body"><label for="v_a77f">구매 비교는 석 달에 한 번</label><small>입고 탭에는 거래처별 단가가 쌓여요. 분기마다 '구매 비교 부탁문'으로 같은 품목의 단가 변화, 거래처별 비교, 자주 급하게 주문한 품목(발주점이 낮은 품목)을 봐요. 견적은 Gmail 커넥터로 메일을 모아 비교표로.</small></div></li>
+    <li><input type="checkbox" id="v_a77c" data-key="v_a77c"><div class="body"><label for="v_a77c">주문은 사람이, 문구는 AI가 만들기</label><small>메일·카톡 거래처로 승인 뒤 저절로 보내는 방법은 다음 강의(<a href="#c-l94" class="ref" data-ref="c-l94">강의</a>)에 있어요. 스크립트 없이 할 때는 '12 재고·구매' 채팅에 "발주 탭의 '작성' 줄로 거래처별 주문 문구 만들어 줘"라고 해요. 카톡·문자용 짧은 문구와 메일 초안이 나와요. 보낸 뒤 상태를 '주문'으로 바꾸고 도착 예정일을 적어요. Gmail 커넥터가 있으면 메일 초안까지 만들어 두게 할 수 있어요(보내기는 {{owner:이}}).</small></div></li>
+    <li><input type="checkbox" id="v_a77d" data-key="v_a77d"><div class="body"><label for="v_a77d">명세서 사진으로 입고 기록하기</label><small>손으로 옮겨 적는 일을 없애려고 사진을 써요. 물건이 오면 거래처 명세서(거래명세표)를 찍어 '입고 정리 부탁문'과 함께 보내요. 입고 탭에 붙일 줄(로트·유효기한·단가 포함)이 나와요. 발주보다 덜 온 것·다른 것도 알려 줘요. 붙여 넣고 발주 상태를 '입고 완료' 또는 '일부 입고'로 바꿔요.</small></div></li>
+    <li><input type="checkbox" id="v_a77e" data-key="v_a77e"><div class="body"><label for="v_a77e">텔레그램으로 '재고' 묻기</label><small>밖에서도 휴대폰으로 재고를 확인하려고 해요. 알림 봇(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>) 스크립트에 아래 '봇 재고 명령'을 더해요. 스크립트 속성 STOCK_ID에는 '재고·발주' 파일 주소의 /d/ 와 /edit 사이 글자를 넣어요. 봇에게 '재고'라고 보내면 주문할 것과 주문 중인 것이 와요. '재고 V001'이라고 보내면 그 품목 수량이 와요.</small></div></li>
+    <li><input type="checkbox" id="v_a77f" data-key="v_a77f"><div class="body"><label for="v_a77f">구매 비교는 석 달에 한 번</label><small>입고 탭에는 거래처별 단가가 쌓여요. 분기마다 '구매 비교 부탁문'으로 세 가지를 봐요. 같은 품목의 단가 변화, 거래처별 비교, 자주 급하게 주문한 품목(발주점, 곧 '주문 알림 기준 수량'이 낮은 품목)이에요. 견적은 Gmail <dfn data-t="connector">커넥터</dfn>로 메일을 모아 비교표로 만들어요.</small></div></li>
   </ol>
+  <p class="cap">아래 두 코드는 그대로 복사해서 Apps Script에 붙여 넣으세요. 고칠 곳은 없어요. 나머지 부탁문 세 개는 채팅에 붙여 넣고, ○○ 자리만 우리 {{place}} 값으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>아침 재고 점검 스크립트 (checkStock)</span><button class="copy" type="button">복사</button></div><pre>function checkStock() {
   var ss = SpreadsheetApp.getActive();
   var items = {};
@@ -96,7 +98,7 @@ function extraCommand(t) {
 4) 사용이 거의 없는데 쌓인 품목(유효기한 위험)
 5) 다음 분기 거래처에 물어볼 것 3개
 <span data-biz="vet">마약류는 빼고, </span>금액은 부가세 포함 여부를 표시해.</pre></div>
-  <p class="tip warnbox"><b>자동으로 주문하지 않아요.</b> 스크립트는 '작성'까지만 만들고, 거래처에 보내는 건 {{owner:이에요}}. <span data-biz="vet">약은 진료 계획과 묶여 있어 수량을 사람이 봐야 하고, 잘못 간 주문은 반품이 어려워요. 수의사 처방이 필요한 약과 마약류는 거래처의 확인 절차를 그대로 따라요.</span><span data-biz-not="vet">주문량은 예약·계절·행사와 묶여 있어 사람이 봐야 하고, 잘못 간 주문은 반품이 어려워요.</span></p>
+  <p class="tip warnbox"><b>자동으로 주문하지 않아요.</b> 스크립트는 '작성'까지만 만들어요. 거래처에 보내는 건 {{owner:이에요}}. <span data-biz="vet">약은 진료 계획과 묶여 있어 수량을 사람이 봐야 하고, 잘못 간 주문은 반품이 어려워요. 수의사 처방이 필요한 약과 마약류는 거래처의 확인 절차를 그대로 따라요.</span><span data-biz-not="vet">주문량은 예약·계절·행사와 묶여 있어 사람이 봐야 하고, 잘못 간 주문은 반품이 어려워요.</span></p>
         <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>아침 7시 checkStock</b><span>발주점 아래 품목을 발주 탭 '작성'으로 만들고 텔레그램으로 알려요.</span></div></li><li><span class="chip k-trig">텔레그램</span><div class="ad"><b>'재고' 한마디</b><span>봇에게 재고, 재고 V001.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>분기 구매 비교</b><span>유료면 분기 첫 주 월요일 예약 작업으로 구매 비교 부탁문.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>거래처별 주문 승인</b><span>아침 알림의 거래처마다. 주문함이면 발주 상태가 '주문'으로, 주문 문구가 와요.</span><span class="pv">버튼: 주문함 / 오늘은 안 함</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "몰 장바구니까지" 부탁: 승인한 발주를 거래처 몰 장바구니에 담고 결제 화면 전에서 멈춤<a href="#c-l94" class="ref" data-ref="c-l94">강의</a>. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>거래처 온라인몰</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>터미널·봇</b><span>앱스 스크립트 checkStock(아침 7시) → 텔레그램 승인.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '12 재고·구매' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 명세서 사진은 이 채팅에, 결과 → 입고 탭</span></div></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>12 재고·구매</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>명세서 사진은 이 채팅에, 결과 → 입고 탭</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>

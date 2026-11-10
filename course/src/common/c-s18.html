@@ -2,21 +2,23 @@
   <div class="lesson-head">
     <span class="kicker">운영 · 반나절 + 매달 30분</span>
     <h2>{{place}} 홈페이지를 열고, 매달 점검해요</h2>
-    <p class="goal">{{customer}}용 홈페이지, 직원 앱, 장부를 오래 안전하게 쓰는 방법입니다.</p>
+    <p class="goal">{{customer}}용 홈페이지, 직원 앱, 장부를 오래 안전하게 쓰는 방법이에요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>인터넷에 {{place}} 간판을 하나 더 다는 거예요. AI가 만든 한 장짜리 안내판을 무료 주소에 걸어 둬요.</span></div><div class="easy-row"><b>끝나면</b><span>휴대폰으로 열리는 {{place}} 홈페이지 주소 하나, 그리고 매달 30분 보는 운영 점검표가 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 이메일 주소(GitHub 가입용), 반나절 · 파일 받기·찾기가 서툴면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <h3>가. {{place}} 홈페이지 만들기</h3>
   <ol class="steps">
-    <li><input type="checkbox" id="s_s18a" data-key="s_s18a"><div class="body"><label for="s_s18a">AI에게 홈페이지 만들기 부탁</label><small>아래 부탁문으로 <span data-biz="salad">메뉴, 영업시간, 위치, 카카오톡 채널·배달앱 링크, 단체 주문 안내가</span><span data-biz-not="salad">대표 {{item}}, {{hours}}, 위치, 카카오톡 채널·예약 링크, 자주 묻는 질문이</span> 담긴 한 장짜리 홈페이지를 받아요. <span data-ai-not="gpt">Claude는 바로 볼 수 있는 페이지로 만들어 공유 링크를 줘요.</span><span data-ai="gpt">ChatGPT는 캔버스에 코드를 만들어 줘요. 다음 단계에서 index.html 파일로 받아 올려요.</span></small></div></li>
-    <li><input type="checkbox" id="s_s18b" data-key="s_s18b"><div class="body"><label for="s_s18b">내 주소로 올리기 (<dfn data-t="ghpages">GitHub Pages</dfn>, 무료)</label><small>이 코스도 같은 방법으로 올렸어요.</small>
+    <li><input type="checkbox" id="s_s18a" data-key="s_s18a"><div class="body"><label for="s_s18a">AI에게 홈페이지 만들기 부탁하기</label><small>홈페이지는 코드를 몰라도 AI가 만들어 줘요. 아래 부탁문으로 <span data-biz="salad">메뉴, 영업시간, 위치, 카카오톡 채널·배달앱 링크, 단체 주문 안내가</span><span data-biz-not="salad">대표 {{item}}, {{hours}}, 위치, 카카오톡 채널·예약 링크, 자주 묻는 질문이</span> 담긴 한 장짜리 홈페이지를 받아요. <span data-ai-not="gpt">Claude는 바로 볼 수 있는 페이지로 만들어 공유 링크를 줘요.</span><span data-ai="gpt">ChatGPT는 캔버스에 코드를 만들어 줘요. 다음 단계에서 index.html 파일로 받아 올려요.</span></small></div></li>
+    <li><input type="checkbox" id="s_s18b" data-key="s_s18b"><div class="body"><label for="s_s18b">내 주소로 올리기 (<dfn data-t="ghpages">GitHub Pages</dfn>, 무료)</label><small>누구나 열 수 있는 주소를 공짜로 받으려는 거예요. 이 코스도 같은 방법으로 올렸어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>AI가 만든 홈페이지 파일을 <b>index.html</b> 이름으로 받아 두기 ("이 페이지를 index.html 파일로 줘")</li>
-        <li>github.com 가입 → 오른쪽 위 <span class="path">+ → New repository</span> → 이름(예: <span data-biz="salad">my-salad</span><span data-biz-not="salad">my-shop</span>) → <span class="path">Public</span> → Create repository</li>
-        <li>저장소 화면 <span class="path">Add file → Upload files</span> → index.html 끌어 놓기 → Commit changes</li>
-        <li><span class="path">Settings → Pages → Deploy from a branch → main / (root) → Save</span></li>
-        <li>1~2분 뒤 같은 화면 위쪽에 뜨는 주소(아이디.github.io/<span data-biz="salad">my-salad</span><span data-biz-not="salad">my-shop</span>)를 열어 확인<span class="fix">공개 저장소는 누구나 볼 수 있어요. 홈페이지에는 {{customer}}에게 보여 줄 정보만 넣으세요.</span></li>
+        <li>AI가 만든 홈페이지 파일을 <b>index.html</b> 이름으로 받아 둬요. AI에게 "이 페이지를 index.html 파일로 줘"라고 하면 돼요.</li>
+        <li>github.com에 가입해요. 오른쪽 위 <span class="path">+ → New repository</span>를 눌러요. 이름(예: <span data-biz="salad">my-salad</span><span data-biz-not="salad">my-shop</span>)을 적고 <span class="path">Public → Create repository</span>를 눌러요. repository(저장소)는 파일을 넣어 두는 폴더예요.</li>
+        <li>저장소 화면에서 <span class="path">Add file → Upload files</span>를 눌러요. index.html을 끌어 놓고 <span class="path">Commit changes</span>(저장)를 눌러요.</li>
+        <li><span class="path">Settings → Pages → Deploy from a branch → main / (root) → Save</span> 순서로 눌러요.<span class="fix">막히면: main이 안 보이면 파일 올리기가 끝났는지 먼저 확인해요.</span></li>
+        <li>1~2분 뒤 같은 화면 위쪽에 주소(아이디.github.io/<span data-biz="salad">my-salad</span><span data-biz-not="salad">my-shop</span>)가 떠요. 열어서 확인해요.<span class="fix">공개 저장소는 누구나 볼 수 있어요. 홈페이지에는 {{customer}}에게 보여 줄 정보만 넣으세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s18c" data-key="s_s18c"><div class="body"><label for="s_s18c">다른 곳 정보와 맞추기</label><small>네이버 플레이스, 카카오맵, 카카오톡 채널<span data-biz="salad">, 배달앱</span>의 <span data-biz="salad">영업시간·메뉴·가격</span><span data-biz-not="salad">{{hours}}·대표 {{item}}·가격</span>이 홈페이지와 같은지 확인해요.</small></div></li>
+    <li><input type="checkbox" id="s_s18c" data-key="s_s18c"><div class="body"><label for="s_s18c">다른 곳 정보와 맞추기</label><small>곳마다 정보가 다르면 {{customer:이}} 헷갈려요. 네이버 플레이스, 카카오맵, 카카오톡 채널<span data-biz="salad">, 배달앱</span>의 <span data-biz="salad">영업시간·메뉴·가격</span><span data-biz-not="salad">{{hours}}·대표 {{item}}·가격</span>이 홈페이지와 같은지 확인해요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 AI 채팅에 붙여 넣으세요. ○○ 자리만 우리 {{place}} 값으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>{{place}} 홈페이지 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 {{biz}} 홈페이지를 한 장짜리 웹페이지로 만들어줘. 휴대폰에서 보기 좋게.
 {{place}} 이름 ○○, 한 줄 소개 ○○, {{hours}} ○○, 주소 ○○, 전화 ○○.
 <span data-biz="salad">대표메뉴 3개(이름·가격·한 줄 설명), 단체 주문 안내, 카카오톡 채널 링크 ○○, 배달앱 링크 ○○.</span><span data-biz-not="salad">대표 {{item}} 3가지(이름·가격·한 줄 설명), 자주 묻는 질문 3개, 카카오톡 채널 링크 ○○, 예약·문의 링크 ○○.</span>
@@ -27,10 +29,10 @@
     <li><input type="checkbox" id="s_c18b" data-key="s_c18b"><label for="s_c18b"><dfn data-t="backup">백업</dfn>: <span data-biz="salad">매장 장부</span><span data-biz-not="salad">{{place}} 장부</span> <span class="path">파일 → 다운로드 → Microsoft Excel</span>로 받아 '백업' 폴더에</label></li>
     <li><input type="checkbox" id="s_c18c" data-key="s_c18c"><label for="s_c18c">예약 작업(월요일 브리핑)이 제때 왔는지 확인</label></li>
     <li><input type="checkbox" id="s_c18d" data-key="s_c18d"><label for="s_c18d"><span data-biz="salad">시세·발주·단체 주문 스크립트 오류, 공공데이터 키, 발주기록 시트(문자가 제대로 나갔는지) 확인</span><span data-biz-not="salad">만들어 둔 자동화(스크립트·예약 알림) 오류, 공공데이터 키, 보낸 문자 기록 확인</span></label></li>
-    <li><input type="checkbox" id="s_c18e" data-key="s_c18e"><label for="s_c18e">안 쓰는 커넥터·공유 링크 끊기</label></li>
+    <li><input type="checkbox" id="s_c18e" data-key="s_c18e"><label for="s_c18e">안 쓰는 <dfn data-t="connector">커넥터</dfn>(AI와 다른 앱을 잇는 연결)·공유 링크 끊기</label></li>
     <li><input type="checkbox" id="s_c18f" data-key="s_c18f"><label for="s_c18f">홈페이지 <span data-biz="salad">메뉴·가격·영업시간</span><span data-biz-not="salad">{{item}}·가격·{{hours}}</span> 최신화</label></li>
   </ul>
-  <p class="tip"><b>점검도 직원에게.</b> '02 월요일 브리핑'에 "매달 첫 월요일에는 운영 점검표도 같이 알려줘"를 덧붙이면 빠뜨리지 않아요. 고칠 거리를 AI가 보고하고 {{owner:이}} 승인하는 구조는 특강 <a href="#c-s28" class="ref" data-ref="c-s28">강의</a>에서 만들어요.</p>
+  <p class="tip"><b>점검도 직원에게.</b> '02 월요일 브리핑'에 "매달 첫 월요일에는 운영 점검표도 같이 알려줘"를 덧붙여요. 그러면 빠뜨리지 않아요. 고칠 거리를 AI가 보고하고 {{owner:이}} 승인하는 구조는 특강 <a href="#c-s28" class="ref" data-ref="c-s28">강의</a>에서 만들어요.</p>
 
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>매달 운영 점검</b><span>매달 첫째 월요일 '운영 점검 30분' 일정. 점검표가 길어지면 특강의 보고·승인 구조로 넘겨요(<a href="#c-s28" class="ref" data-ref="c-s28">강의</a>).</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>홈페이지 <span data-biz="salad">메뉴</span><span data-biz-not="salad">가격표</span>를 시트에서</b><span>홈페이지 부탁문에 "<span data-biz="salad">메뉴</span><span data-biz-not="salad">{{item}}</span>·가격은 '홈페이지' 시트를 읽어서 보여 줘"를 덧붙이면, 시트만 고쳐도 홈페이지가 바뀌어요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>GitHub Pages<span data-ai-not="gpt">나 Claude 페이지 링크</span>로 홈페이지 0원</li><li>네이버 플레이스·카카오맵 정보 등록도 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>내 도메인(예: <span data-biz="salad">○○salad.com</span><span data-biz-not="salad">○○shop.com</span>) 구입</li><li>홈페이지 빌더 서비스, 유지보수 외주</li></ul></div></div>

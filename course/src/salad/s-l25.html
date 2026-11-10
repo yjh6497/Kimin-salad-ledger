@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 하루~이틀 · 무료</span>
     <h2>배달앱 매출이 메일·폴더로 들어오면 장부가 알아서</h2>
-    <p class="goal">배민·쿠팡이츠·요기요의 주문·수수료·정산 금액을 장부의 '배달매출' 시트로 자동으로 모아요. 자동화는 세 단계로 올려요. ① 폴더에 넣으면 자동 반영, ② 메일로 오면 자동 저장, ③ 빠지면 알림. 다 하면 사장님 손은 '메일 한 통 보내기'나 그마저도 없이 끝나요.</p>
+    <p class="goal">배민·쿠팡이츠·요기요의 주문·수수료·정산 금액을 장부의 '배달매출' 시트로 자동으로 모아요. 자동화는 세 단계로 올려요. ① 폴더에 넣으면 자동 반영, ② 메일로 오면 자동 저장, ③ 빠지면 알림. 다 하면 사장님 손은 '메일 한 통 보내기'로 끝나요. 정기 메일이면 그마저도 없어요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>배달앱 정산 파일을 '받은 편지 바구니'에 넣기만 하면, 장부가 알아서 꺼내 정리해 주는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>배민·쿠팡이츠·요기요 매출과 수수료가 한 시트에 모이고, 빠진 앱이 있으면 메일로 알림이 와요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 배달앱 사장님 계정, 하루~이틀 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="flowgrid">
       <div class="stack">
@@ -21,18 +22,18 @@
   </div>
 
   <h3>먼저 알아 둘 것</h3>
-  <p>배달앱 3사는 사장님이 직접 쓸 수 있는 공개 <dfn data-t="api">API</dfn>를 주지 않아요. 주문 연동 API는 포스 회사 같은 제휴사용이에요. 그래서 자동화하는 길은 아래 셋이에요. 이 강의는 비용이 들지 않는 <b>③</b>을 실습하고, ①·②를 쓰면 파일 받는 일까지 줄어요.</p>
+  <p>배달앱 3사는 사장님이 직접 쓸 수 있는 공개 <dfn data-t="api">API</dfn>(프로그램끼리 자료를 주고받는 창구)를 주지 않아요. 주문 연동 API는 포스 회사 같은 제휴사만 써요. 그래서 자동화하는 길은 아래 표와 같아요. 이 강의는 비용이 들지 않는 <b>③</b>을 실습해요. ①·②를 쓰면 파일 받는 일까지 줄어요.</p>
   <div class="table-wrap"><table>
     <thead><tr><th>길</th><th>어떻게</th><th>사장님 손</th><th>비용</th></tr></thead>
     <tbody>
       <tr><td><b>① 포스 배달 연동</b></td><td>토스 포스처럼 포스에 배달앱을 연결하면 배달 매출이 포스 매출 리포트에 합쳐지고, 엑셀도 앱별로 나뉘어 나와요</td><td>포스 엑셀 하나만 받기</td><td>포스마다 다름</td></tr>
       <tr><td><b>② 매출 통합 앱</b></td><td>캐시노트·오늘얼마 같은 앱에 배달앱 사장님 계정을 연결하면 3사 매출이 자동으로 모여요. 앱에서 자료를 내려받아요</td><td>통합 자료 하나만 받기</td><td>앱·기능마다 다름</td></tr>
-      <tr><td><b>③ 폴더 자동 반영 (이 강의 1단계)</b></td><td>받은 파일을 드라이브 폴더에 넣으면 앱스 스크립트가 읽어서 장부에 정리</td><td>주 1회 파일 받아 폴더에 넣기 (5분)</td><td>무료</td></tr>
+      <tr><td><b>③ 폴더 자동 반영 (이 강의 1단계)</b></td><td>받은 파일을 드라이브 폴더에 넣으면 <dfn data-t="appsscript">앱스 스크립트</dfn>(시트에 붙이는 작은 프로그램)가 읽어서 장부에 정리</td><td>주 1회 파일 받아 폴더에 넣기 (5분)</td><td>무료</td></tr>
       <tr><td><b>⑤ 주문내역 수집 봇 (다음 <a href="#s-l30" class="ref" data-ref="s-l30">강의</a>)</b></td><td>주문내역은 내려받기 버튼이 없어요. 사장님 맥에서 매일 아침 봇이 배민·요기요 주문 목록을 화면에서 읽어 장부 '주문원장' 시트에 바로 쌓아요</td><td>몇 주에 한 번 다시 로그인</td><td>무료 (맥이 켜져 있어야 해요)</td></tr>
       <tr><td><b>④ 메일 자동 수집 (이 강의 2단계)</b></td><td>정기적으로 오는 매출 자료 메일, 또는 휴대폰에서 '나에게 보낸' 메일의 첨부파일을 Gmail이 분류하고 스크립트가 폴더로 옮겨요</td><td>메일 한 통 보내기, 정기 메일이면 없음</td><td>무료</td></tr>
     </tbody>
   </table></div>
-  <p class="tip warnbox"><b>배달앱 아이디·비밀번호를 구글 스크립트나 AI 채팅에 넣지 마세요.</b> 로그인 정보가 남의 서버에 남아요. 사이트 원본이 꼭 필요하면 ⑤처럼 사장님 맥에서만 도는 봇을 쓰고, 로그인은 사람이 직접 해요. 자동 접속을 막는 약관이 있을 수 있으니 ①·②가 되면 그쪽이 먼저예요. ② 같은 통합 앱에 계정을 연결할 때도 믿을 수 있는 회사만 쓰고, 비밀번호를 바꾸면 다시 연동해야 해요.</p>
+  <p class="tip warnbox"><b>배달앱 아이디·비밀번호를 구글 스크립트나 AI 채팅에 넣지 마세요.</b> 로그인 정보가 남의 서버에 남아요. 사이트 원본이 꼭 필요하면 ⑤처럼 사장님 맥에서만 도는 봇을 써요. 로그인은 사람이 직접 해요. 자동 접속을 막는 약관이 있을 수 있어요. 그래서 ①·②가 되면 그쪽이 먼저예요. ② 같은 통합 앱에 계정을 연결할 때도 믿을 수 있는 회사만 써요. 비밀번호를 바꾸면 다시 연동해야 해요.</p>
 
   <h3>1단계 · 폴더에 넣으면 장부에 자동 반영</h3>
   <ol class="steps">
@@ -56,19 +57,20 @@
         <li><b>요기요</b>: 요기요 사장님 사이트의 <span class="path">정산 내역</span> 메뉴 → 지난주 기간 → 다운로드</li>
         <li>받은 파일 3개를 '배달앱 받은 파일' 폴더로 끌어다 놓기<span class="fix">다운로드 버튼을 못 찾겠으면 그 화면을 캡처해 '08 자동화·연결' 채팅에 보내고 "정산 내역을 엑셀로 받는 버튼이 어디야?"라고 물어보세요. ①포스 연동이나 ②통합 앱을 쓰면 그 파일 하나만 넣어도 돼요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s25d" data-key="s_s25d"><div class="body"><label for="s_s25d">AI에게 자동 반영 스크립트 받기</label><small>'08 자동화·연결' 채팅에 받은 파일 3개를 첨부하고 아래 부탁문을 보내요. 파일마다 어느 열이 날짜·금액·수수료인지 AI가 맞춰 줘요.</small></div></li>
+    <li><input type="checkbox" id="s_s25d" data-key="s_s25d"><div class="body"><label for="s_s25d">AI에게 자동 반영 스크립트 받기</label><small>파일 모양에 맞는 코드를 받으려고 해요. '08 자동화·연결' 채팅에 받은 파일 3개를 첨부하고 아래 부탁문을 보내요. 파일마다 어느 열이 날짜·금액·수수료인지 AI가 맞춰 줘요.</small></div></li>
     <li><input type="checkbox" id="s_s25e" data-key="s_s25e"><div class="body"><label for="s_s25e">장부에 붙이고 한 번 실행</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>'매장 장부' 메뉴 <span class="path">확장 프로그램 → Apps Script</span> → 왼쪽 <span class="path">+ → 스크립트</span> → 이름 <b>배달매출</b> → AI가 준 코드 붙여 넣기</li>
         <li>코드 맨 위의 폴더 ID 두 자리에 메모해 둔 ID 붙여 넣기</li>
         <li>엑셀(.xlsx)을 읽으려면 왼쪽 <span class="path">서비스 → + → Drive API → 추가</span> (AI가 필요하다고 하면)</li>
-        <li><span class="path">저장 → 실행</span> → 권한 창에서 <span class="path">권한 검토 → 내 계정 → 고급 → 이동 → 허용</span></li>
+        <li><span class="path">저장 → 실행</span> → 권한 창에서 <span class="path">권한 검토 → 내 계정 → 고급 → 이동 → 허용</span><span class="fix">막히면: '확인하지 않은 앱' 경고는 내가 만든 스크립트라 뜨는 정상 화면이에요. '고급'을 눌러야 '이동'이 보여요.</span></li>
         <li>'배달매출' 시트에 줄이 생기고, 파일이 '처리 완료' 폴더로 옮겨졌는지 확인<span class="fix">빨간 오류가 나면 오류 문장과 함께 "어느 파일에서 났는지"를 그대로 채팅에 보내세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s25f" data-key="s_s25f"><div class="body"><label for="s_s25f"><dfn data-t="trigger">트리거</dfn>로 1시간마다 자동 확인</label><small>Apps Script 왼쪽 시계 아이콘 <span class="path">트리거 → + 트리거 추가 → 실행할 함수: AI가 알려 준 이름 → 시간 기반 → 시간 단위 타이머 → 1시간마다</span> → 저장</small></div></li>
+    <li><input type="checkbox" id="s_s25f" data-key="s_s25f"><div class="body"><label for="s_s25f"><dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)로 1시간마다 자동 확인</label><small>사장님이 실행 버튼을 누르지 않아도 되게 해요. Apps Script 왼쪽 시계 아이콘 <span class="path">트리거 → + 트리거 추가 → 실행할 함수: AI가 알려 준 이름 → 시간 기반 → 시간 단위 타이머 → 1시간마다</span> → 저장</small></div></li>
     <li><input type="checkbox" id="s_s25g" data-key="s_s25g"><div class="body"><label for="s_s25g">매주 5분 루틴 만들기</label><small>월요일 아침 3사 사이트에서 지난주 파일을 받아 폴더에 넣어요. 휴대폰이라면 Google Drive 앱에서 폴더 열기 → <span class="path">+ → 업로드</span>. 1시간 안에 장부에 들어가고, 월요일 브리핑이 그 숫자로 실수익률을 계산해요.</small></div></li>
     <li><input type="checkbox" id="s_s25h" data-key="s_s25h"><div class="body"><label for="s_s25h">첫 달은 합계 맞춰 보기</label><small>'01 장부·정산' 채팅에 "배달매출 시트의 지난주 앱별 정산금액 합계를 알려줘" → 각 사장님 사이트의 정산 합계와 같은지 확인해요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '08 자동화·연결' 채팅에 붙여 넣으세요. ○○ 자리만 메모해 둔 폴더 ID로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>배달매출 자동 반영 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>첨부한 파일은 배달의민족, 쿠팡이츠, 요기요 사장님 사이트에서 받은 정산(주문) 파일이야. 나는 코딩 초보야.
 구글 시트 '매장 장부'에 붙일 Apps Script를 만들어줘.
 - 드라이브 폴더 '배달앱 받은 파일'(ID: ○○)에 새 파일이 있으면 읽어서 '배달매출' 시트에 한 줄씩 추가
@@ -81,7 +83,7 @@
 코드 전체와 함께, 붙여 넣는 곳·Drive API 추가 방법·1시간 트리거 설정을 단계별로 알려줘.</pre></div>
 
   <h3>2단계 · 메일로 오면 자동으로 폴더에 저장</h3>
-  <p>배달앱 3사가 정산 파일을 메일로 정기 발송한다는 공식 안내는 찾지 못했어요. 그래서 두 가지 메일을 씁니다. <b>정기적으로 오는 매출 자료 메일</b>(예: 토스의 부가세 매출 자료 받기는 배달앱 3사와 카드 매출을 이메일로 보내 줘요. 포스·매출 통합 앱의 리포트 메일, 세금계산서 메일도 해당)과, <b>사장님이 휴대폰에서 '나에게' 보내는 메일</b>이에요. 휴대폰으로 파일을 받은 그 자리에서 공유 → Gmail로 한 번 보내면, 드라이브 폴더를 찾아 올리는 일이 없어져요.</p>
+  <p>배달앱 3사가 정산 파일을 메일로 정기 발송한다는 공식 안내는 찾지 못했어요. 그래서 두 가지 메일을 써요. 첫째는 <b>정기적으로 오는 매출 자료 메일</b>이에요. 예를 들어 토스의 부가세 매출 자료 받기는 배달앱 3사와 카드 매출을 이메일로 보내 줘요. 포스·매출 통합 앱의 리포트 메일, 세금계산서 메일도 여기에 들어가요. 둘째는 <b>사장님이 휴대폰에서 '나에게' 보내는 메일</b>이에요. 휴대폰으로 파일을 받은 그 자리에서 공유 → Gmail로 한 번 보내면 돼요. 드라이브 폴더를 찾아 올리는 일이 없어져요.</p>
   <div class="vis">
     <div class="lanes">
       <div class="box pop" style="--d:.2s"><strong>내아이디+delivery@gmail.com</strong><span>정기 메일 수신 주소 · 나에게 보내기</span></div>
@@ -116,6 +118,7 @@
     <li><input type="checkbox" id="s_s25m" data-key="s_s25m"><div class="body"><label for="s_s25m">휴대폰에서 '나에게 보내기' 습관</label><small>배달앱 사장님 앱이나 사이트에서 파일을 받으면 <span class="path">공유 → Gmail → 받는사람: 매출자료함 → 보내기</span>. 이게 사장님이 하는 일의 전부예요.</small></div></li>
     <li><input type="checkbox" id="s_s25n" data-key="s_s25n"><div class="body"><label for="s_s25n">본문에 숫자만 있는 알림 메일도 (선택)</label><small>첨부파일 없이 본문에 '정산 예정 금액 ○○원' 같은 숫자만 오는 메일이 있다면, 그 메일 하나를 복사해 AI에게 주고 "이 모양 메일에서 날짜·배달앱·금액을 뽑아 '메일정산' 시트에 쌓는 코드를 추가해줘"라고 부탁해요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '08 자동화·연결' 채팅에 붙여 넣으세요. ○○ 자리만 폴더 ID와 1단계 함수 이름으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>메일 자동 수집 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>Gmail 라벨 '배달매출자료'가 붙은 메일의 첨부파일(.xlsx, .xls, .csv)을 드라이브 폴더 '배달앱 받은 파일'(ID: ○○)에 저장하는 Apps Script를 만들어줘. 나는 코딩 초보야.
 - 검색 조건은 반드시 label:배달매출자료 has:attachment 이고, '처리됨' 라벨이 없는 메일만 (다른 메일은 절대 읽지 않기)
 - 저장할 때 파일 이름 앞에 받은 날짜와 보낸사람을 붙여 구분
@@ -141,11 +144,12 @@
         <li>월요일 브리핑 지시문에도 "지난주 '배달매출자료' 메일이 앱마다 왔는지 확인해줘" 한 줄 추가</li>
       </ol></details></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '08 자동화·연결' 채팅에 붙여 넣으세요. 바꿀 자리는 없어요.</p>
   <div class="prompt"><div class="bar"><span>점검 알림 부탁문 · 자동화 엔지니어</span><button class="copy" type="button">복사</button></div><pre>매장 장부 '배달매출' 시트(날짜, 배달앱, 주문번호, 정산금액 …)를 확인하는 Apps Script를 만들어줘.
 1) 월요일 낮에 실행: 지난주(월~일) 배달의민족·쿠팡이츠·요기요 중 한 건도 없는 앱이 있으면 "○○ 지난주 파일이 아직 없어요"라고 내 메일로 보내기
 2) 배달매출 반영 함수가 끝날 때마다: 이번에 넣은 앱별 건수와 정산금액 합계를 한 줄로 메일 보내기. 지난주 같은 요일보다 50% 넘게 차이 나면 '확인 필요' 표시
 트리거 설정 방법(주 단위 월요일 낮 12시)도 초보 기준으로 알려줘.</pre></div>
-  <p class="tip warnbox"><b>메일 권한은 좁게.</b> 메일 수집 스크립트는 Gmail을 읽을 수 있는 권한을 받아요. 그래서 검색 조건이 '배달매출자료' 라벨로만 되어 있는지 꼭 확인하고, 이 스크립트가 든 장부는 다른 사람에게 편집 공유하지 마세요.</p>
+  <p class="tip warnbox"><b>메일 권한은 좁게.</b> 메일 수집 스크립트는 Gmail을 읽을 수 있는 권한을 받아요. 그래서 검색 조건이 '배달매출자료' 라벨로만 되어 있는지 꼭 확인해요. 이 스크립트가 든 장부는 다른 사람에게 편집 공유하지 마세요.</p>
   <p class="src">출처: <a href="https://tossplace.com/story/yueki_delivery" target="_blank" rel="noopener">토스 포스 배달 주문·매출 연동 사례</a> · <a href="https://tossplace.com/story/delivery-sales-free" target="_blank" rel="noopener">토스 포스 배달 매출 연결</a> · <a href="https://docs.channel.io/todayhelpcenter/ko/articles/%EB%B0%B0%EB%8B%AC%EC%95%B1-%EC%97%B0%EB%8F%99%EC%9D%B4-%EC%95%88%EB%8F%BC%EC%9A%94-e7f59ce4" target="_blank" rel="noopener">오늘얼마 배달앱 연동 안내</a> · <a href="https://toss.im/tossfeed/article/vat-download" target="_blank" rel="noopener">토스 매출 자료 받기</a> · <a href="https://gmail.googleblog.com/2008/03/2-hidden-ways-to-get-more-from-your.html" target="_blank" rel="noopener">Gmail + 주소</a> · <a href="https://support.google.com/mail/answer/6579?hl=en" target="_blank" rel="noopener">Gmail 필터 만들기</a> · <a href="https://help.openai.com/ko-kr/articles/10291617-scheduled-tasks-in-chatgpt" target="_blank" rel="noopener">ChatGPT 메일 기반 예약 작업</a></p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-mail">메일 필터</span><div class="ad"><b>매출 메일 자동 분류</b><span>Gmail 필터가 매출 자료 메일에 라벨을 붙여요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>1시간마다 폴더·메일 확인</b><span>스크립트가 새 파일을 장부 '배달매출'에 넣고 처리된 파일은 옮겨요. 중복은 걸러요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>빠진 앱 알림</b><span>월요일 낮 12시, 지난주 자료가 빠진 앱이 있으면 메일로 알려요.</span></div></li></ul></div>
   <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>배달앱 정산 화면에서 지난주 파일 내려받기 → 장부 폴더.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>메일이 안 오는 앱은 로그인된 크롬에서 정산 화면을 읽어 표로.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>1시간마다 폴더·메일 확인 스크립트, 빠진 앱은 텔레그램.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>'01 장부·정산'이 앱별 수수료·정산 차이를 월 결산에.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>

@@ -3,8 +3,9 @@
   <div class="lesson-head">
     <span class="kicker">설계 · 약 40분 · 첫 직원 채용 전</span>
     <h2>누가 어떤 계정으로, 무엇을 보나</h2>
-    <p class="goal">직원이 생기면 <span data-biz="vet">차트</span><span data-biz-not="vet">POS·예약 프로그램</span>, 스마트플레이스, 카톡 채널, 인스타, 드라이브에 사람이 늘어나요. 아이디를 같이 쓰면 누가 무엇을 했는지 남지 않고, 퇴사할 때 비밀번호를 다 바꿔야 해요. 처음부터 <b>사람마다 계정, 역할마다 권한</b>으로 시작해요.</p>
+    <p class="goal">직원이 생기면 <span data-biz="vet">차트</span><span data-biz-not="vet">POS·예약 프로그램</span>, 스마트플레이스, 카톡 채널, 인스타, 드라이브에 사람이 늘어나요. 아이디를 같이 쓰면 누가 무엇을 했는지 남지 않아요. 퇴사할 때 비밀번호도 다 바꿔야 해요. 그래서 처음부터 <b>사람마다 계정, 역할마다 권한</b>으로 시작해요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>직원마다 자기 열쇠를 따로 주고, 열 수 있는 방을 정해 두는 거예요. 마스터키는 {{owner}}만 가져요.</span></div><div class="easy-row"><b>끝나면</b><span>우리 {{place}}에 맞춘 권한표와 입사·퇴사 날 체크리스트가 '{{place}} 운영' 폴더에 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 직원 구성(역할·인원), 지금 쓰는 계정 목록, 40분 · 계정 준비가 아직이면 <a href="#c-b1" class="ref" data-ref="c-b1">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>기존 직원 계정·권한부터 정리해요. 이전 {{owner}} 계정은 인수일에 끊어요.</span></p>
 
   <div class="table-wrap" data-biz="vet"><table>
@@ -32,10 +33,11 @@
     </tbody>
   </table></div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a80a" data-key="v_a80a"><div class="body"><label for="v_a80a">우리 {{place}} 권한표 받기</label><small>아래 부탁문에 직원 구성을 넣으면 위 표를 우리 {{place}}에 맞게 고쳐 줘요. 드라이브 '{{place}} 마케팅' 옆에 <b>{{place}} 운영</b> 폴더를 만들고 권한표 문서로 저장.</small></div></li>
-    <li><input type="checkbox" id="v_a80b" data-key="v_a80b"><div class="body"><label for="v_a80b">사람마다 계정 초대</label><small>스마트플레이스·카카오 매장관리·카톡 채널은 관리자(매니저) 초대, 인스타는 Meta 비즈니스 스위트의 사람 추가, 드라이브는 문서별 공유. {{owner}} 아이디·비밀번호는 누구에게도 주지 않아요.</small></div></li>
-    <li><input type="checkbox" id="v_a80c" data-key="v_a80c"><div class="body"><label for="v_a80c">입사·퇴사 체크리스트</label><small>입사 날 할 일(계정 초대, 근로계약서, 매뉴얼 공유)과 퇴사 날 할 일(모든 초대 해제, 공유 해제, 직원 웹앱 상태 '퇴사', 단톡방 정리)을 표로 만들어 매번 체크해요.</small></div></li>
+    <li><input type="checkbox" id="v_a80a" data-key="v_a80a"><div class="body"><label for="v_a80a">우리 {{place}} 권한표 받기</label><small>위 표는 예시라서 우리 {{place}}에 맞게 고쳐야 해요. 아래 부탁문에 직원 구성을 넣으면 AI가 고쳐 줘요. 드라이브 '{{place}} 마케팅' 옆에 <b>{{place}} 운영</b> 폴더를 만들어요. 받은 권한표는 문서로 저장해요.</small></div></li>
+    <li><input type="checkbox" id="v_a80b" data-key="v_a80b"><div class="body"><label for="v_a80b">사람마다 계정 초대하기</label><small>각자 자기 계정으로 들어오게 하려는 거예요. 스마트플레이스·카카오 매장관리·카톡 채널은 관리자(매니저)로 초대해요. 인스타는 Meta 비즈니스 스위트에서 사람을 추가해요. 드라이브는 문서마다 공유해요. {{owner}} 아이디·비밀번호는 누구에게도 주지 않아요.</small><span class="fix">막히면: 초대 메뉴를 못 찾으면 그 화면을 캡처해서 '10 인사 담당' 채팅에 "매니저 초대는 어디서 해?"라고 물어요.</span></div></li>
+    <li><input type="checkbox" id="v_a80c" data-key="v_a80c"><div class="body"><label for="v_a80c">입사·퇴사 체크리스트 만들기</label><small>바쁜 날에도 빠뜨리지 않으려고 표로 만들어 둬요. 입사 날 할 일은 계정 초대, 근로계약서, 매뉴얼 공유예요. 퇴사 날 할 일은 모든 초대 해제, 공유 해제, 직원 웹앱 상태 '퇴사', 단톡방 정리예요. 매번 표를 보며 체크해요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '10 인사 담당' 채팅에 붙여 넣으세요. ○○ 자리만 우리 {{place}} 값으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>권한표·입퇴사 체크리스트 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 {{biz}} 직원 구성: ○○ (예: <span data-biz="vet">원장 1, 실장 1, 동물보건사 2, 파트타임 미용 1</span><span data-biz-not="vet">{{owner}} 1, 실장 1, 정직원 2, 파트타임 1</span>)
 쓰는 계정: <span data-biz="vet">차트 ○○</span><span data-biz-not="vet">POS·예약 프로그램 ○○</span>, 네이버 스마트플레이스, 카카오맵 매장관리, 카카오톡 채널, 인스타그램(Meta 비즈니스 스위트), 구글 드라이브
 1) 역할별 권한표: 자료·계정 | {{owner}} | 각 역할 (소유/편집/보기/없음)

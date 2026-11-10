@@ -2,19 +2,21 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분 · PC</span>
     <h2>장부의 글달력이 저절로 캘린더에</h2>
-    <p class="goal">마케팅 장부 글달력(<a href="#c-l4" class="ref" data-ref="c-l4">강의</a>)에 적은 블로그·인스타·소식·카톡 발행일을, 버튼 한 번(또는 매일 밤 자동)으로 '<b>SNS·콘텐츠</b>' 캘린더에 옮겨요. 휴대폰에서 "오늘 올릴 글"이 바로 보여요.</p>
+    <p class="goal">마케팅 장부 글달력(<a href="#c-l4" class="ref" data-ref="c-l4">강의</a>)에 적은 블로그·인스타·소식·카톡 발행일을 '<b>SNS·콘텐츠</b>' 캘린더에 옮겨요. 버튼 한 번이면 되고, 매일 밤 자동으로 하게 할 수도 있어요. 휴대폰에서 "오늘 올릴 글"이 바로 보여요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>장부에 적은 글 올릴 날짜를 휴대폰 달력에 대신 옮겨 적어 주는 심부름꾼을 두는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>휴대폰 구글 캘린더에 "오늘 올릴 글"이 날짜마다 떠요. 글달력을 고치면 다음 날 달력도 바뀌어요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 마케팅 장부, 'SNS·콘텐츠' 캘린더, 40분 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a87a" data-key="v_a87a"><div class="body"><label for="v_a87a">글달력 탭 맨 오른쪽에 '캘린더ID' 칸</label><small>K1 칸에 <b>캘린더ID</b>라고 적어요. 스크립트가 만든 일정 번호를 여기에 적어 두어서, 두 번 만들지 않아요.</small></div></li>
-    <li><input type="checkbox" id="v_a87b" data-key="v_a87b"><div class="body"><label for="v_a87b">스크립트 붙여 넣고 실행</label>
+    <li><input type="checkbox" id="v_a87a" data-key="v_a87a"><div class="body"><label for="v_a87a">글달력 탭 맨 오른쪽에 '캘린더ID' 칸 만들기</label><small>같은 일정이 두 번 생기지 않게 하려는 칸이에요. 스크립트가 만든 일정 번호를 여기에 적어 둬요. K1 칸에 <b>캘린더ID</b>라고 적으면 돼요.</small></div></li>
+    <li><input type="checkbox" id="v_a87b" data-key="v_a87b"><div class="body"><label for="v_a87b">스크립트 붙여 넣고 실행하기</label><small>장부와 캘린더를 이어 주는 작은 프로그램을 장부에 붙여요. 아래 순서대로 따라 하면 돼요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>마케팅 장부 → <span class="path">확장 프로그램 → Apps Script</span> → 새 파일에 아래 '글달력 → 캘린더 스크립트' 붙여 넣기 → 저장</li>
-        <li>함수 <b>syncContent</b> → 실행 → 권한 허용(캘린더 접근)</li>
-        <li>구글 캘린더 'SNS·콘텐츠'에 일정이 생겼는지 확인</li>
-        <li>시계 아이콘 → <span class="path">+ 트리거 추가</span> → syncContent, 시간 기반, 일 단위, 밤 11시~자정 → 저장</li>
+        <li>마케팅 장부를 열고 <span class="path">확장 프로그램 → Apps Script</span>로 들어가요. 새 파일에 아래 '글달력 → 캘린더 스크립트'를 붙여 넣고 저장해요.</li>
+        <li>위쪽 함수 목록에서 <b>syncContent</b>를 고르고 실행해요. 권한 허용 창이 뜨면 캘린더 접근을 허용해요. <span class="fix">막히면: '확인되지 않은 앱' 창이 나오면 <span class="path">고급 → (안전하지 않음)으로 이동 → 허용</span>을 눌러요. 내가 만든 스크립트라 괜찮아요.</span></li>
+        <li>구글 캘린더 'SNS·콘텐츠'에 일정이 생겼는지 확인해요. <span class="fix">막히면: "캘린더가 없어요" 오류가 나면 캘린더 이름이 'SNS·콘텐츠'와 한 글자도 다르지 않은지 봐요.</span></li>
+        <li>왼쪽 시계 아이콘을 눌러 <span class="path">+ 트리거 추가</span>로 가요. syncContent, 시간 기반, 일 단위, 밤 11시~자정을 고르고 저장해요. <dfn data-t="trigger">트리거</dfn>는 정해진 시간에 저절로 실행되게 하는 알람이에요.</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a87c" data-key="v_a87c"><div class="body"><label for="v_a87c">상태가 바뀌면 제목도 바뀌어요</label><small>상태를 '게시'로 바꾸면 다음 실행 때 일정 제목 앞에 ✓가 붙어요. 날짜를 바꾸면 일정도 그 날로 옮겨져요.</small></div></li>
+    <li><input type="checkbox" id="v_a87c" data-key="v_a87c"><div class="body"><label for="v_a87c">상태 바꿔 보고 제목 확인하기</label><small>게시한 글과 아직인 글을 달력에서 바로 구별하려는 거예요. 상태를 '게시'로 바꾸면 다음 실행 때 일정 제목 앞에 ✓가 붙어요. 날짜를 바꾸면 일정도 그 날로 옮겨져요.</small></div></li>
   </ol>
+  <p class="cap">아래 코드를 그대로 복사해서 Apps Script 새 파일에 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>글달력 → 캘린더 스크립트</span><button class="copy" type="button">복사</button></div><pre>function syncContent() {
   var cal = CalendarApp.getCalendarsByName('SNS·콘텐츠')[0];
   if (!cal) throw new Error("'SNS·콘텐츠' 캘린더가 없어요. 이름을 확인하세요.");
@@ -36,7 +38,7 @@
     }
   }
 }</pre></div>
-  <p class="tip">스크립트는 장부와 캘린더만 다뤄요. 네이버·인스타에 접속하거나 글을 올리지 않아요. 실제 게시는 예약 발행·예약 게시(<a href="#c-l21" class="ref" data-ref="c-l21">강의</a>, <a href="#c-l27" class="ref" data-ref="c-l27">강의</a>)로.</p>
+  <p class="tip">스크립트는 장부와 캘린더만 다뤄요. 네이버·인스타에 접속하거나 글을 올리지 않아요. 실제 게시는 예약 발행·예약 게시(<a href="#c-l21" class="ref" data-ref="c-l21">강의</a>, <a href="#c-l27" class="ref" data-ref="c-l27">강의</a>)로 해요.</p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>매일 밤 자동 동기화</b><span>글달력을 고치면 다음 날 아침엔 캘린더에 반영돼 있어요.</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>터미널·봇</b><span>앱스 스크립트: 글달력 → SNS 캘린더 자동.</span></div><div class="run-row"><b>비서 연동</b><span>'07 자동화 도우미' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 스크립트 오류는 이 채팅에</span></div></div>
       <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>스크립트 오류는 이 채팅에</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>

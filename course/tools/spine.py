@@ -5,6 +5,7 @@
 
 PARTS = [
   ('start',    '시작'),
+  ('basics',   '준비 운동 · 컴퓨터 기초'),
   ('takeover', '인수 · 넘겨받기'),
   ('build',    '가게 만들기'),
   ('base',     '기초 자료와 장부'),
@@ -36,6 +37,14 @@ L = {
   ('c-l31', 'vet',  'l31', 'core', ALL, '', ''),
   ('c-l32', 'vet',  'l32', 'grow', ALL, '', ''),
   ('c-l43', 'vet',  'l43', 'grow', ALL, '', ''),
+ ],
+ 'basics': [
+  ('c-b1', 'new', None, 'core', ALL, '', ''),
+  ('c-b2', 'new', None, 'core', ALL, '', ''),
+  ('c-b3', 'new', None, 'core', ALL, '', ''),
+  ('c-b4', 'new', None, 'core', ALL, '', ''),
+  ('c-b5', 'new', None, 'core', ALL, '', ''),
+  ('c-b6', 'new', None, 'core', ALL, '', ''),
  ],
  'takeover': [
   ('c-l46', 'vet',  'l46', 'core', 'T', '', ''),

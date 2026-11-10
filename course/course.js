@@ -457,6 +457,17 @@
     var AINAME = { claude: 'Claude', gpt: 'ChatGPT' };
     var PLAN = (prefs.plan === 'free' || prefs.plan === 'paid') ? prefs.plan : '';
     var VIEW = prefs.view === 'core' ? 'core' : 'all';
+    var FONT = prefs.font === 'big' ? 'big' : 'normal';
+    var OPEN = prefs.open === 'all' ? 'all' : 'closed';
+    function applyLook() {
+      if (FONT === 'big') document.documentElement.dataset.font = 'big'; else delete document.documentElement.dataset.font;
+      document.querySelectorAll('[data-font-pick]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.fontPick === FONT ? 'true' : 'false'); });
+      document.querySelectorAll('[data-open-pick]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.openPick === OPEN ? 'true' : 'false'); });
+      document.querySelectorAll('#lessons details.how').forEach(function (d) { d.open = OPEN === 'all'; });
+    }
+    document.querySelectorAll('[data-font-pick]').forEach(function (b) { b.addEventListener('click', function () { FONT = b.dataset.fontPick; prefs.font = FONT; savePrefs(); applyLook(); }); });
+    document.querySelectorAll('[data-open-pick]').forEach(function (b) { b.addEventListener('click', function () { OPEN = b.dataset.openPick; prefs.open = OPEN; savePrefs(); applyLook(); }); });
+    applyLook();
     var idx = {}, num = {};
     lessons.forEach(function (sec, i) { idx[sec.id] = i; var k = sec.querySelector('.kicker'); if (k) k.dataset.k = k.textContent; });
     function isOn(sec) { return (!sec.dataset.ai || !AI || sec.dataset.ai === AI) && (VIEW !== 'core' || sec.dataset.level === 'core'); }

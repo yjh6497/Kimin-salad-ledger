@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>퇴근 전 30초, 프로젝트별 업무시간</h2>
-    <p class="goal">직원이 휴대폰으로 오늘 일한 시간과 현장 메모를 넣으면 대장에 바로 쌓이는 <dfn data-t="form">구글 폼</dfn>을 만들어요. 이 기록이 쌓여야 "이 프로젝트, 남는 장사였나?"에 답할 수 있어요.</p>
+    <p class="goal"><dfn data-t="form">구글 폼</dfn>(휴대폰으로 채우는 온라인 설문지)을 만들어요. 직원이 휴대폰으로 오늘 일한 시간과 현장 메모를 넣으면 대장에 바로 쌓여요. 이 기록이 쌓여야 "이 프로젝트, 남는 장사였나?"에 답할 수 있어요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>종이 출근부 대신 휴대폰 설문지를 쓰는 거예요. 직원이 퇴근 전에 30초만 채우면 사무소 장부에 저절로 적혀요.</span></div><div class="easy-row"><b>끝나면</b><span>직원 휴대폰 홈 화면에 '오늘 업무시간'·'현장 기록' 폼이 생기고, 대장에 입력 탭 두 개가 쌓이기 시작해요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 사무소 대장 시트, 휴대폰, 40분 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="phone-form">
       <div class="pf-head a" style="--d:.1s"><b>오늘 업무시간</b><span>직원 B · 18:20 · 예시</span></div>
@@ -15,29 +16,29 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a4a" data-key="a_a4a"><div class="body"><label for="a_a4a">업무시간 폼 만들기</label><small>대장 시트에서 바로 만들면 답이 대장에 쌓여요.</small>
+    <li><input type="checkbox" id="a_a4a" data-key="a_a4a"><div class="body"><label for="a_a4a">업무시간 폼 만들기</label><small>대장 시트 안에서 만들면 답이 따로 옮길 필요 없이 대장에 쌓여요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>사무소 대장 위쪽 메뉴 <span class="path">도구 → 새 양식</span></li>
-        <li>제목 <b>오늘 업무시간</b>. 질문: 날짜(날짜), 프로젝트(드롭다운), 업무구분(드롭다운 8개), 시간(단답형, 숫자), 내용(단답형)</li>
-        <li>프로젝트 드롭다운에는 '프로젝트코드 프로젝트명'을 한 줄씩. 새 프로젝트가 생기면 여기에 한 줄 추가</li>
-        <li>위쪽 <span class="path">설정 → 응답 → 이메일 주소 수집</span>을 '인증됨'으로. 누가 냈는지 자동으로 남아요</li>
-        <li>답은 대장에 새 탭('설문지 응답')으로 쌓여요. 탭 이름을 <b>업무시간입력</b>으로 바꾸기<span class="fix">폼이 시트에서 안 열리면 forms.google.com에서 만든 뒤 <span class="path">응답 → 스프레드시트에 연결</span>을 누르세요.</span></li>
+        <li>제목은 <b>오늘 업무시간</b>이에요. 질문은 다섯 개예요. 날짜(날짜), 프로젝트(<dfn data-t="dropdown">드롭다운</dfn>), 업무구분(드롭다운 8개), 시간(단답형, 숫자), 내용(단답형)</li>
+        <li>프로젝트 드롭다운에는 '프로젝트코드 프로젝트명'을 한 줄씩 넣어요. 새 프로젝트가 생기면 여기에 한 줄 더해요</li>
+        <li>위쪽 <span class="path">설정 → 응답 → 이메일 주소 수집</span>을 '인증됨'으로 바꿔요. 누가 냈는지 자동으로 남아요</li>
+        <li>답은 대장에 새 탭('설문지 응답')으로 쌓여요. 이 탭 이름을 <b>업무시간입력</b>으로 바꿔요<span class="fix">폼이 시트에서 안 열리면 forms.google.com에서 만든 뒤 <span class="path">응답 → 스프레드시트에 연결</span>을 누르세요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="a_a4b" data-key="a_a4b"><div class="body"><label for="a_a4b">현장 기록 폼 만들기</label><small>현장에 다녀온 사람이 사진과 메모를 남기는 폼이에요. <a href="#a-l35" class="ref" data-ref="a-l35">강의</a>의 감리 기록이 이걸 읽어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>같은 방법으로 새 양식 → 제목 <b>현장 기록</b></li>
-        <li>질문: 프로젝트(드롭다운), 공정(단답형), 확인한 것(장문형), 지적·조치 필요(장문형), 사진(파일 업로드, 최대 10장)</li>
-        <li>파일 업로드 질문을 넣으면 제출자가 구글 로그인을 해야 해요. 직원은 사무소 구글 계정이나 본인 계정으로 로그인</li>
-        <li>답 탭 이름을 <b>현장기록입력</b>으로</li>
+        <li>같은 방법으로 <span class="path">도구 → 새 양식</span>을 열고 제목을 <b>현장 기록</b>으로 해요</li>
+        <li>질문은 이렇게 넣어요. 프로젝트(드롭다운), 공정(단답형), 확인한 것(장문형), 지적·조치 필요(장문형), 사진(파일 업로드, 최대 10장)</li>
+        <li>파일 업로드 질문을 넣으면 제출자가 구글 로그인을 해야 해요. 직원은 사무소 구글 계정이나 본인 계정으로 로그인해요</li>
+        <li>답 탭 이름을 <b>현장기록입력</b>으로 바꿔요</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a4c" data-key="a_a4c"><div class="body"><label for="a_a4c">직원 휴대폰 홈 화면에 두기</label><small>폼 주소를 직원 단톡방에 올리고 각자 <dfn data-t="homescreen">홈 화면에 추가</dfn>해요.</small>
+    <li><input type="checkbox" id="a_a4c" data-key="a_a4c"><div class="body"><label for="a_a4c">직원 휴대폰 홈 화면에 두기</label><small>앱처럼 한 번에 열려야 매일 넣어요. 폼 주소를 직원 단톡방에 올려요. 그리고 각자 휴대폰에서 <dfn data-t="homescreen">홈 화면에 추가</dfn>해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>폼 편집 화면 오른쪽 위 <span class="path">보내기 → 링크 아이콘 → 복사</span></li>
         <li>휴대폰에서 링크 열기 → 아이폰 Safari는 <span class="path">공유 → 홈 화면에 추가</span>, 안드로이드 Chrome은 <span class="path">⋮ → 홈 화면에 추가</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a4d" data-key="a_a4d"><div class="body"><label for="a_a4d">입력 탭을 정리 탭으로 합치기</label><small>AI에게 "업무시간입력 탭의 응답을 업무시간 탭 형식(날짜, 이름, 프로젝트코드, 업무구분, 시간, 내용)으로 보여 주는 수식 알려줘. 이메일은 직원 탭에서 이름으로 바꿔 줘"라고 부탁해요.</small></div></li>
+    <li><input type="checkbox" id="a_a4d" data-key="a_a4d"><div class="body"><label for="a_a4d">입력 탭을 정리 탭으로 합치기</label><small>폼 답은 모양이 정리 탭과 달라서 한 번 맞춰 줘야 해요. AI에게 이렇게 부탁해요. "업무시간입력 탭의 응답을 업무시간 탭 형식(날짜, 이름, 프로젝트코드, 업무구분, 시간, 내용)으로 보여 주는 수식 알려줘. 이메일은 직원 탭에서 이름으로 바꿔 줘." 받은 수식은 업무시간 탭 첫 칸에 붙여 넣어요. <span class="fix">막히면: 칸에 #오류가 뜨면 그 화면을 캡처해 AI에게 보여 주고 "왜 이래?"라고 물어요.</span></small></div></li>
   </ol>
-  <p class="tip"><b>처음 한 달은 소장님도 같이 넣으세요.</b> 소장님 시간이 가장 비싼 원가예요. 영업·상담 시간까지 넣어야 진짜 손익이 보여요.</p>
+  <p class="tip"><b>처음 한 달은 소장님도 같이 넣어요.</b> 소장님 시간이 가장 비싼 원가(일에 드는 돈)예요. 영업·상담 시간까지 넣어야 진짜 손익이 보여요.</p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>입력 → 대장</b><span>제출하면 시각·이메일과 함께 대장에 쌓여요. 사진은 드라이브에 프로젝트별로 모여요.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>안 넣은 사람 알림</b><span>매일 19시에 오늘 입력이 없는 직원에게 메일을 보내는 앱스 스크립트를 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>에서 만들어요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 폼은 무료, 응답 수 제한 없음</li><li>사진은 제출자 드라이브가 아닌 폼 주인 드라이브에 저장돼요</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>워크스페이스: 사무소 계정으로만 제출하게 잠그기</li><li>타임시트 앱: 타이머로 시간 재기, 휴가·연차까지</li></ul></div></div>
 </section>

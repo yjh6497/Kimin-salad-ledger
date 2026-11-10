@@ -67,3 +67,18 @@ body { background: var(--bg); }
 
 .coursemap .table-wrap td:first-child { white-space: nowrap; }
 .cm-count { font-family: var(--f-num); font-size: 13px; color: var(--muted); white-space: nowrap; }
+
+/* 쉬운 안내 상자 */
+.easy { display: grid; gap: 0; margin: 14px 0 6px; max-width: 72ch; border: 1.5px solid var(--leaf); border-radius: 14px; background: var(--leaf-soft); overflow: hidden; }
+.easy-row { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 10px; padding: 10px 14px; font-size: 15.5px; line-height: 1.6; }
+.easy-row + .easy-row { border-top: 1px dashed color-mix(in srgb, var(--leaf) 35%, transparent); }
+.easy-row > b { color: var(--leaf); font-weight: 700; white-space: nowrap; }
+@media (max-width: 560px) { .easy-row { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+
+/* 큰 글씨 */
+html[data-font="big"] #lessons { font-size: 118%; }
+html[data-font="big"] #lessons small, html[data-font="big"] #lessons .cap, html[data-font="big"] .easy-row { font-size: 17px; }
+html[data-font="big"] #lessons ol.steps label { font-size: 19px; }
+html[data-font="big"] #lessons pre { font-size: 15.5px; }
+html[data-font="big"] .toc button .t { font-size: 16px; }
+.s-head .s-note { margin-top: 10px; padding: 10px 14px; border-radius: 12px; background: var(--leaf-soft); color: var(--ink); font-size: 15px; }

@@ -3,8 +3,9 @@
   <div class="lesson-head">
     <span class="kicker">설계·실습 · 약 1시간 · PC</span>
     <h2>{{place}}의 모든 날짜를 한 화면에, 색깔별로</h2>
-    <p class="goal">예약, 근무, SNS 발행일, 돈 나가는 날, 신고 기한, 장비 점검이 <span data-biz="vet">차트</span><span data-biz-not="vet">예약 앱</span>·시트·문자·메모에 흩어져 있으면 하나씩 놓쳐요. <dfn data-t="gcal">구글 캘린더</dfn>에 <b>주제별 캘린더 7개</b>를 만들어 한 화면에 겹쳐 보고, 직원에게는 필요한 캘린더만 공유해요.</p>
+    <p class="goal">예약, 근무, SNS 발행일, 돈 나가는 날, 신고 기한, 장비 점검이 <span data-biz="vet">차트</span><span data-biz-not="vet">예약 앱</span>·시트·문자·메모에 흩어져 있으면 하나씩 놓쳐요. 그래서 <dfn data-t="gcal">구글 캘린더</dfn>에 <b>주제별 캘린더 7개</b>를 만들어요. 7개를 한 화면에 겹쳐 보고, 직원에게는 필요한 캘린더만 공유해요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>벽에 걸린 달력 한 장에 색깔 스티커를 붙이는 것과 같아요. 예약은 초록, 돈 나가는 날은 빨강처럼 색으로 나눠 한눈에 봐요.</span></div><div class="easy-row"><b>끝나면</b><span>색이 다른 캘린더 7개가 겹쳐 보이는 {{place}} 캘린더 화면과, 휴대폰에서도 같이 보이는 일정</span></div><div class="easy-row"><b>필요한 것</b><span>PC, {{place}} 구글 계정, 1시간 · 계정이 아직 없으면 <a href="#c-b1" class="ref" data-ref="c-b1">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>인수 D-day 일정을 '세무·신고'·'{{place}} 일정' 캘린더에 먼저 넣어요.</span></p>
 
   <div class="vis">
@@ -20,10 +21,10 @@
     <p class="cap a" style="--d:.9s">색과 공유 범위는 예시예요. {{customer}} 이름·연락처는 캘린더에 쓰지 않고 <span data-biz="vet">차트 번호나 '초코(말티즈)'처럼 동의 받은 정도만.</span><span data-biz-not="vet">예약 번호나 '김○○ 님'처럼 동의 받은 정도만.</span></p>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a85a" data-key="v_a85a"><div class="body"><label for="v_a85a">{{place}} 구글 계정에 캘린더 7개 만들기</label>
+    <li><input type="checkbox" id="v_a85a" data-key="v_a85a"><div class="body"><label for="v_a85a">{{place}} 구글 계정에 캘린더 7개 만들기</label><small>주제마다 캘린더를 나눠야 색으로 구분되고, 공유도 따로 할 수 있어요. 위 그림의 이름대로 7개를 만들어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>PC에서 <span class="path">calendar.google.com</span> → {{place}} 구글 계정으로 로그인</li>
-        <li>왼쪽 '다른 캘린더' 옆 <span class="path">+ → 새 캘린더 만들기</span> → 이름(위 7개) → 만들기. 7번 반복</li>
+        <li>왼쪽 '다른 캘린더' 옆 <span class="path">+ → 새 캘린더 만들기</span> → 이름(위 7개 중 하나) 적기 → <span class="path">캘린더 만들기</span>. 이것을 7번 해요.</li>
         <li>왼쪽 목록에서 캘린더 이름 옆 ⋮ → 색 고르기</li>
         <li>각 캘린더 <span class="path">설정 → 시간대</span>가 <b>서울</b>인지 확인<span class="fix">캘린더 이름은 아래 스크립트들이 그대로 찾아 써요. 띄어쓰기까지 똑같이 적어 두세요.</span></li>
       </ol></details></div></li>

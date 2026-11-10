@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">읽기 · 약 30분</span>
     <h2>주소 하나에 붙는 공공데이터 여섯 줄</h2>
-    <p class="goal">건축사 업무에 바로 쓰이는 공공데이터 API를 한눈에 정리하고, 모든 API의 출발점인 <b>주소 → 코드 바꾸기</b>를 먼저 만들어요. 이 단계의 나머지 강의는 모두 이 코드를 씁니다.</p>
+    <p class="goal">건축사 업무에 바로 쓰이는 공공데이터 <dfn data-t="api">API</dfn>(기관 자료를 프로그램이 받아 오는 창구)를 한눈에 정리해요. 그리고 모든 API의 출발점인 <b>주소 → 코드 바꾸기</b>를 먼저 만들어요. 이 단계의 나머지 강의는 모두 이 코드를 써요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여러 관공서 자료실의 '안내 지도'예요. 그리고 자료실마다 달라고 하는 '주소 번호표'를 주소 하나로 자동으로 뽑는 장치를 만들어요.</span></div><div class="easy-row"><b>끝나면</b><span>주소만 적고 메뉴를 누르면 법정동코드·번지·PNU가 채워지는 '대지' 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 사무소 대장 시트, 30분 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>데이터</th><th>어디서</th><th>건축 업무에서</th><th>강의</th></tr></thead>
     <tbody>
@@ -16,9 +17,9 @@
       <tr><td><b>입찰 공고</b></td><td>조달청 나라장터</td><td>설계·감리 용역 공고</td><td><span class="refs" data-refs="a-l25"></span></td></tr>
     </tbody>
   </table></div>
-  <p class="tip"><b>모든 API의 공통 순서는 같아요.</b> ① 사이트 가입 → ② 활용신청 → ③ <dfn data-t="apikey">인증키</dfn> 복사 → ④ AI에게 앱스 스크립트 받기 → ⑤ 키는 스크립트 속성에 저장 → ⑥ 시트 메뉴 버튼으로 실행. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>와 같아요.</p>
+  <p class="tip"><b>모든 API의 공통 순서는 같아요.</b> ① 사이트 가입 → ② 활용신청 → ③ <dfn data-t="apikey">인증키</dfn>(사용 허가 번호) 복사 → ④ AI에게 <dfn data-t="appsscript">앱스 스크립트</dfn> 받기 → ⑤ 키는 스크립트 속성(스크립트 안의 비밀 메모 칸)에 저장 → ⑥ 시트 메뉴 버튼으로 실행. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>와 같아요.</p>
   <h3>먼저 만들기: 주소 → 코드 변환</h3>
-  <p>건축HUB·실거래가 API는 주소 대신 <dfn data-t="bjdong">법정동코드</dfn>와 번·지를, 브이월드는 <dfn data-t="pnu">PNU</dfn>(필지 고유번호 19자리)를 받아요. 주소 검색 API가 주소를 넣으면 이 값을 돌려줘서, 코드표를 손으로 찾을 필요가 없어져요.</p>
+  <p>건축HUB·실거래가 API는 주소 대신 <dfn data-t="bjdong">법정동코드</dfn>와 번·지를, 브이월드는 <dfn data-t="pnu">PNU</dfn>(필지 고유번호 19자리)를 받아요. 주소 검색 API에 주소를 넣으면 이 값을 돌려줘요. 그래서 코드표를 손으로 찾을 필요가 없어져요.</p>
   <div class="vis">
     <div class="msg">
       <div class="from a" style="--d:.1s"><span>'대지' 탭 한 줄 · 예시</span><span>주소 검색 API 결과</span></div>
@@ -31,14 +32,15 @@
     <li><input type="checkbox" id="a_a40a" data-key="a_a40a"><div class="body"><label for="a_a40a">주소 검색 API 승인키 받기 (무료)</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>PC에서 검색창에 <b>도로명주소 개발자센터</b> → 공식 사이트(business.juso.go.kr) 접속</li>
-        <li><span class="path">API 신청</span> → API 종류에서 <b>검색API</b> 선택 → 활용 목적 '사무소 내부 대지 조회', 시스템 URL 칸은 안내에 따라 입력</li>
+        <li><span class="path">API 신청</span> → API 종류에서 <b>검색API</b> 선택. 활용 목적은 '사무소 내부 대지 조회'로 적어요. 시스템 URL 칸은 화면 안내에 따라 넣어요.</li>
         <li>승인키를 복사해 메모장에 적어 두기<span class="fix">개발용 승인키는 사용 기간이 정해져 있어요. 계속 쓰려면 안내에 따라 운영용으로 신청하세요. 공공데이터포털의 '행정안전부_실시간 주소정보 조회(검색API)'도 같은 서비스예요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a40b" data-key="a_a40b"><div class="body"><label for="a_a40b">대장에 '대지' 탭 만들기</label><small>이 단계의 모든 조회가 이 탭을 출발점으로 써요. 앞 강의의 '대지조회' 탭이 있다면 이 탭으로 바꿔 써도 돼요.</small></div></li>
-    <li><input type="checkbox" id="a_a40c" data-key="a_a40c"><div class="body"><label for="a_a40c">'09 자동화·연결'에서 변환 스크립트 받기</label><small>아래 부탁문을 보내 붙이고, 주소 칸만 적은 뒤 메뉴 <span class="path">대지조회 → 주소를 코드로</span>를 눌러요.</small></div></li>
-    <li><input type="checkbox" id="a_a40d" data-key="a_a40d"><div class="body"><label for="a_a40d">결과 한 번 맞춰 보기</label><small>처음 한두 건은 토지이음 열람 화면의 지번과 같은지, 산 번지면 산여부가 1인지 확인해요.</small></div></li>
+    <li><input type="checkbox" id="a_a40b" data-key="a_a40b"><div class="body"><label for="a_a40b">대장에 '대지' 탭 만들기</label><small>이 단계의 모든 조회가 이 탭에서 시작해요. 아래 '대지 탭 제목 줄'을 A1 칸에 붙여 넣어요. 앞 강의의 '대지조회' 탭이 있다면 이 탭으로 바꿔 써도 돼요.</small></div></li>
+    <li><input type="checkbox" id="a_a40c" data-key="a_a40c"><div class="body"><label for="a_a40c">'09 자동화·연결'에서 변환 스크립트 받기</label><small>주소를 코드로 바꾸는 일을 시트에 맡기려고 해요. 아래 부탁문을 보내고, 받은 코드를 시트에 붙여요. 주소 칸만 적은 뒤 메뉴 <span class="path">대지조회 → 주소를 코드로</span>를 눌러요.</small><span class="fix">막히면: 처음 실행할 때 '권한 검토' 창이 뜨면 사무소 계정을 고르고 '허용'을 눌러요. 메뉴가 안 보이면 시트를 새로고침해요.</span></div></li>
+    <li><input type="checkbox" id="a_a40d" data-key="a_a40d"><div class="body"><label for="a_a40d">결과 한 번 맞춰 보기</label><small>잘못된 코드로 다음 조회를 하면 엉뚱한 땅이 나와요. 처음 한두 건은 토지이음 열람 화면의 지번과 같은지, 산 번지면 산여부가 1인지 확인해요.</small></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>대지 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 주소 | 도로명주소 | 행정구역코드 | 시군구코드 | 법정동코드 | 산여부 | 번 | 지 | PNU | 변환일 | 메모</pre></div>
+  <p class="cap">이 글을 그대로 복사해서 '09 자동화·연결' 채팅에 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>주소 → 코드 변환 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'의 '대지' 탭(제목 줄 아래 붙임)에서, 주소 칸이 있고 변환일이 빈 줄마다 행정안전부 도로명주소 검색 API(검색API, JSON)를 호출해 다음을 채우는 앱스 스크립트를 써 줘.
 - 도로명주소, 행정구역코드(10자리), 시군구코드(앞 5자리), 법정동코드(뒤 5자리), 산여부, 번(본번을 4자리로 0 채움), 지(부번 4자리)
 - PNU 19자리 = 행정구역코드 10자리 + 필지구분 1자리(일반 1, 산 2) + 본번 4자리 + 부번 4자리
@@ -47,6 +49,6 @@
 - 시트 위쪽 메뉴 '대지조회 → 주소를 코드로' 만들기
 제목 줄: 프로젝트코드 | 주소 | 도로명주소 | 행정구역코드 | 시군구코드 | 법정동코드 | 산여부 | 번 | 지 | PNU | 변환일 | 메모
 응답 항목 이름은 API 안내서를 확인해서 맞춰 줘. 붙여 넣는 곳, 승인키 넣는 법, 처음 실행 권한을 순서대로 알려줘.</pre></div>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-sc">API</span><div class="ad"><b>코드표 찾기 끝</b><span>주소만 적고 메뉴를 누르면 모든 API에 필요한 코드가 한 줄에 생겨요.</span></div></li><li><span class="chip k-conn">MCP</span><div class="ad"><b>대화로 조회 (심화)</b><span>건축물대장·지적·실거래 API를 묶은 공개 MCP들도 있어요. <a href="#a-l36" class="ref" data-ref="a-l36">강의</a>의 법령 MCP처럼 연결하면 "이 주소 건축물대장 보여 줘"로 바로 물어요. 개인이 만든 것이니 믿을 만한 것만 쓰세요.</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-sc">API</span><div class="ad"><b>코드표 찾기 끝</b><span>주소만 적고 메뉴를 누르면 모든 API에 필요한 코드가 한 줄에 생겨요.</span></div></li><li><span class="chip k-conn">MCP</span><div class="ad"><b>대화로 조회 (심화)</b><span>건축물대장·지적·실거래 API를 묶은 공개 <dfn data-t="mcp">MCP</dfn>(AI에 끼우는 연결 장치)들도 있어요. <a href="#a-l36" class="ref" data-ref="a-l36">강의</a>의 법령 MCP처럼 연결하면 "이 주소 건축물대장 보여 줘"라고 바로 물을 수 있어요. 개인이 만든 것이 많으니 믿을 만한 것만 쓰세요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>주소 검색 API·공공데이터포털 API 모두 무료</li><li>앱스 스크립트 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>민간 부동산 데이터 서비스: 여러 공공데이터를 지도 한 화면에</li></ul></div></div>
 </section>

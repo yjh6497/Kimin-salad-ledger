@@ -2,30 +2,33 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>우리 지역 설계 공고, 놓치지 않기</h2>
-    <p class="goal">설계공모·설계용역·감리용역 공고를 매일 모아 '공고' 탭에 쌓고, AI가 우리 사무소에 맞는 것만 골라 참가 요건을 정리하게 해요.</p>
+    <p class="goal">설계공모·설계용역·감리용역 공고를 매일 모아 '공고' 탭에 쌓아요. 그다음 AI가 우리 사무소에 맞는 것만 골라요. 참가 요건도 정리해 줘요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>매일 아침 신문에서 우리 지역 설계 공고만 오려 스크랩북에 붙여 주는 비서를 두는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>매일 아침 7시에 새 공고가 저절로 쌓이는 '공고' 탭과, 참가할 만한 공고 3개 요약이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 계정, '사무소 대장' 시트, 1시간 · 코드 붙이기·트리거가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>부터 봐요.</span></div></div>
   <h3>먼저 사람이 보는 곳 두 군데</h3>
   <div class="table-wrap"><table>
     <thead><tr><th>어디</th><th>무엇이 있나</th><th>어떻게</th></tr></thead>
     <tbody>
-      <tr><td><b>대한건축사협회 협회입찰정보</b></td><td>현상설계, 설계용역, 주택감리, 감리용역 공고</td><td>kira.or.kr → 입찰정보. 유형별로 골라 보기</td></tr>
-      <tr><td><b>나라장터</b></td><td>공공기관 용역 입찰 공고 전체</td><td>g2b.go.kr에서 '설계' 등 키워드 검색, 맞춤 알림 설정</td></tr>
+      <tr><td><b>대한건축사협회 협회입찰정보</b></td><td>현상설계, 설계용역, 주택감리, 감리용역 공고</td><td><span class="path">kira.or.kr → 입찰정보</span>. 유형별로 골라 보기</td></tr>
+      <tr><td><b>나라장터</b></td><td>공공기관 용역 입찰 공고 전체</td><td>g2b.go.kr에서 '설계' 같은 검색어로 찾기. 맞춤 알림도 설정</td></tr>
       <tr><td><b>지자체 누리집</b></td><td>시·군 자체 설계공모 공고</td><td>시청 고시·공고 게시판에서 '설계공모' 검색</td></tr>
     </tbody>
   </table></div>
-  <h3>자동으로 모으기 (나라장터 API)</h3>
+  <h3>자동으로 모으기 (나라장터 <dfn data-t="api">API</dfn>)</h3>
+  <p>API는 나라장터 자료를 프로그램이 받아 갈 수 있게 열어 둔 창구예요. 사람이 매일 검색하는 일을 시트가 대신 해요.</p>
   <ol class="steps">
     <li><input type="checkbox" id="a_a25a" data-key="a_a25a"><div class="body"><label for="a_a25a">공공데이터포털에서 '조달청_나라장터 입찰공고정보서비스' 활용신청</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>PC에서 data.go.kr 로그인 → 검색창에 <b>나라장터 입찰공고정보서비스</b> → 조달청 오픈API 선택</li>
-        <li><span class="path">활용신청</span> → 목적에 '사무소 입찰 공고 모니터링' → 신청</li>
-        <li>승인 후 <span class="path">마이페이지 → 데이터활용 → Open API</span>에서 일반 인증키(Decoding) 복사<span class="fix">승인 직후엔 키가 바로 안 될 수 있어요. 몇 시간 뒤 다시 시도하세요.</span></li>
+        <li>PC에서 <span class="path">data.go.kr → 로그인</span>해요. 검색창에 <b>나라장터 입찰공고정보서비스</b>를 쳐요. 조달청 오픈API를 골라요</li>
+        <li><span class="path">활용신청</span>을 눌러요. 목적 칸에 '사무소 입찰 공고 모니터링'이라고 쓰고 <span class="path">신청</span>을 눌러요</li>
+        <li>승인되면 <span class="path">마이페이지 → 데이터활용 → Open API</span>로 가요. 일반 <dfn data-t="apikey">인증키</dfn>(Decoding)를 복사해 둬요. 인증키는 자료를 받을 때 쓰는 내 열쇠예요<span class="fix">승인 직후엔 키가 바로 안 될 수 있어요. 몇 시간 뒤 다시 해 봐요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a25b" data-key="a_a25b"><div class="body"><label for="a_a25b">대장에 '공고' 탭 만들기</label></div></li>
-    <li><input type="checkbox" id="a_a25c" data-key="a_a25c"><div class="body"><label for="a_a25c">'09 자동화·연결' 채팅에서 스크립트 받기</label><small>아래 부탁문을 보내면 매일 아침 용역 공고 중 '설계·감리' 키워드와 우리 지역 기관만 골라 공고 탭에 넣는 <dfn data-t="appsscript">앱스 스크립트</dfn>를 줘요. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>.</small></div></li>
-    <li><input type="checkbox" id="a_a25d" data-key="a_a25d"><div class="body"><label for="a_a25d">'08 공모·입찰 레이더' 직원에게 골라 달라고 하기</label><small>"공고 탭에서 이번 주 새로 들어온 것 중 우리 사무소가 참가할 만한 것 3개, 참가 자격과 마감, 필요한 실적을 정리해 줘"</small></div></li>
+    <li><input type="checkbox" id="a_a25b" data-key="a_a25b"><div class="body"><label for="a_a25b">대장에 '공고' 탭 만들기</label><small>공고가 쌓일 자리를 먼저 만들어요. '사무소 대장' 시트 아래쪽 <span class="path">+</span>를 눌러 새 탭을 만들고 이름을 '공고'로 바꿔요. 아래 '공고 탭 제목 줄'을 복사해 A1 칸에 붙여 넣어요.</small></div></li>
+    <li><input type="checkbox" id="a_a25c" data-key="a_a25c"><div class="body"><label for="a_a25c">'09 자동화·연결' 채팅에서 스크립트 받기</label><small>매일 손으로 검색하지 않으려고 작은 프로그램을 받아요. 아래 부탁문을 보내면 <dfn data-t="appsscript">앱스 스크립트</dfn>를 줘요. 매일 아침 용역 공고 중 '설계·감리' 검색어와 우리 지역 기관만 골라 공고 탭에 넣어요. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>에 있어요.<span class="fix">막히면: '권한 허용' 창이 뜨면 내 계정을 고르고 고급 → 이동 → 허용을 눌러요. 오류가 나면 그 화면을 캡처해 같은 채팅에 올려요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a25d" data-key="a_a25d"><div class="body"><label for="a_a25d">'08 공모·입찰 레이더' 직원에게 골라 달라고 하기</label><small>공고가 많아서 참가할 만한 것만 추려요. 그 채팅에 이렇게 보내요. "공고 탭에서 이번 주 새로 들어온 것 중 우리 사무소가 참가할 만한 것 3개, 참가 자격과 마감, 필요한 실적을 정리해 줘"</small></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>공고 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>공고번호 | 공고명 | 발주기관 | 공고일 | 마감일시 | 추정가격 | 링크 | 수집일 | 검토</pre></div>
+  <p class="cap">아래 글을 그대로 복사해서 '09 자동화·연결' 채팅에 붙여 넣으세요. ○○ 자리만 우리 지역 이름으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>공고 수집 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'의 '공고' 탭에 공공데이터포털 '조달청_나라장터 입찰공고정보서비스'의 용역 공고를 매일 모으는 앱스 스크립트를 써 줘.
 - 용역 공고 검색 오퍼레이션을 쓰고, 어제~오늘 공고만
 - 공고명에 '설계', '감리', '건축' 중 하나가 들어가고, 발주기관이나 공고명에 ○○도·○○시·○○군이 들어간 것만
@@ -34,6 +37,6 @@
 - 실행 트리거는 매일 오전 7시
 붙여 넣는 곳, 인증키 넣는 법, 트리거 설정을 순서대로 알려줘. 나는 초보야.</pre></div>
   <p class="src">출처: <a href="https://www.kira.or.kr/jsp/main/03/01_01.jsp" target="_blank" rel="noopener">대한건축사협회 협회입찰정보</a> · <a href="https://www.data.go.kr" target="_blank" rel="noopener">공공데이터포털</a> · <a href="https://glama.ai/mcp/servers/@Datajang/mcp-narajangteo" target="_blank" rel="noopener">나라장터 공고 검색 MCP 예시</a></p>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>매일 아침 공고 쌓기</b><span>스크립트가 7시에 돌아 공고 탭을 채워요.</span></div></li><li><span class="chip k-conn">MCP</span><div class="ad"><b>대화로 공고 검색</b><span>나라장터 공고를 AI가 직접 검색하는 공개 MCP도 있어요. 연결하면 "강원도 이번 달 설계공모 찾아줘"로 바로 물어봐요(심화).</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>매일 아침 공고 쌓기</b><span><dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)를 걸면 스크립트가 7시에 돌아요. 그러면 공고 탭이 채워져요.</span></div></li><li><span class="chip k-conn">MCP</span><div class="ad"><b>대화로 공고 검색</b><span>나라장터 공고를 AI가 직접 검색하는 공개 <dfn data-t="mcp">MCP</dfn>(AI에 다른 서비스를 이어 주는 연결 플러그)도 있어요. 연결하면 "강원도 이번 달 설계공모 찾아줘"로 바로 물어봐요(심화).</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>공공데이터 API·앱스 스크립트 무료</li><li>협회 게시판·나라장터 맞춤 알림</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>입찰 정보 유료 서비스: 낙찰 이력·경쟁 분석</li><li>AI 예약 작업으로 '참가할 만한 공고' 요약까지 자동</li></ul></div></div>
 </section>

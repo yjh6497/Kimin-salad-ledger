@@ -4,6 +4,7 @@
     <h2>시세·대목·날씨·오늘 배송을 한 통으로 받아요</h2>
     <p class="goal">앞 강의에서 만든 탭(경매시세, 시세알림, 대목달력, 날씨, 주문)을 아침 7시에 한 번 읽어 <b>휴대폰 한 화면 분량</b>으로 보내요. 도매시장 가기 전에 이것만 보면 오늘 살 것과 할 일이 정해져요. 받는 곳은 메일이나 텔레그램(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>) 중 고르면 돼요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>아침마다 문 앞에 놓이는 '오늘의 꽃집 신문'이에요. 정해진 시간이 되면 시트가 알아서 정리해 보내요.</span></div><div class="easy-row"><b>끝나면</b><span>매일 아침 7시쯤 메일이나 텔레그램으로 오는 한 화면짜리 브리핑</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 앞의 세 강의에서 만든 탭, 1시간 · 코드 붙이기와 트리거가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
 
   <div class="vis">
     <div class="msg">
@@ -18,12 +19,13 @@
   </div>
 
   <ol class="steps">
-    <li><input type="checkbox" id="f_apb_a" data-key="f_apb_a"><div class="body"><label for="f_apb_a">무엇을 받을지 고르기</label><small>처음엔 다섯 줄이면 충분해요: 시세 변동 큰 '내 꽃' 3개, 30일 안 대목 D-day, 오늘 날씨 걸린 규칙, 오늘 배송 수, 할 일 2개. 많을수록 안 읽게 돼요.</small></div></li>
-    <li><input type="checkbox" id="f_apb_b" data-key="f_apb_b"><div class="body"><label for="f_apb_b">브리핑 스크립트 붙이고 시험 보내기</label><small>아래 부탁문으로 받은 코드를 붙이고 <span class="path">꽃집 데이터 → 브리핑 시험 보내기</span>. 메일로 먼저 확인하고, 텔레그램 봇이 있으면 봇으로 바꿔요.</small></div></li>
-    <li><input type="checkbox" id="f_apb_c" data-key="f_apb_c"><div class="body"><label for="f_apb_c">순서 맞추기: 수집이 먼저, 브리핑이 나중</label><small>트리거 순서: 시세 6~7시 → 브리핑 7~8시. 시세가 아직 비어 있으면 브리핑에 "시세 아직 없음"이라고 쓰게 해 두면 헷갈리지 않아요.</small></div></li>
-    <li><input type="checkbox" id="f_apb_d" data-key="f_apb_d"><div class="body"><label for="f_apb_d">일주일 써 보고 줄 빼기·더하기</label><small>안 읽는 줄은 빼고, 매번 따로 찾아본 정보는 더해요. 바꾼 내용은 '설정' 탭에서 켜고 끄게 해 두면 코드를 다시 안 고쳐도 돼요.</small></div></li>
+    <li><input type="checkbox" id="f_apb_a" data-key="f_apb_a"><div class="body"><label for="f_apb_a">무엇을 받을지 고르기</label><small>줄이 많을수록 안 읽게 돼요. 처음엔 다섯 줄이면 충분해요. 시세 변동 큰 '내 꽃' 3개, 30일 안 대목 D-day, 오늘 날씨에 걸린 규칙, 오늘 배송 수, 할 일 2개예요.</small></div></li>
+    <li><input type="checkbox" id="f_apb_b" data-key="f_apb_b"><div class="body"><label for="f_apb_b">브리핑 스크립트 붙이고 시험 보내기</label><small>진짜로 오는지 먼저 확인해 봐요. 아래 부탁문으로 받은 코드를 <dfn data-t="appsscript">앱스 스크립트</dfn>에 붙여요. 그다음 시트 메뉴에서 <span class="path">꽃집 데이터 → 브리핑 시험 보내기</span>를 눌러요. 처음엔 메일로 확인해요. 텔레그램 봇이 있으면 그다음에 봇으로 바꿔요.<span class="fix">막히면: 권한 허용 창이 뜨면 <span class="path">고급 → (안전하지 않음)으로 이동 → 허용</span>을 눌러요. 메일이 안 오면 스팸함도 봐요.</span></small></div></li>
+    <li><input type="checkbox" id="f_apb_c" data-key="f_apb_c"><div class="body"><label for="f_apb_c">시간 순서 맞추기: 수집이 먼저, 브리핑이 나중</label><small>시세가 모인 뒤에 브리핑이 나가야 해요. <dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)를 시세 6~7시 → 브리핑 7~8시 순서로 걸어요. 시세가 아직 비어 있을 때를 대비해요. 브리핑에 "시세 아직 없음"이라고 쓰게 해 두면 헷갈리지 않아요.</small></div></li>
+    <li><input type="checkbox" id="f_apb_d" data-key="f_apb_d"><div class="body"><label for="f_apb_d">일주일 써 보고 줄 빼기·더하기</label><small>써 봐야 필요한 줄이 보여요. 안 읽는 줄은 빼요. 매번 따로 찾아본 정보는 더해요. 줄마다 '설정' 탭에서 켜고 끄게 해 두면 코드를 다시 안 고쳐도 돼요.</small></div></li>
   </ol>
 
+  <p class="cap">이 글을 그대로 복사해서 '07 자동화 도우미' 채팅에 붙여 넣으세요. 탭 이름이 다르면 그 자리만 우리 가게 탭 이름으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>아침 브리핑 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '꽃집 운영 장부'의 탭들을 읽어 아침 브리핑을 보내는 Apps Script를 만들어 줘. 나는 코딩을 몰라.
 읽을 탭: 경매시세, 시세알림, 내 꽃, 대목달력, 날씨, 주문, 설정
 내용(설정 탭에서 줄마다 켜기/끄기):

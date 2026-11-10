@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>바쁜 시간에도 카톡 문의가 멈추지 않게</h2>
-    <p class="goal">카톡 채팅은 {{customer:가}} 가장 편하게 묻는 창구라서, {{open}}하면 하루 수십 건이 와요. <b>답변 시간 안내, 자주 묻는 질문 자동응답, <span data-biz="vet">진단하지 않는 답장 틀</span><span data-biz-not="vet">함부로 약속하지 않는 답장 틀</span></b> 세 가지를 먼저 세워 두면 실장님 한 명이 감당할 수 있어요.</p>
+    <p class="goal">카톡 채팅은 {{customer:가}} 가장 편하게 묻는 창구예요. 그래서 {{open}}하면 하루 수십 건이 와요. <b>답변 시간 안내, 자주 묻는 질문 자동응답, <span data-biz="vet">진단하지 않는 답장 틀</span><span data-biz-not="vet">함부로 약속하지 않는 답장 틀</span></b> 세 가지를 먼저 세워 둬요. 그러면 실장님 한 명이 감당할 수 있어요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>카톡 창구에 '안내 데스크'를 세우는 거예요. 자주 묻는 말은 카카오가 대신 답하고, 어려운 말은 정해 둔 답장 틀로 답해요.</span></div><div class="easy-row"><b>끝나면</b><span>상담 시간 안내, 웰컴 메시지, 키워드 자동응답, 답장 틀 8개가 채널에 들어가 있어요.</span></div><div class="easy-row"><b>필요한 것</b><span>카카오톡 채널 관리자 계정, {{place}} 소개서, 40분 · 복사·붙여넣기가 서툴면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble me a" style="--d:.2s" data-biz="vet"><span class="who">{{customer}}</span>(사진) 아이가 어제부터 밥을 안 먹어요. 괜찮을까요?</div>
@@ -15,9 +16,9 @@
     <p class="cap a" style="--d:1.6s" data-biz-not="vet">친절하게, 하지만 확인 안 된 약속은 하지 않기. 급한 일은 전화로.</p>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a36a" data-key="v_a36a"><div class="body"><label for="v_a36a">채팅 켜고 상담 가능 시간 정하기</label><small>관리자센터 <span class="path">채팅 → 채팅 설정</span>(이름은 바뀔 수 있어요)에서 1:1 채팅을 켜고, 답변 가능 시간을 {{hours:과}} 맞춰요. 시간 밖에 온 채팅엔 "내일 아침 답장, 급하면 전화" 안내가 가게.</small></div></li>
-    <li><input type="checkbox" id="v_a36b" data-key="v_a36b"><div class="body"><label for="v_a36b">자동응답·웰컴 메시지</label><small>친구 추가 때 가는 <b>웰컴 메시지</b>(최대 400자, 버튼 2개)에 {{hours}}·예약·<span data-biz="vet">응급</span><span data-biz-not="vet">급한 문의</span> 안내. 자주 묻는 질문은 키워드 자동응답으로({{hours}}, 주차, 예약, <span data-biz="vet">진료비 문의, 응급</span><span data-biz-not="vet">가격 문의, 급한 문의</span>).</small></div></li>
-    <li><input type="checkbox" id="v_a36c" data-key="v_a36c"><div class="body"><label for="v_a36c">답장 틀 만들기</label><small>아래 부탁문으로 받아 관리자 앱의 <span class="path">자주 쓰는 답변</span>(저장된 답변)에 넣어요. 인스타 DM 틀(<a href="#c-l28" class="ref" data-ref="c-l28">강의</a>)과 같은 원칙이에요.</small></div></li>
+    <li><input type="checkbox" id="v_a36a" data-key="v_a36a"><div class="body"><label for="v_a36a">채팅 켜고 상담 가능 시간 정하기</label><small>{{customer:가}} 언제 답을 받을지 알게 하려는 거예요. 관리자센터 <span class="path">채팅 → 채팅 설정</span>(이름은 바뀔 수 있어요)에서 1:1 채팅을 켜요. 답변 가능 시간은 {{hours:과}} 맞춰요. 시간 밖에 온 채팅에는 "내일 아침 답장, 급하면 전화" 안내가 가게 해요.</small><span class="fix">막히면: 메뉴 이름이 다르면 관리자센터 화면을 캡처해서 AI에게 "1:1 채팅 설정은 어디야?"라고 물어요.</span></div></li>
+    <li><input type="checkbox" id="v_a36b" data-key="v_a36b"><div class="body"><label for="v_a36b">자동응답·웰컴 메시지 넣기</label><small>같은 질문에 매번 손으로 답하지 않으려는 거예요. 친구 추가 때 가는 <b>웰컴 메시지</b>(최대 400자, 버튼 2개)에 {{hours}}·예약·<span data-biz="vet">응급</span><span data-biz-not="vet">급한 문의</span> 안내를 넣어요. 자주 묻는 질문은 키워드 자동응답(정해 둔 낱말이 오면 저절로 가는 답)으로 만들어요({{hours}}, 주차, 예약, <span data-biz="vet">진료비 문의, 응급</span><span data-biz-not="vet">가격 문의, 급한 문의</span>).</small></div></li>
+    <li><input type="checkbox" id="v_a36c" data-key="v_a36c"><div class="body"><label for="v_a36c">답장 틀 만들기</label><small>바쁠 때 눌러서 바로 보내려고 만들어 둬요. 아래 부탁문으로 받아서 관리자 앱의 <span class="path">자주 쓰는 답변</span>(저장된 답변)에 넣어요. 인스타 DM 틀(<a href="#c-l28" class="ref" data-ref="c-l28">강의</a>)과 같은 원칙이에요.</small></div></li>
     <li><input type="checkbox" id="v_a36d" data-key="v_a36d"><div class="body"><label for="v_a36d">어려운 채팅은 AI에게 초안</label><small>항의·긴 상담은 채팅 내용을 복사해({{customer}} 이름·번호 빼고) '05 상담·응대' 채팅에 붙여 답장 초안을 받아요.</small></div></li>
     <li><input type="checkbox" id="v_a36e" data-key="v_a36e"><div class="body"><label for="v_a36e">채팅 담당과 규칙 정하기</label><small>담당 실장님 한 명, 답장 목표 시간(예: {{hours}} 안 30분), <span data-biz="vet">진료 내용 상담은</span><span data-biz-not="vet">가격·일정 약속처럼 중요한 답은</span> {{owner}} 확인 후. 직원은 관리자센터 <span class="path">관리자 초대</span>로 권한을 주고 퇴사 날 지워요.</small></div></li>
   </ol>

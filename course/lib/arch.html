@@ -2,10 +2,11 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>엑셀 대신 구글 시트 한 권에 사무소를</h2>
-    <p class="goal">프로젝트·수금·업무시간·지출·인허가 일정을 한 파일 '사무소 대장'에 모읍니다. AI 비서는 이 한 권을 읽고 일해요.</p>
+    <p class="goal">프로젝트·수금·업무시간·지출·인허가 일정을 '사무소 대장' 파일 하나에 모아요. AI 비서는 이 한 권을 읽고 일해요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여러 엑셀 파일에 흩어진 기록을 '칸막이 있는 바인더' 한 권에 모으는 거예요. 칸막이(탭)마다 프로젝트, 수금, 지출 같은 것을 따로 적어요.</span></div><div class="easy-row"><b>끝나면</b><span>탭 6개와 진행 중인 프로젝트가 채워진 '사무소 대장' 시트 한 권</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 지금 쓰는 엑셀 대장(있으면), 1시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a3a" data-key="a_a3a"><div class="body"><label for="a_a3a">'사무소 대장' 시트 만들기</label><small>'사무소 시스템' 폴더 안에 만들어요.</small>
+    <li><input type="checkbox" id="a_a3a" data-key="a_a3a"><div class="body"><label for="a_a3a">'사무소 대장' 시트 만들기</label><small>나중에 AI가 찾기 쉽게 '사무소 시스템' 폴더 안에 만들어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>드라이브에서 '사무소 시스템' 폴더 열기 → <span class="path">+ 새로 만들기 → Google 스프레드시트</span></li>
         <li>왼쪽 위 '제목 없는 스프레드시트'를 눌러 <b>사무소 대장</b>으로 바꾸기</li>
@@ -15,16 +16,16 @@
       <small class="tb-cap">화면 맨 아래 모습이에요. 앞으로 '대장에 ○○ 탭 만들기'가 나오면 이 줄에 이름표를 하나 더 붙이면 돼요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>맨 아래 '시트1' 글자를 두 번 눌러 <b>프로젝트</b>로 바꾸기</li>
-        <li>왼쪽의 <span class="path">+</span>를 눌러 새 탭 → 이름 바꾸기. 수금, 업무시간, 지출, 인허가일정, 직원까지 반복</li>
+        <li>왼쪽의 <span class="path">+</span>를 눌러 새 탭을 만들고 이름을 바꿔요. 수금, 업무시간, 지출, 인허가일정, 직원까지 같은 방법으로 해요.</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a3c" data-key="a_a3c"><div class="body"><label for="a_a3c"><dfn data-t="header">제목 줄</dfn> 붙여 넣기</label><small>아래 상자의 '복사'를 누르고 각 탭의 A1 칸에 붙여 넣으면 칸마다 나뉘어 들어가요.</small>
+    <li><input type="checkbox" id="a_a3c" data-key="a_a3c"><div class="body"><label for="a_a3c"><dfn data-t="header">제목 줄</dfn> 붙여 넣기</label><small>칸마다 무엇을 적을지 정해 두려고 해요. 아래 상자의 '복사'를 누르고 각 탭의 A1 칸(맨 왼쪽 위)에 붙여 넣어요. 칸마다 나뉘어 들어가요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>탭을 열고 A1 칸을 한 번 누르기 → 아래 해당 상자의 <span class="path">복사</span> → Ctrl+V(맥은 ⌘+V)</li>
         <li>여섯 탭 모두 같은 방법으로<span class="fix">한 칸에 다 들어갔다면 그 칸을 누르고 <span class="path">데이터 → 텍스트를 열로 분할</span>을 누르세요.</span></li>
-        <li>프로젝트 탭의 '단계'와 '상태' 칸은 <dfn data-t="dropdown">드롭다운</dfn>으로: 칸 범위 선택 → <span class="path">삽입 → 드롭다운</span> → 기획, 계획, 중간, 실시, 인허가, 착공, 감리, 사용승인, 완료</li>
+        <li>프로젝트 탭의 '단계'와 '상태' 칸은 <dfn data-t="dropdown">드롭다운</dfn>(눌러서 고르는 목록)으로 만들어요. 칸 범위를 선택하고 <span class="path">삽입 → 드롭다운</span>을 눌러 옵션을 넣어요. 단계 옵션: 기획, 계획, 중간, 실시, 인허가, 착공, 감리, 사용승인, 완료</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a3d" data-key="a_a3d"><div class="body"><label for="a_a3d">진행 중인 프로젝트부터 채우기</label><small>지난 강의에서 적어 둔 목록을 프로젝트 탭에 한 줄씩. 프로젝트코드는 <b>2026-01</b>처럼 연도-번호로 정하면 다른 탭과 이어 쓰기 쉬워요.</small></div></li>
-    <li><input type="checkbox" id="a_a3e" data-key="a_a3e"><div class="body"><label for="a_a3e">기존 엑셀을 AI로 옮기기</label><small>지금 쓰는 엑셀 대장이 있다면 파일째 AI에게 주고 아래 '옮기기 부탁문'을 보내면 새 제목 줄 순서로 정리해 줘요. 받은 표를 복사해 붙여 넣으세요.</small></div></li>
+    <li><input type="checkbox" id="a_a3d" data-key="a_a3d"><div class="body"><label for="a_a3d">진행 중인 프로젝트부터 채우기</label><small>지금 바쁜 일부터 대장에 올려야 바로 쓸 수 있어요. 지난 강의에서 적어 둔 목록을 프로젝트 탭에 한 줄씩 적어요. 프로젝트코드는 <b>2026-01</b>처럼 연도-번호로 정해요. 그래야 다른 탭과 이어 쓰기 쉬워요.</small></div></li>
+    <li><input type="checkbox" id="a_a3e" data-key="a_a3e"><div class="body"><label for="a_a3e">기존 엑셀을 AI로 옮기기</label><small>손으로 다시 치지 않으려고 AI에게 맡겨요. 지금 쓰는 엑셀 대장 파일을 AI 채팅에 올리고 아래 '옮기기 부탁문'을 보내요. 새 제목 줄 순서로 정리된 표가 와요. 받은 표를 복사해 붙여 넣으세요.</small><span class="fix">막히면: 표가 한 칸에 몰려 들어가면 AI에게 "탭으로 구분된 표로 다시 줘"라고 해요.</span></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>프로젝트 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 프로젝트명 | 건축주 | 대지주소 | 용도 | 연면적(㎡) | 단계 | 상태 | 담당 | 계약금액 | 계약일 | 다음마감 | 메모</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>수금 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 구분 | 청구조건 | 금액 | 청구일 | 입금예정일 | 입금일 | 입금액 | 세금계산서 | 메모</pre></div>
@@ -32,19 +33,21 @@
   <div class="prompt" data-tsv><div class="bar"><span>지출 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 프로젝트코드 | 거래처 | 내용 | 금액 | 대분류 | 결제수단 | 증빙</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>인허가일정 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 절차 | 기관·부서 | 접수일 | 처리기한 | 보완요청일 | 보완제출일 | 결과 | 메모</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>직원 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>이름 | 직급 | 입사일 | 시간단가(원) | 이메일 | 상태</pre></div>
+  <p class="cap">이 글을 그대로 복사해서 엑셀 파일과 함께 AI 채팅에 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>옮기기 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 엑셀은 우리 건축사사무소의 기존 프로젝트 대장이야. 아래 제목 줄 순서대로 표를 다시 만들어 줘. 없는 칸은 비워 두고, 애매한 값은 메모 칸에 '확인 필요'라고 적어 줘. 합친 줄이나 지운 줄이 있으면 마지막에 알려 줘.
 프로젝트코드 | 프로젝트명 | 건축주 | 대지주소 | 용도 | 연면적(㎡) | 단계 | 상태 | 담당 | 계약금액 | 계약일 | 다음마감 | 메모</pre></div>
   <p class="tip"><b>업무구분은 8개로 고정</b>하세요. 기획·계획설계·중간설계·실시설계·인허가·감리·영업(공모)·사무. 같은 이름을 계속 써야 프로젝트별 손익(<a href="#c-l62" class="ref" data-ref="c-l62">강의</a>)이 정확해요.</p>
-  <p class="tip warnbox"><b>건축주 주민등록번호와 계좌번호는 대장에 넣지 마세요.</b> 대장은 AI가 읽는 파일이에요. 그런 정보는 계약서 원본에만 둡니다.</p>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>투입 인건비 자동 계산</b><span>업무시간 × 직원 시간단가를 프로젝트코드별로 합치는 수식을 AI에게 받아 '요약' 탭에 두면, 시간을 넣는 순간 프로젝트 원가가 다시 계산돼요.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>마감 임박 빨간색</b><span>다음마감이 7일 안이면 칸이 빨개지게. "다음마감 칸에 조건부 서식 넣는 법 알려줘"라고 부탁하세요.</span></div></li></ul></div>
+  <p class="tip warnbox"><b>건축주 주민등록번호와 계좌번호는 대장에 넣지 마세요.</b> 대장은 AI가 읽는 파일이에요. 그런 정보는 계약서 원본에만 둬요.</p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>투입 인건비 자동 계산</b><span>업무시간 × 직원 시간단가를 프로젝트코드별로 합치는 수식을 AI에게 받아요. 이 수식을 '요약' 탭에 두면, 시간을 넣는 순간 프로젝트 원가가 다시 계산돼요.</span></div></li><li><span class="chip k-fx">조건부 서식</span><div class="ad"><b>마감 임박 빨간색</b><span>다음마감이 7일 안이면 칸이 빨개져요. "다음마감 칸에 조건부 서식 넣는 법 알려줘"라고 부탁하세요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 시트·드라이브는 개인 계정으로 무료</li><li>저장 공간 15GB면 대장과 문서는 충분 (도면 원본은 기존 서버에)</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>구글 워크스페이스: 사무소 도메인 이메일, 큰 저장 공간, 직원 계정 관리</li><li>설계사무소용 프로젝트 관리 프로그램: 타임시트·청구가 한 화면에</li></ul></div></div>
 </section>
 <section id="a-l4" class="lesson" data-part="base" data-title="휴대폰 입력 폼" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>퇴근 전 30초, 프로젝트별 업무시간</h2>
-    <p class="goal">직원이 휴대폰으로 오늘 일한 시간과 현장 메모를 넣으면 대장에 바로 쌓이는 <dfn data-t="form">구글 폼</dfn>을 만들어요. 이 기록이 쌓여야 "이 프로젝트, 남는 장사였나?"에 답할 수 있어요.</p>
+    <p class="goal"><dfn data-t="form">구글 폼</dfn>(휴대폰으로 채우는 온라인 설문지)을 만들어요. 직원이 휴대폰으로 오늘 일한 시간과 현장 메모를 넣으면 대장에 바로 쌓여요. 이 기록이 쌓여야 "이 프로젝트, 남는 장사였나?"에 답할 수 있어요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>종이 출근부 대신 휴대폰 설문지를 쓰는 거예요. 직원이 퇴근 전에 30초만 채우면 사무소 장부에 저절로 적혀요.</span></div><div class="easy-row"><b>끝나면</b><span>직원 휴대폰 홈 화면에 '오늘 업무시간'·'현장 기록' 폼이 생기고, 대장에 입력 탭 두 개가 쌓이기 시작해요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 사무소 대장 시트, 휴대폰, 40분 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="phone-form">
       <div class="pf-head a" style="--d:.1s"><b>오늘 업무시간</b><span>직원 B · 18:20 · 예시</span></div>
@@ -56,29 +59,29 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a4a" data-key="a_a4a"><div class="body"><label for="a_a4a">업무시간 폼 만들기</label><small>대장 시트에서 바로 만들면 답이 대장에 쌓여요.</small>
+    <li><input type="checkbox" id="a_a4a" data-key="a_a4a"><div class="body"><label for="a_a4a">업무시간 폼 만들기</label><small>대장 시트 안에서 만들면 답이 따로 옮길 필요 없이 대장에 쌓여요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>사무소 대장 위쪽 메뉴 <span class="path">도구 → 새 양식</span></li>
-        <li>제목 <b>오늘 업무시간</b>. 질문: 날짜(날짜), 프로젝트(드롭다운), 업무구분(드롭다운 8개), 시간(단답형, 숫자), 내용(단답형)</li>
-        <li>프로젝트 드롭다운에는 '프로젝트코드 프로젝트명'을 한 줄씩. 새 프로젝트가 생기면 여기에 한 줄 추가</li>
-        <li>위쪽 <span class="path">설정 → 응답 → 이메일 주소 수집</span>을 '인증됨'으로. 누가 냈는지 자동으로 남아요</li>
-        <li>답은 대장에 새 탭('설문지 응답')으로 쌓여요. 탭 이름을 <b>업무시간입력</b>으로 바꾸기<span class="fix">폼이 시트에서 안 열리면 forms.google.com에서 만든 뒤 <span class="path">응답 → 스프레드시트에 연결</span>을 누르세요.</span></li>
+        <li>제목은 <b>오늘 업무시간</b>이에요. 질문은 다섯 개예요. 날짜(날짜), 프로젝트(<dfn data-t="dropdown">드롭다운</dfn>), 업무구분(드롭다운 8개), 시간(단답형, 숫자), 내용(단답형)</li>
+        <li>프로젝트 드롭다운에는 '프로젝트코드 프로젝트명'을 한 줄씩 넣어요. 새 프로젝트가 생기면 여기에 한 줄 더해요</li>
+        <li>위쪽 <span class="path">설정 → 응답 → 이메일 주소 수집</span>을 '인증됨'으로 바꿔요. 누가 냈는지 자동으로 남아요</li>
+        <li>답은 대장에 새 탭('설문지 응답')으로 쌓여요. 이 탭 이름을 <b>업무시간입력</b>으로 바꿔요<span class="fix">폼이 시트에서 안 열리면 forms.google.com에서 만든 뒤 <span class="path">응답 → 스프레드시트에 연결</span>을 누르세요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="a_a4b" data-key="a_a4b"><div class="body"><label for="a_a4b">현장 기록 폼 만들기</label><small>현장에 다녀온 사람이 사진과 메모를 남기는 폼이에요. <a href="#a-l35" class="ref" data-ref="a-l35">강의</a>의 감리 기록이 이걸 읽어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>같은 방법으로 새 양식 → 제목 <b>현장 기록</b></li>
-        <li>질문: 프로젝트(드롭다운), 공정(단답형), 확인한 것(장문형), 지적·조치 필요(장문형), 사진(파일 업로드, 최대 10장)</li>
-        <li>파일 업로드 질문을 넣으면 제출자가 구글 로그인을 해야 해요. 직원은 사무소 구글 계정이나 본인 계정으로 로그인</li>
-        <li>답 탭 이름을 <b>현장기록입력</b>으로</li>
+        <li>같은 방법으로 <span class="path">도구 → 새 양식</span>을 열고 제목을 <b>현장 기록</b>으로 해요</li>
+        <li>질문은 이렇게 넣어요. 프로젝트(드롭다운), 공정(단답형), 확인한 것(장문형), 지적·조치 필요(장문형), 사진(파일 업로드, 최대 10장)</li>
+        <li>파일 업로드 질문을 넣으면 제출자가 구글 로그인을 해야 해요. 직원은 사무소 구글 계정이나 본인 계정으로 로그인해요</li>
+        <li>답 탭 이름을 <b>현장기록입력</b>으로 바꿔요</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a4c" data-key="a_a4c"><div class="body"><label for="a_a4c">직원 휴대폰 홈 화면에 두기</label><small>폼 주소를 직원 단톡방에 올리고 각자 <dfn data-t="homescreen">홈 화면에 추가</dfn>해요.</small>
+    <li><input type="checkbox" id="a_a4c" data-key="a_a4c"><div class="body"><label for="a_a4c">직원 휴대폰 홈 화면에 두기</label><small>앱처럼 한 번에 열려야 매일 넣어요. 폼 주소를 직원 단톡방에 올려요. 그리고 각자 휴대폰에서 <dfn data-t="homescreen">홈 화면에 추가</dfn>해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>폼 편집 화면 오른쪽 위 <span class="path">보내기 → 링크 아이콘 → 복사</span></li>
         <li>휴대폰에서 링크 열기 → 아이폰 Safari는 <span class="path">공유 → 홈 화면에 추가</span>, 안드로이드 Chrome은 <span class="path">⋮ → 홈 화면에 추가</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a4d" data-key="a_a4d"><div class="body"><label for="a_a4d">입력 탭을 정리 탭으로 합치기</label><small>AI에게 "업무시간입력 탭의 응답을 업무시간 탭 형식(날짜, 이름, 프로젝트코드, 업무구분, 시간, 내용)으로 보여 주는 수식 알려줘. 이메일은 직원 탭에서 이름으로 바꿔 줘"라고 부탁해요.</small></div></li>
+    <li><input type="checkbox" id="a_a4d" data-key="a_a4d"><div class="body"><label for="a_a4d">입력 탭을 정리 탭으로 합치기</label><small>폼 답은 모양이 정리 탭과 달라서 한 번 맞춰 줘야 해요. AI에게 이렇게 부탁해요. "업무시간입력 탭의 응답을 업무시간 탭 형식(날짜, 이름, 프로젝트코드, 업무구분, 시간, 내용)으로 보여 주는 수식 알려줘. 이메일은 직원 탭에서 이름으로 바꿔 줘." 받은 수식은 업무시간 탭 첫 칸에 붙여 넣어요. <span class="fix">막히면: 칸에 #오류가 뜨면 그 화면을 캡처해 AI에게 보여 주고 "왜 이래?"라고 물어요.</span></small></div></li>
   </ol>
-  <p class="tip"><b>처음 한 달은 소장님도 같이 넣으세요.</b> 소장님 시간이 가장 비싼 원가예요. 영업·상담 시간까지 넣어야 진짜 손익이 보여요.</p>
+  <p class="tip"><b>처음 한 달은 소장님도 같이 넣어요.</b> 소장님 시간이 가장 비싼 원가(일에 드는 돈)예요. 영업·상담 시간까지 넣어야 진짜 손익이 보여요.</p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>입력 → 대장</b><span>제출하면 시각·이메일과 함께 대장에 쌓여요. 사진은 드라이브에 프로젝트별로 모여요.</span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>안 넣은 사람 알림</b><span>매일 19시에 오늘 입력이 없는 직원에게 메일을 보내는 앱스 스크립트를 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>에서 만들어요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 폼은 무료, 응답 수 제한 없음</li><li>사진은 제출자 드라이브가 아닌 폼 주인 드라이브에 저장돼요</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>워크스페이스: 사무소 계정으로만 제출하게 잠그기</li><li>타임시트 앱: 타이머로 시간 재기, 휴가·연차까지</li></ul></div></div>
 </section>
@@ -86,10 +89,11 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2>AI가 법전을 직접 펼쳐 보게</h2>
-    <p class="goal">법제처 법령 정보를 AI가 바로 조회하는 법령 <dfn data-t="mcp">MCP</dfn>를 연결해요. 연결하면 "주차 몇 대야?"라고만 물어도 AI가 <b>현행 별표 원문을 찾아 읽고</b> 근거와 시행일을 붙여 답해요. 연결은 한 번, 그 뒤로는 질문만 하면 됩니다.</p>
+    <p class="goal">법제처 법령 정보를 AI가 바로 찾아보게 하는 법령 <dfn data-t="mcp">MCP</dfn>(AI에 외부 자료를 잇는 연결 플러그)를 연결해요. 연결하면 "주차 몇 대야?"라고만 물어도 AI가 <b>현행 별표 원문을 찾아 읽어요</b>. 그리고 근거와 시행일을 붙여 답해요. 연결은 한 번이면 돼요. 그 뒤로는 질문만 하면 돼요.</p>
     <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span><span data-ai-not="gpt">Claude 무료 플랜도 사용자 지정 커넥터를 1개까지 연결할 수 있어요. 이 법령 MCP를 그 1개로 쓰면 돼요.</span><span data-ai="gpt">ChatGPT는 원격 MCP 연결(개발자 모드)이 유료 플랜 기능이에요. 무료라면 앞 강의의 '원문 붙여 주기'로 하거나, Claude 무료 계정을 하나 만들어 법규 질문용으로 쓰세요.</span></span></p>
-    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>커넥터를 여러 개 연결할 수 있고, 예약 작업으로 매달 개정 소식까지 자동으로 받아요.</span></p>
+    <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>커넥터를 여러 개 연결할 수 있어요. 예약 작업으로 매달 개정 소식까지 자동으로 받아요.</span></p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>AI 책상 옆에 '최신 법전'을 꽂아 주는 거예요. 기억으로 답하지 않고 그때그때 원문을 펼쳐 보고 답해요.</span></div><div class="easy-row"><b>끝나면</b><span>질문하면 조문·별표 원문과 시행일이 붙어 나오는 법규 검토 채팅</span></div><div class="easy-row"><b>필요한 것</b><span>PC, AI 계정, 법제처 회원가입, 1시간 30분 · 복사·붙여넣기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble me a" style="--d:.2s"><span class="who">소장님</span>2종 근생 360㎡ 신축이면 부설주차 몇 대야? 근거 붙여서.</div>
@@ -100,36 +104,37 @@
 
   <h3>1 · 연결하기</h3>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a36a" data-key="a_a36a"><div class="body"><label for="a_a36a">법제처 Open API 키(OC) 받기</label><small>키 없이도 공용 한도로 쓸 수 있지만, 공용 한도가 차면 느려지거나 막혀요. 사무소에서 매일 쓸 거라면 무료 키를 받아 두세요. 법제처가 주는 키 이름이 <dfn data-t="oc">OC</dfn>예요.</small>
+    <li><input type="checkbox" id="a_a36a" data-key="a_a36a"><div class="body"><label for="a_a36a">법제처 Open API 키(OC) 받기</label><small>매일 막힘 없이 쓰려는 거예요. 키 없이도 공용 한도로 쓸 수 있어요. 하지만 공용 한도가 차면 느려지거나 막혀요. 사무소에서 매일 쓸 거라면 무료 <dfn data-t="apikey">키</dfn>(내 이름표 같은 글자)를 받아 두세요. 법제처가 주는 키 이름이 <dfn data-t="oc">OC</dfn>예요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>PC에서 <span class="path">open.law.go.kr</span> → 회원가입 → 로그인</li>
         <li><span class="path">OPEN API → OPEN API 사용 신청</span> → 사용 목적에 '건축사사무소 내부 법규 검토'</li>
-        <li>신청이 끝나면 마이페이지의 신청 내역에서 OC 값을 확인해 메모장에 적어 두기<span class="fix">OC는 보통 가입한 아이디나 이메일 앞부분 같은 짧은 글자예요. 남에게 보내지 마세요.</span></li>
+        <li>신청이 끝나면 <span class="path">마이페이지 → 신청 내역</span>에서 OC 값을 확인해 메모장에 적어 두기<span class="fix">OC는 보통 가입한 아이디나 이메일 앞부분 같은 짧은 글자예요. 남에게 보내지 마세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a36b" data-key="a_a36b"><div class="body"><label for="a_a36b">연결 주소 만들기</label><small>공개 법령 MCP(korean-law-mcp)의 원격 주소 끝에 내 OC를 붙여요.</small>
+    <li><input type="checkbox" id="a_a36b" data-key="a_a36b"><div class="body"><label for="a_a36b">연결 주소 만들기</label><small>AI가 찾아갈 주소를 내 키로 만들려는 거예요. 공개 법령 MCP(korean-law-mcp)의 인터넷 주소 끝에 내 OC를 붙여요. 아래 주소를 복사해서 ○○ 자리만 내 OC로 바꿔요.</small>
       <div class="prompt"><div class="bar"><span>연결 주소 (○○을 내 OC로)</span><button class="copy" type="button">복사</button></div><pre>https://mcp.gomdori.app/law?oc=○○</pre></div></div></li>
-    <li data-ai-not="gpt"><input type="checkbox" id="a_a36c" data-key="a_a36c"><div class="body"><label for="a_a36c">Claude에 사용자 지정 커넥터로 추가</label>
+    <li data-ai-not="gpt"><input type="checkbox" id="a_a36c" data-key="a_a36c"><div class="body"><label for="a_a36c">Claude에 사용자 지정 커넥터로 추가하기</label><small>Claude가 법전을 펼 수 있게 플러그를 꽂는 단계예요. <dfn data-t="connector">커넥터</dfn>는 AI에 다른 서비스를 잇는 연결이에요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기 (claude.ai)</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>PC에서 claude.ai → 왼쪽 아래 내 이름 → <span class="path">설정 → 커넥터</span></li>
         <li><span class="path">사용자 지정 커넥터 추가</span> → 이름 <b>법령</b>, 원격 MCP 서버 주소에 위 주소 붙여 넣기 → 추가</li>
-        <li>추가된 '법령' 커넥터 옆 <span class="path">구성(또는 도구 권한)</span> → 조회 도구들을 <span class="path">항상 허용</span>으로. 질문할 때마다 허용 버튼을 누르지 않아도 돼요</li>
+        <li>추가된 '법령' 커넥터 옆 <span class="path">구성(또는 도구 권한)</span> → 조회 도구들을 <span class="path">항상 허용</span>으로 바꿔요. 그러면 질문할 때마다 허용 버튼을 누르지 않아도 돼요</li>
         <li>휴대폰 앱에서도 같은 계정이면 그대로 쓸 수 있어요<span class="fix">메뉴 이름은 바뀔 수 있어요. 설정의 '커넥터'에서 '사용자 지정' 또는 '커스텀'이 들어간 버튼을 찾으세요. 회사 관리 계정은 관리자가 막아 둘 수 있어요.</span></li>
       </ol></details>
       <details class="how"><summary><span class="closed-label">Claude 데스크톱 앱 설정 파일로 넣고 싶다면</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>claude.ai에서 추가한 커넥터는 같은 계정의 데스크톱 앱에도 보여요. 보통은 이걸로 충분해요</li>
-        <li>설정 파일로 직접 넣으려면 Node.js 18 이상이 필요하고 mcp-remote 어댑터를 써요. 안내 페이지의 설정 예시를 '09 자동화·연결' 채팅에 붙이고 "맥에서 한 단계씩"이라고 부탁하세요</li>
+        <li>설정 파일로 직접 넣으려면 Node.js 18 이상(컴퓨터에 까는 실행 도구)이 필요해요. mcp-remote 어댑터도 써요. 안내 페이지의 설정 예시를 '09 자동화·연결' 채팅에 붙이고 "맥에서 한 단계씩"이라고 부탁하세요</li>
       </ol></details></div></li>
-    <li data-ai-not="claude"><input type="checkbox" id="a_a36d" data-key="a_a36d"><div class="body"><label for="a_a36d">ChatGPT에 앱(커넥터)으로 추가</label><small>원격 MCP 연결은 유료 플랜의 개발자 모드에서 해요.</small>
+    <li data-ai-not="claude"><input type="checkbox" id="a_a36d" data-key="a_a36d"><div class="body"><label for="a_a36d">ChatGPT에 앱(커넥터)으로 추가하기</label><small>ChatGPT가 법전을 펼 수 있게 연결하는 단계예요. 원격 MCP 연결은 유료 플랜의 개발자 모드에서 해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>chatgpt.com → 내 이름 → <span class="path">설정 → 앱(커넥터) → 고급</span> → <span class="path">개발자 모드</span> 켜기</li>
         <li><span class="path">앱 만들기(또는 커넥터 추가)</span> → 이름 <b>법령</b>, MCP 서버 주소에 위 주소 → 인증은 '없음' → 만들기</li>
         <li>새 채팅의 <span class="path">+ → 더 보기 → 개발자 모드</span>에서 '법령'을 켜고 질문<span class="fix">메뉴 이름이 자주 바뀌어요. 막히면 OpenAI 도움말에서 'developer mode MCP'를 찾아보세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a36e" data-key="a_a36e"><div class="body"><label for="a_a36e">연결 시험</label><small>새 채팅에서 "법령 도구로 건축법 제61조 원문을 보여 줘". 답 위에 도구를 썼다는 표시(도구 이름, 조회 중)가 보이고, 원문과 시행일이 나오면 성공이에요. 표시 없이 바로 답하면 기억으로 답한 것이니 "법령 도구로 조회해서"라고 다시 부탁하세요.</small></div></li>
+    <li><input type="checkbox" id="a_a36e" data-key="a_a36e"><div class="body"><label for="a_a36e">연결 시험하기</label><small>제대로 꽂혔는지 확인하려는 거예요. 새 채팅에 "법령 도구로 건축법 제61조 원문을 보여 줘"라고 보내요. 답 위에 도구를 썼다는 표시(도구 이름, 조회 중)가 보이면 돼요. 원문과 시행일까지 나오면 성공이에요.<span class="fix">막히면: 표시 없이 바로 답하면 기억으로 답한 거예요. "법령 도구로 조회해서"라고 다시 부탁하세요.</span></small></div></li>
   </ol>
 
   <h3>2 · 법규 검토 직원에게 규칙 주기</h3>
-  <p>'02 대지·법규 검토' 채팅에 아래 메시지를 한 번 보내 두거나, AI 프로젝트 지침 맨 아래에 붙여 넣으세요. 그러면 법규 질문마다 조회부터 하고 답해요.</p>
+  <p>'02 대지·법규 검토' 채팅에 아래 메시지를 한 번 보내 둬요. 또는 AI 프로젝트 지침 맨 아래에 붙여 넣어도 돼요. 그러면 법규 질문마다 조회부터 하고 답해요.</p>
+  <p class="cap">이 글을 그대로 복사해서 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>법령 MCP 사용 규칙</span><button class="copy" type="button">복사</button></div><pre>법규 질문을 받으면 기억으로 답하지 말고 반드시 '법령' 도구로 현행 원문을 먼저 조회해.
 - 답 맨 아래에 조회한 법령명, 조문·별표 번호, 시행일(개정일)을 적어 줘
 - 시행령·시행규칙의 별표까지 확인하고, 조례로 정하도록 위임된 내용이면 해당 시·군 조례를 자치법규에서 이어서 조회해
@@ -150,18 +155,19 @@
     </tbody>
   </table></div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a36f" data-key="a_a36f"><div class="body"><label for="a_a36f">용도 가능 여부 묻기</label><small>대지 검토 메모(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>)를 만든 뒤 아래 '용도 검토' 부탁문으로 이어서 물어요.</small></div></li>
-    <li><input type="checkbox" id="a_a36g" data-key="a_a36g"><div class="body"><label for="a_a36g">별표 기준 받아 검토표에 옮기기</label><small>'별표 기준' 부탁문으로 주차·조경 기준을 받고, 기준값과 근거를 면적·주차 검토표(<a href="#a-l33" class="ref" data-ref="a-l33">강의</a>)의 '한도'·'주차' 탭 근거 칸에 옮겨요. 계산은 시트가 해요.</small></div></li>
-    <li><input type="checkbox" id="a_a36h" data-key="a_a36h"><div class="body"><label for="a_a36h">시점 법령 확인</label><small>오래 걸린 프로젝트나 개정 직후 접수라면 '시점 법령' 부탁문으로 접수일 기준 조문과 경과조치를 봐요.</small></div></li>
-    <li><input type="checkbox" id="a_a36i" data-key="a_a36i"><div class="body"><label for="a_a36i">인용 검증</label><small>제출 전 검토서·설계설명서의 법규 문단을 통째로 붙여 '인용 검증' 부탁문을 보내요.</small></div></li>
-    <li><input type="checkbox" id="a_a36j" data-key="a_a36j"><div class="body"><label for="a_a36j">해석례로 질의서 초안</label><small>애매한 문제는 '해석례 찾기' 부탁문으로 비슷한 사례를 모으고, 허가 부서에 보낼 질의서 초안을 받아요.</small></div></li>
-    <li><input type="checkbox" id="a_a36k" data-key="a_a36k"><div class="body"><label for="a_a36k">매달 개정 소식</label>
+    <li><input type="checkbox" id="a_a36f" data-key="a_a36f"><div class="body"><label for="a_a36f">용도 가능 여부 묻기</label><small>이 땅에 이 건물을 지을 수 있는지 먼저 보려는 거예요. 대지 검토 메모(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>)를 만든 뒤, 아래 '용도 검토' 부탁문으로 이어서 물어요.</small></div></li>
+    <li><input type="checkbox" id="a_a36g" data-key="a_a36g"><div class="body"><label for="a_a36g">별표 기준 받아 검토표에 옮기기</label><small>계산 근거를 표에 남기려는 거예요. '별표 기준' 부탁문으로 주차·조경 기준을 받아요. 기준값과 근거는 면적·주차 검토표(<a href="#a-l33" class="ref" data-ref="a-l33">강의</a>)의 '한도'·'주차' 탭 근거 칸에 옮겨요. 계산은 시트가 해요.</small></div></li>
+    <li><input type="checkbox" id="a_a36h" data-key="a_a36h"><div class="body"><label for="a_a36h">접수일 기준 법령 확인하기</label><small>법이 바뀐 사이 어느 법을 따를지 가리려는 거예요. 오래 걸린 프로젝트나 개정 직후 접수라면 '시점 법령' 부탁문을 보내요. 접수일 기준 조문과 경과조치(바뀌기 전 건을 어떻게 할지 정한 규정)를 볼 수 있어요.</small></div></li>
+    <li><input type="checkbox" id="a_a36i" data-key="a_a36i"><div class="body"><label for="a_a36i">인용이 진짜인지 검증하기</label><small>없는 조문을 적어 내는 실수를 막으려는 거예요. 제출 전 검토서·설계설명서의 법규 문단을 통째로 붙여 '인용 검증' 부탁문을 보내요.</small></div></li>
+    <li><input type="checkbox" id="a_a36j" data-key="a_a36j"><div class="body"><label for="a_a36j">해석례로 질의서 초안 받기</label><small>애매한 문제를 허가 부서에 물을 준비예요. '해석례 찾기' 부탁문으로 비슷한 사례를 모아요. 그다음 허가 부서에 보낼 질의서 초안을 받아요.</small></div></li>
+    <li><input type="checkbox" id="a_a36k" data-key="a_a36k"><div class="body"><label for="a_a36k">매달 개정 소식 받기</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li data-plan-not="free">'02 대지·법규 검토' 채팅에 '월간 개정 정리' 부탁문을 보내 결과를 확인한 뒤 "이걸 매달 1일 오전 8시에 해 줘" → 일정 카드 확인 후 저장</li>
         <li data-plan-not="free">예약 작업에서도 법령 커넥터가 켜져 있는지 처음 결과에서 확인하세요(조회 표시와 시행일이 있어야 해요)</li>
         <li data-plan="free">매달 1일 휴대폰 반복 알림 → 알림이 울리면 같은 부탁문을 채팅에 보내기</li>
       </ol></details></div></li>
   </ol>
+  <p class="cap">아래 부탁문을 그대로 복사해서 '02 대지·법규 검토' 채팅에 붙여 넣으세요. ○○ 자리만 우리 프로젝트 값(지역·용도·면적·날짜)으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>용도 검토 부탁문</span><button class="copy" type="button">복사</button></div><pre>법령 도구로 조회해서 답해 줘. 대지는 ○○시 ○○동, ○○지역(토지이용계획 기준)이고 ○○(용도, 예: 제2종 근린생활시설 중 일반음식점)을 신축하려고 해.
 1) 국토계획법 시행령의 해당 용도지역 건축제한 별표에서 이 용도가 '건축할 수 있는 건축물'인지, '조례로 정하는 건축물'인지
 2) 조례 위임이면 ○○시 도시계획 조례의 해당 조항 원문
@@ -187,7 +193,7 @@
     <div class="term"><strong>현행인가</strong><span>시행 예정 개정이 함께 나올 수 있어요. 접수일에 적용되는 버전인지 시행일로 확인해요.</span></div>
     <div class="term"><strong>빠진 층</strong><span>법령·조례 밖의 지구단위계획, 시·군 고시, 심의 기준은 도구에 없을 수 있어요. 따로 확인해요.</span></div>
   </div>
-  <p class="tip warnbox"><b>개인이 만들어 공개한 도구예요.</b> 법제처 공식 서비스가 아니라 법제처 Open API를 묶어 공개한 오픈소스 MCP예요. 질문 문장이 그 서버를 거쳐 가니 건축주 이름·연락처·주소 전체는 넣지 마세요. 중요한 판단은 국가법령정보센터 원문으로 한 번 더 확인하고, 최종 해석은 허가권자 몫이에요.</p>
+  <p class="tip warnbox"><b>개인이 만들어 공개한 도구예요.</b> 법제처 공식 서비스가 아니에요. 법제처 Open <dfn data-t="api">API</dfn>를 묶어 누구나 쓰게 공개한 MCP예요. 질문 문장이 그 서버를 거쳐 가요. 그러니 건축주 이름·연락처·주소 전체는 넣지 마세요. 중요한 판단은 국가법령정보센터 원문으로 한 번 더 확인해요. 최종 해석은 허가권자 몫이에요.</p>
   <p class="src">출처: <a href="https://github.com/chrisryugj/korean-law-mcp" target="_blank" rel="noopener">korean-law-mcp 안내(GitHub)</a> · <a href="https://open.law.go.kr" target="_blank" rel="noopener">국가법령정보 공동활용 Open API</a> · <a href="https://support.claude.com/ko/articles/14503689" target="_blank" rel="noopener">Claude MCP 커넥터 도움말</a></p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-conn">MCP</span><div class="ad"><b>질문만 하면 원문 조회</b><span>한 번 연결해 두면 모든 채팅에서 현행 조문·별표·조례·해석례를 직접 찾아 읽어요.</span></div></li><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>근거 붙이기가 기본값</b><span>'법령 MCP 사용 규칙'을 지침에 넣어 두면 직원 누가 물어도 조회부터 하고 시행일을 붙여요.</span></div></li><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>매달 개정 정리</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>매달 1일 예약 작업으로 진행 중인 프로젝트에 영향 줄 개정만 골라 받아요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>매달 1일 휴대폰 알림 + 같은 부탁문 한 번.</span></span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>법제처 Open API 키 무료, 공개 MCP 무료(공용 한도)</li><li>Claude 무료: 사용자 지정 커넥터 1개로 연결</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI 유료: 커넥터 여러 개, 긴 조회 결과도 끊기지 않게, 예약 작업</li><li>ChatGPT는 원격 MCP 연결이 유료 플랜</li><li>건축 법규 전문 서비스: 질의회신·심의 기준까지 묶음 검색</li></ul></div></div>
@@ -196,8 +202,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>건축주 첫 상담 전, 30분 대지 검토</h2>
-    <p class="goal"><dfn data-t="eum">토지이음</dfn>의 토지이용계획과 <dfn data-t="bldreg">건축물대장</dfn>을 받아 AI에게 주면, 용도지역·<dfn data-t="bcr">건폐율·용적률</dfn> 범위·확인할 규제를 한 장으로 정리한 <b>대지 검토 메모</b>가 나와요.</p>
+    <p class="goal"><dfn data-t="eum">토지이음</dfn>의 토지이용계획과 <dfn data-t="bldreg">건축물대장</dfn>을 받아 AI에게 줘요. 그러면 <b>대지 검토 메모</b>가 나와요. 용도지역·<dfn data-t="bcr">건폐율·용적률</dfn> 범위·확인할 규제가 한 장에 정리돼요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>건축주를 만나기 전에 땅의 '건강검진표'를 미리 뽑아 보는 일이에요. 서류 두 장을 AI가 한 장 메모로 줄여 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>지역·지구, 건폐율·용적률 범위, 확인할 줄이 표시된 대지 검토 메모 한 장이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 대지 지번, AI 채팅, 1시간 · PDF 저장·캡처가 낯설면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a>부터 봐요.</span></div></div>
   <div class="vis">
     <div class="msg">
       <div class="from a" style="--d:.1s"><span>대지 검토 메모 · 예시</span><span>02 대지·법규 검토</span></div>
@@ -208,20 +215,21 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a32a" data-key="a_a32a"><div class="body"><label for="a_a32a">토지이용계획 PDF 받기</label>
+    <li><input type="checkbox" id="a_a32a" data-key="a_a32a"><div class="body"><label for="a_a32a">토지이용계획 PDF 받기</label><small>이 땅에 어떤 규제가 걸려 있는지 나라 기록으로 확인하려고 받아요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>PC에서 <span class="path">eum.go.kr</span> 접속 → 첫 화면 주소 검색창에 지번 입력 → 검색</li>
-        <li>토지이용계획 열람 화면에서 지역·지구 목록, 확인도면, <b>행위제한내용</b>까지 보이게 펼치기</li>
-        <li>화면의 <span class="path">인쇄</span>에서 'PDF로 저장'을 골라 저장 (또는 화면 캡처 2~3장)<span class="fix">열람은 무료예요. 제출용 확인서가 필요할 때만 정부24에서 발급받으세요.</span></li>
+        <li>PC에서 <span class="path">eum.go.kr</span>에 들어가요. 첫 화면 주소 검색창에 지번을 넣고 <span class="path">검색</span>을 눌러요</li>
+        <li>토지이용계획 열람 화면이 떠요. 지역·지구 목록, 확인도면, <b>행위제한내용</b>까지 보이게 펼쳐요</li>
+        <li>화면의 <span class="path">인쇄 → 대상: PDF로 저장 → 저장</span>을 눌러요. 화면 캡처 2~3장으로 대신해도 돼요<span class="fix">열람은 무료예요. 제출용 확인서가 필요할 때만 정부24에서 발급받으세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a32b" data-key="a_a32b"><div class="body"><label for="a_a32b">기존 건물이 있으면 건축물대장 받기</label><small>증축·리모델링·용도변경이라면 꼭 필요해요.</small>
+    <li><input type="checkbox" id="a_a32b" data-key="a_a32b"><div class="body"><label for="a_a32b">기존 건물이 있으면 건축물대장 받기</label><small>지금 건물의 용도·면적·위반 여부를 알려고 받아요. 증축·리모델링·용도변경이라면 꼭 필요해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li><span class="path">gov.kr(정부24)</span> 또는 세움터에서 '건축물대장' 검색 → 열람 신청 → 주소 입력</li>
-        <li>일반건축물이면 일반, 집합건물이면 표제부·전유부를 PDF로 저장<span class="fix">5단계(<a href="#a-l20" class="ref" data-ref="a-l20">강의</a>)에서는 이걸 주소만 넣으면 시트로 자동으로 받아요.</span></li>
+        <li><span class="path">gov.kr(정부24)</span>이나 세움터에서 '건축물대장'을 검색해요. <span class="path">열람 신청</span>을 누르고 주소를 넣어요<span class="fix">막히면: 정부24는 로그인(간편인증)이 필요해요. 휴대폰 인증 앱을 미리 준비해 두세요.</span></li>
+        <li>일반건축물이면 일반을 골라요. 집합건물이면 표제부·전유부를 골라요. 그리고 PDF로 저장해요<span class="fix">5단계(<a href="#a-l20" class="ref" data-ref="a-l20">강의</a>)에서는 이걸 주소만 넣으면 시트로 자동으로 받아요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a32c" data-key="a_a32c"><div class="body"><label for="a_a32c">'02 대지·법규 검토' 채팅에 올리고 메모 받기</label><small>PDF 두 개와 지도 캡처(도로가 보이게)를 함께 올리고 아래 부탁문을 보내요.</small></div></li>
-    <li><input type="checkbox" id="a_a32d" data-key="a_a32d"><div class="body"><label for="a_a32d">'확인 필요' 줄만 소장님이 직접 확인</label><small><dfn data-t="ordinance">조례</dfn> 값, <dfn data-t="dupc">지구단위계획</dfn>, 도로 조건처럼 AI가 확인 필요로 남긴 줄을 원문과 현장으로 맞춰 보고, 메모를 고쳐 프로젝트 폴더에 저장해요.</small></div></li>
+    <li><input type="checkbox" id="a_a32c" data-key="a_a32c"><div class="body"><label for="a_a32c">'02 대지·법규 검토' 채팅에 올리고 메모 받기</label><small>서류를 한 장으로 줄이는 일을 AI에게 맡겨요. 채팅창 아래 클립(+) 버튼으로 PDF 두 개와 지도 캡처(도로가 보이게)를 함께 올려요. 그리고 아래 부탁문을 보내요.</small></div></li>
+    <li><input type="checkbox" id="a_a32d" data-key="a_a32d"><div class="body"><label for="a_a32d">'확인 필요' 줄만 소장님이 직접 확인하기</label><small>AI가 확실하지 않은 줄은 '확인 필요'로 남겨요. <dfn data-t="ordinance">조례</dfn> 값, <dfn data-t="dupc">지구단위계획</dfn>, 도로 조건 같은 줄이에요. 이 줄만 원문과 현장으로 맞춰 봐요. 그다음 메모를 고쳐 프로젝트 폴더에 저장해요.</small></div></li>
   </ol>
+  <p class="cap">아래 글을 그대로 복사해서 '02 대지·법규 검토' 채팅에 붙여 넣으세요. ○○ 자리만 건축주 희망(용도, 규모, 층수)으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>대지 검토 메모 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 토지이용계획 PDF(와 건축물대장)를 보고 '대지 검토 메모'를 만들어 줘. 건축주 희망: ○○(용도, 대략 규모, 층수).
 1) 대지 개요: 지번, 지목, 면적, 지역·지구 목록 (문서에 적힌 그대로)
 2) 건폐율·용적률: 법정 범위와 '우리 시 조례에서 확인할 값'을 나눠서. 조례 값을 모르면 비워 두고 확인 필요 표시
@@ -316,12 +324,14 @@
     <h2>글은 AI가 초안, 생각은 소장님 것</h2>
     <p class="goal">설계설명서, 공모 설계개요, 건축주 제안서, 회의록처럼 '매번 비슷하게 쓰는 글'을 소장님의 메모와 도면에서 초안으로 만들어요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>글 잘 쓰는 비서에게 메모를 건네는 것과 같아요. 소장님이 말로 핵심을 알려 주면 AI가 설명서 초안을 써요.</span></div><div class="easy-row"><b>끝나면</b><span>설계설명서·공모 지침 요약표·회의록 초안을 바로 받는 '설명서·제안서' 채팅방이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC 또는 휴대폰, AI 앱, 지난 설명서 2~3개, 1시간 · AI 앱이 처음이면 <a href="#c-b3" class="ref" data-ref="c-b3">강의</a> 먼저</span></div></div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a9a" data-key="a_a9a"><div class="body"><label for="a_a9a">'04 설명서·제안서' 직원 만들기</label><small>지난 프로젝트의 잘 쓴 설명서 2~3개를 그 채팅에 올려 "이 말투와 구성을 기억해 줘"라고 먼저 보내요. 그게 이 직원의 글쓰기 교본이 돼요.</small></div></li>
-    <li><input type="checkbox" id="a_a9b" data-key="a_a9b"><div class="body"><label for="a_a9b">소장님 메모는 말로</label><small>휴대폰 앱 음성 입력으로 "이 집의 핵심은 남쪽 마당과 이어진 거실이고, 건축주 부부가 은퇴 후 손님을 자주 부른다…"처럼 2~3분 말한 걸 그대로 보내요. 다듬는 건 AI 일이에요.</small></div></li>
-    <li><input type="checkbox" id="a_a9c" data-key="a_a9c"><div class="body"><label for="a_a9c">도면 몇 장과 함께 초안 부탁</label><small>배치도·평면도 PDF를 올리고 아래 부탁문을 보내요. 공모라면 지침서의 '제출물·분량' 쪽을 함께 올려요.</small></div></li>
-    <li><input type="checkbox" id="a_a9d" data-key="a_a9d"><div class="body"><label for="a_a9d">사실 확인 줄 먼저 보기</label><small>초안 끝의 '확인 필요' 목록(면적, 재료명, 인증 등급 같은 사실)부터 고치고 문장을 다듬어요.</small></div></li>
+    <li><input type="checkbox" id="a_a9a" data-key="a_a9a"><div class="body"><label for="a_a9a">'04 설명서·제안서' 직원 만들기</label><small>AI가 사무소 글투를 배우게 하려는 거예요. 지난 프로젝트의 잘 쓴 설명서 2~3개를 그 채팅에 올려요. 그리고 "이 말투와 구성을 기억해 줘"라고 먼저 보내요. 이 글들이 이 직원의 글쓰기 교본이 돼요.</small></div></li>
+    <li><input type="checkbox" id="a_a9b" data-key="a_a9b"><div class="body"><label for="a_a9b">메모를 말로 남기기</label><small>타자보다 말이 빠르고 생각이 잘 담겨요. 휴대폰 AI 앱의 음성 입력(마이크 버튼)을 눌러요. "이 집의 핵심은 남쪽 마당과 이어진 거실이고, 건축주 부부가 은퇴 후 손님을 자주 부른다…"처럼 2~3분 말해요. 말한 그대로 보내면 돼요. 다듬는 건 AI 일이에요.</small></div></li>
+    <li><input type="checkbox" id="a_a9c" data-key="a_a9c"><div class="body"><label for="a_a9c">도면과 함께 초안 부탁하기</label><small>도면이 있어야 면적·배치를 틀리지 않아요. 배치도·평면도 PDF를 올리고 아래 부탁문을 보내요. 공모라면 지침서의 '제출물·분량' 쪽도 함께 올려요.<span class="fix">막히면: 파일이 너무 크다고 나오면 필요한 쪽만 따로 PDF로 저장해 올려요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a9d" data-key="a_a9d"><div class="body"><label for="a_a9d">'확인 필요' 목록부터 고치기</label><small>AI는 사실을 틀릴 수 있어서 먼저 확인해요. 초안 끝의 '확인 필요' 목록(면적, 재료명, 인증 등급 같은 사실)부터 고쳐요. 그다음에 문장을 다듬어요.</small></div></li>
   </ol>
+  <p class="cap">아래 부탁문은 '복사'를 눌러 그대로 '04 설명서·제안서' 채팅에 붙여 넣으세요. 분량 같은 값만 이번 일에 맞게 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>설계설명서 초안 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 도면과 내 음성 메모로 설계설명서 초안을 써 줘. 구성은 우리 사무소 양식(프로젝트 파일)대로.
 - 설계 개념은 내 메모의 표현을 살리고, 꾸밈말은 줄여 줘
 - 면적·층수·재료 같은 사실은 도면과 대장에 있는 것만 쓰고, 없는 건 [확인 필요]로 비워 둬
@@ -409,8 +419,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>현장 사진 20장이 감리일지 초안으로</h2>
-    <p class="goal">현장 기록 폼(<a href="#a-l4" class="ref" data-ref="a-l4">강의</a>)의 사진과 메모로 감리일지·현장 확인서 초안을 만들고, 지적 사항이 해결될 때까지 따라가는 '지적관리' 탭을 둬요.</p>
+    <p class="goal">현장 기록 폼(<a href="#a-l4" class="ref" data-ref="a-l4">강의</a>)의 사진과 메모로 감리일지·현장 확인서 초안을 만들어요. 지적 사항이 해결될 때까지 따라가는 '지적관리' 탭도 둬요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>현장 사진과 메모를 AI 서기에게 건네면, 감리일지 초안을 받아 적어 주는 거예요. 판단과 서명은 소장님이 해요.</span></div><div class="easy-row"><b>끝나면</b><span>감리일지 초안 한 장과, 미조치 지적을 날짜별로 따라가는 '지적관리' 탭이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>현장 사진, 사무소 감리일지 양식, 1시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="msg">
       <div class="from a" style="--d:.1s"><span>현장 방문 정리 · 예시</span><span>06 감리·현장</span></div>
@@ -420,49 +431,53 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a35a" data-key="a_a35a"><div class="body"><label for="a_a35a">대장에 '지적관리' 탭 만들기</label></div></li>
-    <li><input type="checkbox" id="a_a35b" data-key="a_a35b"><div class="body"><label for="a_a35b">현장 다녀오면 폼에 사진 올리기</label><small>사진은 공정 순서대로, 부위가 보이게 가까이 1장 + 멀리 1장. 메모는 말로 넣어도 돼요.</small></div></li>
-    <li><input type="checkbox" id="a_a35c" data-key="a_a35c"><div class="body"><label for="a_a35c">'06 감리·현장' 채팅에서 일지 초안 받기</label><small>그날 사진과 메모, 사무소 감리일지 양식을 주고 아래 부탁문을 보내요. 지난 지적관리 탭도 같이 읽게 하면 미조치 항목을 이어서 짚어 줘요.</small></div></li>
-    <li><input type="checkbox" id="a_a35d" data-key="a_a35d"><div class="body"><label for="a_a35d">확인 후 서명은 감리자가</label><small>초안의 '사진으로 판단 어려움' 줄은 현장 확인 내용으로 고치고, 최종본은 사무소 양식 그대로 출력·서명해요.</small></div></li>
+    <li><input type="checkbox" id="a_a35a" data-key="a_a35a"><div class="body"><label for="a_a35a">대장에 '지적관리' 탭 만들기</label><small>지적 사항을 한곳에 모아 두려고 만들어요. 대장 아래쪽 + 버튼으로 탭을 만들고, 아래 '지적관리 탭 제목 줄'을 복사해 1행에 붙여 넣어요.</small></div></li>
+    <li><input type="checkbox" id="a_a35b" data-key="a_a35b"><div class="body"><label for="a_a35b">현장 다녀오면 폼에 사진 올리기</label><small>나중에 AI가 순서대로 읽게 하려는 거예요. 사진은 공정 순서대로 올려요. 부위가 보이게 가까이 1장, 멀리 1장씩 찍어요. 메모는 말로 넣어도 돼요.</small></div></li>
+    <li><input type="checkbox" id="a_a35c" data-key="a_a35c"><div class="body"><label for="a_a35c">'06 감리·현장' 채팅에서 일지 초안 받기</label><small>그날 사진과 메모, 사무소 감리일지 양식을 첨부해요. 그다음 아래 부탁문을 보내요. 지난 지적관리 탭도 같이 읽게 하면 미조치 항목을 이어서 짚어 줘요.</small><span class="fix">막히면: 사진이 한 번에 안 올라가면 10장씩 나눠 올리고 "이어서 받아 줘"라고 해요.</span></div></li>
+    <li><input type="checkbox" id="a_a35d" data-key="a_a35d"><div class="body"><label for="a_a35d">확인 후 서명은 감리자가</label><small>책임은 감리자에게 있으니 마지막은 직접 봐요. 초안의 '사진으로 판단 어려움' 줄은 현장 확인 내용으로 고쳐요. 최종본은 사무소 양식 그대로 출력해서 서명해요.</small></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>지적관리 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>번호 | 프로젝트코드 | 발견일 | 부위 | 내용 | 사진 | 조치요청 | 조치기한 | 조치일 | 확인자 | 상태</pre></div>
+  <p class="cap">위 줄은 그대로 복사해서 '지적관리' 탭 A1 칸에 붙여 넣으세요. 아래 글은 그대로 복사해서 '06 감리·현장' 채팅에 사진과 함께 붙여 넣으면 돼요.</p>
   <div class="prompt"><div class="bar"><span>감리일지 초안 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 오늘 현장 사진과 메모로 우리 사무소 감리일지 양식에 맞는 초안을 써 줘.
 - 사진마다 번호를 붙이고, 사진에서 확실히 보이는 것과 '사진으로 판단 어려움'을 나눠 줘
 - 기준이 필요한 내용은 설계도서(도면·시방서) 어디를 봐야 하는지만 적고 기준값을 지어내지 마
 - 대장 '지적관리' 탭에서 이 프로젝트의 미조치 항목을 찾아 오늘 확인할 것으로 넣어 줘
 - 새 지적 사항은 지적관리 탭에 붙여 넣을 수 있게 제목 줄 순서로 따로 줘</pre></div>
-  <p class="tip warnbox"><b>감리 판단은 위임할 수 없어요.</b> AI는 기록을 정리하는 서기예요. 시공 적정성 판단과 서명, 공사 중지 같은 결정은 감리자가 현장에서 합니다.</p>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>미조치 알림</b><span>조치기한이 지난 지적을 매주 월요일 담당자에게 메일로 보내는 스크립트를 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>에서 만들어요.</span></div></li><li><span class="chip k-mail">메일</span><div class="ad"><b>시공사 조치 요청</b><span>새 지적 목록을 시공사 현장소장에게 보낼 메일로 정리해 달라고 하면 사진 번호까지 붙여 써 줘요. 보내기는 소장님이 직접.</span></div></li></ul></div>
+  <p class="tip warnbox"><b>감리 판단은 위임할 수 없어요.</b> AI는 기록을 정리하는 서기예요. 시공 적정성 판단과 서명, 공사 중지 같은 결정은 감리자가 현장에서 해요.</p>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>미조치 알림</b><span>조치기한이 지난 지적을 매주 월요일 담당자에게 메일로 보내요. 이 일을 하는 스크립트(시트에 붙이는 작은 프로그램)는 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>에서 만들어요.</span></div></li><li><span class="chip k-mail">메일</span><div class="ad"><b>시공사 조치 요청</b><span>새 지적 목록을 시공사 현장소장에게 보낼 메일로 정리해 달라고 하면 사진 번호까지 붙여 써 줘요. 보내기는 소장님이 직접.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>구글 폼 사진 + 시트 지적관리 + AI 초안</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>사진 수십 장을 한 번에 분석</li><li>현장관리 앱: 도면 위에 사진·지적을 핀으로</li></ul></div></div>
 </section>
 <section id="a-l25" class="lesson" data-part="practice" data-title="공모·입찰 레이더" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>우리 지역 설계 공고, 놓치지 않기</h2>
-    <p class="goal">설계공모·설계용역·감리용역 공고를 매일 모아 '공고' 탭에 쌓고, AI가 우리 사무소에 맞는 것만 골라 참가 요건을 정리하게 해요.</p>
+    <p class="goal">설계공모·설계용역·감리용역 공고를 매일 모아 '공고' 탭에 쌓아요. 그다음 AI가 우리 사무소에 맞는 것만 골라요. 참가 요건도 정리해 줘요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>매일 아침 신문에서 우리 지역 설계 공고만 오려 스크랩북에 붙여 주는 비서를 두는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>매일 아침 7시에 새 공고가 저절로 쌓이는 '공고' 탭과, 참가할 만한 공고 3개 요약이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 계정, '사무소 대장' 시트, 1시간 · 코드 붙이기·트리거가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>부터 봐요.</span></div></div>
   <h3>먼저 사람이 보는 곳 두 군데</h3>
   <div class="table-wrap"><table>
     <thead><tr><th>어디</th><th>무엇이 있나</th><th>어떻게</th></tr></thead>
     <tbody>
-      <tr><td><b>대한건축사협회 협회입찰정보</b></td><td>현상설계, 설계용역, 주택감리, 감리용역 공고</td><td>kira.or.kr → 입찰정보. 유형별로 골라 보기</td></tr>
-      <tr><td><b>나라장터</b></td><td>공공기관 용역 입찰 공고 전체</td><td>g2b.go.kr에서 '설계' 등 키워드 검색, 맞춤 알림 설정</td></tr>
+      <tr><td><b>대한건축사협회 협회입찰정보</b></td><td>현상설계, 설계용역, 주택감리, 감리용역 공고</td><td><span class="path">kira.or.kr → 입찰정보</span>. 유형별로 골라 보기</td></tr>
+      <tr><td><b>나라장터</b></td><td>공공기관 용역 입찰 공고 전체</td><td>g2b.go.kr에서 '설계' 같은 검색어로 찾기. 맞춤 알림도 설정</td></tr>
       <tr><td><b>지자체 누리집</b></td><td>시·군 자체 설계공모 공고</td><td>시청 고시·공고 게시판에서 '설계공모' 검색</td></tr>
     </tbody>
   </table></div>
-  <h3>자동으로 모으기 (나라장터 API)</h3>
+  <h3>자동으로 모으기 (나라장터 <dfn data-t="api">API</dfn>)</h3>
+  <p>API는 나라장터 자료를 프로그램이 받아 갈 수 있게 열어 둔 창구예요. 사람이 매일 검색하는 일을 시트가 대신 해요.</p>
   <ol class="steps">
     <li><input type="checkbox" id="a_a25a" data-key="a_a25a"><div class="body"><label for="a_a25a">공공데이터포털에서 '조달청_나라장터 입찰공고정보서비스' 활용신청</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>PC에서 data.go.kr 로그인 → 검색창에 <b>나라장터 입찰공고정보서비스</b> → 조달청 오픈API 선택</li>
-        <li><span class="path">활용신청</span> → 목적에 '사무소 입찰 공고 모니터링' → 신청</li>
-        <li>승인 후 <span class="path">마이페이지 → 데이터활용 → Open API</span>에서 일반 인증키(Decoding) 복사<span class="fix">승인 직후엔 키가 바로 안 될 수 있어요. 몇 시간 뒤 다시 시도하세요.</span></li>
+        <li>PC에서 <span class="path">data.go.kr → 로그인</span>해요. 검색창에 <b>나라장터 입찰공고정보서비스</b>를 쳐요. 조달청 오픈API를 골라요</li>
+        <li><span class="path">활용신청</span>을 눌러요. 목적 칸에 '사무소 입찰 공고 모니터링'이라고 쓰고 <span class="path">신청</span>을 눌러요</li>
+        <li>승인되면 <span class="path">마이페이지 → 데이터활용 → Open API</span>로 가요. 일반 <dfn data-t="apikey">인증키</dfn>(Decoding)를 복사해 둬요. 인증키는 자료를 받을 때 쓰는 내 열쇠예요<span class="fix">승인 직후엔 키가 바로 안 될 수 있어요. 몇 시간 뒤 다시 해 봐요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a25b" data-key="a_a25b"><div class="body"><label for="a_a25b">대장에 '공고' 탭 만들기</label></div></li>
-    <li><input type="checkbox" id="a_a25c" data-key="a_a25c"><div class="body"><label for="a_a25c">'09 자동화·연결' 채팅에서 스크립트 받기</label><small>아래 부탁문을 보내면 매일 아침 용역 공고 중 '설계·감리' 키워드와 우리 지역 기관만 골라 공고 탭에 넣는 <dfn data-t="appsscript">앱스 스크립트</dfn>를 줘요. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>.</small></div></li>
-    <li><input type="checkbox" id="a_a25d" data-key="a_a25d"><div class="body"><label for="a_a25d">'08 공모·입찰 레이더' 직원에게 골라 달라고 하기</label><small>"공고 탭에서 이번 주 새로 들어온 것 중 우리 사무소가 참가할 만한 것 3개, 참가 자격과 마감, 필요한 실적을 정리해 줘"</small></div></li>
+    <li><input type="checkbox" id="a_a25b" data-key="a_a25b"><div class="body"><label for="a_a25b">대장에 '공고' 탭 만들기</label><small>공고가 쌓일 자리를 먼저 만들어요. '사무소 대장' 시트 아래쪽 <span class="path">+</span>를 눌러 새 탭을 만들고 이름을 '공고'로 바꿔요. 아래 '공고 탭 제목 줄'을 복사해 A1 칸에 붙여 넣어요.</small></div></li>
+    <li><input type="checkbox" id="a_a25c" data-key="a_a25c"><div class="body"><label for="a_a25c">'09 자동화·연결' 채팅에서 스크립트 받기</label><small>매일 손으로 검색하지 않으려고 작은 프로그램을 받아요. 아래 부탁문을 보내면 <dfn data-t="appsscript">앱스 스크립트</dfn>를 줘요. 매일 아침 용역 공고 중 '설계·감리' 검색어와 우리 지역 기관만 골라 공고 탭에 넣어요. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>에 있어요.<span class="fix">막히면: '권한 허용' 창이 뜨면 내 계정을 고르고 고급 → 이동 → 허용을 눌러요. 오류가 나면 그 화면을 캡처해 같은 채팅에 올려요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a25d" data-key="a_a25d"><div class="body"><label for="a_a25d">'08 공모·입찰 레이더' 직원에게 골라 달라고 하기</label><small>공고가 많아서 참가할 만한 것만 추려요. 그 채팅에 이렇게 보내요. "공고 탭에서 이번 주 새로 들어온 것 중 우리 사무소가 참가할 만한 것 3개, 참가 자격과 마감, 필요한 실적을 정리해 줘"</small></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>공고 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>공고번호 | 공고명 | 발주기관 | 공고일 | 마감일시 | 추정가격 | 링크 | 수집일 | 검토</pre></div>
+  <p class="cap">아래 글을 그대로 복사해서 '09 자동화·연결' 채팅에 붙여 넣으세요. ○○ 자리만 우리 지역 이름으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>공고 수집 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'의 '공고' 탭에 공공데이터포털 '조달청_나라장터 입찰공고정보서비스'의 용역 공고를 매일 모으는 앱스 스크립트를 써 줘.
 - 용역 공고 검색 오퍼레이션을 쓰고, 어제~오늘 공고만
 - 공고명에 '설계', '감리', '건축' 중 하나가 들어가고, 발주기관이나 공고명에 ○○도·○○시·○○군이 들어간 것만
@@ -471,7 +486,7 @@
 - 실행 트리거는 매일 오전 7시
 붙여 넣는 곳, 인증키 넣는 법, 트리거 설정을 순서대로 알려줘. 나는 초보야.</pre></div>
   <p class="src">출처: <a href="https://www.kira.or.kr/jsp/main/03/01_01.jsp" target="_blank" rel="noopener">대한건축사협회 협회입찰정보</a> · <a href="https://www.data.go.kr" target="_blank" rel="noopener">공공데이터포털</a> · <a href="https://glama.ai/mcp/servers/@Datajang/mcp-narajangteo" target="_blank" rel="noopener">나라장터 공고 검색 MCP 예시</a></p>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>매일 아침 공고 쌓기</b><span>스크립트가 7시에 돌아 공고 탭을 채워요.</span></div></li><li><span class="chip k-conn">MCP</span><div class="ad"><b>대화로 공고 검색</b><span>나라장터 공고를 AI가 직접 검색하는 공개 MCP도 있어요. 연결하면 "강원도 이번 달 설계공모 찾아줘"로 바로 물어봐요(심화).</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>매일 아침 공고 쌓기</b><span><dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)를 걸면 스크립트가 7시에 돌아요. 그러면 공고 탭이 채워져요.</span></div></li><li><span class="chip k-conn">MCP</span><div class="ad"><b>대화로 공고 검색</b><span>나라장터 공고를 AI가 직접 검색하는 공개 <dfn data-t="mcp">MCP</dfn>(AI에 다른 서비스를 이어 주는 연결 플러그)도 있어요. 연결하면 "강원도 이번 달 설계공모 찾아줘"로 바로 물어봐요(심화).</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>공공데이터 API·앱스 스크립트 무료</li><li>협회 게시판·나라장터 맞춤 알림</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>입찰 정보 유료 서비스: 낙찰 이력·경쟁 분석</li><li>AI 예약 작업으로 '참가할 만한 공고' 요약까지 자동</li></ul></div></div>
 </section>
 <section id="a-l30" class="lesson" data-part="practice" data-title="건축주 상담과 문의" data-level="core" data-stage="prep takeover operate" data-biz="arch">
@@ -532,8 +547,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>"최종_진짜최종_수정3.dwg"와 작별하기</h2>
-    <p class="goal">프로젝트 폴더 구조와 파일 이름 규칙을 정하고, 새 프로젝트가 대장에 들어오면 폴더가 자동으로 생기게 해요. AI가 자료를 찾을 때도 규칙이 있어야 정확해요.</p>
+    <p class="goal">프로젝트 폴더 구조와 파일 이름 규칙을 정해요. 그리고 새 프로젝트가 대장에 들어오면 폴더가 자동으로 생기게 해요. AI가 자료를 찾을 때도 규칙이 있어야 정확해요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>서류함마다 이름표를 똑같은 방식으로 붙이는 거예요. 누가 찾아도, AI가 찾아도 한 번에 찾을 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>1쪽짜리 폴더·파일 이름 규칙 문서와, 새 프로젝트를 넣으면 폴더가 저절로 생기는 대장이 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 사무소 대장 시트, 반나절 · 스크립트를 처음 붙인다면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="stack">
       <div class="box pop" style="--d:.1s"><strong>2026-07_○○동근생</strong><span>프로젝트코드_짧은이름</span></div>
@@ -542,20 +558,21 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a22a" data-key="a_a22a"><div class="body"><label for="a_a22a">규칙을 문서로 정하기</label><small>'09 자동화·연결'이 아니라 '01 사무장·정산' 채팅에 지금 쓰는 폴더 화면을 캡처해 보여 주고 "이걸 바탕으로 폴더·파일 이름 규칙을 1쪽으로 만들어 줘"라고 해요. 다듬어 '양식' 폴더에 저장.</small></div></li>
-    <li><input type="checkbox" id="a_a22b" data-key="a_a22b"><div class="body"><label for="a_a22b">새 프로젝트 폴더 자동 생성</label><small>"프로젝트 탭에 새 줄이 생기고 상태가 '진행'이 되면 드라이브 '프로젝트' 폴더 안에 규칙대로 폴더와 하위 폴더를 만들고, 폴더 링크를 메모 칸에 넣는 스크립트"를 받아요. <dfn data-t="folderid">폴더 ID</dfn>가 필요해요.</small></div></li>
-    <li><input type="checkbox" id="a_a22c" data-key="a_a22c"><div class="body"><label for="a_a22c">도면 원본 서버(NAS)도 같은 규칙으로</label><small>CAD·BIM 원본은 지금 서버에 두되 폴더 이름은 같게. 그래야 드라이브의 문서와 서버의 도면이 한 프로젝트코드로 이어져요.</small></div></li>
-    <li><input type="checkbox" id="a_a22d" data-key="a_a22d"><div class="body"><label for="a_a22d">이름 바꾸기 도움받기 (맥)</label><small>이미 쌓인 파일은 Finder에서 여러 개 골라 오른쪽 클릭 → <span class="path">이름 변경</span>으로 앞부분을 한 번에 바꿀 수 있어요. 복잡하면 AI에게 "이 파일 목록을 규칙 이름으로 바꾼 표 만들어 줘"라고 해 손으로 따라 바꿔요.</small></div></li>
+    <li><input type="checkbox" id="a_a22a" data-key="a_a22a"><div class="body"><label for="a_a22a">규칙을 문서로 정하기</label><small>규칙이 글로 있어야 직원 모두 같은 방식으로 저장해요. 지금 쓰는 폴더 화면을 캡처해요. 그 사진을 '09 자동화·연결'이 아니라 '01 사무장·정산' 채팅에 보여 줘요. 그리고 "이걸 바탕으로 폴더·파일 이름 규칙을 1쪽으로 만들어 줘"라고 해요. 받은 글을 다듬어 '양식' 폴더에 저장해요.</small></div></li>
+    <li><input type="checkbox" id="a_a22b" data-key="a_a22b"><div class="body"><label for="a_a22b">새 프로젝트 폴더가 저절로 생기게 하기</label><small>폴더를 손으로 만들면 이름이 금방 제각각이 돼요. 그래서 AI에게 <dfn data-t="appsscript">스크립트</dfn>(시트에서 일을 대신 해 주는 작은 프로그램)를 받아요. 부탁할 내용은 이래요. "프로젝트 탭에 새 줄이 생기고 상태가 '진행'이 되면, 드라이브 '프로젝트' 폴더 안에 규칙대로 폴더와 하위 폴더를 만들어 줘. 폴더 링크는 메모 칸에 넣어 줘." 이때 <dfn data-t="folderid">폴더 ID</dfn>가 필요해요. <span class="fix">막히면: 실행할 때 '권한 검토' 창이 뜨면 내 계정을 고르고 허용을 눌러요. 오류 글자가 뜨면 그대로 캡처해 AI에게 보여 줘요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a22c" data-key="a_a22c"><div class="body"><label for="a_a22c">도면 원본 서버(NAS)도 같은 규칙으로</label><small>CAD·BIM 원본은 지금처럼 서버(NAS, 사무실 공용 저장 장치)에 둬요. 다만 폴더 이름은 드라이브와 똑같이 맞춰요. 그래야 드라이브의 문서와 서버의 도면이 한 프로젝트코드로 이어져요.</small></div></li>
+    <li><input type="checkbox" id="a_a22d" data-key="a_a22d"><div class="body"><label for="a_a22d">이름 바꾸기 도움받기 (맥)</label><small>이미 쌓인 파일도 한 번에 바꿀 수 있어요. <span class="path">Finder → 파일 여러 개 선택 → 오른쪽 클릭 → 이름 변경</span>으로 앞부분을 한꺼번에 바꿔요. 복잡하면 AI에게 "이 파일 목록을 규칙 이름으로 바꾼 표 만들어 줘"라고 해요. 그 표를 보며 손으로 따라 바꿔요.</small></div></li>
   </ol>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>폴더 자동 생성</b><span>대장에 프로젝트를 넣으면 폴더가 생기고 링크가 대장에 붙어요.</span></div></li><li><span class="chip k-sched">백업</span><div class="ad"><b>매달 대장 백업</b><span>매월 1일 대장을 엑셀로 '백업' 폴더에 저장하는 스크립트도 같은 방법으로.</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>폴더 자동 생성</b><span>대장에 프로젝트를 넣으면 폴더가 생기고 링크가 대장에 붙어요.</span></div></li><li><span class="chip k-sched">백업</span><div class="ad"><b>매달 대장 백업</b><span>매월 1일 대장을 엑셀로 '백업' 폴더에 저장하는 스크립트도 같은 방법으로 받아요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>규칙 문서 + 폴더 생성 스크립트</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>워크스페이스 공유 드라이브, 큰 용량</li><li>BIM 협업 클라우드: 도면 리비전 자동 관리</li></ul></div></div>
 </section>
 <section id="a-l40" class="lesson" data-part="auto" data-title="건축사 공공데이터 지도" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
   <div class="lesson-head">
     <span class="kicker">읽기 · 약 30분</span>
     <h2>주소 하나에 붙는 공공데이터 여섯 줄</h2>
-    <p class="goal">건축사 업무에 바로 쓰이는 공공데이터 API를 한눈에 정리하고, 모든 API의 출발점인 <b>주소 → 코드 바꾸기</b>를 먼저 만들어요. 이 단계의 나머지 강의는 모두 이 코드를 씁니다.</p>
+    <p class="goal">건축사 업무에 바로 쓰이는 공공데이터 <dfn data-t="api">API</dfn>(기관 자료를 프로그램이 받아 오는 창구)를 한눈에 정리해요. 그리고 모든 API의 출발점인 <b>주소 → 코드 바꾸기</b>를 먼저 만들어요. 이 단계의 나머지 강의는 모두 이 코드를 써요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여러 관공서 자료실의 '안내 지도'예요. 그리고 자료실마다 달라고 하는 '주소 번호표'를 주소 하나로 자동으로 뽑는 장치를 만들어요.</span></div><div class="easy-row"><b>끝나면</b><span>주소만 적고 메뉴를 누르면 법정동코드·번지·PNU가 채워지는 '대지' 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 사무소 대장 시트, 30분 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>데이터</th><th>어디서</th><th>건축 업무에서</th><th>강의</th></tr></thead>
     <tbody>
@@ -568,9 +585,9 @@
       <tr><td><b>입찰 공고</b></td><td>조달청 나라장터</td><td>설계·감리 용역 공고</td><td><span class="refs" data-refs="a-l25"></span></td></tr>
     </tbody>
   </table></div>
-  <p class="tip"><b>모든 API의 공통 순서는 같아요.</b> ① 사이트 가입 → ② 활용신청 → ③ <dfn data-t="apikey">인증키</dfn> 복사 → ④ AI에게 앱스 스크립트 받기 → ⑤ 키는 스크립트 속성에 저장 → ⑥ 시트 메뉴 버튼으로 실행. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>와 같아요.</p>
+  <p class="tip"><b>모든 API의 공통 순서는 같아요.</b> ① 사이트 가입 → ② 활용신청 → ③ <dfn data-t="apikey">인증키</dfn>(사용 허가 번호) 복사 → ④ AI에게 <dfn data-t="appsscript">앱스 스크립트</dfn> 받기 → ⑤ 키는 스크립트 속성(스크립트 안의 비밀 메모 칸)에 저장 → ⑥ 시트 메뉴 버튼으로 실행. 붙이는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>와 같아요.</p>
   <h3>먼저 만들기: 주소 → 코드 변환</h3>
-  <p>건축HUB·실거래가 API는 주소 대신 <dfn data-t="bjdong">법정동코드</dfn>와 번·지를, 브이월드는 <dfn data-t="pnu">PNU</dfn>(필지 고유번호 19자리)를 받아요. 주소 검색 API가 주소를 넣으면 이 값을 돌려줘서, 코드표를 손으로 찾을 필요가 없어져요.</p>
+  <p>건축HUB·실거래가 API는 주소 대신 <dfn data-t="bjdong">법정동코드</dfn>와 번·지를, 브이월드는 <dfn data-t="pnu">PNU</dfn>(필지 고유번호 19자리)를 받아요. 주소 검색 API에 주소를 넣으면 이 값을 돌려줘요. 그래서 코드표를 손으로 찾을 필요가 없어져요.</p>
   <div class="vis">
     <div class="msg">
       <div class="from a" style="--d:.1s"><span>'대지' 탭 한 줄 · 예시</span><span>주소 검색 API 결과</span></div>
@@ -583,14 +600,15 @@
     <li><input type="checkbox" id="a_a40a" data-key="a_a40a"><div class="body"><label for="a_a40a">주소 검색 API 승인키 받기 (무료)</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>PC에서 검색창에 <b>도로명주소 개발자센터</b> → 공식 사이트(business.juso.go.kr) 접속</li>
-        <li><span class="path">API 신청</span> → API 종류에서 <b>검색API</b> 선택 → 활용 목적 '사무소 내부 대지 조회', 시스템 URL 칸은 안내에 따라 입력</li>
+        <li><span class="path">API 신청</span> → API 종류에서 <b>검색API</b> 선택. 활용 목적은 '사무소 내부 대지 조회'로 적어요. 시스템 URL 칸은 화면 안내에 따라 넣어요.</li>
         <li>승인키를 복사해 메모장에 적어 두기<span class="fix">개발용 승인키는 사용 기간이 정해져 있어요. 계속 쓰려면 안내에 따라 운영용으로 신청하세요. 공공데이터포털의 '행정안전부_실시간 주소정보 조회(검색API)'도 같은 서비스예요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="a_a40b" data-key="a_a40b"><div class="body"><label for="a_a40b">대장에 '대지' 탭 만들기</label><small>이 단계의 모든 조회가 이 탭을 출발점으로 써요. 앞 강의의 '대지조회' 탭이 있다면 이 탭으로 바꿔 써도 돼요.</small></div></li>
-    <li><input type="checkbox" id="a_a40c" data-key="a_a40c"><div class="body"><label for="a_a40c">'09 자동화·연결'에서 변환 스크립트 받기</label><small>아래 부탁문을 보내 붙이고, 주소 칸만 적은 뒤 메뉴 <span class="path">대지조회 → 주소를 코드로</span>를 눌러요.</small></div></li>
-    <li><input type="checkbox" id="a_a40d" data-key="a_a40d"><div class="body"><label for="a_a40d">결과 한 번 맞춰 보기</label><small>처음 한두 건은 토지이음 열람 화면의 지번과 같은지, 산 번지면 산여부가 1인지 확인해요.</small></div></li>
+    <li><input type="checkbox" id="a_a40b" data-key="a_a40b"><div class="body"><label for="a_a40b">대장에 '대지' 탭 만들기</label><small>이 단계의 모든 조회가 이 탭에서 시작해요. 아래 '대지 탭 제목 줄'을 A1 칸에 붙여 넣어요. 앞 강의의 '대지조회' 탭이 있다면 이 탭으로 바꿔 써도 돼요.</small></div></li>
+    <li><input type="checkbox" id="a_a40c" data-key="a_a40c"><div class="body"><label for="a_a40c">'09 자동화·연결'에서 변환 스크립트 받기</label><small>주소를 코드로 바꾸는 일을 시트에 맡기려고 해요. 아래 부탁문을 보내고, 받은 코드를 시트에 붙여요. 주소 칸만 적은 뒤 메뉴 <span class="path">대지조회 → 주소를 코드로</span>를 눌러요.</small><span class="fix">막히면: 처음 실행할 때 '권한 검토' 창이 뜨면 사무소 계정을 고르고 '허용'을 눌러요. 메뉴가 안 보이면 시트를 새로고침해요.</span></div></li>
+    <li><input type="checkbox" id="a_a40d" data-key="a_a40d"><div class="body"><label for="a_a40d">결과 한 번 맞춰 보기</label><small>잘못된 코드로 다음 조회를 하면 엉뚱한 땅이 나와요. 처음 한두 건은 토지이음 열람 화면의 지번과 같은지, 산 번지면 산여부가 1인지 확인해요.</small></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>대지 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 주소 | 도로명주소 | 행정구역코드 | 시군구코드 | 법정동코드 | 산여부 | 번 | 지 | PNU | 변환일 | 메모</pre></div>
+  <p class="cap">이 글을 그대로 복사해서 '09 자동화·연결' 채팅에 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>주소 → 코드 변환 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'의 '대지' 탭(제목 줄 아래 붙임)에서, 주소 칸이 있고 변환일이 빈 줄마다 행정안전부 도로명주소 검색 API(검색API, JSON)를 호출해 다음을 채우는 앱스 스크립트를 써 줘.
 - 도로명주소, 행정구역코드(10자리), 시군구코드(앞 5자리), 법정동코드(뒤 5자리), 산여부, 번(본번을 4자리로 0 채움), 지(부번 4자리)
 - PNU 19자리 = 행정구역코드 10자리 + 필지구분 1자리(일반 1, 산 2) + 본번 4자리 + 부번 4자리
@@ -599,7 +617,7 @@
 - 시트 위쪽 메뉴 '대지조회 → 주소를 코드로' 만들기
 제목 줄: 프로젝트코드 | 주소 | 도로명주소 | 행정구역코드 | 시군구코드 | 법정동코드 | 산여부 | 번 | 지 | PNU | 변환일 | 메모
 응답 항목 이름은 API 안내서를 확인해서 맞춰 줘. 붙여 넣는 곳, 승인키 넣는 법, 처음 실행 권한을 순서대로 알려줘.</pre></div>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-sc">API</span><div class="ad"><b>코드표 찾기 끝</b><span>주소만 적고 메뉴를 누르면 모든 API에 필요한 코드가 한 줄에 생겨요.</span></div></li><li><span class="chip k-conn">MCP</span><div class="ad"><b>대화로 조회 (심화)</b><span>건축물대장·지적·실거래 API를 묶은 공개 MCP들도 있어요. <a href="#a-l36" class="ref" data-ref="a-l36">강의</a>의 법령 MCP처럼 연결하면 "이 주소 건축물대장 보여 줘"로 바로 물어요. 개인이 만든 것이니 믿을 만한 것만 쓰세요.</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-sc">API</span><div class="ad"><b>코드표 찾기 끝</b><span>주소만 적고 메뉴를 누르면 모든 API에 필요한 코드가 한 줄에 생겨요.</span></div></li><li><span class="chip k-conn">MCP</span><div class="ad"><b>대화로 조회 (심화)</b><span>건축물대장·지적·실거래 API를 묶은 공개 <dfn data-t="mcp">MCP</dfn>(AI에 끼우는 연결 장치)들도 있어요. <a href="#a-l36" class="ref" data-ref="a-l36">강의</a>의 법령 MCP처럼 연결하면 "이 주소 건축물대장 보여 줘"라고 바로 물을 수 있어요. 개인이 만든 것이 많으니 믿을 만한 것만 쓰세요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>주소 검색 API·공공데이터포털 API 모두 무료</li><li>앱스 스크립트 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>민간 부동산 데이터 서비스: 여러 공공데이터를 지도 한 화면에</li></ul></div></div>
 </section>
 <section id="a-l20" class="lesson" data-part="auto" data-title="건축물대장 자동 조회" data-level="grow" data-stage="prep takeover operate" data-biz="arch">
@@ -681,8 +699,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>이 동네에서 최근에 무엇이 허가됐나</h2>
-    <p class="goal">건축HUB 건축인허가정보로 대지 주변 동의 최근 허가 건(용도, 연면적, 층수, 허가일)을 모아요. "이 동네에 이 규모가 실제로 허가된 적 있나"를 건축주 상담 전에 숫자로 보여 줄 수 있어요.</p>
+    <p class="goal">건축HUB 건축인허가정보로 대지 주변 동의 최근 허가 건을 모아요. 용도, 연면적, 층수, 허가일을 한 표로 받아요. 그러면 "이 동네에 이 규모가 실제로 허가된 적 있나"를 건축주 상담 전에 숫자로 보여 줄 수 있어요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>동네 부동산 사장님께 "요즘 이 동네에 뭐가 지어졌어요?" 묻는 일을 시트가 대신 해 주는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>대지 주변 동의 최근 3년 허가 목록이 담긴 '주변허가' 탭과, AI가 쓴 '주변 사례' 요약 한 단락이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 인증키(<a href="#a-l20" class="ref" data-ref="a-l20">강의</a>), 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a>부터 봐요.</span></div></div>
   <div class="vis">
     <div class="dash">
       <div class="kpi pop" style="--d:.2s"><span>○○동 최근 3년 허가 · 예시</span><b>27건</b></div>
@@ -692,19 +711,21 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a42a" data-key="a_a42a"><div class="body"><label for="a_a42a">활용신청 (자동승인, 무료)</label><small>data.go.kr에서 <b>국토교통부_건축HUB_건축인허가정보 서비스</b> 검색 → 활용신청. 건축물대장(<a href="#a-l20" class="ref" data-ref="a-l20">강의</a>)과 같은 인증키를 써요. 참고문서(활용가이드)를 내려받아 두세요.</small></div></li>
-    <li><input type="checkbox" id="a_a42b" data-key="a_a42b"><div class="body"><label for="a_a42b">'주변허가' 탭 만들고 스크립트 받기</label><small>활용가이드 파일을 '09 자동화·연결' 채팅에 함께 올리고 아래 부탁문을 보내면 오퍼레이션 이름과 변수를 정확히 맞춰 줘요.</small></div></li>
-    <li><input type="checkbox" id="a_a42c" data-key="a_a42c"><div class="body"><label for="a_a42c">AI에게 흐름 읽어 달라고 하기</label><small>'02 대지·법규 검토'에 주변허가 탭을 주고 '사례 요약' 부탁문. 대지 검토 메모에 '주변 사례' 한 단락이 붙어요.</small></div></li>
+    <li><input type="checkbox" id="a_a42a" data-key="a_a42a"><div class="body"><label for="a_a42a">활용신청하기 (자동승인, 무료)</label><small>나라 자료를 받아 쓰려면 먼저 신청해야 해요. <span class="path">data.go.kr → 검색창</span>에 <b>국토교통부_건축HUB_건축인허가정보 서비스</b>를 쳐요. 그다음 <span class="path">활용신청</span>을 눌러요. <dfn data-t="apikey">인증키</dfn>(자료를 받을 때 쓰는 내 열쇠)는 건축물대장(<a href="#a-l20" class="ref" data-ref="a-l20">강의</a>)과 같은 것을 써요. 참고문서(활용가이드)도 내려받아 두세요.<span class="fix">막히면: 신청 직후에는 키가 안 될 수 있어요. 한두 시간 뒤에 다시 해 봐요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a42b" data-key="a_a42b"><div class="body"><label for="a_a42b">'주변허가' 탭 만들고 스크립트 받기</label><small>자료를 시트로 끌어오는 작은 프로그램(<dfn data-t="appsscript">앱스 스크립트</dfn>)이 필요해요. 먼저 '사무소 대장' 시트에 '주변허가' 탭을 만들고 아래 제목 줄을 붙여 넣어요. 그다음 활용가이드 파일을 '09 자동화·연결' 채팅에 올리고 아래 부탁문을 함께 보내요. 가이드를 같이 주면 AI가 요청 이름과 넣는 값을 정확히 맞춰 줘요.<span class="fix">막히면: 실행할 때 '권한 허용' 창이 뜨면 내 계정을 고르고 허용을 눌러요. 오류가 나면 그 화면을 캡처해 같은 채팅에 올려요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a42c" data-key="a_a42c"><div class="body"><label for="a_a42c">AI에게 흐름 읽어 달라고 하기</label><small>숫자만으로는 흐름이 잘 안 보여서 AI에게 정리를 맡겨요. '02 대지·법규 검토' 채팅에 주변허가 탭을 주고 '사례 요약' 부탁문을 보내요. 대지 검토 메모에 '주변 사례' 한 단락이 붙어요.</small></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>주변허가 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>조회동 | 대지위치 | 건축구분 | 주용도 | 대지면적 | 건축면적 | 연면적 | 지상층수 | 지하층수 | 허가일 | 착공일 | 사용승인일 | 조회일</pre></div>
+  <p class="cap">아래 글을 그대로 복사해서 '09 자동화·연결' 채팅에 활용가이드 파일과 함께 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>주변 인허가 수집 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 '건축HUB 건축인허가정보 서비스' 활용가이드를 보고, 구글 시트 '사무소 대장'에서 쓸 앱스 스크립트를 써 줘.
 - '대지' 탭에서 고른 줄의 시군구코드·법정동코드로, 그 동의 기본개요(허가 기본 정보)를 최근 3년 허가일 기준으로 모두 가져와 '주변허가' 탭에 넣기 (페이지 넘김 처리)
 - 같은 동을 다시 조회하면 기존 줄을 지우고 새로
 - 인증키는 스크립트 속성 DATA_GO_KEY, 메뉴 '대지조회 → 주변 인허가 가져오기'
 제목 줄: 조회동 | 대지위치 | 건축구분 | 주용도 | 대지면적 | 건축면적 | 연면적 | 지상층수 | 지하층수 | 허가일 | 착공일 | 사용승인일 | 조회일
 붙여 넣는 곳과 실행 순서를 알려줘.</pre></div>
+  <p class="cap">이 글은 '02 대지·법규 검토' 채팅에 붙여 넣으세요. ○○ 자리만 동 이름과 우리 대지 면적으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>사례 요약 부탁문</span><button class="copy" type="button">복사</button></div><pre>'주변허가' 탭을 보고 ○○동 최근 3년 허가 흐름을 정리해 줘. 용도별 건수, 용도별 평균·최대 연면적과 층수, 신축·증축·용도변경 비율, 우리 대지와 비슷한 규모(대지면적 ○○㎡ 안팎) 사례 5건. 숫자는 탭에서 계산하고, 허가 가능성을 단정하지 말고 '참고 사례'로만 써 줘.</pre></div>
-  <p class="tip"><b>공개된 정보도 예의 있게.</b> 사례를 건축주에게 보여 줄 때는 지번 대신 '○○동 근린생활시설, 연면적 약 400㎡'처럼 요약해서 보여 주세요.</p>
+  <p class="tip"><b>공개된 정보도 예의 있게.</b> 사례를 건축주에게 보여 줄 때는 지번을 빼요. 대신 '○○동 근린생활시설, 연면적 약 400㎡'처럼 요약해서 보여 주세요.</p>
   <p class="src">출처: <a href="https://www.data.go.kr/data/15136267/openapi.do" target="_blank" rel="noopener">공공데이터포털 · 국토교통부_건축HUB_건축인허가정보 서비스</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>건축HUB API 무료·자동승인, 하루 1만 건</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>민간 건축 정보 서비스: 신축 허가 알림, 지도 검색</li></ul></div></div>
 </section>
@@ -712,22 +733,26 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>"이 규모로 지으면 맞을까요?"에 숫자로</h2>
-    <p class="goal">국토교통부 실거래가 API로 대지 주변의 단독·다가구, 연립·다세대, 토지 거래가를 모아 건축주와 규모 검토를 할 때 참고 시세로 써요. 사업성 판단은 건축주 몫이고, 우리는 근거 자료를 정리해 드리는 역할이에요.</p>
+    <p class="goal">국토교통부 실거래가 <dfn data-t="api">API</dfn>(정부 자료를 프로그램으로 받아 오는 창구)로 대지 주변 거래가를 모아요. 단독·다가구, 연립·다세대, 토지 거래가예요. 이 숫자는 건축주와 규모를 검토할 때 참고 시세로 써요. 사업성 판단은 건축주 몫이에요. 우리는 근거 자료를 정리해 드리는 역할이에요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>동네 부동산 시세표를 시트가 알아서 모아 오게 하는 거예요. 버튼 하나로 최근 2년 거래가 표에 들어와요.</span></div><div class="easy-row"><b>끝나면</b><span>대지 주변 실거래가가 모인 '실거래' 탭과, 건축주 상담 때 보여 줄 시세 참고표가 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 공공데이터포털 회원가입, 사무소 대장 시트(대지 탭), 반나절 · 스크립트를 처음 붙인다면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a43a" data-key="a_a43a"><div class="body"><label for="a_a43a">필요한 실거래 API만 활용신청</label><small>data.go.kr에서 '국토교통부 실거래가'로 검색하면 주택 유형·거래 유형별로 따로 있어요. 단독·다가구 매매, 연립·다세대 매매, 토지 매매 중 사무소가 주로 다루는 것만 신청하세요. 모두 같은 인증키예요.</small></div></li>
-    <li><input type="checkbox" id="a_a43b" data-key="a_a43b"><div class="body"><label for="a_a43b">'실거래' 탭 만들고 스크립트 받기</label><small>실거래 API는 <dfn data-t="lawdcd">지역코드</dfn>(법정동코드 앞 5자리)와 계약년월(6자리)로 조회해요. 대지 탭의 시군구코드를 그대로 써요.</small></div></li>
-    <li><input type="checkbox" id="a_a43c" data-key="a_a43c"><div class="body"><label for="a_a43c">상담 자료로 요약</label><small>'07 건축주 상담'에 실거래 탭과 계획 규모(연면적, 세대 수)를 주고 '시세 요약' 부탁문을 보내요.</small></div></li>
+    <li><input type="checkbox" id="a_a43a" data-key="a_a43a"><div class="body"><label for="a_a43a">필요한 실거래 API만 활용신청하기</label><small>자료를 받으려면 먼저 '써도 된다'는 허락을 받아야 해요. data.go.kr에서 '국토교통부 실거래가'로 검색해요. 주택 유형·거래 유형별로 따로 있어요. 단독·다가구 매매, 연립·다세대 매매, 토지 매매 중 사무소가 주로 다루는 것만 신청해요. 모두 같은 <dfn data-t="apikey">인증키</dfn>(자료를 받을 때 쓰는 비밀번호)예요. <span class="fix">막히면: 신청 직후 키가 안 되면 몇 시간 뒤에 다시 해 봐요. 키가 실제로 쓰이기까지 시간이 걸릴 수 있어요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a43b" data-key="a_a43b"><div class="body"><label for="a_a43b">'실거래' 탭 만들고 스크립트 받기</label><small>거래가가 들어갈 자리와, 자료를 가져올 프로그램이 필요해요. 먼저 '실거래' 탭을 만들고 아래 제목 줄을 붙여요. 그다음 아래 부탁문으로 <dfn data-t="appsscript">앱스 스크립트</dfn>를 받아요. 실거래 API는 <dfn data-t="lawdcd">지역코드</dfn>(법정동코드 앞 5자리)와 계약년월(6자리)로 찾아요. 대지 탭의 시군구코드를 그대로 써요. <span class="fix">막히면: 결과가 비어 있거나 오류가 뜨면 화면을 캡처해 AI에게 "이 오류 고쳐 줘"라고 보여 줘요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a43c" data-key="a_a43c"><div class="body"><label for="a_a43c">상담 자료로 요약</label><small>숫자가 많으면 건축주가 읽기 어려워요. '07 건축주 상담' 채팅에 실거래 탭과 계획 규모(연면적, 세대 수)를 줘요. 그리고 아래 '시세 요약' 부탁문을 보내요.</small></div></li>
   </ol>
+  <p class="cap">이 줄을 복사해서 '실거래' 탭 첫 칸(A1)에 붙여 넣으세요. 칸마다 제목이 나뉘어 들어가요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>실거래 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>유형 | 시군구 | 법정동 | 지번(일부) | 계약년월 | 거래금액(만원) | 대지면적 | 연면적·전용면적 | 건축년도 | 조회일</pre></div>
+  <p class="cap">이 글을 그대로 복사해서 '09 자동화·연결' 채팅에 붙여 넣으세요. ○○ 자리만 사무소가 쓸 API 이름으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>실거래 수집 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'에서 '대지' 탭의 고른 줄의 시군구코드로 국토교통부 실거래가 API(공공데이터포털)를 조회하는 앱스 스크립트를 써 줘.
 - 조회할 API: ○○(예: 단독/다가구 매매, 연립다세대 매매, 토지 매매), 최근 24개월을 달마다 반복 조회
 - 결과 중 같은 법정동 거래만 '실거래' 탭에 넣고, 조회한 시군구를 다시 하면 지우고 새로
 - 각 API의 정확한 오퍼레이션과 응답 항목 이름은 공공데이터포털 기술문서를 확인해 맞춰 줘
 - 인증키는 스크립트 속성 DATA_GO_KEY, 메뉴 '대지조회 → 실거래 가져오기'
 제목 줄: 유형 | 시군구 | 법정동 | 지번(일부) | 계약년월 | 거래금액(만원) | 대지면적 | 연면적·전용면적 | 건축년도 | 조회일</pre></div>
+  <p class="cap">이 글을 그대로 복사해서 '07 건축주 상담' 채팅에 붙여 넣으세요. 바꿀 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>시세 요약 부탁문</span><button class="copy" type="button">복사</button></div><pre>'실거래' 탭으로 건축주 상담용 시세 참고표를 만들어 줘. 유형별 거래 건수, 연면적(전용면적) ㎡당 거래금액의 중간값과 범위, 최근 거래 5건, 건축년도가 5년 이내인 신축 거래만 따로. 계산식을 보여 주고, '참고 자료이며 감정평가·사업성 판단이 아님'을 맨 아래에 적어 줘.</pre></div>
-  <p class="tip warnbox"><b>사업성 숫자는 조심스럽게.</b> 분양가·수익률을 사무소가 약속하는 것처럼 보이면 안 돼요. 실거래 요약은 '참고 시세'로만 전하고, 사업성 판단이 필요하면 감정평가사·시행 전문가를 권하세요.</p>
+  <p class="tip warnbox"><b>사업성 숫자는 조심스럽게.</b> 분양가·수익률을 사무소가 약속하는 것처럼 보이면 안 돼요. 실거래 요약은 '참고 시세'로만 전해요. 사업성 판단이 필요하면 감정평가사·시행 전문가를 권해요.</p>
   <p class="src">출처: <a href="https://www.data.go.kr" target="_blank" rel="noopener">공공데이터포털 · 국토교통부 실거래가 자료</a> · <a href="https://rt.molit.go.kr" target="_blank" rel="noopener">국토교통부 실거래가 공개시스템</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>실거래 API 무료·자동승인</li><li>실거래가 공개시스템 화면 조회</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>민간 부동산 분석 서비스: 시세 추정·사업성 계산기</li></ul></div></div>
 </section>
@@ -735,8 +760,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간</span>
     <h2>내일 타설, 비 오면 전날 알려 주게</h2>
-    <p class="goal">기상청 단기예보 API로 진행 중인 현장의 내일·모레 강수와 기온을 매일 저녁 확인하고, 콘크리트 타설·방수·외부 도장 같은 날씨 민감 공정이 잡힌 날에만 감리 담당에게 메일을 보내요.</p>
+    <p class="goal">기상청 단기예보 <dfn data-t="api">API</dfn>(기상청 자료를 프로그램이 받아 오는 창구)로 진행 중인 현장의 내일·모레 비와 기온을 매일 저녁 확인해요. 콘크리트 타설·방수·외부 도장처럼 날씨를 타는 공정이 잡힌 날에만 감리 담당에게 메일을 보내요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>현장 공정표 옆에 '일기예보 당번'을 세워 두는 거예요. 매일 저녁 시트가 내일 날씨를 보고, 타설 같은 공정과 겹치면 알려 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>비나 추위가 공정과 겹치는 날에만 오는 저녁 6시 알림 메일</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 공공데이터포털 인증키, 1시간 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="msg">
       <div class="from a" style="--d:.1s"><span>현장 날씨 알림 · 18:00 · 예시</span><span>기상청 단기예보</span></div>
@@ -746,13 +772,14 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a44a" data-key="a_a44a"><div class="body"><label for="a_a44a">'기상청_단기예보 조회서비스' 활용신청</label><small>data.go.kr에서 검색 → 활용신청(자동승인). 같은 인증키예요.</small></div></li>
-    <li><input type="checkbox" id="a_a44b" data-key="a_a44b"><div class="body"><label for="a_a44b">현장마다 예보 <dfn data-t="grid">격자</dfn> 좌표 적기</label><small>단기예보는 주소가 아니라 격자 좌표(nx, ny)로 조회해요. 활용가이드에 든 격자 좌표 엑셀에서 현장 읍면동을 찾아 '현장' 탭에 적어요. AI에게 "이 엑셀에서 ○○동 nx, ny 찾아줘"라고 해도 돼요.</small></div></li>
-    <li><input type="checkbox" id="a_a44c" data-key="a_a44c"><div class="body"><label for="a_a44c">'공정예정' 탭에 날씨 민감 공정 적기</label><small>감리 담당이 시공사 공정표에서 타설·방수·도장·외부 작업 날짜만 옮겨 적어요.</small></div></li>
-    <li><input type="checkbox" id="a_a44d" data-key="a_a44d"><div class="body"><label for="a_a44d">스크립트 + 매일 18시 트리거</label><small>아래 부탁문으로 받고 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>처럼 시간 트리거를 걸어요.</small></div></li>
+    <li><input type="checkbox" id="a_a44a" data-key="a_a44a"><div class="body"><label for="a_a44a">'기상청_단기예보 조회서비스' 활용신청하기</label><small>예보 자료를 받아 쓰려면 먼저 신청해야 해요. <span class="path">data.go.kr → 검색창에 '기상청_단기예보' → 활용신청</span> 순서로 눌러요. 자동으로 승인돼요. <dfn data-t="apikey">인증키</dfn>는 앞에서 받은 것과 같은 키를 써요.</small><span class="fix">막히면: 신청 직후에는 키가 바로 안 될 수 있어요. 조금 기다렸다가 다시 해 보세요.</span></div></li>
+    <li><input type="checkbox" id="a_a44b" data-key="a_a44b"><div class="body"><label for="a_a44b">현장마다 예보 <dfn data-t="grid">격자</dfn> 좌표 적기</label><small>단기예보는 주소가 아니라 격자 좌표(nx, ny라는 두 숫자)로 찾아요. 활용가이드에 격자 좌표 엑셀이 들어 있어요. 거기서 현장 읍면동을 찾아 '현장' 탭에 적어요. AI에게 "이 엑셀에서 ○○동 nx, ny 찾아줘"라고 해도 돼요.</small></div></li>
+    <li><input type="checkbox" id="a_a44c" data-key="a_a44c"><div class="body"><label for="a_a44c">'공정예정' 탭에 날씨 민감 공정 적기</label><small>어느 날을 살펴볼지 알려 주려고 적어요. 감리 담당이 시공사 공정표를 보고 타설·방수·도장·외부 작업 날짜만 옮겨 적어요.</small></div></li>
+    <li><input type="checkbox" id="a_a44d" data-key="a_a44d"><div class="body"><label for="a_a44d">스크립트 붙이고 매일 18시 트리거 걸기</label><small>매일 저녁 저절로 확인하게 하려고 해요. 아래 부탁문으로 AI에게 <dfn data-t="appsscript">앱스 스크립트</dfn>를 받아 붙여요. 그다음 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a>처럼 <dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)를 걸어요.</small><span class="fix">막히면: 처음 실행할 때 '권한 검토' 창이 뜨면 사무소 계정을 고르고 '허용'을 눌러요. 오류가 나면 빨간 오류 문구를 그대로 복사해 AI에게 보내요.</span></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>현장 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 현장명 | 읍면동 | nx | ny | 감리담당 이메일 | 상태</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>공정예정 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>프로젝트코드 | 날짜 | 공정 | 날씨 조건(예: 비 없음, 5℃ 이상) | 메모</pre></div>
+  <p class="cap">이 글을 그대로 복사해서 AI 채팅에 붙여 넣으세요. 맨 아래 '제목 줄' 자리에는 위 두 탭의 제목 줄을 붙여 넣어요.</p>
   <div class="prompt"><div class="bar"><span>현장 날씨 알림 스크립트 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '사무소 대장'의 '현장' 탭(상태가 '진행')과 '공정예정' 탭으로, 매일 저녁 기상청 단기예보 조회서비스(공공데이터포털, 단기예보조회)를 불러 내일·모레 공정이 있는 현장만 확인하는 앱스 스크립트를 써 줘.
 - 현장의 nx, ny로 조회, 그날의 강수확률 최댓값, 강수형태, 최저·최고기온을 뽑기
 - 공정의 날씨 조건에 걸리면(비 예보, 최저기온 기준 미만 등) 감리담당 이메일로 현장명·공정·예보·할 일 한 줄 메일
@@ -760,7 +787,7 @@
 - base_date·base_time은 실행 시각 기준 가장 최근 발표로 계산
 - 인증키는 스크립트 속성 DATA_GO_KEY
 제목 줄: (현장, 공정예정 탭 제목 줄 붙여 넣기)</pre></div>
-  <p class="tip warnbox"><b>예보는 예보예요.</b> 타설·보양 판단은 시공사와 감리자가 현장 상황과 시방서 기준으로 해요. 알림은 미리 이야기를 꺼내게 해 주는 도구예요.</p>
+  <p class="tip warnbox"><b>예보는 예보예요.</b> 타설·보양 판단은 시공사와 감리자가 현장 상황과 시방서 기준으로 해요. 알림은 미리 이야기를 꺼내게 도와주는 도구일 뿐이에요.</p>
   <p class="src">출처: <a href="https://www.data.go.kr/data/15084084/openapi.do" target="_blank" rel="noopener">공공데이터포털 · 기상청_단기예보 조회서비스</a></p>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>기상청 API 무료·자동승인, 앱스 스크립트 트리거</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>현장관리 앱의 날씨·공정 연동</li></ul></div></div>
 </section>
@@ -768,8 +795,9 @@
   <div class="lesson-head">
     <span class="kicker">종합 실습 · 반나절</span>
     <h2>주소 하나 넣고 버튼 한 번, 상담 준비 끝</h2>
-    <p class="goal">이 단계에서 만든 조회를 한 버튼으로 묶어요. 주소를 적고 <span class="path">대지조회 → 한 장 리포트</span>를 누르면 코드 변환 → 건축물대장 → 토지정보 → 주변 인허가 → 실거래가 차례로 돌고, '리포트' 탭에 한 장으로 정리돼요. 그 한 장을 AI에게 주면 대지 검토 메모가 나와요.</p>
+    <p class="goal">이 단계에서 만든 조회를 한 버튼으로 묶어요. 주소를 적고 <span class="path">대지조회 → 한 장 리포트</span>를 눌러요. 그러면 코드 변환 → 건축물대장 → 토지정보 → 주변 인허가 → 실거래가 차례로 돌아요. 결과는 '리포트' 탭에 한 장으로 정리돼요. 그 한 장을 AI에게 주면 대지 검토 메모가 나와요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여러 창구를 도는 심부름을 한 번에 맡기는 거예요. 주소 한 줄만 적으면 시트가 대장·토지·인허가·실거래를 차례로 찾아와요.</span></div><div class="easy-row"><b>끝나면</b><span>버튼 한 번에 채워지는 '리포트' 탭 한 장과, 그걸로 받은 대지 검토 메모</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 앞 강의들에서 만든 조회 스크립트, 반나절 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="flowgrid">
       <div class="stack">
@@ -783,11 +811,12 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="a_a45a" data-key="a_a45a"><div class="body"><label for="a_a45a">앞 강의 스크립트가 각각 잘 도는지 확인</label><small>코드 변환, 건축물대장, 토지정보, 주변 인허가, 실거래를 한 번씩 눌러 결과가 나와야 묶을 수 있어요.</small></div></li>
-    <li><input type="checkbox" id="a_a45b" data-key="a_a45b"><div class="body"><label for="a_a45b">묶는 스크립트 받기</label><small>지금 Apps Script에 있는 코드 전체를 복사해 '09 자동화·연결' 채팅에 붙이고 아래 부탁문을 보내요. 새로 짜는 게 아니라 있는 함수를 차례로 부르는 함수 하나만 더해요.</small></div></li>
-    <li><input type="checkbox" id="a_a45c" data-key="a_a45c"><div class="body"><label for="a_a45c">리포트로 메모 받기</label><small>'02 대지·법규 검토'에 리포트 탭과 건축주 희망을 주고 '리포트 → 메모' 부탁문. 법령 MCP(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>)가 연결돼 있으면 용도·주차 근거까지 바로 조회해요.</small></div></li>
-    <li><input type="checkbox" id="a_a45d" data-key="a_a45d"><div class="body"><label for="a_a45d">토지이음 열람으로 마무리</label><small>행위제한·지구단위계획은 API로 다 오지 않아요. 마지막에 토지이음 열람(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>)으로 '확인 필요' 줄을 지워요.</small></div></li>
+    <li><input type="checkbox" id="a_a45a" data-key="a_a45a"><div class="body"><label for="a_a45a">앞 강의 스크립트가 각각 잘 도는지 확인하기</label><small>하나라도 안 되면 묶어도 안 돼요. 코드 변환, 건축물대장, 토지정보, 주변 인허가, 실거래를 한 번씩 눌러 봐요. 모두 결과가 나와야 묶을 수 있어요.</small></div></li>
+    <li><input type="checkbox" id="a_a45b" data-key="a_a45b"><div class="body"><label for="a_a45b">묶는 스크립트 받기</label><small>새로 짜는 게 아니에요. 있는 함수(작은 일 한 덩어리)를 차례로 부르는 함수 하나만 더해요. 지금 <dfn data-t="appsscript">Apps Script</dfn>에 있는 코드 전체를 복사해요. '09 자동화·연결' 채팅에 붙이고 아래 부탁문을 보내요.<span class="fix">막히면: 실행할 때 권한 허용 창이 뜨면 <span class="path">고급 → (안전하지 않음)으로 이동 → 허용</span>을 눌러요. 오류가 나면 빨간 글씨를 캡처해 같은 채팅에 보내요.</span></small></div></li>
+    <li><input type="checkbox" id="a_a45c" data-key="a_a45c"><div class="body"><label for="a_a45c">리포트로 메모 받기</label><small>리포트 한 장이 상담 준비 자료가 돼요. '02 대지·법규 검토' 채팅에 리포트 탭 내용과 건축주 희망을 주고 '리포트 → 메모' 부탁문을 보내요. <dfn data-t="lawmcp">법령 MCP</dfn>(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>)가 연결돼 있으면 용도·주차 근거까지 바로 조회해요.</small></div></li>
+    <li><input type="checkbox" id="a_a45d" data-key="a_a45d"><div class="body"><label for="a_a45d">토지이음 열람으로 마무리하기</label><small>행위제한·지구단위계획은 <dfn data-t="api">API</dfn>로 다 오지 않아요. 그래서 마지막에 토지이음 열람(<a href="#a-l32" class="ref" data-ref="a-l32">강의</a>)으로 '확인 필요' 줄을 지워요.</small></div></li>
   </ol>
+  <p class="cap">첫 부탁문은 '복사'를 눌러 '09 자동화·연결' 채팅에 붙여 넣으세요. 맨 아래 [코드 붙여 넣기] 자리에 Apps Script 코드 전체를 넣어요.</p>
   <div class="prompt"><div class="bar"><span>한 장 리포트 묶기 부탁문</span><button class="copy" type="button">복사</button></div><pre>아래는 지금 '사무소 대장' Apps Script 코드 전체야. 이미 있는 함수들(주소→코드, 건축물대장, 토지정보, 주변 인허가, 실거래)을 고른 줄 하나에 대해 차례로 실행하고, 결과를 '리포트' 탭에 한 장으로 정리하는 함수를 추가해 줘.
 - 리포트 구성: 대지 개요(주소, PNU, 지목, 면적, 용도지역·지구, 공시지가) / 기존 건축물(주용도, 연면적, 사용승인일, 위반 여부) / 주변 허가 요약(최근 3년 용도별 건수·평균 연면적) / 실거래 요약(유형별 ㎡당 중간값) / 조회일
 - 중간에 하나가 실패해도 나머지는 계속하고, 실패한 항목은 '조회 실패: 이유'로 표시
@@ -795,6 +824,7 @@
 기존 코드는 바꾸지 말고 추가할 부분만 줘.
 
 [코드 붙여 넣기]</pre></div>
+  <p class="cap">이 부탁문은 '02 대지·법규 검토' 채팅에 붙여 넣으세요. ○○ 자리만 건축주 희망으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>리포트 → 대지 검토 메모 부탁문</span><button class="copy" type="button">복사</button></div><pre>'리포트' 탭의 대지 한 장 리포트와 건축주 희망(○○ 용도, 대략 ○○㎡, ○층)으로 대지 검토 메모를 써 줘. 법령 도구로 용도지역 건축제한과 주차 기준을 조회해 근거를 붙이고, 주변 허가 사례와 시세는 '참고'로만. 리포트에 없는 것(행위제한, 지구단위계획, 도로 조건)은 '토지이음·현장 확인 필요'로 표시해. 1쪽 이내.</pre></div>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-sc">API</span><div class="ad"><b>버튼 하나로 다섯 가지</b><span>새 상담이 잡히면 주소 한 줄, 버튼 한 번. 상담 전날 저녁 10분이면 준비가 끝나요.</span></div></li><li><span class="chip k-form">구글 폼</span><div class="ad"><b>상담 신청과 연결</b><span>상담 신청 폼(<a href="#a-l30" class="ref" data-ref="a-l30">강의</a>)의 대지 주소가 '대지' 탭에 자동으로 들어오게 하면, 신청이 오는 순간 리포트까지 돌게 만들 수도 있어요.</span></div></li></ul></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>모든 공공데이터 API와 스크립트 무료</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>AI 유료 플랜: 리포트 + 법령 조회를 한 대화에서 길게</li><li>예약 작업으로 신청 들어온 대지의 메모까지 자동</li></ul></div></div>

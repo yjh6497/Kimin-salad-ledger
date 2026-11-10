@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">설계 · 약 1시간</span>
     <h2>언제, 무엇을, 어떤 채널로 안내할까</h2>
-    <p class="goal">{{customer:가}} 고마워하는 연락은 <b>필요한 때 한 번</b>이에요. <span data-biz="vet">진료 뒤 안부, 다음 접종일, 검진 예정일, 수술 후 실밥 제거처럼 진료에서 나오는 날짜를</span><span data-biz-not="vet">{{visit}} 뒤 안부, 다음 방문 예정일, 기념일처럼 {{item}}에서 나오는 날짜를</span> 표 하나로 정하고, 채널(문자·카톡 채널·알림톡)과 정보·광고 구분까지 미리 정해 두면 그다음은 반복이에요.</p>
+    <p class="goal">{{customer:가}} 고마워하는 연락은 <b>필요한 때 한 번</b>이에요. <span data-biz="vet">진료 뒤 안부, 다음 접종일, 검진 예정일, 수술 후 실밥 제거처럼 진료에서 나오는 날짜를</span><span data-biz-not="vet">{{visit}} 뒤 안부, 다음 방문 예정일, 기념일처럼 {{item}}에서 나오는 날짜를</span> 표 하나로 정해요. 채널(문자·<dfn data-t="kchannel">카톡 채널</dfn>·<dfn data-t="alimtalk">알림톡</dfn>)과 정보·광고 구분까지 미리 정해 두세요. 그다음은 반복이에요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>단골에게 보낼 '안부 달력'을 미리 짜 두는 거예요. 언제, 무엇을, 어디로 보낼지 표 한 장에 정해요.</span></div><div class="easy-row"><b>끝나면</b><span>안내 이름·보낼 날·채널·정보/광고 구분이 적힌 '안내 규칙표'와, 재방문 시트에 더한 칸 4개</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 재방문 시트(<a href="#c-l57" class="ref" data-ref="c-l57">강의</a>), 1시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="lifeline" data-biz="vet" aria-label="한 아이의 안내 흐름 예시">
       <div class="ll a" style="--d:.1s"><em>진료 당일</em><b>진료 요약·다음 날짜</b><span>문자 또는 카톡 채널 1:1</span></div>
@@ -22,11 +23,12 @@
     <p class="cap a" style="--d:1.1s">흐름은 예시예요. 주기·일수는 {{owner:이}} 우리 {{place}} 기준으로 정해요.</p>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a64a" data-key="v_a64a"><div class="body"><label for="v_a64a">우리 {{place}} 안내표 받기</label><small>아래 부탁문에 주요 {{item:을}} 넣으면 '안내 규칙표'를 줘요. <span data-biz="vet">예방접종 간격·심장사상충·검진 주기 같은 의학 기준은</span><span data-biz-not="vet">다시 올 주기 같은 기준은</span> <b>{{owner:이}} 숫자를 정해서</b> 채워요. AI는 빈칸으로 둬요.</small></div></li>
-    <li><input type="checkbox" id="v_a64b" data-key="v_a64b"><div class="body"><label for="v_a64b">재방문 시트에 칸 더하기</label><small>재방문 탭(<a href="#c-l57" class="ref" data-ref="c-l57">강의</a>)에 L열 <b>채널</b>(문자/카톡/알림톡), M열 <b><span data-biz="vet">아이 이름</span><span data-biz-not="vet">부를 이름</span>(동의)</b>, N열 <b>안내 문구</b>, O열 <b>예약 여부</b>를 더해요. 채널은 {{customer:가}} 고른 것으로, 접수지에 "안내 받을 방법: □문자 □카카오톡" 칸을 넣어요.</small></div></li>
-    <li><input type="checkbox" id="v_a64c" data-key="v_a64c"><div class="body"><label for="v_a64c">정보와 광고를 나눠 두기</label><small><span data-biz="vet">예정일·검진·수술 후 안내는 진료 안내로 보내고,</span><span data-biz-not="vet">예약일·다음 방문일·이용 뒤 안내는 정보 안내로 보내고,</span> 할인·이벤트·신상품이 섞이면 광고성이에요(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>). 안내표의 '구분' 칸에 미리 적어 두면 실수가 없어요. 광고는 동의한 분에게, 밤 9시~아침 8시를 피해서.</small></div></li>
-    <li><input type="checkbox" id="v_a64d" data-key="v_a64d"><div class="body"><label for="v_a64d">횟수 상한 정하기</label><small>한 {{customer}}에게 한 달 최대 2번, 같은 안내는 최대 2번. 안내가 잦으면 차단·수신거부가 늘어요.</small></div></li>
+    <li><input type="checkbox" id="v_a64a" data-key="v_a64a"><div class="body"><label for="v_a64a">우리 {{place}} 안내표 받기</label><small>무엇을 언제 안내할지 한눈에 보려는 거예요. 아래 부탁문에 주요 {{item:을}} 넣으면 AI가 '안내 규칙표'를 줘요. <span data-biz="vet">예방접종 간격·심장사상충·검진 주기 같은 의학 기준은</span><span data-biz-not="vet">다시 올 주기 같은 기준은</span> <b>{{owner:이}} 숫자를 정해서</b> 채워요. AI는 빈칸으로 둬요.</small></div></li>
+    <li><input type="checkbox" id="v_a64b" data-key="v_a64b"><div class="body"><label for="v_a64b">재방문 시트에 칸 더하기</label><small>재방문 탭(<a href="#c-l57" class="ref" data-ref="c-l57">강의</a>)에 L열 <b>채널</b>(문자/카톡/알림톡), M열 <b><span data-biz="vet">아이 이름</span><span data-biz-not="vet">부를 이름</span>(동의)</b>, N열 <b>안내 문구</b>, O열 <b>예약 여부</b>를 더해요. 채널은 {{customer:가}} 고른 것으로 해요. 그래서 접수지에 "안내 받을 방법: □문자 □카카오톡" 칸을 넣어요.<span class="fix">막히면: L열에 이미 다른 내용이 있으면 맨 오른쪽 빈 열부터 차례로 더해도 돼요. 열 이름만 같게 적어요.</span></small></div></li>
+    <li><input type="checkbox" id="v_a64c" data-key="v_a64c"><div class="body"><label for="v_a64c">정보와 광고를 나눠 두기</label><small><span data-biz="vet">예정일·검진·수술 후 안내는 진료 안내로 보내고,</span><span data-biz-not="vet">예약일·다음 방문일·이용 뒤 안내는 정보 안내로 보내고,</span> 할인·이벤트·신상품이 섞이면 광고성이에요(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>). 안내표의 '구분' 칸에 미리 적어 두면 실수가 없어요. 광고는 <dfn data-t="adconsent">광고 수신에 동의</dfn>한 분에게만 보내요. 밤 9시~아침 8시는 피해요.</small></div></li>
+    <li><input type="checkbox" id="v_a64d" data-key="v_a64d"><div class="body"><label for="v_a64d">횟수 상한 정하기</label><small>안내가 잦으면 차단·수신거부가 늘어요. 한 {{customer}}에게 한 달 최대 2번으로 정해요. 같은 안내도 최대 2번까지만 보내요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '05 상담·응대' 채팅에 붙여 넣으세요. ○○ 자리만 우리 {{place}}의 주요 {{item:으로}} 바꿔요.</p>
   <div class="prompt" data-biz="vet"><div class="bar"><span>안내 규칙표 부탁문</span><button class="copy" type="button">복사</button></div><pre>우리 {{biz}}의 {{customer}} 안내 규칙표를 만들어 줘. 주로 보는 진료: ○○ (예: 예방접종, 심장사상충, 중성화, 슬개골, 노령 건강검진, 스케일링, 피부·귀 치료)
 표: 안내 이름 | 무엇이 끝난 뒤 | 며칠 뒤(또는 예정일 며칠 전) | 채널 우선순위(알림톡/카톡 채널/문자) | 구분(진료 안내/광고) | 한 번 더 보낼지 | 담당
 - 의학적 간격(접종 간격, 검진 주기, 실밥 제거일)은 숫자를 지어내지 말고 [원장 확인]으로 비워 둬
