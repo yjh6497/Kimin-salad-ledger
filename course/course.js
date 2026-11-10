@@ -137,6 +137,15 @@
   }
 
   // ---------- 고르는 화면 ----------
+  // 업종별 디자인(스킨): themes.css 의 html[data-skin]
+  var SKIN_NAME = { vet: '진료실', salad: '주방', flower: '꽃 작업대', arch: '도면', 'c-shop': '매장', 'c-clinic': '진료실', 'c-edu': '교실', 'c-office': '사무실' };
+  function skinOf(biz, type) { return !biz ? '' : biz === 'custom' ? 'c-' + (type || 'shop') : biz; }
+  function setSkin(biz, type) {
+    var s = skinOf(biz, type), de = document.documentElement;
+    if (s && SKIN_NAME[s]) de.dataset.skin = s; else delete de.dataset.skin;
+    return s;
+  }
+
   function runSetup(initial) {
     document.getElementById('setup').hidden = false;
     document.title = '우리 가게 AI 코스 만들기';
@@ -304,6 +313,8 @@
     }
     function paint() {
       renderChips(); renderStages(); paintBizQ(); paintSurvey();
+      var sk = setSkin(sel.biz, sel.type), lab = document.getElementById('sSkin');
+      if (lab) lab.textContent = sk && SKIN_NAME[sk] ? '이 업종 디자인으로 바뀌었어요 · ' + SKIN_NAME[sk] : '';
       cbox.hidden = sel.biz !== 'custom';
       document.getElementById('customName').textContent = sel.name;
       ctypes.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.type === sel.type ? 'true' : 'false'); });
@@ -385,6 +396,7 @@
 
   var IN = industryOf(P);
   var BIZ = P.biz;
+  setSkin(BIZ, P.type);
   var terms = IN.terms;
   var R = makeReplacer(terms);
   window.COURSE = { biz: BIZ, stage: P.stage, name: IN.name, terms: terms };

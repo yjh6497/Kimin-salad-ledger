@@ -20,6 +20,7 @@
 | `tools/spine.py` | 장 순서와 강의 배치 (수준·단계·업종 한정/제외) |
 | `tools/build.py` | `src/` → `lib/` 묶기 |
 | `tools/tokenbox.py` | 강의마다 '토큰 아끼기' 상자 다시 만들기 (강의를 고친 뒤 build 전에 실행) |
+| `tools/themes.py` → `themes.css` | 업종별 디자인(스킨). 색·글꼴·모서리·배경 무늬·제목 장식·아이콘을 `html[data-skin]`(vet, salad, flower, arch, c-shop, c-clinic, c-edu, c-office)별로 정해요. 새 업종을 더하면 `SKINS`에 한 줄 추가 후 실행 |
 | `tools/check.py` | 태그 짝·토큰·남은 동물병원 단어 점검 |
 | `lib/` | 화면이 읽는 묶음 파일 (build.py가 만듦, 직접 고치지 않기) |
 

@@ -74,7 +74,7 @@
     var t = window.CUSTOM_TYPES[type] || window.CUSTOM_TYPES.shop;
     var n = (name || '').trim() || '우리 가게';
     return {
-      custom: true, name: n, icon: '🏪', aliases: [n], blurb: '본업은 ' + t.owner + '이, 서류·글쓰기·반복 일은 AI가',
+      custom: true, name: n, icon: ({ shop: '🏪', clinic: '🏥', edu: '✏️', office: '💼' })[type] || '🏪', aliases: [n], blurb: '본업은 ' + t.owner + '이, 서류·글쓰기·반복 일은 AI가',
       stages: { prep: '신규 ' + t.open, takeover: t.place + ' 인수', operate: '운영 중' },
       terms: {
         owner: t.owner, customer: t.customer, place: t.place, biz: n, open: t.open, shopname: '○○' + n,
