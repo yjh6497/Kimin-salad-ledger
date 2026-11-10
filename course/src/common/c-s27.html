@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">특강 · 실습 · 반나절</span>
     <h2>기능은 그대로, 디자인만 새로</h2>
-    <p class="goal">직원 웹앱이나 {{place}} 홈페이지 하나를 골라, 진단 → 디자인 가이드 → 시안 → 적용 → 휴대폰 확인 순서로 업그레이드해요.</p>
+    <p class="goal">직원 <dfn data-t="webapp">웹앱</dfn>이나 {{place}} 홈페이지 하나를 골라요. 진단 → 디자인 가이드 → 시안(미리 그려 본 화면) → 적용 → 휴대폰 확인 순서로 업그레이드해요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>가게 간판과 인테리어만 새로 하는 것과 같아요. 안의 기능은 그대로 두고 화면 옷만 갈아입혀요.</span></div><div class="easy-row"><b>끝나면</b><span>{{place}} 색·글꼴이 정해진 '디자인 가이드' 한 장과, 휴대폰에서 보기 좋게 바뀐 웹앱이나 홈페이지</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 휴대폰, 이미 만든 웹앱이나 홈페이지, 반나절 · 캡처가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a>, 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="mock">
       <div class="mock-col a" style="--d:.1s">
@@ -21,9 +22,9 @@
     <p class="cap a" style="--d:1.6s">화면은 예시입니다.</p>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="s_s27a" data-key="s_s27a"><div class="body"><label for="s_s27a">지금 화면 캡처하기</label><small>휴대폰에서 웹앱이나 홈페이지를 열고 첫 화면, 입력 화면, 결과 화면 3장. 직원 이름·연락처는 가리고 찍어요.</small></div></li>
-    <li><input type="checkbox" id="s_s27b" data-key="s_s27b"><div class="body"><label for="s_s27b">디자인 리뷰 받기</label><small>'<span data-biz="salad">09 배달앱·매장 개선</span><span data-biz-not="salad">07 자동화 도우미</span>' 채팅에 캡처와 아래 '디자인 리뷰' 부탁문을 보내요.</small></div></li>
-    <li><input type="checkbox" id="s_s27c" data-key="s_s27c"><div class="body"><label for="s_s27c"><dfn data-t="brandguide">디자인 가이드</dfn> 한 장 만들기</label><small>{{place}} 대표색, 글꼴, 버튼 모양, 말투를 정해 두면 웹앱·홈페이지·<span data-biz="salad">메뉴판</span><span data-biz-not="salad">가격표·안내문</span>·SNS가 한 {{place}}처럼 보여요.</small>
+    <li><input type="checkbox" id="s_s27a" data-key="s_s27a"><div class="body"><label for="s_s27a">지금 화면 캡처하기</label><small>AI가 지금 모습을 봐야 고칠 곳을 알려 줘요. 휴대폰에서 웹앱이나 홈페이지를 열고 첫 화면, 입력 화면, 결과 화면 3장을 캡처해요. 직원 이름·연락처는 가리고 찍어요.</small></div></li>
+    <li><input type="checkbox" id="s_s27b" data-key="s_s27b"><div class="body"><label for="s_s27b">디자인 리뷰 받기</label><small>무엇이 불편한지 먼저 알아야 고칠 수 있어요. '<span data-biz="salad">09 배달앱·매장 개선</span><span data-biz-not="salad">07 자동화 도우미</span>' 채팅에 캡처와 아래 '디자인 리뷰' 부탁문을 보내요.</small></div></li>
+    <li><input type="checkbox" id="s_s27c" data-key="s_s27c"><div class="body"><label for="s_s27c"><dfn data-t="brandguide">디자인 가이드</dfn> 한 장 만들기</label><small>{{place}} 대표색, 글꼴, 버튼 모양, 말투를 한 장에 정해 둬요. 그러면 웹앱·홈페이지·<span data-biz="salad">메뉴판</span><span data-biz-not="salad">가격표·안내문</span>·SNS가 한 {{place}}처럼 보여요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>간판·로고·{{place}} 사진을 찍어 아래 '디자인 가이드' 부탁문과 함께 보내기</li>
         <li>받은 가이드를 드라이브에 구글 문서 <b>디자인 가이드</b>로 저장</li>
@@ -40,15 +41,15 @@
         <li>대화에서 쓸 때는 입력창의 <span class="path">+</span>에서 앱을 고르거나, 문장을 "Canva로…"처럼 앱 이름으로 시작</li>
         <li>웹앱·홈페이지 코드는 캔버스에서 고쳐요. 디자인 가이드 문서를 함께 첨부하세요</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s27e" data-key="s_s27e"><div class="body"><label for="s_s27e">시안 고르기 (선택)</label><small>여러 안을 보고 싶으면 Google Stitch(stitch.withgoogle.com)에 아래 '시안 요청' 문장을 넣어 3안을 받고, 마음에 드는 화면을 캡처하거나 HTML로 내보내요.</small></div></li>
+    <li><input type="checkbox" id="s_s27e" data-key="s_s27e"><div class="body"><label for="s_s27e">시안 고르기 (선택)</label><small>여러 안을 보고 고르고 싶을 때 해요. Google Stitch(stitch.withgoogle.com)에 아래 '시안 요청' 문장을 넣어 3안을 받아요. 마음에 드는 화면은 캡처하거나 HTML(웹 화면 파일)로 내보내요.</small></div></li>
     <li><input type="checkbox" id="s_s27f" data-key="s_s27f"><div class="body"><label for="s_s27f">적용하기: 기능은 그대로, 디자인만</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>지금 코드를 준비해요. 웹앱은 Apps Script의 index 파일 전체 복사, 홈페이지는 GitHub의 index.html</li>
         <li>'<span data-biz="salad">08 자동화·연결</span><span data-biz-not="salad">07 자동화 도우미</span>' 채팅에 코드 + 디자인 가이드 + (있으면) 고른 시안을 주고 아래 '디자인 적용' 부탁문 보내기</li>
-        <li>웹앱: index 파일에 새 코드를 붙여 저장 → <span class="path">배포 → 배포 관리 → 연필 → 새 버전 → 배포</span> (주소 그대로)</li>
+        <li>웹앱: index 파일에 새 코드를 붙여 저장 → <span class="path">배포 → 배포 관리 → 연필 → 새 버전 → 배포</span> (주소 그대로)<span class="fix">막히면: 화면이 그대로면 '새 버전'을 고르지 않은 거예요. 다시 배포 관리에서 새 버전으로 배포해요.</span></li>
         <li>홈페이지: GitHub 저장소에서 index.html 열기 → 연필 아이콘 → 새 코드로 바꾸기 → Commit changes<span class="fix">바꾸기 전 코드는 메모장이나 구글 문서에 붙여 백업해 두세요. 이상하면 그대로 되돌리면 돼요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s27g" data-key="s_s27g"><div class="body"><label for="s_s27g">휴대폰으로 확인하기</label><small>아래 점검표로 직접 눌러 보고, 직원 한 명에게도 써 보게 해요.</small></div></li>
+    <li><input type="checkbox" id="s_s27g" data-key="s_s27g"><div class="body"><label for="s_s27g">휴대폰으로 확인하기</label><small>예뻐져도 쓰기 불편하면 소용없어요. 아래 점검표로 직접 눌러 봐요. 직원 한 명에게도 써 보게 해요.</small></div></li>
     <li><input type="checkbox" id="s_s27h" data-key="s_s27h"><div class="body"><label for="s_s27h"><span data-biz="salad">메뉴판</span><span data-biz-not="salad">가격표·안내문</span>·SNS도 같은 색으로</label><small>Canva 커넥터를 연결했다면 "디자인 가이드 색과 글꼴로 A4 <span data-biz="salad">메뉴판</span><span data-biz-not="salad">가격표·안내문</span>을 Canva에 만들어줘". 만든 디자인은 Canva에서 열어 가격과 사진을 직접 고쳐요.</small></div></li>
   </ol>
   <ul class="checks">
@@ -58,6 +59,7 @@
     <li><input type="checkbox" id="s_c27d" data-key="s_c27d"><label for="s_c27d">가장 자주 쓰는 버튼이 첫 화면 위쪽에 있어요</label></li>
     <li><input type="checkbox" id="s_c27e" data-key="s_c27e"><label for="s_c27e">예전 기능(출근 기록, 입력 저장 등)이 그대로 돼요</label></li>
   </ul>
+  <p class="cap">아래 부탁문은 '복사'를 눌러 각 단계에서 말한 채팅에 그대로 붙여 넣으세요. ○○ 자리만 우리 {{place}}에 맞게 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>디자인 리뷰 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 캡처는 우리 {{biz}}의 ○○(직원 웹앱/홈페이지) 화면이야. 쓰는 사람은 ○○(<span data-biz="salad">알바생</span><span data-biz-not="salad">{{staff}}</span>/{{customer}})이고 주로 휴대폰으로 써.
 1) 첫눈에 무엇을 하는 화면인지 알 수 있는지
 2) 글씨 크기, 버튼 크기, 색 대비가 휴대폰에서 충분한지

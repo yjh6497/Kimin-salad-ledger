@@ -2,22 +2,24 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 분기마다 약 1시간</span>
     <h2>"요즘 안 오시는 분"을 숫자로 찾기</h2>
-    <p class="goal"><span data-biz="vet">차트에서 내보낸 내원 목록(이름·연락처를 지운 것)을 AI에게 주면, 재방문율, 1년 넘게 안 온 아이, 종·나이별 진료 패턴을 정리해 줘요.</span><span data-biz-not="vet">예약·결제 프로그램에서 내보낸 {{visit}} 목록(이름·연락처를 지운 것)을 AI에게 주면, 재방문율, 1년 넘게 안 온 {{customer}}, 많이 찾는 {{item}} 패턴을 정리해 줘요.</span> 이 결과가 블로그 주제와 재방문 안내의 우선순위가 돼요.</p>
+    <p class="goal"><span data-biz="vet">차트에서 내보낸 내원 목록(이름·연락처를 지운 것)을 AI에게 줘요. 그러면 재방문율, 1년 넘게 안 온 아이, 종·나이별 진료 패턴을 정리해 줘요.</span><span data-biz-not="vet">예약·결제 프로그램에서 내보낸 {{visit}} 목록(이름·연락처를 지운 것)을 AI에게 줘요. 그러면 재방문율, 1년 넘게 안 온 {{customer}}, 많이 찾는 {{item}} 패턴을 정리해 줘요.</span> 이 결과가 블로그 주제와 재방문 안내의 우선순위가 돼요.</p>
     <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>파일 크기 제한이 있어요. 1년 치를 한 번에 올리기 어려우면 석 달씩 나눠 올리세요.</span></p>
     <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span><span data-ai-not="gpt">Claude는 올린 엑셀을 직접 계산해 표와 그래프로 보여 줘요.</span><span data-ai="gpt">ChatGPT는 올린 엑셀을 직접 계산해 표와 그래프로 보여 줘요.</span> 1년 치도 한 번에 돼요.</span></p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>단골 명부를 펼쳐 놓고 "요즘 이분 통 안 오시네" 하고 찾는 일을 AI가 숫자로 대신 해 주는 거예요.</span></div><div class="easy-row"><b>끝나면</b><span>재방문율, 오랫동안 안 온 고객번호 목록, 많이 찾는 {{item}} 순위, 블로그 주제 후보 5개</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 쓰는 프로그램에서 내보낸 엑셀 파일, 분기마다 1시간 · 파일 찾기가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>이탈 분석은 인수 전·후 비교로. 주인이 바뀐 뒤 끊긴 단골이 누구인지(<span data-biz="vet">차트 번호</span><span data-biz-not="vet">고객번호</span>로).</span></p>
 
   <ol class="steps">
-    <li><input type="checkbox" id="v_a58a" data-key="v_a58a"><div class="body"><label for="v_a58a"><span data-biz="vet">차트에서 내원 목록 내보내기</span><span data-biz-not="vet">쓰는 프로그램에서 {{visit}} 목록 내보내기</span></label><small data-biz="vet">필요한 칸: 고객번호, 종, 나이, 내원일, 진료 항목(대분류), 진료비. 차트 회사에 "이 칸으로 엑셀 내보내기" 방법을 물어보세요.</small><small data-biz-not="vet">필요한 칸: 고객번호, 방문·주문일, {{item}} 항목(대분류), 금액. 예약·POS·배달앱 같은 쓰는 프로그램 회사에 "이 칸으로 엑셀 내보내기" 방법을 물어보세요. 프로그램이 없으면 장부를 그대로 써도 돼요.</small></div></li>
-    <li><input type="checkbox" id="v_a58b" data-key="v_a58b"><div class="body"><label for="v_a58b">개인정보 칸 지우기</label><small>엑셀에서 {{customer}} 이름·전화·주소<span data-biz="vet">·아이 이름</span> 열을 <b>삭제</b>(숨기기 말고)한 뒤 다른 이름으로 저장. 이 파일만 AI에 올려요.</small>
+    <li><input type="checkbox" id="v_a58a" data-key="v_a58a"><div class="body"><label for="v_a58a"><span data-biz="vet">차트에서 내원 목록 내보내기</span><span data-biz-not="vet">쓰는 프로그램에서 {{visit}} 목록 내보내기</span></label><small data-biz="vet">분석하려면 기록을 엑셀 파일로 꺼내야 해요. 필요한 칸: 고객번호, 종, 나이, 내원일, 진료 항목(대분류), 진료비. 차트 회사에 "이 칸으로 엑셀 내보내기" 방법을 물어보세요.</small><small data-biz-not="vet">분석하려면 기록을 엑셀 파일로 꺼내야 해요. 필요한 칸: 고객번호, 방문·주문일, {{item}} 항목(대분류), 금액. 예약·POS·배달앱 같은 쓰는 프로그램 회사에 "이 칸으로 엑셀 내보내기" 방법을 물어보세요. 프로그램이 없으면 장부를 그대로 써도 돼요.</small></div></li>
+    <li><input type="checkbox" id="v_a58b" data-key="v_a58b"><div class="body"><label for="v_a58b">개인정보 칸 지우기</label><small>{{customer}} 개인정보가 AI 회사로 넘어가지 않게 하려고 해요. 엑셀에서 {{customer}} 이름·전화·주소<span data-biz="vet">·아이 이름</span> 열을 <b>삭제</b>해요(숨기기 말고). 그다음 다른 이름으로 저장해요. 이 파일만 AI에 올려요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>지울 열 머리(알파벳)를 눌러 선택 → 오른쪽 클릭 → <span class="path">열 삭제</span></li>
         <li><span class="path">파일 → 다른 이름으로 저장</span> → 이름 끝에 '_AI용'</li>
-        <li>올리기 전 한 번 더 훑어보기: 메모 칸에 전화번호가 적혀 있는 경우가 있어요</li>
+        <li>올리기 전 한 번 더 훑어보기: 메모 칸에 전화번호가 적혀 있는 경우가 있어요<span class="fix">막히면: 엑셀이 없으면 구글 드라이브에 올려 구글 시트로 열고 같은 방법으로 열을 지운 뒤 <span class="path">파일 → 다운로드 → Microsoft Excel</span>로 받아요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a58c" data-key="v_a58c"><div class="body"><label for="v_a58c">'06 성과 분석'에 분석 부탁</label><small>아래 부탁문. 결과 중 '이탈 위험 고객번호 목록'은 재방문 탭에 옮겨 연락 대상으로.</small></div></li>
+    <li><input type="checkbox" id="v_a58c" data-key="v_a58c"><div class="body"><label for="v_a58c">'06 성과 분석'에 분석 부탁하기</label><small>'_AI용' 파일을 첨부하고 아래 부탁문을 보내요. 결과 중 '이탈 위험 고객번호 목록'은 재방문 탭에 옮겨 연락 대상으로 삼아요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '06 성과 분석' 채팅에 붙여 넣으세요. ○○ 자리만 오늘 날짜(기준일)로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>단골·이탈 분석 부탁문</span><button class="copy" type="button">복사</button></div><pre><span data-biz="vet">첨부한 내원 목록(개인정보 지운 파일)을 분석해 줘. 기준일 ○○.
 1) 고객번호별 첫 내원일, 마지막 내원일, 내원 횟수, 총 진료비
 2) 재방문율: 첫 내원 뒤 6개월 안에 다시 온 비율, 종별(개/고양이)

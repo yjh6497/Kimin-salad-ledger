@@ -2,14 +2,15 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 2시간 · 인수일 전후</span>
     <h2>단골 {{customer}}, 리뷰, 전화번호는 끊김 없이</h2>
-    <p class="goal">인수의 가장 큰 자산은 <b>{{customer:와}} 이어진 줄</b>이에요. <span data-biz="vet">차트 기록</span><span data-biz-not="vet">{{customer}} 기록</span>, 대표번호, 네이버 플레이스의 리뷰, 카카오톡 채널 친구. 새로 만들면 다 처음부터라, <b>넘겨받는 방법</b>을 먼저 확인해요. {{customer}} 정보는 법이 정한 고지부터.</p>
+    <p class="goal">인수의 가장 큰 자산은 <b>{{customer:와}} 이어진 줄</b>이에요. <span data-biz="vet">차트 기록</span><span data-biz-not="vet">{{customer}} 기록</span>, 대표번호, 네이버 플레이스의 리뷰, 카카오톡 채널 친구가 그 줄이에요. 새로 만들면 다 처음부터예요. 그래서 <b>넘겨받는 방법</b>을 먼저 확인해요. {{customer}} 정보는 법이 정한 고지(미리 알리기)부터 해요.</p>
   </div>
+<div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>이사할 때 우편물 주소를 옮겨 두는 것과 같아요. 전화번호·리뷰·카톡 친구가 끊기지 않게 새 {{owner}} 이름으로 옮기는 일이에요.</span></div><div class="easy-row"><b>끝나면</b><span>{{customer}}에게 보낼 개인정보 이전 고지문 두 가지와, 채널마다 언제 넘겨받았는지 적은 '인수 채널' 표가 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 이전 {{owner}}의 협조, 장부 시트, 2시간 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <h3>{{customer}} 개인정보 이전 고지</h3>
   <ul class="checks">
     <li><input type="checkbox" id="v_a48a" data-key="v_a48a"><label for="v_a48a"><b>누가·언제</b>: 넘기는 쪽(이전 {{owner}})이 <b>미리</b> 알려요. 이전 {{owner:이}} 알리지 않았다면 받은 쪽(새 {{owner}})이 받은 뒤 지체 없이 알려요(개인정보보호법 제27조제1·2항)</label></li>
     <li><input type="checkbox" id="v_a48b" data-key="v_a48b"><label for="v_a48b"><b>무엇을</b>: ① 개인정보를 넘긴다는 사실 ② 받는 사람의 이름·주소·전화번호 등 연락처 ③ 넘기기를 원하지 않을 때 할 수 있는 방법과 절차(같은 조 제1항)</label></li>
-    <li><input type="checkbox" id="v_a48c" data-key="v_a48c"><label for="v_a48c"><b>어떻게</b>: 서면 등의 방법으로(시행령 제29조제1항). 과실 없이 그렇게 알릴 수 없으면 인터넷 홈페이지에 30일 이상, 그것도 어려운 정당한 사유가 있으면 사업장 게시 30일 이상 등(같은 조 제2항). 문자로 보낼지는 [확인 필요]로 두고 법률·세무 도우미로 조회</label></li>
-    <li><input type="checkbox" id="v_a48d" data-key="v_a48d"><label for="v_a48d"><b>넘겨받은 뒤</b>: 이전 당시의 본래 목적으로만 써요(같은 조 제3항). 광고 문자는 이전 {{place}}의 동의를 그대로 쓸 수 있는지 확인이 필요하니, 새로 받는 게 안전해요(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>)</label></li>
+    <li><input type="checkbox" id="v_a48c" data-key="v_a48c"><label for="v_a48c"><b>어떻게</b>: 서면 등의 방법으로 알려요(시행령 제29조제1항). 과실 없이 그렇게 알릴 수 없으면 인터넷 홈페이지에 30일 이상 올려요. 그것도 어려운 정당한 사유가 있으면 사업장에 30일 이상 게시하는 방법 등이 있어요(같은 조 제2항). 문자로 보낼지는 [확인 필요]로 두고 법률·세무 도우미로 조회해요</label></li>
+    <li><input type="checkbox" id="v_a48d" data-key="v_a48d"><label for="v_a48d"><b>넘겨받은 뒤</b>: 이전 당시의 본래 목적으로만 써요(같은 조 제3항). 광고 문자는 이전 {{place}}의 동의를 그대로 쓸 수 있는지 확인이 필요해요. 그래서 새로 받는 게 안전해요(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>)</label></li>
   </ul>
   <h3>채널별 넘겨받기</h3>
   <div class="table-wrap"><table>
@@ -17,19 +18,20 @@
     <tbody>
       <tr><td><b>대표 전화번호</b></td><td>반드시 유지</td><td>통신사 명의 변경. 인수일에 끊기지 않게 날짜를 맞춰요(<a href="#c-l30" class="ref" data-ref="c-l30">강의</a>)</td></tr>
       <tr data-biz="vet"><td><b>차트(EMR)</b></td><td>진료 기록은 이어져야</td><td>같은 프로그램이면 계정·라이선스 명의 이전, 바꾸면 업체에 데이터 이관 문의. 이관 전후 건수 대조</td></tr><tr data-biz-not="vet"><td><b>{{customer}} 관리 프로그램</b><br><small>예약·포인트·장부</small></td><td>{{customer}} 기록은 이어져야</td><td>같은 프로그램이면 계정·라이선스 명의 이전, 바꾸면 업체에 데이터 이관 문의. 이관 전후 건수 대조</td></tr>
-      <tr><td><b>네이버 플레이스</b></td><td>새로 등록하지 않기(리뷰가 나뉘어요)</td><td>스마트플레이스에서 기존 업체 관리 권한 이전·대표자 변경을 고객센터로 문의(<a href="#c-l10" class="ref" data-ref="c-l10">강의</a>)</td></tr>
+      <tr><td><b>네이버 플레이스</b></td><td>새로 등록하지 않기(리뷰가 나뉘어요)</td><td><dfn data-t="smartplace">스마트플레이스</dfn>에서 기존 업체 관리 권한 이전·대표자 변경을 고객센터로 문의(<a href="#c-l10" class="ref" data-ref="c-l10">강의</a>)</td></tr>
       <tr><td><b>카카오맵</b></td><td>기존 장소 유지</td><td>매장관리 권한을 넘겨받거나 사업자 정보로 다시 인증(<a href="#c-l14" class="ref" data-ref="c-l14">강의</a>)</td></tr>
       <tr><td><b>카카오톡 채널</b></td><td>친구 목록 유지</td><td>이전 {{owner:이}} 새 {{owner:을}} 관리자로 추가 → 소유자 변경 요청(<a href="#c-l35" class="ref" data-ref="c-l35">강의</a>)</td></tr>
       <tr><td><b>구글 비즈니스 프로필</b></td><td>기존 프로필 유지</td><td>이전 {{owner:이}} 소유자 권한을 새 {{owner}} 계정에 넘겨요(<a href="#c-l18" class="ref" data-ref="c-l18">강의</a>)</td></tr>
-      <tr><td><b>네이버 블로그·인스타그램</b></td><td>개인 계정이면 넘겨받지 않기</td><td>계정 양도는 약관상 어려울 수 있어요. {{place}} 이름의 계정이면 관리자 권한·로그인 정보를 바꾸고, 개인 계정이면 새로 열고 이전 계정에 이사 안내 글을 부탁해요(<a href="#c-l20" class="ref" data-ref="c-l20">강의</a> <a href="#c-l25" class="ref" data-ref="c-l25">강의</a>)</td></tr>
+      <tr><td><b>네이버 블로그·인스타그램</b></td><td>개인 계정이면 넘겨받지 않기</td><td>계정 양도는 약관상 어려울 수 있어요. {{place}} 이름의 계정이면 관리자 권한·로그인 정보를 바꿔요. 개인 계정이면 새로 열고, 이전 계정에 이사 안내 글을 부탁해요(<a href="#c-l20" class="ref" data-ref="c-l20">강의</a> <a href="#c-l25" class="ref" data-ref="c-l25">강의</a>)</td></tr>
     </tbody>
   </table></div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a48e" data-key="v_a48e"><div class="body"><label for="v_a48e">고지문 만들기</label><small>아래 '이전 고지문 부탁문'으로 서면용·게시용 두 버전. 이전 {{owner}} 이름으로 미리 보내는 게 원칙이라 계약서(<a href="#v-l47" class="ref" data-ref="v-l47">강의</a>)에 누가 언제 보낼지 적어 둬요. 고지에는 이벤트·할인을 넣지 않아요.</small></div></li>
-    <li><input type="checkbox" id="v_a48f" data-key="v_a48f"><div class="body"><label for="v_a48f">거부한 {{customer}} 처리</label><small>이전을 원하지 않는다고 한 {{customer:는}} 목록으로 받아 이관 대상에서 빼고, 그 처리 결과를 기록해요. 이 목록은 AI·텔레그램에 올리지 않아요.</small></div></li>
-    <li><input type="checkbox" id="v_a48g" data-key="v_a48g"><div class="body"><label for="v_a48g">채널 넘겨받기 표</label><small>위 표를 장부 '인수 채널' 탭으로: 채널 | 지금 관리자 | 넘기는 방법 | 요청한 날 | 완료일. 인수일에 모든 지도 정보({{owner}} 소개, {{hours}})를 한 번에 바꿔요(<a href="#c-l15" class="ref" data-ref="c-l15">강의</a>).</small></div></li>
-    <li><input type="checkbox" id="v_a48h" data-key="v_a48h"><div class="body"><label for="v_a48h">인수 안내(정보성)</label><small>고지와 별개로, 단골 {{customer}}에게 <span data-biz="vet">"○월부터 ○○○ 원장이 진료해요, 진료 기록·전화번호는 그대로예요"</span><span data-biz-not="vet">"○월부터 ○○○ {{owner:이}} 맡아요, 기존 기록·전화번호는 그대로예요"</span> 안내를 플레이스 소식·카톡 채널·<span data-biz="vet">대기실 화면</span><span data-biz-not="vet">{{place}} 안 화면</span>(<a href="#c-l44" class="ref" data-ref="c-l44">강의</a>)·전화 멘트에. 할인을 섞으면 광고가 돼요(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>).</small></div></li>
+    <li><input type="checkbox" id="v_a48e" data-key="v_a48e"><div class="body"><label for="v_a48e">고지문 만들기</label><small>아래 '이전 고지문 부탁문'으로 서면용·게시용 두 버전을 받아요. 이전 {{owner}} 이름으로 미리 보내는 게 원칙이에요. 그래서 계약서(<a href="#v-l47" class="ref" data-ref="v-l47">강의</a>)에 누가 언제 보낼지 적어 둬요. 고지에는 이벤트·할인을 넣지 않아요.</small></div></li>
+    <li><input type="checkbox" id="v_a48f" data-key="v_a48f"><div class="body"><label for="v_a48f">거부한 {{customer}} 빼기</label><small>이전을 원하지 않는다고 한 {{customer:는}} 넘겨받으면 안 돼요. 그 목록을 받아 이관 대상에서 빼고, 처리 결과를 기록해요. 이 목록은 AI·텔레그램에 올리지 않아요.</small></div></li>
+    <li><input type="checkbox" id="v_a48g" data-key="v_a48g"><div class="body"><label for="v_a48g">채널 넘겨받기 표 만들기</label><small>빠뜨린 채널이 없게 표로 챙겨요. 장부에 '인수 채널' <dfn data-t="tab">탭</dfn>을 만들고 위 표를 옮겨요. 칸은 채널 | 지금 관리자 | 넘기는 방법 | 요청한 날 | 완료일이에요. 인수일에 모든 지도 정보({{owner}} 소개, {{hours}})를 한 번에 바꿔요(<a href="#c-l15" class="ref" data-ref="c-l15">강의</a>).</small></div></li>
+    <li><input type="checkbox" id="v_a48h" data-key="v_a48h"><div class="body"><label for="v_a48h">인수 안내 올리기(정보성)</label><small>고지와 별개로, 단골 {{customer}}에게 <span data-biz="vet">"○월부터 ○○○ 원장이 진료해요, 진료 기록·전화번호는 그대로예요"</span><span data-biz-not="vet">"○월부터 ○○○ {{owner:이}} 맡아요, 기존 기록·전화번호는 그대로예요"</span> 안내를 플레이스 소식·카톡 채널·<span data-biz="vet">대기실 화면</span><span data-biz-not="vet">{{place}} 안 화면</span>(<a href="#c-l44" class="ref" data-ref="c-l44">강의</a>)·전화 멘트에 올려요. 할인을 섞으면 광고가 돼요(<a href="#c-l56" class="ref" data-ref="c-l56">강의</a>).</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '08 법률·세무 도우미' 채팅에 붙여 넣으세요. ○○ 자리만 우리 {{place}} 이름·대표 이름·주소로 바꿔요. {{customer}} 명단은 붙이지 않아요.</p>
   <div class="prompt"><div class="bar"><span>이전 고지문 부탁문 (08 법률·세무 도우미)</span><button class="copy" type="button">복사</button></div><pre>{{biz}} 영업양도에 따른 개인정보 이전 고지문을 써 줘. 법령 도구로 개인정보 보호법 제27조와 시행령 제29조를 먼저 조회해서 빠짐없이.
 - 보내는 사람: 이전 대표(○○{{biz}} ○○○), 받는 사람: 새 대표 ○○○(주소, 전화)
 - 이전하는 정보({{customer}} 성명·연락처, <span data-biz="vet">반려동물 진료 기록</span><span data-biz-not="vet">이용·거래 기록</span>), 이전 날짜

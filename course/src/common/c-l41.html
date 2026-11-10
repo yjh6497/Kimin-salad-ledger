@@ -2,21 +2,23 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 40분</span>
     <h2>월요일 아침, 이번 주 마케팅 한 장</h2>
-    <p class="goal">AI가 장부를 읽고 "이번 주 예약된 글, 빈 날, 답 안 한 리뷰, 다가오는 계절 주제"를 한 장으로 정리해요. 비어 있으면 장부가 일요일 저녁 메일로 먼저 알려 줘요.</p>
+    <p class="goal">AI가 장부를 읽고 한 장으로 정리해요. "이번 주 예약된 글, 빈 날, 답 안 한 리뷰, 다가오는 계절 주제"예요. 글이 비어 있으면 장부가 일요일 저녁에 메일로 먼저 알려 줘요.</p>
     <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span><span data-ai-not="gpt">Claude 무료는 예약 작업이 없어요. 월요일 아침 휴대폰 반복 알림이 울리면 '06 성과 분석' 채팅에 "이번 주 브리핑" 한 줄을 보내요.</span><span data-ai="gpt">ChatGPT 무료 예약 작업은 개수·시각이 제한돼요. 이 브리핑 하나만 걸어 두세요.</span></span></p>
     <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span><dfn data-t="scheduled">예약 작업</dfn>으로 매주 월요일 오전 8시에 저절로 와요.</span></p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>월요일 아침마다 비서가 가져오는 '이번 주 홍보 메모'예요. 그리고 장부에 '알람 시계'를 달아, 글이 비면 일요일 저녁에 메일이 와요.</span></div><div class="easy-row"><b>끝나면</b><span>월요일 아침 브리핑 한 장, 빈 주에만 오는 일요일 저녁 알림 메일</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 마케팅 장부(<a href="#c-l4" class="ref" data-ref="c-l4">강의</a>), 40분 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a41a" data-key="v_a41a"><div class="body"><label for="v_a41a">브리핑 예약 걸기</label><small>'06 성과 분석' 채팅에 아래 부탁문을 보내요. 유료면 맨 앞에 "매주 월요일 오전 8시에"를 붙이세요.</small></div></li>
-    <li><input type="checkbox" id="v_a41b" data-key="v_a41b"><div class="body"><label for="v_a41b">빈 주 알림 메일 (앱스 스크립트)</label><small>장부 글달력 탭만 읽어요. 네이버·인스타에는 접속하지 않아요.</small>
+    <li><input type="checkbox" id="v_a41a" data-key="v_a41a"><div class="body"><label for="v_a41a">브리핑 예약 걸기</label><small>매주 같은 부탁을 다시 치지 않으려고 해요. '06 성과 분석' 채팅에 아래 부탁문을 보내요. 유료 플랜이면 맨 앞에 "매주 월요일 오전 8시에"를 붙이세요.</small></div></li>
+    <li><input type="checkbox" id="v_a41b" data-key="v_a41b"><div class="body"><label for="v_a41b">빈 주 알림 메일 달기 (<dfn data-t="appsscript">앱스 스크립트</dfn>)</label><small>글 올리는 걸 잊는 주를 미리 알려고 달아요. 이 스크립트(시트에 붙이는 작은 프로그램)는 장부 글달력 탭만 읽어요. 네이버·인스타에는 접속하지 않아요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>장부 시트 메뉴 <span class="path">확장 프로그램 → Apps Script</span></li>
-        <li>있는 글자를 지우고 아래 '빈 주 알림 스크립트' 붙여 넣기 → 저장(디스크 아이콘)</li>
-        <li>위쪽 함수 목록에서 <b>checkWeek</b> → <span class="path">실행</span> → 권한 검토 → {{place}} 구글 계정 → 허용</li>
-        <li>왼쪽 시계 아이콘 <span class="path">트리거 → + 트리거 추가</span> → checkWeek, 시간 기반, 주 단위, 일요일, 오후 6~7시 → 저장<span class="fix">'확인되지 않은 앱' 경고가 나오면 고급 → (프로젝트 이름)으로 이동을 누르세요. {{owner:이}} 만든 스크립트라 괜찮아요.</span></li>
+        <li>장부 시트 위쪽 메뉴에서 <span class="path">확장 프로그램 → Apps Script</span>를 눌러요. 새 창이 열려요.</li>
+        <li>창에 있는 글자를 모두 지워요. 아래 '빈 주 알림 스크립트'를 붙여 넣고 저장(디스크 아이콘)을 눌러요.</li>
+        <li>위쪽 함수 목록에서 <b>checkWeek</b>를 고르고 <span class="path">실행</span>을 눌러요. <span class="path">권한 검토 → {{place}} 구글 계정 → 허용</span> 순서로 눌러요.</li>
+        <li>왼쪽 시계 아이콘 <span class="path">트리거 → + 트리거 추가</span>를 눌러요. checkWeek, 시간 기반, 주 단위, 일요일, 오후 6~7시를 고르고 저장해요. <dfn data-t="trigger">트리거</dfn>는 정해진 시간에 저절로 실행되게 하는 알람이에요.<span class="fix">'확인되지 않은 앱' 경고가 나오면 고급 → (프로젝트 이름)으로 이동을 누르세요. {{owner:이}} 만든 스크립트라 괜찮아요.</span></li>
       </ol></details></div></li>
   </ol>
-  <p class="tip">구글 캘린더를 연결했다면 이 브리핑 앞에 캘린더 주간 정리(<a href="#c-l89" class="ref" data-ref="c-l89">강의</a>)를 붙이면 예약 블록·돈 나가는 날·신고 기한까지 한 번에 나와요.</p>
+  <p class="tip">구글 캘린더를 연결했다면 이 브리핑 앞에 캘린더 주간 정리(<a href="#c-l89" class="ref" data-ref="c-l89">강의</a>)를 붙여 보세요. 예약 블록·돈 나가는 날·신고 기한까지 한 번에 나와요.</p>
+  <p class="cap">이 글을 그대로 복사해서 '06 성과 분석' 채팅에 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>월요일 브리핑 부탁문</span><button class="copy" type="button">복사</button></div><pre>{{place}} 마케팅 장부와 업무일지를 보고 이번 주 마케팅 브리핑을 10줄 안쪽으로 줘.
 1) 이번 주 예약된 글: 채널별 날짜·제목
 2) 비어 있는 날과 채우기 쉬운 주제 하나씩
@@ -24,6 +26,7 @@
 4) 다음 2주 안의 계절 주제·<span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span> 등 미리 올릴 공지
 5) 이번 주 {{owner:이}} 찍어 두면 좋은 사진 3가지
 장부에 없는 숫자는 지어내지 마.</pre></div>
+  <p class="cap">아래 코드는 고치지 말고 통째로 복사해서 Apps Script 창에 붙여 넣으세요.</p>
   <div class="prompt"><div class="bar"><span>빈 주 알림 스크립트</span><button class="copy" type="button">복사</button></div><pre>function checkWeek() {
   var sh = SpreadsheetApp.getActive().getSheetByName('글달력');
   var rows = sh.getDataRange().getValues();
@@ -42,7 +45,7 @@
   MailApp.sendEmail(Session.getActiveUser().getEmail(), '[{{place}} 마케팅] 이번 주 글을 확인해 주세요', body);
 }</pre></div>
   <p class="src">출처: <a href="https://help.openai.com/ko-kr/articles/10291617-scheduled-tasks-in-chatgpt" target="_blank" rel="noopener">ChatGPT 예약 작업 도움말</a> · <a href="https://developers.google.com/apps-script/guides/triggers/installable" target="_blank" rel="noopener">Apps Script 설치형 트리거 안내</a></p>
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>월요일 8시 브리핑</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>예약 작업이 장부를 읽고 보고해요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>휴대폰 반복 알림 + 한 줄 보내기.</span></span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>일요일 저녁 메일</b><span>빈 주와 밀린 글이 있을 때만 메일이 와요. 비용 없음.</span></div></li><li><span class="chip k-trig">텔레그램</span><div class="ad"><b>빈 주 알림을 텔레그램으로</b><span>스크립트의 메일 줄을 tg()로 바꾸면 휴대폰 한 곳으로<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>컴퓨터 파일도 읽는 브리핑</b><span>로컬 폴더를 읽는 브리핑은 자동화 컴퓨터에서<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>. 장부·캘린더만 읽으면 클라우드 예약으로.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>월요일 지시 고르기</b><span>브리핑의 제안 중 이번 주 할 것. 고른 지시가 업무일지에.</span><span class="pv">버튼: 1 / 2 / 3</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">AI 예약 작업</span><div class="ad"><b>월요일 8시 브리핑</b><span><span class="pv" data-plan-not="free"><i class="pl paid">유료</i>예약 작업이 장부를 읽고 보고해요.</span><span class="pv" data-plan-not="paid"><i class="pl">무료</i>휴대폰 반복 알림 + 한 줄 보내기.</span></span></div></li><li><span class="chip k-trig">트리거</span><div class="ad"><b>일요일 저녁 메일</b><span>빈 주와 밀린 글이 있을 때만 메일이 와요. 비용 없음.</span></div></li><li><span class="chip k-trig">텔레그램</span><div class="ad"><b>빈 주 알림을 텔레그램으로</b><span>스크립트의 메일 보내는 줄을 tg()로 바꾸면 알림이 휴대폰 한 곳으로 모여요<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>.</span></div></li><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>컴퓨터 파일도 읽는 브리핑</b><span>로컬 폴더를 읽는 브리핑은 자동화 컴퓨터에서<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>. 장부·캘린더만 읽으면 클라우드 예약으로.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>월요일 지시 고르기</b><span>브리핑의 제안 중 이번 주 할 것. 고른 지시가 업무일지에.</span><span class="pv">버튼: 1 / 2 / 3</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "월요일 숫자 읽기" 부탁: 플레이스·블로그·인스타 통계 화면의 지난주 숫자를 장부로. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>스마트플레이스·블로그 통계, 인스타 인사이트</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>앱스 스크립트 빈 주 알림 → 텔레그램, 월요일 예약 작업 브리핑.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '06 성과 분석' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 브리핑 부탁문 → 이 채팅(유료면 예약 작업)</span></div></div>
       <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>06 성과 분석</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>브리핑 부탁문 → 이 채팅(유료면 예약 작업)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Calendar</span><span class="rc c">Gmail</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">캘린더·Gmail 알림 메일까지 읽어 브리핑.</p></div>

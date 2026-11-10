@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2><span data-biz="vet">다음 접종일을</span><span data-biz-not="vet">다음에 올 때를</span> {{place:이}} 먼저 기억해요</h2>
-    <p class="goal"><span data-biz="vet">동물병원 고객관리의 핵심은 <b>예방접종·심장사상충·건강검진·스케일링</b>처럼 주기가 있는 진료예요.</span><span data-biz-not="vet">단골을 만드는 핵심은 <b>{{ex_revisit}}</b>처럼 주기가 있는 계기예요.</span> 구글 시트가 다음 날짜를 계산하고, 매주 월요일 "이번 2주 연락할 {{customer}}" 목록을 메일로 보내요. 연락은 <span data-biz="vet">실장님이 차트에서</span><span data-biz-not="vet">담당 {{staff:이}} 고객 명단에서</span> 번호를 찾아 직접 해요.</p>
+    <p class="goal"><span data-biz="vet">동물병원 고객관리의 핵심은 <b>예방접종·심장사상충·건강검진·스케일링</b>처럼 주기가 있는 진료예요.</span><span data-biz-not="vet">단골을 만드는 핵심은 <b>{{ex_revisit}}</b>처럼 주기가 있는 계기예요.</span> 구글 시트가 다음 날짜를 계산해요. 그리고 매주 월요일 "이번 2주 연락할 {{customer}}" 목록을 메일로 보내요. 연락은 <span data-biz="vet">실장님이 차트에서</span><span data-biz-not="vet">담당 {{staff:이}} 고객 명단에서</span> 번호를 찾아 직접 해요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>단골 명단에 '알람 시계'를 달아 두는 거예요. 다시 올 때가 가까워지면 월요일 아침 메일로 알려 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>다음 예정일이 저절로 계산되는 '재방문' 탭과, 매주 월요일 오는 "이번 2주 연락할 분" 메일</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 1시간 30분 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a>, 코드 붙이기와 트리거가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>인수 전 기록으로 다음 <span data-biz="vet">접종일</span><span data-biz-not="vet">예정일</span>을 이어서 계산해요. <span data-biz="vet">이관된 차트에서 마지막 내원일 확인.</span><span data-biz-not="vet">넘겨받은 고객 명단에서 마지막 {{visit}}일 확인.</span></span></p>
 
   <div class="vis">
@@ -17,18 +18,19 @@
     <p class="cap a" style="--d:1.2s">시트에는 고객번호만, 전화번호는 <span data-biz="vet">차트</span><span data-biz-not="vet">고객 명단</span>에만 있어요.</p>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a57a" data-key="v_a57a"><div class="body"><label for="v_a57a"><span data-biz="vet">차트</span><span data-biz-not="vet">쓰는 프로그램</span>에 리마인더 기능이 있는지 먼저</label><small><span data-biz="vet">많은 동물병원 차트가 접종 예정 알림이나 문자 발송을 부가 기능으로 줘요.</span><span data-biz-not="vet">예약·포스·고객관리 프로그램이 다음 방문 알림이나 문자 발송을 부가 기능으로 주기도 해요.</span> 있으면 그걸 쓰는 게 가장 정확해요. 이 강의는 그런 기능이 없거나, {{owner:이}} 직접 숫자를 보고 싶을 때의 방법이에요.</small></div></li>
-    <li><input type="checkbox" id="v_a57b" data-key="v_a57b"><div class="body"><label for="v_a57b">'{{place}} 데이터 허브' 시트에 '재방문' 탭</label><small>다음 단계의 허브 시트(<a href="#c-l60" class="ref" data-ref="c-l60">강의</a>)를 먼저 만들었다면 거기에, 아니면 새 시트에. 아래 제목 줄을 A1에 붙여 넣어요.</small></div></li>
-    <li><input type="checkbox" id="v_a57c" data-key="v_a57c"><div class="body"><label for="v_a57c">다음 예정일 수식</label><small>G2 칸에 <span class="path">=IF(E2="","",E2+F2)</span> → G2 오른쪽 아래 작은 네모를 아래로 끌어 내리기. 주기(일)는 {{owner:이}} <span data-biz="vet">진료 기준대로 정해요(예: 심장사상충 30, 종합백신 추가접종 365는 예시일 뿐).</span><span data-biz-not="vet">우리 {{place}} 기준대로 정해요(예: 30, 90, 365는 예시일 뿐).</span></small></div></li>
-    <li><input type="checkbox" id="v_a57d" data-key="v_a57d"><div class="body"><label for="v_a57d">월요일 메일 스크립트 붙이기</label>
+    <li><input type="checkbox" id="v_a57a" data-key="v_a57a"><div class="body"><label for="v_a57a"><span data-biz="vet">차트</span><span data-biz-not="vet">쓰는 프로그램</span>에 리마인더 기능이 있는지 먼저</label><small><span data-biz="vet">많은 동물병원 차트가 접종 예정 알림이나 문자 발송을 부가 기능으로 줘요.</span><span data-biz-not="vet">예약·포스·고객관리 프로그램이 다음 방문 알림이나 문자 발송을 부가 기능으로 주기도 해요.</span> 있으면 그걸 쓰는 게 가장 정확해요. 이 강의는 그런 기능이 없을 때의 방법이에요. {{owner:이}} 직접 숫자를 보고 싶을 때도 좋아요.</small></div></li>
+    <li><input type="checkbox" id="v_a57b" data-key="v_a57b"><div class="body"><label for="v_a57b">'{{place}} 데이터 허브' 시트에 '재방문' <dfn data-t="tab">탭</dfn> 만들기</label><small>명단을 한곳에 모으려는 거예요. 허브 시트(<a href="#c-l60" class="ref" data-ref="c-l60">강의</a>)를 먼저 만들었다면 거기에 만들어요. 아니면 새 시트에 만들어요. 화면 아래 <span class="path">+ → 탭 이름 더블클릭 → '재방문'</span>으로 탭을 만들고, 아래 제목 줄을 A1에 붙여 넣어요.<span class="fix">막히면: 제목이 한 칸에 몰려 들어가면 <span class="path">데이터 → 텍스트를 열로 분할</span>을 눌러요.</span></small></div></li>
+    <li><input type="checkbox" id="v_a57c" data-key="v_a57c"><div class="body"><label for="v_a57c">다음 예정일 수식 넣기</label><small>마지막 날짜에 주기를 더해 다음 날을 계산해요. G2 칸에 <span class="path">=IF(E2="","",E2+F2)</span>를 넣어요. 그다음 G2 오른쪽 아래 작은 네모를 아래로 끌어 내려요. 주기(일)는 {{owner:이}} <span data-biz="vet">진료 기준대로 정해요(예: 심장사상충 30, 종합백신 추가접종 365는 예시일 뿐).</span><span data-biz-not="vet">우리 {{place}} 기준대로 정해요(예: 30, 90, 365는 예시일 뿐).</span></small></div></li>
+    <li><input type="checkbox" id="v_a57d" data-key="v_a57d"><div class="body"><label for="v_a57d">월요일 메일 스크립트 붙이기</label><small>매주 명단을 직접 뒤지지 않으려는 거예요. <dfn data-t="appsscript">Apps Script</dfn>에 코드를 붙이고 <dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)를 걸어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>시트 메뉴 <span class="path">확장 프로그램 → Apps Script</span> → 아래 '재방문 메일 스크립트' 붙여 넣기 → 저장</li>
-        <li>함수 <b>remindList</b> 선택 → 실행 → 권한 허용</li>
+        <li>함수 <b>remindList</b> 선택 → 실행 → 권한 허용<span class="fix">막히면: '확인되지 않은 앱' 창이 뜨면 <span class="path">고급 → (안전하지 않음)으로 이동 → 허용</span>을 눌러요. 내가 만든 코드라 괜찮아요. 대상이 없으면 메일이 오지 않는 게 정상이에요.</span></li>
         <li>시계 아이콘 → <span class="path">+ 트리거 추가</span> → remindList, 시간 기반, 주 단위, 월요일, 오전 8~9시 → 저장</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a57e" data-key="v_a57e"><div class="body"><label for="v_a57e">연락하고 기록</label><small>'카톡친구' 표시가 있는 분은 카카오톡 채널 친구그룹 메시지로(<a href="#c-l37" class="ref" data-ref="c-l37">강의</a>), 나머지는 문자·전화로. <span data-biz="vet">실장님이 목록의 고객번호로 차트에서</span><span data-biz-not="vet">담당 {{staff:이}} 목록의 고객번호로 고객 명단에서</span> 번호를 찾아 연락 → I열에 연락한 날, J열에 결과(예약함·나중에·연락안됨). 예약하면 E열을 새 날짜로.</small></div></li>
+    <li><input type="checkbox" id="v_a57e" data-key="v_a57e"><div class="body"><label for="v_a57e">연락하고 기록하기</label><small>'카톡친구' 표시가 있는 분은 카카오톡 채널 친구그룹 메시지로 연락해요(<a href="#c-l37" class="ref" data-ref="c-l37">강의</a>). 나머지는 문자·전화로 해요. <span data-biz="vet">실장님이 목록의 고객번호로 차트에서</span><span data-biz-not="vet">담당 {{staff:이}} 목록의 고객번호로 고객 명단에서</span> 번호를 찾아 연락 → I열에 연락한 날, J열에 결과(예약함·나중에·연락안됨). 예약하면 E열을 새 날짜로.</small></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>재방문 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>고객번호 | <span data-biz="vet">종 | 나이(살)</span><span data-biz-not="vet">구분 | 메모</span> | 항목 | 마지막 날짜 | 주기(일) | 다음 예정일 | 연락 동의(Y/N) | 연락한 날 | 결과 | 카톡 친구(Y/N)</pre></div>
+  <p class="cap">아래 코드는 '복사'를 눌러 Apps Script 화면에 있던 글을 모두 지우고 그대로 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>재방문 메일 스크립트</span><button class="copy" type="button">복사</button></div><pre>function remindList() {
   var sh = SpreadsheetApp.getActive().getSheetByName('재방문');
   var rows = sh.getDataRange().getValues();
@@ -50,6 +52,7 @@
     '연락 동의(Y)한 분만 모았어요. 번호는 <span data-biz="vet">차트</span><span data-biz-not="vet">고객 명단</span>에서 찾아 주세요.\n\n- ' + list.join('\n- '));
 }</pre></div>
   <p class="tip">이 시트를 바탕으로 안내 타이밍·템플릿·문자(맥·아이폰)·카톡 채널·알림톡 발송과 결과 기록까지 이어지는 강의가 바로 뒤에 있어요(<a href="#c-l64" class="ref" data-ref="c-l64">강의</a>).</p>
+  <p class="cap">이 글을 그대로 복사해서 '05 상담·응대' 채팅에 붙여 넣으세요. ○○ 자리만 우리 {{place}} 값으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>안내 문자 부탁문</span><button class="copy" type="button">복사</button></div><pre><span data-biz="vet">예방 진료 안내 문자 틀 3개를 써 줘: 종합백신 추가접종, 심장사상충 예방, 건강검진. 각 90자 안쪽.
 [병원 이름] 인사, 아이 이름 자리 ○○,</span><span data-biz-not="vet">다시 오실 때를 알리는 안내 문자 틀 3개를 써 줘. 계기는 우리 {{place}}의 ○○(예: {{ex_revisit}}). 각 90자 안쪽.
 [{{place}} 이름] 인사, {{customer}} 이름 자리 ○○,</span> 예정 시기, 예약 방법(네이버 예약/전화)만. 할인·이벤트는 넣지 마(광고가 되지 않게). 마지막 줄에 "안내를 원치 않으시면 답장 주세요".</pre></div>

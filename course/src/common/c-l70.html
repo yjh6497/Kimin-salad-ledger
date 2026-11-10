@@ -2,10 +2,11 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>법전과 국세청 회신을 직접 찾아보는 비서</h2>
-    <p class="goal"><span data-biz="vet">광고 점검(<a href="#v-l8" class="ref" data-ref="v-l8">강의</a>)에서 연결한 </span><span data-biz="arch">법령 MCP 강의(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>)에서 연결한 </span><dfn data-t="lawmcp">법령 MCP</dfn>(https://mcp.gomdori.app/law, 현직 공무원이 만들어 공개한 서버)는 법률·시행령·고시만이 아니라 <b>판례, 법령해석례, 국세청 질의 회신, 조세심판 결정, 고용노동부 행정해석</b>까지 찾아요. 이걸로 '08 법률·세무 도우미' 채팅을 만들어, {{open}}·세금·직원·분쟁 질문에 <b>근거를 찾아 붙여 오는</b> 비서로 써요.</p>
+    <p class="goal"><span data-biz="vet">광고 점검(<a href="#v-l8" class="ref" data-ref="v-l8">강의</a>)에서 연결한 </span><span data-biz="arch">법령 MCP 강의(<a href="#a-l36" class="ref" data-ref="a-l36">강의</a>)에서 연결한 </span><dfn data-t="lawmcp">법령 MCP</dfn>(https://mcp.gomdori.app/law, 현직 공무원이 만들어 공개한 서버)는 법률·시행령·고시만이 아니라 <b>판례, 법령해석례, 국세청 질의 회신, 조세심판 결정, 고용노동부 행정해석</b>까지 찾아요. 이걸로 '08 법률·세무 도우미' 채팅을 만들어요. {{open}}·세금·직원·분쟁 질문에 <b>근거를 찾아 붙여 오는</b> 비서로 써요.</p>
     <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span><span data-ai-not="gpt">Claude 무료도 사용자 지정 커넥터 1개를 연결할 수 있어요. 법령 MCP를 그 1개로 두세요.</span><span data-ai="gpt">ChatGPT의 MCP 연결은 유료 기능이에요. 무료라면 법률·세무 질문만 Claude 무료 계정에서 하는 것도 방법이에요.</span></span></p>
     <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span>여러 법령·해석례를 한 번에 엮어 찾는 긴 조사도 끊기지 않아요. 매달 개정 소식 예약 작업도 걸 수 있어요.</span></p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>법전과 국세청 답변집을 대신 뒤져 주는 '조사 담당 직원'을 두는 거예요. 판단은 세무사·노무사가 하고, 이 직원은 근거를 찾아 와요.</span></div><div class="easy-row"><b>끝나면</b><span>'08 법률·세무 도우미' 채팅과, 질문·결론·근거가 쌓이는 '법무·세무 메모' 문서가 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, AI 앱, 법령 MCP 연결(아래 1단계), 1시간 · AI 앱이 처음이면 <a href="#c-b3" class="ref" data-ref="c-b3">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble me a" style="--d:.2s" data-biz="vet"><span class="who">{{owner}}</span>스케일링이랑 미용 목욕 진료비, 부가세 붙여야 해?</div>
@@ -16,11 +17,12 @@
     <p class="cap a" style="--d:1.8s"><span data-biz="vet">실제로 법령 MCP로 고시 별표를 조회해 만든 예시예요.</span><span data-biz-not="vet">질문만 우리 업종에 맞게 바꾸면 돼요. 근거 조문은 늘 법령 도구가 찾아온 것만 믿어요.</span></p>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a70a" data-key="v_a70a"><div class="body"><label for="v_a70a">법령 MCP 연결 확인</label><small data-biz="vet">아직이면 <a href="#v-l8" class="ref" data-ref="v-l8">강의</a>의 '법령 MCP 연결하기'로 https://mcp.gomdori.app/law 를 커넥터에 등록해요. 새 채팅에서 "법령 도구로 수의사법 제13조의2 원문을 보여 줘"가 되면 준비 끝.</small><small data-biz-not="vet">아직이면 <span data-biz="arch"><a href="#a-l36" class="ref" data-ref="a-l36">강의</a>대로, </span><span data-ai-not="gpt">Claude <span class="path">설정 → 커넥터 → 사용자 지정 커넥터 추가</span>에</span><span data-ai="gpt">AI 앱의 커넥터(MCP) 설정에</span> https://mcp.gomdori.app/law 를 등록해요. 새 채팅에서 "법령 도구로 근로기준법 제17조 원문을 보여 줘"가 되면 준비 끝.</small></div></li>
-    <li><input type="checkbox" id="v_a70b" data-key="v_a70b"><div class="body"><label for="v_a70b">'08 법률·세무 도우미' 채팅 만들기</label><small>AI 비서실 프로젝트 안에 만들고(<a href="#c-l6" class="ref" data-ref="c-l6">강의</a>), 아래 '도우미 규칙'을 첫 메시지로 보내요. 프로젝트 지침 맨 아래에 붙여도 돼요.</small></div></li>
-    <li><input type="checkbox" id="v_a70c" data-key="v_a70c"><div class="body"><label for="v_a70c">찾을 수 있는 자료 알아 두기</label><small>질문할 때 "국세청 회신도 찾아 줘", "고용노동부 해석도", "비슷한 판례도"라고 덧붙이면 해당 자료까지 찾아요.</small></div></li>
-    <li><input type="checkbox" id="v_a70d" data-key="v_a70d"><div class="body"><label for="v_a70d">결과는 '법무·세무 메모' 문서에</label><small>드라이브에 <b>법무·세무 메모</b> 구글 문서를 만들고, 답을 받을 때마다 "메모용으로 날짜·질문·결론·근거·확인할 곳 5줄로"를 붙여 쌓아요. 세무사·노무사 상담 때 그대로 보여 주면 상담이 짧아져요.</small></div></li>
+    <li><input type="checkbox" id="v_a70a" data-key="v_a70a"><div class="body"><label for="v_a70a">법령 MCP 연결 확인하기</label><small data-biz="vet">도우미가 법전을 직접 찾으려면 이 연결이 있어야 해요. 아직이면 <a href="#v-l8" class="ref" data-ref="v-l8">강의</a>의 '법령 MCP 연결하기'로 https://mcp.gomdori.app/law 를 커넥터에 등록해요. 새 채팅에서 "법령 도구로 수의사법 제13조의2 원문을 보여 줘"가 되면 준비 끝.</small><small data-biz-not="vet">아직이면 <span data-biz="arch"><a href="#a-l36" class="ref" data-ref="a-l36">강의</a>대로, </span><span data-ai-not="gpt">Claude <span class="path">설정 → 커넥터 → 사용자 지정 커넥터 추가</span>에</span><span data-ai="gpt">AI 앱의 커넥터(MCP) 설정에</span> https://mcp.gomdori.app/law 를 등록해요. 새 채팅에서 "법령 도구로 근로기준법 제17조 원문을 보여 줘"가 되면 준비 끝.</small><span class="fix">막히면: 원문 대신 기억으로 답하면 "법령 도구로 조회해서"라고 다시 부탁해요. 커넥터 메뉴가 안 보이면 설정 화면을 캡처해서 AI에게 물어요.</span></div></li>
+    <li><input type="checkbox" id="v_a70b" data-key="v_a70b"><div class="body"><label for="v_a70b">'08 법률·세무 도우미' 채팅 만들기</label><small>규칙을 먼저 알려 두면 매번 같은 방식으로 답해요. AI 비서실 프로젝트 안에 채팅을 만들어요(<a href="#c-l6" class="ref" data-ref="c-l6">강의</a>). 아래 '도우미 규칙'을 첫 메시지로 보내요. 프로젝트 지침 맨 아래에 붙여도 돼요.</small></div></li>
+    <li><input type="checkbox" id="v_a70c" data-key="v_a70c"><div class="body"><label for="v_a70c">찾을 수 있는 자료 알아 두기</label><small>법 조문만으로 답이 안 나올 때가 많아요. 질문할 때 "국세청 회신도 찾아 줘", "고용노동부 해석도", "비슷한 판례도"라고 덧붙여요. 그러면 해당 자료까지 찾아요.</small></div></li>
+    <li><input type="checkbox" id="v_a70d" data-key="v_a70d"><div class="body"><label for="v_a70d">결과는 '법무·세무 메모' 문서에 쌓기</label><small>세무사·노무사 상담 때 그대로 보여 주면 상담이 짧아져요. 드라이브에 <b>법무·세무 메모</b> 구글 문서를 만들어요. 답을 받을 때마다 "메모용으로 날짜·질문·결론·근거·확인할 곳 5줄로"라고 해요. 받은 5줄을 문서에 붙여 쌓아요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '08 법률·세무 도우미' 채팅 첫 메시지로 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>도우미 규칙</span><button class="copy" type="button">복사</button></div><pre>너는 우리 {{biz}}의 법률·세무 조사 도우미야. 변호사·세무사·노무사가 아니라, 근거를 찾아 정리하는 역할이야.
 - 질문을 받으면 기억으로 답하지 말고 '법령' 도구로 현행 법령·시행령·시행규칙·고시·별표를 먼저 조회해
 - 필요하면 법령해석례, 국세청 질의 회신, 조세심판 결정, 고용노동부 행정해석, 판례도 찾아 줘

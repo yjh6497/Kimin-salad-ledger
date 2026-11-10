@@ -4,6 +4,7 @@
     <h2>{{customer:가}} 전화하기 전에 궁금한 것을 다 답해 두기</h2>
     <p class="goal"><span data-biz="vet">"야간 진료 해요?", "고양이도 봐요?"</span><span data-biz-not="vet">"몇 시까지 해요?", "예약해야 해요?"</span>, "주차 돼요?" {{customer}}의 첫 질문은 거의 같아요. 플레이스에 답이 다 있으면 전화가 예약으로 바뀌어요. 업체가 '최적화'라고 부르는 일의 대부분이 이거예요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>네이버 지도에 걸린 우리 {{place}} '안내판'을 꼼꼼히 채우는 거예요. 안내판에 답이 다 있으면 {{customer:가}} 전화로 묻지 않고 바로 찾아와요.</span></div><div class="easy-row"><b>끝나면</b><span>소개글·키워드 5개·영업시간·메뉴·사진·주차 안내까지 꽉 찬 스마트플레이스</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 스마트플레이스 등록(<a href="#c-l10" class="ref" data-ref="c-l10">강의</a>), {{place}} 소개서와 가격표, 1시간 · 캡처가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>바뀌는 정보({{owner}} 소개, {{hours}}, 사진)만 인수일에 한 번에 고쳐요.</span></p>
 
   <div class="vis">
@@ -20,21 +21,22 @@
     </table></div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a11a" data-key="v_a11a"><div class="body"><label for="v_a11a">키워드 5개 고르기</label><small><dfn data-t="keyword">키워드</dfn>는 {{customer:가}} 실제로 치는 말이어야 해요. 네이버 검색광고의 키워드 도구(무료 가입)에서 "○○동 {{biz}}"의 월 검색량을 보고, 장부 키워드 탭에 적어요.</small>
+    <li><input type="checkbox" id="v_a11a" data-key="v_a11a"><div class="body"><label for="v_a11a">키워드 5개 고르기</label><small><dfn data-t="keyword">키워드</dfn>(검색창에 치는 말)는 {{customer:가}} 실제로 치는 말이어야 해요. 네이버 검색광고의 키워드 도구(무료 가입)에서 "○○동 {{biz}}"의 월 검색량을 봐요. 고른 말은 장부 키워드 탭에 적어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li><span class="path">searchad.naver.com</span> → 회원가입(광고비를 넣지 않아도 도구는 써요)</li>
         <li><span class="path">도구 → 키워드 도구</span> → "○○동 {{biz}}", <span data-biz="vet">"○○동 고양이{{place}}", "○○구 24시 {{biz}}"</span><span data-biz-not="vet">"{{ex_keyword}}", "○○구 {{biz}}"</span> 입력 → 조회</li>
-        <li>결과를 캡처해 '01 플레이스 매니저'에게 보내고 "우리 {{place:과}} 맞는 키워드 5개 골라 줘"</li>
+        <li>결과를 캡처해 '01 플레이스 매니저' 채팅에 보내고 "우리 {{place:과}} 맞는 키워드 5개 골라 줘"라고 부탁하기<span class="fix">막히면: 캡처 방법이 헷갈리면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a>를 보세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a11b" data-key="v_a11b"><div class="body"><label for="v_a11b">AI에게 소개글·키워드·편의 정보 받기</label><small>아래 부탁문을 '01 플레이스 매니저'에게 보내요.</small></div></li>
+    <li><input type="checkbox" id="v_a11b" data-key="v_a11b"><div class="body"><label for="v_a11b">AI에게 소개글·키워드·편의 정보 받기</label><small>칸마다 글을 직접 쓰지 않으려고 AI에게 초안을 받아요. 아래 부탁문을 '01 플레이스 매니저' 채팅에 보내요.</small></div></li>
     <li><input type="checkbox" id="v_a11c" data-key="v_a11c"><div class="body"><label for="v_a11c">스마트플레이스에 붙여 넣기</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>smartplace.naver.com → 내 업체 → <span class="path">업체정보</span></li>
+        <li><span class="path">smartplace.naver.com → 내 업체 → 업체정보</span></li>
         <li>소개, 키워드, 영업시간, 메뉴, 편의, 찾아오는 길 칸에 하나씩 붙여 넣고 각각 저장</li>
         <li>사진은 <span class="path">사진·동영상</span>에서 외관 사진을 맨 앞으로<span class="fix">항목이 안 보이면 업종에 따라 메뉴 이름이 다를 수 있어요. 화면 캡처 → AI에게 "이 화면에서 소개글은 어디에 넣어?"</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a11d" data-key="v_a11d"><div class="body"><label for="v_a11d">{{customer}} 눈으로 확인</label><small>휴대폰 네이버 앱에서 {{place}} 이름을 검색해 처음 보는 사람처럼 보세요. 전화번호를 눌러 실제로 연결되는지, 길찾기가 정문으로 가는지도요.</small></div></li>
+    <li><input type="checkbox" id="v_a11d" data-key="v_a11d"><div class="body"><label for="v_a11d">{{customer}} 눈으로 확인하기</label><small>빠진 곳은 {{customer}} 입장에서 봐야 보여요. 휴대폰 네이버 앱에서 {{place}} 이름을 검색해 처음 보는 사람처럼 보세요. 전화번호를 눌러 실제로 연결되는지 확인해요. 길찾기가 정문으로 가는지도 봐요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '01 플레이스 매니저' 채팅에 붙여 넣으세요. ○○ 자리만 우리 동네 이름과 고른 키워드로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>플레이스 정보 부탁문</span><button class="copy" type="button">복사</button></div><pre>{{place}} 소개서와 <span data-biz="vet">진료비 게시표</span><span data-biz-not="vet">가격표</span>를 보고 네이버 스마트플레이스에 넣을 내용을 칸별로 써 줘.
 1) 소개글 2안 (각 500자 안팎). 첫 두 줄에 '○○동 {{biz}}'<span data-biz="vet">과 주 진료</span><span data-biz-not="vet">와 주요 {{item}}</span>가 자연스럽게 들어가게
 2) 대표 키워드 5개 (키워드 탭에서 고른 것: ○○, ○○ …)
@@ -42,7 +44,7 @@
 4) 편의·찾아오는 길: 주차, 대중교통, 건물 안내
 5) 자주 받을 질문 5개와 답 (<span data-biz="vet">야간·응급, 고양이·특수동물</span><span data-biz-not="vet">{{hours}}, "{{ex_faq}}"</span>, 예약 필요 여부 등)
 광고 규칙대로 비교·최상급 표현 없이, 끝에 점검 한 줄.</pre></div>
-  <p class="tip"><b>정보를 자주 고치는 것도 운영이에요.</b> 휴무·{{hours}} 변경을 제때 고치는 {{place:이}} {{customer}}에게 믿음을 줘요. 바뀔 일이 생기면 소개서 → 플레이스 순으로, 같은 날 고치세요.</p>
+  <p class="tip"><b>정보를 자주 고치는 것도 운영이에요.</b> 휴무·{{hours}} 변경을 제때 고치는 {{place:이}} {{customer}}에게 믿음을 줘요. 바뀔 일이 생기면 소개서 → 플레이스 순으로 고쳐요. 두 곳 모두 같은 날 고치세요.</p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>소개서 하나가 원본</b><span>{{hours:이}} 바뀌면 소개서를 고치고 "소개서 바뀐 부분으로 플레이스 고칠 칸만 알려 줘"라고 해요.</span></div></li><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>명절 휴무 미리</b><span>구글 캘린더에 명절 2주 전 '플레이스 임시휴무 등록' 반복 알림.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>대표 사진 고르기</b><span>후보 사진 번호와 함께 버튼으로.</span><span class="pv">버튼: 1 / 2 / 3</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "정보 칸 한 번에" 부탁: 영업시간·<span data-biz="vet">진료 안내</span><span data-biz-not="vet">{{item}} 안내</span>·가격·주차를 소개서 표대로 채우고 저장 버튼 앞에서 멈춤. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>smartplace.naver.com</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: 소개서 → 플레이스 칸별 값(영업시간·가격·안내) 표 파일 → 브라우저 AI가 그대로 입력.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '01 플레이스 매니저' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 키워드 5개 → 장부 키워드 탭(프로젝트 파일이라 자동 반영)</span></div></div>
       <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>키워드 5개 → 장부 키워드 탭(프로젝트 파일이라 자동 반영)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>

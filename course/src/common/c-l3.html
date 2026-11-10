@@ -3,16 +3,18 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>모든 글의 재료가 되는 A4 한 장</h2>
-    <p class="goal">업체에 맡기면 업체가 제일 먼저 묻는 것들이에요. 한 번 정리해 두면 플레이스 소개글, 블로그 첫 글, 인스타 프로필이 모두 이 한 장에서 나와요.</p>
+    <p class="goal">업체에 맡기면 업체가 제일 먼저 묻는 것들이에요. 한 번 정리해 두면 돼요. 플레이스 소개글, 블로그 첫 글, 인스타 프로필이 모두 이 한 장에서 나와요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>{{place}}의 '이력서'를 한 장 쓰는 거예요. AI가 기자처럼 하나씩 물어보고, {{owner:은}} 말하듯 답하면 돼요.</span></div><div class="easy-row"><b>끝나면</b><span>드라이브에 '{{place}} 소개서' 구글 문서 한 장이 생겨요. 뒤의 모든 글이 이 문서를 재료로 써요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, AI 앱, 구글 계정, 1시간 · AI 앱이 처음이면 <a href="#c-b3" class="ref" data-ref="c-b3">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>소개서에 '그대로인 것'과 '바뀌는 것({{owner}}, {{hours}}, 주요 {{item}})'을 나눠 적어요.</span></p>
 
   <ol class="steps">
-    <li><input type="checkbox" id="v_a3a" data-key="v_a3a"><div class="body"><label for="v_a3a">AI와 인터뷰하기</label><small>아래 부탁문을 보내면 AI가 한 번에 하나씩 질문해요. {{owner:은}} 말하듯 답하면 돼요. 휴대폰 음성 입력도 좋아요.</small></div></li>
-    <li><input type="checkbox" id="v_a3b" data-key="v_a3b"><div class="body"><label for="v_a3b">차별점은 '사실'로 3개</label><small>"친절한", "꼼꼼한"은 모든 {{place:이}} 써요. <span data-biz="vet">"고양이 전용 대기 공간", "평일 21시까지 진료", "수술 전 혈액검사 결과를 종이로 설명"</span><span data-biz-not="vet">"주차 2대 가능", "평일 저녁 8시까지 예약 가능", "가격표를 미리 공개"</span>처럼 {{customer:가}} 확인할 수 있는 사실로 고르세요.</small></div></li>
-    <li><input type="checkbox" id="v_a3c" data-key="v_a3c"><div class="body"><label for="v_a3c">우리 {{customer}} 그려 보기</label><small><span data-biz="vet">반경 1~2km 안에 누가 사나요? 신축 아파트 20~30대 부부, 노령견 키우는 50대, 길고양이 돌보는 분…</span><span data-biz-not="vet">우리 {{customer:은}} 주로 어디서 오나요? 근처 아파트 20~30대 부부, 근처 직장인, 오래 찾아 주는 50대 단골…</span> 두 그룹만 고르면 글의 말투와 주제가 정해져요.</small></div></li>
-    <li><input type="checkbox" id="v_a3d" data-key="v_a3d"><div class="body"><label for="v_a3d">구글 문서로 저장</label><small>드라이브 '{{place}} 마케팅' 폴더에 <b>{{place}} 소개서</b> 이름으로. 다음 단계에서 AI 비서가 이 문서를 늘 참고해요.</small></div></li>
+    <li><input type="checkbox" id="v_a3a" data-key="v_a3a"><div class="body"><label for="v_a3a">AI와 인터뷰하기</label><small>혼자 빈 종이를 채우는 것보다 질문에 답하는 게 쉬워요. 아래 부탁문을 보내면 AI가 한 번에 하나씩 질문해요. {{owner:은}} 말하듯 답하면 돼요. 휴대폰 음성 입력도 좋아요.</small></div></li>
+    <li><input type="checkbox" id="v_a3b" data-key="v_a3b"><div class="body"><label for="v_a3b">차별점은 '사실'로 3개 고르기</label><small>"친절한", "꼼꼼한"은 모든 {{place:이}} 써요. <span data-biz="vet">"고양이 전용 대기 공간", "평일 21시까지 진료", "수술 전 혈액검사 결과를 종이로 설명"</span><span data-biz-not="vet">"주차 2대 가능", "평일 저녁 8시까지 예약 가능", "가격표를 미리 공개"</span>처럼 {{customer:가}} 확인할 수 있는 사실로 고르세요.</small></div></li>
+    <li><input type="checkbox" id="v_a3c" data-key="v_a3c"><div class="body"><label for="v_a3c">우리 {{customer}} 그려 보기</label><small><span data-biz="vet">반경 1~2km 안에 누가 사나요? 신축 아파트 20~30대 부부, 노령견 키우는 50대, 길고양이 돌보는 분…</span><span data-biz-not="vet">우리 {{customer:은}} 주로 어디서 오나요? 근처 아파트 20~30대 부부, 근처 직장인, 오래 찾아 주는 50대 단골…</span> 두 그룹만 골라요. 그러면 글의 말투와 주제가 정해져요.</small></div></li>
+    <li><input type="checkbox" id="v_a3d" data-key="v_a3d"><div class="body"><label for="v_a3d">구글 문서로 저장하기</label><small>다음 단계에서 AI 비서가 이 문서를 늘 참고해요. AI가 정리한 표를 복사해서 새 구글 문서에 붙여 넣어요. 드라이브 '{{place}} 마케팅' 폴더에 <b>{{place}} 소개서</b> 이름으로 저장해요.</small><span class="fix">막히면: 표가 깨져 붙으면 AI에게 "구글 문서에 붙이기 좋게 다시 줘"라고 해요.</span></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 AI 채팅에 붙여 넣으세요. 고칠 곳은 없어요. 그다음 AI 질문에 하나씩 답하면 돼요.</p>
   <div class="prompt" data-biz="vet"><div class="bar"><span>인터뷰 부탁문</span><button class="copy" type="button">복사</button></div><pre>나는 {{biz}} {{open:을}} 준비하는 수의사야. 마케팅에 쓸 '{{place}} 한 장 소개서'를 만들고 싶어.
 나에게 한 번에 질문 하나씩 해서 아래 항목을 채워 줘. 내가 답하면 다음 질문으로.
 1) {{place}} 이름, 주소(동 단위), {{open}} 예정일, 진료 시간·휴진일·야간/응급 여부, 주차
@@ -33,7 +35,7 @@
 6) 주 {{customer}} 두 그룹과 그들이 자주 할 걱정
 7) 자주 받을 질문 10개
 다 모이면 A4 한 장 분량 표로 정리해 줘. '최고', '유일', '전문'처럼 비교·최상급 표현은 쓰지 말고, 내 말 중에 그런 표현이 있으면 사실 표현으로 바꿔서 알려 줘.</pre></div>
-  <p class="tip warnbox" data-biz-not="vet"><b>'전문', '최고' 표현은 조심.</b> 자격·경력은 사실대로만 적어요. 법정 자격이 아닌 이름은 "○○ 과정 수료", "경력 ○년"처럼 있는 그대로. 업종마다 광고 규정이 다르니 우리 업종 규정은 법령 MCP로 확인해요.</p>
+  <p class="tip warnbox" data-biz-not="vet"><b>'전문', '최고' 표현은 조심.</b> 자격·경력은 사실대로만 적어요. 법정 자격이 아닌 이름은 "○○ 과정 수료", "경력 ○년"처럼 있는 그대로. 업종마다 광고 규정이 달라요. 우리 업종 규정은 <dfn data-t="lawmcp">법령 MCP</dfn>로 확인해요.</p>
   <p class="tip warnbox" data-biz="vet"><b>'전문', '전문의' 표현은 조심.</b> 학위·수련 이력은 사실대로만 적어요. 수의사법은 학위 수여 사실을 거짓으로 공표하면 면허효력 정지 사유로 정하고 있어요(제32조제2항제5호). 법정 자격이 아닌 이름은 "○○ 학회 정회원", "○○ 수련 ○년"처럼 있는 그대로.</p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-rule">지침·스킬</span><div class="ad"><b>한 번 쓰고 계속 참고</b><span>소개서를 AI 프로젝트 파일에 넣으면(<a href="#c-l5" class="ref" data-ref="c-l5">강의</a>) 모든 글이 같은 {{hours}}·주소·차별점으로 써져요. {{hours:이}} 바뀌면 이 문서 하나만 고쳐요.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>소개서 변경 승인</b><span>{{hours}}·전화가 바뀐 줄을 확인하면 지도 정보 맞추기<a href="#c-l15" class="ref" data-ref="c-l15">강의</a>로 이어져요.</span><span class="pv">버튼: 승인 / 보류</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "소개서와 실제 화면 대조" 부탁: 플레이스·카카오맵의 우리 {{place}} 화면을 읽어 소개서와 다른 곳 표로. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>map.naver.com, map.kakao.com</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>Claude Code: {{place}} 폴더의 소개서.md 하나로 플레이스·카카오·블로그·인스타 소개 문구를 파일로 한 번에.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '프로젝트 화면 첫 대화' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 완성한 {{place}} 소개서 → 프로젝트 파일(가장 먼저)</span></div></div>

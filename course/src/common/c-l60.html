@@ -3,8 +3,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 30분 · PC</span>
     <h2>숫자는 한 파일에, 해석은 AI에게</h2>
-    <p class="goal">마케팅 장부·매출·재방문·리뷰를 '{{place}} 데이터 허브' 구글 시트 한 파일로 묶어요. 매주 10분 숫자를 옮기면, AI 비서가 이 파일 하나만 읽고 경영 브리핑을 써요.</p>
+    <p class="goal">마케팅 장부·매출·재방문·리뷰를 '{{place}} 데이터 허브' 구글 시트 한 파일로 묶어요. 매주 10분만 숫자를 옮겨요. 그러면 AI 비서가 이 파일 하나만 읽고 경영 브리핑을 써요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>여기저기 흩어진 숫자를 '서랍장 하나'에 모으는 거예요. AI 비서는 이 서랍장만 열어 보면 {{place}} 사정을 다 알아요.</span></div><div class="easy-row"><b>끝나면</b><span>일매출·유입경로·재방문·리뷰·월성과·요약 탭이 있는 '{{place}} 데이터 허브' 시트</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 마케팅 장부, 1시간 30분 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>인수 전 12개월 숫자를 '인수 전' 탭으로. 모든 비교의 기준선이에요.</span></p>
 
   <div class="vis">
@@ -21,17 +22,18 @@
     </table></div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a60a" data-key="v_a60a"><div class="body"><label for="v_a60a">허브 시트 만들고 탭 나누기</label><small>드라이브에 <b>{{place}} 데이터 허브</b> 시트 → 탭: 일매출, 유입경로, 재방문, 리뷰, 월성과, 요약.</small></div></li>
-    <li><input type="checkbox" id="v_a60b" data-key="v_a60b"><div class="body"><label for="v_a60b">마케팅 장부를 끌어오기</label><small>리뷰·월성과는 이미 마케팅 장부에 있어요. 두 번 적지 않게 <dfn data-t="importrange">IMPORTRANGE</dfn>로 보여 주기만 해요.</small>
+    <li><input type="checkbox" id="v_a60a" data-key="v_a60a"><div class="body"><label for="v_a60a">허브 시트 만들고 탭 나누기</label><small>숫자 종류마다 칸을 나눠야 AI가 헷갈리지 않아요. 드라이브에서 <span class="path">+ 새로 만들기 → Google 스프레드시트</span> → 이름 <b>{{place}} 데이터 허브</b>. 맨 아래 <span class="path">+</span>로 <dfn data-t="tab">탭</dfn>을 만들어요. 탭 이름은 일매출, 유입경로, 재방문, 리뷰, 월성과, 요약이에요.</small></div></li>
+    <li><input type="checkbox" id="v_a60b" data-key="v_a60b"><div class="body"><label for="v_a60b">마케팅 장부를 끌어오기</label><small>리뷰·월성과는 이미 마케팅 장부에 있어요. 두 번 적지 않게 <dfn data-t="importrange">IMPORTRANGE</dfn>(다른 시트 내용을 비춰 보여 주는 수식)로 보여 주기만 해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>마케팅 장부를 열고 주소창 주소 전체 복사</li>
         <li>허브 시트 '리뷰' 탭 A1에 <span class="path">=IMPORTRANGE("복사한 주소", "리뷰!A:H")</span></li>
-        <li>#REF! 칸에 마우스를 올려 <span class="path">액세스 허용</span>. 월성과도 같은 방법</li>
+        <li>#REF! 칸에 마우스를 올려 <span class="path">액세스 허용</span> 누르기. 월성과도 같은 방법으로 해요<span class="fix">막히면: 계속 #REF!가 뜨면 따옴표가 빠졌거나 탭 이름이 다른 거예요. 마케팅 장부의 탭 이름이 '리뷰'인지 확인해요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a60c" data-key="v_a60c"><div class="body"><label for="v_a60c">일매출은 엑셀로 한 번에 (가능하면)</label><small>단말기 앱이나 <span data-biz="vet">차트</span><span data-biz-not="vet">포스</span>에서 기간 매출을 엑셀로 내려받을 수 있으면, 매주 그 파일을 '07 자동화 도우미'에게 주고 "일매출 탭 형식으로 바꿔 줘" → 붙여 넣기. 안 되면 일계표 숫자를 손으로 옮겨요(하루 1분).</small></div></li>
-    <li><input type="checkbox" id="v_a60d" data-key="v_a60d"><div class="body"><label for="v_a60d">요약 탭 수식 받기</label><small>아래 부탁문으로 수식을 받아 붙여 넣어요.</small></div></li>
-    <li><input type="checkbox" id="v_a60e" data-key="v_a60e"><div class="body"><label for="v_a60e">AI 프로젝트 파일에 허브 추가</label><small>AI 비서실 프로젝트 파일(<a href="#c-l5" class="ref" data-ref="c-l5">강의</a>)에 '{{place}} 데이터 허브'를 넣으면 브리핑이 매출·재방문까지 같이 봐요.</small></div></li>
+    <li><input type="checkbox" id="v_a60c" data-key="v_a60c"><div class="body"><label for="v_a60c">일매출은 엑셀로 한 번에 (가능하면)</label><small>단말기 앱이나 <span data-biz="vet">차트</span><span data-biz-not="vet">포스</span>에서 기간 매출을 엑셀로 내려받을 수 있는지 먼저 봐요. 된다면 매주 그 파일을 '07 자동화 도우미' 채팅에 주고 "일매출 탭 형식으로 바꿔 줘"라고 해요. 받은 표를 붙여 넣어요. 안 되면 일계표 숫자를 손으로 옮겨요(하루 1분).</small></div></li>
+    <li><input type="checkbox" id="v_a60d" data-key="v_a60d"><div class="body"><label for="v_a60d">요약 탭 수식 받기</label><small>합계·비교를 저절로 계산하게 하려고 해요. 아래 부탁문으로 수식을 받아, AI가 알려 준 칸에 하나씩 붙여 넣어요.</small></div></li>
+    <li><input type="checkbox" id="v_a60e" data-key="v_a60e"><div class="body"><label for="v_a60e">AI 프로젝트 파일에 허브 추가하기</label><small>AI 비서실 <dfn data-t="project">프로젝트</dfn> 파일(<a href="#c-l5" class="ref" data-ref="c-l5">강의</a>)에 '{{place}} 데이터 허브'를 넣어요. 그러면 브리핑이 매출·재방문까지 같이 봐요.</small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '07 자동화 도우미' 채팅에 붙여 넣으세요. 탭의 열 순서를 바꿨다면 그 부분만 고쳐요.</p>
   <div class="prompt"><div class="bar"><span>요약 탭 수식 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '{{place}} 데이터 허브'의 요약 탭 수식을 만들어 줘. 탭 구조:
 일매출(A 날짜 | B 카드 | C 현금·이체 | D 건수 | E 신규 | F <span data-biz="vet">재진</span><span data-biz-not="vet">재방문</span>), 유입경로(A 월 | B~F 경로별 수), 재방문(G 다음 예정일, H 연락 동의, I 연락한 날), 리뷰(A 날짜 | C 별점).
 요약 탭에 보여 줄 것: 이번 달 매출·건수·객단가, 지난달 대비 %, 신규 비율, 이번 달 유입 1위 경로, 2주 안 재방문 대상 수, 이번 달 리뷰 수와 평균 별점.

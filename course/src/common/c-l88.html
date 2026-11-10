@@ -2,14 +2,15 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>임대료·공과금·수수료·신고, 3일 전에 먼저 알기</h2>
-    <p class="goal">{{place}} 통장에서 매달 빠져나가는 돈과 신고 기한을 '고정지출' 표 하나에 적으면, 스크립트가 '<b>돈 나가는 날</b>'·'<b>세무·신고</b>' 캘린더에 반복 일정과 알림을 한 번에 만들어요. 금액이 평소와 다르면 바로 눈에 띄어요.</p>
+    <p class="goal">{{place}} 통장에서 매달 빠져나가는 돈과 신고 기한을 '고정지출' 표 하나에 적어요. 그러면 스크립트가 '<b>돈 나가는 날</b>'·'<b>세무·신고</b>' 캘린더에 반복 일정과 알림을 한 번에 만들어요. 금액이 평소와 다르면 바로 눈에 띄어요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>달력에 '돈 나가는 날' 스티커를 한 번에 붙이는 거예요. 날이 다가오면 휴대폰이 3일 전에 먼저 알려 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>임대료·공과금·보험·세금 날짜가 매달 반복으로 들어간 구글 캘린더, 금액을 한눈에 보는 '고정지출' 표</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 고지서·계약서 사진, {{place}} 데이터 허브 시트(<a href="#c-l60" class="ref" data-ref="c-l60">강의</a>), 1시간 · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="table-wrap"><table>
     <thead><tr><th>분류</th><th>예</th><th>언제(보통)</th></tr></thead>
     <tbody>
       <tr><td><b>임차·관리</b></td><td>임대료, 관리비</td><td>계약서 날짜</td></tr>
       <tr><td><b>공과금</b></td><td>전기, 수도, 가스, 인터넷·전화</td><td>고지서 납기일</td></tr>
-      <tr><td><b>결제 수수료</b></td><td>카드 단말기 월 관리비, 밴 대리점 약정, 카드사 매출 입금 확인</td><td>견적서·계약서(<a href="#c-l51" class="ref" data-ref="c-l51">강의</a>) 기준</td></tr>
+      <tr><td><b>결제 수수료</b></td><td>카드 단말기 월 관리비, <dfn data-t="van">밴</dfn> 대리점 약정, 카드사 매출 입금 확인</td><td>견적서·계약서(<a href="#c-l51" class="ref" data-ref="c-l51">강의</a>) 기준</td></tr>
       <tr><td><b>리스·구독</b></td><td>장비 리스, <span data-biz="vet">차트 이용료</span><span data-biz-not="vet">포스·예약 프로그램 이용료</span>, AI·디자인 구독, 문자 충전</td><td>계약일</td></tr>
       <tr><td><b>인건비·보험</b></td><td>급여일, 4대보험</td><td>급여일, 4대보험은 다음 달 10일</td></tr>
       <tr><td><b>세무·신고</b></td><td>원천세, 부가세, 종합소득세</td><td>세무 일정(<a href="#c-l73" class="ref" data-ref="c-l73">강의</a>)</td></tr>
@@ -17,16 +18,17 @@
     </tbody>
   </table></div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a88a" data-key="v_a88a"><div class="body"><label for="v_a88a">'고정지출' 탭 만들기</label><small>{{place}} 데이터 허브(<a href="#c-l60" class="ref" data-ref="c-l60">강의</a>)에 탭을 더하고 제목 줄을 붙여 넣어요. 고지서·계약서 사진을 AI에게 주면 이 표로 옮겨 줘요.</small></div></li>
-    <li><input type="checkbox" id="v_a88b" data-key="v_a88b"><div class="body"><label for="v_a88b">스크립트로 반복 일정 만들기</label>
+    <li><input type="checkbox" id="v_a88a" data-key="v_a88a"><div class="body"><label for="v_a88a">'고정지출' 탭 만들기</label><small>나가는 돈을 한곳에 모아야 빠뜨리지 않아요. {{place}} 데이터 허브(<a href="#c-l60" class="ref" data-ref="c-l60">강의</a>) 맨 아래 <span class="path">+</span>로 탭을 더하고, 아래 '고정지출 탭 제목 줄'을 A1 칸에 붙여 넣어요. 고지서·계약서 사진을 AI에게 주면 이 표로 옮겨 줘요(아래 '고지서 → 고정지출 부탁문').</small></div></li>
+    <li><input type="checkbox" id="v_a88b" data-key="v_a88b"><div class="body"><label for="v_a88b">스크립트로 반복 일정 만들기</label><small>일정을 하나씩 손으로 넣지 않으려고 <dfn data-t="appsscript">앱스 스크립트</dfn>(시트에 붙이는 작은 프로그램)를 써요. 먼저 구글 캘린더에 '돈 나가는 날', '세무·신고' 캘린더를 만들어 둬요. 이름이 표의 '캘린더' 칸과 똑같아야 해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>허브 시트 → <span class="path">확장 프로그램 → Apps Script</span> → 아래 '고정지출 → 캘린더 스크립트' 붙여 넣기 → 저장</li>
-        <li>함수 <b>syncBills</b> → 실행 → 권한 허용</li>
-        <li>캘린더에서 매달 반복 일정과 알림이 생겼는지 확인. 표에 줄을 더하면 다시 실행<span class="fix">'매월 며칠'이 29~31일이면 짧은 달에 빠질 수 있어요. 말일은 28일로 적고 메모에 '말일'이라고 쓰세요.</span></li>
+        <li>위쪽 함수 목록에서 <b>syncBills</b> 고르기 → <span class="path">실행</span> → 권한 허용<span class="fix">막히면: '확인하지 않은 앱' 경고가 뜨면 <span class="path">고급 → 이동 → 허용</span>을 눌러요. 표의 마지막 칸에 '캘린더 이름 확인'이 뜨면 캘린더 이름이 표와 다른 거예요.</span></li>
+        <li>캘린더에서 매달 반복 일정과 알림이 생겼는지 확인해요. 표에 줄을 더하면 다시 실행해요<span class="fix">'매월 며칠'이 29~31일이면 짧은 달에 빠질 수 있어요. 말일은 28일로 적고 메모에 '말일'이라고 쓰세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a88c" data-key="v_a88c"><div class="body"><label for="v_a88c">매년 한 번만 오는 날은 직접</label><small>종합소득세, 계약 갱신, <span data-biz="vet">방사선 검사</span><span data-biz-not="vet">보험 갱신</span>처럼 1년·3년 주기는 AI에게 "'장비·법정 의무' 캘린더에 매년 ○월 ○일, 한 달 전·일주일 전 알림"이라고 부탁해요.</small></div></li>
-    <li><input type="checkbox" id="v_a88d" data-key="v_a88d"><div class="body"><label for="v_a88d">매달 1일, 지난달 고지서와 비교</label><small>고지서 사진을 모아 "고정지출 탭 대략 금액과 다른 것"을 물어요. 전기 요금이 갑자기 늘면 <span data-biz="vet">입원실 히터·</span><span data-biz-not="vet">냉난방기·</span>냉장 장비 점검 신호일 수도 있어요.</small></div></li>
+    <li><input type="checkbox" id="v_a88c" data-key="v_a88c"><div class="body"><label for="v_a88c">매년 한 번만 오는 날은 따로 넣기</label><small>스크립트는 매달 반복만 만들어요. 종합소득세, 계약 갱신, <span data-biz="vet">방사선 검사</span><span data-biz-not="vet">보험 갱신</span>처럼 1년·3년 주기는 AI에게 "'장비·법정 의무' 캘린더에 매년 ○월 ○일, 한 달 전·일주일 전 알림"이라고 부탁해요.</small></div></li>
+    <li><input type="checkbox" id="v_a88d" data-key="v_a88d"><div class="body"><label for="v_a88d">매달 1일, 지난달 고지서와 비교하기</label><small>새는 돈을 일찍 찾으려고 해요. 고지서 사진을 모아 AI에게 "고정지출 탭 대략 금액과 다른 것"을 물어요. 전기 요금이 갑자기 늘면 <span data-biz="vet">입원실 히터·</span><span data-biz-not="vet">냉난방기·</span>냉장 장비 점검 신호일 수도 있어요.</small></div></li>
   </ol>
+  <p class="cap">제목 줄은 시트 A1 칸에, 스크립트는 Apps Script에 그대로 붙여 넣으세요. 고칠 곳은 없어요. 고지서 부탁문은 사진과 함께 '07 자동화 도우미' 채팅에 붙여 넣어요.</p>
   <div class="prompt" data-tsv><div class="bar"><span>고정지출 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>항목 | 캘린더(돈 나가는 날/세무·신고) | 매월 며칠 | 대략 금액 | 결제 방법 | 며칠 전 알림 | 메모 | 캘린더ID</pre></div>
   <div class="prompt"><div class="bar"><span>고정지출 → 캘린더 스크립트</span><button class="copy" type="button">복사</button></div><pre>function syncBills() {
   var sh = SpreadsheetApp.getActive().getSheetByName('고정지출');
@@ -50,7 +52,7 @@
 }</pre></div>
   <div class="prompt"><div class="bar"><span>고지서 → 고정지출 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 고지서·계약서 사진을 '고정지출' 탭 형식으로 옮겨 줘: 항목 | 캘린더(돈 나가는 날/세무·신고) | 매월 며칠 | 대략 금액 | 결제 방법 | 며칠 전 알림 | 메모.
 고객번호·계좌번호·카드번호는 옮기지 마. 날짜가 안 보이면 '확인 필요'. 1년에 한 번 오는 일정은 따로 목록으로.</pre></div>
-  <p class="tip warnbox"><b>계좌번호·카드번호는 캘린더와 시트에 쓰지 않아요.</b> '{{place}} 통장 자동이체', '법인카드 끝 4자리'처럼만. 캘린더는 공유 설정 실수 하나로 남에게 보일 수 있어요.</p>
+  <p class="tip warnbox"><b>계좌번호·카드번호는 캘린더와 시트에 쓰지 않아요.</b> '{{place}} 통장 자동이체', '법인카드 끝 4자리'처럼만 적어요. 캘린더는 공유 설정 실수 하나로 남에게 보일 수 있어요.</p>
         <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-trig">트리거</span><div class="ad"><b>매달 1일 syncBills</b><span>고정지출 탭에 새로 적은 줄만 1일 아침에 캘린더로.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>큰 금액 확인</b><span>고지서가 평소보다 크면.</span><span class="pv">버튼: 확인함 / 문의 필요</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "고지 금액 읽기" 부탁: 관리비·전기 요금 화면(로그인은 {{owner}})의 이번 달 금액을 고정지출 탭과 비교. 읽기만 하고 결과는 표로 받아요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>관리비·한전 사이트</code>만 허락 · 자주 하면 단축 명령, 읽기는 예약도</span></div><div class="run-row"><b>터미널·봇</b><span>앱스 스크립트 syncBills, 큰 금액은 텔레그램 확인.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '07 자동화 도우미' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 고지서 사진은 이 채팅에만(계좌번호 가리기)</span></div></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>고지서 사진은 이 채팅에만(계좌번호 가리기)</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>

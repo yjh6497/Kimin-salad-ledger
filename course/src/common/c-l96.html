@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절 · 인테리어 업체 미팅 전</span>
     <h2>업체를 만나기 전에, {{owner}} 머릿속 {{place:을}} 그려 두기</h2>
-    <p class="goal">인테리어 업체는 '예쁜 {{place}}'을 잘 만들지만, <span data-biz="vet">진료 동선과 감염 관리는</span><span data-biz-not="vet">일하는 동선과 위생·정리는</span> {{owner:이}} 제일 잘 알아요. AI 인터뷰로 <b><span data-biz="vet">진료 흐름·장비·인원·동물 종류</span><span data-biz-not="vet">일의 흐름·장비·인원·{{customer}} 수</span></b>를 정리하고, 구역 배치 스케치와 무드보드, 업체에 줄 요구사항서까지 만들어요.</p>
+    <p class="goal">인테리어 업체는 '예쁜 {{place:을}}' 잘 만들어요. 하지만 <span data-biz="vet">진료 동선과 감염 관리는</span><span data-biz-not="vet">일하는 동선과 위생·정리는</span> {{owner:이}} 제일 잘 알아요. AI 인터뷰로 <b><span data-biz="vet">진료 흐름·장비·인원·동물 종류</span><span data-biz-not="vet">일의 흐름·장비·인원·{{customer}} 수</span></b>를 정리해요. 그다음 구역 배치 스케치와 무드보드(분위기 사진 모음), 업체에 줄 요구사항서까지 만들어요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>집 짓기 전에 "부엌은 어디, 방은 몇 개"를 먼저 적어 두는 일이에요. AI가 질문을 하나씩 던지며 {{owner}} 머릿속 그림을 글로 꺼내 줘요.</span></div><div class="easy-row"><b>끝나면</b><span>구역 배치 스케치 2안, 분위기 이미지, 기구 목록 표, 업체에 똑같이 보낼 요구사항서 한 장이 생겨요.</span></div><div class="easy-row"><b>필요한 것</b><span>임대 공간 평면도(사진도 돼요), 장비 목록, 반나절 · 인테리어 업체 만나기 전에 해요.</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>전체 공사 대신 '고칠 곳 목록'부터. 지금 배치 사진·평면도로 동선 문제와 시설 기준을 점검해요.</span></p>
 
   <div class="vis" data-biz="vet">
@@ -42,7 +43,7 @@
     </tbody>
   </table></div>
   <p class="cap" data-biz="vet">근거: 수의사법 시행규칙 별표 1 「{{biz}}의 세부 시설기준」(2024. 4. 25. 개정) — 법령 MCP로 2026. 11. 7. 조회. 방사선 장비는 설치 신고·안전관리 기준(<a href="#v-l71" class="ref" data-ref="v-l71">강의</a>)을, 건물 용도는 건축물대장을 업체·도우미와 같이 확인해요.</p>
-  <p class="cap" data-biz-not="vet">업종마다 영업 신고·위생·소방 시설 기준이 따로 있어요. 우리 업종에 맞는 규정은 법령 MCP로 확인하고, 건물 용도는 건축물대장을 업체·도우미와 같이 확인해요.</p>
+  <p class="cap" data-biz-not="vet">업종마다 영업 신고·위생·소방 시설 기준이 따로 있어요. 우리 업종에 맞는 규정은 <dfn data-t="lawmcp">법령 MCP</dfn>로 확인해요. 건물 용도는 <dfn data-t="bldreg">건축물대장</dfn>을 업체·도우미와 같이 확인해요.</p>
   <ol class="steps">
     <li><input type="checkbox" id="v_a96a" data-key="v_a96a"><div class="body"><label for="v_a96a">① <span data-biz="vet">진료</span><span data-biz-not="vet">일</span> 흐름 인터뷰</label><small>아래 '인테리어 인터뷰' 부탁문. <span data-biz="vet">하루 예상 내원 수, 수술 비중, 입원 칸 수, 미용 여부, 고양이 비율, 장비 목록, 직원 수를</span><span data-biz-not="vet">하루 예상 {{customer}} 수, 바쁜 시간대, 대표 {{item}}, 장비 목록, 보관할 것, 직원 수를</span> 물어봐요.</small></div></li>
     <li><input type="checkbox" id="v_a96b" data-key="v_a96b"><div class="body"><label for="v_a96b">② 평면도로 구역 배치 스케치</label><small>임대 공간 평면도(사진이어도 돼요)를 올리고 "구역 배치 2안을 그려 줘". <span data-ai-not="gpt">Claude는 구역 배치를 그림(SVG)으로 바로 그려 줘요.</span><span data-ai-none> </span><span data-ai-not="claude">ChatGPT는 평면 위 구역 표시 이미지를 만들어 줘요.</span> 치수는 정확하지 않으니 '생각 정리용'으로만. 종이에 직접 그려 검토받는 법과 배치 연습판은 다음 강의(<a href="#c-l99" class="ref" data-ref="c-l99">강의</a>)에.</small></div></li>

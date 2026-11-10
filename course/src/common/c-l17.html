@@ -2,11 +2,12 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC 크롬 · 고급·선택</span>
     <h2>AI가 크롬을 직접 움직여 답글을 쓰게 해 보기</h2>
-    <p class="goal">크롬 확장 프로그램 형태의 AI 브라우저 봇(Claude in Chrome 같은)은 {{owner:이}} 로그인한 화면을 보고, 클릭하고, 글을 칸에 입력할 수 있어요. 이 강의에서는 <b>아래 연습판에서 먼저</b> 해 보고, 실제 스마트플레이스에서는 <b>한 건만, 등록 버튼은 {{owner:이}}</b> 누르는 방식으로 테스트해요.</p>
+    <p class="goal">크롬 확장 프로그램(크롬에 덧붙여 까는 작은 프로그램) 형태의 AI 브라우저 봇이 있어요(Claude in Chrome 같은). 이 봇은 {{owner:이}} 로그인한 화면을 보고, 클릭하고, 글을 칸에 입력할 수 있어요. 이 강의에서는 <b>아래 연습판에서 먼저</b> 해 봐요. 실제 스마트플레이스에서는 <b>한 건만, 등록 버튼은 {{owner:이}}</b> 누르는 방식으로 테스트해요.</p>
     <p class="plannote" data-plan="free"><b class="tag">무료 플랜</b><span>브라우저 봇 기능은 보통 유료 플랜에서 열려요. 무료라면 연습판 읽기와 앞 강의의 단축어 방식(<a href="#c-l16" class="ref" data-ref="c-l16">강의</a>)으로 충분해요.</span></p>
     <p class="plannote" data-plan="paid"><b class="tag">유료 플랜</b><span><span data-ai-not="gpt">Claude in Chrome 확장 프로그램을 설치해 따라 해요.</span><span data-ai="gpt">ChatGPT의 에이전트(브라우저 조작) 기능으로도 같은 순서로 할 수 있어요.</span></span></p>
   </div>
-  <p class="tip warnbox"><b>먼저 알아 둘 위험.</b> 네이버·카카오는 자동화된 프로그램으로 서비스에 접근하는 것을 이용약관과 보안 시스템으로 제한해요. 짧은 시간에 반복 클릭·입력이 감지되면 <b>보안문자, 로그인 차단, 계정 보호조치(일시 이용 제한)</b>가 걸릴 수 있고, 그러면 {{place}} 플레이스 관리가 며칠 멈출 수 있어요. 그래서 이 강의의 규칙은 셋이에요: <b>① 연습판에서 먼저 ② 실제 화면에선 하루 몇 건만, 천천히 ③ '등록' 버튼은 사람이</b>. 보안문자나 경고가 한 번이라도 뜨면 그날은 중단하고 손으로 해요.</p>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>운전 연습장에서 먼저 몰아 보듯, AI가 크롬을 대신 움직이는 걸 연습판에서 시험해 보는 거예요. 마지막 '등록' 버튼은 늘 {{owner:이}} 눌러요.</span></div><div class="easy-row"><b>끝나면</b><span>브라우저 봇이 답글 칸에 초안을 넣고 멈추는지 확인한 점검표, 그리고 계속 쓸지 말지에 대한 결정이 남아요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC 크롬, 유료 AI 플랜(브라우저 봇), 1시간 · 고급·선택 강의예요. 크롬과 계정 준비가 아직이면 <a href="#c-b1" class="ref" data-ref="c-b1">강의</a> 먼저</span></div></div>
+  <p class="tip warnbox"><b>먼저 알아 둘 위험.</b> 네이버·카카오는 자동화된 프로그램으로 서비스에 접근하는 것을 이용약관과 보안 시스템으로 제한해요. 짧은 시간에 반복 클릭·입력이 감지되면 <b>보안문자, 로그인 차단, 계정 보호조치(일시 이용 제한)</b>가 걸릴 수 있어요. 그러면 {{place}} 플레이스 관리가 며칠 멈출 수 있어요. 그래서 이 강의의 규칙은 셋이에요: <b>① 연습판에서 먼저 ② 실제 화면에선 하루 몇 건만, 천천히 ③ '등록' 버튼은 사람이</b>. 보안문자나 경고가 한 번이라도 뜨면 그날은 중단하고 손으로 해요.</p>
 
   <h3>연습판: 가짜 리뷰 3개</h3>
   <div class="vis">
@@ -36,12 +37,13 @@
   </script>
 
   <ol class="steps">
-    <li><input type="checkbox" id="v_a17a" data-key="v_a17a"><div class="body"><label for="v_a17a">① 브라우저 봇 준비</label><small><span data-ai-not="gpt">PC 크롬에 Claude in Chrome 확장 프로그램을 설치하고 {{place}} Claude 계정으로 로그인해요. 사이트 접근 권한은 <b>필요한 사이트만, 그때그때 허용</b>으로 두세요.</span><span data-ai="gpt">ChatGPT 에이전트 기능을 켜고, 로그인이 필요한 사이트는 {{owner:이}} 직접 로그인해요.</span></small></div></li>
-    <li><input type="checkbox" id="v_a17b" data-key="v_a17b"><div class="body"><label for="v_a17b">② 연습판에서 테스트</label><small>이 코스를 PC 크롬으로 열어 이 강의의 연습판이 보이게 한 뒤, 봇에게 아래 '연습판 테스트' 부탁문. 봇이 리뷰를 읽고 칸에 답글을 입력한 뒤 멈추는지 봐요. {{owner:이}} 읽고 '답글 등록(연습)'을 직접 눌러요.</small></div></li>
-    <li><input type="checkbox" id="v_a17c" data-key="v_a17c"><div class="body"><label for="v_a17c">③ 결과 점검</label><small>아래 점검표로 확인해요. 하나라도 '아니요'면 부탁문을 고쳐 다시 연습판에서.</small></div></li>
-    <li><input type="checkbox" id="v_a17d" data-key="v_a17d"><div class="body"><label for="v_a17d">④ 실제 스마트플레이스에서 1건</label><small>스마트플레이스 리뷰 화면을 {{owner:이}} 열고 로그인한 상태에서 '실제 1건 테스트' 부탁문. 봇은 답글 칸에 입력까지만 하고 멈춰요. {{owner:이}} 읽고 고친 뒤 <b>등록 버튼을 직접</b> 눌러요.</small></div></li>
-    <li><input type="checkbox" id="v_a17e" data-key="v_a17e"><div class="body"><label for="v_a17e">⑤ 운영할지 결정</label><small>일주일 동안 하루 한 번, 3건 이하로 써 보고 시간이 정말 줄었는지, 경고가 없었는지 봐요. 보안문자·로그인 확인이 한 번이라도 떴다면 브라우저 봇은 '읽고 표로 정리'(<a href="#c-l16" class="ref" data-ref="c-l16">강의</a>)까지만 쓰고 입력은 손으로 돌아가요.</small></div></li>
+    <li><input type="checkbox" id="v_a17a" data-key="v_a17a"><div class="body"><label for="v_a17a">① 브라우저 봇 준비하기</label><small><span data-ai-not="gpt">봇이 아무 사이트나 만지지 못하게 처음부터 좁게 열어 둬요. PC 크롬에 Claude in Chrome 확장 프로그램을 설치해요. {{place}} Claude 계정으로 로그인해요. 사이트 접근 권한은 <b>필요한 사이트만, 그때그때 허용</b>으로 두세요.</span><span data-ai="gpt">ChatGPT 에이전트 기능을 켜요. 로그인이 필요한 사이트는 {{owner:이}} 직접 로그인해요.</span></small></div></li>
+    <li><input type="checkbox" id="v_a17b" data-key="v_a17b"><div class="body"><label for="v_a17b">② 연습판에서 테스트하기</label><small>실수해도 아무 일 없는 곳에서 먼저 봐요. 이 코스를 PC 크롬으로 열어 이 강의의 연습판이 보이게 해요. 봇에게 아래 '연습판 테스트' 부탁문을 보내요. 봇이 리뷰를 읽고 칸에 답글을 입력한 뒤 멈추는지 봐요. {{owner:이}} 읽고 '답글 등록(연습)'을 직접 눌러요.</small><span class="fix">막히면: 봇이 "이 페이지에 접근할 수 없어요"라고 하면 크롬 오른쪽 위 확장 아이콘에서 이 사이트 접근을 허용해요.</span></div></li>
+    <li><input type="checkbox" id="v_a17c" data-key="v_a17c"><div class="body"><label for="v_a17c">③ 결과 점검하기</label><small>실제 화면으로 가기 전에 봇이 규칙을 지켰는지 봐요. 아래 점검표로 확인해요. 하나라도 '아니요'면 부탁문을 고쳐서 다시 연습판에서 해요.</small></div></li>
+    <li><input type="checkbox" id="v_a17d" data-key="v_a17d"><div class="body"><label for="v_a17d">④ 실제 스마트플레이스에서 1건 해 보기</label><small>한 건만 해서 계정 제한 위험을 줄여요. 스마트플레이스 리뷰 화면을 {{owner:이}} 열고 로그인해요. 그 상태에서 '실제 1건 테스트' 부탁문을 보내요. 봇은 답글 칸에 입력까지만 하고 멈춰요. {{owner:이}} 읽고 고친 뒤 <b>등록 버튼을 직접</b> 눌러요.</small></div></li>
+    <li><input type="checkbox" id="v_a17e" data-key="v_a17e"><div class="body"><label for="v_a17e">⑤ 계속 쓸지 결정하기</label><small>일주일 동안 하루 한 번, 3건 이하로 써 봐요. 시간이 정말 줄었는지, 경고가 없었는지 봐요. 보안문자·로그인 확인이 한 번이라도 떴다면 브라우저 봇은 '읽고 표로 정리'(<a href="#c-l16" class="ref" data-ref="c-l16">강의</a>)까지만 쓰고 입력은 손으로 돌아가요.</small></div></li>
   </ol>
+  <p class="cap">아래 두 글은 그대로 복사해서 크롬 옆 봇 창(사이드 패널)에 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>연습판 테스트 부탁문</span><button class="copy" type="button">복사</button></div><pre>지금 열린 페이지의 '연습판: 가짜 리뷰 3개'만 다뤄 줘. 다른 곳은 누르지 마.
 1) 리뷰 3개를 읽고 각각 급한 정도([급함]/[보통]/[여유])를 말해 줘
 2) 각 리뷰 아래 '사장님 답글' 칸에 답글을 입력해(3~4문장, 리뷰에 없는 <span data-biz="vet">진료</span><span data-biz-not="vet">이용</span> 내용·가격·{{customer}} 정보 쓰지 않기, 할인 약속·최상급 표현 금지, 같은 첫 문장 반복 금지)
@@ -64,7 +66,7 @@
       <tr><td>보안문자·경고가 없었나</td><td>□</td></tr>
     </tbody>
   </table></div>
-  <p class="tip"><b>왜 등록은 사람이?</b> 답글은 {{place}} 이름으로 영구히 남고, 다음 {{customer:가}} 읽어요. 봇이 다른 리뷰에 답을 붙이거나 틀린 날짜를 쓰면 되돌리기 어려워요. 또 자동 등록은 네이버의 자동화 제한에 걸릴 가능성이 가장 큰 동작이에요. 봇은 읽고·쓰고·멈추기까지, 등록은 {{owner}} 손으로.</p>
+  <p class="tip"><b>왜 등록은 사람이?</b> 답글은 {{place}} 이름으로 영구히 남아요. 다음 {{customer:가}} 그 답글을 읽어요. 봇이 다른 리뷰에 답을 붙이거나 틀린 날짜를 쓰면 되돌리기 어려워요. 또 자동 등록은 네이버의 자동화 제한에 걸릴 가능성이 가장 큰 동작이에요. 봇은 읽고·쓰고·멈추기까지, 등록은 {{owner}} 손으로.</p>
         <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-pc">24시간 컴퓨터</span><div class="ad"><b>예약 실행은 연습판에서만</b><span>봇 예약 실행을 시험할 때도 이 코스의 연습판에서. 실제 네이버·카카오 화면에는 쓰기 작업을 예약하지 않아요<a href="#c-l69" class="ref" data-ref="c-l69">강의</a>.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>봇은 허락 뒤에만 입력</b><span>연습판에서 봇이 답글을 입력하기 전에 텔레그램 허락을 받는 흐름을 연습해요. 실제 네이버·카카오에는 쓰지 않아요.</span><span class="pv">버튼: 입력 허락 / 멈춤</span></div></li></ul></div>
     <div class="runbox"><div class="run-h"><b>실행 방법</b><span>내장 브라우저 · 크롬 · 터미널/봇 · 비서</span><a href="#c-l29" class="ref" data-ref="c-l29">강의</a></div><div class="run-row"><b>내장 브라우저</b><span>Claude 데스크톱 앱 내장 브라우저({{place}} 계정만 로그인)에 "연습판에서 먼저" 부탁: 쓰기 연습은 이 강의의 연습판에서. 실제 화면은 한 건씩. 저장·제출 버튼 앞에서 멈추게 해요. ChatGPT라면 에이전트 모드에서 같은 부탁, 로그인 화면은 {{owner:이}} 넘겨받아요.</span></div><div class="run-row"><b>크롬</b><span>평소 크롬 + Claude in Chrome 사이드 패널에 같은 부탁문. 확장 권한은 <code>이 코스 연습판</code>만 허락 · 자주 하면 단축 명령으로 저장</span></div><div class="run-row"><b>터미널·봇</b><span>연습판에서만: 봇이 입력하기 전 텔레그램 허락 받는 흐름.</span></div><div class="run-row"><b>비서 연동</b><span>브라우저 AI가 읽은 결과·채운 내용 요약을 '01 플레이스 매니저' 채팅에 붙이면 정리·초안·다음 할 일이 나와요. 결정할 것은 "승인함 한 줄로"라고 하면 텔레그램 버튼으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>). 결과 보관: 브라우저 봇은 크롬 패널에서, 규칙은 이 채팅과 같게</span></div></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 {{place}} AI 비서실'</b> → <b>01 플레이스 매니저</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>브라우저 봇은 크롬 패널에서, 규칙은 이 채팅과 같게</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해 줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>

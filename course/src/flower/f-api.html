@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">읽기·실습 · 약 1시간 · PC</span>
     <h2>시세·대목·날씨·배송지, 꽃집에 붙는 공공데이터 여섯 줄</h2>
-    <p class="goal">꽃집 일의 큰 흐름은 <b>사입 → 대목 준비 → 제작 → 배송</b>이에요. 단계마다 나라가 무료로 여는 데이터가 있어요. 이 강의에서 어떤 데이터가 어디에 쓰이는지 한 장으로 보고, 필요한 <dfn data-t="apikey">인증키</dfn>를 한 번에 받아 '꽃집 운영 장부'에 보관해요. 이 단계의 나머지 강의는 모두 이 키를 써요.</p>
+    <p class="goal">꽃집 일의 큰 흐름은 <b>사입 → 대목 준비 → 제작 → 배송</b>이에요. 단계마다 나라가 무료로 여는 데이터가 있어요. 이 강의에서는 어떤 데이터가 어디에 쓰이는지 한 장으로 봐요. 그리고 필요한 <dfn data-t="apikey">인증키</dfn>(자료를 받을 때 쓰는 비밀번호)를 한 번에 받아 '꽃집 운영 장부'에 보관해요. 이 단계의 나머지 강의는 모두 이 키를 써요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>나라가 여는 무료 자료실의 '출입증'을 미리 받아 두는 거예요. 출입증만 있으면 시트가 시세·날씨·학교 일정을 알아서 가져와요.</span></div><div class="easy-row"><b>끝나면</b><span>세 곳의 인증키가 장부의 스크립트 속성에 안전하게 들어가고, '키점검' 탭에서 키가 되는지 확인돼요.</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 휴대폰(본인 인증), 구글 계정, '꽃집 운영 장부' 시트, 1시간 · 스크립트를 처음 붙인다면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="prep"><b class="tag">개업 준비라면</b><span>시세·학교 데이터만 먼저 받아도 첫 대목 준비가 훨씬 쉬워요. 날씨·배송은 문 연 뒤에 붙여도 늦지 않아요.</span></p>
   <p class="tknote" data-stage-only="operate"><b class="tag">이미 운영 중이라면</b><span>지난해 대목 매출과 올해 경매 시세를 같은 시트에 두면 "작년보다 얼마나 더 사야 하나"를 숫자로 정할 수 있어요.</span></p>
 
@@ -18,27 +19,27 @@
       <tr><td><b>상가(상권) 정보</b></td><td>공공데이터포털 '소상공인시장진흥공단_상가(상권)정보_API'</td><td>반경 안 꽃집 수와 위치 → 입지·인수 판단</td><td><span class="refs" data-refs="c-l61"></span></td></tr>
     </tbody>
   </table></div>
-  <p class="tip"><b>모든 API는 같은 순서예요.</b> ① 사이트 가입 → ② 활용(이용) 신청 → ③ 인증키 복사 → ④ AI에게 <dfn data-t="appsscript">앱스 스크립트</dfn> 받기 → ⑤ 키는 코드가 아니라 <b>스크립트 속성</b>에 저장 → ⑥ <dfn data-t="trigger">트리거</dfn>로 매일 자동 실행. 마지막에 이 모든 결과를 아침 브리핑 한 통으로 묶어요(<a href="#f-api-brief" class="ref" data-ref="f-api-brief">강의</a>).</p>
+  <p class="tip"><b>모든 <dfn data-t="api">API</dfn>(자료를 프로그램으로 받아 오는 창구)는 같은 순서예요.</b> ① 사이트 가입 → ② 활용(이용) 신청 → ③ 인증키 복사 → ④ AI에게 <dfn data-t="appsscript">앱스 스크립트</dfn> 받기 → ⑤ 키는 코드가 아니라 <b>스크립트 속성</b>(장부 안의 비밀 금고)에 저장 → ⑥ <dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)로 매일 자동 실행. 마지막에 이 모든 결과를 아침 브리핑 한 통으로 묶어요(<a href="#f-api-brief" class="ref" data-ref="f-api-brief">강의</a>).</p>
 
   <h3>키 받기: 세 군데면 끝나요</h3>
   <ol class="steps">
     <li><input type="checkbox" id="f_api_a" data-key="f_api_a"><div class="body"><label for="f_api_a">공공데이터포털 키 (특일 정보·단기예보·장례식장·상가 정보)</label><small>공공데이터포털은 키 하나로 여러 API를 써요. API마다 <b>활용신청</b>만 따로 눌러요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>PC에서 <span class="path">data.go.kr → 회원가입 → 개인회원</span>, 휴대폰 본인 인증</li>
-        <li>검색창에 위 표의 이름을 하나씩 넣고 'API'라고 적힌 결과에서 <span class="path">활용신청</span> → 활용 목적 "꽃집 내부 운영 참고" → 신청</li>
-        <li><span class="path">마이페이지 → 데이터활용 → Open API → 활용신청 현황</span>에서 <b>일반 인증키(Decoding)</b> 복사<span class="fix">승인 직후에는 키가 바로 안 될 수 있어요. 몇 시간 뒤 다시 해 보세요. 장례식장 현황은 파일(CSV)로 받아도 충분해요.</span></li>
+        <li>PC에서 <span class="path">data.go.kr → 회원가입 → 개인회원</span>을 눌러요. 휴대폰으로 본인 인증을 해요</li>
+        <li>검색창에 위 표의 이름을 하나씩 넣어요. 'API'라고 적힌 결과에서 <span class="path">활용신청</span>을 눌러요. 활용 목적은 "꽃집 내부 운영 참고"로 쓰고 신청해요</li>
+        <li><span class="path">마이페이지 → 데이터활용 → Open API → 활용신청 현황</span>에서 <b>일반 인증키(Decoding)</b>를 복사해요<span class="fix">승인 직후에는 키가 바로 안 될 수 있어요. 몇 시간 뒤 다시 해 보세요. 장례식장 현황은 파일(CSV)로 받아도 충분해요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="f_api_b" data-key="f_api_b"><div class="body"><label for="f_api_b">화훼유통정보 서비스키 (경매 시세)</label><small>화훼 경매 시세 API는 공공데이터포털이 아니라 aT 화훼유통정보에서 따로 키를 받아요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>flower.at.or.kr 접속 → 회원가입</li>
-        <li>메뉴에서 오픈 API(정보 공개) 안내 화면을 찾아 이용 신청 → 승인되면 서비스키 복사<span class="fix">메뉴 이름이 바뀌었으면 첫 화면을 캡처해 AI에게 "오픈 API 신청은 어디야?"라고 물어보세요.</span></li>
+        <li><span class="path">flower.at.or.kr 접속 → 회원가입</span>을 해요</li>
+        <li>메뉴에서 오픈 API(정보 공개) 안내 화면을 찾아 이용 신청을 해요. 승인되면 서비스키를 복사해요<span class="fix">메뉴 이름이 바뀌었으면 첫 화면을 캡처해 AI에게 "오픈 API 신청은 어디야?"라고 물어보세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="f_api_c" data-key="f_api_c"><div class="body"><label for="f_api_c">나이스 인증키 (학교 학사일정)</label>
+    <li><input type="checkbox" id="f_api_c" data-key="f_api_c"><div class="body"><label for="f_api_c">나이스 인증키 (학교 학사일정)</label><small>졸업식·입학식 날짜를 가져오려면 나이스 키가 따로 필요해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>open.neis.go.kr 접속 → 회원가입 → 로그인</li>
-        <li>인증키 신청 화면에서 활용 목적 "꽃집 대목 일정 확인" → 발급된 키 복사<span class="fix">키 없이도 시험 호출은 되지만 가져오는 줄 수가 적어요. 키를 받아 쓰세요.</span></li>
+        <li><span class="path">open.neis.go.kr 접속 → 회원가입 → 로그인</span>을 해요</li>
+        <li>인증키 신청 화면에서 활용 목적을 "꽃집 대목 일정 확인"으로 써요. 발급된 키를 복사해요<span class="fix">키 없이도 시험 호출(시험 삼아 요청 보내기)은 되지만 가져오는 줄 수가 적어요. 키를 받아 쓰세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="f_api_d" data-key="f_api_d"><div class="body"><label for="f_api_d">키를 스크립트 속성에 넣기</label><small>키를 코드 안에 적으면 코드를 복사해 줄 때 같이 새어 나가요. '꽃집 운영 장부' → <span class="path">확장 프로그램 → Apps Script → 왼쪽 톱니바퀴(프로젝트 설정) → 스크립트 속성 → 속성 추가</span>에 아래 이름으로 하나씩 넣어요.</small></div></li>
+    <li><input type="checkbox" id="f_api_d" data-key="f_api_d"><div class="body"><label for="f_api_d">키를 스크립트 속성에 넣기</label><small>키를 코드 안에 적으면 코드를 남에게 복사해 줄 때 같이 새어 나가요. 그래서 따로 금고에 넣어요. '꽃집 운영 장부'에서 <span class="path">확장 프로그램 → Apps Script → 왼쪽 톱니바퀴(프로젝트 설정) → 스크립트 속성 → 속성 추가</span>를 눌러요. 아래 이름으로 하나씩 넣고 저장해요. <span class="fix">막히면: 이름은 대문자·밑줄까지 똑같이 써야 해요. 키 앞뒤에 빈칸이 들어가지 않았는지도 봐요.</span></small></div></li>
   </ol>
   <div class="prompt"><div class="bar"><span>스크립트 속성 이름 (이대로 쓰면 뒤 강의 부탁문과 맞아요)</span><button class="copy" type="button">복사</button></div><pre>DATA_GO_KR_KEY   = 공공데이터포털 일반 인증키(Decoding)
 FLOWER_KEY       = 화훼유통정보 서비스키

@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · 매일 5분 · 주 1회 10분</span>
     <h2>시드는 꽃이 얼마인지 알면 덜 버려요</h2>
-    <p class="goal">생화는 들어온 날부터 시간이 가요. 언제 들어와서, 언제 물올림하고, 얼마나 팔고, 얼마나 버렸는지 시트에 적으면 <b>주간 로스율</b>이 보여요. 남을 것 같은 꽃은 소품 다발·할인·클래스로 먼저 돌리고, 매주 AI에게 사입량을 점검받아요.</p>
+    <p class="goal">생화는 들어온 날부터 시간이 가요. 언제 들어와서, 언제 물올림하고, 얼마나 팔고, 얼마나 버렸는지 시트에 적어요. 그러면 <b>주간 로스율</b>(버린 꽃의 비율)이 보여요. 남을 것 같은 꽃은 소품 다발·할인·클래스로 먼저 돌려요. 그리고 매주 AI에게 사입량을 점검받아요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>꽃 냉장고에 '버린 꽃 가계부'를 하나 붙여 두는 거예요. 얼마나 버리는지 보이면 다음 사입을 줄일 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>꽃별 로스율(버린 비율)이 저절로 계산되는 '로스' 탭과, 매주 월요일 받는 사입량 제안</span></div><div class="easy-row"><b>필요한 것</b><span>휴대폰 시트 앱, '꽃집 운영 장부', 약 1시간 · 그 뒤 매일 5분 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">꽃집 인수라면</b><span>인수일 재고를 한 번 세어 '입고' 줄로 적어요. 냉장고 안 오래된 꽃은 그날 정리하고 시작해요.</span></p>
 
   <div class="vis">
@@ -17,32 +18,33 @@
   </div>
 
   <ol class="steps">
-    <li><input type="checkbox" id="f_loss_a" data-key="f_loss_a"><div class="body"><label for="f_loss_a">'로스' 탭 만들기</label><small>꽃 한 묶음(같은 날 들어온 같은 꽃)을 한 줄로 적어요. 송이 하나하나가 아니라 묶음 단위면 매일 5분이면 돼요. 재고 시스템 설계 전체는 <a href="#c-l76" class="ref" data-ref="c-l76">강의</a>.</small>
+    <li><input type="checkbox" id="f_loss_a" data-key="f_loss_a"><div class="body"><label for="f_loss_a">'로스' 탭 만들기</label><small>버린 꽃을 적을 자리부터 만들어요. 꽃 한 묶음(같은 날 들어온 같은 꽃)을 한 줄로 적어요. 송이 하나하나가 아니라 묶음 단위로 적으면 매일 5분이면 돼요. 재고 시스템 설계 전체는 <a href="#c-l76" class="ref" data-ref="c-l76">강의</a>에 있어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>'꽃집 운영 장부' → <span class="path">+</span> → 이름 <b>로스</b> → A1에 '로스 제목 줄' 붙여 넣기</li>
-        <li>사입한 날 시세 탭(<a href="#f-buy" class="ref" data-ref="f-buy">강의</a>)에 적은 꽃을 로스 탭에도 한 줄씩 (입고 송이 수)</li>
-        <li>'남은 송이'와 '로스율' 칸 수식은 아래 '로스 수식 부탁문'으로 받기</li>
+        <li>'꽃집 운영 장부'를 열고 아래쪽 <span class="path">+</span>를 눌러 새 탭을 만들어요. 탭 이름을 <b>로스</b>로 바꾸고, A1 칸에 '로스 제목 줄'을 붙여 넣어요.<span class="fix">막히면: 제목 줄이 한 칸에 몰려 들어가면, 붙여 넣은 뒤 나오는 작은 아이콘에서 '열로 분할'을 눌러요.</span></li>
+        <li>사입한 날 시세 탭(<a href="#f-buy" class="ref" data-ref="f-buy">강의</a>)에 적은 꽃을 로스 탭에도 한 줄씩 적어요. 이때 입고 송이 수를 꼭 넣어요.</li>
+        <li>'남은 송이'와 '로스율' 칸 수식은 아래 '로스 수식 부탁문'을 AI에게 보내 받아요.<span class="fix">막히면: 수식 칸에 #VALUE! 같은 글자가 나오면 그 화면을 캡처해 AI에게 보여 줘요(<a href="#c-b6" class="ref" data-ref="c-b6">강의</a>).</span></li>
       </ol>
       <div class="prompt" data-tsv><div class="bar"><span>로스 제목 줄</span><button class="copy" type="button">복사</button></div><pre>입고일 | 품목 | 품종·색 | 입고 송이 | 송이당 단가 | 물올림 날 | 판매 송이 | 활용 송이(소품·할인·클래스) | 폐기 송이 | 남은 송이 | 폐기 금액 | 로스율 | 상태 | 메모</pre></div></details></div></li>
-    <li><input type="checkbox" id="f_loss_b" data-key="f_loss_b"><div class="body"><label for="f_loss_b">매일 문 닫기 전 5분</label><small>꽃 냉장고를 한 번 보고 묶음마다 판매·활용·폐기를 숫자로 고쳐요. 정확하지 않아도 돼요. "대략 10송이"면 충분해요. 휴대폰 시트 앱으로 냉장고 앞에서 바로 적어요.</small></div></li>
-    <li><input type="checkbox" id="f_loss_c" data-key="f_loss_c"><div class="body"><label for="f_loss_c">들어온 지 오래된 꽃은 색으로</label><small>입고일로부터 며칠 지난 줄을 노란색·빨간색으로 보이게 해 두면, 아침에 시트만 봐도 먼저 써야 할 꽃이 보여요. 며칠을 기준으로 할지는 꽃마다 사장님이 정해요(장미와 국화는 버티는 날이 달라요).</small></div></li>
-    <li><input type="checkbox" id="f_loss_d" data-key="f_loss_d"><div class="body"><label for="f_loss_d">남을 꽃은 먼저 돌리기</label><small>버리기 전에 쓸 길을 정해 두어요.</small>
+    <li><input type="checkbox" id="f_loss_b" data-key="f_loss_b"><div class="body"><label for="f_loss_b">매일 문 닫기 전 5분 적기</label><small>그날 기억이 남아 있을 때 적어야 정확해요. 꽃 냉장고를 한 번 보고, 묶음마다 판매·활용·폐기를 숫자로 고쳐요. 정확하지 않아도 돼요. "대략 10송이"면 충분해요. 휴대폰 시트 앱으로 냉장고 앞에서 바로 적어요.</small></div></li>
+    <li><input type="checkbox" id="f_loss_c" data-key="f_loss_c"><div class="body"><label for="f_loss_c">오래된 꽃은 색으로 표시하기</label><small>입고일로부터 며칠 지난 줄을 노란색·빨간색으로 보이게 해 둬요. 그러면 아침에 시트만 봐도 먼저 써야 할 꽃이 보여요. 색은 '로스 수식 부탁문'에 든 조건부 서식(조건에 맞으면 칸 색이 바뀌는 기능)으로 칠해져요. 며칠을 기준으로 할지는 꽃마다 사장님이 정해요(장미와 국화는 버티는 날이 달라요).</small></div></li>
+    <li><input type="checkbox" id="f_loss_d" data-key="f_loss_d"><div class="body"><label for="f_loss_d">남을 꽃은 먼저 돌리기</label><small>버리기 전에 쓸 길을 미리 정해 두면 로스가 줄어요.</small>
       <details class="how"><summary><span class="closed-label">남는 꽃 활용 예</span><span class="open-label">접기</span></summary><ol class="sub">
         <li><b>소품 다발</b>: 한두 송이로 만든 작은 다발을 계산대 옆에. "오늘의 한 송이" 같은 이름으로</li>
         <li><b>마감 할인</b>: 영업 끝나기 전 인스타 스토리·카톡 채널로 "오늘 남은 꽃 묶음"</li>
         <li><b>원데이 클래스</b>: 꽃꽂이·리스 클래스 재료로. 클래스 날짜를 사입 다음 날로 잡으면 좋아요</li>
         <li><b>말리기</b>: 드라이플라워가 잘 되는 꽃은 매장 장식이나 소품으로<span class="fix">활용한 송이는 '활용' 칸에 따로 적어요. 폐기와 섞이면 진짜 로스가 안 보여요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="f_loss_e" data-key="f_loss_e"><div class="body"><label for="f_loss_e">매주 월요일 AI 점검</label><small>로스 탭과 주문 탭을 같이 보고, 품목별 로스율과 다음 주 사입량을 제안받아요. 무엇을 줄일지는 사장님이 정해요.</small>
+    <li><input type="checkbox" id="f_loss_e" data-key="f_loss_e"><div class="body"><label for="f_loss_e">매주 월요일 AI 점검받기</label><small>한 주 기록을 모아 보면 줄일 꽃이 보여요. AI가 로스 탭과 주문 탭을 같이 보고 품목별 로스율과 다음 주 사입량을 제안해요. 무엇을 줄일지는 사장님이 정해요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>'12 재고·구매' 채팅에 '주간 로스 점검 부탁문'</li>
-        <li><span data-plan-not="free">유료: 앞에 "매주 월요일 오전 8시에"를 붙여 예약 작업으로</span><span data-plan-not="paid">무료: 캘린더 '매주 월요일 로스 점검' 알림 → 같은 부탁문</span></li>
-        <li>결론 한 줄(예: "거베라 금요일 사입 절반")을 업무일지에 남기기</li>
+        <li>'12 재고·구매' 채팅에 '주간 로스 점검 부탁문'을 붙여 보내요.</li>
+        <li><span data-plan-not="free">유료: 부탁문 앞에 "매주 월요일 오전 8시에"를 붙여 예약 작업으로 걸어요.</span><span data-plan-not="paid">무료: 캘린더에 '매주 월요일 로스 점검' 알림을 만들어요. 알림이 오면 같은 부탁문을 보내요.</span></li>
+        <li>결론 한 줄(예: "거베라 금요일 사입 절반")을 업무일지에 남겨요.</li>
       </ol></details></div></li>
   </ol>
 
-  <p class="tip"><b>대목 뒤가 로스가 가장 커요.</b> 어버이날 뒤 카네이션처럼 대목 상품은 하루 만에 안 팔리는 꽃이 돼요. 대목 사입량은 예약 수 + 여유분으로 정하고(<a href="#f-season" class="ref" data-ref="f-season">강의</a>), 대목 다음 날 활용 계획을 미리 세워 두세요.</p>
+  <p class="tip"><b>대목 뒤가 로스가 가장 커요.</b> 어버이날 뒤 카네이션처럼 대목 상품은 하루 만에 안 팔리는 꽃이 돼요. 대목 사입량은 예약 수 + 여유분으로 정해요(<a href="#f-season" class="ref" data-ref="f-season">강의</a>). 그리고 대목 다음 날 활용 계획을 미리 세워 둬요.</p>
 
+  <p class="cap">아래 부탁문은 그대로 복사해서 '12 재고·구매' 채팅에 붙여 넣으세요(할인 글은 '03 인스타 담당'). ○○ 자리만 우리 가게 값으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>로스 수식 부탁문 · 재고·구매</span><button class="copy" type="button">복사</button></div><pre>'꽃집 운영 장부' 로스 탭에 수식을 만들어 줘. 나는 시트 초보라 붙일 칸까지 알려 줘.
 열: 입고일, 품목, 품종·색, 입고 송이, 송이당 단가, 물올림 날, 판매 송이, 활용 송이, 폐기 송이, 남은 송이, 폐기 금액, 로스율, 상태, 메모
 - 남은 송이 = 입고 - 판매 - 활용 - 폐기

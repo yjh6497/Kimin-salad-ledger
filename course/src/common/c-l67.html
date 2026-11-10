@@ -2,30 +2,32 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · PC</span>
     <h2>카톡으로 받은 안내에는 예약 버튼이 있어요</h2>
-    <p class="goal">카톡 채널 친구인 {{customer}}에게는 <b>친구그룹 메시지</b>로, 친구가 아닌 {{customer}}까지 정보성 안내를 보내려면 <b>알림톡</b>으로 보내요. 둘 다 버튼으로 네이버 예약이나 전화로 바로 이어져요(채널 기본은 <a href="#c-l37" class="ref" data-ref="c-l37">강의</a>).</p>
+    <p class="goal">카톡 채널 친구인 {{customer}}에게는 <b>친구그룹 메시지</b>로 보내요. 친구가 아닌 {{customer}}까지 정보성 안내를 보내려면 <b><dfn data-t="alimtalk">알림톡</dfn></b>으로 보내요. 둘 다 버튼을 누르면 네이버 예약이나 전화로 바로 이어져요(채널 기본은 <a href="#c-l37" class="ref" data-ref="c-l37">강의</a>).</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>카톡으로 '예약 버튼이 달린 안내장'을 보내는 거예요. 받은 {{customer:이}} 버튼 하나로 바로 예약하거나 전화할 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>친구그룹으로 보낸 이번 달 안내 한 번, 그리고 우리 {{place}}에 맞는 알림톡 서비스 비교표</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 카카오톡 채널 관리자 계정, {{customer}} 연락처 명단, 약 1시간 · 채널이 없으면 <a href="#c-l37" class="ref" data-ref="c-l37">강의</a> 먼저</span></div></div>
   <div class="table-wrap"><table>
     <thead><tr><th></th><th>친구그룹 메시지</th><th>알림톡</th></tr></thead>
     <tbody>
       <tr><td><b>누구에게</b></td><td>채널 친구 중 그룹에 넣은 번호</td><td>전화번호로(친구 아니어도)</td></tr>
       <tr><td><b>내용</b></td><td>안내·공지(혜택이 있으면 광고성 체크)</td><td>정보성만(예정일, 예약 확인, 결과 안내)</td></tr>
-      <tr><td><b>준비</b></td><td>관리자센터에서 그룹 만들기, 번호 파일 올리기(한 번에 최대 5,000개)</td><td>비즈니스 채널, 템플릿 심사, 공식 딜러사 또는 <span data-biz="vet">차트</span><span data-biz-not="vet">예약·고객 관리 프로그램</span>의 알림톡 부가 서비스</td></tr>
+      <tr><td><b>준비</b></td><td>관리자센터에서 그룹 만들기, 번호 파일 올리기(한 번에 최대 5,000개)</td><td>비즈니스 채널, 템플릿(미리 정해 둔 안내 문구) 심사, 공식 딜러사 또는 <span data-biz="vet">차트</span><span data-biz-not="vet">예약·고객 관리 프로그램</span>의 알림톡 부가 서비스</td></tr>
       <tr><td><b>비용</b></td><td>그룹 타게팅 건당 20원(VAT 별도)</td><td>딜러사·<span data-biz="vet">차트</span><span data-biz-not="vet">프로그램</span> 요금제</td></tr>
-      <tr><td><b>개인화</b></td><td>그룹 전체에 같은 문구</td><td><span data-biz="vet">#{아이이름}</span><span data-biz-not="vet">#{이름}</span> #{예정일} 변수로 한 명씩</td></tr>
+      <tr><td><b>개인화</b></td><td>그룹 전체에 같은 문구</td><td><span data-biz="vet">#{아이이름}</span><span data-biz-not="vet">#{이름}</span> #{예정일} 같은 변수(사람마다 바뀌는 빈칸)로 한 명씩</td></tr>
     </tbody>
   </table></div>
   <ol class="steps">
-    <li><input type="checkbox" id="v_a67a" data-key="v_a67a"><div class="body"><label for="v_a67a">친구그룹으로 이번 달 <span data-biz="vet">접종</span><span data-biz-not="vet">방문</span> 안내</label><small>같은 문구로 보내도 되는 안내(예: <span data-biz="vet">"12월 종합백신 추가접종 예정인 아이들 안내"</span><span data-biz-not="vet">"12월에 다시 오실 분들께 드리는 안내"</span>)는 친구그룹이 간단해요.</small>
+    <li><input type="checkbox" id="v_a67a" data-key="v_a67a"><div class="body"><label for="v_a67a">친구그룹으로 이번 달 <span data-biz="vet">접종</span><span data-biz-not="vet">방문</span> 안내 보내기</label><small>모두에게 같은 문구로 보내도 되는 안내(예: <span data-biz="vet">"12월 종합백신 추가접종 예정인 아이들 안내"</span><span data-biz-not="vet">"12월에 다시 오실 분들께 드리는 안내"</span>)는 친구그룹이 간단해요. 번호 명단을 올려 그룹을 만들고, 그 그룹에만 보내요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li><span data-biz="vet">차트</span><span data-biz-not="vet">고객 명단(시트·프로그램)</span>에서 이번 달 대상(카톡 선택·동의 Y)의 전화번호만 엑셀로 내보내기 → 맥·PC 안에 저장</li>
-        <li>카카오비즈니스 관리자센터 → <span class="path">친구그룹</span> → 새 그룹 '12월 <span data-biz="vet">접종</span><span data-biz-not="vet">방문</span> 안내' → 파일 업로드(관리자센터가 안내하는 양식대로)</li>
-        <li><span class="path">메시지 → 새 메시지 → 기본 텍스트형</span> → 템플릿(<a href="#c-l65" class="ref" data-ref="c-l65">강의</a>) 붙여 넣기 → 버튼 예약하기(네이버 예약 주소)·전화하기 → 대상 '친구그룹' → 테스트 발송 → 오전 10시 예약 발송</li>
-        <li>보낸 뒤 그룹과 번호 파일 삭제<span class="fix">그룹 번호 중 채널 친구가 아닌 분에게는 안 가요. 그분들은 문자(<a href="#c-l66" class="ref" data-ref="c-l66">강의</a>)나 알림톡으로.</span></li>
+        <li><span data-biz="vet">차트</span><span data-biz-not="vet">고객 명단(시트·프로그램)</span>에서 이번 달 대상(카톡 선택·동의 Y)의 전화번호만 엑셀로 내보내요. 파일은 맥·PC 안에만 저장해요.</li>
+        <li>카카오비즈니스 관리자센터에서 <span class="path">친구그룹 → 새 그룹</span>을 눌러요. 이름은 '12월 <span data-biz="vet">접종</span><span data-biz-not="vet">방문</span> 안내'로 해요. 번호 파일은 관리자센터가 안내하는 양식대로 맞춰 올려요.<span class="fix">막히면: 파일이 안 올라가면 양식과 열 순서가 다른 거예요. 안내 화면을 캡처해 AI에게 "내 엑셀을 이 양식에 맞춰 줘"라고 물어요.</span></li>
+        <li><span class="path">메시지 → 새 메시지 → 기본 텍스트형</span>을 눌러요. 안내 템플릿(<a href="#c-l65" class="ref" data-ref="c-l65">강의</a>)을 붙여 넣어요. 버튼은 '예약하기'(네이버 예약 주소)와 '전화하기'를 달아요. 대상은 '친구그룹'으로 골라요. 먼저 테스트 발송으로 내 휴대폰에서 확인한 뒤, 오전 10시로 예약 발송해요.</li>
+        <li>보낸 뒤에는 그룹과 번호 파일을 지워요.<span class="fix">그룹 번호 중 채널 친구가 아닌 분에게는 안 가요. 그분들은 문자(<a href="#c-l66" class="ref" data-ref="c-l66">강의</a>)나 알림톡으로.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="v_a67b" data-key="v_a67b"><div class="body"><label for="v_a67b">알림톡은 <span data-biz="vet">차트</span><span data-biz-not="vet">지금 쓰는 프로그램의</span> 부가 서비스부터 확인</label><small><span data-biz="vet">많은 {{biz}} 차트가 접종·예약 알림톡을 부가 서비스로 제공해요. 차트 안에서</span><span data-biz-not="vet">예약·포스·고객 관리 프로그램 중에는 예약 알림톡을 부가 서비스로 주는 곳이 있어요. 프로그램 안에서</span> 대상·변수가 자동으로 채워져 가장 덜 번거로워요. 없으면 공식 딜러사(문자·알림톡 발송 서비스)에 가입해 템플릿을 심사받고 엑셀로 대상을 올려 보내요.</small></div></li>
-    <li><input type="checkbox" id="v_a67c" data-key="v_a67c"><div class="body"><label for="v_a67c">실패하면 문자로 대신</label><small>알림톡 서비스 대부분은 카톡을 받지 못한 분에게 문자로 대신 보내는 기능(대체 발송)이 있어요. 켜 두되, 대체 문자의 비용과 문구를 확인해요.</small></div></li>
-    <li><input type="checkbox" id="v_a67d" data-key="v_a67d"><div class="body"><label for="v_a67d">답장은 채팅으로 이어서</label><small>메시지를 보낸 뒤 채팅으로 오는 "토요일 가능해요?"는 1:1 채팅 답장 틀(<a href="#c-l36" class="ref" data-ref="c-l36">강의</a>)로 바로 예약까지.</small></div></li>
+    <li><input type="checkbox" id="v_a67b" data-key="v_a67b"><div class="body"><label for="v_a67b">알림톡은 <span data-biz="vet">차트</span><span data-biz-not="vet">지금 쓰는 프로그램의</span> 부가 서비스부터 확인하기</label><small><span data-biz="vet">많은 {{biz}} 차트가 접종·예약 알림톡을 부가 서비스로 제공해요. 차트 안에서</span><span data-biz-not="vet">예약·포스·고객 관리 프로그램 중에는 예약 알림톡을 부가 서비스로 주는 곳이 있어요. 프로그램 안에서</span> 대상·변수가 자동으로 채워져서 가장 덜 번거로워요. 없으면 공식 딜러사(문자·알림톡 발송 서비스)에 가입해요. 템플릿을 심사받고, 엑셀로 대상을 올려 보내요. 어느 곳이 맞을지는 아래 '알림톡 서비스 비교 부탁문'으로 찾아봐요.</small></div></li>
+    <li><input type="checkbox" id="v_a67c" data-key="v_a67c"><div class="body"><label for="v_a67c">실패하면 문자로 대신 가게 켜 두기</label><small>알림톡 서비스 대부분은 카톡을 받지 못한 분에게 문자로 대신 보내는 기능(대체 발송)이 있어요. 이 기능은 켜 둬요. 다만 대체 문자의 비용과 문구는 따로 확인해요.</small></div></li>
+    <li><input type="checkbox" id="v_a67d" data-key="v_a67d"><div class="body"><label for="v_a67d">답장은 채팅으로 이어 받기</label><small>메시지를 보내면 채팅으로 "토요일 가능해요?" 같은 답이 와요. 이런 답은 1:1 채팅 답장 틀(<a href="#c-l36" class="ref" data-ref="c-l36">강의</a>)로 받아 바로 예약까지 이어 가요.</small></div></li>
   </ol>
+  <p class="cap">AI 채팅에서 웹 검색을 켜고, 이 글을 그대로 복사해서 붙여 넣으세요. ○○ 자리만 지금 쓰는 프로그램 이름으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>알림톡 서비스 비교 부탁문 (웹 검색 켜고)</span><button class="copy" type="button">복사</button></div><pre>{{biz:이}} <span data-biz="vet">접종·검진</span><span data-biz-not="vet">다음 방문</span> 예정일 알림톡을 보내려고 해. 우리 <span data-biz="vet">차트</span><span data-biz-not="vet">예약·고객 관리 프로그램</span>(○○)에 알림톡 부가 서비스가 있는지, 없다면 카카오 공식 딜러사 중 소상공인이 쓰기 쉬운 곳 3곳을 웹에서 찾아 표로: 서비스 | 알림톡 건당 요금(공개된 것) | 대체 문자 | 엑셀 대량 발송 | 템플릿 심사 지원 | 가입 조건 | 출처 주소. 추천하지 말고 정리만, 가격은 페이지 기준 날짜와 함께.</pre></div>
   <p class="src">출처: <a href="https://kakaobusiness.gitbook.io/main/channel/run/message" target="_blank" rel="noopener">카카오 비즈니스 가이드 · 메시지(친구그룹·단가)</a> · <a href="https://inside.ampm.co.kr/insight/59098" target="_blank" rel="noopener">2026 카카오 비즈니스 메시지 정리 (AMPM)</a></p>
         <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">예약 발송</span><div class="ad"><b>알림톡 예약</b><span>대행사 화면의 예약 발송으로. 목록 확인은 발송 전날 {{owner:이}}.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>알림톡 예약 승인</b><span>예약 발송 건수와 템플릿.</span><span class="pv">버튼: 예약 승인 / 보류</span></div></li></ul></div>

@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · <span data-biz="vet">휴진</span><span data-biz-not="vet">휴무</span> 때 5분</span>
     <h2><span data-biz="vet">진료 중이라 못 받은 전화도, 진료 시간·주차·응급 안내는 받게</span><span data-biz-not="vet">일하느라 못 받은 전화도, {{hours}}·주차·예약 안내는 받게</span></h2>
-    <p class="goal">{{customer:는}} 지도에서 {{place:을}} 찾고 바로 전화해요. <span data-biz="vet">진료·수술 중이라</span><span data-biz-not="vet">{{customer}} 응대나 일 때문에</span> 못 받으면 다른 {{place:으로}} 가요. {{place}} 번호에 <b>안내 연결음</b>이나 <b>AI 전화 응대</b>를 붙이면 {{hours}}·위치·주차·휴무·예약 방법은 전화가 대신 안내하고, 못 받은 전화는 메모로 남아요.<span data-biz="vet"> 동물병원은 여기에 <b>응급 안내</b> 한 줄이 꼭 들어가야 해요.</span></p>
+    <p class="goal">{{customer:는}} 지도에서 {{place:을}} 찾고 바로 전화해요. <span data-biz="vet">진료·수술 중이라</span><span data-biz-not="vet">{{customer}} 응대나 일 때문에</span> 못 받으면 다른 {{place:으로}} 가요. {{place}} 번호에 <b>안내 연결음</b>이나 <b>AI 전화 응대</b>를 붙여요. 그러면 {{hours}}·위치·주차·휴무·예약 방법은 전화가 대신 안내해요. 못 받은 전화는 메모로 남아요.<span data-biz="vet"> 동물병원은 여기에 <b>응급 안내</b> 한 줄이 꼭 들어가야 해요.</span></p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>전화기 옆에 '안내 직원'을 한 명 두는 거예요. 바빠서 못 받을 때 {{hours}}·위치 같은 기본 질문은 전화가 대신 답하고 메모를 남겨요.</span></div><div class="easy-row"><b>끝나면</b><span>상황별 안내 멘트 네 가지가 {{place}} 번호에 들어가 있고, 못 받은 전화는 글자 메모로 휴대폰에 와요.</span></div><div class="easy-row"><b>필요한 것</b><span>{{place}} 전화번호, 통신사 앱, 일주일 동안 적은 전화 질문표, 1시간 · {{place}} 소개서(<a href="#c-l3" class="ref" data-ref="c-l3">강의</a>)가 있으면 빨라요</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">{{place}} 인수라면</b><span>대표번호는 꼭 유지(명의 변경). 안내 멘트에 한 달 동안 <span data-biz="vet">'원장이 바뀌어도 진료 기록은 그대로'</span><span data-biz-not="vet">'{{owner:이}} 바뀌어도 예약·주문은 그대로'</span>.</span></p>
 
   <div class="vis">
@@ -18,9 +19,9 @@
   <div class="table-wrap"><table>
     <thead><tr><th>종류</th><th>하는 일</th><th>예 (가입 전 최신 확인)</th></tr></thead>
     <tbody>
-      <tr><td><b>안내 연결음·인사말</b></td><td>전화가 연결되는 동안 녹음·AI 음성으로 {{hours}}·휴무 안내. 상황별로 몇 개 만들어 두고 바꿔 끼우기</td><td>통신사 매장 연결음 부가서비스. KT 'AI 통화비서 라이트'는 인사말 최대 3개를 앱에서 실시간 교체(월 5,500원, KT 비즈 안내 기준)</td></tr>
+      <tr><td><b>안내 연결음·인사말</b></td><td>전화가 연결되는 동안 녹음·AI 음성으로 {{hours}}·휴무를 안내해요. 상황별로 몇 개 만들어 두고 바꿔 끼워요</td><td>통신사 매장 연결음 부가서비스. KT 'AI 통화비서 라이트'는 인사말 최대 3개를 앱에서 실시간 교체(월 5,500원, KT 비즈 안내 기준)</td></tr>
       <tr><td><b>AI 전화 응대</b></td><td>시간대별 인사말(<span data-biz="vet">진료 중·점심·휴진·진료 외</span><span data-biz-not="vet">응대 중·점심·휴무·{{hours}} 외</span>), 영업시간·위치·주차 자동 답, 예약 접수, 못 받은 전화를 AI가 받아 메모(글자로) → 앱에서 답 문자</td><td>KT 'AI 통화비서 스탠다드'(월 22,000원, 문자 월 300건, KT 일반전화 등 가입 조건 있음), LG유플러스 'AI 전화'(우리가게패키지 앱에서 매장 정보 관리, 반복 문의 24시간 응대·응대 리포트). 다른 통신사도 비슷한 상품이 있어요</td></tr>
-      <tr><td><b>네이버 스마트콜</b></td><td>플레이스에 0507 번호를 띄우고 {{place}} 번호로 연결. 네이버 어디서 전화가 왔는지 통계, 연결음·ARS 설정</td><td>스마트플레이스에서 무료로 켜요. 0507 번호가 보이는 게 싫으면 끄면 돼요</td></tr>
+      <tr><td><b>네이버 스마트콜</b></td><td>플레이스에 0507 번호를 띄우고 {{place}} 번호로 연결해요. 네이버 어디서 전화가 왔는지 통계를 보고, 연결음·ARS(번호를 눌러 고르는 자동 안내)도 설정해요</td><td>스마트플레이스에서 무료로 켜요. 0507 번호가 보이는 게 싫으면 끄면 돼요</td></tr>
     </tbody>
   </table></div>
   <p class="cap">요금·조건은 통신사 안내(2025~2026년) 기준이고 자주 바뀌어요. 약정 할인, 소상공인 요금제 묶음 혜택이 있는지 같이 물어보세요.</p>

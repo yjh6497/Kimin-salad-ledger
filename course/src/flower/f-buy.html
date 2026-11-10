@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 약 1시간 · 매주 15분</span>
     <h2>경매 시세를 보고 사러 가요</h2>
-    <p class="goal">꽃값은 날마다, 철마다 달라요. 한국농수산식품유통공사(aT)의 <b>화훼유통정보</b>에서 공판장 경매 시세를 보고, 도매시장에서 살 목록을 AI로 정리해요. 실제로 산 값은 '꽃집 운영 장부'의 시세 탭에 모아 상품 원가(<a href="#f-menu" class="ref" data-ref="f-menu">강의</a>)를 갱신해요.</p>
+    <p class="goal">꽃값은 날마다, 철마다 달라요. 그래서 한국농수산식품유통공사(aT)의 <b>화훼유통정보</b>에서 공판장 경매 시세를 먼저 봐요. 그다음 도매시장에서 살 목록을 AI로 정리해요. 실제로 산 값은 '꽃집 운영 장부'의 시세 탭에 모아요. 이 값으로 상품 원가(<a href="#f-menu" class="ref" data-ref="f-menu">강의</a>)를 새로 고쳐요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>장 보러 가기 전에 '오늘 꽃값 시세표'를 먼저 보고, 살 목록을 적어 가는 거예요. 같은 돈으로 더 알맞게 살 수 있어요.</span></div><div class="easy-row"><b>끝나면</b><span>자주 쓰는 꽃의 시세 보는 법, AI가 짜 준 사입 목록, 산 값을 모아 두는 '시세' 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC 또는 휴대폰, '꽃집 운영 장부' 시트, 약 1시간 · 그 뒤 매주 15분 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a>, 캡처가 처음이면 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a> 먼저</span></div></div>
   <p class="tknote" data-stage-only="takeover"><b class="tag">꽃집 인수라면</b><span>전 사장님이 거래하던 도매상 연락처와 외상·결제 방식을 넘겨받아요. 같은 도매상과 이어 가면 대목 물량을 받기 쉬워요.</span></p>
 
   <div class="vis">
@@ -11,7 +12,7 @@
       <thead><tr><th>어디서</th><th>무엇을 보나</th><th>메모</th></tr></thead>
       <tbody>
         <tr><td><b>aT 화훼유통정보</b><br><span class="path">flower.at.or.kr</span></td><td>공판장 경매 시세(품목·품종·등급별 가격, 거래량)</td><td>경매 가격은 농가 → 도매 단계 값이에요. 도매상에서 사는 값은 이보다 높아요</td></tr>
-        <tr><td><b>공공데이터포털</b><br><span class="path">data.go.kr</span></td><td>'한국농수산식품유통공사_화훼 경매 시세' 파일(CSV)과 오픈 API</td><td>전국 5대 화훼공판장 시세. 정산일자·품목·품종·등급·최고·최저·평균단가·수량. 파일은 해마다 갱신, API는 활용 신청 후 사용</td></tr>
+        <tr><td><b>공공데이터포털</b><br><span class="path">data.go.kr</span></td><td>'한국농수산식품유통공사_화훼 경매 시세' 파일(CSV, 엑셀로 열리는 표 파일)과 오픈 <dfn data-t="api">API</dfn></td><td>전국 5대 화훼공판장 시세. 정산일자·품목·품종·등급·최고·최저·평균단가·수량. 파일은 해마다 갱신, API는 활용 신청 후 사용</td></tr>
         <tr><td><b>양재 꽃시장</b><br>(aT화훼공판장, 서울 서초구 강남대로 27)</td><td>경매장, 생화 도매, 분화, 부자재 매장</td><td>생화 매장은 자정 무렵부터 오후 1시쯤까지 열어요(서울시 소개 기준). 가기 전 시간·휴무일 확인</td></tr>
         <tr><td><b>고속터미널 꽃도매상가</b><br>(서울고속버스터미널 3층)</td><td>생화·조화 도매 상가</td><td>생화는 밤 11시 30분쯤부터 다음 날 낮까지, 일요일 휴무로 안내돼요. 변동이 있으니 확인</td></tr>
         <tr><td><b>지역 도매상·공판장</b></td><td>가까운 거래처</td><td>지방이면 지역 공판장이나 도매상에서 배송받는 경우가 많아요</td></tr>
@@ -21,29 +22,30 @@
   </div>
 
   <ol class="steps">
-    <li><input type="checkbox" id="f_buy_a" data-key="f_buy_a"><div class="body"><label for="f_buy_a">화훼유통정보에서 시세 보는 법 익히기</label><small>자주 쓰는 꽃 10가지(장미, 카네이션, 국화, 거베라, 리시안셔스, 안개꽃 등)를 정해 두고 그 품목만 봐요. 같은 장미도 품종·등급마다 값이 크게 달라요.</small>
+    <li><input type="checkbox" id="f_buy_a" data-key="f_buy_a"><div class="body"><label for="f_buy_a">화훼유통정보에서 시세 보는 법 익히기</label><small>모든 꽃을 다 보면 지쳐요. 자주 쓰는 꽃 10가지(장미, 카네이션, 국화, 거베라, 리시안셔스, 안개꽃 등)를 정해 두고 그 품목만 봐요. 같은 장미도 품종·등급마다 값이 크게 달라요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>인터넷 창에 <span class="path">flower.at.or.kr</span> → 경매 시세(가격) 메뉴 찾기</li>
-        <li>공판장, 날짜, 구분(절화·분화), 품목을 고르고 조회</li>
-        <li>결과 화면을 캡처해 '12 재고·구매' 채팅에 "이 표에서 장미 품종별 평균 단가만 정리해 줘"<span class="fix">메뉴 이름이 달라 못 찾겠으면 첫 화면을 캡처해 AI에게 "경매 시세는 어디를 눌러?"라고 물어요.</span></li>
+        <li>크롬 주소창에 <span class="path">flower.at.or.kr</span>을 쳐서 들어가요. 경매 시세(가격) 메뉴를 찾아 눌러요.</li>
+        <li>공판장, 날짜, 구분(절화·분화), 품목을 고르고 <span class="path">조회</span>를 눌러요.</li>
+        <li>결과 화면을 캡처해요. '12 재고·구매' 채팅에 올리고 "이 표에서 장미 품종별 평균 단가만 정리해 줘"라고 보내요.<span class="fix">막히면: 메뉴 이름이 달라 못 찾겠으면 첫 화면을 캡처해 AI에게 "경매 시세는 어디를 눌러?"라고 물어요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="f_buy_b" data-key="f_buy_b"><div class="body"><label for="f_buy_b">지난해 시세 흐름 보기 (한 번만)</label><small>공공데이터포털에서 '화훼 경매 시세'를 검색해 CSV 파일을 받아 AI에게 주면, 품목별로 어느 달에 비싸고 싼지 정리해 줘요. 대목 사입(<a href="#f-season" class="ref" data-ref="f-season">강의</a>)과 상품 구성을 정할 때 써요.</small>
+    <li><input type="checkbox" id="f_buy_b" data-key="f_buy_b"><div class="body"><label for="f_buy_b">지난해 시세 흐름 보기 (한 번만)</label><small>어느 달에 꽃이 비싸지는지 알면 미리 준비할 수 있어요. 공공데이터포털에서 '화훼 경매 시세'를 검색해 CSV 파일을 받아요. 이 파일을 AI에게 주면 품목별로 비싼 달과 싼 달을 정리해 줘요. 대목 사입(<a href="#f-season" class="ref" data-ref="f-season">강의</a>)과 상품 구성을 정할 때 써요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li><span class="path">data.go.kr</span> → 검색창에 <b>화훼 경매 시세</b> → '한국농수산식품유통공사_화훼 경매 시세' → 파일 내려받기 (로그인 필요할 수 있어요)</li>
-        <li>파일이 크면 AI에 그대로 올리고 아래 '시세 흐름 부탁문'</li>
-        <li>결과 표를 '꽃집 운영 장부'에 '시세흐름' 탭으로 붙여 두기<span class="fix">파일이 너무 커서 안 올라가면 "자주 쓰는 10개 품목만 남기는 방법"을 먼저 물어요.</span></li>
+        <li><span class="path">data.go.kr</span>에 들어가 검색창에 <b>화훼 경매 시세</b>를 쳐요. '한국농수산식품유통공사_화훼 경매 시세'를 눌러 파일을 내려받아요(로그인이 필요할 수 있어요).<span class="fix">막히면: 받은 파일은 '다운로드' 폴더에 있어요. 찾는 법은 <a href="#c-b2" class="ref" data-ref="c-b2">강의</a>를 보세요.</span></li>
+        <li>받은 파일을 AI 채팅에 그대로 올리고, 아래 '시세 흐름 부탁문'을 붙여 보내요.</li>
+        <li>받은 결과 표를 '꽃집 운영 장부'에 '시세흐름' 탭을 만들어 붙여 둬요.<span class="fix">막히면: 파일이 너무 커서 안 올라가면 "자주 쓰는 10개 품목만 남기는 방법"을 먼저 물어요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="f_buy_c" data-key="f_buy_c"><div class="body"><label for="f_buy_c">사입 목록을 AI로</label><small>주문 장부(<a href="#f-order" class="ref" data-ref="f-order">강의</a>)의 이번 주 예약과 상품 구성표를 보면 꽃별로 몇 단이 필요한지 계산할 수 있어요. 도매시장에서는 보통 '단' 단위로 사니, 한 단에 몇 송이인지 거래처 기준을 적어 두세요.</small></div></li>
-    <li><input type="checkbox" id="f_buy_d" data-key="f_buy_d"><div class="body"><label for="f_buy_d">산 값을 '시세' 탭에 적기</label><small>영수증을 사진으로 찍어 AI에게 주면 줄마다 정리해 줘요. 아래 '시세 제목 줄'로 탭을 만들어요.</small>
+    <li><input type="checkbox" id="f_buy_c" data-key="f_buy_c"><div class="body"><label for="f_buy_c">사입 목록을 AI로 만들기</label><small>시장에서 헤매지 않으려면 살 목록이 있어야 해요. 주문 장부(<a href="#f-order" class="ref" data-ref="f-order">강의</a>)의 이번 주 예약과 상품 구성표를 보면, 꽃별로 몇 단이 필요한지 계산할 수 있어요. 아래 '사입 목록 부탁문'을 '12 재고·구매' 채팅에 보내요. 도매시장에서는 보통 '단' 단위로 사요. 그래서 한 단에 몇 송이인지 거래처 기준을 적어 두면 좋아요.</small></div></li>
+    <li><input type="checkbox" id="f_buy_d" data-key="f_buy_d"><div class="body"><label for="f_buy_d">산 값을 '시세' 탭에 적기</label><small>산 값이 쌓이면 원가를 정확히 알 수 있어요. 영수증을 사진으로 찍어 AI에게 주면 줄마다 정리해 줘요. 탭은 아래 '시세 제목 줄'로 만들어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
-        <li>'꽃집 운영 장부' → <span class="path">+</span> → 이름 <b>시세</b> → A1에 제목 줄 붙여 넣기</li>
-        <li>사입 다녀온 날 영수증 사진 → '영수증 정리 부탁문' → 받은 줄을 시세 탭 아래에 붙여 넣기</li>
-        <li>구성 탭(<a href="#f-menu" class="ref" data-ref="f-menu">강의</a>)의 단가를 시세 탭 '송이당 단가' 최근 값으로 가져오는 수식은 '12 재고·구매'에게<span class="fix">손글씨 영수증은 AI가 잘못 읽을 수 있어요. 받은 표의 합계가 영수증 합계와 같은지 꼭 봐요.</span></li>
+        <li>'꽃집 운영 장부'를 열고 아래쪽 <span class="path">+</span>를 눌러 새 탭을 만들어요. 탭 이름을 <b>시세</b>로 바꾸고, A1 칸에 제목 줄을 붙여 넣어요.<span class="fix">막히면: 제목 줄이 한 칸에 몰려 들어가면, 붙여 넣은 뒤 나오는 작은 아이콘에서 '열로 분할'을 눌러요.</span></li>
+        <li>사입 다녀온 날 영수증 사진을 찍어 올리고 '영수증 정리 부탁문'을 보내요. 받은 줄을 시세 탭 아래에 붙여 넣어요.</li>
+        <li>구성 탭(<a href="#f-menu" class="ref" data-ref="f-menu">강의</a>)의 단가가 시세 탭 '송이당 단가' 최근 값을 저절로 가져오게 할 수 있어요. 이 수식은 '12 재고·구매'에게 부탁해요.<span class="fix">막히면: 손글씨 영수증은 AI가 잘못 읽을 수 있어요. 받은 표의 합계가 영수증 합계와 같은지 꼭 봐요.</span></li>
       </ol>
       <div class="prompt" data-tsv><div class="bar"><span>시세 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 거래처 | 품목 | 품종·색 | 등급 | 단 수 | 단당 송이 | 단당 가격 | 송이당 단가 | 금액 | 메모</pre></div></details></div></li>
-    <li><input type="checkbox" id="f_buy_e" data-key="f_buy_e"><div class="body"><label for="f_buy_e">매주 한 번 시세 점검</label><small>시세 탭이 쌓이면 "지난 4주보다 많이 오른 꽃"을 물어요. 많이 오른 꽃은 다른 꽃으로 바꾸는 구성을 미리 정해 두면 가격표를 안 바꿔도 돼요.</small></div></li>
+    <li><input type="checkbox" id="f_buy_e" data-key="f_buy_e"><div class="body"><label for="f_buy_e">매주 한 번 시세 점검하기</label><small>시세 탭이 쌓이면 AI에게 "지난 4주보다 많이 오른 꽃"을 물어요. 많이 오른 꽃은 다른 꽃으로 바꾸는 구성을 미리 정해 둬요. 그러면 가격표를 안 바꿔도 돼요.</small></div></li>
   </ol>
 
+  <p class="cap">아래 부탁문은 그대로 복사해서 '12 재고·구매' 채팅에 붙여 넣으세요. ○○ 자리만 우리 가게 값으로 바꿔요.</p>
   <div class="prompt"><div class="bar"><span>시세 흐름 부탁문</span><button class="copy" type="button">복사</button></div><pre>첨부한 '화훼 경매 시세' CSV로 우리 꽃집이 자주 쓰는 꽃의 1년 흐름을 정리해 줘.
 품목: 장미, 카네이션, 국화, 거베라, 리시안셔스, 안개꽃, ○○, ○○
 1) 품목별 월평균 평균단가 표 (품종은 묶어서, 등급은 가장 많이 거래된 등급 기준)
@@ -61,7 +63,7 @@
 읽기 어려운 글자는 '?'로 두고 지어내지 마. 마지막에 영수증 합계와 네가 더한 합계를 같이 보여 줘.
 시트에 바로 붙일 수 있게 | 로 나눠서.</pre></div>
 
-  <p class="tip"><b>매일 캡처하기 번거로우면</b> 화훼유통정보 오픈 API로 경매 시세를 매일 아침 장부에 자동으로 쌓고, 자주 쓰는 꽃이 크게 오르면 알림을 받을 수 있어요(<a href="#f-api-price" class="ref" data-ref="f-api-price">강의</a>).</p>
+  <p class="tip"><b>매일 캡처하기 번거로우면</b> 화훼유통정보 오픈 API로 경매 시세를 매일 아침 장부에 자동으로 쌓을 수 있어요. 자주 쓰는 꽃이 크게 오르면 알림도 받아요(<a href="#f-api-price" class="ref" data-ref="f-api-price">강의</a>).</p>
   <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-fx">수식</span><div class="ad"><b>시세 → 원가 자동 갱신</b><span>구성 탭 단가가 시세 탭 최근 송이당 단가를 가져오면, 사입할 때마다 상품 원가가 바뀌어요.</span></div></li><li><span class="chip k-trig">스크립트 트리거</span><div class="ad"><b>월요일 원가율 경보</b><span>지난주 산 값으로 원가율이 기준을 넘은 상품만 메일로.</span></div></li><li><span class="chip k-br">브라우저 AI · 수집</span><div class="ad"><b>경매 시세 모으기</b><span>화훼유통정보에서 자주 쓰는 품목 시세를 조회해 표로. 사이트가 막으면 캡처로 해요.</span></div></li><li><span class="chip k-pc">PC</span><div class="ad"><b>오픈 API (넓히기)</b><span>공공데이터포털 '화훼 경매 시세' API를 활용 신청하면 앱스 스크립트로 시세를 시트에 받아 올 수 있어요. 처음엔 손으로 충분해요.</span></div></li></ul></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 꽃집 AI 비서실'</b> → <b>12 재고·구매</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>'꽃집 운영 장부'(시세·구성 탭) → 프로젝트 파일. 영수증 사진은 이 채팅에만</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 1년치 CSV 분석은 따로 새 채팅에서 하고 결과 표만 장부에.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">웹 검색</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div><p class="rec-note">재고·발주 설계 전체는 <a href="#c-l76" class="ref" data-ref="c-l76">강의</a>.</p></div>

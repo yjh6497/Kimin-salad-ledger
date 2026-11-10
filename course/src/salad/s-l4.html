@@ -2,8 +2,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>구글 시트로 장부부터 만들어요</h2>
-    <p class="goal">휴대폰·PC 어디서나 열리고, <span class="ainame" data-both="Claude와 ChatGPT 모두"></span>에 연결되는 장부를 만듭니다. PC에서 하는 걸 추천해요.</p>
+    <p class="goal"><span class="ainame" data-both="Claude와 ChatGPT 모두"></span>에 연결되는 장부를 만들어요. 휴대폰·PC 어디서나 열려요. 만드는 건 PC에서 하는 걸 추천해요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>종이 장부를 '인터넷 공책'으로 옮기는 거예요. 공책 안에 칸막이(탭)를 나눠 매출, 지출, 알바 근무를 따로 적어요.</span></div><div class="easy-row"><b>끝나면</b><span>탭 6개와 요약 탭이 있는 '매장 장부' 시트, 마감 때 휴대폰으로 매출을 넣는 입력 화면</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 휴대폰, 구글 계정, 반나절 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble me a" style="--d:.2s"><span class="who">사장님</span>샐러드 가게 매출·지출 장부를 구글 시트로 만들어줘. 배달앱별로 따로 보고 싶어.</div>
@@ -11,11 +12,11 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="s_s4a" data-key="s_s4a"><div class="body"><label for="s_s4a">새 스프레드시트 만들기</label><small>이름은 '매장 장부'로 해 주세요. 뒤의 부탁문들이 이 이름을 씁니다.</small>
+    <li><input type="checkbox" id="s_s4a" data-key="s_s4a"><div class="body"><label for="s_s4a">새 스프레드시트 만들기</label><small>이름은 '매장 장부'로 해 주세요. 뒤에 나오는 부탁문들이 이 이름을 써요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>드라이브의 '우리가게 장부' 폴더 안으로 들어가기</li>
         <li><span class="path">+ 새로 만들기 → Google 스프레드시트</span></li>
-        <li>왼쪽 위 '제목 없는 스프레드시트' 글자를 눌러 <b>매장 장부</b>로 바꾸고 엔터<span class="fix">저장 버튼은 없어요. 입력하는 순간 자동 저장됩니다.</span></li>
+        <li>왼쪽 위 '제목 없는 스프레드시트' 글자를 눌러 <b>매장 장부</b>로 바꾸고 엔터<span class="fix">저장 버튼은 없어요. 입력하는 순간 자동으로 저장돼요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="s_s4b" data-key="s_s4b"><div class="body"><label for="s_s4b"><dfn data-t="tab">탭</dfn>(시트) 6개 만들기</label><small>매출, 지출, 고정비, 거래처, 알바근무, 메뉴원가. 파일은 '매장 장부' 하나, 그 안에 시트가 6개예요.</small>
       <div class="tabbar" aria-label="구글 시트 아래쪽 시트 이름표 예시"><span class="tb-plus">+</span><span class="tb-menu">≡</span><span class="tb on">매출</span><span class="tb">지출</span><span class="tb">고정비</span><span class="tb">거래처</span><span class="tb">알바근무</span><span class="tb">메뉴원가</span></div>
@@ -25,37 +26,38 @@
         <li>그 왼쪽의 <span class="path">+</span> 버튼을 눌러 새 탭 만들기 → 같은 방법으로 이름 바꾸기</li>
         <li>지출, 고정비, 거래처, 알바근무, 메뉴원가까지 6개가 될 때까지 반복</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s4c" data-key="s_s4c"><div class="body"><label for="s_s4c"><dfn data-t="header">제목 줄</dfn> 붙여 넣기</label><small>아래 상자의 '복사'를 누르고 각 탭의 A1 칸에 붙여 넣으면 칸마다 나뉘어 들어가요.</small>
+    <li><input type="checkbox" id="s_s4c" data-key="s_s4c"><div class="body"><label for="s_s4c"><dfn data-t="header">제목 줄</dfn> 붙여 넣기</label><small>칸마다 무엇을 적을지 정해 두려고 해요. 아래 상자의 '복사'를 누르고 각 탭의 A1 칸에 붙여 넣어요. 칸마다 나뉘어 들어가요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>매출 탭을 열고 맨 왼쪽 위 칸(A1)을 한 번 누르기</li>
         <li>아래 '매출 탭 제목 줄'의 <span class="path">복사</span> 누르기</li>
         <li>PC는 Ctrl+V(맥은 ⌘+V), 휴대폰은 칸을 길게 눌러 '붙여넣기'</li>
         <li>지출, 알바근무 탭도 같은 방법으로<span class="fix">한 칸에 다 들어갔다면 그 칸을 누르고 <span class="path">데이터 → 텍스트를 열로 분할</span>을 누르세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s4d" data-key="s_s4d"><div class="body"><label for="s_s4d">AI에게 요약 수식 부탁하기</label><small>월별 합계와 순이익, 식재료 <dfn data-t="costratio">원가율</dfn>을 자동으로 계산하는 '요약' 탭을 만들어요.</small>
+    <li><input type="checkbox" id="s_s4d" data-key="s_s4d"><div class="body"><label for="s_s4d">AI에게 요약 수식 부탁하기</label><small>계산기를 따로 두드리지 않으려고 해요. 월별 합계와 순이익, 식재료 <dfn data-t="costratio">원가율</dfn>을 저절로 계산하는 '요약' 탭을 만들어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li><span class="ainame" data-both="Claude나 ChatGPT"></span> 새 대화에 아래 '장부 수식 만들기' 부탁문을 붙여 넣고 보내기</li>
-        <li>같은 파일 맨 아래 <span class="path">+</span>로 시트를 하나 더 추가하고 이름을 <b>요약</b>으로</li>
-        <li>AI가 적어 준 칸(예: B2)에 수식을 그대로 복사해 붙여 넣기 → 숫자가 나오는지 확인<span class="fix">#ERROR! 같은 글자가 나오면 그 글자와 수식을 그대로 AI에게 보내 "고쳐줘"라고 하세요.</span></li>
+        <li>같은 파일 맨 아래 <span class="path">+</span>로 시트를 하나 더 추가하고 이름을 <b>요약</b>으로 바꾸기</li>
+        <li>AI가 적어 준 칸(예: B2)에 수식을 그대로 복사해 붙여 넣기. 숫자가 나오는지 확인해요.<span class="fix">#ERROR! 같은 글자가 나오면 그 글자와 수식을 그대로 AI에게 보내 "고쳐줘"라고 하세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s4e" data-key="s_s4e"><div class="body"><label for="s_s4e">휴대폰 입력 화면(<dfn data-t="form">구글 폼</dfn>) 만들기</label><small>마감 때 휴대폰으로 숫자만 넣으면 시트에 쌓이게 해요.</small>
+    <li><input type="checkbox" id="s_s4e" data-key="s_s4e"><div class="body"><label for="s_s4e">휴대폰 입력 화면(<dfn data-t="form">구글 폼</dfn>) 만들기</label><small>마감 때 PC를 켜지 않아도 되게 하려고 해요. 휴대폰으로 숫자만 넣으면 시트에 쌓여요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>시트 위쪽 메뉴 <span class="path">도구 → 새 양식</span></li>
         <li>질문 추가: 날짜(날짜형), 카드, 현금, 계좌이체, 배민, 쿠팡이츠, 요기요(모두 단답형)</li>
-        <li>오른쪽 위 <span class="path">보내기 → 링크 아이콘 → 복사</span> 후 그 주소를 카카오톡 '나와의 채팅'에 보내기</li>
-        <li>휴대폰에서 그 링크 열기 → <dfn data-t="homescreen">홈 화면에 추가</dfn></li>
-        <li>폼 답은 시트에 새 탭('설문지 응답')으로 쌓여요. 탭 이름을 <b>매출입력</b>으로 바꾸고, AI에게 "매출입력 탭을 매출 탭으로 합쳐 주는 수식 알려줘"라고 부탁<span class="fix">폼을 시트에서 바로 못 찾으면 forms.google.com에서 만든 뒤 <span class="path">응답 → 스프레드시트에 연결</span>을 누르세요.</span></li>
+        <li>오른쪽 위 <span class="path">보내기 → 링크 아이콘 → 복사</span>를 눌러요. 그 주소를 카카오톡 '나와의 채팅'에 보내요.</li>
+        <li>휴대폰에서 그 링크를 열고 <dfn data-t="homescreen">홈 화면에 추가</dfn>해요.</li>
+        <li>폼 답은 시트에 새 탭('설문지 응답')으로 쌓여요. 탭 이름을 <b>매출입력</b>으로 바꿔요. 그다음 AI에게 "매출입력 탭을 매출 탭으로 합쳐 주는 수식 알려줘"라고 부탁해요.<span class="fix">폼을 시트에서 바로 못 찾으면 forms.google.com에서 만든 뒤 <span class="path">응답 → 스프레드시트에 연결</span>을 누르세요.</span></li>
       </ol></details></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>매출 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 카드 | 현금 | 계좌이체 | 배민 | 쿠팡이츠 | 요기요 | 주문건수 | 메모</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>지출 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 거래처 | 품목 | 수량 | 단가 | 금액 | 대분류 | 소분류 | 결제수단 | 영수증사진</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>알바근무 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 이름 | 출근 | 퇴근 | 휴게(분) | 근무시간 | 시급 | 일급</pre></div>
+  <p class="cap">이 글을 그대로 복사해서 '01 장부·정산' 채팅에 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>장부 수식 만들기 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '매장 장부'의 매출·지출 탭 제목 줄을 붙여 줄게. 월별 매출 합계, 대분류별 지출 합계, 순이익, 식재료 원가율을 보여 주는 '요약' 탭 수식을 셀 위치까지 알려줘. 나는 엑셀 초보야.
 매출: 날짜, 카드, 현금, 계좌이체, 배민, 쿠팡이츠, 요기요, 주문건수, 메모
 지출: 날짜, 거래처, 품목, 수량, 단가, 금액, 대분류, 소분류, 결제수단, 영수증사진</pre></div>
   <p class="tip"><b>지출의 대분류는 7개로 고정</b>하세요. 식재료·포장재·인건비·공간비·판매수수료·마케팅·운영비. 같은 이름을 계속 써야 분석이 정확해요.</p>
 
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>휴대폰 입력 → 장부</b><span>폼을 제출하면 '매출입력' 탭에 시각과 함께 쌓여요. 옮겨 적을 일이 없어요.</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>요약 자동 계산</b><span>숫자를 넣는 순간 월 합계·순이익·원가율이 다시 계산돼요.</span></div></li><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>마감 입력 알림</b><span>매일 마감 시각에 '폼 입력' 알림. 입력을 깜빡하면 밤에 알려 주는 스크립트는 <a href="#s-l32" class="ref" data-ref="s-l32">강의</a>에서 만들어요.</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>휴대폰 입력 → 장부</b><span>폼을 제출하면 '매출입력' 탭에 시각과 함께 쌓여요. 옮겨 적을 일이 없어요.</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>요약 자동 계산</b><span>숫자를 넣는 순간 월 합계·순이익·원가율이 다시 계산돼요.</span></div></li><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>마감 입력 알림</b><span>매일 마감 시각에 '폼 입력' 알림이 와요. 입력을 깜빡하면 밤에 알려 주는 스크립트는 <a href="#s-l32" class="ref" data-ref="s-l32">강의</a>에서 만들어요.</span></div></li></ul></div>
   <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>구글 시트를 열고 탭·제목 줄을 AI가 직접 입력.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>시트에서 수식 채우기·서식 정리를 맡겨요.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>장부 검사 스크립트(빈칸·중복·음수)를 만들어 매일 밤.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>완성된 장부를 프로젝트 파일로 연결해 모든 직원 채팅이 같은 장부를 봐요.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>01 장부·정산</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>장부 수식 만들기 부탁문</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div></div>

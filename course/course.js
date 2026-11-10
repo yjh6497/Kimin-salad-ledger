@@ -19,6 +19,39 @@
   var prefs = lsGet(PREF_KEY, {}) || {};
   function savePrefs() { lsSet(PREF_KEY, prefs); }
 
+  // ---------- 컴퓨터·AI 설문과 난이도 ----------
+  var SURVEY = [
+    { id: 'copy', tag: '컴퓨터', q: '복사·붙여넣기, 화면 캡처를 해 보셨어요?', o: ['자주 해요', '해 봤어요', '잘 몰라요'] },
+    { id: 'sheet', tag: '컴퓨터', q: '엑셀이나 구글 시트로 표를 만들어 보셨어요?', o: ['수식도 써요', '입력만 해 봤어요', '거의 안 써 봤어요'] },
+    { id: 'file', tag: '컴퓨터', q: '파일을 내려받아 폴더에서 찾는 일은 어때요?', o: ['쉬워요', '가끔 헤매요', '어려워요'] },
+    { id: 'ai', tag: 'AI', q: 'ChatGPT나 Claude 같은 AI를 써 보셨어요?', o: ['일에 자주 써요', '몇 번 써 봤어요', '처음이에요'] },
+    { id: 'upload', tag: 'AI', q: 'AI에게 사진이나 파일을 올려 물어본 적 있어요?', o: ['자주 해요', '한두 번', '없어요'] },
+    { id: 'code', tag: 'AI', q: '코드나 자동화(앱스 스크립트, 엑셀 매크로)를 해 보셨어요?', o: ['해 봤어요', '들어만 봤어요', '처음이에요'], s: '몰라도 괜찮아요. 이 코스에서 AI가 짜 줘요.' },
+    { id: 'font', tag: '화면', q: '글씨가 조금 크게 보이면 더 편하세요?', o: ['네, 크게', '지금이 좋아요'], two: true }
+  ];
+  var LV_NAME = { 1: '입문', 2: '기본', 3: '능숙' };
+  // 답(0=잘함 … 2=처음)으로 난이도와 숨길 준비 운동 강의를 정해요
+  function skillFrom(a) {
+    if (!a) return null;
+    var pts = 0, n = 0;
+    ['copy', 'sheet', 'file', 'ai', 'upload', 'code'].forEach(function (k) { if (a[k] != null) { pts += 2 - a[k]; n++; } });
+    if (n < 6) return null;
+    var comp = (2 - a.copy) + (2 - a.sheet) + (2 - a.file), ai = (2 - a.ai) + (2 - a.upload) + (2 - a.code);
+    var lv = (pts <= 4 || comp <= 1) ? 1 : (pts >= 10 && comp >= 5) ? 3 : 2;
+    var hide = [];
+    if (lv === 3) hide = ['c-b1', 'c-b2', 'c-b3', 'c-b4', 'c-b5', 'c-b6'];
+    else {
+      if (a.copy === 0 && a.file === 0) hide.push('c-b2');
+      if (a.ai === 0 && a.upload <= 1) hide.push('c-b3');
+      if (a.sheet === 0) hide.push('c-b4');
+      if (a.code === 0) hide.push('c-b5');
+      if (lv === 2 && a.copy === 0 && a.sheet === 0) hide.push('c-b1');
+    }
+    return { lv: lv, comp: comp, ai: ai, hide: hide, big: a.font === 0 };
+  }
+  function skillLv() { return prefs.skill && prefs.skill.lv ? prefs.skill.lv : 2; }
+  function skillHide() { return prefs.skill && prefs.skill.hide ? prefs.skill.hide : []; }
+
   // ---------- 주소(코스 링크) ----------
   var Q = new URLSearchParams(location.search);
   function profileFromQuery() {
@@ -78,6 +111,49 @@
     document.getElementById('setup').hidden = false;
     document.title = '우리 가게 AI 코스 만들기';
     var sel = { biz: initial ? initial.biz : '', name: initial && initial.name || '', type: initial && initial.type || 'shop', stage: initial ? initial.stage : '', ai: prefs.ai || '', plan: prefs.plan || '' };
+    sel.ans = prefs.survey ? JSON.parse(JSON.stringify(prefs.survey)) : {};
+    sel.skip = false;
+    var svBox = document.getElementById('survey');
+    SURVEY.forEach(function (Sq) {
+      var wrap = document.createElement('div'); wrap.className = 'sv-q';
+      var p = document.createElement('p');
+      var tg = document.createElement('span'); tg.className = 'sv-tag'; tg.textContent = Sq.tag; p.appendChild(tg);
+      p.appendChild(document.createTextNode(Sq.q));
+      if (Sq.s) { var sm = document.createElement('small'); sm.textContent = Sq.s; p.appendChild(sm); }
+      var opts = document.createElement('div'); opts.className = 'sv-opts' + (Sq.two ? ' two' : ''); opts.setAttribute('role', 'radiogroup'); opts.setAttribute('aria-label', Sq.q);
+      Sq.o.forEach(function (t, k) {
+        var b = document.createElement('button'); b.type = 'button'; b.textContent = t; b.dataset.q = Sq.id; b.dataset.k = k;
+        b.addEventListener('click', function () { sel.ans[Sq.id] = k; sel.skip = false; paint(); });
+        opts.appendChild(b);
+      });
+      wrap.appendChild(p); wrap.appendChild(opts); svBox.appendChild(wrap);
+    });
+    document.getElementById('svSkip').addEventListener('click', function () { sel.skip = true; sel.ans = {}; paint(); });
+    function curSkill() { return sel.skip ? { lv: 2, hide: [], big: false, skipped: true } : skillFrom(sel.ans); }
+    function paintSurvey() {
+      svBox.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', sel.ans[b.dataset.q] === +b.dataset.k ? 'true' : 'false'); });
+      var out = document.getElementById('svResult'); out.textContent = '';
+      var sk = curSkill();
+      if (!sk) {
+        var left = SURVEY.filter(function (Sq) { return Sq.id !== 'font' && sel.ans[Sq.id] == null; }).length;
+        if (left < 6) { var pp = document.createElement('p'); pp.style.margin = '0'; pp.textContent = '남은 질문 ' + left + '개'; out.appendChild(pp); }
+        return;
+      }
+      var h = document.createElement('h3'); h.textContent = sk.skipped ? '보통(기본) 난이도로 시작해요' : '추천 난이도: ' + LV_NAME[sk.lv];
+      out.appendChild(h);
+      var m = document.createElement('div'); m.className = 'sv-meter'; m.setAttribute('aria-hidden', 'true');
+      for (var i = 1; i <= 3; i++) { var bar = document.createElement('i'); if (i <= sk.lv) bar.className = 'on'; m.appendChild(bar); }
+      out.appendChild(m);
+      var ul = document.createElement('ul');
+      var lines = [];
+      if (sk.lv === 1) lines = ['준비 운동 6강부터 차근차근 시작해요', '코드·봇을 쓰는 고급 강의는 처음엔 숨겨요 (익숙해지면 \'강의 고르기\'에서 꺼내요)', '\'자세히 따라 하기\'를 모두 펼친 채로 보여 드려요'];
+      else if (sk.lv === 2) lines = [sk.hide.length ? '이미 익숙한 준비 운동 ' + sk.hide.length + '강은 빼고 엮어요' : '준비 운동 강의를 포함해요', '핵심·넓히기·고급 강의를 모두 보여 드려요', '\'자세히 따라 하기\'는 필요할 때 펼쳐요'];
+      else lines = ['준비 운동은 건너뛰고 바로 실무 강의부터', '고급(코드·봇·API) 강의까지 모두 포함해요'];
+      if (sk.big) lines.push('글씨를 크게 보여 드려요');
+      lines.push('강의 화면 위쪽 \'난이도\'에서 언제든 바꿀 수 있어요');
+      lines.forEach(function (t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+      out.appendChild(ul);
+    }
     var q = document.getElementById('bizQ'), chips = document.getElementById('bizChips');
     var cbox = document.getElementById('customBox'), ctypes = document.getElementById('customTypes');
 
@@ -137,7 +213,7 @@
       });
     }
     function paint() {
-      renderChips(); renderStages();
+      renderChips(); renderStages(); paintSurvey();
       cbox.hidden = sel.biz !== 'custom';
       document.getElementById('customName').textContent = sel.name;
       ctypes.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.type === sel.type ? 'true' : 'false'); });
@@ -149,13 +225,14 @@
       if (!ok) sum.textContent = !sel.biz ? '업종을 골라 주세요.' : '단계를 골라 주세요.';
       else {
         var ind = industryOf(sel);
-        var n = countLessons(sel);
-        sum.textContent = ind.name + ' · ' + ind.stages[sel.stage] + (n ? ' — 강의 ' + n + '개로 엮어요' : '');
+        var n = countLessons(sel, curSkill() || { lv: 2, hide: [] });
+        var skx = curSkill();
+        sum.textContent = ind.name + ' · ' + ind.stages[sel.stage] + (skx ? ' · ' + LV_NAME[skx.lv] : ' · 난이도 설문 전') + (n ? ' — 강의 ' + n + '개로 엮어요' : '');
       }
     }
     var MAN = null;
     fetch('lib/manifest.json').then(function (r) { return r.json(); }).then(function (m) { MAN = m; paint(); }).catch(function () {});
-    function countLessons(p) { return MAN ? MAN.lessons.filter(function (L) { return defaultOn(L, p.biz, p.stage); }).length : 0; }
+    function countLessons(p, sk) { return MAN ? MAN.lessons.filter(function (L) { return defaultOn(L, p.biz, p.stage, sk) && (!L.ai || !sel.ai || L.ai === sel.ai); }).length : 0; }
 
     q.addEventListener('input', function () { renderChips(); });
     q.addEventListener('keydown', function (e) {
@@ -167,7 +244,15 @@
     document.querySelectorAll('[data-s-ai]').forEach(function (b) { b.addEventListener('click', function () { sel.ai = b.dataset.sAi; paint(); }); });
     document.querySelectorAll('[data-s-plan]').forEach(function (b) { b.addEventListener('click', function () { sel.plan = b.dataset.sPlan; paint(); }); });
     document.getElementById('goBtn').addEventListener('click', function () {
-      if (sel.ai) prefs.ai = sel.ai; if (sel.plan) prefs.plan = sel.plan; savePrefs();
+      if (sel.ai) prefs.ai = sel.ai; if (sel.plan) prefs.plan = sel.plan;
+      var sk = curSkill();
+      if (sk) {
+        prefs.skill = { lv: sk.lv, hide: sk.hide };
+        if (!sk.skipped) prefs.survey = sel.ans;
+        prefs.open = sk.lv === 1 ? 'all' : 'closed';
+        if (sk.big) prefs.font = 'big'; else if (!sk.skipped) prefs.font = 'normal';
+      }
+      savePrefs();
       var p = { biz: sel.biz, stage: sel.stage };
       if (p.biz === 'custom') { p.name = sel.name; p.type = sel.type; }
       location.href = profUrl(p);
@@ -186,16 +271,19 @@
     if (!sel.biz) q.focus({ preventScroll: true });
   }
 
-  function defaultOn(L, biz, stage) {
+  function defaultOn(L, biz, stage, sk) {
     if (L.biz.length && L.biz.indexOf(biz) < 0) return false;
     if (L.not.indexOf(biz) >= 0) return false;
     if (L.stage.indexOf(stage) < 0) return false;
+    var lv = sk ? sk.lv : skillLv(), hide = sk ? sk.hide : skillHide();
+    if (lv === 1 && L.level === 'adv') return false;
+    if (hide.indexOf(L.id) >= 0) return false;
     return true;
   }
 
   // ---------- 코스 화면 ----------
   var P = profileFromQuery();
-  if (!P) { runSetup(null); return; }
+  if (!P || Q.get('pick')) { runSetup(P); if (Q.get('survey')) { var sq = document.getElementById('qSkill'); if (sq) setTimeout(function () { sq.scrollIntoView({ block: 'start' }); }, 50); } return; }
 
   var IN = industryOf(P);
   var BIZ = P.biz;
@@ -229,7 +317,7 @@
   document.getElementById('bizTag').textContent = IN.icon + ' ' + IN.name;
   document.getElementById('stageTag').textContent = IN.stages[P.stage];
   document.getElementById('changeBiz').addEventListener('click', function () {
-    location.href = location.pathname + '?pick=1';
+    location.href = profUrl(P, { pick: '1' });
   });
 
   var MAN;
@@ -457,6 +545,23 @@
     var AINAME = { claude: 'Claude', gpt: 'ChatGPT' };
     var PLAN = (prefs.plan === 'free' || prefs.plan === 'paid') ? prefs.plan : '';
     var VIEW = prefs.view === 'core' ? 'core' : 'all';
+    document.querySelectorAll('[data-lv-pick]').forEach(function (b) {
+      b.setAttribute('aria-pressed', +b.dataset.lvPick === skillLv() ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        var lv = +b.dataset.lvPick; if (lv === skillLv()) return;
+        var base = prefs.survey ? skillFrom(prefs.survey) : null;
+        var hide = lv === 3 ? ['c-b1', 'c-b2', 'c-b3', 'c-b4', 'c-b5', 'c-b6'] : (base && base.lv !== 3 ? base.hide : []);
+        prefs.skill = { lv: lv, hide: lv === 1 ? [] : hide };
+        prefs.open = lv === 1 ? 'all' : 'closed';
+        savePrefs(); location.reload();
+      });
+    });
+    var banner = document.getElementById('svBanner');
+    if (!prefs.skill && !prefs.svDismiss) {
+      banner.hidden = false;
+      document.getElementById('svBannerGo').href = profUrl(P, { pick: '1', survey: '1' });
+      document.getElementById('svBannerNo').addEventListener('click', function () { prefs.svDismiss = true; savePrefs(); banner.hidden = true; });
+    }
     var FONT = prefs.font === 'big' ? 'big' : 'normal';
     var OPEN = prefs.open === 'all' ? 'all' : 'closed';
     function applyLook() {

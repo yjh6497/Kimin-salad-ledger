@@ -41,8 +41,9 @@
   <div class="lesson-head">
     <span class="kicker">실습 · 반나절</span>
     <h2>구글 시트로 장부부터 만들어요</h2>
-    <p class="goal">휴대폰·PC 어디서나 열리고, <span class="ainame" data-both="Claude와 ChatGPT 모두"></span>에 연결되는 장부를 만듭니다. PC에서 하는 걸 추천해요.</p>
+    <p class="goal"><span class="ainame" data-both="Claude와 ChatGPT 모두"></span>에 연결되는 장부를 만들어요. 휴대폰·PC 어디서나 열려요. 만드는 건 PC에서 하는 걸 추천해요.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>종이 장부를 '인터넷 공책'으로 옮기는 거예요. 공책 안에 칸막이(탭)를 나눠 매출, 지출, 알바 근무를 따로 적어요.</span></div><div class="easy-row"><b>끝나면</b><span>탭 6개와 요약 탭이 있는 '매장 장부' 시트, 마감 때 휴대폰으로 매출을 넣는 입력 화면</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 휴대폰, 구글 계정, 반나절 · 시트가 처음이면 <a href="#c-b4" class="ref" data-ref="c-b4">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="chat">
       <div class="bubble me a" style="--d:.2s"><span class="who">사장님</span>샐러드 가게 매출·지출 장부를 구글 시트로 만들어줘. 배달앱별로 따로 보고 싶어.</div>
@@ -50,11 +51,11 @@
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="s_s4a" data-key="s_s4a"><div class="body"><label for="s_s4a">새 스프레드시트 만들기</label><small>이름은 '매장 장부'로 해 주세요. 뒤의 부탁문들이 이 이름을 씁니다.</small>
+    <li><input type="checkbox" id="s_s4a" data-key="s_s4a"><div class="body"><label for="s_s4a">새 스프레드시트 만들기</label><small>이름은 '매장 장부'로 해 주세요. 뒤에 나오는 부탁문들이 이 이름을 써요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>드라이브의 '우리가게 장부' 폴더 안으로 들어가기</li>
         <li><span class="path">+ 새로 만들기 → Google 스프레드시트</span></li>
-        <li>왼쪽 위 '제목 없는 스프레드시트' 글자를 눌러 <b>매장 장부</b>로 바꾸고 엔터<span class="fix">저장 버튼은 없어요. 입력하는 순간 자동 저장됩니다.</span></li>
+        <li>왼쪽 위 '제목 없는 스프레드시트' 글자를 눌러 <b>매장 장부</b>로 바꾸고 엔터<span class="fix">저장 버튼은 없어요. 입력하는 순간 자동으로 저장돼요.</span></li>
       </ol></details></div></li>
     <li><input type="checkbox" id="s_s4b" data-key="s_s4b"><div class="body"><label for="s_s4b"><dfn data-t="tab">탭</dfn>(시트) 6개 만들기</label><small>매출, 지출, 고정비, 거래처, 알바근무, 메뉴원가. 파일은 '매장 장부' 하나, 그 안에 시트가 6개예요.</small>
       <div class="tabbar" aria-label="구글 시트 아래쪽 시트 이름표 예시"><span class="tb-plus">+</span><span class="tb-menu">≡</span><span class="tb on">매출</span><span class="tb">지출</span><span class="tb">고정비</span><span class="tb">거래처</span><span class="tb">알바근무</span><span class="tb">메뉴원가</span></div>
@@ -64,37 +65,38 @@
         <li>그 왼쪽의 <span class="path">+</span> 버튼을 눌러 새 탭 만들기 → 같은 방법으로 이름 바꾸기</li>
         <li>지출, 고정비, 거래처, 알바근무, 메뉴원가까지 6개가 될 때까지 반복</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s4c" data-key="s_s4c"><div class="body"><label for="s_s4c"><dfn data-t="header">제목 줄</dfn> 붙여 넣기</label><small>아래 상자의 '복사'를 누르고 각 탭의 A1 칸에 붙여 넣으면 칸마다 나뉘어 들어가요.</small>
+    <li><input type="checkbox" id="s_s4c" data-key="s_s4c"><div class="body"><label for="s_s4c"><dfn data-t="header">제목 줄</dfn> 붙여 넣기</label><small>칸마다 무엇을 적을지 정해 두려고 해요. 아래 상자의 '복사'를 누르고 각 탭의 A1 칸에 붙여 넣어요. 칸마다 나뉘어 들어가요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>매출 탭을 열고 맨 왼쪽 위 칸(A1)을 한 번 누르기</li>
         <li>아래 '매출 탭 제목 줄'의 <span class="path">복사</span> 누르기</li>
         <li>PC는 Ctrl+V(맥은 ⌘+V), 휴대폰은 칸을 길게 눌러 '붙여넣기'</li>
         <li>지출, 알바근무 탭도 같은 방법으로<span class="fix">한 칸에 다 들어갔다면 그 칸을 누르고 <span class="path">데이터 → 텍스트를 열로 분할</span>을 누르세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s4d" data-key="s_s4d"><div class="body"><label for="s_s4d">AI에게 요약 수식 부탁하기</label><small>월별 합계와 순이익, 식재료 <dfn data-t="costratio">원가율</dfn>을 자동으로 계산하는 '요약' 탭을 만들어요.</small>
+    <li><input type="checkbox" id="s_s4d" data-key="s_s4d"><div class="body"><label for="s_s4d">AI에게 요약 수식 부탁하기</label><small>계산기를 따로 두드리지 않으려고 해요. 월별 합계와 순이익, 식재료 <dfn data-t="costratio">원가율</dfn>을 저절로 계산하는 '요약' 탭을 만들어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li><span class="ainame" data-both="Claude나 ChatGPT"></span> 새 대화에 아래 '장부 수식 만들기' 부탁문을 붙여 넣고 보내기</li>
-        <li>같은 파일 맨 아래 <span class="path">+</span>로 시트를 하나 더 추가하고 이름을 <b>요약</b>으로</li>
-        <li>AI가 적어 준 칸(예: B2)에 수식을 그대로 복사해 붙여 넣기 → 숫자가 나오는지 확인<span class="fix">#ERROR! 같은 글자가 나오면 그 글자와 수식을 그대로 AI에게 보내 "고쳐줘"라고 하세요.</span></li>
+        <li>같은 파일 맨 아래 <span class="path">+</span>로 시트를 하나 더 추가하고 이름을 <b>요약</b>으로 바꾸기</li>
+        <li>AI가 적어 준 칸(예: B2)에 수식을 그대로 복사해 붙여 넣기. 숫자가 나오는지 확인해요.<span class="fix">#ERROR! 같은 글자가 나오면 그 글자와 수식을 그대로 AI에게 보내 "고쳐줘"라고 하세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s4e" data-key="s_s4e"><div class="body"><label for="s_s4e">휴대폰 입력 화면(<dfn data-t="form">구글 폼</dfn>) 만들기</label><small>마감 때 휴대폰으로 숫자만 넣으면 시트에 쌓이게 해요.</small>
+    <li><input type="checkbox" id="s_s4e" data-key="s_s4e"><div class="body"><label for="s_s4e">휴대폰 입력 화면(<dfn data-t="form">구글 폼</dfn>) 만들기</label><small>마감 때 PC를 켜지 않아도 되게 하려고 해요. 휴대폰으로 숫자만 넣으면 시트에 쌓여요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>시트 위쪽 메뉴 <span class="path">도구 → 새 양식</span></li>
         <li>질문 추가: 날짜(날짜형), 카드, 현금, 계좌이체, 배민, 쿠팡이츠, 요기요(모두 단답형)</li>
-        <li>오른쪽 위 <span class="path">보내기 → 링크 아이콘 → 복사</span> 후 그 주소를 카카오톡 '나와의 채팅'에 보내기</li>
-        <li>휴대폰에서 그 링크 열기 → <dfn data-t="homescreen">홈 화면에 추가</dfn></li>
-        <li>폼 답은 시트에 새 탭('설문지 응답')으로 쌓여요. 탭 이름을 <b>매출입력</b>으로 바꾸고, AI에게 "매출입력 탭을 매출 탭으로 합쳐 주는 수식 알려줘"라고 부탁<span class="fix">폼을 시트에서 바로 못 찾으면 forms.google.com에서 만든 뒤 <span class="path">응답 → 스프레드시트에 연결</span>을 누르세요.</span></li>
+        <li>오른쪽 위 <span class="path">보내기 → 링크 아이콘 → 복사</span>를 눌러요. 그 주소를 카카오톡 '나와의 채팅'에 보내요.</li>
+        <li>휴대폰에서 그 링크를 열고 <dfn data-t="homescreen">홈 화면에 추가</dfn>해요.</li>
+        <li>폼 답은 시트에 새 탭('설문지 응답')으로 쌓여요. 탭 이름을 <b>매출입력</b>으로 바꿔요. 그다음 AI에게 "매출입력 탭을 매출 탭으로 합쳐 주는 수식 알려줘"라고 부탁해요.<span class="fix">폼을 시트에서 바로 못 찾으면 forms.google.com에서 만든 뒤 <span class="path">응답 → 스프레드시트에 연결</span>을 누르세요.</span></li>
       </ol></details></div></li>
   </ol>
   <div class="prompt" data-tsv><div class="bar"><span>매출 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 카드 | 현금 | 계좌이체 | 배민 | 쿠팡이츠 | 요기요 | 주문건수 | 메모</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>지출 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 거래처 | 품목 | 수량 | 단가 | 금액 | 대분류 | 소분류 | 결제수단 | 영수증사진</pre></div>
   <div class="prompt" data-tsv><div class="bar"><span>알바근무 탭 제목 줄</span><button class="copy" type="button">복사</button></div><pre>날짜 | 이름 | 출근 | 퇴근 | 휴게(분) | 근무시간 | 시급 | 일급</pre></div>
+  <p class="cap">이 글을 그대로 복사해서 '01 장부·정산' 채팅에 붙여 넣으세요. 고칠 곳은 없어요.</p>
   <div class="prompt"><div class="bar"><span>장부 수식 만들기 부탁문</span><button class="copy" type="button">복사</button></div><pre>구글 시트 '매장 장부'의 매출·지출 탭 제목 줄을 붙여 줄게. 월별 매출 합계, 대분류별 지출 합계, 순이익, 식재료 원가율을 보여 주는 '요약' 탭 수식을 셀 위치까지 알려줘. 나는 엑셀 초보야.
 매출: 날짜, 카드, 현금, 계좌이체, 배민, 쿠팡이츠, 요기요, 주문건수, 메모
 지출: 날짜, 거래처, 품목, 수량, 단가, 금액, 대분류, 소분류, 결제수단, 영수증사진</pre></div>
   <p class="tip"><b>지출의 대분류는 7개로 고정</b>하세요. 식재료·포장재·인건비·공간비·판매수수료·마케팅·운영비. 같은 이름을 계속 써야 분석이 정확해요.</p>
 
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>휴대폰 입력 → 장부</b><span>폼을 제출하면 '매출입력' 탭에 시각과 함께 쌓여요. 옮겨 적을 일이 없어요.</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>요약 자동 계산</b><span>숫자를 넣는 순간 월 합계·순이익·원가율이 다시 계산돼요.</span></div></li><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>마감 입력 알림</b><span>매일 마감 시각에 '폼 입력' 알림. 입력을 깜빡하면 밤에 알려 주는 스크립트는 <a href="#s-l32" class="ref" data-ref="s-l32">강의</a>에서 만들어요.</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>도구 고르는 법은 <a href="#c-l63" class="ref" data-ref="c-l63">강의</a></span></div><ul><li><span class="chip k-form">구글 폼</span><div class="ad"><b>휴대폰 입력 → 장부</b><span>폼을 제출하면 '매출입력' 탭에 시각과 함께 쌓여요. 옮겨 적을 일이 없어요.</span></div></li><li><span class="chip k-fx">수식</span><div class="ad"><b>요약 자동 계산</b><span>숫자를 넣는 순간 월 합계·순이익·원가율이 다시 계산돼요.</span></div></li><li><span class="chip k-cal">캘린더 알림</span><div class="ad"><b>마감 입력 알림</b><span>매일 마감 시각에 '폼 입력' 알림이 와요. 입력을 깜빡하면 밤에 알려 주는 스크립트는 <a href="#s-l32" class="ref" data-ref="s-l32">강의</a>에서 만들어요.</span></div></li></ul></div>
   <div class="hands"><div class="hands-h"><b>세 가지 손으로 자동화</b><a href="#c-s50" class="ref" data-ref="c-s50">강의</a></div><div class="hd"><span class="hk hk-ib">내장 브라우저</span><div><small><span data-ai-not="gpt">Claude 앱 내장 브라우저</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT 에이전트 모드</span></small><span>구글 시트를 열고 탭·제목 줄을 AI가 직접 입력.</span></div></div><div class="hd"><span class="hk hk-cr">크롬</span><div><small><span data-ai-not="gpt">Claude in Chrome</span><span data-ai-none> · </span><span data-ai-not="claude">ChatGPT Atlas</span></small><span>시트에서 수식 채우기·서식 정리를 맡겨요.</span></div></div><div class="hd"><span class="hk hk-tb">터미널·봇</span><div><small><span data-ai-not="gpt">Claude Code</span><span data-ai-none> · </span><span data-ai-not="claude">Codex</span> · 봇</small><span>장부 검사 스크립트(빈칸·중복·음수)를 만들어 매일 밤.</span></div></div><div class="hd hd-sec"><span class="hk hk-sec">비서 연동</span><div><span>완성된 장부를 프로젝트 파일로 연결해 모든 직원 채팅이 같은 장부를 봐요.</span></div></div><p class="hands-note" data-plan="free">무료 플랜이라면 브라우저·터미널 AI 대신 채팅에서 받은 초안과 스크립트를 사장님이 붙여 넣어요. 스크립트·텔레그램 봇은 무료예요.</p></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 <b>'우리 가게 경영 비서'</b> → <b>01 장부·정산</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>장부 수식 만들기 부탁문</span></div><div class="aib-row"><b>세션</b><span>같은 직원 채팅을 계속 써요. 길어지면 "지금까지 정한 것 요약해줘" → 같은 이름으로 새 채팅을 열고 요약을 붙여요.</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span></div></div><div class="rec-row"><b>스킬</b><div><span class="rc s">엑셀</span></div></div></div>
@@ -521,8 +523,9 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
   <div class="lesson-head">
     <span class="kicker">실습 · 2~4주</span>
     <h2>채소 시세가 매일 장부에 들어오게</h2>
-    <p class="goal">가장 쉬운 길은 '<dfn data-t="apikey">API 키</dfn> 받기 → AI가 짜 준 <dfn data-t="appsscript">앱스 스크립트</dfn> 붙여 넣기 → <dfn data-t="trigger">트리거</dfn>로 매일 실행'입니다.</p>
+    <p class="goal">가장 쉬운 길은 세 단계예요. <dfn data-t="apikey">API 키</dfn>(자료를 받아 갈 수 있는 출입증) 받기 → AI가 짜 준 <dfn data-t="appsscript">앱스 스크립트</dfn>(시트에 붙이는 작은 프로그램) 붙여 넣기 → <dfn data-t="trigger">트리거</dfn>(정해진 시간에 저절로 실행되게 하는 알람)로 매일 실행.</p>
   </div>
+  <div class="easy"><div class="easy-row"><b>이게 뭐예요</b><span>장부에 '알람 시계'를 달아 두는 거예요. 매일 아침 6시가 되면 시트가 알아서 나라 사이트에서 채소 시세를 받아 적어요.</span></div><div class="easy-row"><b>끝나면</b><span>로메인·양상추·토마토·오이 가격이 날짜별로 쌓이는 '시세' 탭</span></div><div class="easy-row"><b>필요한 것</b><span>PC, 구글 계정, 휴대폰 본인 인증, 첫 설정 1시간(키 승인까지 며칠) · 코드 붙이기가 처음이면 <a href="#c-b5" class="ref" data-ref="c-b5">강의</a> 먼저</span></div></div>
   <div class="vis">
     <div class="lanes">
       <div class="box pop" style="--d:.2s"><strong>공공데이터포털</strong><span>API 키 발급</span></div>
@@ -533,20 +536,20 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
     </div>
   </div>
   <ol class="steps">
-    <li><input type="checkbox" id="s_s11a" data-key="s_s11a"><div class="body"><label for="s_s11a"><dfn data-t="datago">공공데이터포털</dfn> 가입하고 활용신청</label><small>PC에서만 신청할 수 있어요.</small>
+    <li><input type="checkbox" id="s_s11a" data-key="s_s11a"><div class="body"><label for="s_s11a"><dfn data-t="datago">공공데이터포털</dfn> 가입하고 활용신청하기</label><small>시세 자료를 받으려면 먼저 나라 사이트에 "이 자료 쓸게요" 하고 신청해야 해요. PC에서만 신청할 수 있어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>data.go.kr 오른쪽 위 <span class="path">회원가입 → 개인회원</span> → 휴대폰 본인 인증</li>
         <li>로그인 후 <a href="https://www.data.go.kr/data/15109062/openapi.do" target="_blank" rel="noopener">농수축산물 유통단계별 가격</a> 페이지 열기</li>
         <li><span class="path">활용신청</span> → 활용 목적에 "매장 식자재 시세 참고" 입력 → 약관 동의 → 신청</li>
         <li>같은 방법으로 <a href="https://www.data.go.kr/data/15012005/openapi.do" target="_blank" rel="noopener">상가(상권)정보</a>도 신청 (상권 분석용)</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s11b" data-key="s_s11b"><div class="body"><label for="s_s11b">인증키 복사해 두기</label>
+    <li><input type="checkbox" id="s_s11b" data-key="s_s11b"><div class="body"><label for="s_s11b">인증키 복사해 두기</label><small>인증키는 자료를 받아 갈 때 보여 주는 출입증이에요. 코드에 넣어야 하니 미리 복사해 둬요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li><span class="path">마이페이지 → 데이터활용 → Open API → 활용신청 현황</span></li>
         <li>신청한 API를 눌러 일반 인증키(Decoding) 복사</li>
         <li>휴대폰 메모에 '공공데이터 키'로 저장. 다른 사람에게 보내지 마세요<span class="fix">승인 직후에는 키가 바로 안 될 수 있어요. 몇 시간 뒤 다시 시도하세요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s11c" data-key="s_s11c"><div class="body"><label for="s_s11c">AI에게 스크립트 받기</label><small>'08 자동화·연결' 채팅에 아래 부탁문 보내기</small></div></li>
+    <li><input type="checkbox" id="s_s11c" data-key="s_s11c"><div class="body"><label for="s_s11c">AI에게 스크립트 받기</label><small>코드는 직접 짜지 않고 AI에게 받아요. '08 자동화·연결' 채팅에 아래 '채소 시세 자동 수집 부탁문'을 보내요.</small></div></li>
     <li><input type="checkbox" id="s_s11d" data-key="s_s11d"><div class="body"><label for="s_s11d">시트에 스크립트 붙여 넣고 실행</label>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>'매장 장부' 파일 맨 아래 <span class="path">+</span>로 시트를 하나 추가하고 이름을 <b>시세</b>로 (새 파일 아님)</li>
@@ -554,16 +557,17 @@ Apps Script 코드와 '양식 제출 시' 트리거 설정 방법을 초보 기�
         <li>새 창에 있던 글자를 모두 지우고 AI가 준 코드를 붙여 넣기 → 키 자리에 내 인증키 붙여 넣기</li>
         <li>위쪽 디스크 모양 <span class="path">저장</span> → <span class="path">실행</span></li>
         <li>권한 창이 뜨면 <span class="path">권한 검토 → 내 계정 선택 → 고급 → (프로젝트 이름)(으)로 이동 → 허용</span><span class="fix">'Google에서 확인하지 않은 앱' 경고는 내가 만든 스크립트라서 뜨는 정상 안내예요.</span></li>
-        <li>'시세' 탭에 숫자가 들어왔는지 확인. 빨간 오류가 나면 오류 문장을 그대로 자동화 채팅에 붙여 넣기</li>
+        <li>'시세' 탭에 숫자가 들어왔는지 확인<span class="fix">막히면: 빨간 오류가 나면 오류 문장을 그대로 복사해 '08 자동화·연결' 채팅에 붙여 넣어요. 키 오류라면 승인 직후라 아직 안 되는 것일 수 있어요.</span></li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s11e" data-key="s_s11e"><div class="body"><label for="s_s11e">트리거로 매일 자동 실행</label>
+    <li><input type="checkbox" id="s_s11e" data-key="s_s11e"><div class="body"><label for="s_s11e">트리거로 매일 자동 실행하기</label><small>매번 실행 버튼을 누르지 않으려고 알람을 맞춰요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li>Apps Script 왼쪽의 시계 모양 <span class="path">트리거</span></li>
         <li>오른쪽 아래 <span class="path">+ 트리거 추가</span></li>
         <li>실행할 함수: AI가 알려 준 이름 / 이벤트 소스: <span class="path">시간 기반</span> / 유형: <span class="path">일 단위 타이머</span> / 시간: <span class="path">오전 6시~7시</span> → 저장</li>
       </ol></details></div></li>
-    <li><input type="checkbox" id="s_s11f" data-key="s_s11f"><div class="body"><label for="s_s11f"><dfn data-t="mcp">MCP</dfn> 커넥터 (선택)</label><small>쓰려는 서비스가 <dfn data-t="remotemcp">원격 MCP 서버</dfn> 주소를 줄 때만 연결해요. 한국 서비스로는 카카오의 <dfn data-t="playmcp">PlayMCP</dfn>(카톡 나와의 채팅방, 톡캘린더, 카카오맵 등)가 대표적이에요. <span data-ai-not="gpt">Claude는 <span class="path">설정 → 커넥터 → 사용자 지정 커넥터 추가</span>에서 등록해요. </span><span data-ai-not="claude">ChatGPT는 유료 플랜의 개발자 모드에서 등록해요.</span><span data-plan="free"><span data-ai="claude"> 무료 플랜은 사용자 지정 커넥터를 1개까지 쓸 수 있으니 가장 필요한 것 하나만 고르세요.</span><span data-ai="gpt"> 무료 플랜은 개발자 모드가 없으니 이 단계는 건너뛰고 앱스 스크립트로 연결하세요.</span></span></small></div></li>
+    <li><input type="checkbox" id="s_s11f" data-key="s_s11f"><div class="body"><label for="s_s11f"><dfn data-t="mcp">MCP</dfn> <dfn data-t="connector">커넥터</dfn> 연결하기 (선택)</label><small>AI가 다른 서비스 도구를 직접 쓰게 하는 연결선이에요. 처음이면 건너뛰어도 돼요. 쓰려는 서비스가 <dfn data-t="remotemcp">원격 MCP 서버</dfn> 주소를 줄 때만 연결해요. 한국 서비스로는 카카오의 <dfn data-t="playmcp">PlayMCP</dfn>(카톡 나와의 채팅방, 톡캘린더, 카카오맵 등)가 대표적이에요. <span data-ai-not="gpt">Claude는 <span class="path">설정 → 커넥터 → 사용자 지정 커넥터 추가</span>에서 등록해요. </span><span data-ai-not="claude">ChatGPT는 유료 플랜의 개발자 모드에서 등록해요.</span><span data-plan="free"><span data-ai="claude"> 무료 플랜은 사용자 지정 커넥터를 1개까지 쓸 수 있으니 가장 필요한 것 하나만 고르세요.</span><span data-ai="gpt"> 무료 플랜은 개발자 모드가 없으니 이 단계는 건너뛰고 앱스 스크립트로 연결하세요.</span></span></small></div></li>
   </ol>
+  <p class="cap">이 글을 그대로 복사해서 '08 자동화·연결' 채팅에 붙여 넣으세요. 채소 이름은 우리 가게에서 많이 쓰는 것으로 바꿔도 돼요. 아래 포스사 문의 문장은 ○○ 자리에 가게 이름을 넣어 포스 회사 고객센터에 보내요.</p>
   <div class="prompt"><div class="bar"><span>채소 시세 자동 수집 부탁문</span><button class="copy" type="button">복사</button></div><pre>공공데이터포털 '농수축산물 유통단계별 가격' API를 구글 시트 Apps Script로 매일 호출해서 '시세' 탭에 로메인, 양상추, 토마토, 오이 소매가격을 날짜별로 쌓는 코드를 만들어줘. 인증키 넣을 자리를 표시하고, 실행할 함수 이름과 트리거 설정 방법도 초보 기준으로 단계별로 알려줘.</pre></div>
   <div class="prompt"><div class="bar"><span>포스사 연동 문의 문장</span><button class="copy" type="button">복사</button></div><pre>안녕하세요, ○○매장입니다. 매출·메뉴별 판매 데이터를 엑셀 정기 다운로드나 API로 받을 수 있는지 문의드립니다. 가능하다면 신청 방법과 비용, 제공 항목(결제수단, 채널, 메뉴, 시간대)을 알려 주세요.</pre></div>
   <p class="src">출처: <a href="https://www.data.go.kr/ugs/selectPublicDataUseGuideView.do" target="_blank" rel="noopener">공공데이터포털 이용가이드</a> · <a href="https://support.claude.com/en/articles/11175166-about-custom-connectors-remote-mcp" target="_blank" rel="noopener">Claude 사용자 지정 커넥터</a> · <a href="https://www.infoq.com/news/2025/10/chat-gpt-mcp" target="_blank" rel="noopener">ChatGPT 개발자 모드 MCP</a></p>
