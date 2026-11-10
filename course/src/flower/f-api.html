@@ -46,6 +46,7 @@ FLOWER_KEY       = 화훼유통정보 서비스키
 NEIS_KEY         = 나이스 인증키
 SHOP_LAT, SHOP_LON = 꽃집 위도·경도 (네이버 지도에서 가게를 길게 눌러 나오는 좌표)</pre></div>
 
+  <p class="cap">이 글을 그대로 복사해서 '07 자동화 도우미' 채팅에 붙여 넣으세요. '○○초등학교' 자리만 우리 동네 학교 이름으로 바꿔요. 받은 코드는 Apps Script에 붙여 넣고 저장한 뒤, 시트 메뉴에서 실행해요.</p>
   <div class="prompt"><div class="bar"><span>키가 되는지 한 번에 확인하는 부탁문</span><button class="copy" type="button">복사</button></div><pre>'꽃집 운영 장부' 구글 시트에 붙일 Apps Script를 만들어 줘.
 스크립트 속성 DATA_GO_KR_KEY, FLOWER_KEY, NEIS_KEY를 읽어서 각각 아주 작은 요청을 한 번씩 보내고,
 '키점검' 탭에 [이름 | 성공/실패 | 받은 줄 수 | 오류 메시지 | 확인 시각]을 적는 함수 checkKeys를 만들어 줘.
@@ -56,7 +57,7 @@ SHOP_LAT, SHOP_LON = 꽃집 위도·경도 (네이버 지도에서 가게를 길
 시트 메뉴 '꽃집 데이터 → 키 점검'으로 실행되게 해 줘.</pre></div>
   <p class="cap">출처: 공공데이터포털 각 데이터 안내(한국농수산식품유통공사_화훼 경매 시세, 한국천문연구원_특일 정보, 기상청_단기예보 조회서비스, 보건복지부_장례식장 현황, 소상공인시장진흥공단_상가(상권)정보_API) · 나이스 교육정보 개방 포털. 데이터 이름과 화면은 바뀔 수 있어요.</p>
 
-  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>키 점검 한 달에 한 번</b><span>매달 1일 아침 checkKeys를 트리거로 돌리고, 실패가 있으면 메일.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>키 만료·실패 알림</b><span>실패한 줄만 텔레그램으로(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>).</span></div></li></ul></div>
+  <div class="auto"><div class="auto-h"><b>이 강의 자동화</b><span>손을 줄이는 방법</span></div><ul><li><span class="chip k-sched">달력 알림</span><div class="ad"><b>키 점검 한 달에 한 번</b><span>매달 1일 아침 checkKeys를 트리거로 돌려요. 실패가 있으면 메일이 와요.</span></div></li><li><span class="chip k-tg">텔레그램 승인</span><div class="ad"><b>키 만료·실패 알림</b><span>실패한 줄만 텔레그램으로 와요(<a href="#c-l79" class="ref" data-ref="c-l79">강의</a>).</span></div></li></ul></div>
   <div class="aib"><div class="aib-h"><b>AI 비서에 연결</b><a href="#c-l6" class="ref" data-ref="c-l6">강의</a></div><div class="aib-row"><b>어디서</b><span><span data-ai-not="gpt">Claude</span><span data-ai-none>·</span><span data-ai-not="claude">ChatGPT</span> 프로젝트 → <b>07 자동화 도우미</b> 채팅</span></div><div class="aib-row"><b>넣어 둘 것</b><span>이 강의의 데이터 표, 스크립트 속성 이름 목록 (키 값은 넣지 않기)</span></div></div>
   <div class="rec"><div class="rec-h"><b>추천 커넥터·스킬</b><a href="#c-l38" class="ref" data-ref="c-l38">강의</a></div><div class="rec-row"><b>커넥터</b><div><span class="rc c">Google Drive</span><span class="rc c">Google Sheets</span></div></div><p class="rec-note">키는 대화창에 붙여 넣지 말고 스크립트 속성에만.</p></div>
   <div class="fp"><div class="fp-col fp-free"><b>무료로 하기</b><ul><li>세 곳의 키 모두 무료</li><li>스크립트는 AI가 짜고 시트에 붙여 넣기</li></ul></div><div class="fp-col fp-paid"><b>유료라면 좋은 점</b><ul><li>오류 문장을 그대로 붙여 넣으면 고친 코드를 바로</li></ul></div></div>

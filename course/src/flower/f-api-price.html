@@ -17,8 +17,8 @@
   </div>
 
   <ol class="steps">
-    <li><input type="checkbox" id="f_apr_a" data-key="f_apr_a"><div class="body"><label for="f_apr_a">'내 꽃' 탭 만들기</label><small>모든 품목을 볼 필요는 없어요. 실제로 사는 꽃 10~20가지만 [품목 | 품종(비우면 전체) | 쓰는 등급 | 알림 기준 %] 로 적어요. 예: 장미, 카네이션, 거베라, 리시안셔스, 안개꽃, 국화.</small></div></li>
-    <li><input type="checkbox" id="f_apr_b" data-key="f_apr_b"><div class="body"><label for="f_apr_b">'07 자동화 도우미'에서 수집 스크립트 받기</label><small>아래 부탁문을 보내고, 받은 코드를 '꽃집 운영 장부'의 Apps Script에 붙여 넣어요. 키는 앞 강의에서 넣은 스크립트 속성 FLOWER_KEY를 읽어요.</small>
+    <li><input type="checkbox" id="f_apr_a" data-key="f_apr_a"><div class="body"><label for="f_apr_a">'내 꽃' 탭 만들기</label><small>모든 품목을 볼 필요는 없어요. 장부 맨 아래 <span class="path">+</span>로 '내 꽃' 탭을 만들어요. 실제로 사는 꽃 10~20가지만 [품목 | 품종(비우면 전체) | 쓰는 등급 | 알림 기준 %] 로 적어요. 예: 장미, 카네이션, 거베라, 리시안셔스, 안개꽃, 국화.</small></div></li>
+    <li><input type="checkbox" id="f_apr_b" data-key="f_apr_b"><div class="body"><label for="f_apr_b">'07 자동화 도우미'에서 수집 스크립트 받기</label><small>코드는 직접 짜지 않고 AI에게 받아요. 아래 부탁문을 보내고, 받은 코드를 '꽃집 운영 장부'의 <dfn data-t="appsscript">Apps Script</dfn>(시트에 붙이는 작은 프로그램)에 붙여 넣어요. 키는 앞 강의에서 넣은 스크립트 속성 FLOWER_KEY를 읽어요.</small>
       <details class="how"><summary><span class="closed-label">자세히 따라 하기</span><span class="open-label">접기</span></summary><ol class="sub">
         <li><span class="path">확장 프로그램 → Apps Script</span> → 왼쪽 + → 스크립트 → 이름 '경매시세' → 받은 코드 붙여 넣기 → 저장</li>
         <li>함수 <b>fillAuction</b>을 고르고 실행 → 권한 허용<span class="fix">'Google에서 확인하지 않은 앱'은 내가 만든 스크립트라 뜨는 정상 안내예요. 고급 → 이동 → 허용.</span></li>
